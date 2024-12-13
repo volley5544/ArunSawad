@@ -132,28 +132,32 @@ class _ShowImageListComponentWidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.network(
-                                            functions.stringToImgPath(
-                                                widget!.imageUrl?[
-                                                    imageListItemIndex])!,
+                                            functions.stringToImgPath(widget!
+                                                .imageUrl
+                                                ?.elementAtOrNull(
+                                                    imageListItemIndex))!,
                                             fit: BoxFit.contain,
                                           ),
                                           allowRotation: false,
-                                          tag: functions.stringToImgPath(widget!
-                                              .imageUrl?[imageListItemIndex])!,
+                                          tag: functions.stringToImgPath(
+                                              widget!.imageUrl?.elementAtOrNull(
+                                                  imageListItemIndex))!,
                                           useHeroAnimation: true,
                                         ),
                                       ),
                                     );
                                   },
                                   child: Hero(
-                                    tag: functions.stringToImgPath(
-                                        widget!.imageUrl?[imageListItemIndex])!,
+                                    tag: functions.stringToImgPath(widget!
+                                        .imageUrl
+                                        ?.elementAtOrNull(imageListItemIndex))!,
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
-                                        functions.stringToImgPath(widget!
-                                            .imageUrl?[imageListItemIndex])!,
+                                        functions.stringToImgPath(
+                                            widget!.imageUrl?.elementAtOrNull(
+                                                imageListItemIndex))!,
                                         width: double.infinity,
                                         fit: BoxFit.cover,
                                       ),

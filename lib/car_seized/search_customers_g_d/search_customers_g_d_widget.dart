@@ -119,7 +119,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -427,8 +430,11 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -1608,8 +1614,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                           ),
                                                           child: Text(
                                                             FFAppState()
-                                                                    .improundCONTNO[
-                                                                listImproundIndex],
+                                                                .improundCONTNO
+                                                                .elementAtOrNull(
+                                                                    listImproundIndex)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1704,7 +1711,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                 .secondaryBackground,
                                                           ),
                                                           child: Text(
-                                                            '${FFAppState().improundTITLE[listImproundIndex]}${FFAppState().improundFNAME[listImproundIndex]}  ${FFAppState().improundSNAME[listImproundIndex]}',
+                                                            '${FFAppState().improundTITLE.elementAtOrNull(listImproundIndex)}${FFAppState().improundFNAME.elementAtOrNull(listImproundIndex)}  ${FFAppState().improundSNAME.elementAtOrNull(listImproundIndex)}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1800,8 +1807,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                           ),
                                                           child: Text(
                                                             FFAppState()
-                                                                    .improundCONTNOTYPENAME[
-                                                                listImproundIndex],
+                                                                .improundCONTNOTYPENAME
+                                                                .elementAtOrNull(
+                                                                    listImproundIndex)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1897,8 +1905,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                           ),
                                                           child: Text(
                                                             FFAppState()
-                                                                    .improundREGNO[
-                                                                listImproundIndex],
+                                                                .improundREGNO
+                                                                .elementAtOrNull(
+                                                                    listImproundIndex)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1994,8 +2003,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                           ),
                                                           child: Text(
                                                             FFAppState()
-                                                                    .improundREGPROV[
-                                                                listImproundIndex],
+                                                                .improundREGPROV
+                                                                .elementAtOrNull(
+                                                                    listImproundIndex)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -2017,8 +2027,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                   ),
                                                 ),
                                                 if (FFAppState()
-                                                            .impoundCarMainBranch[
-                                                        listImproundIndex] !=
+                                                        .impoundCarMainBranch
+                                                        .elementAtOrNull(
+                                                            listImproundIndex) !=
                                                     '')
                                                   Padding(
                                                     padding:
@@ -2096,7 +2107,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${FFAppState().impoundCarMainBranch[listImproundIndex]}',
+                                                              '${FFAppState().impoundCarMainBranch.elementAtOrNull(listImproundIndex)}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -2118,12 +2129,14 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                     ),
                                                   ),
                                                 if ((FFAppState()
-                                                                .impoundCarBranchName[
-                                                            listImproundIndex] !=
+                                                            .impoundCarBranchName
+                                                            .elementAtOrNull(
+                                                                listImproundIndex) !=
                                                         '') &&
                                                     (FFAppState()
-                                                                .impoundCarBranchName[
-                                                            listImproundIndex] !=
+                                                            .impoundCarBranchName
+                                                            .elementAtOrNull(
+                                                                listImproundIndex) !=
                                                         ''))
                                                   Padding(
                                                     padding:
@@ -2201,7 +2214,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${FFAppState().impoundCarBranchName[listImproundIndex]}(${FFAppState().ImpoundCarBranchCode[listImproundIndex]})',
+                                                              '${FFAppState().impoundCarBranchName.elementAtOrNull(listImproundIndex)}(${FFAppState().ImpoundCarBranchCode.elementAtOrNull(listImproundIndex)})',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -2223,8 +2236,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                     ),
                                                   ),
                                                 if (FFAppState()
-                                                            .impoundCarStatusName[
-                                                        listImproundIndex] !=
+                                                        .impoundCarStatusName
+                                                        .elementAtOrNull(
+                                                            listImproundIndex) !=
                                                     '')
                                                   Padding(
                                                     padding:
@@ -2303,8 +2317,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                             ),
                                                             child: Text(
                                                               FFAppState()
-                                                                      .impoundCarStatusName[
-                                                                  listImproundIndex],
+                                                                  .impoundCarStatusName
+                                                                  .elementAtOrNull(
+                                                                      listImproundIndex)!,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -2406,56 +2421,81 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     'impoundCarParamSet':
                                                                         serializeParam(
                                                                       ImpoundCarParamSetStruct(
-                                                                        improundCONTNO:
-                                                                            FFAppState().improundCONTNO[listImproundIndex],
-                                                                        improundLOCAT:
-                                                                            FFAppState().improundLOCAT[listImproundIndex],
-                                                                        improundTITLE:
-                                                                            FFAppState().improundTITLE[listImproundIndex],
-                                                                        improundFNAME:
-                                                                            FFAppState().improundFNAME[listImproundIndex],
-                                                                        improundSNAME:
-                                                                            FFAppState().improundSNAME[listImproundIndex],
-                                                                        improundREGNO:
-                                                                            FFAppState().improundREGNO[listImproundIndex],
-                                                                        improundREGPROV:
-                                                                            FFAppState().improundREGPROV[listImproundIndex],
-                                                                        improundCONTNOTYPE:
-                                                                            FFAppState().improundCONTNOTYPE[listImproundIndex],
-                                                                        improundCONTNOTYPENAME:
-                                                                            FFAppState().improundCONTNOTYPENAME[listImproundIndex],
-                                                                        improundGCODE:
-                                                                            FFAppState().improundGCODE[listImproundIndex],
-                                                                        improundGDESC:
-                                                                            FFAppState().improundGDESC[listImproundIndex],
-                                                                        improundNumbody:
-                                                                            FFAppState().improundNumbody[listImproundIndex],
-                                                                        improundCUSCOD:
-                                                                            FFAppState().improundCUSCOD[listImproundIndex],
-                                                                        improundARNOW:
-                                                                            FFAppState().improundARNOW[listImproundIndex],
-                                                                        improundCONTSTAT:
-                                                                            FFAppState().improundCONTSTAT[listImproundIndex],
-                                                                        improundTYPECOD:
-                                                                            FFAppState().improundTYPECOD[listImproundIndex],
-                                                                        improundMANUYR:
-                                                                            FFAppState().improundMANUYR[listImproundIndex],
-                                                                        improundMODELCOD:
-                                                                            FFAppState().improundMODELCOD[listImproundIndex],
-                                                                        improudCOLORCOD:
-                                                                            FFAppState().improundCOLORCOD[listImproundIndex],
-                                                                        improundENGNO:
-                                                                            FFAppState().improundENGNO[listImproundIndex],
-                                                                        improundKEYINCSHPRC:
-                                                                            FFAppState().improundKEYINCSHPRC[listImproundIndex],
-                                                                        improundMANUYRCONVERT:
-                                                                            FFAppState().improundMANUYRCONVERT[listImproundIndex],
-                                                                        impoundPrice:
-                                                                            FFAppState().impoundPriceCurrentStep[listImproundIndex],
-                                                                        impoundDbName:
-                                                                            FFAppState().impoundVloanDbName[listImproundIndex],
-                                                                        impoundDbCode:
-                                                                            FFAppState().impoundVloanDbCode[listImproundIndex],
+                                                                        improundCONTNO: FFAppState()
+                                                                            .improundCONTNO
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundLOCAT: FFAppState()
+                                                                            .improundLOCAT
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundTITLE: FFAppState()
+                                                                            .improundTITLE
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundFNAME: FFAppState()
+                                                                            .improundFNAME
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundSNAME: FFAppState()
+                                                                            .improundSNAME
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundREGNO: FFAppState()
+                                                                            .improundREGNO
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundREGPROV: FFAppState()
+                                                                            .improundREGPROV
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundCONTNOTYPE: FFAppState()
+                                                                            .improundCONTNOTYPE
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundCONTNOTYPENAME: FFAppState()
+                                                                            .improundCONTNOTYPENAME
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundGCODE: FFAppState()
+                                                                            .improundGCODE
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundGDESC: FFAppState()
+                                                                            .improundGDESC
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundNumbody: FFAppState()
+                                                                            .improundNumbody
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundCUSCOD: FFAppState()
+                                                                            .improundCUSCOD
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundARNOW: FFAppState()
+                                                                            .improundARNOW
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundCONTSTAT: FFAppState()
+                                                                            .improundCONTSTAT
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundTYPECOD: FFAppState()
+                                                                            .improundTYPECOD
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundMANUYR: FFAppState()
+                                                                            .improundMANUYR
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundMODELCOD: FFAppState()
+                                                                            .improundMODELCOD
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improudCOLORCOD: FFAppState()
+                                                                            .improundCOLORCOD
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundENGNO: FFAppState()
+                                                                            .improundENGNO
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundKEYINCSHPRC: FFAppState()
+                                                                            .improundKEYINCSHPRC
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundMANUYRCONVERT: FFAppState()
+                                                                            .improundMANUYRCONVERT
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        impoundPrice: FFAppState()
+                                                                            .impoundPriceCurrentStep
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        impoundDbName: FFAppState()
+                                                                            .impoundVloanDbName
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        impoundDbCode: FFAppState()
+                                                                            .impoundVloanDbCode
+                                                                            .elementAtOrNull(listImproundIndex),
                                                                       ),
                                                                       ParamType
                                                                           .DataStruct,
@@ -2465,7 +2505,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       widget!.fromPage ==
                                                                               'changeCarLocation'
                                                                           ? FFAppState()
-                                                                              .impoundCarStatusId[listImproundIndex]
+                                                                              .impoundCarStatusId
+                                                                              .elementAtOrNull(listImproundIndex)
                                                                           : '',
                                                                       ParamType
                                                                           .String,
@@ -2475,7 +2516,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       widget!.fromPage ==
                                                                               'changeCarLocation'
                                                                           ? FFAppState()
-                                                                              .impoundCarStatusCode[listImproundIndex]
+                                                                              .impoundCarStatusCode
+                                                                              .elementAtOrNull(listImproundIndex)
                                                                           : '',
                                                                       ParamType
                                                                           .String,
@@ -2485,7 +2527,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       widget!.fromPage ==
                                                                               'changeCarLocation'
                                                                           ? FFAppState()
-                                                                              .impoundCarStatusName[listImproundIndex]
+                                                                              .impoundCarStatusName
+                                                                              .elementAtOrNull(listImproundIndex)
                                                                           : '',
                                                                       ParamType
                                                                           .String,
@@ -2511,50 +2554,72 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     'impoundCarLocateParamSet':
                                                                         serializeParam(
                                                                       ImpoundCarLocateParamSetStruct(
-                                                                        locatName:
-                                                                            FFAppState().impoundCarMainBranch[listImproundIndex],
-                                                                        branchNameLocat:
-                                                                            FFAppState().impoundCarBranchName[listImproundIndex],
-                                                                        branchCodeLocat:
-                                                                            FFAppState().ImpoundCarBranchCode[listImproundIndex],
-                                                                        improundcarLocatId:
-                                                                            FFAppState().improundLOCAT[listImproundIndex],
-                                                                        address:
-                                                                            FFAppState().impoundAddress[listImproundIndex],
-                                                                        subDistrict:
-                                                                            FFAppState().impoundSubDistrict[listImproundIndex],
-                                                                        district:
-                                                                            FFAppState().impoundDistrict[listImproundIndex],
-                                                                        province:
-                                                                            FFAppState().impoundProvince[listImproundIndex],
-                                                                        postcode:
-                                                                            FFAppState().impoundPostcode[listImproundIndex],
-                                                                        phoneNumber:
-                                                                            FFAppState().impoundPhoneNumber[listImproundIndex],
-                                                                        latitude:
-                                                                            FFAppState().impoundLatitude[listImproundIndex],
-                                                                        longitude:
-                                                                            FFAppState().impoundLongitude[listImproundIndex],
-                                                                        areaCode:
-                                                                            FFAppState().impoundAreaCode[listImproundIndex],
-                                                                        areaName:
-                                                                            FFAppState().impoundAreaName[listImproundIndex],
-                                                                        regionCode:
-                                                                            FFAppState().impoundRegionCode[listImproundIndex],
-                                                                        regionName:
-                                                                            FFAppState().impoundRegionName[listImproundIndex],
-                                                                        improundcarSubLocatId:
-                                                                            FFAppState().impoundSubLocateId[listImproundIndex],
-                                                                        locatCode:
-                                                                            FFAppState().impoundLocateCode[listImproundIndex],
-                                                                        receiver:
-                                                                            FFAppState().impoundReceiver[listImproundIndex],
-                                                                        deliverLocateName:
-                                                                            FFAppState().impoundDeliverLocateNameList[listImproundIndex],
-                                                                        deliverLocateCode:
-                                                                            FFAppState().impoundDeliverLocateCodeList[listImproundIndex],
-                                                                        logisticsCompany:
-                                                                            FFAppState().impoundLogisticsCompany[listImproundIndex],
+                                                                        locatName: FFAppState()
+                                                                            .impoundCarMainBranch
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        branchNameLocat: FFAppState()
+                                                                            .impoundCarBranchName
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        branchCodeLocat: FFAppState()
+                                                                            .ImpoundCarBranchCode
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundcarLocatId: FFAppState()
+                                                                            .improundLOCAT
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        address: FFAppState()
+                                                                            .impoundAddress
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        subDistrict: FFAppState()
+                                                                            .impoundSubDistrict
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        district: FFAppState()
+                                                                            .impoundDistrict
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        province: FFAppState()
+                                                                            .impoundProvince
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        postcode: FFAppState()
+                                                                            .impoundPostcode
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        phoneNumber: FFAppState()
+                                                                            .impoundPhoneNumber
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        latitude: FFAppState()
+                                                                            .impoundLatitude
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        longitude: FFAppState()
+                                                                            .impoundLongitude
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        areaCode: FFAppState()
+                                                                            .impoundAreaCode
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        areaName: FFAppState()
+                                                                            .impoundAreaName
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        regionCode: FFAppState()
+                                                                            .impoundRegionCode
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        regionName: FFAppState()
+                                                                            .impoundRegionName
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        improundcarSubLocatId: FFAppState()
+                                                                            .impoundSubLocateId
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        locatCode: FFAppState()
+                                                                            .impoundLocateCode
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        receiver: FFAppState()
+                                                                            .impoundReceiver
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        deliverLocateName: FFAppState()
+                                                                            .impoundDeliverLocateNameList
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        deliverLocateCode: FFAppState()
+                                                                            .impoundDeliverLocateCodeList
+                                                                            .elementAtOrNull(listImproundIndex),
+                                                                        logisticsCompany: FFAppState()
+                                                                            .impoundLogisticsCompany
+                                                                            .elementAtOrNull(listImproundIndex),
                                                                       ),
                                                                       ParamType
                                                                           .DataStruct,
@@ -2628,78 +2693,102 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   'impoundCarParamSet':
                                                                       serializeParam(
                                                                     ImpoundCarParamSetStruct(
-                                                                      improundCONTNO:
-                                                                          FFAppState()
-                                                                              .improundCONTNO[listImproundIndex],
-                                                                      improundLOCAT:
-                                                                          FFAppState()
-                                                                              .improundLOCAT[listImproundIndex],
-                                                                      improundTITLE:
-                                                                          FFAppState()
-                                                                              .improundTITLE[listImproundIndex],
-                                                                      improundFNAME:
-                                                                          FFAppState()
-                                                                              .improundFNAME[listImproundIndex],
-                                                                      improundSNAME:
-                                                                          FFAppState()
-                                                                              .improundSNAME[listImproundIndex],
-                                                                      improundREGNO:
-                                                                          FFAppState()
-                                                                              .improundREGNO[listImproundIndex],
-                                                                      improundREGPROV:
-                                                                          FFAppState()
-                                                                              .improundREGPROV[listImproundIndex],
-                                                                      improundCONTNOTYPE:
-                                                                          FFAppState()
-                                                                              .improundCONTNOTYPE[listImproundIndex],
-                                                                      improundCONTNOTYPENAME:
-                                                                          FFAppState()
-                                                                              .improundCONTNOTYPENAME[listImproundIndex],
-                                                                      improundGCODE:
-                                                                          FFAppState()
-                                                                              .improundGCODE[listImproundIndex],
-                                                                      improundGDESC:
-                                                                          FFAppState()
-                                                                              .improundGDESC[listImproundIndex],
-                                                                      improundNumbody:
-                                                                          FFAppState()
-                                                                              .improundNumbody[listImproundIndex],
-                                                                      improundCUSCOD:
-                                                                          FFAppState()
-                                                                              .improundCUSCOD[listImproundIndex],
-                                                                      improundARNOW:
-                                                                          FFAppState()
-                                                                              .improundARNOW[listImproundIndex],
-                                                                      improundCONTSTAT:
-                                                                          FFAppState()
-                                                                              .improundCONTSTAT[listImproundIndex],
-                                                                      improundTYPECOD:
-                                                                          FFAppState()
-                                                                              .improundTYPECOD[listImproundIndex],
-                                                                      improundMANUYR:
-                                                                          FFAppState()
-                                                                              .improundMANUYR[listImproundIndex],
-                                                                      improundMODELCOD:
-                                                                          FFAppState()
-                                                                              .improundMODELCOD[listImproundIndex],
-                                                                      improudCOLORCOD:
-                                                                          FFAppState()
-                                                                              .improundCOLORCOD[listImproundIndex],
-                                                                      improundENGNO:
-                                                                          FFAppState()
-                                                                              .improundENGNO[listImproundIndex],
-                                                                      improundKEYINCSHPRC:
-                                                                          FFAppState()
-                                                                              .improundKEYINCSHPRC[listImproundIndex],
-                                                                      improundMANUYRCONVERT:
-                                                                          FFAppState()
-                                                                              .improundMANUYRCONVERT[listImproundIndex],
-                                                                      impoundDbName:
-                                                                          FFAppState()
-                                                                              .impoundVloanDbName[listImproundIndex],
-                                                                      impoundDbCode:
-                                                                          FFAppState()
-                                                                              .impoundVloanDbCode[listImproundIndex],
+                                                                      improundCONTNO: FFAppState()
+                                                                          .improundCONTNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundLOCAT: FFAppState()
+                                                                          .improundLOCAT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundTITLE: FFAppState()
+                                                                          .improundTITLE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundFNAME: FFAppState()
+                                                                          .improundFNAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundSNAME: FFAppState()
+                                                                          .improundSNAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundREGNO: FFAppState()
+                                                                          .improundREGNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundREGPROV: FFAppState()
+                                                                          .improundREGPROV
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTNOTYPE: FFAppState()
+                                                                          .improundCONTNOTYPE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTNOTYPENAME: FFAppState()
+                                                                          .improundCONTNOTYPENAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundGCODE: FFAppState()
+                                                                          .improundGCODE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundGDESC: FFAppState()
+                                                                          .improundGDESC
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundNumbody: FFAppState()
+                                                                          .improundNumbody
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCUSCOD: FFAppState()
+                                                                          .improundCUSCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundARNOW: FFAppState()
+                                                                          .improundARNOW
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTSTAT: FFAppState()
+                                                                          .improundCONTSTAT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundTYPECOD: FFAppState()
+                                                                          .improundTYPECOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMANUYR: FFAppState()
+                                                                          .improundMANUYR
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMODELCOD: FFAppState()
+                                                                          .improundMODELCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improudCOLORCOD: FFAppState()
+                                                                          .improundCOLORCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundENGNO: FFAppState()
+                                                                          .improundENGNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundKEYINCSHPRC: FFAppState()
+                                                                          .improundKEYINCSHPRC
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMANUYRCONVERT: FFAppState()
+                                                                          .improundMANUYRCONVERT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundDbName: FFAppState()
+                                                                          .impoundVloanDbName
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundDbCode: FFAppState()
+                                                                          .impoundVloanDbCode
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,
@@ -2709,7 +2798,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     widget!.fromPage ==
                                                                             'changeCarLocation'
                                                                         ? FFAppState()
-                                                                            .impoundCarStatusId[listImproundIndex]
+                                                                            .impoundCarStatusId
+                                                                            .elementAtOrNull(listImproundIndex)
                                                                         : '',
                                                                     ParamType
                                                                         .String,
@@ -2719,7 +2809,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     widget!.fromPage ==
                                                                             'changeCarLocation'
                                                                         ? FFAppState()
-                                                                            .impoundCarStatusCode[listImproundIndex]
+                                                                            .impoundCarStatusCode
+                                                                            .elementAtOrNull(listImproundIndex)
                                                                         : '',
                                                                     ParamType
                                                                         .String,
@@ -2729,7 +2820,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     widget!.fromPage ==
                                                                             'changeCarLocation'
                                                                         ? FFAppState()
-                                                                            .impoundCarStatusName[listImproundIndex]
+                                                                            .impoundCarStatusName
+                                                                            .elementAtOrNull(listImproundIndex)
                                                                         : '',
                                                                     ParamType
                                                                         .String,
@@ -2769,12 +2861,14 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   'impoundCarLocateParamSet':
                                                                       serializeParam(
                                                                     ImpoundCarLocateParamSetStruct(
-                                                                      deliverLocateName:
-                                                                          FFAppState()
-                                                                              .impoundDeliverLocateNameList[listImproundIndex],
-                                                                      deliverLocateCode:
-                                                                          FFAppState()
-                                                                              .impoundDeliverLocateCodeList[listImproundIndex],
+                                                                      deliverLocateName: FFAppState()
+                                                                          .impoundDeliverLocateNameList
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      deliverLocateCode: FFAppState()
+                                                                          .impoundDeliverLocateCodeList
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
                                                                       logisticsCompany:
                                                                           '',
                                                                       receiver:
@@ -2828,81 +2922,106 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   'impoundCarParamSet':
                                                                       serializeParam(
                                                                     ImpoundCarParamSetStruct(
-                                                                      improundCONTNO:
-                                                                          FFAppState()
-                                                                              .improundCONTNO[listImproundIndex],
-                                                                      improundLOCAT:
-                                                                          FFAppState()
-                                                                              .improundLOCAT[listImproundIndex],
-                                                                      improundTITLE:
-                                                                          FFAppState()
-                                                                              .improundTITLE[listImproundIndex],
-                                                                      improundFNAME:
-                                                                          FFAppState()
-                                                                              .improundFNAME[listImproundIndex],
-                                                                      improundSNAME:
-                                                                          FFAppState()
-                                                                              .improundSNAME[listImproundIndex],
-                                                                      improundREGNO:
-                                                                          FFAppState()
-                                                                              .improundREGNO[listImproundIndex],
-                                                                      improundREGPROV:
-                                                                          FFAppState()
-                                                                              .improundREGPROV[listImproundIndex],
-                                                                      improundCONTNOTYPE:
-                                                                          FFAppState()
-                                                                              .improundCONTNOTYPE[listImproundIndex],
-                                                                      improundCONTNOTYPENAME:
-                                                                          FFAppState()
-                                                                              .improundCONTNOTYPENAME[listImproundIndex],
-                                                                      improundGCODE:
-                                                                          FFAppState()
-                                                                              .improundGCODE[listImproundIndex],
-                                                                      improundGDESC:
-                                                                          FFAppState()
-                                                                              .improundGDESC[listImproundIndex],
-                                                                      improundNumbody:
-                                                                          FFAppState()
-                                                                              .improundNumbody[listImproundIndex],
-                                                                      improundCUSCOD:
-                                                                          FFAppState()
-                                                                              .improundCUSCOD[listImproundIndex],
-                                                                      improundARNOW:
-                                                                          FFAppState()
-                                                                              .improundARNOW[listImproundIndex],
-                                                                      improundCONTSTAT:
-                                                                          FFAppState()
-                                                                              .improundCONTSTAT[listImproundIndex],
-                                                                      improundTYPECOD:
-                                                                          FFAppState()
-                                                                              .improundTYPECOD[listImproundIndex],
-                                                                      improundMANUYR:
-                                                                          FFAppState()
-                                                                              .improundMANUYR[listImproundIndex],
-                                                                      improundMODELCOD:
-                                                                          FFAppState()
-                                                                              .improundMODELCOD[listImproundIndex],
-                                                                      improudCOLORCOD:
-                                                                          FFAppState()
-                                                                              .improundCOLORCOD[listImproundIndex],
-                                                                      improundENGNO:
-                                                                          FFAppState()
-                                                                              .improundENGNO[listImproundIndex],
-                                                                      improundKEYINCSHPRC:
-                                                                          FFAppState()
-                                                                              .improundKEYINCSHPRC[listImproundIndex],
-                                                                      improundMANUYRCONVERT:
-                                                                          FFAppState()
-                                                                              .improundMANUYRCONVERT[listImproundIndex],
-                                                                      impoundDbName:
-                                                                          FFAppState()
-                                                                              .impoundVloanDbName[listImproundIndex],
-                                                                      impoundDbCode:
-                                                                          FFAppState()
-                                                                              .impoundVloanDbCode[listImproundIndex],
-                                                                      impoundPrice:
-                                                                          FFAppState()
-                                                                              .impoundPriceCurrentStep[listImproundIndex],
+                                                                      improundCONTNO: FFAppState()
+                                                                          .improundCONTNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundLOCAT: FFAppState()
+                                                                          .improundLOCAT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundTITLE: FFAppState()
+                                                                          .improundTITLE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundFNAME: FFAppState()
+                                                                          .improundFNAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundSNAME: FFAppState()
+                                                                          .improundSNAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundREGNO: FFAppState()
+                                                                          .improundREGNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundREGPROV: FFAppState()
+                                                                          .improundREGPROV
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTNOTYPE: FFAppState()
+                                                                          .improundCONTNOTYPE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTNOTYPENAME: FFAppState()
+                                                                          .improundCONTNOTYPENAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundGCODE: FFAppState()
+                                                                          .improundGCODE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundGDESC: FFAppState()
+                                                                          .improundGDESC
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundNumbody: FFAppState()
+                                                                          .improundNumbody
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCUSCOD: FFAppState()
+                                                                          .improundCUSCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundARNOW: FFAppState()
+                                                                          .improundARNOW
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTSTAT: FFAppState()
+                                                                          .improundCONTSTAT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundTYPECOD: FFAppState()
+                                                                          .improundTYPECOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMANUYR: FFAppState()
+                                                                          .improundMANUYR
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMODELCOD: FFAppState()
+                                                                          .improundMODELCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improudCOLORCOD: FFAppState()
+                                                                          .improundCOLORCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundENGNO: FFAppState()
+                                                                          .improundENGNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundKEYINCSHPRC: FFAppState()
+                                                                          .improundKEYINCSHPRC
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMANUYRCONVERT: FFAppState()
+                                                                          .improundMANUYRCONVERT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundDbName: FFAppState()
+                                                                          .impoundVloanDbName
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundDbCode: FFAppState()
+                                                                          .impoundVloanDbCode
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundPrice: FFAppState()
+                                                                          .impoundPriceCurrentStep
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,
@@ -2917,27 +3036,34 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   'impoundCarLocateParamSet':
                                                                       serializeParam(
                                                                     ImpoundCarLocateParamSetStruct(
-                                                                      locatName:
-                                                                          FFAppState()
-                                                                              .impoundCarMainBranch[listImproundIndex],
-                                                                      branchNameLocat:
-                                                                          FFAppState()
-                                                                              .impoundCarBranchName[listImproundIndex],
-                                                                      branchCodeLocat:
-                                                                          FFAppState()
-                                                                              .ImpoundCarBranchCode[listImproundIndex],
-                                                                      deliverLocateName:
-                                                                          FFAppState()
-                                                                              .impoundDeliverLocateNameList[listImproundIndex],
-                                                                      deliverLocateCode:
-                                                                          FFAppState()
-                                                                              .impoundDeliverLocateCodeList[listImproundIndex],
-                                                                      logisticsCompany:
-                                                                          FFAppState()
-                                                                              .impoundLogisticsCompany[listImproundIndex],
-                                                                      receiver:
-                                                                          FFAppState()
-                                                                              .impoundReceiver[listImproundIndex],
+                                                                      locatName: FFAppState()
+                                                                          .impoundCarMainBranch
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      branchNameLocat: FFAppState()
+                                                                          .impoundCarBranchName
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      branchCodeLocat: FFAppState()
+                                                                          .ImpoundCarBranchCode
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      deliverLocateName: FFAppState()
+                                                                          .impoundDeliverLocateNameList
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      deliverLocateCode: FFAppState()
+                                                                          .impoundDeliverLocateCodeList
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      logisticsCompany: FFAppState()
+                                                                          .impoundLogisticsCompany
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      receiver: FFAppState()
+                                                                          .impoundReceiver
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,
@@ -2945,8 +3071,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   'impoundCarStatusName':
                                                                       serializeParam(
                                                                     FFAppState()
-                                                                            .impoundCarStatusName[
-                                                                        listImproundIndex],
+                                                                        .impoundCarStatusName
+                                                                        .elementAtOrNull(
+                                                                            listImproundIndex),
                                                                     ParamType
                                                                         .String,
                                                                   ),

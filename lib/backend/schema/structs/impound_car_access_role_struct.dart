@@ -132,10 +132,18 @@ class ImpoundCarAccessRoleStruct extends FFFirebaseStruct {
 
   static ImpoundCarAccessRoleStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarAccessRoleStruct(
-        step1: ImpoundCarAdminRoleStruct.maybeFromMap(data['step1']),
-        step2: ImpoundCarAdminRoleStruct.maybeFromMap(data['step2']),
-        step3: ImpoundCarAdminRoleStruct.maybeFromMap(data['step3']),
-        step4: ImpoundCarAdminRoleStruct.maybeFromMap(data['step4']),
+        step1: data['step1'] is ImpoundCarAdminRoleStruct
+            ? data['step1']
+            : ImpoundCarAdminRoleStruct.maybeFromMap(data['step1']),
+        step2: data['step2'] is ImpoundCarAdminRoleStruct
+            ? data['step2']
+            : ImpoundCarAdminRoleStruct.maybeFromMap(data['step2']),
+        step3: data['step3'] is ImpoundCarAdminRoleStruct
+            ? data['step3']
+            : ImpoundCarAdminRoleStruct.maybeFromMap(data['step3']),
+        step4: data['step4'] is ImpoundCarAdminRoleStruct
+            ? data['step4']
+            : ImpoundCarAdminRoleStruct.maybeFromMap(data['step4']),
         role: getDataList(data['role']),
         profileLevel: getDataList(data['profile_level']),
         crd: getDataList(data['CRD']),

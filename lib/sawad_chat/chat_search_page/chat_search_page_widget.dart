@@ -57,7 +57,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -232,8 +235,11 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                               builder: (context) {
                                 return WebViewAware(
                                   child: GestureDetector(
-                                    onTap: () =>
-                                        FocusScope.of(context).unfocus(),
+                                    onTap: () {
+                                      FocusScope.of(context).unfocus();
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                    },
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: Container(
@@ -375,9 +381,11 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                     height: 80.0,
                                     decoration: BoxDecoration(),
                                     child: Visibility(
-                                      visible: containerUserCustomRecordList[
-                                              employeeListItemIndex]
-                                          .hasEmployeeId(),
+                                      visible: containerUserCustomRecordList
+                                              .elementAtOrNull(
+                                                  employeeListItemIndex)
+                                              ?.hasEmployeeId() ??
+                                          true,
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 2.0),
@@ -389,8 +397,9 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                           onTap: () async {
                                             var _shouldSetState = false;
                                             HapticFeedback.mediumImpact();
-                                            if (!containerUserCustomRecordList[
-                                                    employeeListItemIndex]
+                                            if (!containerUserCustomRecordList
+                                                .elementAtOrNull(
+                                                    employeeListItemIndex)!
                                                 .hasEmployeeId()) {
                                               await showDialog(
                                                 context: context,
@@ -427,9 +436,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                       .where(
                                                         'user_b',
                                                         isEqualTo:
-                                                            containerUserCustomRecordList[
-                                                                    employeeListItemIndex]
-                                                                .reference,
+                                                            containerUserCustomRecordList
+                                                                .elementAtOrNull(
+                                                                    employeeListItemIndex)
+                                                                ?.reference,
                                                       ),
                                               singleRecord: true,
                                             ).then((s) => s.firstOrNull);
@@ -463,9 +473,13 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () =>
-                                                          FocusScope.of(context)
-                                                              .unfocus(),
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
                                                       child: Padding(
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
@@ -489,9 +503,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   .set(createChatsRecordData(
                                                 userA: FFAppState().userRef,
                                                 userB:
-                                                    containerUserCustomRecordList[
-                                                            employeeListItemIndex]
-                                                        .reference,
+                                                    containerUserCustomRecordList
+                                                        .elementAtOrNull(
+                                                            employeeListItemIndex)
+                                                        ?.reference,
                                                 userAName: FFAppState()
                                                     .profileFullName,
                                                 userANickname:
@@ -505,7 +520,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   (_model.getEmployee
                                                           ?.jsonBody ??
                                                       ''),
-                                                )?[employeeListItemIndex],
+                                                )?.elementAtOrNull(
+                                                    employeeListItemIndex),
                                                 userBNickname: 'ชื่อเล่น',
                                                 userBEmployeeId:
                                                     GetAllEmployeeAPICall
@@ -513,11 +529,13 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   (_model.getEmployee
                                                           ?.jsonBody ??
                                                       ''),
-                                                )?[employeeListItemIndex],
+                                                )?.elementAtOrNull(
+                                                        employeeListItemIndex),
                                                 userBProfileImage:
-                                                    containerUserCustomRecordList[
-                                                            employeeListItemIndex]
-                                                        .imgProfile,
+                                                    containerUserCustomRecordList
+                                                        .elementAtOrNull(
+                                                            employeeListItemIndex)
+                                                        ?.imgProfile,
                                               ));
                                               _model.createChatsUserA =
                                                   ChatsRecord
@@ -525,9 +543,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                           createChatsRecordData(
                                                             userA: FFAppState()
                                                                 .userRef,
-                                                            userB: containerUserCustomRecordList[
-                                                                    employeeListItemIndex]
-                                                                .reference,
+                                                            userB: containerUserCustomRecordList
+                                                                .elementAtOrNull(
+                                                                    employeeListItemIndex)
+                                                                ?.reference,
                                                             userAName: FFAppState()
                                                                 .profileFullName,
                                                             userANickname:
@@ -545,7 +564,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                               (_model.getEmployee
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[employeeListItemIndex],
+                                                            )?.elementAtOrNull(
+                                                                    employeeListItemIndex),
                                                             userBNickname:
                                                                 'ชื่อเล่น',
                                                             userBEmployeeId:
@@ -554,11 +574,13 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                               (_model.getEmployee
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[employeeListItemIndex],
+                                                            )?.elementAtOrNull(
+                                                                    employeeListItemIndex),
                                                             userBProfileImage:
-                                                                containerUserCustomRecordList[
-                                                                        employeeListItemIndex]
-                                                                    .imgProfile,
+                                                                containerUserCustomRecordList
+                                                                    .elementAtOrNull(
+                                                                        employeeListItemIndex)
+                                                                    ?.imgProfile,
                                                           ),
                                                           chatsRecordReference1);
                                               _shouldSetState = true;
@@ -578,7 +600,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                     (_model.getEmployee
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[employeeListItemIndex],
+                                                  )?.elementAtOrNull(
+                                                          employeeListItemIndex),
                                                   userANickname: 'ชื่อเล่น',
                                                   userAProfileImage:
                                                       columnUserCustomRecord
@@ -589,7 +612,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                     (_model.getEmployee
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[employeeListItemIndex],
+                                                  )?.elementAtOrNull(
+                                                          employeeListItemIndex),
                                                   userBName: FFAppState()
                                                       .profileFullName,
                                                   userBNickname:
@@ -613,7 +637,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                             (_model.getEmployee
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?[employeeListItemIndex],
+                                                          )?.elementAtOrNull(
+                                                                  employeeListItemIndex),
                                                           userANickname:
                                                               'ชื่อเล่น',
                                                           userAProfileImage:
@@ -625,7 +650,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                             (_model.getEmployee
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?[employeeListItemIndex],
+                                                          )?.elementAtOrNull(
+                                                                  employeeListItemIndex),
                                                           userBName: FFAppState()
                                                               .profileFullName,
                                                           userBNickname:
@@ -649,15 +675,17 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                               queryParameters: {
                                                 'userBProfileImage':
                                                     serializeParam(
-                                                  containerUserCustomRecordList[
-                                                          employeeListItemIndex]
-                                                      .imgProfile,
+                                                  containerUserCustomRecordList
+                                                      .elementAtOrNull(
+                                                          employeeListItemIndex)
+                                                      ?.imgProfile,
                                                   ParamType.String,
                                                 ),
                                                 'userBDocRef': serializeParam(
-                                                  containerUserCustomRecordList[
-                                                          employeeListItemIndex]
-                                                      .reference,
+                                                  containerUserCustomRecordList
+                                                      .elementAtOrNull(
+                                                          employeeListItemIndex)
+                                                      ?.reference,
                                                   ParamType.DocumentReference,
                                                 ),
                                                 'userBName': serializeParam(
@@ -666,7 +694,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                     (_model.getEmployee
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[employeeListItemIndex],
+                                                  )?.elementAtOrNull(
+                                                      employeeListItemIndex),
                                                   ParamType.String,
                                                 ),
                                                 'userBNickname': serializeParam(
@@ -680,7 +709,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                     (_model.getEmployee
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[employeeListItemIndex],
+                                                  )?.elementAtOrNull(
+                                                      employeeListItemIndex),
                                                   ParamType.String,
                                                 ),
                                               }.withoutNulls,
@@ -758,8 +788,9 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                   Duration(
                                                                       milliseconds:
                                                                           500),
-                                                              imageUrl: containerUserCustomRecordList[
-                                                                      employeeListItemIndex]
+                                                              imageUrl: containerUserCustomRecordList
+                                                                  .elementAtOrNull(
+                                                                      employeeListItemIndex)!
                                                                   .imgProfile,
                                                               fit: BoxFit.cover,
                                                             ),
@@ -815,9 +846,9 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                             Text(
                                                                               '${GetAllEmployeeAPICall.fullname(
                                                                                 (_model.getEmployee?.jsonBody ?? ''),
-                                                                              )?[employeeListItemIndex]} (${GetAllEmployeeAPICall.branchCode(
+                                                                              )?.elementAtOrNull(employeeListItemIndex)} (${GetAllEmployeeAPICall.branchCode(
                                                                                 (_model.getEmployee?.jsonBody ?? ''),
-                                                                              )?[employeeListItemIndex]})',
+                                                                              )?.elementAtOrNull(employeeListItemIndex)})',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 14.0,
@@ -846,7 +877,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                             Text(
                                                                               'รหัสพนักงาน : ${GetAllEmployeeAPICall.employeeId(
                                                                                 (_model.getEmployee?.jsonBody ?? ''),
-                                                                              )?[employeeListItemIndex]}',
+                                                                              )?.elementAtOrNull(employeeListItemIndex)}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
@@ -862,9 +893,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Text(
-                                                                            GetAllEmployeeAPICall.workPosition(
+                                                                            (GetAllEmployeeAPICall.workPosition(
                                                                               (_model.getEmployee?.jsonBody ?? ''),
-                                                                            )![employeeListItemIndex]
+                                                                            )!
+                                                                                    .elementAtOrNull(employeeListItemIndex))!
                                                                                 .maybeHandleOverflow(
                                                                               maxChars: 50,
                                                                             ),

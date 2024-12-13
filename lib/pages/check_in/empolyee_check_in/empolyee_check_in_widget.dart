@@ -79,7 +79,10 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -160,27 +163,27 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                   FFAppState().update(() {});
                   if (FFAppState().brachListNew.length == 1) {
                     FFAppState().branchLo = functions.getLatLngBranch(
-                        FFAppState().brachListNew.first,
+                        FFAppState().brachListNew.firstOrNull,
                         FFAppState().brachLatNew.toList(),
                         FFAppState().brachLngNew.toList(),
                         FFAppState().brachListNew.toList());
                     FFAppState().currentRadius = functions.getCurrentRadius(
-                        FFAppState().brachListNew.first,
+                        FFAppState().brachListNew.firstOrNull,
                         FFAppState().brachListNew.toList(),
                         FFAppState().BrachRadNew.toList());
                     FFAppState().branchLatDouble =
                         functions.getLatLngBranchDouble(
-                            FFAppState().brachListNew.first,
+                            FFAppState().brachListNew.firstOrNull,
                             FFAppState().brachLatNew.toList(),
                             FFAppState().brachListNew.toList());
                     FFAppState().branchLngDouble =
                         functions.getLatLngBranchDouble(
-                            FFAppState().brachListNew.first,
+                            FFAppState().brachListNew.firstOrNull,
                             FFAppState().brachLngNew.toList(),
                             FFAppState().brachListNew.toList());
                     FFAppState().update(() {});
                     FFAppState().branchLoString =
-                        FFAppState().brachListNew.first;
+                        FFAppState().brachListNew.firstOrNull!;
                     FFAppState().update(() {});
                   }
                 } else {
@@ -367,24 +370,25 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
             if (FFAppState().brachGroupNew == 'ทั่วไป') {
               if (FFAppState().brachListNew.length == 1) {
                 FFAppState().branchLo = functions.getLatLngBranch(
-                    FFAppState().brachListNew.first,
+                    FFAppState().brachListNew.firstOrNull,
                     FFAppState().brachLatNew.toList(),
                     FFAppState().brachLngNew.toList(),
                     FFAppState().brachListNew.toList());
                 FFAppState().currentRadius = functions.getCurrentRadius(
-                    FFAppState().brachListNew.first,
+                    FFAppState().brachListNew.firstOrNull,
                     FFAppState().brachListNew.toList(),
                     FFAppState().BrachRadNew.toList());
                 FFAppState().branchLatDouble = functions.getLatLngBranchDouble(
-                    FFAppState().brachListNew.first,
+                    FFAppState().brachListNew.firstOrNull,
                     FFAppState().brachLatNew.toList(),
                     FFAppState().brachListNew.toList());
                 FFAppState().branchLngDouble = functions.getLatLngBranchDouble(
-                    FFAppState().brachListNew.first,
+                    FFAppState().brachListNew.firstOrNull,
                     FFAppState().brachLngNew.toList(),
                     FFAppState().brachListNew.toList());
                 FFAppState().update(() {});
-                FFAppState().branchLoString = FFAppState().brachListNew.first;
+                FFAppState().branchLoString =
+                    FFAppState().brachListNew.firstOrNull!;
                 FFAppState().update(() {});
               }
               Navigator.pop(context);
@@ -785,7 +789,10 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
     }
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -843,7 +850,10 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => FocusScope.of(context).unfocus(),
+                            onTap: () {
+                              FocusScope.of(context).unfocus();
+                              FocusManager.instance.primaryFocus?.unfocus();
+                            },
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
@@ -1431,7 +1441,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                               1
                                                           ? FFAppState()
                                                               .brachListNew
-                                                              .first
+                                                              .firstOrNull
                                                           : '',
                                                 ),
                                                 options:
@@ -1788,10 +1798,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -3051,9 +3064,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
-                                                      .unfocus(),
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
                                               child: Padding(
                                                 padding:
                                                     MediaQuery.viewInsetsOf(

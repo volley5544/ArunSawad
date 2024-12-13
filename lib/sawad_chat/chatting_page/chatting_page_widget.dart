@@ -165,7 +165,10 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
             : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -307,8 +310,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       if (FFAppState()
-                                                              .timeChatIsVisibleList[
-                                                          0]) {
+                                                          .timeChatIsVisibleList
+                                                          .elementAtOrNull(
+                                                              0)!) {
                                                         FFAppState()
                                                             .updateTimeChatIsVisibleListAtIndex(
                                                           0,
@@ -385,8 +389,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 ),
                                                 if (valueOrDefault<bool>(
                                                   FFAppState()
-                                                          .timeChatIsVisibleList[
-                                                      listViewIndex],
+                                                      .timeChatIsVisibleList
+                                                      .elementAtOrNull(
+                                                          listViewIndex),
                                                   false,
                                                 ))
                                                   Padding(
@@ -457,8 +462,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     if (FFAppState()
-                                                            .timeChatIsVisibleList[
-                                                        listViewIndex]) {
+                                                        .timeChatIsVisibleList
+                                                        .elementAtOrNull(
+                                                            listViewIndex)!) {
                                                       FFAppState()
                                                           .updateTimeChatIsVisibleListAtIndex(
                                                         0,
@@ -535,8 +541,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 ),
                                                 if (valueOrDefault<bool>(
                                                   FFAppState()
-                                                          .timeChatIsVisibleList[
-                                                      listViewIndex],
+                                                      .timeChatIsVisibleList
+                                                      .elementAtOrNull(
+                                                          listViewIndex),
                                                   false,
                                                 ))
                                                   Padding(

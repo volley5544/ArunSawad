@@ -93,7 +93,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -268,7 +271,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -473,10 +479,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        functions.checkNullValueAndReturn(widget!.countNo?[listCardIndex]) ==
+                                                                        functions.checkNullValueAndReturn(widget!.countNo?.elementAtOrNull(listCardIndex)) ==
                                                                                 '-'
                                                                             ? '-'
-                                                                            : (widget!.countNo![listCardIndex]),
+                                                                            : (widget!.countNo!.elementAtOrNull(listCardIndex))!,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -577,7 +583,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      '${functions.dateToBEDate(widget!.lastPayDate?[listCardIndex])}',
+                                                                      '${functions.dateToBEDate(widget!.lastPayDate?.elementAtOrNull(listCardIndex))}',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -684,8 +690,9 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           Text(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                          functions
-                                                                              .dateToBEDate(widget!.dateOfDue?[listCardIndex]),
+                                                                          functions.dateToBEDate(widget!
+                                                                              .dateOfDue
+                                                                              ?.elementAtOrNull(listCardIndex)),
                                                                           '-',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -706,8 +713,9 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                    if ((widget!.expFrm?[
-                                                            listCardIndex]) !=
+                                                    if ((widget!.expFrm
+                                                            ?.elementAtOrNull(
+                                                                listCardIndex)) !=
                                                         '0')
                                                       Align(
                                                         alignment:
@@ -787,7 +795,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          '${functions.dateToBEDate(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : (functions.dateToBEDate(widget!.dateOfExp?[listCardIndex]))}(งวด${functions.checkNullValueAndReturn(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : ((widget!.expFrm?[listCardIndex]))})',
+                                                                          '${functions.dateToBEDate(widget!.dateOfExp?.elementAtOrNull(listCardIndex)) == '-' ? '-' : functions.dateToBEDate(widget!.dateOfExp?.elementAtOrNull(listCardIndex))}(งวด${functions.checkNullValueAndReturn(widget!.dateOfExp?.elementAtOrNull(listCardIndex)) == '-' ? '-' : (widget!.expFrm?.elementAtOrNull(listCardIndex))})',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -888,10 +896,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        functions.checkNullValueAndReturn(widget!.targetStat?[listCardIndex]) ==
+                                                                        functions.checkNullValueAndReturn(widget!.targetStat?.elementAtOrNull(listCardIndex)) ==
                                                                                 '-'
                                                                             ? '-'
-                                                                            : (widget!.targetStat![listCardIndex]),
+                                                                            : (widget!.targetStat!.elementAtOrNull(listCardIndex))!,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -992,10 +1000,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        functions.checkNullValueAndReturn(widget!.contStat?[listCardIndex]) ==
+                                                                        functions.checkNullValueAndReturn(widget!.contStat?.elementAtOrNull(listCardIndex)) ==
                                                                                 '-'
                                                                             ? '-'
-                                                                            : (widget!.contStat![listCardIndex]),
+                                                                            : (widget!.contStat!.elementAtOrNull(listCardIndex))!,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -1096,10 +1104,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        ('0.00' == (widget!.expAmt?[listCardIndex])) ||
-                                                                                ('0' == (widget!.expAmt?[listCardIndex]))
+                                                                        ('0.00' == (widget!.expAmt?.elementAtOrNull(listCardIndex))) ||
+                                                                                ('0' == (widget!.expAmt?.elementAtOrNull(listCardIndex)))
                                                                             ? '-'
-                                                                            : ('${functions.showNumberWithComma(functions.checkNullValueAndReturn(widget!.expAmt?[listCardIndex]) == '-' ? '-' : ((widget!.expAmt?[listCardIndex])))} บาท'),
+                                                                            : '${functions.showNumberWithComma(functions.checkNullValueAndReturn(widget!.expAmt?.elementAtOrNull(listCardIndex)) == '-' ? '-' : (widget!.expAmt?.elementAtOrNull(listCardIndex)))} บาท',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -1207,7 +1215,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                               0.0),
                                                                           child:
                                                                               Text(
-                                                                            '${functions.showNumberWithComma(widget!.sumCurrentDueAmt?[listCardIndex])} บาท',
+                                                                            '${functions.showNumberWithComma(widget!.sumCurrentDueAmt?.elementAtOrNull(listCardIndex))} บาท',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
@@ -1308,7 +1316,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                               Text(
                                                                             valueOrDefault<String>(
                                                                               functions.dateToBEDate(valueOrDefault<String>(
-                                                                                widget!.dateOfData?[listCardIndex],
+                                                                                widget!.dateOfData?.elementAtOrNull(listCardIndex),
                                                                                 'date_of_data',
                                                                               )),
                                                                               'date_of_data',
@@ -1413,7 +1421,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           child:
                                                                               Text(
                                                                             '${valueOrDefault<String>(
-                                                                              widget!.historyCount?[listCardIndex],
+                                                                              widget!.historyCount?.elementAtOrNull(listCardIndex),
                                                                               '-',
                                                                             )} ครั้ง',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2475,9 +2483,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         key: Key(
                                                           'Keyajv_${contNoItemListIndex.toString()}',
                                                         ),
-                                                        textBody: widget!
-                                                                .countNo![
-                                                            contNoItemListIndex],
+                                                        textBody: (widget!
+                                                            .countNo!
+                                                            .elementAtOrNull(
+                                                                contNoItemListIndex))!,
                                                       ),
                                                     );
                                                   },
@@ -2685,9 +2694,13 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () =>
-                                                        FocusScope.of(context)
-                                                            .unfocus(),
+                                                    onTap: () {
+                                                      FocusScope.of(context)
+                                                          .unfocus();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    },
                                                     child: Padding(
                                                       padding: MediaQuery
                                                           .viewInsetsOf(

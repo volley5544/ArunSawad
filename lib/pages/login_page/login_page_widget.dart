@@ -55,6 +55,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'LoginPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('test'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       if (!(await getPermissionStatus(notificationsPermission))) {
         await requestPermission(notificationsPermission);
       }
@@ -283,8 +299,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<List<KeyStorage2Record>>(
-      future: queryKeyStorage2RecordOnce(
+    return FutureBuilder<List<KeyStorageRecord>>(
+      future: queryKeyStorageRecordOnce(
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -305,18 +321,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             ),
           );
         }
-        List<KeyStorage2Record> loginPageKeyStorage2RecordList = snapshot.data!;
+        List<KeyStorageRecord> loginPageKeyStorageRecordList = snapshot.data!;
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
         }
-        final loginPageKeyStorage2Record =
-            loginPageKeyStorage2RecordList.isNotEmpty
-                ? loginPageKeyStorage2RecordList.first
+        final loginPageKeyStorageRecord =
+            loginPageKeyStorageRecordList.isNotEmpty
+                ? loginPageKeyStorageRecordList.first
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -1164,8 +1183,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       }
                                                                       FFAppState()
                                                                               .apiURLLocalState =
-                                                                          loginPageKeyStorage2Record!
-                                                                              .uatApiUrl;
+                                                                          loginPageKeyStorageRecord!
+                                                                              .apiURL;
                                                                       FFAppState()
                                                                           .update(
                                                                               () {});
@@ -1478,7 +1497,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             (_model.usernameInputTextController.text ==
                                                                                 '33511') ||
                                                                             (_model.usernameInputTextController.text ==
-                                                                                '31622')) {
+                                                                                '31622') ||
+                                                                            (_model.usernameInputTextController.text ==
+                                                                                '23328')) {
                                                                           await showModalBottomSheet(
                                                                             isScrollControlled:
                                                                                 true,
@@ -1494,7 +1515,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -2189,24 +2213,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 1.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {},
-                              child: Text(
-                                'Copyright ©2022.  Srisawad Corporation Plc.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF607D8B),
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
+                            child: Text(
+                              'Copyright ©2022.  Srisawad Corporation Plc.',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF607D8B),
+                                    fontSize: 13.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
                           ),

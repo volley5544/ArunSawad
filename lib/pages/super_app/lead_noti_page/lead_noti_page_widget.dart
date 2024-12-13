@@ -67,7 +67,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -385,7 +388,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -1504,11 +1510,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               0.0),
                                                                           child:
                                                                               Text(
-                                                                            '${functions.showLeadTimeRemain(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?[functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList[leadListIndex])!]))}',
+                                                                            '${functions.showLeadTimeRemain(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)))}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Outfit',
                                                                                   color: valueOrDefault<Color>(
-                                                                                    functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?[functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList[leadListIndex])!]), Colors.black, Color(0xFFFF0000)),
+                                                                                    functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)), Colors.black, Color(0xFFFF0000)),
                                                                                     Colors.black,
                                                                                   ),
                                                                                   fontSize: 14.0,
@@ -1623,7 +1629,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'ยอดขอ: ${functions.returnNumberWithComma2Decimal('${FFAppState().amountRequestJson[leadListIndex].toString()}')} บาท',
+                                                                'ยอดขอ: ${functions.returnNumberWithComma2Decimal('${FFAppState().amountRequestJson.elementAtOrNull(leadListIndex)?.toString()}')} บาท',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodySmall
@@ -2038,10 +2044,15 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2132,10 +2143,15 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2261,10 +2277,15 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -2367,10 +2388,15 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery

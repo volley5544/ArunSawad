@@ -243,7 +243,10 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -658,7 +661,10 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                         builder: (context) {
                                                                                           return WebViewAware(
                                                                                             child: GestureDetector(
-                                                                                              onTap: () => FocusScope.of(context).unfocus(),
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(context).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
                                                                                               child: Padding(
                                                                                                 padding: MediaQuery.viewInsetsOf(context),
                                                                                                 child: Container(
@@ -1293,7 +1299,10 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               builder: (context) {
                                                                                                                 return WebViewAware(
                                                                                                                   child: GestureDetector(
-                                                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                                                    onTap: () {
+                                                                                                                      FocusScope.of(context).unfocus();
+                                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                                    },
                                                                                                                     child: Padding(
                                                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                                                       child: Container(
@@ -1727,9 +1736,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             }
 
                                                                                                             while (FFAppState().superAppi <= functions.lengthMinus1(FFAppState().insuranceLicenseStatusCode.toList())!) {
-                                                                                                              if (FFAppState().insuranceLicenseStatusCode[FFAppState().superAppi] == 200) {
-                                                                                                                if (FFAppState().expInsuLessthen30[FFAppState().superAppi]) {
-                                                                                                                  if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?[FFAppState().superAppi]) == false) {
+                                                                                                              if (FFAppState().insuranceLicenseStatusCode.elementAtOrNull(FFAppState().superAppi) == 200) {
+                                                                                                                if (FFAppState().expInsuLessthen30.elementAtOrNull(FFAppState().superAppi)!) {
+                                                                                                                  if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?.elementAtOrNull(FFAppState().superAppi)) == false) {
                                                                                                                     FFAppState().falselistPersistd = functions.changelistFalseToTrue(FFAppState().falselistPersistd.toList(), FFAppState().superAppi)!.toList().cast<bool>();
                                                                                                                     safeSetState(() {});
 
@@ -1737,7 +1746,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     await notificationRecordReference.set(createNotificationRecordData(
                                                                                                                       notiTime: getCurrentTimestamp,
                                                                                                                       notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
-                                                                                                                      notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?[FFAppState().superAppi]}จะหมดอายุใน 30 วัน',
+                                                                                                                      notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
                                                                                                                       notiIsRead: false,
                                                                                                                       thisNotiIsRead: false,
                                                                                                                       notiType: 'insurance',
@@ -1746,7 +1755,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                         createNotificationRecordData(
                                                                                                                           notiTime: getCurrentTimestamp,
                                                                                                                           notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
-                                                                                                                          notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?[FFAppState().superAppi]}จะหมดอายุใน 30 วัน',
+                                                                                                                          notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
                                                                                                                           notiIsRead: false,
                                                                                                                           thisNotiIsRead: false,
                                                                                                                           notiType: 'insurance',
@@ -1940,7 +1949,10 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             builder: (context) {
                                                                                                               return WebViewAware(
                                                                                                                 child: GestureDetector(
-                                                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                                                  onTap: () {
+                                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                                  },
                                                                                                                   child: Padding(
                                                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                                                     child: Container(
@@ -2374,9 +2386,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           }
 
                                                                                                           while (FFAppState().superAppi <= functions.lengthMinus1(FFAppState().insuranceLicenseStatusCode.toList())!) {
-                                                                                                            if (FFAppState().insuranceLicenseStatusCode[FFAppState().superAppi] == 200) {
-                                                                                                              if (FFAppState().expInsuLessthen30[FFAppState().superAppi]) {
-                                                                                                                if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?[FFAppState().superAppi]) == false) {
+                                                                                                            if (FFAppState().insuranceLicenseStatusCode.elementAtOrNull(FFAppState().superAppi) == 200) {
+                                                                                                              if (FFAppState().expInsuLessthen30.elementAtOrNull(FFAppState().superAppi)!) {
+                                                                                                                if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?.elementAtOrNull(FFAppState().superAppi)) == false) {
                                                                                                                   FFAppState().falselistPersistd = functions.changelistFalseToTrue(FFAppState().falselistPersistd.toList(), FFAppState().superAppi)!.toList().cast<bool>();
                                                                                                                   safeSetState(() {});
 
@@ -2384,7 +2396,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   await notificationRecordReference.set(createNotificationRecordData(
                                                                                                                     notiTime: getCurrentTimestamp,
                                                                                                                     notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
-                                                                                                                    notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?[FFAppState().superAppi]}จะหมดอายุใน 30 วัน',
+                                                                                                                    notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
                                                                                                                     notiIsRead: false,
                                                                                                                     thisNotiIsRead: false,
                                                                                                                     notiType: 'insurance',
@@ -2393,7 +2405,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                       createNotificationRecordData(
                                                                                                                         notiTime: getCurrentTimestamp,
                                                                                                                         notiTitle: 'แจ้งเตือนใบอนุญาตประกัน',
-                                                                                                                        notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?[FFAppState().superAppi]}จะหมดอายุใน 30 วัน',
+                                                                                                                        notiBody: 'ใบอนุญาต${notidatacolumnInsuranceNotiDataRecord?.licenseType?.elementAtOrNull(FFAppState().superAppi)}จะหมดอายุใน 30 วัน',
                                                                                                                         notiIsRead: false,
                                                                                                                         thisNotiIsRead: false,
                                                                                                                         notiType: 'insurance',

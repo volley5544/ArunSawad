@@ -238,7 +238,10 @@ class _InsuranceRequestEditPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1874,13 +1877,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageFront?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageFront?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -1911,10 +1914,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -1925,11 +1933,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageFront?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageFront?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2039,13 +2047,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightFront?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightFront
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -2076,10 +2085,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2090,11 +2104,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightFront?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightFront?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2204,13 +2218,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRight?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageRight?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -2241,10 +2255,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2255,11 +2274,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRight?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRight?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRight?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2369,13 +2388,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightRear?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightRear
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -2406,10 +2426,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2420,11 +2445,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightRear?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightRear?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2534,13 +2559,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRear?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageRear?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -2571,10 +2596,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2585,11 +2615,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRear?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRear?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2699,13 +2729,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftRear?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftRear
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -2736,10 +2767,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2750,11 +2786,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftRear?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftRear?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2864,13 +2900,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeft?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageLeft?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) ==
+                                                                  .radioButtonValue))) ==
                                                       ''
                                                   ? false
                                                   : true)
@@ -2901,10 +2937,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2915,12 +2956,12 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeft?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) ==
+                                                                      imageUrl: (widget!.imageLeft?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) ==
                                                                               ''
                                                                           ? 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949'
-                                                                          : (functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
+                                                                          : functions.stringToImgPath(widget!.imageLeft?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!),
+                                                                              _model.radioButtonValue)))!,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -3029,13 +3070,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftFront?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftFront
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -3066,10 +3108,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -3080,11 +3127,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftFront?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftFront?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -3194,13 +3241,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRoof?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageRoof?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -3231,10 +3278,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -3245,11 +3297,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRoof?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRoof?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRoof?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRoof?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -4605,13 +4657,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageFront?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageFront?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -4642,10 +4694,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -4656,11 +4713,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageFront?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageFront?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -4770,13 +4827,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightFront?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightFront
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -4807,10 +4865,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -4821,11 +4884,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightFront?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightFront?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -4935,13 +4998,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRight?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageRight?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -4972,10 +5035,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -4986,11 +5054,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRight?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRight?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRight?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5100,13 +5168,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightRear?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightRear
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -5137,10 +5206,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -5151,11 +5225,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightRear?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightRear?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5265,13 +5339,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRear?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageRear?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) !=
+                                                                  .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -5302,10 +5376,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -5316,11 +5395,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRear?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRear?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5430,13 +5509,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftRear?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftRear
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -5467,10 +5547,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -5481,11 +5566,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftRear?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftRear?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5595,13 +5680,13 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeft?[functions
-                                                          .getIndexOfSomethingList(
+                                              if ((widget!.imageLeft?.elementAtOrNull(
+                                                          functions.getIndexOfSomethingList(
                                                               widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
-                                                                  .radioButtonValue)]) ==
+                                                                  .radioButtonValue))) ==
                                                       ''
                                                   ? false
                                                   : true)
@@ -5632,10 +5717,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -5646,12 +5736,12 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeft?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) ==
+                                                                      imageUrl: (widget!.imageLeft?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) ==
                                                                               ''
                                                                           ? 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949'
-                                                                          : (functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
+                                                                          : functions.stringToImgPath(widget!.imageLeft?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!),
+                                                                              _model.radioButtonValue)))!,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -5760,13 +5850,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftFront?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftFront
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -5797,10 +5888,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -5811,11 +5907,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftFront?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftFront?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7173,13 +7269,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageFrontTrailer?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageFrontTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -7210,10 +7307,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -7224,11 +7326,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageFrontTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageFrontTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7338,13 +7440,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightFrontTrailer?[
-                                                          functions.getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightFrontTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -7375,10 +7478,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -7389,11 +7497,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightFrontTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightFrontTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7503,13 +7611,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightTrailer?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -7540,10 +7649,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -7554,11 +7668,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7668,13 +7782,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRightRearTrailer?[
-                                                          functions.getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRightRearTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -7705,10 +7820,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -7719,11 +7839,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightRearTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRightRearTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7833,13 +7953,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageRearTrailer?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageRearTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -7870,10 +7991,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -7884,11 +8010,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRearTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageRearTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageRearTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7998,13 +8124,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftRearTrailer?[
-                                                          functions.getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftRearTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -8035,10 +8162,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -8049,11 +8181,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftRearTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftRearTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -8163,13 +8295,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftTrailer?[functions
-                                                          .getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -8200,10 +8333,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -8214,11 +8352,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -8328,13 +8466,14 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget!.imageLeftFrontTrailer?[
-                                                          functions.getIndexOfSomethingList(
-                                                              widget!
-                                                                  .insurerNameList
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .radioButtonValue)]) !=
+                                              if ((widget!.imageLeftFrontTrailer
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  widget!
+                                                                      .insurerNameList
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .radioButtonValue))) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -8365,10 +8504,15 @@ class _InsuranceRequestEditPageWidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -8379,11 +8523,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftFrontTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue))) !=
                                                                               ''
-                                                                          ? (functions.stringToImgPath(widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? functions.stringToImgPath(widget!.imageLeftFrontTrailer?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!)
+                                                                              _model.radioButtonValue)))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -9893,12 +10037,14 @@ class _InsuranceRequestEditPageWidgetState
                                             ),
                                           ),
                                         ),
-                                        if ((widget!.imageBlueBook?[functions
-                                                    .getIndexOfSomethingList(
-                                                        widget!.insurerNameList
-                                                            ?.toList(),
-                                                        _model
-                                                            .radioButtonValue)]) !=
+                                        if ((widget!.imageBlueBook
+                                                    ?.elementAtOrNull(functions
+                                                        .getIndexOfSomethingList(
+                                                            widget!
+                                                                .insurerNameList
+                                                                ?.toList(),
+                                                            _model
+                                                                .radioButtonValue))) !=
                                                 ''
                                             ? true
                                             : false)
@@ -9923,10 +10069,15 @@ class _InsuranceRequestEditPageWidgetState
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -9936,18 +10087,18 @@ class _InsuranceRequestEditPageWidgetState
                                                                   .infinity,
                                                               child:
                                                                   ShowImageComponentWidget(
-                                                                imageUrl: (widget!.imageBlueBook?[functions.getIndexOfSomethingList(
+                                                                imageUrl: (widget!.imageBlueBook?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                             widget!.insurerNameList
                                                                                 ?.toList(),
                                                                             _model
-                                                                                .radioButtonValue)]) !=
+                                                                                .radioButtonValue))) !=
                                                                         ''
-                                                                    ? (functions.stringToImgPath(widget!.imageBlueBook?[functions.getIndexOfSomethingList(
+                                                                    ? functions.stringToImgPath(widget!.imageBlueBook?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                         widget!
                                                                             .insurerNameList
                                                                             ?.toList(),
                                                                         _model
-                                                                            .radioButtonValue)])!)
+                                                                            .radioButtonValue)))!
                                                                     : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                               ),
                                                             ),
@@ -10051,13 +10202,14 @@ class _InsuranceRequestEditPageWidgetState
                                               ),
                                             ),
                                           ),
-                                          if ((widget!.imageIdCard?[functions
-                                                      .getIndexOfSomethingList(
-                                                          widget!
-                                                              .insurerNameList
-                                                              ?.toList(),
-                                                          _model
-                                                              .radioButtonValue)]) !=
+                                          if ((widget!.imageIdCard
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              widget!
+                                                                  .insurerNameList
+                                                                  ?.toList(),
+                                                              _model
+                                                                  .radioButtonValue))) !=
                                                   ''
                                               ? true
                                               : false)
@@ -10086,10 +10238,15 @@ class _InsuranceRequestEditPageWidgetState
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () =>
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
                                                             child: Padding(
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
@@ -10099,18 +10256,18 @@ class _InsuranceRequestEditPageWidgetState
                                                                     .infinity,
                                                                 child:
                                                                     ShowImageComponentWidget(
-                                                                  imageUrl: (widget!.imageIdCard?[functions.getIndexOfSomethingList(
+                                                                  imageUrl: (widget!.imageIdCard?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList
                                                                                   ?.toList(),
                                                                               _model
-                                                                                  .radioButtonValue)]) !=
+                                                                                  .radioButtonValue))) !=
                                                                           ''
-                                                                      ? (functions.stringToImgPath(widget!.imageIdCard?[functions.getIndexOfSomethingList(
+                                                                      ? functions.stringToImgPath(widget!.imageIdCard?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                           widget!
                                                                               .insurerNameList
                                                                               ?.toList(),
                                                                           _model
-                                                                              .radioButtonValue)])!)
+                                                                              .radioButtonValue)))!
                                                                       : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                 ),
                                                               ),
@@ -10245,10 +10402,15 @@ class _InsuranceRequestEditPageWidgetState
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () =>
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
                                                             child: Padding(
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
@@ -10747,11 +10909,12 @@ class _InsuranceRequestEditPageWidgetState
                                           leadId: widget!.leadId,
                                           leadNo: widget!.leadNo,
                                           insurerShortName: widget!
-                                                  .insurerShortNameList?[
-                                              functions.getIndexOfSomethingList(
-                                                  widget!.insurerNameList
-                                                      ?.toList(),
-                                                  _model.radioButtonValue)],
+                                              .insurerShortNameList
+                                              ?.elementAtOrNull(functions
+                                                  .getIndexOfSomethingList(
+                                                      widget!.insurerNameList
+                                                          ?.toList(),
+                                                      _model.radioButtonValue)),
                                           imageFront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile10
@@ -10820,12 +10983,12 @@ class _InsuranceRequestEditPageWidgetState
                                               _model.uploadedLocalFile25,
                                           apiUrl: FFAppState().apiUrlInsurance,
                                           token: FFAppState().accessToken,
-                                          imageOtherName: widget!
-                                                  .imageOtherName?[
-                                              functions.getIndexOfSomethingList(
-                                                  widget!.insurerNameList
-                                                      ?.toList(),
-                                                  _model.radioButtonValue)],
+                                          imageOtherName: widget!.imageOtherName
+                                              ?.elementAtOrNull(functions
+                                                  .getIndexOfSomethingList(
+                                                      widget!.insurerNameList
+                                                          ?.toList(),
+                                                      _model.radioButtonValue)),
                                         );
 
                                         _shouldSetState = true;

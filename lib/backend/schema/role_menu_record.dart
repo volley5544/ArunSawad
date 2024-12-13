@@ -140,10 +140,16 @@ class RoleMenuRecord extends FirestoreRecord {
     _servicemenuOrder = getDataList(snapshotData['servicemenuOrder']);
     _reportmenuOrder = getDataList(snapshotData['reportmenuOrder']);
     _othermenuOrder = getDataList(snapshotData['othermenuOrder']);
-    _impoundCarReadAccessRole = ImpoundCarAccessRoleStruct.maybeFromMap(
-        snapshotData['impoundCarReadAccessRole']);
-    _impoundCarSaveAccessRole = ImpoundCarAccessRoleStruct.maybeFromMap(
-        snapshotData['impoundCarSaveAccessRole']);
+    _impoundCarReadAccessRole =
+        snapshotData['impoundCarReadAccessRole'] is ImpoundCarAccessRoleStruct
+            ? snapshotData['impoundCarReadAccessRole']
+            : ImpoundCarAccessRoleStruct.maybeFromMap(
+                snapshotData['impoundCarReadAccessRole']);
+    _impoundCarSaveAccessRole =
+        snapshotData['impoundCarSaveAccessRole'] is ImpoundCarAccessRoleStruct
+            ? snapshotData['impoundCarSaveAccessRole']
+            : ImpoundCarAccessRoleStruct.maybeFromMap(
+                snapshotData['impoundCarSaveAccessRole']);
   }
 
   static CollectionReference get collection =>

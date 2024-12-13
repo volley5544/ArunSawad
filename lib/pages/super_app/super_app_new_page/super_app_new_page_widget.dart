@@ -115,7 +115,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -243,7 +246,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
             builder: (context) {
               return WebViewAware(
                 child: GestureDetector(
-                  onTap: () => FocusScope.of(context).unfocus(),
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: Container(
@@ -279,7 +285,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -378,7 +387,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -697,8 +709,11 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -1148,7 +1163,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    if (FFAppState().expInsuLessthen30[0])
+                                    if (FFAppState()
+                                            .expInsuLessthen30
+                                            .elementAtOrNull(0) ??
+                                        true)
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -1167,7 +1185,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                               ),
                                         ),
                                       ),
-                                    if (FFAppState().expInsuLessthen30[1])
+                                    if (FFAppState()
+                                            .expInsuLessthen30
+                                            .elementAtOrNull(1) ??
+                                        true)
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -1277,42 +1298,49 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if ((functions.sortingListByOrder(
+                                            if ((functions
+                                                    .sortingListByOrder(
                                                         pageViewBannerArunSawadImgBannerRecord
                                                             ?.linkUrl
                                                             ?.toList(),
                                                         pageViewBannerArunSawadImgBannerRecord
                                                             ?.index
-                                                            ?.toList())?[
-                                                    bannerImgListIndex]) !=
+                                                            ?.toList())
+                                                    ?.elementAtOrNull(
+                                                        bannerImgListIndex)) !=
                                                 'Hello World') {
-                                              if ((functions.sortingBoolListByOrder(
+                                              if ((functions
+                                                      .sortingBoolListByOrder(
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.isHaveLink
                                                               ?.toList(),
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.index
-                                                              ?.toList())?[
-                                                      bannerImgListIndex]) !=
+                                                              ?.toList())
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex)) !=
                                                   true) {
-                                                await launchURL(functions
+                                                await launchURL((functions
+                                                    .sortingListByOrder(
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.linkUrl
+                                                            ?.toList(),
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        bannerImgListIndex))!);
+                                              } else {
+                                                if ((functions
                                                         .sortingListByOrder(
                                                             pageViewBannerArunSawadImgBannerRecord
                                                                 ?.linkUrl
                                                                 ?.toList(),
                                                             pageViewBannerArunSawadImgBannerRecord
                                                                 ?.index
-                                                                ?.toList())![
-                                                    bannerImgListIndex]);
-                                              } else {
-                                                if ((functions.sortingListByOrder(
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.linkUrl
-                                                                ?.toList(),
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.index
-                                                                ?.toList())?[
-                                                        bannerImgListIndex]) ==
+                                                                ?.toList())
+                                                        ?.elementAtOrNull(
+                                                            bannerImgListIndex)) ==
                                                     'Bottom Sheet') {
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
@@ -1323,10 +1351,15 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -1349,14 +1382,16 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 await actions
                                                     .openTableauBrowser(
                                                   FFAppState().accessToken,
-                                                  functions.sortingListByOrder(
+                                                  functions
+                                                      .sortingListByOrder(
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.linkUrl
                                                               ?.toList(),
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.index
-                                                              ?.toList())?[
-                                                      bannerImgListIndex],
+                                                              ?.toList())
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex),
                                                   FFAppState()
                                                       .isOpenAndroidTableauBrowser,
                                                 );
@@ -1367,21 +1402,22 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                             placeholderBuilder: (_) =>
                                                 SizedBox.expand(
                                               child: Image(
-                                                image: BlurHashImage(functions
-                                                        .sortingListByOrder(
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.blurHash
-                                                                ?.toList(),
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.index
-                                                                ?.toList())![
-                                                    bannerImgListIndex]),
+                                                image: BlurHashImage((functions
+                                                    .sortingListByOrder(
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.blurHash
+                                                            ?.toList(),
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        bannerImgListIndex))!),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
                                             image: CachedNetworkImageProvider(
-                                              functions.stringToImgPath(
-                                                  functions.sortingListByOrder(
+                                              functions.stringToImgPath(functions
+                                                  .sortingListByOrder(
                                                       functions
                                                           .imgPathListToStringList(
                                                               pageViewBannerArunSawadImgBannerRecord
@@ -1390,7 +1426,9 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                           ?.toList(),
                                                       pageViewBannerArunSawadImgBannerRecord
                                                           ?.index
-                                                          ?.toList())?[bannerImgListIndex])!,
+                                                          ?.toList())
+                                                  ?.elementAtOrNull(
+                                                      bannerImgListIndex))!,
                                             ),
                                             width: 100.0,
                                             height: 100.0,
@@ -1528,24 +1566,28 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             if ((pageViewArunSawadImgBannerRecord
-                                                        ?.linkUrl?[
-                                                    bannerImgListIndex]) !=
+                                                    ?.linkUrl
+                                                    ?.elementAtOrNull(
+                                                        bannerImgListIndex)) !=
                                                 'Hello World') {
                                               if ((pageViewArunSawadImgBannerRecord
-                                                          ?.isHaveLink?[
-                                                      bannerImgListIndex]) !=
+                                                      ?.isHaveLink
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex)) !=
                                                   true) {
                                                 await launchURL(
                                                     pageViewArunSawadImgBannerRecord!
-                                                            .linkUrl[
-                                                        bannerImgListIndex]);
+                                                        .linkUrl
+                                                        .elementAtOrNull(
+                                                            bannerImgListIndex)!);
                                               } else {
                                                 await actions
                                                     .openTableauBrowser(
                                                   FFAppState().accessToken,
                                                   pageViewArunSawadImgBannerRecord
-                                                          ?.linkUrl?[
-                                                      bannerImgListIndex],
+                                                      ?.linkUrl
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex),
                                                   FFAppState()
                                                       .isOpenAndroidTableauBrowser,
                                                 );
@@ -1556,21 +1598,22 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                             placeholderBuilder: (_) =>
                                                 SizedBox.expand(
                                               child: Image(
-                                                image: BlurHashImage(functions
-                                                        .sortingListByOrder(
-                                                            pageViewArunSawadImgBannerRecord
-                                                                ?.blurHash
-                                                                ?.toList(),
-                                                            pageViewArunSawadImgBannerRecord
-                                                                ?.index
-                                                                ?.toList())![
-                                                    bannerImgListIndex]),
+                                                image: BlurHashImage((functions
+                                                    .sortingListByOrder(
+                                                        pageViewArunSawadImgBannerRecord
+                                                            ?.blurHash
+                                                            ?.toList(),
+                                                        pageViewArunSawadImgBannerRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        bannerImgListIndex))!),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
                                             image: CachedNetworkImageProvider(
-                                              functions.stringToImgPath(
-                                                  functions.sortingListByOrder(
+                                              functions.stringToImgPath(functions
+                                                  .sortingListByOrder(
                                                       functions
                                                           .imgPathListToStringList(
                                                               pageViewArunSawadImgBannerRecord
@@ -1579,7 +1622,9 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                           ?.toList(),
                                                       pageViewArunSawadImgBannerRecord
                                                           ?.index
-                                                          ?.toList())?[bannerImgListIndex])!,
+                                                          ?.toList())
+                                                  ?.elementAtOrNull(
+                                                      bannerImgListIndex))!,
                                             ),
                                             width: 100.0,
                                             height: 100.0,
@@ -1945,23 +1990,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -2045,23 +2090,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -2114,7 +2159,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -2397,23 +2445,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -2500,7 +2548,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -2529,20 +2580,20 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 'เขต') {
                                                                               await actions.openTableauBrowser(
                                                                                 FFAppState().accessToken,
-                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?[1]}',
+                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.elementAtOrNull(1)}',
                                                                                 FFAppState().isOpenAndroidTableauBrowser,
                                                                               );
                                                                             } else {
                                                                               if (FFAppState().profileLevel == 'ภาค') {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.first}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.firstOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               } else {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.last}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.lastOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               }
@@ -2598,23 +2649,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -2652,7 +2703,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -2838,23 +2892,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -2941,7 +2995,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -2968,7 +3025,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Navigator.pop(context);
                                                                             await actions.openTableauBrowser(
                                                                               FFAppState().accessToken,
-                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarQuery?.reportUrl?.first}',
+                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarQuery?.reportUrl?.firstOrNull}',
                                                                               FFAppState().isOpenAndroidTableauBrowser,
                                                                             );
                                                                             if (_shouldSetState)
@@ -3021,23 +3078,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -3124,7 +3181,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -3153,20 +3213,20 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 'เขต') {
                                                                               await actions.openTableauBrowser(
                                                                                 FFAppState().accessToken,
-                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.first}',
+                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.firstOrNull}',
                                                                                 FFAppState().isOpenAndroidTableauBrowser,
                                                                               );
                                                                             } else {
                                                                               if (FFAppState().profileLevel == 'ภาค') {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?[1]}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.elementAtOrNull(1)}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               } else {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.last}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.lastOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               }
@@ -3222,23 +3282,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -3293,7 +3353,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -3852,23 +3915,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -3960,23 +4023,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -4037,7 +4100,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -4118,23 +4184,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -4232,7 +4298,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -4427,23 +4496,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -4536,7 +4605,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -4713,23 +4785,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
+                                                                              'ยอดประกัน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
+                                                                              'ยอดประกัน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
+                                                                              'ยอดประกัน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
+                                                                              'ยอดประกัน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -4821,7 +4893,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -4951,7 +5026,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -5023,23 +5101,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -5132,7 +5210,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -5357,23 +5438,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -5424,7 +5505,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -5696,23 +5780,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -5763,7 +5847,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -5979,23 +6066,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -6048,7 +6135,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6289,23 +6379,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
+                                                                              'QR พนักงาน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
+                                                                              'QR พนักงาน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
+                                                                              'QR พนักงาน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
+                                                                              'QR พนักงาน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -6356,7 +6446,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6571,23 +6664,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -6638,7 +6731,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6854,23 +6950,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -6921,7 +7017,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -7137,23 +7236,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -7204,7 +7303,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -7420,23 +7522,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -7489,7 +7591,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -7728,23 +7833,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -7795,7 +7900,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -8010,23 +8118,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -8077,7 +8185,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -8501,23 +8612,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คอิน')];
+                                                                              'เช็คอิน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -8603,23 +8714,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -8672,7 +8783,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -8955,23 +9069,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
+                                                                              'GEN E-PA'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord
@@ -9059,7 +9173,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -9088,20 +9205,20 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 'เขต') {
                                                                               await actions.openTableauBrowser(
                                                                                 FFAppState().accessToken,
-                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?[1]}',
+                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.elementAtOrNull(1)}',
                                                                                 FFAppState().isOpenAndroidTableauBrowser,
                                                                               );
                                                                             } else {
                                                                               if (FFAppState().profileLevel == 'ภาค') {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.first}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.firstOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               } else {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.last}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.lastOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               }
@@ -9156,23 +9273,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -9303,23 +9420,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
+                                                                              'รายงานรถยึด'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord
@@ -9407,7 +9524,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -9434,7 +9554,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Navigator.pop(context);
                                                                             await actions.openTableauBrowser(
                                                                               FFAppState().accessToken,
-                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarTab?.reportUrl?.first}',
+                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarTab?.reportUrl?.firstOrNull}',
                                                                               FFAppState().isOpenAndroidTableauBrowser,
                                                                             );
                                                                             if (_shouldSetState)
@@ -9486,23 +9606,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
+                                                                              'โครงการ ZUVศษ'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord
@@ -9590,7 +9710,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -9619,20 +9742,20 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 'เขต') {
                                                                               await actions.openTableauBrowser(
                                                                                 FFAppState().accessToken,
-                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.first}',
+                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.firstOrNull}',
                                                                                 FFAppState().isOpenAndroidTableauBrowser,
                                                                               );
                                                                             } else {
                                                                               if (FFAppState().profileLevel == 'ภาค') {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?[1]}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.elementAtOrNull(1)}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               } else {
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.last}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.lastOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                               }
@@ -9687,23 +9810,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
+                                                                              'ประกันนอกเรท'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -9760,7 +9883,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -10348,23 +10474,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
+                                                                              'รายงาน BSI'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -10448,23 +10574,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
+                                                                              'เป้า/ผลงาน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -10518,7 +10644,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -10597,23 +10726,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
+                                                                              'KPI'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -10704,7 +10833,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -10899,23 +11031,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -11001,7 +11133,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -11178,23 +11313,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
+                                                                              'ยอดจัดสาขา'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -11286,7 +11421,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -11416,7 +11554,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -11488,23 +11629,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
+                                                                              'รายชื่อลีด'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -11555,7 +11696,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -11827,23 +11971,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
+                                                                              '%ความสำเร็จ'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -11929,7 +12073,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -12154,23 +12301,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
+                                                                              'ขออนุมัติลา'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -12221,7 +12368,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -12437,23 +12587,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
+                                                                              'Branch View'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -12506,7 +12656,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -12747,23 +12900,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
+                                                                              'เช็คเบี้ยประกัน'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -12814,7 +12967,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13029,23 +13185,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
+                                                                              'Saleskit'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -13096,7 +13252,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13312,23 +13471,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
+                                                                              'ฟอร์มลีด'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -13379,7 +13538,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13595,23 +13757,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
+                                                                              'โปรโมชั่น'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -13662,7 +13824,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13878,23 +14043,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
+                                                                              'COACH'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -13947,7 +14112,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -14186,23 +14354,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
+                                                                              'ห้องเรียนทันใจ'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -14253,7 +14421,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -14468,23 +14639,23 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
                                                                             'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                          return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
+                                                                              'ข้อมูลไอที'))!;
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord
@@ -14536,7 +14707,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -14888,9 +15062,15 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                 return WebViewAware(
                                                                   child:
                                                                       GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
                                                                     child:
                                                                         Padding(
                                                                       padding: MediaQuery
@@ -15329,9 +15509,15 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                 return WebViewAware(
                                                                   child:
                                                                       GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
                                                                     child:
                                                                         Padding(
                                                                       padding: MediaQuery
@@ -15886,7 +16072,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -16167,7 +16356,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(

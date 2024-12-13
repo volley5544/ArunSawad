@@ -67,7 +67,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -254,9 +257,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                               String>(
                                                             functions.getFirstLastNameFromFullName(
                                                                 FFAppState()
-                                                                        .profileInsuLicenseFullName[
-                                                                    widget!
-                                                                        .index!],
+                                                                    .profileInsuLicenseFullName
+                                                                    .elementAtOrNull(
+                                                                        widget!
+                                                                            .index!),
                                                                 'first_name'),
                                                             'first_name',
                                                           ),
@@ -314,9 +318,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                               String>(
                                                             functions.getFirstLastNameFromFullName(
                                                                 FFAppState()
-                                                                        .profileInsuLicenseFullName[
-                                                                    widget!
-                                                                        .index!],
+                                                                    .profileInsuLicenseFullName
+                                                                    .elementAtOrNull(
+                                                                        widget!
+                                                                            .index!),
                                                                 'last_name'),
                                                             'last_name',
                                                           ),
@@ -376,8 +381,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                           flex: 5,
                                                           child: Text(
                                                             FFAppState()
-                                                                    .profileInsuLicenseNumLicense[
-                                                                widget!.index!],
+                                                                .profileInsuLicenseNumLicense
+                                                                .elementAtOrNull(
+                                                                    widget!
+                                                                        .index!)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -430,8 +437,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                         flex: 5,
                                                         child: Text(
                                                           FFAppState()
-                                                                  .profileInsuLicenseIdCard[
-                                                              widget!.index!],
+                                                              .profileInsuLicenseIdCard
+                                                              .elementAtOrNull(
+                                                                  widget!
+                                                                      .index!)!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -471,8 +480,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                         children: [
                                                           Text(
                                                             FFAppState()
-                                                                    .profileInsuLicenseStartDate[
-                                                                widget!.index!],
+                                                                .profileInsuLicenseStartDate
+                                                                .elementAtOrNull(
+                                                                    widget!
+                                                                        .index!)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -510,8 +521,10 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                         children: [
                                                           Text(
                                                             FFAppState()
-                                                                    .profileInsuLicenseExpireDate[
-                                                                widget!.index!],
+                                                                .profileInsuLicenseExpireDate
+                                                                .elementAtOrNull(
+                                                                    widget!
+                                                                        .index!)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium

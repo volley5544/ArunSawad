@@ -106,7 +106,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -296,8 +299,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText:
-                                            FFAppState().insurancePlan1[0],
+                                        hintText: FFAppState()
+                                            .insurancePlan1
+                                            .elementAtOrNull(0),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
@@ -395,8 +399,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText:
-                                            FFAppState().insurancePlan1[1],
+                                        hintText: FFAppState()
+                                            .insurancePlan1
+                                            .elementAtOrNull(1),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
@@ -494,8 +499,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText:
-                                            FFAppState().insurancePlan1[2],
+                                        hintText: FFAppState()
+                                            .insurancePlan1
+                                            .elementAtOrNull(2),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
@@ -593,8 +599,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText:
-                                            FFAppState().insurancePlan1[3],
+                                        hintText: FFAppState()
+                                            .insurancePlan1
+                                            .elementAtOrNull(3),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
@@ -696,8 +703,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[4],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(4),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -802,8 +810,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[5],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(5),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -909,8 +918,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[6],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(6),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1016,8 +1026,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[7],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(7),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1124,8 +1135,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[8],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(8),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1231,8 +1243,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[9],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(9),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1338,8 +1351,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[10],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(10),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1445,8 +1459,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[11],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(11),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1552,8 +1567,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[12],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(12),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1659,8 +1675,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[13],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(13),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1766,8 +1783,9 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              FFAppState().insurancePlan1[14],
+                                          hintText: FFAppState()
+                                              .insurancePlan1
+                                              .elementAtOrNull(14),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall

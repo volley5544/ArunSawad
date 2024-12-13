@@ -157,7 +157,10 @@ class _ChangeCarLocationPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -271,13 +274,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .improundcarSubLocatId
+                                              true))
+                                      ?.improundcarSubLocatId
                                   : '')
                               : widget!.impoundCarLocateParamSet
                                   ?.improundcarSubLocatId,
@@ -311,13 +315,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .branchName
+                                              true))
+                                      ?.branchName
                                   : '')
                               : widget!
                                   .impoundCarLocateParamSet?.branchNameLocat,
@@ -351,13 +356,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .address
+                                              true))
+                                      ?.address
                                   : '')
                               : widget!.impoundCarLocateParamSet?.address,
                           subDistrict: _model.allowChangeLocation ||
@@ -390,13 +396,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .subDistrict
+                                              true))
+                                      ?.subDistrict
                                   : '')
                               : widget!.impoundCarLocateParamSet?.subDistrict,
                           district: _model.allowChangeLocation ||
@@ -429,13 +436,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .district
+                                              true))
+                                      ?.district
                                   : '')
                               : widget!.impoundCarLocateParamSet?.district,
                           province: _model.allowChangeLocation ||
@@ -468,13 +476,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .province
+                                              true))
+                                      ?.province
                                   : '')
                               : widget!.impoundCarLocateParamSet?.province,
                           postcode: _model.allowChangeLocation ||
@@ -507,13 +516,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .postcode
+                                              true))
+                                      ?.postcode
                                   : '')
                               : widget!.impoundCarLocateParamSet?.postcode,
                           phoneNumber: _model.allowChangeLocation ||
@@ -546,13 +556,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .phoneNumber
+                                              true))
+                                      ?.phoneNumber
                                   : '')
                               : widget!.impoundCarLocateParamSet?.phoneNumber,
                           latitude: _model.allowChangeLocation ||
@@ -585,13 +596,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .latitude
+                                              true))
+                                      ?.latitude
                                   : '')
                               : widget!.impoundCarLocateParamSet?.latitude,
                           longitude: _model.allowChangeLocation ||
@@ -624,13 +636,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .longitude
+                                              true))
+                                      ?.longitude
                                   : '')
                               : widget!.impoundCarLocateParamSet?.longitude,
                           branchCodeLocat: _model.allowChangeLocation ||
@@ -663,13 +676,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .branchCode
+                                              true))
+                                      ?.branchCode
                                   : '')
                               : widget!
                                   .impoundCarLocateParamSet?.branchCodeLocat,
@@ -703,13 +717,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .areaCode
+                                              true))
+                                      ?.areaCode
                                   : '')
                               : widget!.impoundCarLocateParamSet?.areaCode,
                           areaName: _model.allowChangeLocation ||
@@ -742,13 +757,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .areaName
+                                              true))
+                                      ?.areaName
                                   : '')
                               : widget!.impoundCarLocateParamSet?.areaName,
                           regionCode: _model.allowChangeLocation ||
@@ -781,13 +797,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .regionCode
+                                              true))
+                                      ?.regionCode
                                   : '')
                               : widget!.impoundCarLocateParamSet?.regionCode,
                           regionName: _model.allowChangeLocation ||
@@ -820,13 +837,14 @@ class _ChangeCarLocationPageWidgetState
                                       ))!
                                           .isNotEmpty
                                   ? FFAppState()
-                                      .branchDataOutput[
+                                      .branchDataOutput
+                                      .elementAtOrNull(
                                           functions.getIndexOfBoolList(
                                               FFAppState()
                                                   .selectedDropdownList
                                                   .toList(),
-                                              true)]
-                                      .regionName
+                                              true))
+                                      ?.regionName
                                   : '')
                               : widget!.impoundCarLocateParamSet?.regionName,
                           locatCode: _model.allowChangeLocation ||
@@ -1275,8 +1293,11 @@ class _ChangeCarLocationPageWidgetState
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -2946,13 +2967,11 @@ class _ChangeCarLocationPageWidgetState
                                               .call(
                                         contNo: widget!
                                             .impoundCarParamSet?.improundCONTNO,
-                                        improundcarLocatId: _model
-                                                    .allowChangeLocation ||
+                                        improundcarLocatId: _model.allowChangeLocation ||
                                                 !((FFAppState().profileLevel == 'สาขา') ||
                                                         (FFAppState().profileLevel ==
                                                             'เขต') ||
-                                                        (FFAppState()
-                                                                .profileLevel ==
+                                                        (FFAppState().profileLevel ==
                                                             'ภาค')
                                                     ? functions.containsValueInJsonList(
                                                         functions.getDataFromMapJson(
@@ -2972,7 +2991,9 @@ class _ChangeCarLocationPageWidgetState
                                                             'price_edit_role'),
                                                         widget!.userRoleEdit)!)
                                             ? containerImpoundCarMasterRecord
-                                                .impoundCarLocateId[functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue)]
+                                                .impoundCarLocateId
+                                                .elementAtOrNull(
+                                                    functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
                                             : widget!.impoundCarLocateParamSet?.improundcarLocatId,
                                         locatName: _model.allowChangeLocation ||
                                                 !((FFAppState().profileLevel == 'สาขา') ||
@@ -2997,9 +3018,10 @@ class _ChangeCarLocationPageWidgetState
                                                                 widget!.step),
                                                             'price_edit_role'),
                                                         widget!.userRoleEdit)!)
-                                            ? containerImpoundCarMasterRecord.locateName[
-                                                functions.getIndexOfSomethingList(
-                                                    containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue)]
+                                            ? containerImpoundCarMasterRecord
+                                                .locateName
+                                                .elementAtOrNull(
+                                                    functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
                                             : widget!.impoundCarLocateParamSet?.locatName,
                                         improundcarSubLocatId: _model
                                                     .allowChangeLocation ||
@@ -3039,7 +3061,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].improundcarSubLocatId
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.improundcarSubLocatId
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.improundcarSubLocatId,
                                         branchCodeLocat: _model
@@ -3080,7 +3102,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].branchCode
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchCode
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.branchCodeLocat,
                                         branchName:
@@ -3124,7 +3146,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].branchName
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchName
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.branchNameLocat,
                                         branchCode: FFAppState().profileBranch,
@@ -3168,7 +3190,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].address
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.address
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.address,
                                         subDistrict: _model.allowChangeLocation ||
@@ -3209,7 +3231,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].subDistrict
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.subDistrict
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.subDistrict,
                                         district: _model.allowChangeLocation ||
@@ -3251,7 +3273,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].district
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.district
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.district,
                                         province: _model.allowChangeLocation ||
@@ -3293,7 +3315,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].province
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.province
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.province,
                                         postcode: _model.allowChangeLocation ||
@@ -3335,7 +3357,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].postcode
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.postcode
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.postcode,
                                         phoneNumber: _model.allowChangeLocation ||
@@ -3376,7 +3398,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].phoneNumber
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.phoneNumber
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.phoneNumber,
                                         latitude: _model.allowChangeLocation ||
@@ -3418,7 +3440,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].latitude
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.latitude
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.latitude,
                                         longitude: _model.allowChangeLocation ||
@@ -3460,7 +3482,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].longitude
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.longitude
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.longitude,
                                         areaCode: _model.allowChangeLocation ||
@@ -3502,7 +3524,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].areaCode
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaCode
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.areaCode,
                                         areaName: _model.allowChangeLocation ||
@@ -3544,7 +3566,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].areaName
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaName
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.areaName,
                                         regionCode: _model.allowChangeLocation ||
@@ -3585,7 +3607,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].regionCode
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionCode
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.regionCode,
                                         regionName: _model.allowChangeLocation ||
@@ -3626,7 +3648,7 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].regionName
+                                                ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionName
                                                 : '')
                                             : widget!.impoundCarLocateParamSet?.regionName,
                                         url: FFAppState().improundUrl,
@@ -3961,7 +3983,7 @@ class _ChangeCarLocationPageWidgetState
                                                                         widget!.step),
                                                                     'price_edit_role'),
                                                                 widget!.userRoleEdit)!)
-                                                    ? containerImpoundCarMasterRecord.impoundCarLocateId[functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue)]
+                                                    ? containerImpoundCarMasterRecord.impoundCarLocateId.elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
                                                     : widget!.impoundCarLocateParamSet?.improundcarLocatId,
                                                 locatName: _model.allowChangeLocation ||
                                                         !((FFAppState().profileLevel ==
@@ -3988,7 +4010,7 @@ class _ChangeCarLocationPageWidgetState
                                                                         widget!.step),
                                                                     'price_edit_role'),
                                                                 widget!.userRoleEdit)!)
-                                                    ? containerImpoundCarMasterRecord.locateName[functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue)]
+                                                    ? containerImpoundCarMasterRecord.locateName.elementAtOrNull(functions.getIndexOfSomethingList(containerImpoundCarMasterRecord.locateCode.toList(), _model.dropDownValue))
                                                     : widget!.impoundCarLocateParamSet?.locatName,
                                                 improundcarSubLocatId: _model
                                                             .allowChangeLocation ||
@@ -4027,7 +4049,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].improundcarSubLocatId
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.improundcarSubLocatId
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.improundcarSubLocatId,
                                                 branchNameLocat: _model
@@ -4067,7 +4089,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].branchName
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchName
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.branchNameLocat,
                                                 address: _model.allowChangeLocation ||
@@ -4107,7 +4129,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].address
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.address
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.address,
                                                 subDistrict: _model.allowChangeLocation ||
@@ -4147,7 +4169,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].subDistrict
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.subDistrict
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.subDistrict,
                                                 district: _model.allowChangeLocation ||
@@ -4187,7 +4209,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].district
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.district
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.district,
                                                 province: _model.allowChangeLocation ||
@@ -4227,7 +4249,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].province
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.province
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.province,
                                                 postcode: _model.allowChangeLocation ||
@@ -4267,7 +4289,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].postcode
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.postcode
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.postcode,
                                                 phoneNumber: _model.allowChangeLocation ||
@@ -4307,7 +4329,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].phoneNumber
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.phoneNumber
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.phoneNumber,
                                                 latitude: _model.allowChangeLocation ||
@@ -4347,7 +4369,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].latitude
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.latitude
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.latitude,
                                                 longitude: _model.allowChangeLocation ||
@@ -4388,7 +4410,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].longitude
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.longitude
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.longitude,
                                                 branchCodeLocat: _model
@@ -4428,7 +4450,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].branchCode
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.branchCode
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.branchCodeLocat,
                                                 areaCode: _model.allowChangeLocation ||
@@ -4468,7 +4490,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].areaCode
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaCode
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.areaCode,
                                                 areaName: _model.allowChangeLocation ||
@@ -4508,7 +4530,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].areaName
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.areaName
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.areaName,
                                                 regionCode: _model
@@ -4548,7 +4570,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].regionCode
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionCode
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.regionCode,
                                                 regionName: _model
@@ -4588,7 +4610,7 @@ class _ChangeCarLocationPageWidgetState
                                                                   ''),
                                                             ))!
                                                                 .isNotEmpty
-                                                        ? FFAppState().branchDataOutput[functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true)].regionName
+                                                        ? FFAppState().branchDataOutput.elementAtOrNull(functions.getIndexOfBoolList(FFAppState().selectedDropdownList.toList(), true))?.regionName
                                                         : '')
                                                     : widget!.impoundCarLocateParamSet?.regionName,
                                                 locatCode: _model.allowChangeLocation ||
@@ -4715,22 +4737,24 @@ class _ChangeCarLocationPageWidgetState
                                           'impoundCarLocateParamSet':
                                               serializeParam(
                                             ImpoundCarLocateParamSetStruct(
-                                              improundcarLocatId:
-                                                  containerImpoundCarMasterRecord
-                                                          .impoundCarLocateId[
-                                                      functions.getIndexOfSomethingList(
+                                              improundcarLocatId: containerImpoundCarMasterRecord
+                                                  .impoundCarLocateId
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfSomethingList(
                                                           containerImpoundCarMasterRecord
                                                               .locateCode
                                                               .toList(),
                                                           _model
-                                                              .dropDownValue)],
+                                                              .dropDownValue)),
                                               locatName: containerImpoundCarMasterRecord
-                                                      .locateName[
-                                                  functions.getIndexOfSomethingList(
-                                                      containerImpoundCarMasterRecord
-                                                          .locateCode
-                                                          .toList(),
-                                                      _model.dropDownValue)],
+                                                  .locateName
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfSomethingList(
+                                                          containerImpoundCarMasterRecord
+                                                              .locateCode
+                                                              .toList(),
+                                                          _model
+                                                              .dropDownValue)),
                                               improundcarSubLocatId: ImproundCarGetBranchCall
                                                               .subLocatId(
                                                             (_model.getBranchOutput
@@ -4746,22 +4770,24 @@ class _ChangeCarLocationPageWidgetState
                                                       ))!
                                                           .isNotEmpty
                                                   ? FFAppState()
-                                                      .branchDataOutput[functions
+                                                      .branchDataOutput
+                                                      .elementAtOrNull(functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .selectedDropdownList
                                                                   .toList(),
-                                                              true)]
-                                                      .improundcarSubLocatId
+                                                              true))
+                                                      ?.improundcarSubLocatId
                                                   : '',
                                               branchNameLocat: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .branchName,
+                                                          true))
+                                                  ?.branchName,
                                               address: ImproundCarGetBranchCall
                                                               .address(
                                                             (_model.getBranchOutput
@@ -4777,46 +4803,51 @@ class _ChangeCarLocationPageWidgetState
                                                       ))!
                                                           .isNotEmpty
                                                   ? FFAppState()
-                                                      .branchDataOutput[functions
+                                                      .branchDataOutput
+                                                      .elementAtOrNull(functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .selectedDropdownList
                                                                   .toList(),
-                                                              true)]
-                                                      .address
+                                                              true))
+                                                      ?.address
                                                   : '',
                                               subDistrict: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .subDistrict,
+                                                          true))
+                                                  ?.subDistrict,
                                               district: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .district,
+                                                          true))
+                                                  ?.district,
                                               province: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .province,
+                                                          true))
+                                                  ?.province,
                                               postcode: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .postcode,
+                                                          true))
+                                                  ?.postcode,
                                               phoneNumber: ImproundCarGetBranchCall
                                                               .phoneNumber(
                                                             (_model.getBranchOutput
@@ -4832,70 +4863,78 @@ class _ChangeCarLocationPageWidgetState
                                                       ))!
                                                           .isNotEmpty
                                                   ? FFAppState()
-                                                      .branchDataOutput[functions
+                                                      .branchDataOutput
+                                                      .elementAtOrNull(functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .selectedDropdownList
                                                                   .toList(),
-                                                              true)]
-                                                      .phoneNumber
+                                                              true))
+                                                      ?.phoneNumber
                                                   : '',
                                               latitude: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .latitude,
+                                                          true))
+                                                  ?.latitude,
                                               longitude: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .longitude,
+                                                          true))
+                                                  ?.longitude,
                                               branchCodeLocat: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .branchCode,
+                                                          true))
+                                                  ?.branchCode,
                                               areaCode: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .areaCode,
+                                                          true))
+                                                  ?.areaCode,
                                               areaName: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .areaName,
+                                                          true))
+                                                  ?.areaName,
                                               regionCode: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .regionCode,
+                                                          true))
+                                                  ?.regionCode,
                                               regionName: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .regionName,
+                                                          true))
+                                                  ?.regionName,
                                               locatCode: _model.dropDownValue,
                                               receiver: ((FFAppState().profileLevel ==
                                                               'สาขา') ||
@@ -5068,22 +5107,24 @@ class _ChangeCarLocationPageWidgetState
                                           'impoundCarLocateParamSet':
                                               serializeParam(
                                             ImpoundCarLocateParamSetStruct(
-                                              improundcarLocatId:
-                                                  containerImpoundCarMasterRecord
-                                                          .impoundCarLocateId[
-                                                      functions.getIndexOfSomethingList(
+                                              improundcarLocatId: containerImpoundCarMasterRecord
+                                                  .impoundCarLocateId
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfSomethingList(
                                                           containerImpoundCarMasterRecord
                                                               .locateCode
                                                               .toList(),
                                                           _model
-                                                              .dropDownValue)],
+                                                              .dropDownValue)),
                                               locatName: containerImpoundCarMasterRecord
-                                                      .locateName[
-                                                  functions.getIndexOfSomethingList(
-                                                      containerImpoundCarMasterRecord
-                                                          .locateCode
-                                                          .toList(),
-                                                      _model.dropDownValue)],
+                                                  .locateName
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfSomethingList(
+                                                          containerImpoundCarMasterRecord
+                                                              .locateCode
+                                                              .toList(),
+                                                          _model
+                                                              .dropDownValue)),
                                               improundcarSubLocatId: ImproundCarGetBranchCall
                                                               .subLocatId(
                                                             (_model.getBranchOutput
@@ -5099,22 +5140,24 @@ class _ChangeCarLocationPageWidgetState
                                                       ))!
                                                           .isNotEmpty
                                                   ? FFAppState()
-                                                      .branchDataOutput[functions
+                                                      .branchDataOutput
+                                                      .elementAtOrNull(functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .selectedDropdownList
                                                                   .toList(),
-                                                              true)]
-                                                      .improundcarSubLocatId
+                                                              true))
+                                                      ?.improundcarSubLocatId
                                                   : '',
                                               branchNameLocat: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .branchName,
+                                                          true))
+                                                  ?.branchName,
                                               address: ImproundCarGetBranchCall
                                                               .address(
                                                             (_model.getBranchOutput
@@ -5130,46 +5173,51 @@ class _ChangeCarLocationPageWidgetState
                                                       ))!
                                                           .isNotEmpty
                                                   ? FFAppState()
-                                                      .branchDataOutput[functions
+                                                      .branchDataOutput
+                                                      .elementAtOrNull(functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .selectedDropdownList
                                                                   .toList(),
-                                                              true)]
-                                                      .address
+                                                              true))
+                                                      ?.address
                                                   : '',
                                               subDistrict: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .subDistrict,
+                                                          true))
+                                                  ?.subDistrict,
                                               district: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .district,
+                                                          true))
+                                                  ?.district,
                                               province: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .province,
+                                                          true))
+                                                  ?.province,
                                               postcode: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .postcode,
+                                                          true))
+                                                  ?.postcode,
                                               phoneNumber: ImproundCarGetBranchCall
                                                               .phoneNumber(
                                                             (_model.getBranchOutput
@@ -5185,70 +5233,78 @@ class _ChangeCarLocationPageWidgetState
                                                       ))!
                                                           .isNotEmpty
                                                   ? FFAppState()
-                                                      .branchDataOutput[functions
+                                                      .branchDataOutput
+                                                      .elementAtOrNull(functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .selectedDropdownList
                                                                   .toList(),
-                                                              true)]
-                                                      .phoneNumber
+                                                              true))
+                                                      ?.phoneNumber
                                                   : '',
                                               latitude: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .latitude,
+                                                          true))
+                                                  ?.latitude,
                                               longitude: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .longitude,
+                                                          true))
+                                                  ?.longitude,
                                               branchCodeLocat: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .branchCode,
+                                                          true))
+                                                  ?.branchCode,
                                               areaCode: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .areaCode,
+                                                          true))
+                                                  ?.areaCode,
                                               areaName: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .areaName,
+                                                          true))
+                                                  ?.areaName,
                                               regionCode: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .regionCode,
+                                                          true))
+                                                  ?.regionCode,
                                               regionName: FFAppState()
-                                                  .branchDataOutput[functions
+                                                  .branchDataOutput
+                                                  .elementAtOrNull(functions
                                                       .getIndexOfBoolList(
                                                           FFAppState()
                                                               .selectedDropdownList
                                                               .toList(),
-                                                          true)]
-                                                  .regionName,
+                                                          true))
+                                                  ?.regionName,
                                               locatCode: _model.dropDownValue,
                                               receiver: ((FFAppState().profileLevel ==
                                                               'สาขา') ||

@@ -255,7 +255,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
     }
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1439,9 +1442,13 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () =>
-                                                        FocusScope.of(context)
-                                                            .unfocus(),
+                                                    onTap: () {
+                                                      FocusScope.of(context)
+                                                          .unfocus();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    },
                                                     child: Padding(
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
@@ -1685,8 +1692,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         BorderRadius.circular(
                                                             12.0),
                                                     child: Image.network(
-                                                      FFAppState().imgURL[
-                                                          uploadedImgIndex],
+                                                      FFAppState()
+                                                          .imgURL
+                                                          .elementAtOrNull(
+                                                              uploadedImgIndex)!,
                                                       width: 150.0,
                                                       height: 150.0,
                                                       fit: BoxFit.cover,
@@ -1749,8 +1758,9 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         await FirebaseStorage
                                                             .instance
                                                             .refFromURL(FFAppState()
-                                                                    .imgURL[
-                                                                uploadedImgIndex])
+                                                                .imgURL
+                                                                .elementAtOrNull(
+                                                                    uploadedImgIndex)!)
                                                             .delete();
                                                         FFAppState()
                                                             .removeAtIndexFromImgURL(
@@ -1961,8 +1971,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     builder: (context) {
                                       return WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () =>
-                                              FocusScope.of(context).unfocus(),
+                                          onTap: () {
+                                            FocusScope.of(context).unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),

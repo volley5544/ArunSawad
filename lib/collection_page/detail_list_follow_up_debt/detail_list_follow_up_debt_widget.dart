@@ -72,7 +72,10 @@ class _DetailListFollowUpDebtWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -272,7 +275,10 @@ class _DetailListFollowUpDebtWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -360,8 +366,11 @@ class _DetailListFollowUpDebtWidgetState
                                   builder: (context) {
                                     return WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () =>
-                                            FocusScope.of(context).unfocus(),
+                                        onTap: () {
+                                          FocusScope.of(context).unfocus();
+                                          FocusManager.instance.primaryFocus
+                                              ?.unfocus();
+                                        },
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
@@ -378,7 +387,7 @@ class _DetailListFollowUpDebtWidgetState
                                 if (!functions.checkPhoneNumberChar(
                                     CollectionApiGetDataPersonCall.mobilenumber(
                                   (_model.getListDataPerson?.jsonBody ?? ''),
-                                )?.first)) {
+                                )?.firstOrNull)) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -415,7 +424,7 @@ class _DetailListFollowUpDebtWidgetState
                                     await actions.open3CXAction(
                                   CollectionApiGetDataPersonCall.mobilenumber(
                                     (_model.getListDataPerson?.jsonBody ?? ''),
-                                  )?.first,
+                                  )?.firstOrNull,
                                 );
                                 _shouldSetState = true;
                                 if (_shouldSetState) safeSetState(() {});
@@ -649,7 +658,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'dateOfExp': serializeParam(
@@ -662,7 +671,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'tragetStat': serializeParam(
@@ -675,7 +684,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'contStat': serializeParam(
@@ -687,7 +696,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'expAmt': serializeParam(
@@ -699,7 +708,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'cusCode': serializeParam(
@@ -711,7 +720,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'database': serializeParam(
@@ -723,7 +732,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'expFrm': serializeParam(
@@ -735,7 +744,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'dateOfDue': serializeParam(
@@ -748,7 +757,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'followupDebtTab': serializeParam(
@@ -765,7 +774,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'sumCurrentDueAmt': serializeParam(
@@ -778,7 +787,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'lastPayDate': serializeParam(
@@ -791,7 +800,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                               'historyCount': serializeParam(
@@ -804,7 +813,7 @@ class _DetailListFollowUpDebtWidgetState
                                         )?.toList(),
                                         FFAppState().selectCardList.toList(),
                                         true)
-                                    ?.first,
+                                    ?.firstOrNull,
                                 ParamType.String,
                               ),
                             }.withoutNulls,
@@ -1239,7 +1248,8 @@ class _DetailListFollowUpDebtWidgetState
                                                           (_model.getListDataPerson
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        )?[listCardIndex]) ==
+                                                        )?.elementAtOrNull(
+                                                            listCardIndex)) ==
                                                         'Y'
                                                     ? Color(0xFFE9FFEA)
                                                     : Color(0xFFFADEC2),
@@ -1825,7 +1835,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         '${functions.dateToBEDate(CollectionApiGetDataPersonCall.lastPayDate(
                                                                           (_model.getListDataPerson?.jsonBody ??
                                                                               ''),
-                                                                        )?[listCardIndex])}',
+                                                                        )?.elementAtOrNull(listCardIndex))}',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -1967,7 +1977,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                     (_model.getListDataPerson
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first,
+                                                                  )?.firstOrNull,
                                                                   '-',
                                                                 ) ==
                                                                 'นัดชำระ'))
@@ -2045,7 +2055,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 Text(
                                                                               '${functions.showNumberWithComma(CollectionApiGetDataPersonCall.sumCurrentDueAmt(
                                                                                 (_model.getListDataPerson?.jsonBody ?? ''),
-                                                                              )?[listCardIndex])} บาท',
+                                                                              )?.elementAtOrNull(listCardIndex))} บาท',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 14.0,
@@ -2140,7 +2150,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               functions.dateToBEDate(valueOrDefault<String>(
                                                                                 CollectionApiGetDataPersonCall.dateOfData(
                                                                                   (_model.getListDataPerson?.jsonBody ?? ''),
-                                                                                )?[listCardIndex],
+                                                                                )?.elementAtOrNull(listCardIndex),
                                                                                 'date_of_data',
                                                                               )),
                                                                               'date_of_data',

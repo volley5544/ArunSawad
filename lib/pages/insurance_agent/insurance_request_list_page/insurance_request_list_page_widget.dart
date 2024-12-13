@@ -46,7 +46,10 @@ class _InsuranceRequestListPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -168,7 +171,10 @@ class _InsuranceRequestListPageWidgetState
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -344,19 +350,21 @@ class _InsuranceRequestListPageWidgetState
                                                   (_model.getRequestList
                                                           ?.jsonBody ??
                                                       ''),
-                                                )?[requestListItemIndex]) ==
+                                                )?.elementAtOrNull(
+                                                        requestListItemIndex)) ==
                                                 '-'
                                             ? 'ข้อมูลผิด'
-                                            : (((InsuranceRequestListAPICall
+                                            : ((InsuranceRequestListAPICall
                                                         .flagRenew(
                                                       (_model.getRequestList
                                                               ?.jsonBody ??
                                                           ''),
-                                                    )?[requestListItemIndex]) ==
+                                                    )?.elementAtOrNull(
+                                                        requestListItemIndex)) ==
                                                     FFAppState()
                                                         .insuranceBasicListFlagRenew
                                                 ? 'งานต่ออายุ'
-                                                : 'งานใหม่')),
+                                                : 'งานใหม่'),
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -373,10 +381,10 @@ class _InsuranceRequestListPageWidgetState
                                         '${InsuranceRequestListAPICall.firstname(
                                           (_model.getRequestList?.jsonBody ??
                                               ''),
-                                        )?[requestListItemIndex]} ${InsuranceRequestListAPICall.lastname(
+                                        )?.elementAtOrNull(requestListItemIndex)} ${InsuranceRequestListAPICall.lastname(
                                           (_model.getRequestList?.jsonBody ??
                                               ''),
-                                        )?[requestListItemIndex]}',
+                                        )?.elementAtOrNull(requestListItemIndex)}',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -398,7 +406,8 @@ class _InsuranceRequestListPageWidgetState
                                                   .coverTypeName(
                                             (_model.getRequestList?.jsonBody ??
                                                 ''),
-                                          )?[requestListItemIndex]),
+                                          )?.elementAtOrNull(
+                                                  requestListItemIndex)),
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -454,10 +463,13 @@ class _InsuranceRequestListPageWidgetState
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -482,14 +494,14 @@ class _InsuranceRequestListPageWidgetState
                                                       .apiUrlInsurance,
                                                   token:
                                                       FFAppState().accessToken,
-                                                  leadId:
-                                                      (InsuranceRequestListAPICall
-                                                              .leadId(
+                                                  leadId: (InsuranceRequestListAPICall
+                                                          .leadId(
                                                     (_model.getRequestList
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[requestListItemIndex])
-                                                          ?.toString(),
+                                                  )?.elementAtOrNull(
+                                                          requestListItemIndex))
+                                                      ?.toString(),
                                                 );
 
                                                 Navigator.pop(context);
@@ -873,7 +885,7 @@ class _InsuranceRequestListPageWidgetState
                                                         (_model.getInsuranceDetail
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      )?[0]),
+                                                      )?.elementAtOrNull(0)),
                                                       ParamType.String,
                                                     ),
                                                     'garageTypeName':
@@ -884,7 +896,7 @@ class _InsuranceRequestListPageWidgetState
                                                         (_model.getInsuranceDetail
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      )?[0]),
+                                                      )?.elementAtOrNull(0)),
                                                       ParamType.String,
                                                     ),
                                                     'imageFront':
@@ -1191,10 +1203,13 @@ class _InsuranceRequestListPageWidgetState
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -1219,14 +1234,14 @@ class _InsuranceRequestListPageWidgetState
                                                       .apiUrlInsurance,
                                                   token:
                                                       FFAppState().accessToken,
-                                                  leadId:
-                                                      (InsuranceRequestListAPICall
-                                                              .leadId(
+                                                  leadId: (InsuranceRequestListAPICall
+                                                          .leadId(
                                                     (_model.getRequestList
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[requestListItemIndex])
-                                                          ?.toString(),
+                                                  )?.elementAtOrNull(
+                                                          requestListItemIndex))
+                                                      ?.toString(),
                                                 );
 
                                                 FFAppState().fromPage =
@@ -1568,7 +1583,7 @@ class _InsuranceRequestListPageWidgetState
                                                           ?.jsonBody ??
                                                       ''),
                                                 )!
-                                                        .first;
+                                                        .firstOrNull!;
                                                 safeSetState(() {});
                                                 Navigator.pop(context);
 

@@ -55,7 +55,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -243,7 +246,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -523,9 +529,13 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                           builder: (context) {
                                             return WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () =>
-                                                    FocusScope.of(context)
-                                                        .unfocus(),
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
                                                 child: Padding(
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
@@ -817,8 +827,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                 if (FFAppState().multiApprove) {
                                   FFAppState().updateSelectApproveListAtIndex(
                                     leaveIdItemIndex,
-                                    (_) => FFAppState().selectApproveList[
-                                                leaveIdItemIndex] ==
+                                    (_) => FFAppState()
+                                                .selectApproveList
+                                                .elementAtOrNull(
+                                                    leaveIdItemIndex) ==
                                             true
                                         ? false
                                         : true,
@@ -858,8 +870,9 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                   Colors.transparent,
                                               onTap: () async {
                                                 if (FFAppState()
-                                                        .selectApproveList[
-                                                    leaveIdItemIndex]) {
+                                                    .selectApproveList
+                                                    .elementAtOrNull(
+                                                        leaveIdItemIndex)!) {
                                                   FFAppState()
                                                       .updateSelectApproveListAtIndex(
                                                     leaveIdItemIndex,
@@ -890,8 +903,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                 ),
                                                 child: Visibility(
                                                   visible: FFAppState()
-                                                          .selectApproveList[
-                                                      leaveIdItemIndex],
+                                                          .selectApproveList
+                                                          .elementAtOrNull(
+                                                              leaveIdItemIndex) ??
+                                                      true,
                                                   child: Icon(
                                                     Icons.check,
                                                     color: FlutterFlowTheme.of(
@@ -1006,6 +1021,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8.0),
+                                                    shape: BoxShape.rectangle,
                                                   ),
                                                   child: Padding(
                                                     padding:
@@ -1204,7 +1220,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               () async {
                                                                             FFAppState().updateSelectApproveListAtIndex(
                                                                               leaveIdItemIndex,
-                                                                              (_) => FFAppState().selectApproveList[leaveIdItemIndex] == true ? false : true,
+                                                                              (_) => FFAppState().selectApproveList.elementAtOrNull(leaveIdItemIndex) == true ? false : true,
                                                                             );
                                                                             safeSetState(() {});
                                                                           },
@@ -2193,7 +2209,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: UrlLinkWidget(
@@ -2213,7 +2232,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: ShowCheckinImageWidget(
@@ -2307,7 +2329,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: LoadingSceneWidget(),
@@ -2674,7 +2699,10 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: LoadingSceneWidget(),

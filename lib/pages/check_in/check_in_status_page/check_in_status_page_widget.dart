@@ -80,7 +80,10 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -600,7 +603,10 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -653,7 +659,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  onTap: () {
+                                    FocusScope.of(context).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: Container(
@@ -702,7 +712,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  onTap: () {
+                                    FocusScope.of(context).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: PDFViewerWidget(
@@ -724,7 +738,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  onTap: () {
+                                    FocusScope.of(context).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: PDFViewerWidget(
@@ -1239,7 +1257,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                               GetLeaveDateCheckinAPICall.endLeaveDateCM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),
-                                                                              FFAppState().checkinStatusDate[checkinActionStatusListIndex])
+                                                                              FFAppState().checkinStatusDate.elementAtOrNull(checkinActionStatusListIndex))
                                                                           : false),
                                                                   shape: BoxShape
                                                                       .circle,
@@ -1280,7 +1298,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                               GetLeaveDateCheckinAPICall.endLeaveDateCM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),
-                                                                              FFAppState().checkinStatusDate[checkinActionStatusListIndex])
+                                                                              FFAppState().checkinStatusDate.elementAtOrNull(checkinActionStatusListIndex))
                                                                           : false,
                                                                       GetLeaveDateCheckinAPICall.statusLayer3CM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
@@ -1293,7 +1311,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                               GetLeaveDateCheckinAPICall.endLeaveDateCM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),
-                                                                              FFAppState().checkinStatusDate[checkinActionStatusListIndex],
+                                                                              FFAppState().checkinStatusDate.elementAtOrNull(checkinActionStatusListIndex),
                                                                               GetLeaveDateCheckinAPICall.leaveTypeCM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),
@@ -1610,7 +1628,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                                 GetLeaveDateCheckinAPICall.endLeaveDateLM(
                                                                                   (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                                 )?.toList(),
-                                                                                FFAppState().checkinLastMonthDate[checkinStatusLMListIndex])
+                                                                                FFAppState().checkinLastMonthDate.elementAtOrNull(checkinStatusLMListIndex))
                                                                             : false),
                                                                     Color(
                                                                         0xFF9D6969),
@@ -1654,7 +1672,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                               GetLeaveDateCheckinAPICall.endLeaveDateLM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),
-                                                                              FFAppState().checkinLastMonthDate[checkinStatusLMListIndex])
+                                                                              FFAppState().checkinLastMonthDate.elementAtOrNull(checkinStatusLMListIndex))
                                                                           : false,
                                                                       GetLeaveDateCheckinAPICall.statusLayer3LM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
@@ -1667,7 +1685,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                               GetLeaveDateCheckinAPICall.endLeaveDateLM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),
-                                                                              FFAppState().checkinLastMonthDate[checkinStatusLMListIndex],
+                                                                              FFAppState().checkinLastMonthDate.elementAtOrNull(checkinStatusLMListIndex),
                                                                               GetLeaveDateCheckinAPICall.leaveTypeLM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               )?.toList(),

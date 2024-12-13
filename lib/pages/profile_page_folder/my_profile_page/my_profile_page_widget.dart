@@ -225,7 +225,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -245,7 +248,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                   builder: (context) {
                     return WebViewAware(
                       child: GestureDetector(
-                        onTap: () => FocusScope.of(context).unfocus(),
+                        onTap: () {
+                          FocusScope.of(context).unfocus();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: Container(
@@ -534,10 +540,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -1063,10 +1072,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -2205,8 +2217,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           licenseList[licenseListIndex];
                                       return Visibility(
                                         visible: FFAppState()
-                                                    .insuranceLicenseStatusCode[
-                                                licenseListIndex] ==
+                                                .insuranceLicenseStatusCode
+                                                .elementAtOrNull(
+                                                    licenseListIndex) ==
                                             200,
                                         child: Padding(
                                           padding:
@@ -2248,8 +2261,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                 children: [
                                                   Text(
                                                     listViewInsuranceLicenseDataRecord!
-                                                            .licenseName[
-                                                        licenseListIndex],
+                                                        .licenseName
+                                                        .elementAtOrNull(
+                                                            licenseListIndex)!,
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2295,8 +2309,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                   String>(
                                                                 functions.censorString(
                                                                     FFAppState()
-                                                                            .profileInsuLicenseNumLicense[
-                                                                        licenseListIndex],
+                                                                        .profileInsuLicenseNumLicense
+                                                                        .elementAtOrNull(
+                                                                            licenseListIndex),
                                                                     4),
                                                                 'เลขที่ใบอนุญาต',
                                                               ),
@@ -2340,8 +2355,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                             flex: 3,
                                                             child: Text(
                                                               FFAppState()
-                                                                      .profileInsuLicenseExpireDate[
-                                                                  licenseListIndex],
+                                                                  .profileInsuLicenseExpireDate
+                                                                  .elementAtOrNull(
+                                                                      licenseListIndex)!,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -2380,15 +2396,17 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           'insuranceName':
                                                               serializeParam(
                                                             listViewInsuranceLicenseDataRecord
-                                                                    ?.licenseName?[
-                                                                licenseListIndex],
+                                                                ?.licenseName
+                                                                ?.elementAtOrNull(
+                                                                    licenseListIndex),
                                                             ParamType.String,
                                                           ),
                                                           'insuranceType':
                                                               serializeParam(
                                                             listViewInsuranceLicenseDataRecord
-                                                                    ?.licenseType?[
-                                                                licenseListIndex],
+                                                                ?.licenseType
+                                                                ?.elementAtOrNull(
+                                                                    licenseListIndex),
                                                             ParamType.String,
                                                           ),
                                                         }.withoutNulls,

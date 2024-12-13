@@ -57,7 +57,10 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -121,7 +124,10 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -193,7 +199,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                             functions.showDateBE(valueOrDefault<String>(
                               GetKPIAllCall.etlCreateDate(
                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                              )?[0],
+                              )?.elementAtOrNull(0),
                               '0',
                             )),
                             'date',
@@ -220,7 +226,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                 .parseStringToDatetime(valueOrDefault<String>(
                               GetKPIAllCall.etlCreateDate(
                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                              )?[0],
+                              )?.elementAtOrNull(0),
                               '0',
                             )),
                             locale: FFLocalizations.of(context).languageCode,
@@ -298,40 +304,46 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                       padding: EdgeInsets.all(4.0),
                                       tabs: [
                                         Tab(
-                                          text: GetKPIAllCall.monthth(
+                                          text: (GetKPIAllCall.monthth(
                                             (_model.kPIAllOutput?.jsonBody ??
                                                 ''),
-                                          )![0],
+                                          )!
+                                              .elementAtOrNull(0))!,
                                         ),
                                         Tab(
-                                          text: GetKPIAllCall.monthth(
+                                          text: (GetKPIAllCall.monthth(
                                             (_model.kPIAllOutput?.jsonBody ??
                                                 ''),
-                                          )![1],
+                                          )!
+                                              .elementAtOrNull(1))!,
                                         ),
                                         Tab(
-                                          text: GetKPIAllCall.monthth(
+                                          text: (GetKPIAllCall.monthth(
                                             (_model.kPIAllOutput?.jsonBody ??
                                                 ''),
-                                          )![2],
+                                          )!
+                                              .elementAtOrNull(2))!,
                                         ),
                                         Tab(
-                                          text: GetKPIAllCall.monthth(
+                                          text: (GetKPIAllCall.monthth(
                                             (_model.kPIAllOutput?.jsonBody ??
                                                 ''),
-                                          )![3],
+                                          )!
+                                              .elementAtOrNull(3))!,
                                         ),
                                         Tab(
-                                          text: GetKPIAllCall.monthth(
+                                          text: (GetKPIAllCall.monthth(
                                             (_model.kPIAllOutput?.jsonBody ??
                                                 ''),
-                                          )![4],
+                                          )!
+                                              .elementAtOrNull(4))!,
                                         ),
                                         Tab(
-                                          text: GetKPIAllCall.monthth(
+                                          text: (GetKPIAllCall.monthth(
                                             (_model.kPIAllOutput?.jsonBody ??
                                                 ''),
-                                          )![5],
+                                          )!
+                                              .elementAtOrNull(5))!,
                                         ),
                                       ],
                                       controller: _model.tabBarController,
@@ -451,7 +463,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -559,12 +572,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countleadsurvey(
+                                                                    (GetKPIAllCall
+                                                                            .countleadsurvey(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![0],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            0))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -672,12 +687,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countLeadID(
+                                                                    (GetKPIAllCall
+                                                                            .countLeadID(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![0],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            0))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -781,12 +798,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .tagetUnit(
+                                                                    (GetKPIAllCall
+                                                                            .tagetUnit(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![0],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            0))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -896,7 +915,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1006,7 +1026,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1094,21 +1115,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   () {
-                                                                    if (functions
-                                                                            .stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                    if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall
+                                                                            .achieveKEYINCSHPRCLead(
                                                                           (_model.kPIAllOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[0])) <
-                                                                        rowKPIAllChangeRecord!.danger) {
+                                                                        )?.elementAtOrNull(
+                                                                            0))) <
+                                                                        rowKPIAllChangeRecord!
+                                                                            .danger) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.dangerColor;
                                                                     } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[0])) <
+                                                                            )?.elementAtOrNull(0))) <
                                                                             rowKPIAllChangeRecord!.normal) &&
                                                                         (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[0])) >=
+                                                                            )?.elementAtOrNull(0))) >=
                                                                             rowKPIAllChangeRecord!.danger)) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.normalColor;
@@ -1143,7 +1166,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .achieveKEYINCSHPRCLead(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[0],
+                                                                      )?.elementAtOrNull(
+                                                                          0),
                                                                       '0',
                                                                     ))} %',
                                                                     style: FlutterFlowTheme.of(
@@ -1249,12 +1273,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countPolicyNoTPB(
+                                                                    (GetKPIAllCall
+                                                                            .countPolicyNoTPB(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![0],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            0))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1364,7 +1390,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1474,12 +1501,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .ibssumApp(
+                                                                    (GetKPIAllCall
+                                                                            .ibssumApp(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![0],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            0))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1595,7 +1624,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1711,7 +1741,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countpolicynoepa(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[0],
+                                                                      )?.elementAtOrNull(
+                                                                          0),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -1829,7 +1860,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -1945,7 +1977,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[0],
+                                                                      )?.elementAtOrNull(
+                                                                          0),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -2063,7 +2096,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2180,7 +2214,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[0],
+                                                                      )?.elementAtOrNull(
+                                                                          0),
                                                                       '-',
                                                                     )),
                                                                     style: FlutterFlowTheme.of(
@@ -2298,7 +2333,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[0]),
+                                                                    )?.elementAtOrNull(
+                                                                            0)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2424,7 +2460,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2532,12 +2569,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countleadsurvey(
+                                                                    (GetKPIAllCall
+                                                                            .countleadsurvey(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![1],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            1))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2645,12 +2684,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countLeadID(
+                                                                    (GetKPIAllCall
+                                                                            .countLeadID(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![1],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            1))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2754,12 +2795,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .tagetUnit(
+                                                                    (GetKPIAllCall
+                                                                            .tagetUnit(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![1],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            1))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2869,7 +2912,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -2979,7 +3023,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -3067,21 +3112,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   () {
-                                                                    if (functions
-                                                                            .stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                    if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall
+                                                                            .achieveKEYINCSHPRCLead(
                                                                           (_model.kPIAllOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[1])) <
-                                                                        rowKPIAllChangeRecord!.danger) {
+                                                                        )?.elementAtOrNull(
+                                                                            1))) <
+                                                                        rowKPIAllChangeRecord!
+                                                                            .danger) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.dangerColor;
                                                                     } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[1])) <
+                                                                            )?.elementAtOrNull(1))) <
                                                                             rowKPIAllChangeRecord!.normal) &&
                                                                         (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[1])) >=
+                                                                            )?.elementAtOrNull(1))) >=
                                                                             rowKPIAllChangeRecord!.danger)) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.normalColor;
@@ -3115,7 +3162,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1])} %',
+                                                                    )?.elementAtOrNull(1))} %',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -3225,7 +3272,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoTPB(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[1],
+                                                                      )?.elementAtOrNull(
+                                                                          1),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -3337,7 +3385,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -3447,12 +3496,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .ibssumApp(
+                                                                    (GetKPIAllCall
+                                                                            .ibssumApp(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![1],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            1))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -3568,7 +3619,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -3684,7 +3736,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countpolicynoepa(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[1],
+                                                                      )?.elementAtOrNull(
+                                                                          1),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -3802,7 +3855,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -3918,7 +3972,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[1],
+                                                                      )?.elementAtOrNull(
+                                                                          1),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -4036,7 +4091,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4152,7 +4208,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[1],
+                                                                      )?.elementAtOrNull(
+                                                                          1),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -4270,7 +4327,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[1]),
+                                                                    )?.elementAtOrNull(
+                                                                            1)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4396,7 +4454,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4504,12 +4563,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countleadsurvey(
+                                                                    (GetKPIAllCall
+                                                                            .countleadsurvey(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![2],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            2))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4617,12 +4678,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countLeadID(
+                                                                    (GetKPIAllCall
+                                                                            .countLeadID(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![2],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            2))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4726,12 +4789,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .tagetUnit(
+                                                                    (GetKPIAllCall
+                                                                            .tagetUnit(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![2],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            2))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4841,7 +4906,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -4951,7 +5017,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5039,21 +5106,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   () {
-                                                                    if (functions
-                                                                            .stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                    if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall
+                                                                            .achieveKEYINCSHPRCLead(
                                                                           (_model.kPIAllOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[2])) <
-                                                                        rowKPIAllChangeRecord!.danger) {
+                                                                        )?.elementAtOrNull(
+                                                                            2))) <
+                                                                        rowKPIAllChangeRecord!
+                                                                            .danger) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.dangerColor;
                                                                     } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[2])) <
+                                                                            )?.elementAtOrNull(2))) <
                                                                             rowKPIAllChangeRecord!.normal) &&
                                                                         (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[2])) >=
+                                                                            )?.elementAtOrNull(2))) >=
                                                                             rowKPIAllChangeRecord!.danger)) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.normalColor;
@@ -5087,7 +5156,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2])} %',
+                                                                    )?.elementAtOrNull(2))} %',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5191,12 +5260,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countPolicyNoTPB(
+                                                                    (GetKPIAllCall
+                                                                            .countPolicyNoTPB(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![2],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            2))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5306,7 +5377,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5416,12 +5488,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .ibssumApp(
+                                                                    (GetKPIAllCall
+                                                                            .ibssumApp(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![2],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            2))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5537,7 +5611,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5653,7 +5728,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countpolicynoepa(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[2],
+                                                                      )?.elementAtOrNull(
+                                                                          2),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -5771,7 +5847,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -5887,7 +5964,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[2],
+                                                                      )?.elementAtOrNull(
+                                                                          2),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -6005,7 +6083,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6121,7 +6200,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[2],
+                                                                      )?.elementAtOrNull(
+                                                                          2),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -6239,7 +6319,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[2]),
+                                                                    )?.elementAtOrNull(
+                                                                            2)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6365,7 +6446,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3]),
+                                                                    )?.elementAtOrNull(
+                                                                            3)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6473,12 +6555,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countleadsurvey(
+                                                                    (GetKPIAllCall
+                                                                            .countleadsurvey(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![3],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            3))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6586,12 +6670,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countLeadID(
+                                                                    (GetKPIAllCall
+                                                                            .countLeadID(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![3],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            3))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6695,12 +6781,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .tagetUnit(
+                                                                    (GetKPIAllCall
+                                                                            .tagetUnit(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![3],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            3))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6810,7 +6898,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3]),
+                                                                    )?.elementAtOrNull(
+                                                                            3)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -6920,7 +7009,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3]),
+                                                                    )?.elementAtOrNull(
+                                                                            3)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7008,21 +7098,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   () {
-                                                                    if (functions
-                                                                            .stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                    if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall
+                                                                            .achieveKEYINCSHPRCLead(
                                                                           (_model.kPIAllOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[3])) <
-                                                                        rowKPIAllChangeRecord!.danger) {
+                                                                        )?.elementAtOrNull(
+                                                                            3))) <
+                                                                        rowKPIAllChangeRecord!
+                                                                            .danger) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.dangerColor;
                                                                     } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[3])) <
+                                                                            )?.elementAtOrNull(3))) <
                                                                             rowKPIAllChangeRecord!.normal) &&
                                                                         (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[3])) >=
+                                                                            )?.elementAtOrNull(3))) >=
                                                                             rowKPIAllChangeRecord!.danger)) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.normalColor;
@@ -7056,7 +7148,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3])} %',
+                                                                    )?.elementAtOrNull(3))} %',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7160,12 +7252,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countPolicyNoTPB(
+                                                                    (GetKPIAllCall
+                                                                            .countPolicyNoTPB(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![3],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            3))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7275,7 +7369,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3]),
+                                                                    )?.elementAtOrNull(
+                                                                            3)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7385,12 +7480,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .ibssumApp(
+                                                                    (GetKPIAllCall
+                                                                            .ibssumApp(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![3],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            3))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7506,7 +7603,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3]),
+                                                                    )?.elementAtOrNull(
+                                                                            3)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7622,7 +7720,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countpolicynoepa(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[3],
+                                                                      )?.elementAtOrNull(
+                                                                          3),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -7740,7 +7839,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[3]),
+                                                                    )?.elementAtOrNull(
+                                                                            3)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -7856,7 +7956,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[3],
+                                                                      )?.elementAtOrNull(
+                                                                          3),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -7975,7 +8076,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .totalPremiumCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[3],
+                                                                      )?.elementAtOrNull(
+                                                                          3),
                                                                       '-',
                                                                     )),
                                                                     style: FlutterFlowTheme.of(
@@ -8093,7 +8195,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[3],
+                                                                      )?.elementAtOrNull(
+                                                                          3),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -8212,7 +8315,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .totalPremiumMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[3],
+                                                                      )?.elementAtOrNull(
+                                                                          3),
                                                                       '-',
                                                                     )),
                                                                     style: FlutterFlowTheme.of(
@@ -8340,7 +8444,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -8448,12 +8553,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countleadsurvey(
+                                                                    (GetKPIAllCall
+                                                                            .countleadsurvey(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![4],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            4))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -8561,12 +8668,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countLeadID(
+                                                                    (GetKPIAllCall
+                                                                            .countLeadID(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![4],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            4))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -8670,12 +8779,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .tagetUnit(
+                                                                    (GetKPIAllCall
+                                                                            .tagetUnit(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![4],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            4))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -8785,7 +8896,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -8895,7 +9007,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -8983,21 +9096,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   () {
-                                                                    if (functions
-                                                                            .stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                    if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall
+                                                                            .achieveKEYINCSHPRCLead(
                                                                           (_model.kPIAllOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[4])) <
-                                                                        rowKPIAllChangeRecord!.danger) {
+                                                                        )?.elementAtOrNull(
+                                                                            4))) <
+                                                                        rowKPIAllChangeRecord!
+                                                                            .danger) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.dangerColor;
                                                                     } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[4])) <
+                                                                            )?.elementAtOrNull(4))) <
                                                                             rowKPIAllChangeRecord!.normal) &&
                                                                         (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[4])) >=
+                                                                            )?.elementAtOrNull(4))) >=
                                                                             rowKPIAllChangeRecord!.danger)) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.normalColor;
@@ -9031,7 +9146,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4])} %',
+                                                                    )?.elementAtOrNull(4))} %',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -9135,12 +9250,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countPolicyNoTPB(
+                                                                    (GetKPIAllCall
+                                                                            .countPolicyNoTPB(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![4],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            4))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -9250,7 +9367,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -9360,12 +9478,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .ibssumApp(
+                                                                    (GetKPIAllCall
+                                                                            .ibssumApp(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![4],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            4))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -9481,7 +9601,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -9597,7 +9718,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countpolicynoepa(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[4],
+                                                                      )?.elementAtOrNull(
+                                                                          4),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -9715,7 +9837,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -9831,7 +9954,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[4],
+                                                                      )?.elementAtOrNull(
+                                                                          4),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -9949,7 +10073,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10065,7 +10190,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[4],
+                                                                      )?.elementAtOrNull(
+                                                                          4),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -10183,7 +10309,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[4]),
+                                                                    )?.elementAtOrNull(
+                                                                            4)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10309,7 +10436,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10417,12 +10545,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countleadsurvey(
+                                                                    (GetKPIAllCall
+                                                                            .countleadsurvey(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![5],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            5))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10530,12 +10660,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countLeadID(
+                                                                    (GetKPIAllCall
+                                                                            .countLeadID(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![5],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            5))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10639,12 +10771,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .tagetUnit(
+                                                                    (GetKPIAllCall
+                                                                            .tagetUnit(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![5],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            5))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10754,7 +10888,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10864,7 +10999,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -10952,21 +11088,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   () {
-                                                                    if (functions
-                                                                            .stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                    if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall
+                                                                            .achieveKEYINCSHPRCLead(
                                                                           (_model.kPIAllOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[5])) <
-                                                                        rowKPIAllChangeRecord!.danger) {
+                                                                        )?.elementAtOrNull(
+                                                                            5))) <
+                                                                        rowKPIAllChangeRecord!
+                                                                            .danger) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.dangerColor;
                                                                     } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[5])) <
+                                                                            )?.elementAtOrNull(5))) <
                                                                             rowKPIAllChangeRecord!.normal) &&
                                                                         (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?[5])) >=
+                                                                            )?.elementAtOrNull(5))) >=
                                                                             rowKPIAllChangeRecord!.danger)) {
                                                                       return rowKPIAllChangeRecord
                                                                           ?.normalColor;
@@ -11000,7 +11138,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5])} %',
+                                                                    )?.elementAtOrNull(5))} %',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -11104,12 +11242,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .countPolicyNoTPB(
+                                                                    (GetKPIAllCall
+                                                                            .countPolicyNoTPB(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![5],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            5))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -11219,7 +11359,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -11329,12 +11470,14 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           8.0,
                                                                           4.0),
                                                                   child: Text(
-                                                                    GetKPIAllCall
-                                                                        .ibssumApp(
+                                                                    (GetKPIAllCall
+                                                                            .ibssumApp(
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )![5],
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            5))!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -11450,7 +11593,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -11566,7 +11710,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countpolicynoepa(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[5],
+                                                                      )?.elementAtOrNull(
+                                                                          5),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -11684,7 +11829,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -11800,7 +11946,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoCMI(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[5],
+                                                                      )?.elementAtOrNull(
+                                                                          5),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -11918,7 +12065,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall
@@ -12034,7 +12182,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                           .countPolicyNoMOTOR(
                                                                         (_model.kPIAllOutput?.jsonBody ??
                                                                             ''),
-                                                                      )?[5],
+                                                                      )?.elementAtOrNull(
+                                                                          5),
                                                                       '-',
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
@@ -12152,7 +12301,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       (_model.kPIAllOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[5]),
+                                                                    )?.elementAtOrNull(
+                                                                            5)),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodySmall

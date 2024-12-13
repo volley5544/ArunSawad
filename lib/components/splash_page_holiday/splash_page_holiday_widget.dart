@@ -156,33 +156,38 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if ((functions.sortingBoolListByOrder(
+                                            if ((functions
+                                                    .sortingBoolListByOrder(
                                                         containerSplashPageHolidayImgRecord
                                                             ?.isHaveLink
                                                             ?.toList(),
                                                         containerSplashPageHolidayImgRecord
                                                             ?.index
-                                                            ?.toList())?[
-                                                    splashPageHolidayImgListIndex]) ==
+                                                            ?.toList())
+                                                    ?.elementAtOrNull(
+                                                        splashPageHolidayImgListIndex)) ==
                                                 true) {
-                                              await launchURL(functions
+                                              await launchURL((functions
+                                                  .sortingListByOrder(
+                                                      containerSplashPageHolidayImgRecord
+                                                          ?.linkUrl
+                                                          ?.toList(),
+                                                      containerSplashPageHolidayImgRecord
+                                                          ?.index
+                                                          ?.toList())!
+                                                  .elementAtOrNull(
+                                                      splashPageHolidayImgListIndex))!);
+                                            } else {
+                                              if ((functions
                                                       .sortingListByOrder(
                                                           containerSplashPageHolidayImgRecord
                                                               ?.linkUrl
                                                               ?.toList(),
                                                           containerSplashPageHolidayImgRecord
                                                               ?.index
-                                                              ?.toList())![
-                                                  splashPageHolidayImgListIndex]);
-                                            } else {
-                                              if ((functions.sortingListByOrder(
-                                                          containerSplashPageHolidayImgRecord
-                                                              ?.linkUrl
-                                                              ?.toList(),
-                                                          containerSplashPageHolidayImgRecord
-                                                              ?.index
-                                                              ?.toList())?[
-                                                      splashPageHolidayImgListIndex]) ==
+                                                              ?.toList())
+                                                      ?.elementAtOrNull(
+                                                          splashPageHolidayImgListIndex)) ==
                                                   'Bottom Sheet') {
                                                 await showModalBottomSheet(
                                                   isScrollControlled: true,
@@ -217,21 +222,22 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                               placeholderBuilder: (_) =>
                                                   SizedBox.expand(
                                                 child: Image(
-                                                  image: BlurHashImage(functions
-                                                          .sortingListByOrder(
-                                                              containerSplashPageHolidayImgRecord
-                                                                  ?.blurHash
-                                                                  ?.toList(),
-                                                              containerSplashPageHolidayImgRecord
-                                                                  ?.index
-                                                                  ?.toList())![
-                                                      splashPageHolidayImgListIndex]),
+                                                  image: BlurHashImage((functions
+                                                      .sortingListByOrder(
+                                                          containerSplashPageHolidayImgRecord
+                                                              ?.blurHash
+                                                              ?.toList(),
+                                                          containerSplashPageHolidayImgRecord
+                                                              ?.index
+                                                              ?.toList())!
+                                                      .elementAtOrNull(
+                                                          splashPageHolidayImgListIndex))!),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
                                               image: NetworkImage(
-                                                functions.stringToImgPath(
-                                                    functions.sortingListByOrder(
+                                                functions.stringToImgPath(functions
+                                                    .sortingListByOrder(
                                                         functions
                                                             .imgPathListToStringList(
                                                                 containerSplashPageHolidayImgRecord
@@ -240,7 +246,9 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                                             ?.toList(),
                                                         containerSplashPageHolidayImgRecord
                                                             ?.index
-                                                            ?.toList())?[splashPageHolidayImgListIndex])!,
+                                                            ?.toList())
+                                                    ?.elementAtOrNull(
+                                                        splashPageHolidayImgListIndex))!,
                                               ),
                                               width: double.infinity,
                                               height: double.infinity,

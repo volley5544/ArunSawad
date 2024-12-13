@@ -156,7 +156,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                               child: Image(
                                                 image: BlurHashImage(
                                                     containerSplashPageImgRecord!
-                                                        .blurHash.first),
+                                                        .blurHash.firstOrNull!),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),

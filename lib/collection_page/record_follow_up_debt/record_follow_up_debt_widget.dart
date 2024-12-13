@@ -56,7 +56,10 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -170,7 +173,10 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -309,17 +315,18 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     0.0),
                                                         child: Text(
                                                           true
-                                                              ? (valueOrDefault<
+                                                              ? valueOrDefault<
                                                                   String>(
                                                                   GetCalledHistoryCollectionApiCall
                                                                       .calledTime(
                                                                     (_model.getCalledHistory
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[calledStatusListItemIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      calledStatusListItemIndex),
                                                                   '-',
-                                                                ))
-                                                              : (((String
+                                                                )
+                                                              : ((String
                                                                   callTime) {
                                                                   return '${callTime!.split(' ')[0].split('/')[0]}/${callTime!.split(' ')[0].split('/')[1]}/${int.parse(callTime!.split(' ')[0].split('/')[2]) + 543} ${callTime!.split(' ')[1]}';
                                                                 }(valueOrDefault<
@@ -329,9 +336,10 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     (_model.getCalledHistory
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[calledStatusListItemIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      calledStatusListItemIndex),
                                                                   '-',
-                                                                )))),
+                                                                ))),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -432,7 +440,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                   (_model.getCalledHistory
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[calledStatusListItemIndex],
+                                                                )?.elementAtOrNull(
+                                                                    calledStatusListItemIndex),
                                                                 '-',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -536,7 +545,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                 (_model.getCalledHistory
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[calledStatusListItemIndex],
+                                                              )?.elementAtOrNull(
+                                                                  calledStatusListItemIndex),
                                                               '-',
                                                             )}] ${valueOrDefault<String>(
                                                               GetCalledHistoryCollectionApiCall
@@ -544,7 +554,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                 (_model.getCalledHistory
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[calledStatusListItemIndex],
+                                                              )?.elementAtOrNull(
+                                                                  calledStatusListItemIndex),
                                                               '-',
                                                             )}',
                                                             style: FlutterFlowTheme
@@ -642,23 +653,24 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                       0.0),
                                                           child: Text(
                                                             (GetCalledHistoryCollectionApiCall
-                                                                            .remdetcode(
+                                                                        .remdetcode(
                                                                       (_model.getCalledHistory
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[
-                                                                        calledStatusListItemIndex]) ==
+                                                                    )?.elementAtOrNull(
+                                                                        calledStatusListItemIndex)) ==
                                                                     'PP'
-                                                                ? (valueOrDefault<
+                                                                ? valueOrDefault<
                                                                     String>(
                                                                     GetCalledHistoryCollectionApiCall
                                                                         .arAppdate(
                                                                       (_model.getCalledHistory
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[calledStatusListItemIndex],
+                                                                    )?.elementAtOrNull(
+                                                                        calledStatusListItemIndex),
                                                                     '-',
-                                                                  ))
+                                                                  )
                                                                 : '-',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -772,7 +784,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                           .arDesc(
                                                                         (_model.getCalledHistory?.jsonBody ??
                                                                             ''),
-                                                                      )?[calledStatusListItemIndex],
+                                                                      )?.elementAtOrNull(
+                                                                          calledStatusListItemIndex),
                                                                       '-',
                                                                     )) !=
                                                                     '') {
@@ -785,7 +798,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                       (_model.getCalledHistory
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[calledStatusListItemIndex],
+                                                                    )?.elementAtOrNull(
+                                                                        calledStatusListItemIndex),
                                                                     '-',
                                                                   ))!);
                                                                 }
@@ -798,7 +812,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     (_model.getCalledHistory
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[calledStatusListItemIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      calledStatusListItemIndex),
                                                                   '-',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -834,7 +849,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                 (_model.getCalledHistory
                                                         ?.jsonBody ??
                                                     ''),
-                                              )?[calledStatusListItemIndex],
+                                              )?.elementAtOrNull(
+                                                  calledStatusListItemIndex),
                                               '-',
                                             )) !=
                                             '')
@@ -858,7 +874,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                         (_model.getCalledHistory
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      )?[calledStatusListItemIndex],
+                                                      )?.elementAtOrNull(
+                                                          calledStatusListItemIndex),
                                                       '-',
                                                     ))!);
                                                   },

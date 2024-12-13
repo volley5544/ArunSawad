@@ -256,9 +256,10 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                       child: Container(
                                                         height: double.infinity,
                                                         child: ShowimgurlWidget(
-                                                          imgPath: widget!
-                                                                  .leaveDoc![
-                                                              leavedocIndex],
+                                                          imgPath: (widget!
+                                                              .leaveDoc!
+                                                              .elementAtOrNull(
+                                                                  leavedocIndex))!,
                                                         ),
                                                       ),
                                                     ),

@@ -115,7 +115,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -252,7 +255,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             builder: (context) {
               return WebViewAware(
                 child: GestureDetector(
-                  onTap: () => FocusScope.of(context).unfocus(),
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: Container(
@@ -288,7 +294,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -391,7 +400,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -672,7 +684,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                         ),
                       if ((FFAppState().secretEmployee == '33511') ||
                           (FFAppState().secretEmployee == '31622') ||
-                          (FFAppState().secretEmployee == 'euai'))
+                          (FFAppState().secretEmployee == 'euai') ||
+                          (FFAppState().secretEmployee == '23328'))
                         Expanded(
                           flex: 1,
                           child: Container(
@@ -702,9 +715,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           builder: (context) {
                                             return WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () =>
-                                                    FocusScope.of(context)
-                                                        .unfocus(),
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
                                                 child: Padding(
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
@@ -863,8 +880,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -1314,7 +1334,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    if (FFAppState().expInsuLessthen30[0])
+                                    if (FFAppState()
+                                            .expInsuLessthen30
+                                            .elementAtOrNull(0) ??
+                                        true)
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -1333,7 +1356,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               ),
                                         ),
                                       ),
-                                    if (FFAppState().expInsuLessthen30[1])
+                                    if (FFAppState()
+                                            .expInsuLessthen30
+                                            .elementAtOrNull(1) ??
+                                        true)
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -1443,42 +1469,49 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if ((functions.sortingListByOrder(
+                                            if ((functions
+                                                    .sortingListByOrder(
                                                         pageViewBannerArunSawadImgBannerRecord
                                                             ?.linkUrl
                                                             ?.toList(),
                                                         pageViewBannerArunSawadImgBannerRecord
                                                             ?.index
-                                                            ?.toList())?[
-                                                    bannerImgListIndex]) !=
+                                                            ?.toList())
+                                                    ?.elementAtOrNull(
+                                                        bannerImgListIndex)) !=
                                                 'Hello World') {
-                                              if ((functions.sortingBoolListByOrder(
+                                              if ((functions
+                                                      .sortingBoolListByOrder(
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.isHaveLink
                                                               ?.toList(),
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.index
-                                                              ?.toList())?[
-                                                      bannerImgListIndex]) !=
+                                                              ?.toList())
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex)) !=
                                                   true) {
-                                                await launchURL(functions
+                                                await launchURL((functions
+                                                    .sortingListByOrder(
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.linkUrl
+                                                            ?.toList(),
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        bannerImgListIndex))!);
+                                              } else {
+                                                if ((functions
                                                         .sortingListByOrder(
                                                             pageViewBannerArunSawadImgBannerRecord
                                                                 ?.linkUrl
                                                                 ?.toList(),
                                                             pageViewBannerArunSawadImgBannerRecord
                                                                 ?.index
-                                                                ?.toList())![
-                                                    bannerImgListIndex]);
-                                              } else {
-                                                if ((functions.sortingListByOrder(
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.linkUrl
-                                                                ?.toList(),
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.index
-                                                                ?.toList())?[
-                                                        bannerImgListIndex]) ==
+                                                                ?.toList())
+                                                        ?.elementAtOrNull(
+                                                            bannerImgListIndex)) ==
                                                     'Bottom Sheet') {
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
@@ -1489,10 +1522,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -1515,14 +1553,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                 await actions
                                                     .openTableauBrowser(
                                                   FFAppState().accessToken,
-                                                  functions.sortingListByOrder(
+                                                  functions
+                                                      .sortingListByOrder(
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.linkUrl
                                                               ?.toList(),
                                                           pageViewBannerArunSawadImgBannerRecord
                                                               ?.index
-                                                              ?.toList())?[
-                                                      bannerImgListIndex],
+                                                              ?.toList())
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex),
                                                   FFAppState()
                                                       .isOpenAndroidTableauBrowser,
                                                 );
@@ -1533,21 +1573,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                             placeholderBuilder: (_) =>
                                                 SizedBox.expand(
                                               child: Image(
-                                                image: BlurHashImage(functions
-                                                        .sortingListByOrder(
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.blurHash
-                                                                ?.toList(),
-                                                            pageViewBannerArunSawadImgBannerRecord
-                                                                ?.index
-                                                                ?.toList())![
-                                                    bannerImgListIndex]),
+                                                image: BlurHashImage((functions
+                                                    .sortingListByOrder(
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.blurHash
+                                                            ?.toList(),
+                                                        pageViewBannerArunSawadImgBannerRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        bannerImgListIndex))!),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
                                             image: CachedNetworkImageProvider(
-                                              functions.stringToImgPath(
-                                                  functions.sortingListByOrder(
+                                              functions.stringToImgPath(functions
+                                                  .sortingListByOrder(
                                                       functions
                                                           .imgPathListToStringList(
                                                               pageViewBannerArunSawadImgBannerRecord
@@ -1556,7 +1597,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ?.toList(),
                                                       pageViewBannerArunSawadImgBannerRecord
                                                           ?.index
-                                                          ?.toList())?[bannerImgListIndex])!,
+                                                          ?.toList())
+                                                  ?.elementAtOrNull(
+                                                      bannerImgListIndex))!,
                                             ),
                                             width: 100.0,
                                             height: 100.0,
@@ -1694,24 +1737,28 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             if ((pageViewArunSawadImgBannerRecord
-                                                        ?.linkUrl?[
-                                                    bannerImgListIndex]) !=
+                                                    ?.linkUrl
+                                                    ?.elementAtOrNull(
+                                                        bannerImgListIndex)) !=
                                                 'Hello World') {
                                               if ((pageViewArunSawadImgBannerRecord
-                                                          ?.isHaveLink?[
-                                                      bannerImgListIndex]) !=
+                                                      ?.isHaveLink
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex)) !=
                                                   true) {
                                                 await launchURL(
                                                     pageViewArunSawadImgBannerRecord!
-                                                            .linkUrl[
-                                                        bannerImgListIndex]);
+                                                        .linkUrl
+                                                        .elementAtOrNull(
+                                                            bannerImgListIndex)!);
                                               } else {
                                                 await actions
                                                     .openTableauBrowser(
                                                   FFAppState().accessToken,
                                                   pageViewArunSawadImgBannerRecord
-                                                          ?.linkUrl?[
-                                                      bannerImgListIndex],
+                                                      ?.linkUrl
+                                                      ?.elementAtOrNull(
+                                                          bannerImgListIndex),
                                                   FFAppState()
                                                       .isOpenAndroidTableauBrowser,
                                                 );
@@ -1722,21 +1769,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                             placeholderBuilder: (_) =>
                                                 SizedBox.expand(
                                               child: Image(
-                                                image: BlurHashImage(functions
-                                                        .sortingListByOrder(
-                                                            pageViewArunSawadImgBannerRecord
-                                                                ?.blurHash
-                                                                ?.toList(),
-                                                            pageViewArunSawadImgBannerRecord
-                                                                ?.index
-                                                                ?.toList())![
-                                                    bannerImgListIndex]),
+                                                image: BlurHashImage((functions
+                                                    .sortingListByOrder(
+                                                        pageViewArunSawadImgBannerRecord
+                                                            ?.blurHash
+                                                            ?.toList(),
+                                                        pageViewArunSawadImgBannerRecord
+                                                            ?.index
+                                                            ?.toList())!
+                                                    .elementAtOrNull(
+                                                        bannerImgListIndex))!),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
                                             image: CachedNetworkImageProvider(
-                                              functions.stringToImgPath(
-                                                  functions.sortingListByOrder(
+                                              functions.stringToImgPath(functions
+                                                  .sortingListByOrder(
                                                       functions
                                                           .imgPathListToStringList(
                                                               pageViewArunSawadImgBannerRecord
@@ -1745,7 +1793,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ?.toList(),
                                                       pageViewArunSawadImgBannerRecord
                                                           ?.index
-                                                          ?.toList())?[bannerImgListIndex])!,
+                                                          ?.toList())
+                                                  ?.elementAtOrNull(
+                                                      bannerImgListIndex))!,
                                             ),
                                             width: 100.0,
                                             height: 100.0,
@@ -2252,7 +2302,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -2524,7 +2577,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -2734,7 +2790,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -2949,7 +3008,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -2973,7 +3035,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 Navigator.pop(context);
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageTypeMQuery?.reportUrl?.first}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageTypeMQuery?.reportUrl?.firstOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                                 if (_shouldSetState) safeSetState(() {});
@@ -3050,7 +3112,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -3335,7 +3400,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -3359,7 +3427,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 Navigator.pop(context);
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiQuery?.reportUrl?[0]}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiQuery?.reportUrl?.elementAtOrNull(0)}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                                 if (_shouldSetState) safeSetState(() {});
@@ -3468,7 +3536,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -3492,7 +3563,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 Navigator.pop(context);
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiHoQuery?.reportUrl?[1]}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiHoQuery?.reportUrl?.elementAtOrNull(1)}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                                 if (_shouldSetState) safeSetState(() {});
@@ -3606,7 +3677,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -3631,20 +3705,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (FFAppState().profileLevel == 'เขต') {
                                                                                   await actions.openTableauBrowser(
                                                                                     FFAppState().accessToken,
-                                                                                    '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?[1]}',
+                                                                                    '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.elementAtOrNull(1)}',
                                                                                     FFAppState().isOpenAndroidTableauBrowser,
                                                                                   );
                                                                                 } else {
                                                                                   if (FFAppState().profileLevel == 'ภาค') {
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.first}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.firstOrNull}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                   } else {
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.last}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.lastOrNull}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                   }
@@ -3760,7 +3834,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -3784,7 +3861,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 Navigator.pop(context);
                                                                                 await actions.openTableauBrowser(
                                                                                   FFAppState().accessToken,
-                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarQuery?.reportUrl?.first}',
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarQuery?.reportUrl?.firstOrNull}',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
                                                                                 if (_shouldSetState) safeSetState(() {});
@@ -3897,7 +3974,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -3922,20 +4002,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (FFAppState().profileLevel == 'เขต') {
                                                                                   await actions.openTableauBrowser(
                                                                                     FFAppState().accessToken,
-                                                                                    '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.first}',
+                                                                                    '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.firstOrNull}',
                                                                                     FFAppState().isOpenAndroidTableauBrowser,
                                                                                   );
                                                                                 } else {
                                                                                   if (FFAppState().profileLevel == 'ภาค') {
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?[1]}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.elementAtOrNull(1)}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                   } else {
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.last}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.lastOrNull}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                   }
@@ -4026,7 +4106,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -4612,7 +4695,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -4762,7 +4848,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -5023,7 +5112,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -5263,7 +5355,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -5387,7 +5482,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: Container(
@@ -5523,7 +5621,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -5775,7 +5876,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -6036,7 +6140,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -6243,7 +6350,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -6450,7 +6560,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -6656,7 +6769,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -6863,7 +6979,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -7070,7 +7189,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -7279,7 +7401,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -7503,7 +7628,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -7709,7 +7837,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -7917,7 +8048,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -8025,7 +8159,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -8248,7 +8385,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   var _shouldSetState = false;
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'เช็คอิน') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'เช็คอิน') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -8264,7 +8401,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'ประกันนอกเรท') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'ประกันนอกเรท') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -8284,7 +8421,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         builder: (context) {
                                                                                           return WebViewAware(
                                                                                             child: GestureDetector(
-                                                                                              onTap: () => FocusScope.of(context).unfocus(),
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(context).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
                                                                                               child: Padding(
                                                                                                 padding: MediaQuery.viewInsetsOf(context),
                                                                                                 child: Container(
@@ -8710,7 +8850,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'ขออนุมัติลา') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'ขออนุมัติลา') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -8729,7 +8869,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -8858,7 +9001,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'รายชื่อลีด') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'รายชื่อลีด') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -8876,7 +9019,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9013,7 +9159,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'เช็คเบี้ยประกัน') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'เช็คเบี้ยประกัน') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -9031,7 +9177,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9150,7 +9299,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'ยอดจัดสาขา') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'ยอดจัดสาขา') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -9168,7 +9317,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9298,7 +9450,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       context.goNamed('WelfareKPIPage');
                                                                                     }
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'โปรโมชั่น') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'โปรโมชั่น') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -9316,7 +9468,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9435,7 +9590,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'KPI ') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'KPI ') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -9453,7 +9608,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9604,7 +9762,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'Branch View') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'Branch View') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -9622,7 +9780,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9741,7 +9902,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex]) == 'QR พนักงาน') {
+                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'QR พนักงาน') {
                                                                                     HapticFeedback.mediumImpact();
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
@@ -9759,7 +9920,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -9895,7 +10059,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           shape: BoxShape.circle,
                                                                                         ),
                                                                                         child: Image.network(
-                                                                                          columnRoleMenuRecord!.serviecMenuIcon[serviceMenuListItemIndex],
+                                                                                          columnRoleMenuRecord!.serviecMenuIcon.elementAtOrNull(serviceMenuListItemIndex)!,
                                                                                           fit: BoxFit.cover,
                                                                                         ),
                                                                                       ),
@@ -9903,7 +10067,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                                         child: Text(
                                                                                           valueOrDefault<String>(
-                                                                                            columnRoleMenuRecord?.servicemenuName?[serviceMenuListItemIndex],
+                                                                                            columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex),
                                                                                             'mene_name',
                                                                                           ),
                                                                                           textAlign: TextAlign.center,
@@ -10046,7 +10210,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         shape: BoxShape.circle,
                                                                                       ),
                                                                                       child: Image.network(
-                                                                                        columnRoleMenuRecord!.reportMenuIcon[reportMenuListItemIndex],
+                                                                                        columnRoleMenuRecord!.reportMenuIcon.elementAtOrNull(reportMenuListItemIndex)!,
                                                                                         fit: BoxFit.cover,
                                                                                       ),
                                                                                     ),
@@ -10054,7 +10218,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         valueOrDefault<String>(
-                                                                                          columnRoleMenuRecord?.reportmenuName?[reportMenuListItemIndex],
+                                                                                          columnRoleMenuRecord?.reportmenuName?.elementAtOrNull(reportMenuListItemIndex),
                                                                                           'Test',
                                                                                         ),
                                                                                         textAlign: TextAlign.center,
@@ -10187,11 +10351,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
-                                                                                  if ((columnRoleMenuRecord?.othermenuName?[otherMenuListItemIndex]) == 'COACH') {
-                                                                                    await launchURL(columnRoleMenuRecord!.otherMenuUrl[otherMenuListItemIndex]);
+                                                                                  if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'COACH') {
+                                                                                    await launchURL(columnRoleMenuRecord!.otherMenuUrl.elementAtOrNull(otherMenuListItemIndex)!);
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.othermenuName?[otherMenuListItemIndex]) == 'ฟอร์มลีด') {
+                                                                                  if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'ฟอร์มลีด') {
                                                                                     context.goNamed('LeadSurveyRegisPage');
 
                                                                                     return;
@@ -10201,11 +10365,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     'WebviewPage',
                                                                                     queryParameters: {
                                                                                       'titleName': serializeParam(
-                                                                                        columnRoleMenuRecord?.othermenuName?[otherMenuListItemIndex],
+                                                                                        columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
                                                                                         ParamType.String,
                                                                                       ),
                                                                                       'webUrl': serializeParam(
-                                                                                        columnRoleMenuRecord?.otherMenuUrl?[otherMenuListItemIndex],
+                                                                                        columnRoleMenuRecord?.otherMenuUrl?.elementAtOrNull(otherMenuListItemIndex),
                                                                                         ParamType.String,
                                                                                       ),
                                                                                     }.withoutNulls,
@@ -10227,7 +10391,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         ),
                                                                                         child: Image.network(
                                                                                           valueOrDefault<String>(
-                                                                                            columnRoleMenuRecord?.otherMenuIcon?[otherMenuListItemIndex],
+                                                                                            columnRoleMenuRecord?.otherMenuIcon?.elementAtOrNull(otherMenuListItemIndex),
                                                                                             'test',
                                                                                           ),
                                                                                           fit: BoxFit.cover,
@@ -10237,7 +10401,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                                         child: Text(
                                                                                           valueOrDefault<String>(
-                                                                                            columnRoleMenuRecord?.othermenuName?[otherMenuListItemIndex],
+                                                                                            columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
                                                                                             'test',
                                                                                           ),
                                                                                           textAlign: TextAlign.center,
@@ -10502,13 +10666,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         children: [
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -10568,13 +10732,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -10603,7 +10767,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -10819,13 +10986,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID) ||
@@ -10855,7 +11022,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -11012,13 +11182,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID) ||
@@ -11079,13 +11249,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID) ||
@@ -11144,7 +11314,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -11264,7 +11437,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -11288,7 +11464,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     Navigator.pop(context);
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageTypeMQuery?.reportUrl?.first}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageTypeMQuery?.reportUrl?.firstOrNull}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                     if (_shouldSetState) safeSetState(() {});
@@ -11333,13 +11509,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'บันทึกวีดิโอ (ลูกค้า)'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -11360,7 +11536,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: Container(
@@ -11471,13 +11650,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เส้นทางนักขายประกัน'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()))
@@ -11580,7 +11759,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -11604,7 +11786,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     Navigator.pop(context);
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiQueryTab?.reportUrl?[0]}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiQueryTab?.reportUrl?.elementAtOrNull(0)}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                     if (_shouldSetState) safeSetState(() {});
@@ -11700,7 +11882,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -11724,7 +11909,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     Navigator.pop(context);
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiHoQueryTab?.reportUrl?[1]}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageDsiHoQueryTab?.reportUrl?.elementAtOrNull(1)}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                     if (_shouldSetState) safeSetState(() {});
@@ -11769,13 +11954,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'GEN E-PA'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()) ||
@@ -11830,7 +12015,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -11855,20 +12043,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (FFAppState().profileLevel == 'เขต') {
                                                                                       await actions.openTableauBrowser(
                                                                                         FFAppState().accessToken,
-                                                                                        '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?[1]}',
+                                                                                        '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.elementAtOrNull(1)}',
                                                                                         FFAppState().isOpenAndroidTableauBrowser,
                                                                                       );
                                                                                     } else {
                                                                                       if (FFAppState().profileLevel == 'ภาค') {
                                                                                         await actions.openTableauBrowser(
                                                                                           FFAppState().accessToken,
-                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.first}',
+                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.firstOrNull}',
                                                                                           FFAppState().isOpenAndroidTableauBrowser,
                                                                                         );
                                                                                       } else {
                                                                                         await actions.openTableauBrowser(
                                                                                           FFAppState().accessToken,
-                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.last}',
+                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.lastOrNull}',
                                                                                           FFAppState().isOpenAndroidTableauBrowser,
                                                                                         );
                                                                                       }
@@ -11916,13 +12104,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานรถยึด'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()) ||
@@ -11977,7 +12165,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -12001,7 +12192,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     Navigator.pop(context);
                                                                                     await actions.openTableauBrowser(
                                                                                       FFAppState().accessToken,
-                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarTab?.reportUrl?.first}',
+                                                                                      '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageImpoundCarTab?.reportUrl?.firstOrNull}',
                                                                                       FFAppState().isOpenAndroidTableauBrowser,
                                                                                     );
                                                                                     if (_shouldSetState) safeSetState(() {});
@@ -12046,13 +12237,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โครงการ ZUVศษ'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()) ||
@@ -12107,7 +12298,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -12132,20 +12326,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (FFAppState().profileLevel == 'เขต') {
                                                                                       await actions.openTableauBrowser(
                                                                                         FFAppState().accessToken,
-                                                                                        '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.first}',
+                                                                                        '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.firstOrNull}',
                                                                                         FFAppState().isOpenAndroidTableauBrowser,
                                                                                       );
                                                                                     } else {
                                                                                       if (FFAppState().profileLevel == 'ภาค') {
                                                                                         await actions.openTableauBrowser(
                                                                                           FFAppState().accessToken,
-                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?[1]}',
+                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.elementAtOrNull(1)}',
                                                                                           FFAppState().isOpenAndroidTableauBrowser,
                                                                                         );
                                                                                       } else {
                                                                                         await actions.openTableauBrowser(
                                                                                           FFAppState().accessToken,
-                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.last}',
+                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQueryTab?.reportUrl?.lastOrNull}',
                                                                                           FFAppState().isOpenAndroidTableauBrowser,
                                                                                         );
                                                                                       }
@@ -12193,13 +12387,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ประกันนอกเรท'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -12231,7 +12425,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -12692,13 +12889,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงาน BSI'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -12757,13 +12954,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เป้า/ผลงาน'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -12792,7 +12989,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: Container(
@@ -12859,13 +13059,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'KPI'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -12929,7 +13129,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -13111,13 +13314,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -13175,7 +13378,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -13339,13 +13545,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ยอดจัดสาขา'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -13410,7 +13616,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -13534,7 +13743,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         builder: (context) {
                                                                                           return WebViewAware(
                                                                                             child: GestureDetector(
-                                                                                              onTap: () => FocusScope.of(context).unfocus(),
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(context).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
                                                                                               child: Padding(
                                                                                                 padding: MediaQuery.viewInsetsOf(context),
                                                                                                 child: Container(
@@ -13599,13 +13811,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายชื่อลีด'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -13633,7 +13845,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -13843,13 +14058,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), '%ความสำเร็จ'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -13907,7 +14122,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -14119,13 +14337,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ขออนุมัติลา'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -14153,7 +14371,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -14309,13 +14530,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Branch View'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -14344,7 +14565,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -14517,13 +14741,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คเบี้ยประกัน'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -14551,7 +14775,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -14706,13 +14933,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'Saleskit'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -14740,7 +14967,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -14896,13 +15126,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ฟอร์มลีด'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -14930,7 +15160,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -15086,13 +15319,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'โปรโมชั่น'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -15120,7 +15353,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -15276,13 +15512,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'COACH'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -15311,7 +15547,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -15482,13 +15721,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ห้องเรียนทันใจ'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID))
@@ -15516,7 +15755,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -15671,13 +15913,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ข้อมูลไอที'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()))
@@ -15705,7 +15947,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -15861,13 +16106,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รายงานการแชร์โพสต์'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()))
@@ -15895,7 +16140,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -15952,13 +16200,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด'))!;
                                                                                 } else if (FFAppState().profileLevel == 'เขต') {
-                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด')];
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด'))!;
                                                                                 } else {
-                                                                                  return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด')];
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'รวมกิจกรรมการตลาด'))!;
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord?.empAdmin?.contains(FFAppState().employeeID)?.toString()))
@@ -15986,7 +16234,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(
@@ -16186,8 +16437,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                     return WebViewAware(
                                                                       child:
                                                                           GestureDetector(
-                                                                        onTap: () =>
-                                                                            FocusScope.of(context).unfocus(),
+                                                                        onTap:
+                                                                            () {
+                                                                          FocusScope.of(context)
+                                                                              .unfocus();
+                                                                          FocusManager
+                                                                              .instance
+                                                                              .primaryFocus
+                                                                              ?.unfocus();
+                                                                        },
                                                                         child:
                                                                             Padding(
                                                                           padding:
@@ -16625,8 +16883,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                     return WebViewAware(
                                                                       child:
                                                                           GestureDetector(
-                                                                        onTap: () =>
-                                                                            FocusScope.of(context).unfocus(),
+                                                                        onTap:
+                                                                            () {
+                                                                          FocusScope.of(context)
+                                                                              .unfocus();
+                                                                          FocusManager
+                                                                              .instance
+                                                                              .primaryFocus
+                                                                              ?.unfocus();
+                                                                        },
                                                                         child:
                                                                             Padding(
                                                                           padding:
@@ -17127,7 +17392,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           builder: (context) {
                                                                                             return WebViewAware(
                                                                                               child: GestureDetector(
-                                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                                onTap: () {
+                                                                                                  FocusScope.of(context).unfocus();
+                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                },
                                                                                                 child: Padding(
                                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                                   child: Container(
@@ -17399,7 +17667,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(

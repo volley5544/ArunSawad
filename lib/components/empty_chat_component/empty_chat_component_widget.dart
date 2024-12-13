@@ -89,7 +89,9 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    if (FFAppState().timeChatIsVisibleList[0]) {
+                    if (FFAppState()
+                        .timeChatIsVisibleList
+                        .elementAtOrNull(0)!) {
                       FFAppState().updateTimeChatIsVisibleListAtIndex(
                         0,
                         (_) => false,
