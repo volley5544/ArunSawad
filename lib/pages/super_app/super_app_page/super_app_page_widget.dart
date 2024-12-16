@@ -177,6 +177,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       );
       FFAppState().roleMenuJson = _model.getDataRoleMenu!;
       safeSetState(() {});
+      _model.serviceMenuName = functions
+          .getDataFromMapJsonToList(
+              FFAppState().roleMenuJson, 'servicemenuName')!
+          .toList()
+          .cast<String>();
+      _model.serviceMenuIconUrl = functions
+          .getDataFromMapJsonToList(
+              FFAppState().roleMenuJson, 'serviecMenuIcon')!
+          .toList()
+          .cast<String>();
+      _model.serviceMenuOrder = functions
+          .getDataFromMapJsonToList(
+              FFAppState().roleMenuJson, 'servicemenuOrder')!
+          .toList()
+          .cast<String>();
+      safeSetState(() {});
       if (_model.leadNotiOutput != 'notification_message_type') {
         if (FFAppState().inAppViaNotification) {
           await showDialog(
@@ -8239,1863 +8255,247 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                   },
                                                 ),
                                               ),
-                                            if (false)
-                                              FutureBuilder<
-                                                  List<RoleMenuRecord>>(
-                                                future: queryRoleMenuRecordOnce(
-                                                  singleRecord: true,
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                          ),
+                                            FutureBuilder<List<RoleMenuRecord>>(
+                                              future: queryRoleMenuRecordOnce(
+                                                singleRecord: true,
+                                              ),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
                                                         ),
                                                       ),
-                                                    );
-                                                  }
-                                                  List<RoleMenuRecord>
-                                                      columnRoleMenuRecordList =
-                                                      snapshot.data!;
-                                                  final columnRoleMenuRecord =
-                                                      columnRoleMenuRecordList
-                                                              .isNotEmpty
-                                                          ? columnRoleMenuRecordList
-                                                              .first
-                                                          : null;
+                                                    ),
+                                                  );
+                                                }
+                                                List<RoleMenuRecord>
+                                                    columnRoleMenuRecordList =
+                                                    snapshot.data!;
+                                                final columnRoleMenuRecord =
+                                                    columnRoleMenuRecordList
+                                                            .isNotEmpty
+                                                        ? columnRoleMenuRecordList
+                                                            .first
+                                                        : null;
 
-                                                  return Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    15.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                height: 165.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  boxShadow: [
-                                                                    BoxShadow(
-                                                                      blurRadius:
-                                                                          4.0,
-                                                                      color: Color(
-                                                                          0x33000000),
-                                                                      offset:
-                                                                          Offset(
-                                                                        0.0,
-                                                                        2.0,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                  ),
-                                                                ),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          15.0,
-                                                                          15.0,
-                                                                          15.0,
-                                                                          10.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            'บริการ',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 20.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
+                                                return Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  15.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Container(
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 165.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Colors
+                                                                    .white,
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    blurRadius:
+                                                                        4.0,
+                                                                    color: Color(
+                                                                        0x33000000),
+                                                                    offset:
+                                                                        Offset(
+                                                                      0.0,
+                                                                      2.0,
                                                                     ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          Builder(
-                                                                        builder:
-                                                                            (context) {
-                                                                          final serviceMenuListItem =
-                                                                              columnRoleMenuRecord?.servicemenuName?.toList() ?? [];
-
-                                                                          return ListView
-                                                                              .builder(
-                                                                            padding:
-                                                                                EdgeInsets.zero,
-                                                                            scrollDirection:
-                                                                                Axis.horizontal,
-                                                                            itemCount:
-                                                                                serviceMenuListItem.length,
-                                                                            itemBuilder:
-                                                                                (context, serviceMenuListItemIndex) {
-                                                                              final serviceMenuListItemItem = serviceMenuListItem[serviceMenuListItemIndex];
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  var _shouldSetState = false;
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'เช็คอิน') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-
-                                                                                    context.goNamed('DashboardCheckin');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'ประกันนอกเรท') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (!FFAppState().insuranceRequestIsLoadedData) {
-                                                                                      showModalBottomSheet(
-                                                                                        isScrollControlled: true,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        barrierColor: Color(0x00000000),
-                                                                                        enableDrag: false,
-                                                                                        context: context,
-                                                                                        builder: (context) {
-                                                                                          return WebViewAware(
-                                                                                            child: GestureDetector(
-                                                                                              onTap: () {
-                                                                                                FocusScope.of(context).unfocus();
-                                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                                              },
-                                                                                              child: Padding(
-                                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                                child: Container(
-                                                                                                  height: double.infinity,
-                                                                                                  child: LoadingSceneWidget(),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      ).then((value) => safeSetState(() {}));
-
-                                                                                      _model.gerBrandNew = await TeleGetBrandAPICall.call(
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                      );
-
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.gerBrand?.statusCode ?? 200) != 200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.gerBrand?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (TeleGetBrandAPICall.statusLevel1(
-                                                                                            (_model.gerBrand?.jsonBody ?? ''),
-                                                                                          ) !=
-                                                                                          200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
-                                                                                                  (_model.gerBrand?.jsonBody ?? ''),
-                                                                                                )?.toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
-                                                                                        (_model.gerBrand?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicBrandNameList = TeleGetBrandAPICall.brandName(
-                                                                                        (_model.gerBrand?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().update(() {});
-                                                                                      _model.getModelNew = await TeleGetModelAPICall.call(
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                      );
-
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.getModel?.statusCode ?? 200) != 200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getModel?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (TeleGetModelAPICall.statusLevel1(
-                                                                                            (_model.getModel?.jsonBody ?? ''),
-                                                                                          ) !=
-                                                                                          200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
-                                                                                                  (_model.getModel?.jsonBody ?? ''),
-                                                                                                )?.toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      FFAppState().insuranceBasicModelIdListOriginal = TeleGetModelAPICall.modelCode(
-                                                                                        (_model.getModel?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicModelNameListOriginal = TeleGetModelAPICall.modelName(
-                                                                                        (_model.getModel?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().insuranceBasicModelBrandIdListOriginal = TeleGetModelAPICall.brandID(
-                                                                                        (_model.getModel?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().update(() {});
-                                                                                      _model.getProvinceNew = await TeleGetProvinceAPICall.call(
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                      );
-
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.getProvince?.statusCode ?? 200) != 200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (TeleGetProvinceAPICall.statusLevel1(
-                                                                                            (_model.getProvince?.jsonBody ?? ''),
-                                                                                          ) !=
-                                                                                          200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
-                                                                                                  (_model.getProvince?.jsonBody ?? ''),
-                                                                                                )?.toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      FFAppState().insuranceBasicProvinceIdList = TeleGetProvinceAPICall.provinceID(
-                                                                                        (_model.getProvince?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicProvinceNameList = TeleGetProvinceAPICall.provinceNameTH(
-                                                                                        (_model.getProvince?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().update(() {});
-                                                                                      _model.getVehicleNew = await InsuranceRequestGetVehicleAPICall.call(
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                      );
-
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.getVehicle?.statusCode ?? 200) != 200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getVehicle?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (InsuranceRequestGetVehicleAPICall.statusLayer1(
-                                                                                            (_model.getVehicle?.jsonBody ?? ''),
-                                                                                          ) !=
-                                                                                          200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
-                                                                                                  (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                )?.toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      FFAppState().insuranceBasicVehicleUsedTypeIdList = InsuranceRequestGetVehicleAPICall.vehicleId(
-                                                                                        (_model.getVehicle?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicVehicleUsedTypeNameList = InsuranceRequestGetVehicleAPICall.vehicleName(
-                                                                                        (_model.getVehicle?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicVehicleUsedTypeTypeList = InsuranceRequestGetVehicleAPICall.vehicletype(
-                                                                                        (_model.getVehicle?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicVehicleUsedTypeCodeList = InsuranceRequestGetVehicleAPICall.vehicleCode(
-                                                                                        (_model.getVehicle?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      safeSetState(() {});
-                                                                                      _model.getInsurerNew = await InsuranceRequestGetInsurerAPICall.call(
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                      );
-
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.getInsurer?.statusCode ?? 200) != 200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (InsuranceRequestGetInsurerAPICall.statusLayer1(
-                                                                                            (_model.getInsurer?.jsonBody ?? ''),
-                                                                                          ) !=
-                                                                                          200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
-                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                )?.toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      FFAppState().insuranceBasicInsurerIdList = InsuranceRequestGetInsurerAPICall.companyId(
-                                                                                        (_model.getInsurer?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicInsurerCodeList = InsuranceRequestGetInsurerAPICall.companyCode(
-                                                                                        (_model.getInsurer?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicInsurerShortNameList = InsuranceRequestGetInsurerAPICall.companyShortName(
-                                                                                        (_model.getInsurer?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicInsurerFullNameList = InsuranceRequestGetInsurerAPICall.companyFullName(
-                                                                                        (_model.getInsurer?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicInsurerListNameList = InsuranceRequestGetInsurerAPICall.companyListName(
-                                                                                        (_model.getInsurer?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .map((e) => e.toString())
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      safeSetState(() {});
-                                                                                      _model.getCoverTypeNew = await TeleGetCoverTypeAPICall.call(
-                                                                                        apiUrl: FFAppState().apiURLLocalState,
-                                                                                      );
-
-                                                                                      _shouldSetState = true;
-                                                                                      if ((_model.getCoverType?.statusCode ?? 200) != 200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getCoverType?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (TeleGetCoverTypeAPICall.statusLevel1(
-                                                                                            (_model.getCoverType?.jsonBody ?? ''),
-                                                                                          ) !=
-                                                                                          200) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
-                                                                                                  (_model.getCoverType?.jsonBody ?? ''),
-                                                                                                )?.toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      FFAppState().insuranceBasicCoverTypeIdList = TeleGetCoverTypeAPICall.coverTypeId(
-                                                                                        (_model.getCoverType?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicCoverTypeCodeList = TeleGetCoverTypeAPICall.coverTypeCode(
-                                                                                        (_model.getCoverType?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      FFAppState().insuranceBasicCoverTypeNameList = TeleGetCoverTypeAPICall.coverTypeName(
-                                                                                        (_model.getCoverType?.jsonBody ?? ''),
-                                                                                      )!
-                                                                                          .toList()
-                                                                                          .cast<String>();
-                                                                                      safeSetState(() {});
-                                                                                      FFAppState().insuranceRequestIsLoadedData = true;
-                                                                                      safeSetState(() {});
-                                                                                      Navigator.pop(context);
-                                                                                    }
-
-                                                                                    context.goNamed('InsuranceRequestDashboardPage');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'ขออนุมัติลา') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      enableDrag: false,
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginLeavePageNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginLeavePageNew?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginLeavePage?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginLeavePage?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginLeavePage?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    _model.bossCheckOutputNew = await GetBossAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                      token: FFAppState().accessToken,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    FFAppState().bossCheckFlag = GetBossAPICall.bossCheck(
-                                                                                      (_model.bossCheckOutput?.jsonBody ?? ''),
-                                                                                    )!;
-                                                                                    safeSetState(() {});
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed('DashboardLeavePage');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'รายชื่อลีด') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginCheckLeadNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginCheckLead?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginCheckLead?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginCheckLead?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginCheckLead?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    _model.countLeadNoti = await queryNotificationRecordCount(
-                                                                                      parent: FFAppState().userRef,
-                                                                                      queryBuilder: (notificationRecord) => notificationRecord.where(Filter.or(
-                                                                                        Filter(
-                                                                                          'noti_type',
-                                                                                          isEqualTo: 'Lead',
-                                                                                        ),
-                                                                                        Filter(
-                                                                                          'this_noti_is_read',
-                                                                                          isEqualTo: false,
-                                                                                        ),
-                                                                                      )),
-                                                                                    );
-                                                                                    _shouldSetState = true;
-                                                                                    await actions.batchUpdate2(
-                                                                                      FFAppState().userRef,
-                                                                                      'Lead',
-                                                                                    );
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed('LeadNotiPage');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'เช็คเบี้ยประกัน') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginInsuranceNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginInsurance?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginInsurance?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginInsurance?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginInsurance?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed('CheckInsurancePage');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'ยอดจัดสาขา') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginKPIWelfareNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginKPIWelfare?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginKPIWelfare?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginKPIWelfare?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginKPIWelfare?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    _model.queryWelfareAdmin = await queryAuthorizationRecordOnce(
-                                                                                      queryBuilder: (authorizationRecord) => authorizationRecord.where(
-                                                                                        'content_name',
-                                                                                        isEqualTo: 'welfare_kpi_ceo',
+                                                                  )
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                ),
+                                                              ),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            15.0,
+                                                                            15.0,
+                                                                            15.0,
+                                                                            10.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Text(
+                                                                          'บริการ',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                fontSize: 20.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w600,
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Builder(
+                                                                      builder:
+                                                                          (context) {
+                                                                        final serviceMenuListItem = _model
+                                                                            .serviceMenuName
+                                                                            .toList();
+
+                                                                        return ListView
+                                                                            .builder(
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                          scrollDirection:
+                                                                              Axis.horizontal,
+                                                                          itemCount:
+                                                                              serviceMenuListItem.length,
+                                                                          itemBuilder:
+                                                                              (context, serviceMenuListItemIndex) {
+                                                                            final serviceMenuListItemItem =
+                                                                                serviceMenuListItem[serviceMenuListItemIndex];
+                                                                            return InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.mediumImpact();
+                                                                                if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                  Navigator.pop(context);
+
+                                                                                  context.goNamed('PinCodePage');
+
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'เช็คอิน') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  return;
+                                                                                }
+                                                                              },
+                                                                              child: Container(
+                                                                                width: 100.0,
+                                                                                height: 100.0,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  children: [
+                                                                                    Container(
+                                                                                      width: 50.0,
+                                                                                      height: 50.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                        shape: BoxShape.circle,
                                                                                       ),
-                                                                                      singleRecord: true,
-                                                                                    ).then((s) => s.firstOrNull);
-                                                                                    _shouldSetState = true;
-                                                                                    if (_model.queryWelfareAdmin!.employeeIdList.contains(FFAppState().employeeID)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('WelfareKPICEOPage');
-                                                                                    } else {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('WelfareKPIPage');
-                                                                                    }
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'โปรโมชั่น') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(100.0),
+                                                                                        child: OctoImage(
+                                                                                          placeholderBuilder: (_) => SizedBox.expand(
+                                                                                            child: Image(
+                                                                                              image: BlurHashImage('LnPW1|bcrFXS}rbcxGbbBSX9OYX9'),
+                                                                                              fit: BoxFit.cover,
                                                                                             ),
                                                                                           ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginPromotionNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginPromotion?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginPromotion?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginPromotion?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginPromotion?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed('PromotionPage');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'KPI ') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
+                                                                                          image: NetworkImage(
+                                                                                            functions.stringToImgPath(valueOrDefault<String>(
+                                                                                              _model.serviceMenuIconUrl.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                return orderList.indexOf('${currentIndex + 1}');
+                                                                                              }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                              'icon_url',
+                                                                                            ))!,
                                                                                           ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginKPINew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginKPI?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginKPI?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginKPI?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginKPI?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('EmployeeKpiCEOPage');
-                                                                                    } else {
-                                                                                      _model.queryKpiUrl = await queryUrlLinkStorageRecordOnce(
-                                                                                        queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
-                                                                                          'url_name',
-                                                                                          isEqualTo: FFAppState().profileLevel == 'ภาค' ? 'tableau_url_link' : 'tableau_area_url_link',
-                                                                                        ),
-                                                                                        singleRecord: true,
-                                                                                      ).then((s) => s.firstOrNull);
-                                                                                      _shouldSetState = true;
-                                                                                      Navigator.pop(context);
-                                                                                      if (FFAppState().profileLevel == 'ภาค') {
-                                                                                        await actions.openTableauBrowser(
-                                                                                          FFAppState().accessToken,
-                                                                                          _model.queryKpiUrl?.urlLink,
-                                                                                          FFAppState().isOpenAndroidTableauBrowser,
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      if (FFAppState().profileLevel == 'เขต') {
-                                                                                        await actions.openTableauBrowser(
-                                                                                          FFAppState().accessToken,
-                                                                                          _model.queryKpiUrl?.urlLink,
-                                                                                          FFAppState().isOpenAndroidTableauBrowser,
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-
-                                                                                      context.goNamed('EmployeeKPIPage');
-                                                                                    }
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'Branch View') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginBranchViewNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginBranchView?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginBranchView?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginBranchView?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginBranchView?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed('Dashboard');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if ((columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex)) == 'QR พนักงาน') {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed('PinCodePage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.checkLoginQRNew = await ActionUserAPICall.call(
-                                                                                      token: FFAppState().accessToken,
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.checkLoginQR?.statusCode ?? 200) != 200) {
-                                                                                      if (!((ActionUserAPICall.message(
-                                                                                                (_model.checkLoginQR?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'The token has been blacklisted') ||
-                                                                                          (ActionUserAPICall.message(
-                                                                                                (_model.checkLoginQR?.jsonBody ?? ''),
-                                                                                              ) ==
-                                                                                              'Token Signature could not be verified.'))) {
-                                                                                        await showDialog(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginQR?.statusCode ?? 200).toString()})'),
-                                                                                                actions: [
-                                                                                                  TextButton(
-                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                    child: Text('Ok'),
-                                                                                                  ),
-                                                                                                ],
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        );
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                        return;
-                                                                                      }
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('Session Loginหมดอายุ'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                      FFAppState().deleteAccessToken();
-                                                                                      FFAppState().accessToken = 'access_token';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteEmployeeID();
-                                                                                      FFAppState().employeeID = 'employee_id';
-
-                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteApiURLLocalState();
-                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
-
-                                                                                      FFAppState().deleteBranchCode();
-                                                                                      FFAppState().branchCode = 'branch_code';
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().isFromSetPinPage = false;
-                                                                                      FFAppState().leadChannelColor = [];
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().leadChannelList = [];
-                                                                                      FFAppState().isFromLoginPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deletePinCodeAuthen();
-                                                                                      FFAppState().pinCodeAuthen = '013972';
-
-                                                                                      FFAppState().isFromAuthenPage = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().deleteDateDoNotShowAgain();
-                                                                                      FFAppState().dateDoNotShowAgain = null;
-
-                                                                                      FFAppState().deleteDoNotShowAgain();
-                                                                                      FFAppState().doNotShowAgain = false;
-
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().inAppViaNotification = true;
-                                                                                      FFAppState().isInApp = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      FFAppState().fcmToken = 'fcm_token';
-                                                                                      FFAppState().isPassLoginSection = false;
-                                                                                      FFAppState().update(() {});
-                                                                                      Navigator.pop(context);
-                                                                                      await actions.a22();
-
-                                                                                      context.goNamed('LoginPage');
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed('GenQRPage');
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                },
-                                                                                child: Container(
-                                                                                  width: 100.0,
-                                                                                  height: 100.0,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Column(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Container(
-                                                                                        width: 50.0,
-                                                                                        height: 50.0,
-                                                                                        clipBehavior: Clip.antiAlias,
-                                                                                        decoration: BoxDecoration(
-                                                                                          shape: BoxShape.circle,
-                                                                                        ),
-                                                                                        child: Image.network(
-                                                                                          columnRoleMenuRecord!.serviecMenuIcon.elementAtOrNull(serviceMenuListItemIndex)!,
+                                                                                          width: double.infinity,
+                                                                                          height: double.infinity,
                                                                                           fit: BoxFit.cover,
                                                                                         ),
                                                                                       ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            columnRoleMenuRecord?.servicemenuName?.elementAtOrNull(serviceMenuListItemIndex),
-                                                                                            'mene_name',
-                                                                                          ),
-                                                                                          textAlign: TextAlign.center,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                color: Color(0xFF3C4059),
-                                                                                                fontSize: 12.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w600,
-                                                                                              ),
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        valueOrDefault<String>(
+                                                                                          _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                            return orderList.indexOf('${currentIndex + 1}');
+                                                                                          }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                          'menu_name',
                                                                                         ),
+                                                                                        textAlign: TextAlign.center,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: Color(0xFF3C4059),
+                                                                                              fontSize: 12.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w600,
+                                                                                            ),
                                                                                       ),
-                                                                                    ],
-                                                                                  ),
+                                                                                    ),
+                                                                                  ],
                                                                                 ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                        },
-                                                                      ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      },
                                                                     ),
-                                                                  ],
-                                                                ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                        ],
                                                       ),
+                                                    ),
+                                                    if (false)
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -10246,6 +8646,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ],
                                                         ),
                                                       ),
+                                                    if (false)
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -10430,10 +8831,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ],
                                                         ),
                                                       ),
-                                                    ],
-                                                  );
-                                                },
-                                              ),
+                                                  ],
+                                                );
+                                              },
+                                            ),
                                             if (responsiveVisibility(
                                               context: context,
                                               phone: false,

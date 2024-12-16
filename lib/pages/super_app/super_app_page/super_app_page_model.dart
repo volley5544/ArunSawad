@@ -54,6 +54,50 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
           int index, Function(UrlLinkStorageRecord) updateFn) =>
       urlLinkStorage[index] = updateFn(urlLinkStorage[index]);
 
+  List<String> serviceMenuName = [];
+  void addToServiceMenuName(String item) => serviceMenuName.add(item);
+  void removeFromServiceMenuName(String item) => serviceMenuName.remove(item);
+  void removeAtIndexFromServiceMenuName(int index) =>
+      serviceMenuName.removeAt(index);
+  void insertAtIndexInServiceMenuName(int index, String item) =>
+      serviceMenuName.insert(index, item);
+  void updateServiceMenuNameAtIndex(int index, Function(String) updateFn) =>
+      serviceMenuName[index] = updateFn(serviceMenuName[index]);
+
+  List<String> serviceMenuIconUrl = [];
+  void addToServiceMenuIconUrl(String item) => serviceMenuIconUrl.add(item);
+  void removeFromServiceMenuIconUrl(String item) =>
+      serviceMenuIconUrl.remove(item);
+  void removeAtIndexFromServiceMenuIconUrl(int index) =>
+      serviceMenuIconUrl.removeAt(index);
+  void insertAtIndexInServiceMenuIconUrl(int index, String item) =>
+      serviceMenuIconUrl.insert(index, item);
+  void updateServiceMenuIconUrlAtIndex(int index, Function(String) updateFn) =>
+      serviceMenuIconUrl[index] = updateFn(serviceMenuIconUrl[index]);
+
+  List<String> serviceMenuOrder = [];
+  void addToServiceMenuOrder(String item) => serviceMenuOrder.add(item);
+  void removeFromServiceMenuOrder(String item) => serviceMenuOrder.remove(item);
+  void removeAtIndexFromServiceMenuOrder(int index) =>
+      serviceMenuOrder.removeAt(index);
+  void insertAtIndexInServiceMenuOrder(int index, String item) =>
+      serviceMenuOrder.insert(index, item);
+  void updateServiceMenuOrderAtIndex(int index, Function(String) updateFn) =>
+      serviceMenuOrder[index] = updateFn(serviceMenuOrder[index]);
+
+  List<String> serviceMenuIconBlurHash = [];
+  void addToServiceMenuIconBlurHash(String item) =>
+      serviceMenuIconBlurHash.add(item);
+  void removeFromServiceMenuIconBlurHash(String item) =>
+      serviceMenuIconBlurHash.remove(item);
+  void removeAtIndexFromServiceMenuIconBlurHash(int index) =>
+      serviceMenuIconBlurHash.removeAt(index);
+  void insertAtIndexInServiceMenuIconBlurHash(int index, String item) =>
+      serviceMenuIconBlurHash.insert(index, item);
+  void updateServiceMenuIconBlurHashAtIndex(
+          int index, Function(String) updateFn) =>
+      serviceMenuIconBlurHash[index] = updateFn(serviceMenuIconBlurHash[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
@@ -164,42 +208,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? queryMarketingUrl1;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryMarketingUrl2;
-  // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in Container widget.
-  ApiCallResponse? gerBrandNew;
-  // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in Container widget.
-  ApiCallResponse? getModelNew;
-  // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in Container widget.
-  ApiCallResponse? getProvinceNew;
-  // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in Container widget.
-  ApiCallResponse? getVehicleNew;
-  // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in Container widget.
-  ApiCallResponse? getInsurerNew;
-  // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in Container widget.
-  ApiCallResponse? getCoverTypeNew;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginLeavePageNew;
-  // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
-  ApiCallResponse? bossCheckOutputNew;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginCheckLeadNew;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  int? countLeadNoti;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginInsuranceNew;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginKPIWelfareNew;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  AuthorizationRecord? queryWelfareAdmin;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginPromotionNew;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginKPINew;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  UrlLinkStorageRecord? queryKpiUrl;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginBranchViewNew;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginQRNew;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginLeavePagetab;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
