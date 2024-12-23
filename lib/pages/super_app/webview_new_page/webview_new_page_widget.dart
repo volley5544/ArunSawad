@@ -124,7 +124,7 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     ),
                     child: FlutterFlowWebView(
                       content:
-                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${FFAppState().profileBranch}&token=${FFAppState().accessToken}&level${FFAppState().profileLevel}',
+                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}',
                       bypass: true,
                       height: 500.0,
                       verticalScroll: false,

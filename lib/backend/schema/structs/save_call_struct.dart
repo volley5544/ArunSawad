@@ -22,6 +22,7 @@ class SaveCallStruct extends FFFirebaseStruct {
     List<String>? remgcode,
     List<String>? remdetcode,
     List<String>? amount,
+    List<String>? server,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _contnoId = contnoId,
         _contno = contno,
@@ -35,6 +36,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         _remgcode = remgcode,
         _remdetcode = remdetcode,
         _amount = amount,
+        _server = server,
         super(firestoreUtilData);
 
   // "CONTNO_ID" field.
@@ -169,6 +171,17 @@ class SaveCallStruct extends FFFirebaseStruct {
 
   bool hasAmount() => _amount != null;
 
+  // "SERVER" field.
+  List<String>? _server;
+  List<String> get server => _server ?? const [];
+  set server(List<String>? val) => _server = val;
+
+  void updateServer(Function(List<String>) updateFn) {
+    updateFn(_server ??= []);
+  }
+
+  bool hasServer() => _server != null;
+
   static SaveCallStruct fromMap(Map<String, dynamic> data) => SaveCallStruct(
         contnoId: getDataList(data['CONTNO_ID']),
         contno: getDataList(data['CONTNO']),
@@ -182,6 +195,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         remgcode: getDataList(data['REMGCODE']),
         remdetcode: getDataList(data['REMDETCODE']),
         amount: getDataList(data['AMOUNT']),
+        server: getDataList(data['SERVER']),
       );
 
   static SaveCallStruct? maybeFromMap(dynamic data) =>
@@ -200,6 +214,7 @@ class SaveCallStruct extends FFFirebaseStruct {
         'REMGCODE': _remgcode,
         'REMDETCODE': _remdetcode,
         'AMOUNT': _amount,
+        'SERVER': _server,
       }.withoutNulls;
 
   @override
@@ -261,6 +276,11 @@ class SaveCallStruct extends FFFirebaseStruct {
         ),
         'AMOUNT': serializeParam(
           _amount,
+          ParamType.String,
+          isList: true,
+        ),
+        'SERVER': serializeParam(
+          _server,
           ParamType.String,
           isList: true,
         ),
@@ -328,6 +348,11 @@ class SaveCallStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        server: deserializeParam<String>(
+          data['SERVER'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -348,7 +373,8 @@ class SaveCallStruct extends FFFirebaseStruct {
         listEquality.equals(userid, other.userid) &&
         listEquality.equals(remgcode, other.remgcode) &&
         listEquality.equals(remdetcode, other.remdetcode) &&
-        listEquality.equals(amount, other.amount);
+        listEquality.equals(amount, other.amount) &&
+        listEquality.equals(server, other.server);
   }
 
   @override
@@ -364,7 +390,8 @@ class SaveCallStruct extends FFFirebaseStruct {
         userid,
         remgcode,
         remdetcode,
-        amount
+        amount,
+        server
       ]);
 }
 

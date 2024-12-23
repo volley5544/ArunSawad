@@ -1744,6 +1744,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                dbName: params.getParam<String>(
+                  'dbName',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(

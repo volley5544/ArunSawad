@@ -1035,6 +1035,17 @@ class _DetailListFollowUpDebtWidgetState
                                 ParamType.String,
                                 isList: true,
                               ),
+                              'dbName': serializeParam(
+                                functions.returnMapListFromBoolList(
+                                    CollectionApiGetDataPersonCall.dbname(
+                                      (_model.getListDataPerson?.jsonBody ??
+                                          ''),
+                                    )?.toList(),
+                                    FFAppState().selectCardList.toList(),
+                                    true),
+                                ParamType.String,
+                                isList: true,
+                              ),
                             }.withoutNulls,
                           );
                         },

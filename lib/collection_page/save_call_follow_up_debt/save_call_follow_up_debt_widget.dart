@@ -44,6 +44,7 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
     required this.lastPayDate,
     this.historyCount,
     this.arnow,
+    this.dbName,
   })  : this.name1 = name1 ?? '-',
         this.name2 = name2 ?? '-';
 
@@ -63,6 +64,7 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
   final List<String>? lastPayDate;
   final List<String>? historyCount;
   final List<String>? arnow;
+  final List<String>? dbName;
 
   @override
   State<SaveCallFollowUpDebtWidget> createState() =>
@@ -3117,6 +3119,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                   ?.length)
                                                       : FFAppState()
                                                           .ppAmountList),
+                                              server: widget!.dbName,
                                             );
                                             safeSetState(() {});
                                             if (_model.dropDownSaveCallValue !=

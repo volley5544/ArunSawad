@@ -10763,6 +10763,15 @@ class CollectionApiGetDataPersonCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? dbname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DBNAME''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SaveCallCollectionCall {
