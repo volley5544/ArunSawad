@@ -1037,7 +1037,7 @@ class _DetailListFollowUpDebtWidgetState
                               ),
                               'dbName': serializeParam(
                                 functions.returnMapListFromBoolList(
-                                    CollectionApiGetDataPersonCall.dbname(
+                                    CollectionApiGetDataPersonCall.database(
                                       (_model.getListDataPerson?.jsonBody ??
                                           ''),
                                     )?.toList(),
