@@ -17,6 +17,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -2496,7 +2497,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Expanded(
                                         flex: 3,
@@ -2540,7 +2541,6 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                         flex: 5,
                                         child: Container(
                                           width: 100.0,
-                                          height: 50.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2618,6 +2618,9 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             textAlign: TextAlign.start,
+                                            maxLength: 190,
+                                            maxLengthEnforcement:
+                                                MaxLengthEnforcement.enforced,
                                             cursorColor:
                                                 FlutterFlowTheme.of(context)
                                                     .grayIcon,
