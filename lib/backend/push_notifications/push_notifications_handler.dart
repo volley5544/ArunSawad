@@ -708,6 +708,11 @@ final parametersBuilderMap =
       ),
   'ScanQR': ParameterData.none(),
   'BranchSelectedPage': ParameterData.none(),
+  'WebviewNewPage': (data) async => ParameterData(
+        allParams: {
+          'webUrl': getParameter<String>(data, 'webUrl'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

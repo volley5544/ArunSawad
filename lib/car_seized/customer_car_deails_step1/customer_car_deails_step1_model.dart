@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'customer_car_deails_step1_widget.dart'
     show CustomerCarDeailsStep1Widget;

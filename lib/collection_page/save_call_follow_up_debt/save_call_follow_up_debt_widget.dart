@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -178,12 +179,6 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           safeSetState(() {
             _model.textController1?.text =
                 functions.removeCommaFromNumText(_model.textController1.text);
-            _model.textFieldFocusNode1?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController1?.selection = TextSelection.collapsed(
-                offset: _model.textController1!.text.length,
-              );
-            });
           });
         } else {
           if (_model.textController1.text == '') {
@@ -192,12 +187,6 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           safeSetState(() {
             _model.textController1?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController1.text)!;
-            _model.textFieldFocusNode1?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController1?.selection = TextSelection.collapsed(
-                offset: _model.textController1!.text.length,
-              );
-            });
           });
         }
       },

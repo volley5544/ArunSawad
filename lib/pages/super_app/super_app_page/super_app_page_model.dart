@@ -16,6 +16,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -140,6 +141,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginImpoundCar;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseUrl;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryAuctionAppointmentUrl;
   // Stores action output result for [Custom Action - scanQrCode] action in Container widget.

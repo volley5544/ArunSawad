@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_request_image_page_widget.dart'
     show InsuranceRequestImagePageWidget;

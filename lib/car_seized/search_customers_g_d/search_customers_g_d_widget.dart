@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -825,16 +826,6 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         );
                                         safeSetState(() {
                                           _model.textController?.text = '';
-                                          _model.textFieldFocusNode
-                                              ?.requestFocus();
-                                          WidgetsBinding.instance
-                                              .addPostFrameCallback((_) {
-                                            _model.textController?.selection =
-                                                TextSelection.collapsed(
-                                              offset: _model
-                                                  .textController!.text.length,
-                                            );
-                                          });
                                         });
                                         Navigator.pop(context);
                                         if (_shouldSetState)
@@ -1425,16 +1416,6 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         );
                                         safeSetState(() {
                                           _model.textController?.text = '';
-                                          _model.textFieldFocusNode
-                                              ?.requestFocus();
-                                          WidgetsBinding.instance
-                                              .addPostFrameCallback((_) {
-                                            _model.textController?.selection =
-                                                TextSelection.collapsed(
-                                              offset: _model
-                                                  .textController!.text.length,
-                                            );
-                                          });
                                         });
                                         Navigator.pop(context);
                                         if (_shouldSetState)

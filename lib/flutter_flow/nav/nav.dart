@@ -24,6 +24,8 @@ export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
 
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
+
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
 
@@ -81,6 +83,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
           appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
       routes: [
@@ -2323,6 +2326,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'BranchSelectedPage',
               path: 'BranchSelectedPage',
               builder: (context, params) => BranchSelectedPageWidget(),
+            ),
+            FFRoute(
+              name: 'WebviewNewPage',
+              path: 'webviewNewPage',
+              builder: (context, params) => WebviewNewPageWidget(
+                webUrl: params.getParam(
+                  'webUrl',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

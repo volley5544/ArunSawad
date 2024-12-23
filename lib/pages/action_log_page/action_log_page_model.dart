@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'action_log_page_widget.dart' show ActionLogPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';

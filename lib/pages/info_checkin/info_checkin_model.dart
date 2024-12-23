@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'info_checkin_widget.dart' show InfoCheckinWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';

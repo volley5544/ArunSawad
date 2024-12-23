@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'check1_insurance_page_widget.dart' show Check1InsurancePageWidget;
 import 'package:flutter/material.dart';

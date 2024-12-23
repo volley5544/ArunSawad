@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -1347,7 +1348,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         ),
                                                     hintText: 'กรุณากรอก...',
                                                     enabledBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
@@ -1358,7 +1359,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               8.0),
                                                     ),
                                                     focusedBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
@@ -1369,7 +1370,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               8.0),
                                                     ),
                                                     errorBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
@@ -1380,7 +1381,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               8.0),
                                                     ),
                                                     focusedErrorBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),

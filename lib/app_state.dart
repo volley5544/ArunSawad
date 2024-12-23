@@ -9775,6 +9775,13 @@ class FFAppState extends ChangeNotifier {
   set marketingUrlMenu2DocRef(DocumentReference? value) {
     _marketingUrlMenu2DocRef = value;
   }
+
+  DocumentReference? _landAndHouseUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/1mwdj12Q0GltyTdzCwjD');
+  DocumentReference? get landAndHouseUrlDocRef => _landAndHouseUrlDocRef;
+  set landAndHouseUrlDocRef(DocumentReference? value) {
+    _landAndHouseUrlDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

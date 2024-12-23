@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'input_copy2_widget.dart' show InputCopy2Widget;
 import 'package:cloud_firestore/cloud_firestore.dart';

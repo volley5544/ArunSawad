@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -464,7 +465,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     'containerOnPageLoadAnimation3']!),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-0.74, -1.07),
+                                alignment: AlignmentDirectional(-0.75, -1.07),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,

@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -129,12 +130,26 @@ class _ChangeCarLocationPageWidgetState
             _model.priceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.priceTextFieldTextController.text);
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
+              );
+            });
           });
         } else {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.priceTextFieldTextController.text)!;
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
+              );
+            });
           });
         }
       },
