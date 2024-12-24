@@ -64,23 +64,6 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
         },
       );
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(
-                  '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       await Future.delayed(const Duration(milliseconds: 3000));
       Navigator.pop(context);
     });
@@ -141,7 +124,7 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     ),
                     child: FlutterFlowWebView(
                       content:
-                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}',
+                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${FFAppState().profileLevel}',
                       bypass: true,
                       height: 500.0,
                       verticalScroll: false,
