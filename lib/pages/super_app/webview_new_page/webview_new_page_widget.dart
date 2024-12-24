@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,9 +18,13 @@ class WebviewNewPageWidget extends StatefulWidget {
   const WebviewNewPageWidget({
     super.key,
     required this.webUrl,
+    this.branchCodeSearch,
+    this.levelSearch,
   });
 
   final String? webUrl;
+  final String? branchCodeSearch;
+  final String? levelSearch;
 
   @override
   State<WebviewNewPageWidget> createState() => _WebviewNewPageWidgetState();
@@ -124,7 +129,7 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     ),
                     child: FlutterFlowWebView(
                       content:
-                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${FFAppState().profileLevel}',
+                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}',
                       bypass: true,
                       height: 500.0,
                       verticalScroll: false,

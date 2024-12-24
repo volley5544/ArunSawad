@@ -711,6 +711,8 @@ final parametersBuilderMap =
   'WebviewNewPage': (data) async => ParameterData(
         allParams: {
           'webUrl': getParameter<String>(data, 'webUrl'),
+          'branchCodeSearch': getParameter<String>(data, 'branchCodeSearch'),
+          'levelSearch': getParameter<String>(data, 'levelSearch'),
         },
       ),
 };

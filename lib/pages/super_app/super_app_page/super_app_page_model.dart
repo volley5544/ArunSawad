@@ -5,6 +5,7 @@ import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
 import '/components/search_employee_component/search_employee_component_widget.dart';
+import '/components/search_profile_level_component/search_profile_level_component_widget.dart';
 import '/components/splash_page/splash_page_widget.dart';
 import '/components/splash_page_holiday/splash_page_holiday_widget.dart';
 import '/components/tiktok_splash_page/tiktok_splash_page_widget.dart';
@@ -99,6 +100,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
           int index, Function(String) updateFn) =>
       serviceMenuIconBlurHash[index] = updateFn(serviceMenuIconBlurHash[index]);
 
+  String? branchCodeLandAndHouse;
+
+  String? levelLandAndHouse;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
@@ -141,6 +146,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginImpoundCar;
+  // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
+  dynamic? searchProfileLevelOutput;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryLandAndHouseUrl;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.

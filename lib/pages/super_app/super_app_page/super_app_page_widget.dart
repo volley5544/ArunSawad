@@ -5,6 +5,7 @@ import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
 import '/components/search_employee_component/search_employee_component_widget.dart';
+import '/components/search_profile_level_component/search_profile_level_component_widget.dart';
 import '/components/splash_page/splash_page_widget.dart';
 import '/components/splash_page_holiday/splash_page_holiday_widget.dart';
 import '/components/tiktok_splash_page/tiktok_splash_page_widget.dart';
@@ -2799,6 +2800,50 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 safeSetState(() {});
                                                                               return;
                                                                             }
+                                                                            if (functions.containsValueInDataTypeList(
+                                                                                functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(),
+                                                                                FFAppState().employeeID,
+                                                                                'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!) {
+                                                                              await showModalBottomSheet(
+                                                                                isScrollControlled: true,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                barrierColor: Color(0xBC000000),
+                                                                                enableDrag: false,
+                                                                                context: context,
+                                                                                builder: (context) {
+                                                                                  return WebViewAware(
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
+                                                                                      child: Padding(
+                                                                                        padding: MediaQuery.viewInsetsOf(context),
+                                                                                        child: Container(
+                                                                                          height: MediaQuery.sizeOf(context).height * 0.5,
+                                                                                          child: SearchProfileLevelComponentWidget(),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              ).then((value) => safeSetState(() => _model.searchProfileLevelOutput = value));
+
+                                                                              _shouldSetState = true;
+                                                                              _model.branchCodeLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
+                                                                                  ? getJsonField(
+                                                                                      _model.searchProfileLevelOutput,
+                                                                                      r'''$.branchCode''',
+                                                                                    ).toString()
+                                                                                  : '';
+                                                                              _model.levelLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
+                                                                                  ? getJsonField(
+                                                                                      _model.searchProfileLevelOutput,
+                                                                                      r'''$.level''',
+                                                                                    ).toString()
+                                                                                  : '';
+                                                                              safeSetState(() {});
+                                                                            }
                                                                             showModalBottomSheet(
                                                                               isScrollControlled: true,
                                                                               backgroundColor: Colors.transparent,
@@ -2835,6 +2880,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               queryParameters: {
                                                                                 'webUrl': serializeParam(
                                                                                   _model.queryLandAndHouseUrl?.urlLink,
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'branchCodeSearch': serializeParam(
+                                                                                  _model.branchCodeLandAndHouse,
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'levelSearch': serializeParam(
+                                                                                  _model.levelLandAndHouse,
                                                                                   ParamType.String,
                                                                                 ),
                                                                               }.withoutNulls,

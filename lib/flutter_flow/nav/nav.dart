@@ -2340,6 +2340,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'webUrl',
                   ParamType.String,
                 ),
+                branchCodeSearch: params.getParam(
+                  'branchCodeSearch',
+                  ParamType.String,
+                ),
+                levelSearch: params.getParam(
+                  'levelSearch',
+                  ParamType.String,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
