@@ -2804,6 +2804,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(),
                                                                                 FFAppState().employeeID,
                                                                                 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!) {
+                                                                              _model.branchCodeLandAndHouse = null;
+                                                                              _model.levelLandAndHouse = null;
+                                                                              safeSetState(() {});
                                                                               await showModalBottomSheet(
                                                                                 isScrollControlled: true,
                                                                                 backgroundColor: Colors.transparent,
@@ -2830,6 +2833,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ).then((value) => safeSetState(() => _model.searchProfileLevelOutput = value));
 
                                                                               _shouldSetState = true;
+                                                                              if (!(_model.searchProfileLevelOutput != null)) {
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              }
                                                                               _model.branchCodeLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
                                                                                   ? getJsonField(
                                                                                       _model.searchProfileLevelOutput,
@@ -8578,12 +8585,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
+                                                                                var _shouldSetState = false;
                                                                                 HapticFeedback.mediumImpact();
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
                                                                                   context.goNamed('PinCodePage');
 
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 if (valueOrDefault<String>(
@@ -8595,8 +8604,552 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     'เช็คอิน') {
                                                                                   context.goNamed('DashboardCheckin');
 
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'ประกันนอกเรท') {
+                                                                                  if (!FFAppState().insuranceRequestIsLoadedData) {
+                                                                                    showModalBottomSheet(
+                                                                                      isScrollControlled: true,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      barrierColor: Color(0x00000000),
+                                                                                      enableDrag: false,
+                                                                                      context: context,
+                                                                                      builder: (context) {
+                                                                                        return WebViewAware(
+                                                                                          child: GestureDetector(
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: Container(
+                                                                                                height: double.infinity,
+                                                                                                child: LoadingSceneWidget(),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    ).then((value) => safeSetState(() {}));
+
+                                                                                    _model.gerBrandService = await TeleGetBrandAPICall.call(
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.gerBrand?.statusCode ?? 200) != 200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${(_model.gerBrand?.statusCode ?? 200).toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (TeleGetBrandAPICall.statusLevel1(
+                                                                                          (_model.gerBrand?.jsonBody ?? ''),
+                                                                                        ) !=
+                                                                                        200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
+                                                                                                (_model.gerBrand?.jsonBody ?? ''),
+                                                                                              )?.toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
+                                                                                      (_model.gerBrand?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicBrandNameList = TeleGetBrandAPICall.brandName(
+                                                                                      (_model.gerBrand?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().update(() {});
+                                                                                    _model.getModelService = await TeleGetModelAPICall.call(
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.getModel?.statusCode ?? 200) != 200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getModel?.statusCode ?? 200).toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (TeleGetModelAPICall.statusLevel1(
+                                                                                          (_model.getModel?.jsonBody ?? ''),
+                                                                                        ) !=
+                                                                                        200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
+                                                                                                (_model.getModel?.jsonBody ?? ''),
+                                                                                              )?.toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    FFAppState().insuranceBasicModelIdListOriginal = TeleGetModelAPICall.modelCode(
+                                                                                      (_model.getModel?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicModelNameListOriginal = TeleGetModelAPICall.modelName(
+                                                                                      (_model.getModel?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().update(() {});
+                                                                                    FFAppState().insuranceBasicModelBrandIdListOriginal = TeleGetModelAPICall.brandID(
+                                                                                      (_model.getModel?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().update(() {});
+                                                                                    _model.getProvinceService = await TeleGetProvinceAPICall.call(
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.getProvince?.statusCode ?? 200) != 200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (TeleGetProvinceAPICall.statusLevel1(
+                                                                                          (_model.getProvince?.jsonBody ?? ''),
+                                                                                        ) !=
+                                                                                        200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
+                                                                                                (_model.getProvince?.jsonBody ?? ''),
+                                                                                              )?.toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    FFAppState().insuranceBasicProvinceIdList = TeleGetProvinceAPICall.provinceID(
+                                                                                      (_model.getProvince?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicProvinceNameList = TeleGetProvinceAPICall.provinceNameTH(
+                                                                                      (_model.getProvince?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().update(() {});
+                                                                                    _model.getVehicleService = await InsuranceRequestGetVehicleAPICall.call(
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.getVehicle?.statusCode ?? 200) != 200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getVehicle?.statusCode ?? 200).toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+                                                                                          (_model.getVehicle?.jsonBody ?? ''),
+                                                                                        ) !=
+                                                                                        200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
+                                                                                                (_model.getVehicle?.jsonBody ?? ''),
+                                                                                              )?.toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    FFAppState().insuranceBasicVehicleUsedTypeIdList = InsuranceRequestGetVehicleAPICall.vehicleId(
+                                                                                      (_model.getVehicle?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicVehicleUsedTypeNameList = InsuranceRequestGetVehicleAPICall.vehicleName(
+                                                                                      (_model.getVehicle?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicVehicleUsedTypeTypeList = InsuranceRequestGetVehicleAPICall.vehicletype(
+                                                                                      (_model.getVehicle?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicVehicleUsedTypeCodeList = InsuranceRequestGetVehicleAPICall.vehicleCode(
+                                                                                      (_model.getVehicle?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    safeSetState(() {});
+                                                                                    _model.getInsurerService = await InsuranceRequestGetInsurerAPICall.call(
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.getInsurer?.statusCode ?? 200) != 200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (InsuranceRequestGetInsurerAPICall.statusLayer1(
+                                                                                          (_model.getInsurer?.jsonBody ?? ''),
+                                                                                        ) !=
+                                                                                        200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
+                                                                                                (_model.getInsurer?.jsonBody ?? ''),
+                                                                                              )?.toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    FFAppState().insuranceBasicInsurerIdList = InsuranceRequestGetInsurerAPICall.companyId(
+                                                                                      (_model.getInsurer?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicInsurerCodeList = InsuranceRequestGetInsurerAPICall.companyCode(
+                                                                                      (_model.getInsurer?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicInsurerShortNameList = InsuranceRequestGetInsurerAPICall.companyShortName(
+                                                                                      (_model.getInsurer?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicInsurerFullNameList = InsuranceRequestGetInsurerAPICall.companyFullName(
+                                                                                      (_model.getInsurer?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicInsurerListNameList = InsuranceRequestGetInsurerAPICall.companyListName(
+                                                                                      (_model.getInsurer?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .map((e) => e.toString())
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    safeSetState(() {});
+                                                                                    _model.getCoverTypeService = await TeleGetCoverTypeAPICall.call(
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.getCoverType?.statusCode ?? 200) != 200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getCoverType?.statusCode ?? 200).toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    if (TeleGetCoverTypeAPICall.statusLevel1(
+                                                                                          (_model.getCoverType?.jsonBody ?? ''),
+                                                                                        ) !=
+                                                                                        200) {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
+                                                                                                (_model.getCoverType?.jsonBody ?? ''),
+                                                                                              )?.toString()})'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    FFAppState().insuranceBasicCoverTypeIdList = TeleGetCoverTypeAPICall.coverTypeId(
+                                                                                      (_model.getCoverType?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicCoverTypeCodeList = TeleGetCoverTypeAPICall.coverTypeCode(
+                                                                                      (_model.getCoverType?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    FFAppState().insuranceBasicCoverTypeNameList = TeleGetCoverTypeAPICall.coverTypeName(
+                                                                                      (_model.getCoverType?.jsonBody ?? ''),
+                                                                                    )!
+                                                                                        .toList()
+                                                                                        .cast<String>();
+                                                                                    safeSetState(() {});
+                                                                                    FFAppState().insuranceRequestIsLoadedData = true;
+                                                                                    safeSetState(() {});
+                                                                                    Navigator.pop(context);
+                                                                                  }
+
+                                                                                  context.goNamed('InsuranceRequestDashboardPage');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'ขออนุมัติลา') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'รายชื่อลีด') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'เช็คเบี้ยประกัน') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'ยอดจัดสาขา') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'โปรโมชั่น') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'KPI') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'Branch View') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (valueOrDefault<String>(
+                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                        return orderList.indexOf('${currentIndex + 1}');
+                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                      'menu_name',
+                                                                                    ) ==
+                                                                                    'QR พนักงาน') {
+                                                                                  context.goNamed('DashboardCheckin');
+
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                               },
                                                                               child: Container(
                                                                                 width: 100.0,

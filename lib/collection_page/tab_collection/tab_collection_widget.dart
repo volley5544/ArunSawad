@@ -73,6 +73,9 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      FFAppState().apiUrlBranchViewCollection =
+          'https://b8dd-115-31-145-24.ngrok-free.app';
+      safeSetState(() {});
       _model.collectionApiGetdataCount =
           await CollectionApiGetDataCountCall.call(
         branchCode: (FFAppState().branchCode == 'HO') ||
