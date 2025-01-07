@@ -59,7 +59,7 @@ export '/pages/leave_app/add_leave_page/add_leave_page_widget.dart'
     show AddLeavePageWidget;
 export '/pages/leave_app/cancel_page/cancel_page_widget.dart'
     show CancelPageWidget;
-export '/pages/leave_app/approved_leave_page/approved_leave_page_widget.dart'
+export '/pages/approved_leave_page/approved_leave_page_widget.dart'
     show ApprovedLeavePageWidget;
 export '/pages/insurance/check_insurance_page/check_insurance_page_widget.dart'
     show CheckInsurancePageWidget;

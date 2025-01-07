@@ -2476,7 +2476,7 @@ class _DetailListFollowUpDebtWidgetState
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryBackground,
+                                                                .primaryText,
                                                           ),
                                                         ),
                                                         child: Theme(

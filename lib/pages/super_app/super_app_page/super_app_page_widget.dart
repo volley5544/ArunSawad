@@ -195,6 +195,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
           .toList()
           .cast<String>();
       safeSetState(() {});
+      _model.queryAnnouncement = await querySawadAnnouncementRecordOnce(
+        queryBuilder: (sawadAnnouncementRecord) =>
+            sawadAnnouncementRecord.orderBy('order'),
+      );
       if (_model.leadNotiOutput != 'notification_message_type') {
         if (FFAppState().inAppViaNotification) {
           await showDialog(
@@ -328,10 +332,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.queryAnnouncement = await querySawadAnnouncementRecordOnce(
-        queryBuilder: (sawadAnnouncementRecord) =>
-            sawadAnnouncementRecord.orderBy('order'),
-      );
       _model.datetimeAPIOutput = await GetDateTimeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000
