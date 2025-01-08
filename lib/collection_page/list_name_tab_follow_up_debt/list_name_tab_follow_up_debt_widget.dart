@@ -1273,7 +1273,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                       ),
                                                                       'fromIconCall':
                                                                           serializeParam(
-                                                                        false,
+                                                                        true,
                                                                         ParamType
                                                                             .bool,
                                                                       ),

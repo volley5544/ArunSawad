@@ -671,9 +671,11 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (stackUserCustomRecord
-                                                        .imgProfile !=
-                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389') {
+                                                if (!functions.containWordinStringUrl(
+                                                    'blank-profile-picture-gc19a78ed8_1280.png',
+                                                    functions.imgPathtoString(
+                                                        stackUserCustomRecord
+                                                            .imgProfile))!) {
                                                   _model.checkProfileImgIsAvailable =
                                                       await actions
                                                           .checkImageIsAvailable(
