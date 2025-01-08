@@ -3,11 +3,14 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
@@ -15,6 +18,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
@@ -36,10 +40,12 @@ class ListNameTabFollowUpDebtWidget extends StatefulWidget {
 }
 
 class _ListNameTabFollowUpDebtWidgetState
-    extends State<ListNameTabFollowUpDebtWidget> {
+    extends State<ListNameTabFollowUpDebtWidget> with TickerProviderStateMixin {
   late ListNameTabFollowUpDebtModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -66,6 +72,28 @@ class _ListNameTabFollowUpDebtWidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'iconButtonOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 240.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.2, 1.2),
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -800,6 +828,10 @@ class _ListNameTabFollowUpDebtWidgetState
                                             ).toString(),
                                             ParamType.String,
                                           ),
+                                          'fromIconCall': serializeParam(
+                                            false,
+                                            ParamType.bool,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     },
@@ -1119,25 +1151,139 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                   height: 4.0)),
                                                             ),
                                                           ),
-                                                          Expanded(
-                                                            flex: 1,
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .chevron_right_outlined,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                  size: 30.0,
+                                                          if (false)
+                                                            Expanded(
+                                                              flex: 1,
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons
+                                                                        .chevron_right_outlined,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .tertiary,
+                                                                    size: 30.0,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          15.0,
+                                                                          15.0,
+                                                                          15.0),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderRadius:
+                                                                    30.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    35.0,
+                                                                fillColor: Color(
+                                                                    0xFF4BB718),
+                                                                icon: Icon(
+                                                                  Icons.call,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  size: 19.0,
                                                                 ),
-                                                              ],
+                                                                onPressed:
+                                                                    () async {
+                                                                  var confirmDialogResponse =
+                                                                      await showDialog<
+                                                                              bool>(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('คุณต้องการจะโทรออกหรือไม่?'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                      child: Text('ยกเลิก'),
+                                                                                    ),
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                      child: Text('โทร'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ) ??
+                                                                          false;
+                                                                  if (!confirmDialogResponse) {
+                                                                    return;
+                                                                  }
+
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'detailListFollowUpDebt',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'cusCod':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          listNameItem,
+                                                                          r'''$.CUSCOD''',
+                                                                        ).toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'followupDebtTab':
+                                                                          serializeParam(
+                                                                        widget!
+                                                                            .followUpDebtTab,
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                      'name':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          listNameItem,
+                                                                          r'''$.NAME1''',
+                                                                        ).toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'lastName':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          listNameItem,
+                                                                          r'''$.NAME2''',
+                                                                        ).toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'fromIconCall':
+                                                                          serializeParam(
+                                                                        false,
+                                                                        ParamType
+                                                                            .bool,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                              ).animateOnActionTrigger(
+                                                                animationsMap[
+                                                                    'iconButtonOnActionTriggerAnimation']!,
+                                                              ),
                                                             ),
                                                           ),
                                                         ],
