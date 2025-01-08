@@ -1591,6 +1591,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'followupDebtTab',
                   ParamType.int,
                 ),
+                fromIconCall: params.getParam(
+                  'fromIconCall',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(

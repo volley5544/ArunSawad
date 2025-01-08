@@ -35,12 +35,14 @@ class DetailListFollowUpDebtWidget extends StatefulWidget {
     required this.name,
     required this.lastName,
     required this.followupDebtTab,
+    this.fromIconCall,
   });
 
   final String? cusCod;
   final String? name;
   final String? lastName;
   final int? followupDebtTab;
+  final bool? fromIconCall;
 
   @override
   State<DetailListFollowUpDebtWidget> createState() =>
@@ -65,6 +67,8 @@ class _DetailListFollowUpDebtWidgetState
         parameters: {'screen_name': 'detailListFollowUpDebt'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -150,6 +154,69 @@ class _DetailListFollowUpDebtWidgetState
       }
 
       Navigator.pop(context);
+      if (widget!.fromIconCall!) {
+        showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return WebViewAware(
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: Container(
+                    height: double.infinity,
+                    child: LoadingSceneWidget(),
+                  ),
+                ),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+
+        if (!functions
+            .checkPhoneNumberChar(CollectionApiGetDataPersonCall.mobilenumber(
+          (_model.getListDataPerson?.jsonBody ?? ''),
+        )?.firstOrNull)) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('เบอร์โทรไม่ถูกต้อง'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        _model.getHashThaiId1 = await actions.sha256Encoder(
+          widget!.cusCod,
+        );
+        await actions.addUserLogDocument(
+          'BranchView_Collection_Call',
+          FFAppState().employeeID,
+          currentUserLocationValue,
+          _model.getHashThaiId1,
+        );
+        Navigator.pop(context);
+        _model.open3CXActionOutput1 = await actions.open3CXAction(
+          CollectionApiGetDataPersonCall.mobilenumber(
+            (_model.getListDataPerson?.jsonBody ?? ''),
+          )?.firstOrNull,
+        );
+      }
     });
 
     _model.textController ??= TextEditingController();

@@ -3161,11 +3161,11 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                         ''),
                                                                   ) ==
                                                                   200
-                                                              ? '${CollectionApiGetDataCountPPCall.pp(
+                                                              ? '${functions.showNumberWithComma(CollectionApiGetDataCountPPCall.pp(
                                                                   (_model.apiOutputCountPP
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ).toString()}'
+                                                                ).toString())}'
                                                               : '0',
                                                           '0',
                                                         ),

@@ -34,6 +34,10 @@ class DetailListFollowUpDebtModel
 
   // Stores action output result for [Backend Call - API (collectionApiGetDataPerson)] action in detailListFollowUpDebt widget.
   ApiCallResponse? getListDataPerson;
+  // Stores action output result for [Custom Action - sha256Encoder] action in detailListFollowUpDebt widget.
+  String? getHashThaiId1;
+  // Stores action output result for [Custom Action - open3CXAction] action in detailListFollowUpDebt widget.
+  bool? open3CXActionOutput1;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // Stores action output result for [Custom Action - sha256Encoder] action in IconButton widget.

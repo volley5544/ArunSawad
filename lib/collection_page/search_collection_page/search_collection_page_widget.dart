@@ -3,11 +3,14 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
@@ -15,6 +18,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
@@ -35,11 +39,13 @@ class SearchCollectionPageWidget extends StatefulWidget {
       _SearchCollectionPageWidgetState();
 }
 
-class _SearchCollectionPageWidgetState
-    extends State<SearchCollectionPageWidget> {
+class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
+    with TickerProviderStateMixin {
   late SearchCollectionPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -68,6 +74,28 @@ class _SearchCollectionPageWidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'iconButtonOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 240.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.2, 1.2),
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -831,6 +859,10 @@ class _SearchCollectionPageWidgetState
                                               ).toString(),
                                               ParamType.String,
                                             ),
+                                            'fromIconCall': serializeParam(
+                                              false,
+                                              ParamType.bool,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -1103,14 +1135,163 @@ class _SearchCollectionPageWidgetState
                                                                 ),
                                                               ),
                                                             ),
-                                                            Expanded(
-                                                              child: Icon(
-                                                                Icons
-                                                                    .chevron_right_outlined,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .tertiary,
-                                                                size: 30.0,
+                                                            if (false)
+                                                              Expanded(
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .chevron_right_outlined,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .tertiary,
+                                                                  size: 30.0,
+                                                                ),
+                                                              ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        15.0,
+                                                                        15.0,
+                                                                        15.0),
+                                                                child:
+                                                                    FlutterFlowIconButton(
+                                                                  borderRadius:
+                                                                      30.0,
+                                                                  borderWidth:
+                                                                      1.0,
+                                                                  buttonSize:
+                                                                      35.0,
+                                                                  fillColor: Color(
+                                                                      0xFF4BB718),
+                                                                  icon: Icon(
+                                                                    Icons.call,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    size: 19.0,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () async {
+                                                                    var confirmDialogResponse =
+                                                                        await showDialog<bool>(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('คุณต้องการจะโทรออกหรือไม่?'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                        child: Text('ยกเลิก'),
+                                                                                      ),
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                        child: Text('โทร'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ) ??
+                                                                            false;
+                                                                    if (!confirmDialogResponse) {
+                                                                      return;
+                                                                    }
+
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'detailListFollowUpDebt',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'cusCod':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            listNameItem,
+                                                                            r'''$.CUSCOD''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'followupDebtTab':
+                                                                            serializeParam(
+                                                                          () {
+                                                                            if ('${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.dataTab''',
+                                                                                ).toString()}' ==
+                                                                                'เตือนก่อนดิว') {
+                                                                              return 1;
+                                                                            } else if ('${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.dataTab''',
+                                                                                ).toString()}' ==
+                                                                                'ค้าง 1-3 งวด') {
+                                                                              return 2;
+                                                                            } else if ('${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.dataTab''',
+                                                                                ).toString()}' ==
+                                                                                'ค้าง 4-5 งวด') {
+                                                                              return 3;
+                                                                            } else if ('${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.dataTab''',
+                                                                                ).toString()}' ==
+                                                                                'ค้าง 6 งวดเป็นต้นไป') {
+                                                                              return 4;
+                                                                            } else if ('${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.dataTab''',
+                                                                                ).toString()}' ==
+                                                                                'ค้างด้วยยอดน้อยกว่า 250 บาท') {
+                                                                              return 5;
+                                                                            } else if ('${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.dataTab''',
+                                                                                ).toString()}' ==
+                                                                                'โทรชวนปิดปรับ') {
+                                                                              return 6;
+                                                                            } else {
+                                                                              return 99;
+                                                                            }
+                                                                          }(),
+                                                                          ParamType
+                                                                              .int,
+                                                                        ),
+                                                                        'name':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            listNameItem,
+                                                                            r'''$.NAME1''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'lastName':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            listNameItem,
+                                                                            r'''$.NAME2''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'fromIconCall':
+                                                                            serializeParam(
+                                                                          true,
+                                                                          ParamType
+                                                                              .bool,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
+                                                                  },
+                                                                ).animateOnActionTrigger(
+                                                                  animationsMap[
+                                                                      'iconButtonOnActionTriggerAnimation']!,
+                                                                ),
                                                               ),
                                                             ),
                                                           ],

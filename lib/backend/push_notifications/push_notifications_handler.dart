@@ -537,6 +537,7 @@ final parametersBuilderMap =
           'name': getParameter<String>(data, 'name'),
           'lastName': getParameter<String>(data, 'lastName'),
           'followupDebtTab': getParameter<int>(data, 'followupDebtTab'),
+          'fromIconCall': getParameter<bool>(data, 'fromIconCall'),
         },
       ),
   'saveOnSiteFollowUpDebt': (data) async => ParameterData(
