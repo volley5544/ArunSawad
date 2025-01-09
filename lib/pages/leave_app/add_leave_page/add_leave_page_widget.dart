@@ -3097,7 +3097,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 .updateFcmDataTypeStruct(
                                                               (e) => e
                                                                 ..token =
-                                                                    'cwYMuuplRwOYAom55nWaFv:APA91bGWKDlQ9vOoVKwXFAVXeujSoJ4maPI6Jx3-7-UPKg5jd3be00t5Q4vMVIF1uWigQGed1apStbgnaqTCGRXIQssRa8cOieDqLNTURDA_ep-ziYmGD5g'
+                                                                    columnFCMTokenRecord
+                                                                        ?.fcmToken
                                                                 ..notification =
                                                                     NotificationStruct
                                                                         .maybeFromMap(
@@ -3130,7 +3131,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 true;
                                                             if ((_model.fcmSendNotiFication
                                                                         ?.statusCode ??
-                                                                    200) !=
+                                                                    200) ==
                                                                 200) {}
 
                                                             var notificationRecordReference =
