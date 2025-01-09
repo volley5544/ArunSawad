@@ -157,6 +157,7 @@ class _DetailListFollowUpDebtWidgetState
       }
 
       if (widget!.fromIconCall!) {
+        await Future.delayed(const Duration(milliseconds: 2000));
         if (!functions
             .checkPhoneNumberChar(CollectionApiGetDataPersonCall.mobilenumber(
           (_model.getListDataPerson?.jsonBody ?? ''),
