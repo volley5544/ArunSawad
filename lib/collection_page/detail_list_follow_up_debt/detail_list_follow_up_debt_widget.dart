@@ -83,7 +83,10 @@ class _DetailListFollowUpDebtWidgetState
               },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: LoadingSceneWidget(),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
           );
