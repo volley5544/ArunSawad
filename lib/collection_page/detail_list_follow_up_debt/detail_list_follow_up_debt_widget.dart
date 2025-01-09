@@ -90,6 +90,22 @@ class _DetailListFollowUpDebtWidgetState
         },
       ).then((value) => safeSetState(() {}));
 
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('before call api'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.getListDataPerson = await CollectionApiGetDataPersonCall.call(
         apiUrl: FFAppState().apiUrlBranchViewCollection,
         idCard: widget!.cusCod,
@@ -129,6 +145,22 @@ class _DetailListFollowUpDebtWidgetState
             .toList()
             .cast<bool>();
         safeSetState(() {});
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('after call api'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
       } else {
         Navigator.pop(context);
         await showDialog(
@@ -153,32 +185,23 @@ class _DetailListFollowUpDebtWidgetState
         return;
       }
 
-      Navigator.pop(context);
       if (widget!.fromIconCall!) {
-        showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          enableDrag: false,
+        await showDialog(
           context: context,
-          builder: (context) {
+          builder: (alertDialogContext) {
             return WebViewAware(
-              child: GestureDetector(
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: Padding(
-                  padding: MediaQuery.viewInsetsOf(context),
-                  child: Container(
-                    height: double.infinity,
-                    child: LoadingSceneWidget(),
+              child: AlertDialog(
+                content: Text('after condition'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
                   ),
-                ),
+                ],
               ),
             );
           },
-        ).then((value) => safeSetState(() {}));
-
+        );
         if (!functions
             .checkPhoneNumberChar(CollectionApiGetDataPersonCall.mobilenumber(
           (_model.getListDataPerson?.jsonBody ?? ''),
@@ -204,18 +227,84 @@ class _DetailListFollowUpDebtWidgetState
         _model.getHashThaiId1 = await actions.sha256Encoder(
           widget!.cusCod,
         );
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('1'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
         await actions.addUserLogDocument(
           'BranchView_Collection_Call',
           FFAppState().employeeID,
           currentUserLocationValue,
           _model.getHashThaiId1,
         );
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('2'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
         Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('3'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
         _model.open3CXActionOutput1 = await actions.open3CXAction(
           CollectionApiGetDataPersonCall.mobilenumber(
             (_model.getListDataPerson?.jsonBody ?? ''),
           )?.firstOrNull,
         );
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('4'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      } else {
+        Navigator.pop(context);
       }
     });
 
