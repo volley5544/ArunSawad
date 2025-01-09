@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -444,6 +445,27 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                             if (widget!.isFromApprovePage!) {
                                               if (containerUserCustomRecord !=
                                                   null) {
+                                                FFAppState()
+                                                    .updateFcmDataTypeStruct(
+                                                  (e) => e
+                                                    ..token =
+                                                        columnPlusFCMTokenRecord
+                                                            ?.fcmToken
+                                                    ..notification =
+                                                        NotificationStruct
+                                                            .maybeFromMap(
+                                                                getJsonField(
+                                                      functions.createNotificationBody(
+                                                          'คำขอ \"${widget!.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
+                                                          'คำขออนุมัติการลา'),
+                                                      r'''$''',
+                                                    ))
+                                                    ..data = DataStruct
+                                                        .maybeFromMap(functions
+                                                            .createNotificationDataBody(
+                                                                'Leave_Request')),
+                                                );
+                                                safeSetState(() {});
                                                 _model.fcmSendNotificationCancelApprove =
                                                     await SendFCMNotificationAPICall
                                                         .call(
@@ -451,10 +473,10 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                                       ?.fcmToken,
                                                   notificationJson:
                                                       getJsonField(
-                                                    functions.createNotificationBody(
-                                                        'คำขอ \"${widget!.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
-                                                        'คำขออนุมัติการลา',
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/test-flow-l46o23/assets/xqqgm3jn0hu4/leaveimg2.png'),
+                                                    functions
+                                                        .createNotificationBody(
+                                                            'คำขอ \"${widget!.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
+                                                            'คำขออนุมัติการลา'),
                                                     r'''$''',
                                                   ),
                                                   dataJson: functions

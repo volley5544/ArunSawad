@@ -8437,944 +8437,46 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                   },
                                                 ),
                                               ),
-                                            FutureBuilder<List<RoleMenuRecord>>(
-                                              future: queryRoleMenuRecordOnce(
-                                                singleRecord: true,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<RoleMenuRecord>
-                                                    columnRoleMenuRecordList =
-                                                    snapshot.data!;
-                                                final columnRoleMenuRecord =
-                                                    columnRoleMenuRecordList
-                                                            .isNotEmpty
-                                                        ? columnRoleMenuRecordList
-                                                            .first
-                                                        : null;
-
-                                                return Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  15.0,
-                                                                  10.0,
-                                                                  0.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 165.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Colors
-                                                                    .white,
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        4.0,
-                                                                    color: Color(
-                                                                        0x33000000),
-                                                                    offset:
-                                                                        Offset(
-                                                                      0.0,
-                                                                      2.0,
-                                                                    ),
-                                                                  )
-                                                                ],
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                ),
-                                                              ),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15.0,
-                                                                            15.0,
-                                                                            15.0,
-                                                                            10.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          'บริการ',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 20.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Builder(
-                                                                      builder:
-                                                                          (context) {
-                                                                        final serviceMenuListItem = _model
-                                                                            .serviceMenuName
-                                                                            .toList();
-
-                                                                        return ListView
-                                                                            .builder(
-                                                                          padding:
-                                                                              EdgeInsets.zero,
-                                                                          scrollDirection:
-                                                                              Axis.horizontal,
-                                                                          itemCount:
-                                                                              serviceMenuListItem.length,
-                                                                          itemBuilder:
-                                                                              (context, serviceMenuListItemIndex) {
-                                                                            final serviceMenuListItemItem =
-                                                                                serviceMenuListItem[serviceMenuListItemIndex];
-                                                                            return InkWell(
-                                                                              splashColor: Colors.transparent,
-                                                                              focusColor: Colors.transparent,
-                                                                              hoverColor: Colors.transparent,
-                                                                              highlightColor: Colors.transparent,
-                                                                              onTap: () async {
-                                                                                var _shouldSetState = false;
-                                                                                HapticFeedback.mediumImpact();
-                                                                                if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                  Navigator.pop(context);
-
-                                                                                  context.goNamed('PinCodePage');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'เช็คอิน') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'ประกันนอกเรท') {
-                                                                                  if (!FFAppState().insuranceRequestIsLoadedData) {
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      barrierColor: Color(0x00000000),
-                                                                                      enableDrag: false,
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.gerBrandService = await TeleGetBrandAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.gerBrand?.statusCode ?? 200) != 200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${(_model.gerBrand?.statusCode ?? 200).toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (TeleGetBrandAPICall.statusLevel1(
-                                                                                          (_model.gerBrand?.jsonBody ?? ''),
-                                                                                        ) !=
-                                                                                        200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
-                                                                                                (_model.gerBrand?.jsonBody ?? ''),
-                                                                                              )?.toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
-                                                                                      (_model.gerBrand?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicBrandNameList = TeleGetBrandAPICall.brandName(
-                                                                                      (_model.gerBrand?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().update(() {});
-                                                                                    _model.getModelService = await TeleGetModelAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.getModel?.statusCode ?? 200) != 200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getModel?.statusCode ?? 200).toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (TeleGetModelAPICall.statusLevel1(
-                                                                                          (_model.getModel?.jsonBody ?? ''),
-                                                                                        ) !=
-                                                                                        200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
-                                                                                                (_model.getModel?.jsonBody ?? ''),
-                                                                                              )?.toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    FFAppState().insuranceBasicModelIdListOriginal = TeleGetModelAPICall.modelCode(
-                                                                                      (_model.getModel?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicModelNameListOriginal = TeleGetModelAPICall.modelName(
-                                                                                      (_model.getModel?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().update(() {});
-                                                                                    FFAppState().insuranceBasicModelBrandIdListOriginal = TeleGetModelAPICall.brandID(
-                                                                                      (_model.getModel?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().update(() {});
-                                                                                    _model.getProvinceService = await TeleGetProvinceAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.getProvince?.statusCode ?? 200) != 200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (TeleGetProvinceAPICall.statusLevel1(
-                                                                                          (_model.getProvince?.jsonBody ?? ''),
-                                                                                        ) !=
-                                                                                        200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
-                                                                                                (_model.getProvince?.jsonBody ?? ''),
-                                                                                              )?.toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    FFAppState().insuranceBasicProvinceIdList = TeleGetProvinceAPICall.provinceID(
-                                                                                      (_model.getProvince?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicProvinceNameList = TeleGetProvinceAPICall.provinceNameTH(
-                                                                                      (_model.getProvince?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().update(() {});
-                                                                                    _model.getVehicleService = await InsuranceRequestGetVehicleAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.getVehicle?.statusCode ?? 200) != 200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getVehicle?.statusCode ?? 200).toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (InsuranceRequestGetVehicleAPICall.statusLayer1(
-                                                                                          (_model.getVehicle?.jsonBody ?? ''),
-                                                                                        ) !=
-                                                                                        200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
-                                                                                                (_model.getVehicle?.jsonBody ?? ''),
-                                                                                              )?.toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    FFAppState().insuranceBasicVehicleUsedTypeIdList = InsuranceRequestGetVehicleAPICall.vehicleId(
-                                                                                      (_model.getVehicle?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicVehicleUsedTypeNameList = InsuranceRequestGetVehicleAPICall.vehicleName(
-                                                                                      (_model.getVehicle?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicVehicleUsedTypeTypeList = InsuranceRequestGetVehicleAPICall.vehicletype(
-                                                                                      (_model.getVehicle?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicVehicleUsedTypeCodeList = InsuranceRequestGetVehicleAPICall.vehicleCode(
-                                                                                      (_model.getVehicle?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    safeSetState(() {});
-                                                                                    _model.getInsurerService = await InsuranceRequestGetInsurerAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.getInsurer?.statusCode ?? 200) != 200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (InsuranceRequestGetInsurerAPICall.statusLayer1(
-                                                                                          (_model.getInsurer?.jsonBody ?? ''),
-                                                                                        ) !=
-                                                                                        200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
-                                                                                                (_model.getInsurer?.jsonBody ?? ''),
-                                                                                              )?.toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    FFAppState().insuranceBasicInsurerIdList = InsuranceRequestGetInsurerAPICall.companyId(
-                                                                                      (_model.getInsurer?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicInsurerCodeList = InsuranceRequestGetInsurerAPICall.companyCode(
-                                                                                      (_model.getInsurer?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicInsurerShortNameList = InsuranceRequestGetInsurerAPICall.companyShortName(
-                                                                                      (_model.getInsurer?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicInsurerFullNameList = InsuranceRequestGetInsurerAPICall.companyFullName(
-                                                                                      (_model.getInsurer?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicInsurerListNameList = InsuranceRequestGetInsurerAPICall.companyListName(
-                                                                                      (_model.getInsurer?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .map((e) => e.toString())
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    safeSetState(() {});
-                                                                                    _model.getCoverTypeService = await TeleGetCoverTypeAPICall.call(
-                                                                                      apiUrl: FFAppState().apiURLLocalState,
-                                                                                    );
-
-                                                                                    _shouldSetState = true;
-                                                                                    if ((_model.getCoverType?.statusCode ?? 200) != 200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${(_model.getCoverType?.statusCode ?? 200).toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    if (TeleGetCoverTypeAPICall.statusLevel1(
-                                                                                          (_model.getCoverType?.jsonBody ?? ''),
-                                                                                        ) !=
-                                                                                        200) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                              content: Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
-                                                                                                (_model.getCoverType?.jsonBody ?? ''),
-                                                                                              )?.toString()})'),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                  child: Text('Ok'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            ),
-                                                                                          );
-                                                                                        },
-                                                                                      );
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    FFAppState().insuranceBasicCoverTypeIdList = TeleGetCoverTypeAPICall.coverTypeId(
-                                                                                      (_model.getCoverType?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicCoverTypeCodeList = TeleGetCoverTypeAPICall.coverTypeCode(
-                                                                                      (_model.getCoverType?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    FFAppState().insuranceBasicCoverTypeNameList = TeleGetCoverTypeAPICall.coverTypeName(
-                                                                                      (_model.getCoverType?.jsonBody ?? ''),
-                                                                                    )!
-                                                                                        .toList()
-                                                                                        .cast<String>();
-                                                                                    safeSetState(() {});
-                                                                                    FFAppState().insuranceRequestIsLoadedData = true;
-                                                                                    safeSetState(() {});
-                                                                                    Navigator.pop(context);
-                                                                                  }
-
-                                                                                  context.goNamed('InsuranceRequestDashboardPage');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'ขออนุมัติลา') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'รายชื่อลีด') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'เช็คเบี้ยประกัน') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'ยอดจัดสาขา') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'โปรโมชั่น') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'KPI') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'Branch View') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (valueOrDefault<String>(
-                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                      'menu_name',
-                                                                                    ) ==
-                                                                                    'QR พนักงาน') {
-                                                                                  context.goNamed('DashboardCheckin');
-
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                              },
-                                                                              child: Container(
-                                                                                width: 100.0,
-                                                                                height: 100.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      width: 50.0,
-                                                                                      height: 50.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        shape: BoxShape.circle,
-                                                                                      ),
-                                                                                      child: ClipRRect(
-                                                                                        borderRadius: BorderRadius.circular(100.0),
-                                                                                        child: OctoImage(
-                                                                                          placeholderBuilder: (_) => SizedBox.expand(
-                                                                                            child: Image(
-                                                                                              image: BlurHashImage('LnPW1|bcrFXS}rbcxGbbBSX9OYX9'),
-                                                                                              fit: BoxFit.cover,
-                                                                                            ),
-                                                                                          ),
-                                                                                          image: NetworkImage(
-                                                                                            functions.stringToImgPath(valueOrDefault<String>(
-                                                                                              _model.serviceMenuIconUrl.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                return orderList.indexOf('${currentIndex + 1}');
-                                                                                              }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                              'icon_url',
-                                                                                            ))!,
-                                                                                          ),
-                                                                                          width: double.infinity,
-                                                                                          height: double.infinity,
-                                                                                          fit: BoxFit.cover,
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        valueOrDefault<String>(
-                                                                                          _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                            return orderList.indexOf('${currentIndex + 1}');
-                                                                                          }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                          'menu_name',
-                                                                                        ),
-                                                                                        textAlign: TextAlign.center,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              color: Color(0xFF3C4059),
-                                                                                              fontSize: 12.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w600,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
+                                            if (false)
+                                              FutureBuilder<
+                                                  List<RoleMenuRecord>>(
+                                                future: queryRoleMenuRecordOnce(
+                                                  singleRecord: true,
+                                                ),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
                                                           ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    if (false)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    15.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Container(
-                                                                width: double
-                                                                    .infinity,
-                                                                height: 165.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  boxShadow: [
-                                                                    BoxShadow(
-                                                                      blurRadius:
-                                                                          4.0,
-                                                                      color: Color(
-                                                                          0x33000000),
-                                                                      offset:
-                                                                          Offset(
-                                                                        0.0,
-                                                                        2.0,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                  ),
-                                                                ),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          15.0,
-                                                                          15.0,
-                                                                          15.0,
-                                                                          10.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            'รางาน',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 20.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          Builder(
-                                                                        builder:
-                                                                            (context) {
-                                                                          final reportMenuListItem =
-                                                                              columnRoleMenuRecord?.reportmenuName?.toList() ?? [];
-
-                                                                          return ListView
-                                                                              .builder(
-                                                                            padding:
-                                                                                EdgeInsets.zero,
-                                                                            scrollDirection:
-                                                                                Axis.horizontal,
-                                                                            itemCount:
-                                                                                reportMenuListItem.length,
-                                                                            itemBuilder:
-                                                                                (context, reportMenuListItemIndex) {
-                                                                              final reportMenuListItemItem = reportMenuListItem[reportMenuListItemIndex];
-                                                                              return Container(
-                                                                                width: 100.0,
-                                                                                height: 100.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      width: 50.0,
-                                                                                      height: 50.0,
-                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                      decoration: BoxDecoration(
-                                                                                        shape: BoxShape.circle,
-                                                                                      ),
-                                                                                      child: Image.network(
-                                                                                        columnRoleMenuRecord!.reportMenuIcon.elementAtOrNull(reportMenuListItemIndex)!,
-                                                                                        fit: BoxFit.cover,
-                                                                                      ),
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        valueOrDefault<String>(
-                                                                                          columnRoleMenuRecord?.reportmenuName?.elementAtOrNull(reportMenuListItemIndex),
-                                                                                          'Test',
-                                                                                        ),
-                                                                                        textAlign: TextAlign.center,
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              color: Color(0xFF3C4059),
-                                                                                              fontSize: 12.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w600,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                        },
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
                                                         ),
                                                       ),
-                                                    if (false)
+                                                    );
+                                                  }
+                                                  List<RoleMenuRecord>
+                                                      columnRoleMenuRecordList =
+                                                      snapshot.data!;
+                                                  final columnRoleMenuRecord =
+                                                      columnRoleMenuRecordList
+                                                              .isNotEmpty
+                                                          ? columnRoleMenuRecordList
+                                                              .first
+                                                          : null;
+
+                                                  return Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -9443,7 +8545,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Text(
-                                                                            'อื่นๆ',
+                                                                            'บริการ',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
@@ -9460,8 +8562,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           Builder(
                                                                         builder:
                                                                             (context) {
-                                                                          final otherMenuListItem =
-                                                                              columnRoleMenuRecord?.othermenuName?.toList() ?? [];
+                                                                          final serviceMenuListItem = _model
+                                                                              .serviceMenuName
+                                                                              .toList();
 
                                                                           return ListView
                                                                               .builder(
@@ -9470,39 +8573,581 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             scrollDirection:
                                                                                 Axis.horizontal,
                                                                             itemCount:
-                                                                                otherMenuListItem.length,
+                                                                                serviceMenuListItem.length,
                                                                             itemBuilder:
-                                                                                (context, otherMenuListItemIndex) {
-                                                                              final otherMenuListItemItem = otherMenuListItem[otherMenuListItemIndex];
+                                                                                (context, serviceMenuListItemIndex) {
+                                                                              final serviceMenuListItemItem = serviceMenuListItem[serviceMenuListItemIndex];
                                                                               return InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
-                                                                                  if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'COACH') {
-                                                                                    await launchURL(columnRoleMenuRecord!.otherMenuUrl.elementAtOrNull(otherMenuListItemIndex)!);
+                                                                                  var _shouldSetState = false;
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.goNamed('PinCodePage');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'ฟอร์มลีด') {
-                                                                                    context.goNamed('LeadSurveyRegisPage');
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'เช็คอิน') {
+                                                                                    context.goNamed('DashboardCheckin');
 
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'ประกันนอกเรท') {
+                                                                                    if (!FFAppState().insuranceRequestIsLoadedData) {
+                                                                                      showModalBottomSheet(
+                                                                                        isScrollControlled: true,
+                                                                                        backgroundColor: Colors.transparent,
+                                                                                        barrierColor: Color(0x00000000),
+                                                                                        enableDrag: false,
+                                                                                        context: context,
+                                                                                        builder: (context) {
+                                                                                          return WebViewAware(
+                                                                                            child: GestureDetector(
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(context).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
+                                                                                              child: Padding(
+                                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                                child: Container(
+                                                                                                  height: double.infinity,
+                                                                                                  child: LoadingSceneWidget(),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      ).then((value) => safeSetState(() {}));
 
-                                                                                  context.pushNamed(
-                                                                                    'WebviewPage',
-                                                                                    queryParameters: {
-                                                                                      'titleName': serializeParam(
-                                                                                        columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                        ParamType.String,
-                                                                                      ),
-                                                                                      'webUrl': serializeParam(
-                                                                                        columnRoleMenuRecord?.otherMenuUrl?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                        ParamType.String,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
+                                                                                      _model.gerBrandService = await TeleGetBrandAPICall.call(
+                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                      );
+
+                                                                                      _shouldSetState = true;
+                                                                                      if ((_model.gerBrand?.statusCode ?? 200) != 200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.gerBrand?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (TeleGetBrandAPICall.statusLevel1(
+                                                                                            (_model.gerBrand?.jsonBody ?? ''),
+                                                                                          ) !=
+                                                                                          200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
+                                                                                                  (_model.gerBrand?.jsonBody ?? ''),
+                                                                                                )?.toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
+                                                                                        (_model.gerBrand?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicBrandNameList = TeleGetBrandAPICall.brandName(
+                                                                                        (_model.gerBrand?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().update(() {});
+                                                                                      _model.getModelService = await TeleGetModelAPICall.call(
+                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                      );
+
+                                                                                      _shouldSetState = true;
+                                                                                      if ((_model.getModel?.statusCode ?? 200) != 200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getModel?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (TeleGetModelAPICall.statusLevel1(
+                                                                                            (_model.getModel?.jsonBody ?? ''),
+                                                                                          ) !=
+                                                                                          200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
+                                                                                                  (_model.getModel?.jsonBody ?? ''),
+                                                                                                )?.toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      FFAppState().insuranceBasicModelIdListOriginal = TeleGetModelAPICall.modelCode(
+                                                                                        (_model.getModel?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicModelNameListOriginal = TeleGetModelAPICall.modelName(
+                                                                                        (_model.getModel?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().insuranceBasicModelBrandIdListOriginal = TeleGetModelAPICall.brandID(
+                                                                                        (_model.getModel?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().update(() {});
+                                                                                      _model.getProvinceService = await TeleGetProvinceAPICall.call(
+                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                      );
+
+                                                                                      _shouldSetState = true;
+                                                                                      if ((_model.getProvince?.statusCode ?? 200) != 200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (TeleGetProvinceAPICall.statusLevel1(
+                                                                                            (_model.getProvince?.jsonBody ?? ''),
+                                                                                          ) !=
+                                                                                          200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
+                                                                                                  (_model.getProvince?.jsonBody ?? ''),
+                                                                                                )?.toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      FFAppState().insuranceBasicProvinceIdList = TeleGetProvinceAPICall.provinceID(
+                                                                                        (_model.getProvince?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicProvinceNameList = TeleGetProvinceAPICall.provinceNameTH(
+                                                                                        (_model.getProvince?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().update(() {});
+                                                                                      _model.getVehicleService = await InsuranceRequestGetVehicleAPICall.call(
+                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                      );
+
+                                                                                      _shouldSetState = true;
+                                                                                      if ((_model.getVehicle?.statusCode ?? 200) != 200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getVehicle?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+                                                                                            (_model.getVehicle?.jsonBody ?? ''),
+                                                                                          ) !=
+                                                                                          200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
+                                                                                                  (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                )?.toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      FFAppState().insuranceBasicVehicleUsedTypeIdList = InsuranceRequestGetVehicleAPICall.vehicleId(
+                                                                                        (_model.getVehicle?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicVehicleUsedTypeNameList = InsuranceRequestGetVehicleAPICall.vehicleName(
+                                                                                        (_model.getVehicle?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicVehicleUsedTypeTypeList = InsuranceRequestGetVehicleAPICall.vehicletype(
+                                                                                        (_model.getVehicle?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicVehicleUsedTypeCodeList = InsuranceRequestGetVehicleAPICall.vehicleCode(
+                                                                                        (_model.getVehicle?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      safeSetState(() {});
+                                                                                      _model.getInsurerService = await InsuranceRequestGetInsurerAPICall.call(
+                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                      );
+
+                                                                                      _shouldSetState = true;
+                                                                                      if ((_model.getInsurer?.statusCode ?? 200) != 200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (InsuranceRequestGetInsurerAPICall.statusLayer1(
+                                                                                            (_model.getInsurer?.jsonBody ?? ''),
+                                                                                          ) !=
+                                                                                          200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
+                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                )?.toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      FFAppState().insuranceBasicInsurerIdList = InsuranceRequestGetInsurerAPICall.companyId(
+                                                                                        (_model.getInsurer?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicInsurerCodeList = InsuranceRequestGetInsurerAPICall.companyCode(
+                                                                                        (_model.getInsurer?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicInsurerShortNameList = InsuranceRequestGetInsurerAPICall.companyShortName(
+                                                                                        (_model.getInsurer?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicInsurerFullNameList = InsuranceRequestGetInsurerAPICall.companyFullName(
+                                                                                        (_model.getInsurer?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicInsurerListNameList = InsuranceRequestGetInsurerAPICall.companyListName(
+                                                                                        (_model.getInsurer?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .map((e) => e.toString())
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      safeSetState(() {});
+                                                                                      _model.getCoverTypeService = await TeleGetCoverTypeAPICall.call(
+                                                                                        apiUrl: FFAppState().apiURLLocalState,
+                                                                                      );
+
+                                                                                      _shouldSetState = true;
+                                                                                      if ((_model.getCoverType?.statusCode ?? 200) != 200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.getCoverType?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      if (TeleGetCoverTypeAPICall.statusLevel1(
+                                                                                            (_model.getCoverType?.jsonBody ?? ''),
+                                                                                          ) !=
+                                                                                          200) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
+                                                                                                  (_model.getCoverType?.jsonBody ?? ''),
+                                                                                                )?.toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      FFAppState().insuranceBasicCoverTypeIdList = TeleGetCoverTypeAPICall.coverTypeId(
+                                                                                        (_model.getCoverType?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicCoverTypeCodeList = TeleGetCoverTypeAPICall.coverTypeCode(
+                                                                                        (_model.getCoverType?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      FFAppState().insuranceBasicCoverTypeNameList = TeleGetCoverTypeAPICall.coverTypeName(
+                                                                                        (_model.getCoverType?.jsonBody ?? ''),
+                                                                                      )!
+                                                                                          .toList()
+                                                                                          .cast<String>();
+                                                                                      safeSetState(() {});
+                                                                                      FFAppState().insuranceRequestIsLoadedData = true;
+                                                                                      safeSetState(() {});
+                                                                                      Navigator.pop(context);
+                                                                                    }
+
+                                                                                    context.goNamed('InsuranceRequestDashboardPage');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'ขออนุมัติลา') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'รายชื่อลีด') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'เช็คเบี้ยประกัน') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'ยอดจัดสาขา') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'โปรโมชั่น') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'KPI') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'Branch View') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (valueOrDefault<String>(
+                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                        'menu_name',
+                                                                                      ) ==
+                                                                                      'QR พนักงาน') {
+                                                                                    context.goNamed('DashboardCheckin');
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 100.0,
@@ -9514,24 +9159,41 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Container(
                                                                                         width: 50.0,
                                                                                         height: 50.0,
-                                                                                        clipBehavior: Clip.antiAlias,
                                                                                         decoration: BoxDecoration(
+                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           shape: BoxShape.circle,
                                                                                         ),
-                                                                                        child: Image.network(
-                                                                                          valueOrDefault<String>(
-                                                                                            columnRoleMenuRecord?.otherMenuIcon?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                            'test',
+                                                                                        child: ClipRRect(
+                                                                                          borderRadius: BorderRadius.circular(100.0),
+                                                                                          child: OctoImage(
+                                                                                            placeholderBuilder: (_) => SizedBox.expand(
+                                                                                              child: Image(
+                                                                                                image: BlurHashImage('LnPW1|bcrFXS}rbcxGbbBSX9OYX9'),
+                                                                                                fit: BoxFit.cover,
+                                                                                              ),
+                                                                                            ),
+                                                                                            image: NetworkImage(
+                                                                                              functions.stringToImgPath(valueOrDefault<String>(
+                                                                                                _model.serviceMenuIconUrl.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                  return orderList.indexOf('${currentIndex + 1}');
+                                                                                                }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                'icon_url',
+                                                                                              ))!,
+                                                                                            ),
+                                                                                            width: double.infinity,
+                                                                                            height: double.infinity,
+                                                                                            fit: BoxFit.cover,
                                                                                           ),
-                                                                                          fit: BoxFit.cover,
                                                                                         ),
                                                                                       ),
                                                                                       Padding(
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                                         child: Text(
                                                                                           valueOrDefault<String>(
-                                                                                            columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
-                                                                                            'test',
+                                                                                            _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                              return orderList.indexOf('${currentIndex + 1}');
+                                                                                            }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                            'menu_name',
                                                                                           ),
                                                                                           textAlign: TextAlign.center,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -9559,10 +9221,340 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ],
                                                         ),
                                                       ),
-                                                  ],
-                                                );
-                                              },
-                                            ),
+                                                      if (false)
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 165.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    boxShadow: [
+                                                                      BoxShadow(
+                                                                        blurRadius:
+                                                                            4.0,
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
+                                                                          0.0,
+                                                                          2.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            15.0,
+                                                                            15.0,
+                                                                            15.0,
+                                                                            10.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              'รางาน',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            final reportMenuListItem =
+                                                                                columnRoleMenuRecord?.reportmenuName?.toList() ?? [];
+
+                                                                            return ListView.builder(
+                                                                              padding: EdgeInsets.zero,
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              itemCount: reportMenuListItem.length,
+                                                                              itemBuilder: (context, reportMenuListItemIndex) {
+                                                                                final reportMenuListItemItem = reportMenuListItem[reportMenuListItemIndex];
+                                                                                return Container(
+                                                                                  width: 100.0,
+                                                                                  height: 100.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: 50.0,
+                                                                                        height: 50.0,
+                                                                                        clipBehavior: Clip.antiAlias,
+                                                                                        decoration: BoxDecoration(
+                                                                                          shape: BoxShape.circle,
+                                                                                        ),
+                                                                                        child: Image.network(
+                                                                                          columnRoleMenuRecord!.reportMenuIcon.elementAtOrNull(reportMenuListItemIndex)!,
+                                                                                          fit: BoxFit.cover,
+                                                                                        ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          valueOrDefault<String>(
+                                                                                            columnRoleMenuRecord?.reportmenuName?.elementAtOrNull(reportMenuListItemIndex),
+                                                                                            'Test',
+                                                                                          ),
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: Color(0xFF3C4059),
+                                                                                                fontSize: 12.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w600,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          },
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      if (false)
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 165.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    boxShadow: [
+                                                                      BoxShadow(
+                                                                        blurRadius:
+                                                                            4.0,
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
+                                                                          0.0,
+                                                                          2.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            15.0,
+                                                                            15.0,
+                                                                            15.0,
+                                                                            10.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              'อื่นๆ',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Builder(
+                                                                          builder:
+                                                                              (context) {
+                                                                            final otherMenuListItem =
+                                                                                columnRoleMenuRecord?.othermenuName?.toList() ?? [];
+
+                                                                            return ListView.builder(
+                                                                              padding: EdgeInsets.zero,
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              itemCount: otherMenuListItem.length,
+                                                                              itemBuilder: (context, otherMenuListItemIndex) {
+                                                                                final otherMenuListItemItem = otherMenuListItem[otherMenuListItemIndex];
+                                                                                return InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'COACH') {
+                                                                                      await launchURL(columnRoleMenuRecord!.otherMenuUrl.elementAtOrNull(otherMenuListItemIndex)!);
+                                                                                      return;
+                                                                                    }
+                                                                                    if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'ฟอร์มลีด') {
+                                                                                      context.goNamed('LeadSurveyRegisPage');
+
+                                                                                      return;
+                                                                                    }
+
+                                                                                    context.pushNamed(
+                                                                                      'WebviewPage',
+                                                                                      queryParameters: {
+                                                                                        'titleName': serializeParam(
+                                                                                          columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'webUrl': serializeParam(
+                                                                                          columnRoleMenuRecord?.otherMenuUrl?.elementAtOrNull(otherMenuListItemIndex),
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                    );
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    height: 100.0,
+                                                                                    decoration: BoxDecoration(),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Container(
+                                                                                          width: 50.0,
+                                                                                          height: 50.0,
+                                                                                          clipBehavior: Clip.antiAlias,
+                                                                                          decoration: BoxDecoration(
+                                                                                            shape: BoxShape.circle,
+                                                                                          ),
+                                                                                          child: Image.network(
+                                                                                            valueOrDefault<String>(
+                                                                                              columnRoleMenuRecord?.otherMenuIcon?.elementAtOrNull(otherMenuListItemIndex),
+                                                                                              'test',
+                                                                                            ),
+                                                                                            fit: BoxFit.cover,
+                                                                                          ),
+                                                                                        ),
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                          child: Text(
+                                                                                            valueOrDefault<String>(
+                                                                                              columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
+                                                                                              'test',
+                                                                                            ),
+                                                                                            textAlign: TextAlign.center,
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  color: Color(0xFF3C4059),
+                                                                                                  fontSize: 12.0,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                  fontWeight: FontWeight.w600,
+                                                                                                ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          },
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                    ],
+                                                  );
+                                                },
+                                              ),
                                             if (responsiveVisibility(
                                               context: context,
                                               phone: false,

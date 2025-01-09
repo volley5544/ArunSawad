@@ -9782,6 +9782,16 @@ class FFAppState extends ChangeNotifier {
   set landAndHouseUrlDocRef(DocumentReference? value) {
     _landAndHouseUrlDocRef = value;
   }
+
+  FcmMessageStruct _fcmDataType = FcmMessageStruct();
+  FcmMessageStruct get fcmDataType => _fcmDataType;
+  set fcmDataType(FcmMessageStruct value) {
+    _fcmDataType = value;
+  }
+
+  void updateFcmDataTypeStruct(Function(FcmMessageStruct) updateFn) {
+    updateFn(_fcmDataType);
+  }
 }
 
 void _safeInit(Function() initializeField) {

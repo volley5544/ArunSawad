@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -3092,22 +3093,37 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
 
                                                           if (columnUserCustomRecord !=
                                                               null) {
+                                                            FFAppState()
+                                                                .updateFcmDataTypeStruct(
+                                                              (e) => e
+                                                                ..token =
+                                                                    'cwYMuuplRwOYAom55nWaFv:APA91bGWKDlQ9vOoVKwXFAVXeujSoJ4maPI6Jx3-7-UPKg5jd3be00t5Q4vMVIF1uWigQGed1apStbgnaqTCGRXIQssRa8cOieDqLNTURDA_ep-ziYmGD5g'
+                                                                ..notification =
+                                                                    NotificationStruct
+                                                                        .maybeFromMap(
+                                                                            getJsonField(
+                                                                  functions.createNotificationBody(
+                                                                      'มีการขอ \"${widget!.leaveType}\" โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
+                                                                      'คำขอลาจากพนักงาน'),
+                                                                  r'''$''',
+                                                                ))
+                                                                ..data = DataStruct
+                                                                    .maybeFromMap(
+                                                                        getJsonField(
+                                                                  functions
+                                                                      .createNotificationDataBody(
+                                                                          'Leave_Request'),
+                                                                  r'''$''',
+                                                                )),
+                                                            );
+                                                            safeSetState(() {});
                                                             _model.fcmSendNotiFication =
                                                                 await SendFCMNotificationAPICall
                                                                     .call(
-                                                              to: columnFCMTokenRecord
-                                                                  ?.fcmToken,
-                                                              notificationJson:
-                                                                  getJsonField(
-                                                                functions.createNotificationBody(
-                                                                    'มีการขอ \"${widget!.leaveType}\" โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
-                                                                    'คำขอลาจากพนักงาน',
-                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/test-flow-l46o23/assets/xqqgm3jn0hu4/leaveimg2.png'),
-                                                                r'''$''',
-                                                              ),
-                                                              dataJson: functions
-                                                                  .createNotificationDataBody(
-                                                                      'Leave_Request'),
+                                                              messageJson:
+                                                                  FFAppState()
+                                                                      .fcmDataType
+                                                                      .toMap(),
                                                             );
 
                                                             _shouldSetState =
@@ -3115,28 +3131,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             if ((_model.fcmSendNotiFication
                                                                         ?.statusCode ??
                                                                     200) !=
-                                                                200) {
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'พบข้อผิดพลาดNotification (${(_model.fcmSendNotiFication?.statusCode ?? 200).toString()})',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: Colors
-                                                                          .white,
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          3000),
-                                                                  backgroundColor:
-                                                                      Color(
-                                                                          0xB2000000),
-                                                                ),
-                                                              );
-                                                            }
+                                                                200) {}
 
                                                             var notificationRecordReference =
                                                                 NotificationRecord

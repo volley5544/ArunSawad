@@ -7521,14 +7521,14 @@ class SendFCMNotificationAPICall {
     String? to = '',
     dynamic? notificationJson,
     dynamic? dataJson,
+    dynamic? messageJson,
   }) async {
     final notification = _serializeJson(notificationJson);
     final data = _serializeJson(dataJson);
+    final message = _serializeJson(messageJson);
     final ffApiRequestBody = '''
 {
-  "to": "${to}",
-  "notification": ${notification},
-  "data": ${data}
+"message":${message}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SendFCMNotificationAPI',
@@ -7537,7 +7537,7 @@ class SendFCMNotificationAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
-            'bearer AAAAWEYHwRs:APA91bG7ezsMWzUoITp6S--2hs3LdrivYaMprdAPl42YdwC1CIu6e8FkOSOGhbtJvaYkdCIjsKBU_U76PKM-bhrwWrPJQy3gHg3ZSi6Uqb76XIuNSh-lIPQ_rloc5wXnTlQlzbaWUSpk',
+            'Bearer ya29.a0ARW5m77wMG5MOayXkk0BDmDTWr8JzOQMQWUY4ddj6h5CHU7KJ2KHXMnYhad3PH2l9T-MqNbDrPk2BUZ_8S8yaXnJx8CqrbmnqIB6Vein1zP0cOCOapcy1wcRzCcmQmClnlAg7GHIzt2KLZhqIeCjgFYqaGtus6O08hLLdKYGaCgYKAeASARISFQHGX2MiAfm1U7080UZijRTGpx7qTQ0175',
       },
       params: {},
       body: ffApiRequestBody,

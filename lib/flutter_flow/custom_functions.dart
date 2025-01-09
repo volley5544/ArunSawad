@@ -2237,13 +2237,12 @@ bool? checkLeaveDayNumber(String? leaveDayNumber) {
 dynamic createNotificationBody(
   String? body,
   String? title,
-  String? icon,
 ) {
-  return {"body": body!, "title": title!, "icon": icon!};
+  return {"body": body!, "title": title!};
 }
 
 dynamic createNotificationDataBody(String? type) {
-  return {"type": type!};
+  return {"type": type!, "project_name": "arunsawad"};
 }
 
 String? splittingString(String? leaveDate) {

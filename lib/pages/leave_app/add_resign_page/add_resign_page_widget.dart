@@ -2718,8 +2718,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           getJsonField(
                                                         functions.createNotificationBody(
                                                             'มีการขอ \"ลาออก\" โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
-                                                            'คำขอลาจากพนักงาน',
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/test-flow-l46o23/assets/xqqgm3jn0hu4/leaveimg2.png'),
+                                                            'คำขอลาจากพนักงาน'),
                                                         r'''$''',
                                                       ),
                                                       dataJson: functions
