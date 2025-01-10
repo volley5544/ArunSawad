@@ -3125,6 +3125,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   FFAppState()
                                                                       .fcmDataType
                                                                       .toMap(),
+                                                              token:
+                                                                  currentJwtToken,
                                                             );
 
                                                             _shouldSetState =

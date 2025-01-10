@@ -4592,3 +4592,36 @@ bool? validatePriceImpound(String? input) {
   bool result = inputSplit.first.length <= 8;
   return result;
 }
+
+String? openGoogleMapWithRoute(List<LatLng>? locations) {
+  if (locations == null || locations.isEmpty) return null;
+
+  if (locations.length == 1) {
+    // Handle single location case
+    LatLng singleLocation = locations.first;
+    String url =
+        'https://www.google.com/maps/search/?api=1&query=${singleLocation.latitude},${singleLocation.longitude}';
+
+    // Print the URL for debugging
+    print('Google Maps URL (Single Location): $url');
+
+    return url;
+  }
+
+  // Extract origin, destination, and waypoints for multiple locations
+  LatLng origin = locations.first;
+  LatLng destination = locations.last;
+  String waypoints = locations
+      .sublist(1, locations.length - 1)
+      .map((loc) => '${loc.latitude},${loc.longitude}')
+      .join('|');
+
+  // Construct the Google Maps URL
+  String url =
+      'https://www.google.com/maps/dir/?api=1&origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&waypoints=$waypoints&travelmode=driving';
+
+  // Print the URL for debugging
+  print('Google Maps URL (Route): $url');
+
+  return url;
+}

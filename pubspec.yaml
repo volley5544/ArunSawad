@@ -98,6 +98,7 @@ dependencies:
   flutter_map: ^2.2.0
   flutter_phone_direct_caller: ^2.1.1
   flutter_plugin_android_lifecycle: 2.0.20
+  flutter_polyline_points: ^2.1.0
   flutter_rating_bar: 4.0.1
   flutter_secure_storage: ^8.0.0
   flutter_secure_storage_linux: 1.2.1

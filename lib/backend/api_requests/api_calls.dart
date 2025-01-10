@@ -7522,6 +7522,7 @@ class SendFCMNotificationAPICall {
     dynamic? notificationJson,
     dynamic? dataJson,
     dynamic? messageJson,
+    String? token = '',
   }) async {
     final notification = _serializeJson(notificationJson);
     final data = _serializeJson(dataJson);
@@ -7536,8 +7537,7 @@ class SendFCMNotificationAPICall {
           'https://fcm.googleapis.com/v1/projects/flut-flow-test/messages:send',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization':
-            'Bearer ya29.a0ARW5m77wMG5MOayXkk0BDmDTWr8JzOQMQWUY4ddj6h5CHU7KJ2KHXMnYhad3PH2l9T-MqNbDrPk2BUZ_8S8yaXnJx8CqrbmnqIB6Vein1zP0cOCOapcy1wcRzCcmQmClnlAg7GHIzt2KLZhqIeCjgFYqaGtus6O08hLLdKYGaCgYKAeASARISFQHGX2MiAfm1U7080UZijRTGpx7qTQ0175',
+        'Authorization': 'Bearer ${token}',
       },
       params: {},
       body: ffApiRequestBody,

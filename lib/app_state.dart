@@ -9792,6 +9792,41 @@ class FFAppState extends ChangeNotifier {
   void updateFcmDataTypeStruct(Function(FcmMessageStruct) updateFn) {
     updateFn(_fcmDataType);
   }
+
+  List<LatLng> _listlocations = [
+    LatLng(13.7563, 100.5018),
+    LatLng(13.7456, 100.4925),
+    LatLng(13.7627, 100.4932),
+    LatLng(13.7376, 100.5232),
+    LatLng(13.69, 100.7501)
+  ];
+  List<LatLng> get listlocations => _listlocations;
+  set listlocations(List<LatLng> value) {
+    _listlocations = value;
+  }
+
+  void addToListlocations(LatLng value) {
+    listlocations.add(value);
+  }
+
+  void removeFromListlocations(LatLng value) {
+    listlocations.remove(value);
+  }
+
+  void removeAtIndexFromListlocations(int index) {
+    listlocations.removeAt(index);
+  }
+
+  void updateListlocationsAtIndex(
+    int index,
+    LatLng Function(LatLng) updateFn,
+  ) {
+    listlocations[index] = updateFn(_listlocations[index]);
+  }
+
+  void insertAtIndexInListlocations(int index, LatLng value) {
+    listlocations.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
