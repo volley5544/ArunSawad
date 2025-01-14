@@ -22,10 +22,12 @@ class PolylineExample extends StatefulWidget {
     super.key,
     this.width,
     this.height,
+    this.locations,
   });
 
   final double? width;
   final double? height;
+  final List<LatLng>? locations;
 
   @override
   State<PolylineExample> createState() => _PolylineExampleState();
@@ -39,12 +41,6 @@ class _PolylineExampleState extends State<PolylineExample> {
   final String _googleApiKey =
       "AIzaSyCxgfP7r2FHQ8TZVpKcJqG5x6csoehfDlg"; // Replace with your actual API key
 
-  List<Map<String, double>> locations = [
-    {'lat': 12.6170045, 'lng': 98.8234899}, // Location 1
-    {'lat': 12.6710678, 'lng': 98.8577337} // Location 2
-    // {'lat': 13.702044, 'lng': 100.545798}, // Location 3
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -53,7 +49,6 @@ class _PolylineExampleState extends State<PolylineExample> {
     _drawPolyline();
   }
 
-  // Request location permissions at runtime
   void _requestPermissions() async {
     if (await Permission.location.request().isGranted) {
       print('Location Permission granted');
@@ -63,15 +58,15 @@ class _PolylineExampleState extends State<PolylineExample> {
   }
 
   void _addMarkers() {
-    for (int i = 0; i < locations.length; i++) {
-      final location = locations[i];
+    for (int i = 0; i < widget.locations!.length; i++) {
+      final location = widget.locations![i];
       _markers.add(
         ggmap.Marker(
           markerId: ggmap.MarkerId(i.toString()),
-          position: ggmap.LatLng(location['lat']!, location['lng']!),
+          position: ggmap.LatLng(location.latitude, location.longitude),
           infoWindow: ggmap.InfoWindow(title: 'Location $i'),
           onTap: () {
-            _launchStreetView(location['lat']!, location['lng']!);
+            _launchStreetView(location!.latitude, location!.longitude);
           },
         ),
       );
@@ -82,15 +77,15 @@ class _PolylineExampleState extends State<PolylineExample> {
     PolylinePoints polylinePoints = PolylinePoints();
     List<PointLatLng> result = [];
 
-    for (int i = 0; i < locations.length - 1; i++) {
-      final start = locations[i];
-      final end = locations[i + 1];
+    for (int i = 0; i < widget.locations!.length - 1; i++) {
+      final start = widget.locations![i];
+      final end = widget.locations![i + 1];
 
       PolylineResult polylineResult =
           await polylinePoints.getRouteBetweenCoordinates(
         _googleApiKey,
-        PointLatLng(start['lat']!, start['lng']!),
-        PointLatLng(end['lat']!, end['lng']!),
+        PointLatLng(start.latitude, start.longitude),
+        PointLatLng(end.latitude, end.longitude),
       );
 
       if (polylineResult.points.isNotEmpty) {
@@ -126,10 +121,7 @@ class _PolylineExampleState extends State<PolylineExample> {
         final metadata = json.decode(response.body);
 
         if (metadata['status'] == 'OK') {
-          // Street View is available
           print("Street View is available for this location.");
-
-          // Launch Street View
           final streetViewUrl =
               "https://www.google.com/maps?q=&layer=c&cbll=$lat,$lng";
           if (await canLaunch(streetViewUrl)) {
@@ -138,9 +130,7 @@ class _PolylineExampleState extends State<PolylineExample> {
             throw 'Could not launch $streetViewUrl';
           }
         } else {
-          // Street View is not available, open Google Maps instead
           print("Street View is not available. Opening Google Maps.");
-
           final mapsUrl = "https://www.google.com/maps?q=$lat,$lng";
           if (await canLaunch(mapsUrl)) {
             await launch(mapsUrl);
@@ -156,16 +146,15 @@ class _PolylineExampleState extends State<PolylineExample> {
     }
   }
 
-  // Function to get LatLngBounds
   ggmap.LatLngBounds _getLatLngBounds() {
     double minLat = double.infinity;
     double maxLat = -double.infinity;
     double minLng = double.infinity;
     double maxLng = -double.infinity;
 
-    for (var location in locations) {
-      double lat = location['lat']!;
-      double lng = location['lng']!;
+    for (var location in widget.locations!) {
+      double lat = location.latitude;
+      double lng = location.longitude;
 
       if (lat < minLat) minLat = lat;
       if (lat > maxLat) maxLat = lat;
@@ -179,7 +168,6 @@ class _PolylineExampleState extends State<PolylineExample> {
     );
   }
 
-  // Update the camera position only once when everything is ready
   void _updateCameraPosition() {
     ggmap.LatLngBounds bounds = _getLatLngBounds();
     _mapController.animateCamera(
@@ -190,23 +178,24 @@ class _PolylineExampleState extends State<PolylineExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Polyline and Markers")),
       body: ggmap.GoogleMap(
         onMapCreated: (controller) {
           _mapController = controller;
-          _updateCameraPosition(); // Update camera after map creation
+          _updateCameraPosition();
         },
         initialCameraPosition: ggmap.CameraPosition(
-          target: ggmap.LatLng(locations[0]['lat']!, locations[0]['lng']!),
+          target: widget.locations!.isNotEmpty
+              ? ggmap.LatLng(
+                  widget.locations!.first
+                      .latitude, // Convert from ff.LatLng to ggmap.LatLng
+                  widget.locations!.first.longitude,
+                )
+              : ggmap.LatLng(0, 0),
           zoom: 12,
         ),
         mapType: ggmap.MapType.normal,
         markers: _markers,
         polylines: _polylines,
-        onCameraMove: (position) {
-          // Only update the camera if necessary, to avoid lag
-          // Do not update camera position based on user interaction
-        },
       ),
     );
   }

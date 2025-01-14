@@ -39,6 +39,8 @@ class _TestpolymapWidgetState extends State<TestpolymapWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -80,6 +82,7 @@ class _TestpolymapWidgetState extends State<TestpolymapWidget> {
                   child: custom_widgets.PolylineExample(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
+                    locations: FFAppState().listlocations,
                   ),
                 ),
               ),
