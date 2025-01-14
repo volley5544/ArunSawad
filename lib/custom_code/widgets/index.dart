@@ -12,4 +12,4 @@ export 'video_page.dart' show VideoPage;
 export 'video_page_ios.dart' show VideoPageIos;
 export 'show_text_url.dart' show ShowTextUrl;
 export 'image_widget5544.dart' show ImageWidget5544;
-export 'route_location.dart' show RouteLocation;
+export 'polyline_example.dart' show PolylineExample;

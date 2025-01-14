@@ -2204,9 +2204,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await launchURL(
-                                    functions.openGoogleMapWithRoute(
-                                        FFAppState().listlocations.toList())!);
+                                context.pushNamed('testpolymap');
                               },
                               child: Text(
                                 'Copyright ©2022.  Srisawad Corporation Plc.',

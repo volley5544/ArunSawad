@@ -2353,6 +2353,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'testpolymap',
+              path: 'testpolymap',
+              builder: (context, params) => TestpolymapWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

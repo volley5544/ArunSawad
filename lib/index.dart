@@ -219,7 +219,7 @@ export '/pages/super_app/roadmapinsurance/roadmapinsurance_widget.dart'
     show RoadmapinsuranceWidget;
 export '/car_seized/car_seized_page_step1/car_seized_page_step1_widget.dart'
     show CarSeizedPageStep1Widget;
-export '/car_seized/car_seized_dashboard_page/car_seized_dashboard_page_widget.dart'
+export '/camera_video_record/car_seized_dashboard_page/car_seized_dashboard_page_widget.dart'
     show CarSeizedDashboardPageWidget;
 export '/car_seized/customer_car_deails_step1/customer_car_deails_step1_widget.dart'
     show CustomerCarDeailsStep1Widget;
@@ -250,3 +250,4 @@ export '/car_seized/branch_selected_page/branch_selected_page_widget.dart'
     show BranchSelectedPageWidget;
 export '/pages/super_app/webview_new_page/webview_new_page_widget.dart'
     show WebviewNewPageWidget;
+export '/testpolymap/testpolymap_widget.dart' show TestpolymapWidget;
