@@ -52,6 +52,8 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
 
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in IconButton widget.
   String? uploadFirebaseStorageActionTablet;
+  // Stores action output result for [Custom Action - checkImageIsAvailable] action in IconButton widget.
+  bool? checkProfileImgIsAvailableTab;
 
   @override
   void initState(BuildContext context) {}

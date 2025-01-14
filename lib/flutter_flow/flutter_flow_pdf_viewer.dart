@@ -41,7 +41,7 @@ class _FlutterFlowPdfViewerState extends State<FlutterFlowPdfViewer> {
                 ? await PdfDocument.openAsset(assetPath)
                 : networkPath.isNotEmpty
                     ? await PdfDocument.openData(InternetFile.get(networkPath))
-                    : await PdfDocument.openData(fileBytes)
+                    : await PdfDocument.openData(Uint8List.fromList(fileBytes))
             : null;
     controller = pdfDocument != null
         ? PdfController(document: Future.value(pdfDocument))

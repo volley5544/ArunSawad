@@ -1205,14 +1205,28 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (stackUserCustomRecord
-                                                        ?.imgProfile !=
-                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74') {
-                                                  await FirebaseStorage.instance
-                                                      .refFromURL(
-                                                          stackUserCustomRecord!
-                                                              .imgProfile)
-                                                      .delete();
+                                                if (!functions.containWordinStringUrl(
+                                                    'blank-profile-picture-gc19a78ed8_1280.png',
+                                                    functions.imgPathtoString(
+                                                        stackUserCustomRecord
+                                                            ?.imgProfile))!) {
+                                                  _model.checkProfileImgIsAvailableTab =
+                                                      await actions
+                                                          .checkImageIsAvailable(
+                                                    functions.imgPathtoString(
+                                                        stackUserCustomRecord
+                                                            ?.imgProfile),
+                                                  );
+                                                  _shouldSetState = true;
+                                                  if (_model
+                                                      .checkProfileImgIsAvailableTab!) {
+                                                    await FirebaseStorage
+                                                        .instance
+                                                        .refFromURL(
+                                                            stackUserCustomRecord!
+                                                                .imgProfile)
+                                                        .delete();
+                                                  }
                                                 }
 
                                                 await stackUserCustomRecord!

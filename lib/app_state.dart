@@ -9827,6 +9827,14 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInListlocations(int index, LatLng value) {
     listlocations.insert(index, value);
   }
+
+  DocumentReference? _landAndHouseArunsawadDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/6ggFn1eZw0ZfCEkBa5AM');
+  DocumentReference? get landAndHouseArunsawadDocRef =>
+      _landAndHouseArunsawadDocRef;
+  set landAndHouseArunsawadDocRef(DocumentReference? value) {
+    _landAndHouseArunsawadDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
