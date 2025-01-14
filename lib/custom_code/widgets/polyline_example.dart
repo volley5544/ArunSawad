@@ -16,6 +16,8 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:http/http.dart' as http;
+import 'dart:ui' as ui; // Import for custom drawing
+import 'dart:typed_data'; // For ByteData
 
 class PolylineExample extends StatefulWidget {
   const PolylineExample({
@@ -57,20 +59,67 @@ class _PolylineExampleState extends State<PolylineExample> {
     }
   }
 
-  void _addMarkers() {
+  void _addMarkers() async {
     for (int i = 0; i < widget.locations!.length; i++) {
       final location = widget.locations![i];
+      final markerLabel = 'Location ${i + 1}';
+      final customMarker = await _createCustomMarker(markerLabel);
+
       _markers.add(
         ggmap.Marker(
           markerId: ggmap.MarkerId(i.toString()),
           position: ggmap.LatLng(location.latitude, location.longitude),
-          infoWindow: ggmap.InfoWindow(title: 'Location $i'),
+          icon: customMarker,
           onTap: () {
-            _launchStreetView(location!.latitude, location!.longitude);
+            _launchStreetView(location.latitude, location.longitude);
           },
         ),
       );
     }
+  }
+
+  Future<ggmap.BitmapDescriptor> _createCustomMarker(String label) async {
+    final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
+    final Canvas canvas = Canvas(pictureRecorder);
+    final Paint paint = Paint()..color = Colors.blue;
+    const double markerWidth = 120;
+    const double markerHeight = 60;
+
+    // Draw the marker background
+    final RRect rRect = RRect.fromRectAndRadius(
+      Rect.fromLTWH(0, 0, markerWidth, markerHeight),
+      const Radius.circular(10),
+    );
+    canvas.drawRRect(rRect, paint);
+
+    // Add text to the marker
+    final textPainter = TextPainter(
+      text: TextSpan(
+        text: label,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      textDirection: ui.TextDirection.ltr,
+    );
+    textPainter.layout();
+    textPainter.paint(
+      canvas,
+      Offset(
+        (markerWidth - textPainter.width) / 2,
+        (markerHeight - textPainter.height) / 2,
+      ),
+    );
+
+    final ui.Image markerAsImage = await pictureRecorder
+        .endRecording()
+        .toImage(markerWidth.toInt(), markerHeight.toInt());
+    final ByteData? byteData =
+        await markerAsImage.toByteData(format: ui.ImageByteFormat.png);
+
+    return ggmap.BitmapDescriptor.fromBytes(byteData!.buffer.asUint8List());
   }
 
   void _drawPolyline() async {

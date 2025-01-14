@@ -59,7 +59,9 @@ class _TestpolymapWidgetState extends State<TestpolymapWidget> {
               focusColor: Colors.transparent,
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              onTap: () async {},
+              onTap: () async {
+                context.safePop();
+              },
               child: Icon(
                 Icons.arrow_back,
                 color: FlutterFlowTheme.of(context).secondaryBackground,
