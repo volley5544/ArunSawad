@@ -53,7 +53,7 @@ class _TestpolymapWidgetState extends State<TestpolymapWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            'poly map',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -72,7 +72,7 @@ class _TestpolymapWidgetState extends State<TestpolymapWidget> {
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 0.7,
+                height: MediaQuery.sizeOf(context).height * 1.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),

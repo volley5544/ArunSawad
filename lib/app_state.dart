@@ -9798,7 +9798,7 @@ class FFAppState extends ChangeNotifier {
     LatLng(13.7456, 100.4925),
     LatLng(13.7627, 100.4932),
     LatLng(13.7376, 100.5232),
-    LatLng(13.69, 100.7501)
+    LatLng(12.6710678, 98.8577337)
   ];
   List<LatLng> get listlocations => _listlocations;
   set listlocations(List<LatLng> value) {
