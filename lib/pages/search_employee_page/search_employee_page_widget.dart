@@ -1,7 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
-import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
@@ -11,11 +9,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -40,11 +38,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
-  var hasContainerTriggered1 = false;
-  var hasContainerTriggered2 = false;
-  var hasContainerTriggered3 = false;
-  var hasContainerTriggered4 = false;
-  var hasContainerTriggered5 = false;
+
   final animationsMap = <String, AnimationInfo>{};
 
   @override
@@ -58,182 +52,111 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        barrierColor: Color(0x00000000),
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return WebViewAware(
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: Container(
-                  height: double.infinity,
-                  child: LoadingSceneWidget(),
-                ),
-              ),
-            ),
-          );
-        },
-      ).then((value) => safeSetState(() {}));
-
-      var userLogRecordReference = UserLogRecord.collection.doc();
-      await userLogRecordReference.set(createUserLogRecordData(
-        employeeId: FFAppState().employeeID,
-        action: 'KPI',
-        actionTime: getCurrentTimestamp,
-        userLocation: currentUserLocationValue,
-      ));
-      _model.createdUserLogKPI = UserLogRecord.getDocumentFromData(
-          createUserLogRecordData(
-            employeeId: FFAppState().employeeID,
-            action: 'KPI',
-            actionTime: getCurrentTimestamp,
-            userLocation: currentUserLocationValue,
-          ),
-          userLogRecordReference);
-      _model.getServerDateTime = await GetDateTimeAPICall.call(
-        apiUrl: FFAppState().apiURLLocalState,
-        token: FFAppState().accessToken,
+      unawaited(
+        () async {}(),
       );
-
-      _model.getArea = await GetRegionAreaAPICall.call(
-        token: FFAppState().accessToken,
-        apiUrl: FFAppState().apiURLLocalState,
-        branchType: 'เขต',
-      );
-
-      _model.getRegion = await GetRegionAreaAPICall.call(
-        token: FFAppState().accessToken,
-        apiUrl: FFAppState().apiURLLocalState,
-        branchType: 'ภาค',
-      );
-
-      Navigator.pop(context);
     });
 
     _model.employeeKeywordInputTextController ??= TextEditingController();
     _model.employeeKeywordInputFocusNode ??= FocusNode();
 
     animationsMap.addAll({
-      'containerOnActionTriggerAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
+            duration: 500.0.ms,
+            begin: Offset(0.0, 25.0),
             end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 500.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
-      'containerOnActionTriggerAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
+            duration: 500.0.ms,
+            begin: Offset(0.0, 25.0),
             end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 500.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
-      'containerOnActionTriggerAnimation3': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
+            duration: 500.0.ms,
+            begin: Offset(0.0, 25.0),
             end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 500.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
-      'containerOnActionTriggerAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
+            duration: 500.0.ms,
+            begin: Offset(0.0, 25.0),
             end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 500.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
-      'containerOnActionTriggerAnimation5': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
+            duration: 500.0.ms,
+            begin: Offset(0.0, 25.0),
             end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 500.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -683,10 +606,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                               ],
                             ),
                           ),
-                        ).animateOnActionTrigger(
-                            animationsMap[
-                                'containerOnActionTriggerAnimation1']!,
-                            hasBeenTriggered: hasContainerTriggered1),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation1']!),
                       Divider(
                         thickness: 1.0,
                       ),
@@ -748,10 +669,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                               ],
                             ),
                           ),
-                        ).animateOnActionTrigger(
-                            animationsMap[
-                                'containerOnActionTriggerAnimation2']!,
-                            hasBeenTriggered: hasContainerTriggered2),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation2']!),
                       if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
                               200) &&
                           (GetAllEmployeeAPICall.statusLayer2(
@@ -817,10 +736,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                               ],
                             ),
                           ),
-                        ).animateOnActionTrigger(
-                            animationsMap[
-                                'containerOnActionTriggerAnimation3']!,
-                            hasBeenTriggered: hasContainerTriggered3),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation3']!),
                       if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
                               200) &&
                           (GetAllEmployeeAPICall.statusLayer2(
@@ -886,10 +803,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                               ],
                             ),
                           ),
-                        ).animateOnActionTrigger(
-                            animationsMap[
-                                'containerOnActionTriggerAnimation4']!,
-                            hasBeenTriggered: hasContainerTriggered4),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation4']!),
                       if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
                               200) &&
                           (GetAllEmployeeAPICall.statusLayer2(
@@ -955,10 +870,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                               ],
                             ),
                           ),
-                        ).animateOnActionTrigger(
-                            animationsMap[
-                                'containerOnActionTriggerAnimation5']!,
-                            hasBeenTriggered: hasContainerTriggered5),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation5']!),
                       if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
                               200) &&
                           (GetAllEmployeeAPICall.statusLayer2(
