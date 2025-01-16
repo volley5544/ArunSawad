@@ -20,11 +20,15 @@ class WebviewNewPageWidget extends StatefulWidget {
     required this.webUrl,
     this.branchCodeSearch,
     this.levelSearch,
+    this.regionAccessToken,
+    this.regionEmployeeId,
   });
 
   final String? webUrl;
   final String? branchCodeSearch;
   final String? levelSearch;
+  final String? regionAccessToken;
+  final String? regionEmployeeId;
 
   @override
   State<WebviewNewPageWidget> createState() => _WebviewNewPageWidgetState();
@@ -128,8 +132,16 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: FlutterFlowWebView(
-                      content:
-                          '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad',
+                      content: functions.containsValueInDataTypeList(
+                              functions
+                                  .getDataTypeFromJson(
+                                      FFAppState().roleMenuJson,
+                                      'adminRoleGroup')
+                                  ?.toList(),
+                              FFAppState().employeeID,
+                              'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินTester')!
+                          ? '${widget!.webUrl}?employeeId=${widget!.regionEmployeeId}&branchCodeSearch=${widget!.branchCodeSearch}&token=${widget!.regionAccessToken}&level=ภาค&mode=ภาค&projectName=Arunsawad'
+                          : '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad',
                       bypass: true,
                       height: 500.0,
                       verticalScroll: false,

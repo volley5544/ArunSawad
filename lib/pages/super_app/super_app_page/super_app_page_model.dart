@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
 import '/components/search_employee_component/search_employee_component_widget.dart';
@@ -150,8 +151,16 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? queryLandAndHouseArunsawadUrl;
   // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
   dynamic? searchProfileLevelOutput;
+  // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Container widget.
+  String? employeeInputOutput5544;
+  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in Container widget.
+  ApiCallResponse? getEmployeeTokenOutput;
+  // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in Container widget.
+  ApiCallResponse? getRegionProfile;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  UrlLinkStorageRecord? queryLandAndHouseUrl;
+  UrlLinkStorageRecord? queryLandAndHouseUrlTester;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseUrl1;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryAuctionAppointmentUrl;
   // Stores action output result for [Custom Action - scanQrCode] action in Container widget.

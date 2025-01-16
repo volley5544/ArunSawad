@@ -2352,6 +2352,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'levelSearch',
                   ParamType.String,
                 ),
+                regionAccessToken: params.getParam(
+                  'regionAccessToken',
+                  ParamType.String,
+                ),
+                regionEmployeeId: params.getParam(
+                  'regionEmployeeId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
