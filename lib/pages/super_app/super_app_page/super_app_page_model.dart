@@ -160,7 +160,7 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryLandAndHouseUrlTester;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  UrlLinkStorageRecord? queryLandAndHouseUrl1;
+  UrlLinkStorageRecord? queryLandAndHouseUrl;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryAuctionAppointmentUrl;
   // Stores action output result for [Custom Action - scanQrCode] action in Container widget.

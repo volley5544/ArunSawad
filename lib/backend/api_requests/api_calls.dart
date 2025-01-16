@@ -11997,6 +11997,177 @@ class GetTokenEmployeeCall {
       ));
 }
 
+class APIUsersRegionCall {
+  static Future<ApiCallResponse> call({
+    String? branchCode = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "branch_code": "${escapeStringForJson(branchCode)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'APIUsersRegion',
+      apiUrl: 'https://448a-49-231-1-82.ngrok-free.app/api/users/region',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? code(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<String>? branchname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branch_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branch_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? nameth(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].name_th''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].employee_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fullprofile(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].fullprofile''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class APIUserLocationTrackerCall {
+  static Future<ApiCallResponse> call({
+    String? employeeId = '',
+    String? dateTime = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "employee_id": "${escapeStringForJson(employeeId)}",
+  "date_time": "${escapeStringForJson(dateTime)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'APIUserLocationTracker',
+      apiUrl: 'https://448a-49-231-1-82.ngrok-free.app/api/data/user-location',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? code(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<String>? employeeid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].employee_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? latitude(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? longitude(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? latlng(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].latlng''',
+        true,
+      ) as List?;
+  static List<double>? latitudedouble(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].latlng.latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  static List<double>? longitudedouble(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].latlng.longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

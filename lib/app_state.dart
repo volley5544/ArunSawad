@@ -9793,13 +9793,7 @@ class FFAppState extends ChangeNotifier {
     updateFn(_fcmDataType);
   }
 
-  List<LatLng> _listlocations = [
-    LatLng(13.7563, 100.5018),
-    LatLng(13.7456, 100.4925),
-    LatLng(13.7627, 100.4932),
-    LatLng(13.7376, 100.5232),
-    LatLng(12.6710678, 98.8577337)
-  ];
+  List<LatLng> _listlocations = [];
   List<LatLng> get listlocations => _listlocations;
   set listlocations(List<LatLng> value) {
     _listlocations = value;
@@ -9834,6 +9828,35 @@ class FFAppState extends ChangeNotifier {
       _landAndHouseArunsawadDocRef;
   set landAndHouseArunsawadDocRef(DocumentReference? value) {
     _landAndHouseArunsawadDocRef = value;
+  }
+
+  List<String> _listEmpInRegion = [];
+  List<String> get listEmpInRegion => _listEmpInRegion;
+  set listEmpInRegion(List<String> value) {
+    _listEmpInRegion = value;
+  }
+
+  void addToListEmpInRegion(String value) {
+    listEmpInRegion.add(value);
+  }
+
+  void removeFromListEmpInRegion(String value) {
+    listEmpInRegion.remove(value);
+  }
+
+  void removeAtIndexFromListEmpInRegion(int index) {
+    listEmpInRegion.removeAt(index);
+  }
+
+  void updateListEmpInRegionAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    listEmpInRegion[index] = updateFn(_listEmpInRegion[index]);
+  }
+
+  void insertAtIndexInListEmpInRegion(int index, String value) {
+    listEmpInRegion.insert(index, value);
   }
 }
 

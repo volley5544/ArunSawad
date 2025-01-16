@@ -4625,3 +4625,24 @@ String? openGoogleMapWithRoute(List<LatLng>? locations) {
 
   return url;
 }
+
+List<LatLng>? makeLatLngList(
+  List<String>? lat,
+  List<String>? lng,
+) {
+  if (lat == null || lng == null || lat.length != lng.length) {
+    return null; // Return null if lists are null or lengths don't match
+  }
+
+  List<LatLng> result = [];
+  for (int i = 0; i < lat.length; i++) {
+    double? latitude = double.tryParse(lat[i]);
+    double? longitude = double.tryParse(lng[i]);
+
+    if (latitude != null && longitude != null) {
+      result.add(LatLng(latitude, longitude));
+    }
+  }
+
+  return result;
+}

@@ -3187,7 +3187,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ).then((value) =>
                                                                                 safeSetState(() {}));
 
-                                                                            _model.queryLandAndHouseUrl1 =
+                                                                            _model.queryLandAndHouseUrl =
                                                                                 await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseUrlDocRef!);
                                                                             _shouldSetState =
                                                                                 true;
@@ -3197,7 +3197,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               'WebviewNewPage',
                                                                               queryParameters: {
                                                                                 'webUrl': serializeParam(
-                                                                                  _model.queryLandAndHouseUrl1?.urlLink,
+                                                                                  _model.queryLandAndHouseUrl?.urlLink,
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'branchCodeSearch': serializeParam(
