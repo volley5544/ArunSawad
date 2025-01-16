@@ -144,7 +144,7 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
         builder: (alertDialogContext) {
           return WebViewAware(
             child: AlertDialog(
-              content: Text(widget!.levelSearch!),
+              content: Text(widget!.regionEmployeeId!),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),

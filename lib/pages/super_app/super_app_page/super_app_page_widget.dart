@@ -3110,7 +3110,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     'WebviewNewPage',
                                                                                     queryParameters: {
                                                                                       'webUrl': serializeParam(
-                                                                                        _model.queryLandAndHouseUrl1?.urlLink,
+                                                                                        _model.queryLandAndHouseUrlTester?.urlLink,
                                                                                         ParamType.String,
                                                                                       ),
                                                                                       'branchCodeSearch': serializeParam(
