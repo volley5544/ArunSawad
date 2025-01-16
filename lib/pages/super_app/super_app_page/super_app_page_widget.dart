@@ -2769,6 +2769,82 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       if (functions.getSpecificIndexFromJson(
                                                                               FFAppState()
                                                                                   .roleMenuJson,
+                                                                              'Location พนักงาน',
+                                                                              FFAppState()
+                                                                                  .profileLevel)! ||
+                                                                          functions.containStringInListString(
+                                                                              functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'Location พนักงาน')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'Location พนักงาน')?.toList(), FFAppState().profilePositionName)!)
+                                                                        InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              return;
+                                                                            }
+
+                                                                            context.goNamed('SearchEmployeePage');
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/download.png',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'Location\n พนักงาน',
+                                                                                  textAlign: TextAlign.center,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      if (functions.getSpecificIndexFromJson(
+                                                                              FFAppState()
+                                                                                  .roleMenuJson,
                                                                               'ประเมินราคาที่ดิน',
                                                                               FFAppState()
                                                                                   .profileLevel)! ||

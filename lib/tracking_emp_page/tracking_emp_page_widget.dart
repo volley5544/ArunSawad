@@ -17,27 +17,33 @@ import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'testpolymap_model.dart';
-export 'testpolymap_model.dart';
+import 'tracking_emp_page_model.dart';
+export 'tracking_emp_page_model.dart';
 
-class TestpolymapWidget extends StatefulWidget {
-  const TestpolymapWidget({super.key});
+class TrackingEmpPageWidget extends StatefulWidget {
+  const TrackingEmpPageWidget({
+    super.key,
+    required this.listLatLng,
+  });
+
+  final List<LatLng>? listLatLng;
 
   @override
-  State<TestpolymapWidget> createState() => _TestpolymapWidgetState();
+  State<TrackingEmpPageWidget> createState() => _TrackingEmpPageWidgetState();
 }
 
-class _TestpolymapWidgetState extends State<TestpolymapWidget> {
-  late TestpolymapModel _model;
+class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget> {
+  late TrackingEmpPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TestpolymapModel());
+    _model = createModel(context, () => TrackingEmpPageModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'testpolymap'});
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'trackingEmpPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       showDialog(

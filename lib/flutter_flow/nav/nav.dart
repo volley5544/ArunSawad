@@ -2363,9 +2363,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'testpolymap',
-              path: 'testpolymap',
-              builder: (context, params) => TestpolymapWidget(),
+              name: 'trackingEmpPage',
+              path: 'trackingEmpPage',
+              builder: (context, params) => TrackingEmpPageWidget(
+                listLatLng: params.getParam<LatLng>(
+                  'listLatLng',
+                  ParamType.LatLng,
+                  isList: true,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'SearchEmployeePage',
+              path: 'SearchEmployeePage',
+              builder: (context, params) => SearchEmployeePageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
