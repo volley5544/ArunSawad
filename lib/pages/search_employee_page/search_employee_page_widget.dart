@@ -702,7 +702,9 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                           (GetAllEmployeeAPICall.statusLayer2(
                                 (_model.getEmployeeSearched?.jsonBody ?? ''),
                               ) ==
-                              200))
+                              200) &&
+                          (_model.dropDownValue != null &&
+                              _model.dropDownValue != ''))
                         Container(
                           width: double.infinity,
                           height: 40.0,
@@ -762,7 +764,9 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                           (GetAllEmployeeAPICall.statusLayer2(
                                 (_model.getEmployeeSearched?.jsonBody ?? ''),
                               ) ==
-                              200))
+                              200) &&
+                          (_model.dropDownValue != null &&
+                              _model.dropDownValue != ''))
                         Container(
                           width: double.infinity,
                           height: 40.0,
@@ -829,7 +833,9 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                           (GetAllEmployeeAPICall.statusLayer2(
                                 (_model.getEmployeeSearched?.jsonBody ?? ''),
                               ) ==
-                              200))
+                              200) &&
+                          (_model.dropDownValue != null &&
+                              _model.dropDownValue != ''))
                         Container(
                           width: double.infinity,
                           height: 40.0,
@@ -896,7 +902,9 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                           (GetAllEmployeeAPICall.statusLayer2(
                                 (_model.getEmployeeSearched?.jsonBody ?? ''),
                               ) ==
-                              200))
+                              200) &&
+                          (_model.dropDownValue != null &&
+                              _model.dropDownValue != ''))
                         Container(
                           width: double.infinity,
                           height: 40.0,
@@ -958,49 +966,56 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                             animationsMap[
                                 'containerOnActionTriggerAnimation5']!,
                             hasBeenTriggered: hasContainerTriggered5),
-                      FlutterFlowCalendar(
-                        color: Color(0xFFFF6500),
-                        iconColor: FlutterFlowTheme.of(context).secondaryText,
-                        weekFormat: false,
-                        weekStartsMonday: true,
-                        initialDate: getCurrentTimestamp,
-                        rowHeight: 40.0,
-                        onChange: (DateTimeRange? newSelectedDate) {
-                          safeSetState(() =>
-                              _model.calendarSelectedDay = newSelectedDate);
-                        },
-                        titleStyle:
-                            FlutterFlowTheme.of(context).titleLarge.override(
-                                  fontFamily: 'Poppins',
-                                  letterSpacing: 0.0,
-                                ),
-                        dayOfWeekStyle: FlutterFlowTheme.of(context)
-                            .bodyLarge
-                            .override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
-                              letterSpacing: 0.0,
-                            ),
-                        dateStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                ),
-                        selectedDateStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                ),
-                        inactiveDateStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Poppins',
-                                  letterSpacing: 0.0,
-                                ),
-                        locale: FFLocalizations.of(context).languageCode,
-                      ),
+                      if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
+                              200) &&
+                          (GetAllEmployeeAPICall.statusLayer2(
+                                (_model.getEmployeeSearched?.jsonBody ?? ''),
+                              ) ==
+                              200) &&
+                          (_model.dropDownValue != null &&
+                              _model.dropDownValue != ''))
+                        FlutterFlowCalendar(
+                          color: Color(0xFFFF6500),
+                          iconColor: FlutterFlowTheme.of(context).secondaryText,
+                          weekFormat: false,
+                          weekStartsMonday: true,
+                          initialDate: getCurrentTimestamp,
+                          rowHeight: 40.0,
+                          onChange: (DateTimeRange? newSelectedDate) {
+                            safeSetState(() =>
+                                _model.calendarSelectedDay = newSelectedDate);
+                          },
+                          titleStyle:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
+                          dayOfWeekStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyLargeFamily,
+                                    letterSpacing: 0.0,
+                                  ),
+                          dateStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                          selectedDateStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                          inactiveDateStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
+                          locale: FFLocalizations.of(context).languageCode,
+                        ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
@@ -1010,65 +1025,26 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                             Divider(
                               thickness: 1.0,
                             ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                var _shouldSetState = false;
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        title: Text('employee id'),
-                                        content: Text(_model.dropDownValue!),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        title: Text('date select'),
-                                        content: Text(functions.getDateFormat(
-                                            _model
-                                                .calendarSelectedDay?.start)!),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                _model.getUserLocations =
-                                    await APIUserLocationTrackerCall.call(
-                                  employeeId: _model.dropDownValue,
-                                  dateTime: functions.getDateFormat(
-                                      _model.calendarSelectedDay?.start),
-                                );
-
-                                _shouldSetState = true;
-                                if ((_model.getUserLocations?.statusCode ??
-                                        200) !=
-                                    200) {
+                            if (((_model.getEmployeeSearched?.statusCode ??
+                                        200) ==
+                                    200) &&
+                                (GetAllEmployeeAPICall.statusLayer2(
+                                      (_model.getEmployeeSearched?.jsonBody ??
+                                          ''),
+                                    ) ==
+                                    200) &&
+                                (_model.dropDownValue != null &&
+                                    _model.dropDownValue != ''))
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  var _shouldSetState = false;
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
                                         child: AlertDialog(
-                                          content: Text(
-                                              'พบข้อผิดพลาดConnection (${(_model.getUserLocations?.statusCode ?? 200).toString()})'),
+                                          title: Text('employee id'),
+                                          content: Text(_model.dropDownValue!),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -1080,24 +1056,15 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
-                                if ('${APIUserLocationTrackerCall.code(
-                                      (_model.getUserLocations?.jsonBody ?? ''),
-                                    )?.toString()}' !=
-                                    '200') {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
                                         child: AlertDialog(
-                                          content: Text(
-                                              '${APIUserLocationTrackerCall.message(
-                                            (_model.getUserLocations
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )}'),
+                                          title: Text('date select'),
+                                          content: Text(functions.getDateFormat(
+                                              _model.calendarSelectedDay
+                                                  ?.start)!),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -1109,56 +1076,116 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                       );
                                     },
                                   );
+                                  _model.getUserLocations =
+                                      await APIUserLocationTrackerCall.call(
+                                    employeeId: _model.dropDownValue,
+                                    dateTime: functions.getDateFormat(
+                                        _model.calendarSelectedDay?.start),
+                                  );
+
+                                  _shouldSetState = true;
+                                  if ((_model.getUserLocations?.statusCode ??
+                                          200) !=
+                                      200) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'พบข้อผิดพลาดConnection (${(_model.getUserLocations?.statusCode ?? 200).toString()})'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
+                                  if ('${APIUserLocationTrackerCall.code(
+                                        (_model.getUserLocations?.jsonBody ??
+                                            ''),
+                                      )?.toString()}' !=
+                                      '200') {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                '${APIUserLocationTrackerCall.message(
+                                              (_model.getUserLocations
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
+
+                                  context.pushNamed(
+                                    'trackingEmpPage',
+                                    queryParameters: {
+                                      'listLatLng': serializeParam(
+                                        functions.makeLatLngList(
+                                            APIUserLocationTrackerCall.latitude(
+                                              (_model.getUserLocations
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            APIUserLocationTrackerCall
+                                                .longitude(
+                                              (_model.getUserLocations
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList()),
+                                        ParamType.LatLng,
+                                        isList: true,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+
                                   if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
-
-                                context.pushNamed(
-                                  'trackingEmpPage',
-                                  queryParameters: {
-                                    'listLatLng': serializeParam(
-                                      functions.makeLatLngList(
-                                          APIUserLocationTrackerCall.latitude(
-                                            (_model.getUserLocations
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          APIUserLocationTrackerCall.longitude(
-                                            (_model.getUserLocations
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList()),
-                                      ParamType.LatLng,
-                                      isList: true,
-                                    ),
-                                  }.withoutNulls,
-                                );
-
-                                if (_shouldSetState) safeSetState(() {});
-                              },
-                              text: 'ตรวจสอบ Location',
-                              icon: Icon(
-                                Icons.not_listed_location_outlined,
-                                size: 24.0,
+                                },
+                                text: 'ตรวจสอบ Location',
+                                icon: Icon(
+                                  Icons.not_listed_location_outlined,
+                                  size: 24.0,
+                                ),
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFF213BFF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF213BFF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
                           ],
                         ),
                       ),
