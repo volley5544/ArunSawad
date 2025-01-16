@@ -14,7 +14,6 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -59,12 +58,6 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      if (isAndroid) {
-        await actions.allowScreenRecordAndroid();
-      } else {
-        await actions.allowScreenRecordIOS();
-      }
-
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -992,8 +985,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   ),
                           dayOfWeekStyle:
                               FlutterFlowTheme.of(context).bodyLarge.override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyLargeFamily,
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                           dateStyle:
@@ -1034,7 +1026,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     ) ==
                                     200) &&
                                 (_model.dropDownValue != null &&
-                                    _model.dropDownValue != ''))
+                                    _model.dropDownValue != '') &&
+                                (_model.calendarSelectedDay != null))
                               FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
