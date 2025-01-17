@@ -2824,8 +2824,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       shape: BoxShape.circle,
                                                                                     ),
                                                                                     child: Image.asset(
-                                                                                      'assets/images/download.png',
-                                                                                      fit: BoxFit.cover,
+                                                                                      'assets/images/Marketing_Tracking-Links_Site_0409.png',
+                                                                                      fit: BoxFit.contain,
                                                                                     ),
                                                                                   ),
                                                                                 ),
