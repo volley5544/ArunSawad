@@ -504,6 +504,9 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         );
                                       }
                                     }
+                                    safeSetState(() {
+                                      _model.dropDownValueController?.reset();
+                                    });
                                     Navigator.pop(context);
                                     if (_shouldSetState) safeSetState(() {});
                                   },
