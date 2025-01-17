@@ -4652,11 +4652,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .roleMenuJson,
                                                                               'ประกันนอกเรท',
                                                                               FFAppState()
-                                                                                  .profileLevel)! ||
+                                                                                  .profileLevel)! &&
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)! ||
-                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประกันนอกเรท')?.toList(), FFAppState().profilePositionName)!)
+                                                                              FFAppState().employeeID)! &&
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประกันนอกเรท')?.toList(), FFAppState().profilePositionName)! &&
+                                                                          false)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
