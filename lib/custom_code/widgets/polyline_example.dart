@@ -40,7 +40,6 @@ class _PolylineExampleState extends State<PolylineExample> {
   Set<ggmap.Marker> _markers = {};
   Set<ggmap.Polyline> _polylines = {};
   List<ggmap.LatLng> _polylineCoordinates = [];
-  String? _lastTappedMarkerId; // Keep track of the last tapped marker ID
   final String _googleApiKey =
       "AIzaSyCxgfP7r2FHQ8TZVpKcJqG5x6csoehfDlg"; // Replace with your actual API key
 
@@ -66,26 +65,14 @@ class _PolylineExampleState extends State<PolylineExample> {
       _markers.add(
         ggmap.Marker(
           markerId: ggmap.MarkerId(i.toString()),
-          position: ggmap.LatLng(location.latitude, location.longitude),
+          position:
+              ggmap.LatLng(location.latitude, location.longitude), // Convert
           infoWindow: ggmap.InfoWindow(title: 'Location ${i + 1}'),
           onTap: () {
-            _handleMarkerTap(
-                i.toString(), location.latitude, location.longitude);
+            _launchStreetView(location.latitude, location.longitude);
           },
         ),
       );
-    }
-  }
-
-  void _handleMarkerTap(String markerId, double lat, double lng) {
-    if (_lastTappedMarkerId == markerId) {
-      // If the same marker is tapped again, launch the URL
-      _launchStreetView(lat, lng);
-    } else {
-      // If a different marker is tapped, show the info window
-      setState(() {
-        _lastTappedMarkerId = markerId;
-      });
     }
   }
 

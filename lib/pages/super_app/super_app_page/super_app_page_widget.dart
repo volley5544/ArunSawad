@@ -5868,10 +5868,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .roleMenuJson,
                                                                               'ยอดประกัน',
                                                                               FFAppState()
-                                                                                  .profileLevel)! ||
+                                                                                  .profileLevel)! &&
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! &&
+                                                                          false)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
