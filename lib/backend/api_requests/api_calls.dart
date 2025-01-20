@@ -12091,7 +12091,8 @@ class APIUserLocationTrackerCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'APIUserLocationTracker',
-      apiUrl: 'https://448a-49-231-1-82.ngrok-free.app/api/data/user-location',
+      apiUrl:
+          'https://3d04-115-31-145-24.ngrok-free.app/api/data/user-location',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

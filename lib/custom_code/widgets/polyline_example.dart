@@ -42,7 +42,7 @@ class _PolylineExampleState extends State<PolylineExample> {
   List<ggmap.LatLng> _polylineCoordinates = [];
   final String _googleApiKey =
       "AIzaSyCxgfP7r2FHQ8TZVpKcJqG5x6csoehfDlg"; // Replace with your actual API key
-
+  String? _lastTappedMarkerId;
   @override
   void initState() {
     super.initState();
@@ -65,11 +65,19 @@ class _PolylineExampleState extends State<PolylineExample> {
       _markers.add(
         ggmap.Marker(
           markerId: ggmap.MarkerId(i.toString()),
-          position:
-              ggmap.LatLng(location.latitude, location.longitude), // Convert
-          infoWindow: ggmap.InfoWindow(title: 'Location ${i + 1}'),
+          position: ggmap.LatLng(location.latitude, location.longitude),
+          infoWindow: ggmap.InfoWindow(
+            title: 'Location ${i + 1}',
+            snippet: 'Tap here to open Street View',
+            onTap: () {
+              _launchStreetView(location.latitude, location.longitude);
+            },
+          ),
           onTap: () {
-            _launchStreetView(location.latitude, location.longitude);
+            // Handle marker tap to show info window
+            setState(() {
+              _lastTappedMarkerId = i.toString();
+            });
           },
         ),
       );
