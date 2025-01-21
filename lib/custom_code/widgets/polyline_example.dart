@@ -213,7 +213,7 @@ class _PolylineExampleState extends State<PolylineExample> {
 
           // Navigate to first location button
           Positioned(
-            bottom: 70,
+            bottom: 100,
             right: 10,
             child: FloatingActionButton(
               onPressed: () {
