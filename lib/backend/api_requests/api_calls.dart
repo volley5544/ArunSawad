@@ -12083,6 +12083,7 @@ class APIUserLocationTrackerCall {
   static Future<ApiCallResponse> call({
     String? employeeId = '',
     String? dateTime = '',
+    String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -12091,8 +12092,7 @@ class APIUserLocationTrackerCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'APIUserLocationTracker',
-      apiUrl:
-          'https://3d04-115-31-145-24.ngrok-free.app/api/data/user-location',
+      apiUrl: '${apiUrl}/api/data/user-location',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

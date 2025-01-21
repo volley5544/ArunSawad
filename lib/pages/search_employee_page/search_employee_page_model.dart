@@ -1,5 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -14,6 +16,8 @@ import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'search_employee_page_widget.dart' show SearchEmployeePageWidget;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -28,6 +32,8 @@ class SearchEmployeePageModel
     extends FlutterFlowModel<SearchEmployeePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in SearchEmployeePage widget.
+  UrlLinkStorageRecord? apiTrackingUrl;
   // State field(s) for employeeKeywordInput widget.
   FocusNode? employeeKeywordInputFocusNode;
   TextEditingController? employeeKeywordInputTextController;
