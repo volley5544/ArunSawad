@@ -204,7 +204,7 @@ class _PolylineExampleState extends State<PolylineExample> {
                       widget.locations!.first.longitude,
                     )
                   : ggmap.LatLng(0, 0),
-              zoom: 14,
+              zoom: 12,
             ),
             mapType: ggmap.MapType.normal,
             markers: _markers,

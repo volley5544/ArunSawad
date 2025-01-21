@@ -601,18 +601,22 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                       (_model.getEmployeeSearched?.jsonBody ??
                                           ''),
                                     )!),
-                                    optionLabels:
-                                        functions.generateEmployeeList(
-                                            GetAllEmployeeAPICall.fullname(
-                                              (_model.getEmployeeSearched
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?.toList(),
-                                            GetAllEmployeeAPICall.branchCode(
-                                              (_model.getEmployeeSearched
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?.toList())!,
+                                    optionLabels: functions.genDropdownEmployee(
+                                        GetAllEmployeeAPICall.fullname(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        GetAllEmployeeAPICall.branchCode(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        GetAllEmployeeAPICall.employeeId(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.toList())!,
                                     onChanged: (val) => safeSetState(
                                         () => _model.dropDownValue = val),
                                     width: 180.0,
@@ -922,9 +926,17 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                 'containerOnPageLoadAnimation5']!),
                         ],
                       ),
-                      Divider(
-                        thickness: 1.0,
-                      ),
+                      if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
+                              200) &&
+                          (GetAllEmployeeAPICall.statusLayer2(
+                                (_model.getEmployeeSearched?.jsonBody ?? ''),
+                              ) ==
+                              200) &&
+                          (_model.dropDownValue != null &&
+                              _model.dropDownValue != ''))
+                        Divider(
+                          thickness: 1.0,
+                        ),
                       if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
                               200) &&
                           (GetAllEmployeeAPICall.statusLayer2(
@@ -1107,9 +1119,19 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Divider(
-                              thickness: 1.0,
-                            ),
+                            if (((_model.getEmployeeSearched?.statusCode ??
+                                        200) ==
+                                    200) &&
+                                (GetAllEmployeeAPICall.statusLayer2(
+                                      (_model.getEmployeeSearched?.jsonBody ??
+                                          ''),
+                                    ) ==
+                                    200) &&
+                                (_model.dropDownValue != null &&
+                                    _model.dropDownValue != ''))
+                              Divider(
+                                thickness: 1.0,
+                              ),
                             if (((_model.getEmployeeSearched?.statusCode ??
                                         200) ==
                                     200) &&
@@ -1285,9 +1307,17 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                       ),
                     ],
                   ),
-                  Divider(
-                    thickness: 1.0,
-                  ),
+                  if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
+                          200) &&
+                      (GetAllEmployeeAPICall.statusLayer2(
+                            (_model.getEmployeeSearched?.jsonBody ?? ''),
+                          ) ==
+                          200) &&
+                      (_model.dropDownValue != null &&
+                          _model.dropDownValue != ''))
+                    Divider(
+                      thickness: 1.0,
+                    ),
                 ].addToStart(SizedBox(height: 12.0)),
               ),
             ),

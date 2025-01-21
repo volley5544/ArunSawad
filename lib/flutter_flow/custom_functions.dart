@@ -4660,3 +4660,18 @@ List<String>? generateEmployeeList(
   return outputList;
   ;
 }
+
+List<String>? genDropdownEmployee(
+  List<String>? nameList,
+  List<String>? branchCodeList,
+  List<String>? employeeCodeList,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < nameList!.length; i++) {
+    outputList
+        .add('${employeeCodeList![i]} ${nameList![i]} (${branchCodeList![i]})');
+  }
+
+  return outputList;
+}
