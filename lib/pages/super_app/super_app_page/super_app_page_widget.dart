@@ -10747,7 +10747,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                     Text(
-                                                                                      'ลูกค้ารถยึด',
+                                                                                      'Location\n พนักงาน',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             fontSize: 20.0,
