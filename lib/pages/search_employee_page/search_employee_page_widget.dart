@@ -1129,6 +1129,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     employeeId: _model.dropDownValue,
                                     dateTime: functions
                                         .getDateFormat(_model.datePicked),
+                                    apiUrl: _model.apiTrackingUrl?.urlLink,
                                   );
 
                                   _shouldSetState = true;
