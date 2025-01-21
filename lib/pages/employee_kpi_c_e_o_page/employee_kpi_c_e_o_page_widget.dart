@@ -3438,30 +3438,6 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                 ''),
                                                           ) ==
                                                           200)) {
-                                                    if (!FFAppState()
-                                                        .isEmployeeSearched) {
-                                                      if (animationsMap[
-                                                              'containerOnActionTriggerAnimation2'] !=
-                                                          null) {
-                                                        safeSetState(() =>
-                                                            hasContainerTriggered2 =
-                                                                true);
-                                                        SchedulerBinding
-                                                            .instance
-                                                            .addPostFrameCallback((_) async =>
-                                                                await animationsMap[
-                                                                        'containerOnActionTriggerAnimation2']!
-                                                                    .controller
-                                                                    .forward(
-                                                                        from:
-                                                                            0.0));
-                                                      }
-                                                      FFAppState()
-                                                              .isEmployeeSearched =
-                                                          true;
-                                                      FFAppState()
-                                                          .update(() {});
-                                                    }
                                                   } else {
                                                     if ((_model.getEmployeeSearched
                                                                 ?.statusCode ??

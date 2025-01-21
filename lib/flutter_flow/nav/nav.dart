@@ -2371,6 +2371,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.LatLng,
                   isList: true,
                 ),
+                employeeId: params.getParam(
+                  'employeeId',
+                  ParamType.String,
+                ),
+                employeeName: params.getParam(
+                  'employeeName',
+                  ParamType.String,
+                ),
+                employeeBranchCode: params.getParam(
+                  'employeeBranchCode',
+                  ParamType.String,
+                ),
+                employeePositionName: params.getParam(
+                  'employeePositionName',
+                  ParamType.String,
+                ),
+                selectedDate: params.getParam(
+                  'selectedDate',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

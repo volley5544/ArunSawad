@@ -719,7 +719,15 @@ final parametersBuilderMap =
         },
       ),
   'trackingEmpPage': (data) async => ParameterData(
-        allParams: {},
+        allParams: {
+          'employeeId': getParameter<String>(data, 'employeeId'),
+          'employeeName': getParameter<String>(data, 'employeeName'),
+          'employeeBranchCode':
+              getParameter<String>(data, 'employeeBranchCode'),
+          'employeePositionName':
+              getParameter<String>(data, 'employeePositionName'),
+          'selectedDate': getParameter<String>(data, 'selectedDate'),
+        },
       ),
   'SearchEmployeePage': ParameterData.none(),
 };

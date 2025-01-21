@@ -189,23 +189,88 @@ class _PolylineExampleState extends State<PolylineExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ggmap.GoogleMap(
-        onMapCreated: (controller) {
-          _mapController = controller;
-          _updateCameraPosition();
-        },
-        initialCameraPosition: ggmap.CameraPosition(
-          target: widget.locations!.isNotEmpty
-              ? ggmap.LatLng(
-                  widget.locations!.first.latitude,
-                  widget.locations!.first.longitude,
-                )
-              : ggmap.LatLng(0, 0),
-          zoom: 12,
-        ),
-        mapType: ggmap.MapType.normal,
-        markers: _markers,
-        polylines: _polylines,
+      body: Stack(
+        children: [
+          // Google Map
+          ggmap.GoogleMap(
+            onMapCreated: (controller) {
+              _mapController = controller;
+              _updateCameraPosition();
+            },
+            initialCameraPosition: ggmap.CameraPosition(
+              target: widget.locations!.isNotEmpty
+                  ? ggmap.LatLng(
+                      widget.locations!.first.latitude,
+                      widget.locations!.first.longitude,
+                    )
+                  : ggmap.LatLng(0, 0),
+              zoom: 12,
+            ),
+            mapType: ggmap.MapType.normal,
+            markers: _markers,
+            polylines: _polylines,
+          ),
+
+          // Zoom in/out and Navigate buttons
+          Positioned(
+            top: 50,
+            right: 10,
+            child: Column(
+              children: [
+                // Zoom in button
+                FloatingActionButton(
+                  onPressed: () {
+                    _mapController.animateCamera(
+                      ggmap.CameraUpdate.zoomIn(),
+                    );
+                  },
+                  child: Icon(Icons.zoom_in),
+                  mini: true,
+                  backgroundColor: Colors.blue,
+                ),
+                SizedBox(height: 10), // Spacing
+
+                // Zoom out button
+                FloatingActionButton(
+                  onPressed: () {
+                    _mapController.animateCamera(
+                      ggmap.CameraUpdate.zoomOut(),
+                    );
+                  },
+                  child: Icon(Icons.zoom_out),
+                  mini: true,
+                  backgroundColor: Colors.blue,
+                ),
+              ],
+            ),
+          ),
+
+          // Navigate to first location button
+          Positioned(
+            bottom: 50,
+            right: 10,
+            child: FloatingActionButton(
+              onPressed: () {
+                if (widget.locations != null && widget.locations!.isNotEmpty) {
+                  _mapController.animateCamera(
+                    ggmap.CameraUpdate.newLatLng(
+                      ggmap.LatLng(
+                        widget.locations!.first.latitude,
+                        widget.locations!.first.longitude,
+                      ),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('No locations available')),
+                  );
+                }
+              },
+              child: Icon(Icons.my_location),
+              backgroundColor: Colors.green,
+            ),
+          ),
+        ],
       ),
     );
   }

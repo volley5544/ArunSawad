@@ -1,5 +1,4 @@
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
@@ -208,17 +207,29 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
             backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
             actions: [
-              FlutterFlowIconButton(
-                borderRadius: 8.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.close_rounded,
-                  color: Color(0xFFFF6500),
-                  size: 30.0,
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.goNamed('SuperAppPage');
+                    },
+                    child: Text(
+                      'กลับหน้า Home',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: Color(0xFFFF6500),
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
                 ),
-                onPressed: () async {
-                  context.goNamed('SuperAppPage');
-                },
               ),
             ],
             centerTitle: false,

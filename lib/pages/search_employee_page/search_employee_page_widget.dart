@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -14,10 +13,12 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -138,6 +139,25 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
         ],
       ),
       'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 25.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation6': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -614,267 +634,286 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                       Divider(
                         thickness: 1.0,
                       ),
-                      if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
-                              200) &&
-                          (GetAllEmployeeAPICall.statusLayer2(
-                                (_model.getEmployeeSearched?.jsonBody ?? ''),
-                              ) ==
-                              200) &&
-                          (_model.dropDownValue != null &&
-                              _model.dropDownValue != ''))
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Icon(
-                                    Icons.grid_3x3,
-                                    color: Colors.black,
-                                    size: 29.0,
-                                  ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          if (((_model.getEmployeeSearched?.statusCode ??
+                                      200) ==
+                                  200) &&
+                              (GetAllEmployeeAPICall.statusLayer2(
+                                    (_model.getEmployeeSearched?.jsonBody ??
+                                        ''),
+                                  ) ==
+                                  200) &&
+                              (_model.dropDownValue != null &&
+                                  _model.dropDownValue != ''))
+                            Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 10.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(
+                                        Icons.grid_3x3,
+                                        color: Colors.black,
+                                        size: 29.0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'รหัสพนักงาน :',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        '${_model.dropDownValue}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    'รหัสพนักงาน :',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    '${_model.dropDownValue}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
-                      if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
-                              200) &&
-                          (GetAllEmployeeAPICall.statusLayer2(
-                                (_model.getEmployeeSearched?.jsonBody ?? ''),
-                              ) ==
-                              200) &&
-                          (_model.dropDownValue != null &&
-                              _model.dropDownValue != ''))
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Icon(
-                                    Icons.person,
-                                    color: Colors.black,
-                                    size: 29.0,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    'ชื่อพนักงาน : ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    '${GetAllEmployeeAPICall.fullname(
-                                      (_model.getEmployeeSearched?.jsonBody ??
-                                          ''),
-                                    )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation2']!),
+                          if (((_model.getEmployeeSearched?.statusCode ??
+                                      200) ==
+                                  200) &&
+                              (GetAllEmployeeAPICall.statusLayer2(
+                                    (_model.getEmployeeSearched?.jsonBody ??
+                                        ''),
+                                  ) ==
+                                  200) &&
+                              (_model.dropDownValue != null &&
+                                  _model.dropDownValue != ''))
+                            Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 10.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(
+                                        Icons.person,
+                                        color: Colors.black,
+                                        size: 29.0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'ชื่อพนักงาน : ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        '${GetAllEmployeeAPICall.fullname(
                                           (_model.getEmployeeSearched
                                                   ?.jsonBody ??
                                               ''),
-                                        )?.toList(), _model.dropDownValue))}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation3']!),
-                      if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
-                              200) &&
-                          (GetAllEmployeeAPICall.statusLayer2(
-                                (_model.getEmployeeSearched?.jsonBody ?? ''),
-                              ) ==
-                              200) &&
-                          (_model.dropDownValue != null &&
-                              _model.dropDownValue != ''))
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Icon(
-                                    Icons.work,
-                                    color: Colors.black,
-                                    size: 29.0,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    'ตำแหน่ง : ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    '${GetAllEmployeeAPICall.workPosition(
-                                      (_model.getEmployeeSearched?.jsonBody ??
-                                          ''),
-                                    )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation3']!),
+                          if (((_model.getEmployeeSearched?.statusCode ??
+                                      200) ==
+                                  200) &&
+                              (GetAllEmployeeAPICall.statusLayer2(
+                                    (_model.getEmployeeSearched?.jsonBody ??
+                                        ''),
+                                  ) ==
+                                  200) &&
+                              (_model.dropDownValue != null &&
+                                  _model.dropDownValue != ''))
+                            Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 10.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(
+                                        Icons.work,
+                                        color: Colors.black,
+                                        size: 29.0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'ตำแหน่ง : ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        '${GetAllEmployeeAPICall.workPosition(
                                           (_model.getEmployeeSearched
                                                   ?.jsonBody ??
                                               ''),
-                                        )?.toList(), _model.dropDownValue))}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation4']!),
-                      if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
-                              200) &&
-                          (GetAllEmployeeAPICall.statusLayer2(
-                                (_model.getEmployeeSearched?.jsonBody ?? ''),
-                              ) ==
-                              200) &&
-                          (_model.dropDownValue != null &&
-                              _model.dropDownValue != ''))
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Icon(
-                                    Icons.home_rounded,
-                                    color: Colors.black,
-                                    size: 29.0,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    'Branch Code : ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    '${GetAllEmployeeAPICall.branchCode(
-                                      (_model.getEmployeeSearched?.jsonBody ??
-                                          ''),
-                                    )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation4']!),
+                          if (((_model.getEmployeeSearched?.statusCode ??
+                                      200) ==
+                                  200) &&
+                              (GetAllEmployeeAPICall.statusLayer2(
+                                    (_model.getEmployeeSearched?.jsonBody ??
+                                        ''),
+                                  ) ==
+                                  200) &&
+                              (_model.dropDownValue != null &&
+                                  _model.dropDownValue != ''))
+                            Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 10.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(
+                                        Icons.home_rounded,
+                                        color: Colors.black,
+                                        size: 29.0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'Branch Code : ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        '${GetAllEmployeeAPICall.branchCode(
                                           (_model.getEmployeeSearched
                                                   ?.jsonBody ??
                                               ''),
-                                        )?.toList(), _model.dropDownValue))}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation5']!),
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation5']!),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1.0,
+                      ),
                       if (((_model.getEmployeeSearched?.statusCode ?? 200) ==
                               200) &&
                           (GetAllEmployeeAPICall.statusLayer2(
@@ -883,46 +922,173 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                               200) &&
                           (_model.dropDownValue != null &&
                               _model.dropDownValue != ''))
-                        FlutterFlowCalendar(
-                          color: Color(0xFFFF6500),
-                          iconColor: FlutterFlowTheme.of(context).secondaryText,
-                          weekFormat: false,
-                          weekStartsMonday: true,
-                          initialDate: getCurrentTimestamp,
-                          rowHeight: 40.0,
-                          onChange: (DateTimeRange? newSelectedDate) {
-                            safeSetState(() =>
-                                _model.calendarSelectedDay = newSelectedDate);
-                          },
-                          titleStyle:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Poppins',
-                                    letterSpacing: 0.0,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Icon(
+                                      Icons.date_range_rounded,
+                                      color: Colors.black,
+                                      size: 29.0,
+                                    ),
                                   ),
-                          dayOfWeekStyle:
-                              FlutterFlowTheme.of(context).bodyLarge.override(
-                                    fontFamily: 'Poppins',
-                                    letterSpacing: 0.0,
+                                  Expanded(
+                                    flex: 3,
+                                    child: Text(
+                                      'วันที่ Location : ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
                                   ),
-                          dateStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
+                                  Expanded(
+                                    flex: 5,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        if (kIsWeb) {
+                                          final _datePickedDate =
+                                              await showDatePicker(
+                                            context: context,
+                                            initialDate: getCurrentTimestamp,
+                                            firstDate: DateTime(1900),
+                                            lastDate: getCurrentTimestamp,
+                                            builder: (context, child) {
+                                              return wrapInMaterialDatePickerTheme(
+                                                context,
+                                                child!,
+                                                headerBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                headerForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                headerTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLarge
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 32.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                pickerBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                pickerForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                selectedDateTimeBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                selectedDateTimeForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                actionButtonForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                iconSize: 24.0,
+                                              );
+                                            },
+                                          );
+
+                                          if (_datePickedDate != null) {
+                                            safeSetState(() {
+                                              _model.datePicked = DateTime(
+                                                _datePickedDate.year,
+                                                _datePickedDate.month,
+                                                _datePickedDate.day,
+                                              );
+                                            });
+                                          }
+                                        } else {
+                                          await DatePicker.showDatePicker(
+                                            context,
+                                            showTitleActions: true,
+                                            onConfirm: (date) {
+                                              safeSetState(() {
+                                                _model.datePicked = date;
+                                              });
+                                            },
+                                            currentTime: getCurrentTimestamp,
+                                            minTime: DateTime(0, 0, 0),
+                                            maxTime: getCurrentTimestamp,
+                                            locale:
+                                                LocaleType.values.firstWhere(
+                                              (l) =>
+                                                  l.name ==
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                              orElse: () => LocaleType.en,
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      child: Container(
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent2,
+                                          ),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              _model.datePicked != null
+                                                  ? functions.showDateBE(_model
+                                                      .datePicked
+                                                      ?.toString())
+                                                  : 'กรุณาเลือกวันที่',
+                                              'กรุณาเลือกวันที่',
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent2,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                          selectedDateStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                          inactiveDateStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Poppins',
-                                    letterSpacing: 0.0,
-                                  ),
-                          locale: FFLocalizations.of(context).languageCode,
+                                ],
+                              ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation6']!),
                         ),
                       Padding(
                         padding:
@@ -943,7 +1109,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     200) &&
                                 (_model.dropDownValue != null &&
                                     _model.dropDownValue != '') &&
-                                (_model.calendarSelectedDay != null))
+                                (_model.datePicked != null))
                               FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
@@ -972,8 +1138,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         child: AlertDialog(
                                           title: Text('date select'),
                                           content: Text(functions.getDateFormat(
-                                              _model.calendarSelectedDay
-                                                  ?.start)!),
+                                              _model.datePicked)!),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -988,8 +1153,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   _model.getUserLocations =
                                       await APIUserLocationTrackerCall.call(
                                     employeeId: _model.dropDownValue,
-                                    dateTime: functions.getDateFormat(
-                                        _model.calendarSelectedDay?.start),
+                                    dateTime: functions
+                                        .getDateFormat(_model.datePicked),
                                   );
 
                                   _shouldSetState = true;
@@ -1066,6 +1231,51 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                             )?.toList()),
                                         ParamType.LatLng,
                                         isList: true,
+                                      ),
+                                      'employeeId': serializeParam(
+                                        '${_model.dropDownValue}',
+                                        ParamType.String,
+                                      ),
+                                      'employeeName': serializeParam(
+                                        '${GetAllEmployeeAPICall.fullname(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                        ParamType.String,
+                                      ),
+                                      'employeeBranchCode': serializeParam(
+                                        '${GetAllEmployeeAPICall.branchCode(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                        ParamType.String,
+                                      ),
+                                      'employeePositionName': serializeParam(
+                                        '${GetAllEmployeeAPICall.workPosition(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                        ParamType.String,
+                                      ),
+                                      'selectedDate': serializeParam(
+                                        functions
+                                            .getDateFormat(_model.datePicked),
+                                        ParamType.String,
                                       ),
                                     }.withoutNulls,
                                   );

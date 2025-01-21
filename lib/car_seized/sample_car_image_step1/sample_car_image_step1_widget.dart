@@ -417,7 +417,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                               topRight: Radius.circular(0.0),
                             ),
                             child: Image.asset(
-                              'assets/images/08M.jpg',
+                              'assets/images/messageImage_1737352949356.jpg',
                               width: 300.0,
                               height: 533.0,
                               fit: BoxFit.contain,
