@@ -25,11 +25,13 @@ class PolylineExample extends StatefulWidget {
     this.width,
     this.height,
     this.locations,
+    this.times,
   });
 
   final double? width;
   final double? height;
   final List<LatLng>? locations;
+  final List<String>? times;
 
   @override
   State<PolylineExample> createState() => _PolylineExampleState();
@@ -62,13 +64,17 @@ class _PolylineExampleState extends State<PolylineExample> {
   void _addMarkers() {
     for (int i = 0; i < widget.locations!.length; i++) {
       final location = widget.locations![i];
+      final time = widget.times != null && i < widget.times!.length
+          ? widget.times![i]
+          : 'No time available'; // Provide fallback for times
+
       _markers.add(
         ggmap.Marker(
           markerId: ggmap.MarkerId(i.toString()),
           position: ggmap.LatLng(location.latitude, location.longitude),
           infoWindow: ggmap.InfoWindow(
             title: 'Location ${i + 1}',
-            snippet: 'Tap here to open Street View',
+            snippet: 'Time: $time\nTap here to open Street View',
             onTap: () {
               _launchStreetView(location.latitude, location.longitude);
             },

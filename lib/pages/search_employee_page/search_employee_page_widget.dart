@@ -1274,6 +1274,14 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                             .getDateFormat(_model.datePicked),
                                         ParamType.String,
                                       ),
+                                      'listTime': serializeParam(
+                                        APIUserLocationTrackerCall.times(
+                                          (_model.getUserLocations?.jsonBody ??
+                                              ''),
+                                        ),
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
 

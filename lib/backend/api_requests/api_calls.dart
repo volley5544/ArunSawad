@@ -12167,6 +12167,15 @@ class APIUserLocationTrackerCall {
           .map((x) => castToType<double>(x))
           .withoutNulls
           .toList();
+  static List<String>? times(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].times''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ApiPagingParams {

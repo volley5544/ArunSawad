@@ -2391,6 +2391,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'selectedDate',
                   ParamType.String,
                 ),
+                listTime: params.getParam<String>(
+                  'listTime',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(

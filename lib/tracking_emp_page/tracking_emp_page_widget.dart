@@ -23,6 +23,7 @@ class TrackingEmpPageWidget extends StatefulWidget {
     required this.employeeBranchCode,
     required this.employeePositionName,
     required this.selectedDate,
+    required this.listTime,
   });
 
   final List<LatLng>? listLatLng;
@@ -31,6 +32,7 @@ class TrackingEmpPageWidget extends StatefulWidget {
   final String? employeeBranchCode;
   final String? employeePositionName;
   final String? selectedDate;
+  final List<String>? listTime;
 
   @override
   State<TrackingEmpPageWidget> createState() => _TrackingEmpPageWidgetState();
@@ -431,6 +433,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                         width: double.infinity,
                         height: double.infinity,
                         locations: widget!.listLatLng,
+                        times: widget!.listTime,
                       ),
                     ),
                   ),
