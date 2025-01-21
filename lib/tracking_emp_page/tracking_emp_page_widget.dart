@@ -211,7 +211,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Poppins',
                       color: Colors.white,
-                      fontSize: 22.0,
+                      fontSize: 20.0,
                       letterSpacing: 0.0,
                     ),
               ),
@@ -251,7 +251,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                   child: Icon(
                                     Icons.grid_3x3,
                                     color: Colors.black,
-                                    size: 29.0,
+                                    size: 24.0,
                                   ),
                                 ),
                                 Expanded(
@@ -262,7 +262,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 15.0,
+                                          fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -275,6 +275,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -303,7 +304,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                   child: Icon(
                                     Icons.person,
                                     color: Colors.black,
-                                    size: 29.0,
+                                    size: 24.0,
                                   ),
                                 ),
                                 Expanded(
@@ -314,7 +315,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 15.0,
+                                          fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -329,6 +330,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
+                                            fontSize: 13.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -358,7 +360,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                   child: Icon(
                                     Icons.work,
                                     color: Colors.black,
-                                    size: 29.0,
+                                    size: 24.0,
                                   ),
                                 ),
                                 Expanded(
@@ -369,7 +371,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 15.0,
+                                          fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -384,6 +386,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
+                                            fontSize: 13.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -413,7 +416,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                   child: Icon(
                                     Icons.location_on_sharp,
                                     color: Colors.black,
-                                    size: 29.0,
+                                    size: 24.0,
                                   ),
                                 ),
                                 Expanded(
@@ -424,7 +427,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 15.0,
+                                          fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -437,6 +440,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),

@@ -204,50 +204,16 @@ class _PolylineExampleState extends State<PolylineExample> {
                       widget.locations!.first.longitude,
                     )
                   : ggmap.LatLng(0, 0),
-              zoom: 12,
+              zoom: 14,
             ),
             mapType: ggmap.MapType.normal,
             markers: _markers,
             polylines: _polylines,
           ),
 
-          // Zoom in/out and Navigate buttons
-          Positioned(
-            top: 50,
-            right: 10,
-            child: Column(
-              children: [
-                // Zoom in button
-                FloatingActionButton(
-                  onPressed: () {
-                    _mapController.animateCamera(
-                      ggmap.CameraUpdate.zoomIn(),
-                    );
-                  },
-                  child: Icon(Icons.zoom_in),
-                  mini: true,
-                  backgroundColor: Colors.blue,
-                ),
-                SizedBox(height: 10), // Spacing
-
-                // Zoom out button
-                FloatingActionButton(
-                  onPressed: () {
-                    _mapController.animateCamera(
-                      ggmap.CameraUpdate.zoomOut(),
-                    );
-                  },
-                  child: Icon(Icons.zoom_out),
-                  mini: true,
-                  backgroundColor: Colors.blue,
-                ),
-              ],
-            ),
-          ),
-
           // Navigate to first location button
           Positioned(
-            bottom: 50,
+            bottom: 70,
             right: 10,
             child: FloatingActionButton(
               onPressed: () {
