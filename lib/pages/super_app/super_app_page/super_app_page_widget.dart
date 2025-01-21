@@ -10693,6 +10693,73 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           if (() {
                                                                                 if (FFAppState().profileLevel == 'HO') {
+                                                                                  return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
+                                                                                } else if (FFAppState().profileLevel == 'สาขา') {
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
+                                                                                } else if (FFAppState().profileLevel == 'เขต') {
+                                                                                  return gridViewRoleMenuRecord!.menuVisibleArea.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
+                                                                                } else {
+                                                                                  return gridViewRoleMenuRecord!.menuZone.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ลูกค้ารถยึด'))!;
+                                                                                }
+                                                                              }() ||
+                                                                              gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID) ||
+                                                                              functions.containsValueInDataTypeList(gridViewRoleMenuRecord?.adminRoleGroup?.toList(), FFAppState().employeeID, 'Location พนักงาน')!)
+                                                                            InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.mediumImpact();
+                                                                                if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                  Navigator.pop(context);
+
+                                                                                  context.goNamed('PinCodePage');
+
+                                                                                  return;
+                                                                                }
+
+                                                                                context.goNamed('SearchEmployeePage');
+                                                                              },
+                                                                              child: Container(
+                                                                                width: 100.0,
+                                                                                height: 100.0,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                ),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                      child: Container(
+                                                                                        width: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                        height: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                        clipBehavior: Clip.antiAlias,
+                                                                                        decoration: BoxDecoration(
+                                                                                          shape: BoxShape.circle,
+                                                                                        ),
+                                                                                        child: Image.asset(
+                                                                                          'assets/images/Marketing_Tracking-Links_Site_0409.png',
+                                                                                          fit: BoxFit.fitHeight,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                    Text(
+                                                                                      'ลูกค้ารถยึด',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            fontSize: 20.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          if (() {
+                                                                                if (FFAppState().profileLevel == 'HO') {
                                                                                   return gridViewRoleMenuRecord!.menuVisible.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
                                                                                 } else if (FFAppState().profileLevel == 'สาขา') {
                                                                                   return gridViewRoleMenuRecord!.menuVisibleBranch.elementAtOrNull(functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'ค่าลีดรถ M'))!;
