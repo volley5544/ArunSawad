@@ -30,8 +30,8 @@ class PolylineExample extends StatefulWidget {
 
   final double? width;
   final double? height;
-  final List<LatLng>? locations;
-  final List<String>? times;
+  final List<LatLng> locations;
+  final List<String> times;
 
   @override
   State<PolylineExample> createState() => _PolylineExampleState();
@@ -62,10 +62,11 @@ class _PolylineExampleState extends State<PolylineExample> {
   }
 
   void _addMarkers() {
-    for (int i = 0; i < widget.locations!.length; i++) {
-      final location = widget.locations![i];
-      final time = widget.times != null && i < widget.times!.length
-          ? widget.times![i]
+    for (int i = 0; i < FFAppState().polyMapLatLngList.length; i++) {
+      final location = FFAppState().polyMapLatLngList[i];
+      final time = FFAppState().polyMapTimeList != null &&
+              i < FFAppState().polyMapTimeList.length
+          ? FFAppState().polyMapTimeList[i]
           : 'No time available'; // Provide fallback for times
 
       _markers.add(
@@ -94,9 +95,9 @@ class _PolylineExampleState extends State<PolylineExample> {
     PolylinePoints polylinePoints = PolylinePoints();
     List<PointLatLng> result = [];
 
-    for (int i = 0; i < widget.locations!.length - 1; i++) {
-      final start = widget.locations![i];
-      final end = widget.locations![i + 1];
+    for (int i = 0; i < FFAppState().polyMapLatLngList - 1; i++) {
+      final start = FFAppState().polyMapLatLngList[i];
+      final end = FFAppState().polyMapLatLngList[i + 1];
 
       PolylineResult polylineResult =
           await polylinePoints.getRouteBetweenCoordinates(
@@ -169,7 +170,7 @@ class _PolylineExampleState extends State<PolylineExample> {
     double minLng = double.infinity;
     double maxLng = -double.infinity;
 
-    for (var location in widget.locations!) {
+    for (var location in FFAppState().polyMapLatLngList) {
       double lat = location.latitude;
       double lng = location.longitude;
 
@@ -204,10 +205,10 @@ class _PolylineExampleState extends State<PolylineExample> {
               _updateCameraPosition();
             },
             initialCameraPosition: ggmap.CameraPosition(
-              target: widget.locations!.isNotEmpty
+              target: FFAppState().polyMapLatLngList.isNotEmpty
                   ? ggmap.LatLng(
-                      widget.locations!.first.latitude,
-                      widget.locations!.first.longitude,
+                      FFAppState().polyMapLatLngList.first.latitude,
+                      FFAppState().polyMapLatLngList.first.longitude,
                     )
                   : ggmap.LatLng(0, 0),
               zoom: 12,
@@ -222,12 +223,13 @@ class _PolylineExampleState extends State<PolylineExample> {
             right: 10,
             child: FloatingActionButton(
               onPressed: () {
-                if (widget.locations != null && widget.locations!.isNotEmpty) {
+                if (FFAppState().polyMapLatLngList != null &&
+                    FFAppState().polyMapLatLngList.isNotEmpty) {
                   _mapController.animateCamera(
                     ggmap.CameraUpdate.newLatLng(
                       ggmap.LatLng(
-                        widget.locations!.first.latitude,
-                        widget.locations!.first.longitude,
+                        FFAppState().polyMapLatLngList.first.latitude,
+                        FFAppState().polyMapLatLngList.first.longitude,
                       ),
                     ),
                   );

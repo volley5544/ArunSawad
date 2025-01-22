@@ -59,8 +59,8 @@ class _PolyMapWidgetComponentWidgetState
         width: double.infinity,
         height: double.infinity,
         locations: functions.makeLatLngList(
-            widget!.parameter1?.toList(), widget!.parameter2?.toList()),
-        times: widget!.parameter3,
+            widget!.parameter1?.toList(), widget!.parameter2?.toList())!,
+        times: widget!.parameter3!,
       ),
     );
   }
