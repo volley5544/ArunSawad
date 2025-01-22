@@ -185,25 +185,6 @@ class _PolylineExampleState extends State<PolylineExample> {
     );
   }
 
-  void _showAllInfoWindows() {
-    Set<ggmap.Marker> updatedMarkers = _markers.map((marker) {
-      return ggmap.Marker(
-        markerId: marker.markerId,
-        position: marker.position,
-        infoWindow: ggmap.InfoWindow(
-          title: marker.infoWindow.title,
-          snippet: marker.infoWindow.snippet,
-          onTap: marker.infoWindow.onTap,
-        ),
-        onTap: marker.onTap,
-      );
-    }).toSet();
-
-    setState(() {
-      _markers = updatedMarkers;
-    });
-  }
-
   void _updateCameraPosition() {
     ggmap.LatLngBounds bounds = _getLatLngBounds();
     _mapController.animateCamera(
@@ -221,7 +202,6 @@ class _PolylineExampleState extends State<PolylineExample> {
             onMapCreated: (controller) {
               _mapController = controller;
               _updateCameraPosition();
-              _showAllInfoWindows();
             },
             initialCameraPosition: ggmap.CameraPosition(
               target: widget.locations!.isNotEmpty
@@ -236,16 +216,6 @@ class _PolylineExampleState extends State<PolylineExample> {
             markers: _markers,
             polylines: _polylines,
           ),
-          Positioned(
-            bottom: 160,
-            right: 10,
-            child: FloatingActionButton(
-              onPressed: _showAllInfoWindows,
-              child: Icon(Icons.info),
-              backgroundColor: Colors.blue,
-            ),
-          ),
-
           // Navigate to first location button
           Positioned(
             bottom: 100,
