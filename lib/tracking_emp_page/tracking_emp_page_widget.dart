@@ -423,18 +423,51 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                 ),
                 Expanded(
                   child: Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: custom_widgets.PolylineExample(
-                        width: double.infinity,
-                        height: double.infinity,
-                        locations: widget!.listLatLng,
-                        times: widget!.listTime,
-                      ),
+                    decoration: BoxDecoration(),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        if (responsiveVisibility(
+                          context: context,
+                          phone: false,
+                        ))
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              width: 100.0,
+                              height: double.infinity,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: ListView(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                children: [],
+                              ),
+                            ),
+                          ),
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              child: custom_widgets.PolylineExample(
+                                width: double.infinity,
+                                height: double.infinity,
+                                locations: widget!.listLatLng,
+                                times: widget!.listTime,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
