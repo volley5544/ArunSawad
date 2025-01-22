@@ -553,102 +553,111 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                 (_model.getEmployeeSearched?.jsonBody ?? ''),
                               ) ==
                               200))
-                        Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Icon(
-                                    Icons.check_circle_outline,
-                                    color: Colors.black,
-                                    size: 29.0,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    'เลือกพนักงาน:',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.dropDownValueController ??=
-                                            FormFieldController<String>(
-                                      _model.dropDownValue ??= '',
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 10.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(
+                                        Icons.check_circle_outline,
+                                        color: Colors.black,
+                                        size: 29.0,
+                                      ),
                                     ),
-                                    options: List<String>.from(
-                                        GetAllEmployeeAPICall.employeeId(
-                                      (_model.getEmployeeSearched?.jsonBody ??
-                                          ''),
-                                    )!),
-                                    optionLabels: functions.genDropdownEmployee(
-                                        GetAllEmployeeAPICall.fullname(
-                                          (_model.getEmployeeSearched
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?.toList(),
-                                        GetAllEmployeeAPICall.branchCode(
-                                          (_model.getEmployeeSearched
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?.toList(),
-                                        GetAllEmployeeAPICall.employeeId(
-                                          (_model.getEmployeeSearched
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )?.toList())!,
-                                    onChanged: (val) => safeSetState(
-                                        () => _model.dropDownValue = val),
-                                    width: 180.0,
-                                    height: 50.0,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          letterSpacing: 0.0,
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'เลือกพนักงาน:',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 5,
+                                      child: FlutterFlowDropDown<String>(
+                                        controller:
+                                            _model.dropDownValueController ??=
+                                                FormFieldController<String>(
+                                          _model.dropDownValue ??= '',
                                         ),
-                                    hintText: 'พนักงาน...',
-                                    fillColor: Colors.white,
-                                    elevation: 2.0,
-                                    borderColor: Colors.transparent,
-                                    borderWidth: 0.0,
-                                    borderRadius: 0.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 4.0, 12.0, 4.0),
-                                    hidesUnderline: true,
-                                    isSearchable: false,
-                                    isMultiSelect: false,
-                                  ),
+                                        options: List<String>.from(
+                                            GetAllEmployeeAPICall.employeeId(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!),
+                                        optionLabels:
+                                            functions.genDropdownEmployee(
+                                                GetAllEmployeeAPICall.fullname(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList(),
+                                                GetAllEmployeeAPICall
+                                                    .branchCode(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList(),
+                                                GetAllEmployeeAPICall
+                                                    .employeeId(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList())!,
+                                        onChanged: (val) => safeSetState(
+                                            () => _model.dropDownValue = val),
+                                        width: 180.0,
+                                        height: 50.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        hintText: 'พนักงาน...',
+                                        fillColor: Colors.white,
+                                        elevation: 2.0,
+                                        borderColor: Colors.transparent,
+                                        borderWidth: 0.0,
+                                        borderRadius: 0.0,
+                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 12.0, 4.0),
+                                        hidesUnderline: true,
+                                        isSearchable: false,
+                                        isMultiSelect: false,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation1']!),
+                            Divider(
+                              thickness: 1.0,
                             ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation1']!),
-                      Divider(
-                        thickness: 1.0,
-                      ),
+                          ],
+                        ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1151,7 +1160,9 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     employeeId: _model.dropDownValue,
                                     dateTime: functions
                                         .getDateFormat(_model.datePicked),
-                                    apiUrl: _model.apiTrackingUrl?.urlLink,
+                                    apiUrl: false
+                                        ? _model.apiTrackingUrl?.urlLink
+                                        : 'https://9f08-115-31-145-24.ngrok-free.app',
                                   );
 
                                   _shouldSetState = true;

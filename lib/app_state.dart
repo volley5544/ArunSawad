@@ -9858,6 +9858,64 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInListEmpInRegion(int index, String value) {
     listEmpInRegion.insert(index, value);
   }
+
+  List<LatLng> _polyMapLatLngList = [];
+  List<LatLng> get polyMapLatLngList => _polyMapLatLngList;
+  set polyMapLatLngList(List<LatLng> value) {
+    _polyMapLatLngList = value;
+  }
+
+  void addToPolyMapLatLngList(LatLng value) {
+    polyMapLatLngList.add(value);
+  }
+
+  void removeFromPolyMapLatLngList(LatLng value) {
+    polyMapLatLngList.remove(value);
+  }
+
+  void removeAtIndexFromPolyMapLatLngList(int index) {
+    polyMapLatLngList.removeAt(index);
+  }
+
+  void updatePolyMapLatLngListAtIndex(
+    int index,
+    LatLng Function(LatLng) updateFn,
+  ) {
+    polyMapLatLngList[index] = updateFn(_polyMapLatLngList[index]);
+  }
+
+  void insertAtIndexInPolyMapLatLngList(int index, LatLng value) {
+    polyMapLatLngList.insert(index, value);
+  }
+
+  List<String> _polyMapTimeList = [];
+  List<String> get polyMapTimeList => _polyMapTimeList;
+  set polyMapTimeList(List<String> value) {
+    _polyMapTimeList = value;
+  }
+
+  void addToPolyMapTimeList(String value) {
+    polyMapTimeList.add(value);
+  }
+
+  void removeFromPolyMapTimeList(String value) {
+    polyMapTimeList.remove(value);
+  }
+
+  void removeAtIndexFromPolyMapTimeList(int index) {
+    polyMapTimeList.removeAt(index);
+  }
+
+  void updatePolyMapTimeListAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    polyMapTimeList[index] = updateFn(_polyMapTimeList[index]);
+  }
+
+  void insertAtIndexInPolyMapTimeList(int index, String value) {
+    polyMapTimeList.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

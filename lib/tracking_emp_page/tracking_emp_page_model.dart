@@ -1,12 +1,13 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/loading_scene/loading_scene_widget.dart';
+import '/components/poly_map_widget_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'tracking_emp_page_widget.dart' show TrackingEmpPageWidget;
 import 'package:flutter/material.dart';
@@ -49,9 +50,19 @@ class TrackingEmpPageModel extends FlutterFlowModel<TrackingEmpPageWidget> {
           int index, Function(TrackingEmployeeLocationModelStruct) updateFn) =>
       locationByDateData[index] = updateFn(locationByDateData[index]);
 
-  @override
-  void initState(BuildContext context) {}
+  ///  State fields for stateful widgets in this page.
+
+  // Model for PolyMapWidgetComponent component.
+  late PolyMapWidgetComponentModel polyMapWidgetComponentModel;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    polyMapWidgetComponentModel =
+        createModel(context, () => PolyMapWidgetComponentModel());
+  }
+
+  @override
+  void dispose() {
+    polyMapWidgetComponentModel.dispose();
+  }
 }
