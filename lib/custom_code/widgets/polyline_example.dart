@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart'; // Imports other custom widgets
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
@@ -42,6 +42,8 @@ class _PolylineExampleState extends State<PolylineExample> {
   Set<ggmap.Marker> _markers = {};
   Set<ggmap.Polyline> _polylines = {};
   List<ggmap.LatLng> _polylineCoordinates = [];
+  final ValueNotifier<List<LatLng>> latLngNotifier =
+      ValueNotifier<List<LatLng>>([]);
   final String _googleApiKey =
       "AIzaSyCxgfP7r2FHQ8TZVpKcJqG5x6csoehfDlg"; // Replace with your actual API key
   String? _lastTappedMarkerId;
@@ -65,7 +67,7 @@ class _PolylineExampleState extends State<PolylineExample> {
     for (int i = 0; i < FFAppState().polyMapLatLngList.length; i++) {
       final location = FFAppState().polyMapLatLngList[i];
       final time = FFAppState().polyMapTimeList != null &&
-          i < FFAppState().polyMapTimeList.length
+              i < FFAppState().polyMapTimeList.length
           ? FFAppState().polyMapTimeList[i]
           : 'No time available'; // Provide fallback for times
 
@@ -95,12 +97,12 @@ class _PolylineExampleState extends State<PolylineExample> {
     PolylinePoints polylinePoints = PolylinePoints();
     List<PointLatLng> result = [];
 
-    for (int i = 0; i < FFAppState().polyMapLatLngList - 1; i++) {
+    for (int i = 0; i < FFAppState().polyMapLatLngList.length - 1; i++) {
       final start = FFAppState().polyMapLatLngList[i];
       final end = FFAppState().polyMapLatLngList[i + 1];
 
       PolylineResult polylineResult =
-      await polylinePoints.getRouteBetweenCoordinates(
+          await polylinePoints.getRouteBetweenCoordinates(
         _googleApiKey,
         PointLatLng(start.latitude, start.longitude),
         PointLatLng(end.latitude, end.longitude),
@@ -198,6 +200,17 @@ class _PolylineExampleState extends State<PolylineExample> {
     return Scaffold(
       body: Stack(
         children: [
+          ValueListenableBuilder<List<LatLng>>(
+            valueListenable: latLngNotifier,
+            builder: (context, balance, child) {
+              _markers.clear();
+              _polylines.clear();
+              _polylineCoordinates.clear();
+              _addMarkers();
+              _drawPolyline();
+              return Container();
+            },
+          ),
           // Google Map
           ggmap.GoogleMap(
             onMapCreated: (controller) {
@@ -207,9 +220,9 @@ class _PolylineExampleState extends State<PolylineExample> {
             initialCameraPosition: ggmap.CameraPosition(
               target: FFAppState().polyMapLatLngList.isNotEmpty
                   ? ggmap.LatLng(
-                FFAppState().polyMapLatLngList.first.latitude,
-                FFAppState().polyMapLatLngList.first.longitude,
-              )
+                      FFAppState().polyMapLatLngList.first.latitude,
+                      FFAppState().polyMapLatLngList.first.longitude,
+                    )
                   : ggmap.LatLng(0, 0),
               zoom: 12,
             ),
