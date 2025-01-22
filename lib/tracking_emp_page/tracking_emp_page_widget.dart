@@ -1,12 +1,12 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/poly_map_widget_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -691,20 +691,18 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
-                            child: Container(
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: custom_widgets.PolylineExample(
-                                width: double.infinity,
-                                height: double.infinity,
-                                locations: functions.makeLatLngList(
-                                    _model.locationByDateData
-                                        .map((e) => e.latitude)
-                                        .toList(),
-                                    _model.locationByDateData
-                                        .map((e) => e.longitude)
-                                        .toList()),
-                                times: _model.locationByDateData
+                            child: wrapWithModel(
+                              model: _model.polyMapWidgetComponentModel,
+                              updateCallback: () => safeSetState(() {}),
+                              updateOnChange: true,
+                              child: PolyMapWidgetComponentWidget(
+                                parameter1: _model.locationByDateData
+                                    .map((e) => e.latitude)
+                                    .toList(),
+                                parameter2: _model.locationByDateData
+                                    .map((e) => e.longitude)
+                                    .toList(),
+                                parameter3: _model.locationByDateData
                                     .map((e) => e.times)
                                     .toList(),
                               ),
