@@ -439,7 +439,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                           phone: false,
                         ))
                           Expanded(
-                            flex: 1,
+                            flex: 2,
                             child: Container(
                               width: 100.0,
                               height: double.infinity,
@@ -470,7 +470,30 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                               list30DaysDateTimeListItemIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0.0,
+                                            valueOrDefault<double>(
+                                              functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem) ==
+                                                      functions.getDateFormat(functions
+                                                          .parseStringToDatetime(
+                                                              _model
+                                                                  .dataDateSelected))
+                                                  ? 8.0
+                                                  : 4.0,
+                                              0.0,
+                                            ),
+                                            0.0,
+                                            valueOrDefault<double>(
+                                              functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem) ==
+                                                      functions.getDateFormat(functions
+                                                          .parseStringToDatetime(
+                                                              _model
+                                                                  .dataDateSelected))
+                                                  ? 8.0
+                                                  : 0.0,
+                                              0.0,
+                                            )),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -509,8 +532,24 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                         .parseStringToDatetime(
                                                             _model
                                                                 .dataDateSelected))
-                                                ? 2.0
+                                                ? 5.0
                                                 : 0.0,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      valueOrDefault<double>(
+                                                functions.getDateFormat(
+                                                            list30DaysDateTimeListItemItem) ==
+                                                        functions.getDateFormat(
+                                                            functions
+                                                                .parseStringToDatetime(
+                                                                    _model
+                                                                        .dataDateSelected))
+                                                    ? 12.0
+                                                    : 0.0,
+                                                0.0,
+                                              )),
+                                            ),
                                             child: Container(
                                               width: 100.0,
                                               height: functions.getDateFormat(
@@ -519,12 +558,26 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                           .parseStringToDatetime(
                                                               _model
                                                                   .dataDateSelected))
-                                                  ? 50.0
+                                                  ? 65.0
                                                   : 40.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        valueOrDefault<double>(
+                                                  functions.getDateFormat(
+                                                              list30DaysDateTimeListItemItem) ==
+                                                          functions.getDateFormat(
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      _model
+                                                                          .dataDateSelected))
+                                                      ? 12.0
+                                                      : 0.0,
+                                                  0.0,
+                                                )),
                                                 border: Border.all(
                                                   color: functions.getDateFormat(
                                                               list30DaysDateTimeListItemItem) ==
@@ -542,7 +595,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                                   .parseStringToDatetime(
                                                                       _model
                                                                           .dataDateSelected))
-                                                      ? 2.0
+                                                      ? 3.0
                                                       : 0.0,
                                                 ),
                                               ),
@@ -566,6 +619,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -589,7 +643,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                             thickness: 2.0,
                           ),
                         Expanded(
-                          flex: 4,
+                          flex: 7,
                           child: Container(
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
