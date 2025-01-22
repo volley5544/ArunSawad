@@ -1213,22 +1213,6 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   context.pushNamed(
                                     'trackingEmpPage',
                                     queryParameters: {
-                                      'listLatLng': serializeParam(
-                                        functions.makeLatLngList(
-                                            APIUserLocationTrackerCall.latitude(
-                                              (_model.getUserLocations
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?.toList(),
-                                            APIUserLocationTrackerCall
-                                                .longitude(
-                                              (_model.getUserLocations
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?.toList()),
-                                        ParamType.LatLng,
-                                        isList: true,
-                                      ),
                                       'employeeId': serializeParam(
                                         '${_model.dropDownValue}',
                                         ParamType.String,
@@ -1274,12 +1258,13 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                             .getDateFormat(_model.datePicked),
                                         ParamType.String,
                                       ),
-                                      'listTime': serializeParam(
-                                        APIUserLocationTrackerCall.times(
+                                      'data': serializeParam(
+                                        APIUserLocationTrackerCall
+                                            .dataLayerDate(
                                           (_model.getUserLocations?.jsonBody ??
                                               ''),
                                         ),
-                                        ParamType.String,
+                                        ParamType.DataStruct,
                                         isList: true,
                                       ),
                                     }.withoutNulls,

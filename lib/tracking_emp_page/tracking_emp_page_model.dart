@@ -1,3 +1,5 @@
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,6 +20,34 @@ class TrackingEmpPageModel extends FlutterFlowModel<TrackingEmpPageWidget> {
   ///  Local state fields for this page.
 
   String? dataDateSelected;
+
+  List<TrackingEmployeeDateModelStruct> locationDateData = [];
+  void addToLocationDateData(TrackingEmployeeDateModelStruct item) =>
+      locationDateData.add(item);
+  void removeFromLocationDateData(TrackingEmployeeDateModelStruct item) =>
+      locationDateData.remove(item);
+  void removeAtIndexFromLocationDateData(int index) =>
+      locationDateData.removeAt(index);
+  void insertAtIndexInLocationDateData(
+          int index, TrackingEmployeeDateModelStruct item) =>
+      locationDateData.insert(index, item);
+  void updateLocationDateDataAtIndex(
+          int index, Function(TrackingEmployeeDateModelStruct) updateFn) =>
+      locationDateData[index] = updateFn(locationDateData[index]);
+
+  List<TrackingEmployeeLocationModelStruct> locationByDateData = [];
+  void addToLocationByDateData(TrackingEmployeeLocationModelStruct item) =>
+      locationByDateData.add(item);
+  void removeFromLocationByDateData(TrackingEmployeeLocationModelStruct item) =>
+      locationByDateData.remove(item);
+  void removeAtIndexFromLocationByDateData(int index) =>
+      locationByDateData.removeAt(index);
+  void insertAtIndexInLocationByDateData(
+          int index, TrackingEmployeeLocationModelStruct item) =>
+      locationByDateData.insert(index, item);
+  void updateLocationByDateDataAtIndex(
+          int index, Function(TrackingEmployeeLocationModelStruct) updateFn) =>
+      locationByDateData[index] = updateFn(locationByDateData[index]);
 
   @override
   void initState(BuildContext context) {}

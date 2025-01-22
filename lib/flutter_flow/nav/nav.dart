@@ -2366,11 +2366,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'trackingEmpPage',
               path: 'trackingEmpPage',
               builder: (context, params) => TrackingEmpPageWidget(
-                listLatLng: params.getParam<LatLng>(
-                  'listLatLng',
-                  ParamType.LatLng,
-                  isList: true,
-                ),
                 employeeId: params.getParam(
                   'employeeId',
                   ParamType.String,
@@ -2391,10 +2386,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'selectedDate',
                   ParamType.String,
                 ),
-                listTime: params.getParam<String>(
-                  'listTime',
-                  ParamType.String,
+                data: params.getParam<TrackingEmployeeDateModelStruct>(
+                  'data',
+                  ParamType.DataStruct,
                   isList: true,
+                  structBuilder:
+                      TrackingEmployeeDateModelStruct.fromSerializableMap,
                 ),
               ),
             ),

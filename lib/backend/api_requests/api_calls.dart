@@ -12176,6 +12176,34 @@ class APIUserLocationTrackerCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? totalLocation(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.totalsData''',
+      ));
+  static int? totalDate(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.totalsDate''',
+      ));
+  static List<TrackingEmployeeDateModelStruct>? dataLayerDate(
+          dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.data[:]''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => TrackingEmployeeDateModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class ApiPagingParams {

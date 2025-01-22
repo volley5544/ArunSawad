@@ -1,3 +1,5 @@
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,22 +20,20 @@ export 'tracking_emp_page_model.dart';
 class TrackingEmpPageWidget extends StatefulWidget {
   const TrackingEmpPageWidget({
     super.key,
-    required this.listLatLng,
     required this.employeeId,
     required this.employeeName,
     required this.employeeBranchCode,
     required this.employeePositionName,
     required this.selectedDate,
-    required this.listTime,
+    required this.data,
   });
 
-  final List<LatLng>? listLatLng;
   final String? employeeId;
   final String? employeeName;
   final String? employeeBranchCode;
   final String? employeePositionName;
   final String? selectedDate;
-  final List<String>? listTime;
+  final List<TrackingEmployeeDateModelStruct>? data;
 
   @override
   State<TrackingEmpPageWidget> createState() => _TrackingEmpPageWidgetState();
@@ -56,7 +56,14 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
         parameters: {'screen_name': 'trackingEmpPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.dataDateSelected = widget!.selectedDate;
+      _model.locationDateData =
+          widget!.data!.toList().cast<TrackingEmployeeDateModelStruct>();
+      safeSetState(() {});
+      _model.dataDateSelected = '${_model.locationDateData.firstOrNull?.date}';
+      safeSetState(() {});
+      _model.locationByDateData = _model.locationDateData.firstOrNull!.data
+          .toList()
+          .cast<TrackingEmployeeLocationModelStruct>();
       safeSetState(() {});
     });
 
@@ -407,7 +414,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                               Expanded(
                                 flex: 5,
                                 child: Text(
-                                  '${widget!.listLatLng?.length?.toString()} ที่ (${functions.showDateBE(widget!.selectedDate)})',
+                                  '${_model.locationByDateData.length.toString()} ที่ (${functions.showDateBE(_model.dataDateSelected)})',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -470,7 +477,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                               list30DaysDateTimeListItemIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0,
+                                            4.0,
                                             valueOrDefault<double>(
                                               functions.getDateFormat(
                                                           list30DaysDateTimeListItemItem) ==
@@ -482,7 +489,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                   : 4.0,
                                               0.0,
                                             ),
-                                            0.0,
+                                            4.0,
                                             valueOrDefault<double>(
                                               functions.getDateFormat(
                                                           list30DaysDateTimeListItemItem) ==
@@ -500,6 +507,15 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            if (!functions
+                                                .containStringInListString(
+                                                    _model.locationDateData
+                                                        .map((e) => e.date)
+                                                        .toList(),
+                                                    functions.getDateFormat(
+                                                        list30DaysDateTimeListItemItem))!) {
+                                              return;
+                                            }
                                             _model.dataDateSelected =
                                                 functions.getDateFormat(
                                                     list30DaysDateTimeListItemItem);
@@ -561,9 +577,22 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                   ? 65.0
                                                   : 40.0,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  functions.containStringInListString(
+                                                          _model
+                                                              .locationDateData
+                                                              .map(
+                                                                  (e) => e.date)
+                                                              .toList(),
+                                                          functions.getDateFormat(
+                                                              list30DaysDateTimeListItemItem))!
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground
+                                                      : Color(0xFFB3B3B3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         valueOrDefault<double>(
@@ -655,8 +684,16 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                               child: custom_widgets.PolylineExample(
                                 width: double.infinity,
                                 height: double.infinity,
-                                locations: widget!.listLatLng,
-                                times: widget!.listTime,
+                                locations: functions.makeLatLngList(
+                                    _model.locationByDateData
+                                        .map((e) => e.latitude)
+                                        .toList(),
+                                    _model.locationByDateData
+                                        .map((e) => e.longitude)
+                                        .toList()),
+                                times: _model.locationByDateData
+                                    .map((e) => e.times)
+                                    .toList(),
                               ),
                             ),
                           ),
