@@ -1078,17 +1078,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                 model: _model.polyMapWidgetComponentModel,
                                 updateCallback: () => safeSetState(() {}),
                                 updateOnChange: true,
-                                child: PolyMapWidgetComponentWidget(
-                                  parameter1: _model.locationByDateData
-                                      .map((e) => e.latitude)
-                                      .toList(),
-                                  parameter2: _model.locationByDateData
-                                      .map((e) => e.longitude)
-                                      .toList(),
-                                  parameter3: _model.locationByDateData
-                                      .map((e) => e.times)
-                                      .toList(),
-                                ),
+                                child: PolyMapWidgetComponentWidget(),
                               ),
                             ),
                           ),

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -9,16 +8,7 @@ import 'poly_map_widget_component_model.dart';
 export 'poly_map_widget_component_model.dart';
 
 class PolyMapWidgetComponentWidget extends StatefulWidget {
-  const PolyMapWidgetComponentWidget({
-    super.key,
-    this.parameter1,
-    this.parameter2,
-    this.parameter3,
-  });
-
-  final List<String>? parameter1;
-  final List<String>? parameter2;
-  final List<String>? parameter3;
+  const PolyMapWidgetComponentWidget({super.key});
 
   @override
   State<PolyMapWidgetComponentWidget> createState() =>
@@ -58,9 +48,6 @@ class _PolyMapWidgetComponentWidgetState
       child: custom_widgets.PolylineExample(
         width: double.infinity,
         height: double.infinity,
-        locations: functions.makeLatLngList(
-            widget!.parameter1?.toList(), widget!.parameter2?.toList())!,
-        times: widget!.parameter3!,
       ),
     );
   }
