@@ -247,6 +247,20 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? bossCheckOutputPad;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLogImpoundCarTab;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseArunsawadUrlTab;
+  // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
+  dynamic? searchProfileLevelOutputTab;
+  // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Container widget.
+  String? employeeInputOutput5544Tab;
+  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in Container widget.
+  ApiCallResponse? getEmployeeTokenOutputTab;
+  // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in Container widget.
+  ApiCallResponse? getRegionProfileTab;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseUrlTesterTab;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseUrlTab;
   // Stores action output result for [Custom Action - scanQrCode] action in Container widget.
   String? scanQRTablet;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.

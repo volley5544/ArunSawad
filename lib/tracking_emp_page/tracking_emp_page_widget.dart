@@ -215,7 +215,273 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
           onWillPop: () async => false,
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            drawer: Container(
+              width: MediaQuery.sizeOf(context).width * 0.5,
+              child: Drawer(
+                elevation: 16.0,
+                child: WebViewAware(
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: BoxDecoration(),
+                    child: Visibility(
+                      visible: responsiveVisibility(
+                        context: context,
+                        tablet: false,
+                        tabletLandscape: false,
+                        desktop: false,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 100.0, 0.0, 100.0),
+                        child: Container(
+                          width: 100.0,
+                          height: double.infinity,
+                          decoration: BoxDecoration(),
+                          child: Builder(
+                            builder: (context) {
+                              final list30DaysDateTimeListItem = functions
+                                      .generateLast30DateTimeList(
+                                          widget!.selectedDate)
+                                      ?.toList() ??
+                                  [];
+
+                              return ListView.builder(
+                                padding: EdgeInsets.fromLTRB(
+                                  0,
+                                  8.0,
+                                  0,
+                                  12.0,
+                                ),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: list30DaysDateTimeListItem.length,
+                                itemBuilder:
+                                    (context, list30DaysDateTimeListItemIndex) {
+                                  final list30DaysDateTimeListItemItem =
+                                      list30DaysDateTimeListItem[
+                                          list30DaysDateTimeListItemIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4.0,
+                                        valueOrDefault<double>(
+                                          functions.getDateFormat(
+                                                      list30DaysDateTimeListItemItem) ==
+                                                  functions.getDateFormat(functions
+                                                      .parseStringToDatetime(
+                                                          _model
+                                                              .dataDateSelected))
+                                              ? 8.0
+                                              : 4.0,
+                                          0.0,
+                                        ),
+                                        4.0,
+                                        valueOrDefault<double>(
+                                          functions.getDateFormat(
+                                                      list30DaysDateTimeListItemItem) ==
+                                                  functions.getDateFormat(functions
+                                                      .parseStringToDatetime(
+                                                          _model
+                                                              .dataDateSelected))
+                                              ? 8.0
+                                              : 0.0,
+                                          0.0,
+                                        )),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        if (!functions.containStringInListString(
+                                            _model.locationDateData
+                                                .map((e) => e.date)
+                                                .toList(),
+                                            functions.getDateFormat(
+                                                list30DaysDateTimeListItemItem))!) {
+                                          return;
+                                        }
+                                        _model.dataDateSelected =
+                                            functions.getDateFormat(
+                                                list30DaysDateTimeListItemItem);
+                                        safeSetState(() {});
+                                        _model.locationByDateData = _model
+                                            .locationDateData
+                                            .elementAtOrNull(functions
+                                                .getIndexOfSomethingList(
+                                                    _model.locationDateData
+                                                        .map((e) => e.date)
+                                                        .toList(),
+                                                    functions.getDateFormat(functions
+                                                        .parseStringToDatetime(
+                                                            list30DaysDateTimeListItemItem
+                                                                .toString()))))!
+                                            .data
+                                            .toList()
+                                            .cast<
+                                                TrackingEmployeeLocationModelStruct>();
+                                        safeSetState(() {});
+                                        FFAppState().polyMapLatLngList =
+                                            functions
+                                                .makeLatLngList(
+                                                    _model.locationByDateData
+                                                        .map((e) => e.latitude)
+                                                        .toList(),
+                                                    _model.locationByDateData
+                                                        .map((e) => e.longitude)
+                                                        .toList())!
+                                                .toList()
+                                                .cast<LatLng>();
+                                        FFAppState().polyMapTimeList = _model
+                                            .locationByDateData
+                                            .map((e) => e.times)
+                                            .toList()
+                                            .cast<String>();
+                                        safeSetState(() {});
+                                        if (scaffoldKey
+                                                .currentState!.isDrawerOpen ||
+                                            scaffoldKey.currentState!
+                                                .isEndDrawerOpen) {
+                                          Navigator.pop(context);
+                                        }
+                                      },
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        elevation: functions.getDateFormat(
+                                                    list30DaysDateTimeListItemItem) ==
+                                                functions.getDateFormat(functions
+                                                    .parseStringToDatetime(
+                                                        _model
+                                                            .dataDateSelected))
+                                            ? 5.0
+                                            : 0.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              valueOrDefault<double>(
+                                            functions.getDateFormat(
+                                                        list30DaysDateTimeListItemItem) ==
+                                                    functions.getDateFormat(functions
+                                                        .parseStringToDatetime(
+                                                            _model
+                                                                .dataDateSelected))
+                                                ? 12.0
+                                                : 0.0,
+                                            0.0,
+                                          )),
+                                        ),
+                                        child: Container(
+                                          width: 100.0,
+                                          height: functions.getDateFormat(
+                                                      list30DaysDateTimeListItemItem) ==
+                                                  functions.getDateFormat(functions
+                                                      .parseStringToDatetime(
+                                                          _model
+                                                              .dataDateSelected))
+                                              ? 65.0
+                                              : 40.0,
+                                          decoration: BoxDecoration(
+                                            color: valueOrDefault<Color>(
+                                              functions.containStringInListString(
+                                                      _model.locationDateData
+                                                          .map((e) => e.date)
+                                                          .toList(),
+                                                      functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem))!
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .secondaryBackground
+                                                  : Color(0xFFDFDFDF),
+                                              Color(0xFFDFDFDF),
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                                valueOrDefault<double>(
+                                              functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem) ==
+                                                      functions.getDateFormat(functions
+                                                          .parseStringToDatetime(
+                                                              _model
+                                                                  .dataDateSelected))
+                                                  ? 12.0
+                                                  : 0.0,
+                                              0.0,
+                                            )),
+                                            border: Border.all(
+                                              color: functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem) ==
+                                                      functions.getDateFormat(functions
+                                                          .parseStringToDatetime(
+                                                              _model
+                                                                  .dataDateSelected))
+                                                  ? Color(0xFFFF6500)
+                                                  : Colors.transparent,
+                                              width: functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem) ==
+                                                      functions.getDateFormat(functions
+                                                          .parseStringToDatetime(
+                                                              _model
+                                                                  .dataDateSelected))
+                                                  ? 3.0
+                                                  : 0.0,
+                                            ),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                valueOrDefault<String>(
+                                                  '${valueOrDefault<String>(
+                                                    functions.showDateBE(
+                                                        list30DaysDateTimeListItemItem
+                                                            .toString()),
+                                                    '22/01/68',
+                                                  )}',
+                                                  '22/01/68',
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        functions.containStringInListString(
+                                                                _model
+                                                                    .locationDateData
+                                                                    .map((e) =>
+                                                                        e.date)
+                                                                    .toList(),
+                                                                functions
+                                                                    .getDateFormat(
+                                                                        list30DaysDateTimeListItemItem))!
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText
+                                                            : Color(0xFF969696),
+                                                        Color(0xFF969696),
+                                                      ),
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             appBar: AppBar(
               backgroundColor: Color(0xFFFF6500),
               automaticallyImplyLeading: false,
@@ -461,15 +727,52 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                 ),
                                 Expanded(
                                   flex: 5,
-                                  child: Text(
-                                    '${_model.locationByDateData.length.toString()} ที่ (${functions.showDateBE(_model.dataDateSelected)})',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 13.0,
-                                          letterSpacing: 0.0,
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Flexible(
+                                          child: Text(
+                                            '${_model.locationByDateData.length.toString()} ที่ (${functions.showDateBE(_model.dataDateSelected)})',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 13.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                         ),
+                                        if (responsiveVisibility(
+                                          context: context,
+                                          tablet: false,
+                                          tabletLandscape: false,
+                                          desktop: false,
+                                        ))
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                scaffoldKey.currentState!
+                                                    .openDrawer();
+                                              },
+                                              child: Icon(
+                                                Icons.update_sharp,
+                                                color: Color(0xFFFF6500),
+                                                size: 40.0,
+                                              ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],

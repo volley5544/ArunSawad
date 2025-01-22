@@ -1160,7 +1160,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     employeeId: _model.dropDownValue,
                                     dateTime: functions
                                         .getDateFormat(_model.datePicked),
-                                    apiUrl: false
+                                    apiUrl: true
                                         ? _model.apiTrackingUrl?.urlLink
                                         : 'https://9f08-115-31-145-24.ngrok-free.app',
                                   );
