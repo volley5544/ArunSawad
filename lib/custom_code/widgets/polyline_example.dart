@@ -74,7 +74,7 @@ class _PolylineExampleState extends State<PolylineExample> {
           position: ggmap.LatLng(location.latitude, location.longitude),
           infoWindow: ggmap.InfoWindow(
             title: 'Location ${i + 1}',
-            snippet: 'Time: $time\nTap here to open Street View',
+            snippet: 'tap to open Street View',
             onTap: () {
               _launchStreetView(location.latitude, location.longitude);
             },

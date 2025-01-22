@@ -288,7 +288,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                 ),
                               ),
                               Expanded(
-                                flex: 5,
+                                flex: 4,
                                 child: TextFormField(
                                   controller:
                                       _model.employeeKeywordInputTextController,
@@ -364,7 +364,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                 ),
                               ),
                               Expanded(
-                                flex: 2,
+                                flex: 1,
                                 child: FlutterFlowIconButton(
                                   borderColor: Colors.black,
                                   borderRadius: 30.0,
@@ -589,7 +589,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   ),
                                 ),
                                 Expanded(
-                                  flex: 6,
+                                  flex: 5,
                                   child: FlutterFlowDropDown<String>(
                                     controller:
                                         _model.dropDownValueController ??=
@@ -635,7 +635,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     borderWidth: 0.0,
                                     borderRadius: 0.0,
                                     margin: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 4.0, 12.0, 4.0),
+                                        0.0, 4.0, 12.0, 4.0),
                                     hidesUnderline: true,
                                     isSearchable: false,
                                     isMultiSelect: false,
