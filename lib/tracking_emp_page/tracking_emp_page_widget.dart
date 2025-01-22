@@ -13,7 +13,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tracking_emp_page_model.dart';
 export 'tracking_emp_page_model.dart';
 
@@ -520,25 +519,22 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                 functions.getDateFormat(
                                                     list30DaysDateTimeListItemItem);
                                             safeSetState(() {});
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    content: Text(_model
-                                                        .dataDateSelected!),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            );
+                                            _model.locationByDateData = _model
+                                                .locationDateData
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfSomethingList(
+                                                        _model.locationDateData
+                                                            .map((e) => e.date)
+                                                            .toList(),
+                                                        functions.getDateFormat(
+                                                            functions.parseStringToDatetime(
+                                                                list30DaysDateTimeListItemItem
+                                                                    .toString()))))!
+                                                .data
+                                                .toList()
+                                                .cast<
+                                                    TrackingEmployeeLocationModelStruct>();
+                                            safeSetState(() {});
                                           },
                                           child: Material(
                                             color: Colors.transparent,
@@ -589,9 +585,8 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                       ? FlutterFlowTheme.of(
                                                               context)
                                                           .secondaryBackground
-                                                      : Color(0xFFB3B3B3),
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
+                                                      : Color(0xFFDFDFDF),
+                                                  Color(0xFFDFDFDF),
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(
@@ -648,6 +643,24 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            functions.containStringInListString(
+                                                                    _model
+                                                                        .locationDateData
+                                                                        .map((e) => e
+                                                                            .date)
+                                                                        .toList(),
+                                                                    functions
+                                                                        .getDateFormat(
+                                                                            list30DaysDateTimeListItemItem))!
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText
+                                                                : Color(
+                                                                    0xFF969696),
+                                                            Color(0xFF969696),
+                                                          ),
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
