@@ -11,6 +11,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tracking_emp_page_model.dart';
 export 'tracking_emp_page_model.dart';
 
@@ -53,6 +54,12 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'trackingEmpPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.dataDateSelected = widget!.selectedDate;
+      safeSetState(() {});
+    });
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -436,17 +443,150 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                             child: Container(
                               width: 100.0,
                               height: double.infinity,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: ListView(
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                children: [],
+                              decoration: BoxDecoration(),
+                              child: Builder(
+                                builder: (context) {
+                                  final list30DaysDateTimeListItem = functions
+                                          .generateLast30DateTimeList(
+                                              widget!.selectedDate)
+                                          ?.toList() ??
+                                      [];
+
+                                  return ListView.builder(
+                                    padding: EdgeInsets.fromLTRB(
+                                      0,
+                                      8.0,
+                                      0,
+                                      12.0,
+                                    ),
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount:
+                                        list30DaysDateTimeListItem.length,
+                                    itemBuilder: (context,
+                                        list30DaysDateTimeListItemIndex) {
+                                      final list30DaysDateTimeListItemItem =
+                                          list30DaysDateTimeListItem[
+                                              list30DaysDateTimeListItemIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            _model.dataDateSelected =
+                                                functions.getDateFormat(
+                                                    list30DaysDateTimeListItemItem);
+                                            safeSetState(() {});
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(_model
+                                                        .dataDateSelected!),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            elevation: functions.getDateFormat(
+                                                        list30DaysDateTimeListItemItem) ==
+                                                    functions.getDateFormat(functions
+                                                        .parseStringToDatetime(
+                                                            _model
+                                                                .dataDateSelected))
+                                                ? 2.0
+                                                : 0.0,
+                                            child: Container(
+                                              width: 100.0,
+                                              height: functions.getDateFormat(
+                                                          list30DaysDateTimeListItemItem) ==
+                                                      functions.getDateFormat(functions
+                                                          .parseStringToDatetime(
+                                                              _model
+                                                                  .dataDateSelected))
+                                                  ? 50.0
+                                                  : 40.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                border: Border.all(
+                                                  color: functions.getDateFormat(
+                                                              list30DaysDateTimeListItemItem) ==
+                                                          functions.getDateFormat(
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      _model
+                                                                          .dataDateSelected))
+                                                      ? Color(0xFFFF6500)
+                                                      : Colors.transparent,
+                                                  width: functions.getDateFormat(
+                                                              list30DaysDateTimeListItemItem) ==
+                                                          functions.getDateFormat(
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      _model
+                                                                          .dataDateSelected))
+                                                      ? 2.0
+                                                      : 0.0,
+                                                ),
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      '${valueOrDefault<String>(
+                                                        functions.showDateBE(
+                                                            list30DaysDateTimeListItemItem
+                                                                .toString()),
+                                                        '22/01/68',
+                                                      )}',
+                                                      '22/01/68',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
                               ),
                             ),
+                          ),
+                        if (responsiveVisibility(
+                          context: context,
+                          phone: false,
+                        ))
+                          VerticalDivider(
+                            thickness: 2.0,
                           ),
                         Expanded(
                           flex: 4,

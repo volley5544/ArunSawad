@@ -4675,3 +4675,15 @@ List<String>? genDropdownEmployee(
 
   return outputList;
 }
+
+List<DateTime>? generateLast30DateTimeList(String? selectedDate) {
+  final currentDate = DateTime.parse(selectedDate!);
+
+  // Generate a list of the last 30 days
+  final last30Days = List.generate(
+    30,
+    (index) => currentDate.subtract(Duration(days: index)),
+  );
+  //print(last30Days);
+  return last30Days;
+}
