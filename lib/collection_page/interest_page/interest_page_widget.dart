@@ -125,7 +125,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Colors.white,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
@@ -170,7 +170,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .headlineLarge
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     fontSize: 32.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -251,7 +251,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF0A0A0A),
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
@@ -420,7 +420,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
@@ -484,7 +484,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -503,7 +503,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -526,7 +526,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -538,7 +538,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -565,7 +565,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFFFFB822),
                                                 fontSize: 22.0,
                                                 letterSpacing: 0.0,
@@ -588,7 +588,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFFDE6D92),
                                                 fontSize: 13.0,
                                                 letterSpacing: 0.0,
@@ -648,8 +648,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -670,8 +670,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFFDE6D92),
                                                                 letterSpacing:
@@ -699,8 +699,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -721,8 +721,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFFDE6D92),
                                                                 letterSpacing:
@@ -750,8 +750,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -772,8 +772,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFFDE6D92),
                                                                 letterSpacing:
@@ -801,8 +801,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -837,8 +837,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFFDE6D92),
                                                                 letterSpacing:
@@ -897,8 +897,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -919,8 +919,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
@@ -963,8 +963,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -982,8 +982,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
@@ -1081,17 +1081,17 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                       15.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'คลิกเพื่อแสดง QR Code',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF3C525F),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF3C525F),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -1133,7 +1133,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFDE594C),
                                                         letterSpacing: 0.0,

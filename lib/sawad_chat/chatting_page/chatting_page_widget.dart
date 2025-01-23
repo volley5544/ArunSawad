@@ -193,7 +193,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
               title: Text(
                 '${widget!.userBName} (${widget!.userBNickname})',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(),
                       color: Colors.white,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
@@ -372,8 +372,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 14.0,
@@ -415,8 +415,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .grayIcon,
@@ -523,8 +523,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .black600,
@@ -567,8 +567,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .grayIcon,
@@ -716,27 +716,26 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              labelStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 12.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               hintText: 'พิมพ์ข้อความที่นี่',
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grayIcon,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .grayIcon,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               enabledBorder: InputBorder.none,
                                               focusedBorder: InputBorder.none,
                                               errorBorder: InputBorder.none,
@@ -746,7 +745,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                 ),

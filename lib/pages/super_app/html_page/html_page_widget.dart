@@ -76,7 +76,7 @@ class _HtmlPageWidgetState extends State<HtmlPageWidget> {
           title: Text(
             'inbox message',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,

@@ -73,7 +73,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                         'รายละเอียดการชำระเงิน',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               color: Colors.white,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
@@ -147,7 +147,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -159,7 +159,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -181,7 +181,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -193,7 +193,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -215,7 +215,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -227,7 +227,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -249,7 +249,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -261,7 +261,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -282,7 +282,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: Color(0xFFFF0000),
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
@@ -339,7 +339,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: Color(0xFF5867DD),
                                             letterSpacing: 0.0,
                                           ),
@@ -409,7 +409,8 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF5867DD),
                                                         letterSpacing: 0.0,
@@ -439,7 +440,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     color: Color(0xFF696C9A),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -452,16 +453,15 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                           children: [
                                             Text(
                                               '1. หากท่านชำระค่างวดไม่ตรงกำหนด บริษัทฯ \nจะนำเงินไปหักค่าเบี้ย ปรับติดตามก่อนค่างวด',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -470,16 +470,15 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                           children: [
                                             Text(
                                               '2. ค้างชำระเกิน 3 งวดโปรดติดต่อบริษัท\nโทร 1652',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -488,16 +487,15 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                           children: [
                                             Text(
                                               '3. การให้บริการชำระเงินผ่านบัตรเป็นการอำนวย \nความสะดวกให้แก่ลูกค้าเท่านั้น ลูกค้าต้องปฏิบัติ\nตาม ข้อตกลงและเงื่อนไขที่ ระบุไว้ในสัญญา',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -506,16 +504,15 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                                           children: [
                                             Text(
                                               '4. ไม่รวมค่าเบี้ยปรับ ค่าติดตามทวงหนี้ภาคสนาม',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ],
                                         ),

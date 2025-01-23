@@ -254,7 +254,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           title: Text(
             'Branch View',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -278,7 +278,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                 decoration: InputDecoration(
                   hintText: '[Some hint text...]',
                   hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                   enabledBorder: UnderlineInputBorder(
@@ -324,7 +324,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   filled: true,
                 ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Noto Serif',
+                      font: GoogleFonts.notoSerif(),
                       color: FlutterFlowTheme.of(context).black600,
                       letterSpacing: 0.0,
                     ),
@@ -350,7 +350,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: Text(
                         'Username:',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               fontSize: 18.0,
                               letterSpacing: 0.0,
                             ),
@@ -369,7 +369,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           hintText: 'รหัสผนักงาน',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                   ),
                           enabledBorder: UnderlineInputBorder(
@@ -414,7 +414,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                         validator: _model.usernameInputTextControllerValidator
@@ -443,7 +443,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: Text(
                         'เลขอ้างอิง:',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               fontSize: 18.0,
                               letterSpacing: 0.0,
                             ),
@@ -462,7 +462,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           hintText: 'เลยบัตรปชช. 4ตัวท้าย',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                   ),
                           enabledBorder: UnderlineInputBorder(
@@ -507,7 +507,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                         validator: _model.id4DigitInputTextControllerValidator
@@ -536,7 +536,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: Text(
                         'รหัสผ่านใหม่:',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               fontSize: 18.0,
                               letterSpacing: 0.0,
                             ),
@@ -555,7 +555,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           hintText: 'รหัสผ่านใหม่',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                   ),
                           enabledBorder: UnderlineInputBorder(
@@ -600,7 +600,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                         validator: _model
@@ -630,7 +630,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: Text(
                         'ยืนยันรหัสผ่าน:',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               fontSize: 18.0,
                               letterSpacing: 0.0,
                             ),
@@ -648,7 +648,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           hintText: 'ยืนยันรหัสผ่านใหม่',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                   ),
                           enabledBorder: UnderlineInputBorder(
@@ -693,7 +693,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                         textAlign: TextAlign.start,
@@ -776,7 +776,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),
@@ -836,8 +836,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             color: Colors.white,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -860,7 +860,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -883,7 +884,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -902,14 +904,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                             SnackBar(
                                               content: Text(
                                                 'กรุณาใส่ เลขอ้างอิง',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                               duration:
                                                   Duration(milliseconds: 3000),
@@ -946,14 +949,14 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                           SnackBar(
                                             content: Text(
                                               'กรุณาใส่ Username',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    color: Colors.white,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                             duration:
                                                 Duration(milliseconds: 3000),
@@ -978,7 +981,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),

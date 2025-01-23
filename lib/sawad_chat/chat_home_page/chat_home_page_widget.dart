@@ -58,7 +58,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
             title: Text(
               'SAWAD Chat',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -287,8 +287,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(),
                                                                           fontSize:
                                                                               13.0,
                                                                           letterSpacing:
@@ -325,8 +325,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(),
                                                                           color:
                                                                               Color(0xFF818C95),
                                                                           fontSize:
@@ -369,8 +369,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -392,8 +392,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,

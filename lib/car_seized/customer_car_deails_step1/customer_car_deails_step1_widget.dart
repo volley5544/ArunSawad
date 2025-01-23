@@ -149,7 +149,7 @@ class _CustomerCarDeailsStep1WidgetState
               }
             }(),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -191,7 +191,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
@@ -212,7 +212,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
@@ -234,7 +234,7 @@ class _CustomerCarDeailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFF404040),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -264,7 +264,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
@@ -285,7 +285,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
@@ -306,7 +306,7 @@ class _CustomerCarDeailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFF404040),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -336,7 +336,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
@@ -357,7 +357,7 @@ class _CustomerCarDeailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFFFF0000),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
@@ -394,7 +394,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -471,18 +471,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 'หน้าตรง',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -498,7 +498,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 11.0,
@@ -529,7 +530,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -548,7 +549,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -573,7 +574,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -886,7 +887,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -963,18 +964,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 'หน้าซ้าย 45 องศา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -990,7 +991,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 11.0,
@@ -1021,7 +1023,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1040,7 +1042,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1065,7 +1067,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1364,7 +1366,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -1441,18 +1443,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 'หลังซ้าย 45 องศา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -1468,7 +1470,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 11.0,
@@ -1499,7 +1502,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1518,7 +1521,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1543,7 +1546,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1842,7 +1845,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -1919,18 +1922,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 'หลังตรง',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -1946,7 +1949,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 11.0,
@@ -1977,7 +1981,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1996,7 +2000,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2021,7 +2025,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2320,7 +2324,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -2397,18 +2401,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 'หลังขวา 45 องศา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -2424,7 +2428,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 11.0,
@@ -2455,7 +2460,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2474,7 +2479,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2499,7 +2504,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2798,7 +2803,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -2875,18 +2880,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 'หน้าขวา 45 องศา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -2902,7 +2907,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 12.0,
@@ -2933,7 +2939,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2952,7 +2958,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2977,7 +2983,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -3276,7 +3282,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -3362,18 +3368,18 @@ class _CustomerCarDeailsStep1WidgetState
                                                             ?.improundCONTNOTYPE)
                                                     ? 'เลขไมล์'
                                                     : 'เลขตัวถังรถ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Padding(
@@ -3389,7 +3395,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 11.0,
@@ -3420,7 +3427,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -3439,7 +3446,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -3464,7 +3471,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -3771,7 +3778,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -3857,18 +3864,18 @@ class _CustomerCarDeailsStep1WidgetState
                                                             ?.improundCONTNOTYPE)
                                                     ? 'คอนโซลหน้า'
                                                     : 'รูปเครื่องยนต์',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             if (widget!.motocycleConfig
@@ -3886,7 +3893,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF404040),
                                                         fontSize: 11.0,
@@ -3914,7 +3922,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFFFF0000),
                                                           fontSize: 11.0,
@@ -3945,7 +3954,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -3964,7 +3973,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -3989,7 +3998,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -4292,7 +4301,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -4378,18 +4387,18 @@ class _CustomerCarDeailsStep1WidgetState
                                                             ?.improundCONTNOTYPE)
                                                     ? 'เบาะหลัง'
                                                     : 'เลขไมล์',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             if (widget!.carConfig?.contains(
@@ -4406,7 +4415,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF404040),
                                                         fontSize: 11.0,
@@ -4435,7 +4445,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFFFF0000),
                                                           fontSize: 11.0,
@@ -4466,7 +4477,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -4485,7 +4496,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -4510,7 +4521,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -4813,7 +4824,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -4901,18 +4912,18 @@ class _CustomerCarDeailsStep1WidgetState
                                                             ?.improundCONTNOTYPE)
                                                     ? 'รูปเครื่องยนต์'
                                                     : 'อื่นๆ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             if (widget!.motocycleConfig
@@ -4930,7 +4941,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF404040),
                                                         fontSize: 11.0,
@@ -4958,7 +4970,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFFFF0000),
                                                           fontSize: 11.0,
@@ -4989,7 +5002,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -5008,7 +5021,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -5033,7 +5046,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -5336,7 +5349,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -5424,18 +5437,18 @@ class _CustomerCarDeailsStep1WidgetState
                                                             ?.improundCONTNOTYPE)
                                                     ? 'เลขตัวถังรถ'
                                                     : 'อื่นๆ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             if (widget!.motocycleConfig
@@ -5453,7 +5466,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF404040),
                                                         fontSize: 11.0,
@@ -5481,7 +5495,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFFFF0000),
                                                           fontSize: 11.0,
@@ -5512,7 +5527,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -5531,7 +5546,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -5556,7 +5571,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -5859,7 +5874,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
@@ -5947,18 +5962,18 @@ class _CustomerCarDeailsStep1WidgetState
                                                             ?.improundCONTNOTYPE)
                                                     ? 'แผ่นเพลทรถ'
                                                     : 'อื่นๆ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                             Container(
@@ -5967,18 +5982,18 @@ class _CustomerCarDeailsStep1WidgetState
                                               ),
                                               child: Text(
                                                 '(ถ้ามี)',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 11.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF404040),
+                                                      fontSize: 11.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -6001,7 +6016,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -6020,7 +6035,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -6045,7 +6060,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -6353,7 +6368,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -6370,7 +6385,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -6532,15 +6547,17 @@ class _CustomerCarDeailsStep1WidgetState
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xFFFE6400),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            color: Colors.white,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -6561,7 +6578,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -6584,7 +6602,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -6802,7 +6821,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -6819,7 +6838,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -6981,15 +7000,17 @@ class _CustomerCarDeailsStep1WidgetState
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xFFFE6400),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            color: Colors.white,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -7010,7 +7031,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -7033,7 +7055,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -7251,7 +7274,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -7268,7 +7291,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -7430,15 +7453,17 @@ class _CustomerCarDeailsStep1WidgetState
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xFFFE6400),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            color: Colors.white,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -7459,7 +7484,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -7482,7 +7508,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -7700,7 +7727,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -7717,7 +7744,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
@@ -7879,15 +7906,17 @@ class _CustomerCarDeailsStep1WidgetState
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xFFFE6400),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            color: Colors.white,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -7908,7 +7937,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -7931,7 +7961,8 @@ class _CustomerCarDeailsStep1WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -8164,7 +8195,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           color: Color(0xFF404040),
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
@@ -8186,7 +8217,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFFFF0000),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -8199,7 +8230,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color: Color(0xFF404040),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -8247,21 +8278,21 @@ class _CustomerCarDeailsStep1WidgetState
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font:
+                                                          GoogleFonts.poppins(),
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรอกราคา...',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                            hintStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelMedium
+                                                .override(
+                                                  font: GoogleFonts.poppins(),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  letterSpacing: 0.0,
+                                                ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
                                             errorBorder: InputBorder.none,
@@ -8271,7 +8302,7 @@ class _CustomerCarDeailsStep1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 letterSpacing: 0.0,
                                               ),
                                           maxLines: null,
@@ -8300,7 +8331,7 @@ class _CustomerCarDeailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFF404040),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -8312,7 +8343,7 @@ class _CustomerCarDeailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFF404040),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -8353,14 +8384,14 @@ class _CustomerCarDeailsStep1WidgetState
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             letterSpacing: 0.0,
                                           ),
                                       hintText: 'กรอกหมายเหตุ...',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
@@ -8373,7 +8404,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     maxLines: null,
@@ -9289,7 +9320,7 @@ class _CustomerCarDeailsStep1WidgetState
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBtnText,
                                     letterSpacing: 0.0,

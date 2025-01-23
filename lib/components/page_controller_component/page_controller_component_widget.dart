@@ -168,7 +168,7 @@ class _PageControllerComponentWidgetState
                   selectedChipStyle: ChipStyle(
                     backgroundColor: Color(0xFF0039E3),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           color: Colors.white,
                           letterSpacing: 0.0,
                         ),
@@ -180,7 +180,7 @@ class _PageControllerComponentWidgetState
                   unselectedChipStyle: ChipStyle(
                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           color: Colors.white,
                           letterSpacing: 0.0,
                         ),

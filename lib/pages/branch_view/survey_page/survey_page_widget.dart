@@ -335,7 +335,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
           title: Text(
             'Branch View',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -414,7 +414,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -437,7 +437,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 36.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -482,7 +482,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -530,7 +530,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Noto Serif',
+                                        font: GoogleFonts.notoSerif(),
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
@@ -705,7 +705,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -753,7 +753,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
@@ -791,7 +791,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -818,7 +818,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -870,7 +870,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -911,7 +911,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -931,7 +931,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -983,7 +983,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1025,7 +1025,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1045,7 +1045,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1097,7 +1097,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1139,7 +1139,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1159,7 +1159,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1211,7 +1211,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1253,7 +1253,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1274,7 +1274,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1326,7 +1326,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1373,7 +1373,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1394,7 +1394,8 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmall
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font:
+                                                          GoogleFonts.poppins(),
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: UnderlineInputBorder(
@@ -1446,7 +1447,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 letterSpacing: 0.0,
                                               ),
                                           textAlign: TextAlign.start,
@@ -1492,7 +1493,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -1540,7 +1541,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
@@ -1578,7 +1579,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1601,7 +1602,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1653,7 +1654,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -1694,7 +1695,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1715,7 +1716,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1767,7 +1768,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1809,7 +1810,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1830,7 +1831,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1882,7 +1883,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1924,7 +1925,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1946,7 +1947,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1998,7 +1999,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2040,7 +2041,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -2062,7 +2063,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -2114,7 +2115,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2156,7 +2157,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -2178,7 +2179,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -2230,7 +2231,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2337,7 +2338,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -2385,7 +2386,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Noto Serif',
+                                        font: GoogleFonts.notoSerif(),
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
@@ -2612,7 +2613,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),
@@ -2938,7 +2939,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

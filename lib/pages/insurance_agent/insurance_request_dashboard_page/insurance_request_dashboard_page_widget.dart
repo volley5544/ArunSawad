@@ -242,7 +242,7 @@ class _InsuranceRequestDashboardPageWidgetState
                 title: Text(
                   'ประกันนอกเรท',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         color: Colors.white,
                         fontSize: 32.0,
                         letterSpacing: 0.0,
@@ -290,7 +290,7 @@ class _InsuranceRequestDashboardPageWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -373,13 +373,13 @@ class _InsuranceRequestDashboardPageWidgetState
                                                     8.0, 12.0, 0.0, 0.0),
                                             child: Text(
                                               'ทำเรื่องขอประกัน',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -450,13 +450,13 @@ class _InsuranceRequestDashboardPageWidgetState
                                                     8.0, 12.0, 0.0, 0.0),
                                             child: Text(
                                               'รายการขอประกัน',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                         ),

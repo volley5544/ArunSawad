@@ -304,7 +304,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
           title: Text(
             'Branch View',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -387,7 +387,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -410,7 +410,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 36.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -455,7 +455,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -503,7 +503,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Noto Serif',
+                                        font: GoogleFonts.notoSerif(),
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
@@ -678,7 +678,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -726,7 +726,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
@@ -765,7 +765,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -792,7 +792,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -844,7 +844,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -885,7 +885,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -904,7 +904,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'หมายเหตุ',
@@ -912,7 +912,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -964,7 +964,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1009,7 +1009,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -1057,7 +1057,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
@@ -1095,7 +1095,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1118,7 +1118,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1170,7 +1170,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -1211,7 +1211,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1232,7 +1232,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1284,7 +1284,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1389,7 +1389,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -1437,7 +1437,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Noto Serif',
+                                        font: GoogleFonts.notoSerif(),
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
@@ -1665,7 +1665,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),
@@ -1818,7 +1818,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBtnText,
@@ -2026,7 +2026,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),

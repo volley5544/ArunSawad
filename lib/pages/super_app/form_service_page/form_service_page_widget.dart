@@ -144,7 +144,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
                 '[form_service_name]',
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,

@@ -115,7 +115,7 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
           title: Text(
             'Scan QRCode',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -228,7 +228,7 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                     ),

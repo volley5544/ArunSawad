@@ -386,7 +386,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
             title: Text(
               'รายการ',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
@@ -429,7 +429,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                     width: double.infinity,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           color: Colors.black,
                           letterSpacing: 0.0,
                         ),
@@ -458,7 +458,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                           labelColor: FlutterFlowTheme.of(context).black600,
                           labelStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -624,8 +624,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -673,8 +673,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -715,8 +715,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -769,8 +769,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -811,8 +811,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -865,8 +865,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -907,8 +907,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -961,8 +961,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1006,8 +1006,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1060,8 +1060,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1105,8 +1105,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1172,8 +1172,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1239,8 +1239,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1406,8 +1406,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(),
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
@@ -1581,8 +1581,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -1630,8 +1630,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1672,8 +1672,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1726,8 +1726,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1768,8 +1768,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1822,8 +1822,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1864,8 +1864,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1918,8 +1918,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1963,8 +1963,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2017,8 +2017,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2062,8 +2062,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2129,8 +2129,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2196,8 +2196,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2359,8 +2359,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -2408,8 +2408,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2450,8 +2450,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2504,8 +2504,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2546,8 +2546,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2600,8 +2600,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2642,8 +2642,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2696,8 +2696,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2741,8 +2741,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2795,8 +2795,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2840,8 +2840,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2907,8 +2907,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -2974,8 +2974,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -3028,8 +3028,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -3073,8 +3073,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:

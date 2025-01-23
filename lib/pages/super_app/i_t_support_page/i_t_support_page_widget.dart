@@ -128,7 +128,7 @@ class _ITSupportPageWidgetState extends State<ITSupportPageWidget> {
             title: Text(
               'ข้อมูลไอที',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,

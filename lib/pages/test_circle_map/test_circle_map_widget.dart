@@ -60,7 +60,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -81,7 +81,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                 child: Text(
                   FFAppState().idNumberTemp.toString(),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -122,7 +122,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -162,7 +162,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),

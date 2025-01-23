@@ -136,7 +136,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
             title: Text(
               'รายละเอียดเบี้ยประกัน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
@@ -180,7 +180,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -205,7 +205,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -251,7 +251,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             lineHeight: 1.0,
@@ -282,7 +282,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -306,7 +306,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -352,7 +352,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             lineHeight: 1.0,
@@ -382,7 +382,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -406,7 +406,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -452,7 +452,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             lineHeight: 1.0,
@@ -482,7 +482,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -506,7 +506,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -552,7 +552,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             lineHeight: 1.0,
@@ -582,7 +582,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -606,7 +606,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -652,7 +652,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             lineHeight: 1.0,
@@ -686,7 +686,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -711,7 +711,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -758,7 +758,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               lineHeight: 1.0,
@@ -793,7 +793,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -818,7 +818,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -865,7 +865,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -901,7 +901,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -926,7 +926,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -973,7 +973,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1009,7 +1009,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1034,7 +1034,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1081,7 +1081,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1118,7 +1118,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1143,7 +1143,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1190,7 +1190,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1226,7 +1226,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1251,7 +1251,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1298,7 +1298,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1334,7 +1334,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1359,7 +1359,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1406,7 +1406,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1442,7 +1442,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1467,7 +1467,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1514,7 +1514,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1550,7 +1550,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1575,7 +1575,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1622,7 +1622,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1658,7 +1658,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1683,7 +1683,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1730,7 +1730,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
@@ -1766,7 +1766,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1791,7 +1791,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1838,7 +1838,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 13.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,

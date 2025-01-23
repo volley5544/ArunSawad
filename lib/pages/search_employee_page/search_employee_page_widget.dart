@@ -233,7 +233,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
             title: Text(
               'Location พนักงาน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -281,7 +281,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -300,14 +300,14 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     hintText: 'รหัสพนักงาน/ชื่อ/สกุล',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -354,7 +354,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         letterSpacing: 0.0,
                                       ),
                                   textAlign: TextAlign.start,
@@ -585,7 +585,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -631,7 +631,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color: Colors.black,
                                               letterSpacing: 0.0,
                                             ),
@@ -700,7 +700,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -713,7 +713,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -762,7 +762,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -783,7 +783,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -832,7 +832,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -853,7 +853,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -902,7 +902,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -923,7 +923,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -986,7 +986,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1021,7 +1021,8 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 32.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1105,7 +1106,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
@@ -1298,7 +1299,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

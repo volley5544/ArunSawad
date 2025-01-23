@@ -48,6 +48,8 @@ class _PolyMapWidgetComponentWidgetState
       child: custom_widgets.PolylineExample(
         width: double.infinity,
         height: double.infinity,
+        locations: [],
+        times: [],
       ),
     );
   }

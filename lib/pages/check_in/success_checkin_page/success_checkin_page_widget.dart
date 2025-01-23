@@ -84,7 +84,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                 Text(
                   'สำเร็จ!',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
+                        font: GoogleFonts.outfit(),
                         color: Colors.white,
                         fontSize: 32.0,
                         letterSpacing: 0.0,
@@ -96,7 +96,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                   child: Text(
                     'บันทึกข้อมูลเสร็จสิ้น',
                     style: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Outfit',
+                          font: GoogleFonts.outfit(),
                           color: Colors.white,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
@@ -129,7 +129,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Outfit',
+                                  font: GoogleFonts.outfit(),
                                   color: Color(0xFF39D2C0),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
@@ -207,7 +207,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Outfit',
+                                      font: GoogleFonts.outfit(),
                                       color: Color(0xFFF0CE00),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,

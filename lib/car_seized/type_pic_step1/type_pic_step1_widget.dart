@@ -68,7 +68,7 @@ class _TypePicStep1WidgetState extends State<TypePicStep1Widget> {
           title: Text(
             'การเก็บรูปรถยึด',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -176,8 +176,8 @@ class _TypePicStep1WidgetState extends State<TypePicStep1Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
+                                                            font: GoogleFonts
+                                                                .notoSansThai(),
                                                             color: Color(
                                                                 0xFF204A77),
                                                             fontSize: 16.0,
@@ -258,8 +258,8 @@ class _TypePicStep1WidgetState extends State<TypePicStep1Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
+                                                            font: GoogleFonts
+                                                                .notoSansThai(),
                                                             color: Color(
                                                                 0xFF204A77),
                                                             fontSize: 16.0,
@@ -351,8 +351,8 @@ class _TypePicStep1WidgetState extends State<TypePicStep1Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
+                                                            font: GoogleFonts
+                                                                .notoSansThai(),
                                                             color: Color(
                                                                 0xFF204A77),
                                                             fontSize: 16.0,
@@ -433,8 +433,8 @@ class _TypePicStep1WidgetState extends State<TypePicStep1Widget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
+                                                            font: GoogleFonts
+                                                                .notoSansThai(),
                                                             color: Color(
                                                                 0xFF204A77),
                                                             fontSize: 16.0,

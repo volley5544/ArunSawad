@@ -96,7 +96,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
           title: Text(
             'ยื่นเรื่องขออนุมัติลา',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -221,7 +221,8 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -248,14 +249,14 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               'จำนวนวันที่ลา  :',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             )),
                                           ),
                                         ],
@@ -283,13 +284,15 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                 decoration: InputDecoration(
                                                   hintText:
                                                       'ใส่จำนวนวันที่ต้องการลา',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -340,15 +343,16 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                           .fromSTEB(20.0, 24.0,
                                                               24.0, 24.0),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.0,
+                                                    ),
                                                 keyboardType:
                                                     TextInputType.number,
                                                 validator: _model
@@ -376,14 +380,14 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               'เบอร์โทรติดต่อ  :',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             )),
                                           ),
                                         ],
@@ -418,7 +422,8 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
@@ -486,7 +491,8 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
@@ -522,14 +528,14 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               'เหตุผลการลา  :',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             )),
                                           ),
                                         ],
@@ -552,15 +558,16 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                                 hintText: 'กรุณากรอก...',
                                                 enabledBorder:
                                                     UnderlineInputBorder(
@@ -609,16 +616,16 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         .fromSTEB(20.0, 0.0,
                                                             24.0, 0.0),
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
                                               textAlign: TextAlign.start,
                                               validator: _model
                                                   .reasonToLeaveTextControllerValidator
@@ -644,14 +651,14 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               'เเนบไฟล์การลา  :',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             )),
                                           ),
                                         ],
@@ -784,7 +791,8 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                           .of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
@@ -972,17 +980,16 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             color: Color(0xFF00968A),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
+                                            textStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .titleSmall
+                                                .override(
+                                                  font: GoogleFonts.poppins(),
+                                                  color: Colors.white,
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                             elevation: 2.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,

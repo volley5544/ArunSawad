@@ -594,7 +594,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                           'ประเภทหนี้',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Colors.white,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
@@ -716,7 +716,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -787,8 +788,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
@@ -921,8 +922,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1000,8 +1001,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -1133,8 +1134,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1212,8 +1213,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -1345,8 +1346,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1424,8 +1425,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -1557,8 +1558,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1586,8 +1587,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
@@ -1668,8 +1669,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -1801,8 +1802,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1830,8 +1831,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
@@ -1912,8 +1913,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -2051,8 +2052,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2130,8 +2131,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -2263,8 +2264,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2342,8 +2343,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -2475,8 +2476,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2554,8 +2555,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryBtnText,
@@ -2691,8 +2692,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:
@@ -2721,8 +2722,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               color: Color(
                                                                   0xFF636A75),
                                                               fontSize: 10.0,
@@ -2801,8 +2802,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
@@ -2920,7 +2921,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -2992,8 +2994,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
@@ -3111,7 +3113,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3173,8 +3176,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
@@ -3224,7 +3227,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                           'UAT ทดสอบ By P\' Mook',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFFFF0000),
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,

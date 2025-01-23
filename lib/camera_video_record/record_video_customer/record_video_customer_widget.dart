@@ -86,7 +86,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
             title: Text(
               'บันทึกวิดีโอ (ลูกค้า)',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -129,7 +129,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
@@ -155,7 +155,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     color: Color(0xFF283753),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -179,7 +179,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     color: Color(0xFF283753),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -229,7 +229,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -278,23 +278,23 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                             autofocus: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 156.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              labelStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 156.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               hintText: 'กรุณากรอก',
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                               enabledBorder: InputBorder.none,
                                               focusedBorder: InputBorder.none,
                                               errorBorder: InputBorder.none,
@@ -304,7 +304,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
@@ -560,7 +560,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         color: Color(0xFFA5CED2),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   color: Color(0xFF283753),
                                   letterSpacing: 0.0,
                                 ),
@@ -626,7 +626,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                           color: FlutterFlowTheme.of(context).warning,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Color(0xFF283753),
                                     letterSpacing: 0.0,
                                   ),

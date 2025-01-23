@@ -111,7 +111,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
             title: Text(
               'โปรโมชั่น',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,

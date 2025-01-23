@@ -206,8 +206,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               color:
                                                                   Colors.black,
                                                               fontSize: 18.0,
@@ -258,8 +258,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         color: Colors
                                                                             .black,
                                                                         letterSpacing:
@@ -287,8 +287,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(),
                                                                             color:
                                                                                 Colors.black,
                                                                             fontSize:
@@ -310,8 +310,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(),
                                                                             color:
                                                                                 Colors.black,
                                                                             fontSize:
@@ -330,8 +330,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -350,8 +350,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -367,8 +367,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -464,7 +464,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             context)
                                                         .displaySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.black,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
@@ -501,8 +502,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: Color(
                                                                       0x8A000000),
                                                                   letterSpacing:
@@ -530,8 +531,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
@@ -553,8 +554,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
@@ -599,8 +600,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: Color(
                                                                       0x8A000000),
                                                                   letterSpacing:
@@ -628,8 +629,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
@@ -651,8 +652,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:

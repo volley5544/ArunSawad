@@ -136,7 +136,7 @@ class _RoadmapinsuranceWidgetState extends State<RoadmapinsuranceWidget> {
             title: Text(
               'เส้นทางนักขายประกัน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,

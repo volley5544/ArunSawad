@@ -52,7 +52,7 @@ class _DataNotFoundComponentWidgetState
           'ไม่พบข้อมูล',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Poppins',
+                font: GoogleFonts.poppins(),
                 color: FlutterFlowTheme.of(context).secondaryText,
                 fontSize: 20.0,
                 letterSpacing: 0.0,

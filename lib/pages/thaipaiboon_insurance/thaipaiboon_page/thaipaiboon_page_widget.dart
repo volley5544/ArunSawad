@@ -211,7 +211,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
             title: Text(
               'ไทยไพบูลย์ประกันภัย',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
@@ -231,7 +231,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                   child: Text(
                     'แผนประกันภัยอุบัติเหตุส่วนบุคคล',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                         ),
@@ -252,7 +252,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                       backgroundColor: Color(0xFFFF6500),
                       textStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(),
                                 color: Colors.white,
                                 letterSpacing: 0.0,
                               ),
@@ -264,7 +264,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                       backgroundColor: FlutterFlowTheme.of(context).grayIcon,
                       textStyle:
                           FlutterFlowTheme.of(context).bodySmall.override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(),
                                 color: Color(0xFFE3E7ED),
                                 letterSpacing: 0.0,
                               ),
@@ -292,7 +292,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                       '-',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                         ),
@@ -335,7 +335,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -352,7 +352,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -367,7 +367,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -458,7 +458,8 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -505,7 +506,8 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -534,7 +536,8 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -576,7 +579,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color:
                                         FlutterFlowTheme.of(context).grayIcon,
                                     fontSize: 20.0,

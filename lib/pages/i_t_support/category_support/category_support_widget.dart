@@ -199,7 +199,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
           title: Text(
             'IT Support',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 32.0,
                   letterSpacing: 0.0,
@@ -241,7 +241,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               color: Colors.white,
                               letterSpacing: 0.0,
                             ),
@@ -325,7 +325,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -397,7 +397,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -469,7 +469,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),

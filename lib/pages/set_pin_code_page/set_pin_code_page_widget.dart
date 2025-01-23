@@ -107,7 +107,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                 title: Text(
                   'กรุณาใส่รหัสพินตัวเลข',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -132,7 +132,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -145,7 +145,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -160,7 +160,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
                                   ),
@@ -457,7 +457,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       letterSpacing: 0.0,

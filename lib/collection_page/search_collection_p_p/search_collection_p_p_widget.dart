@@ -110,7 +110,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                         'นัดชำระ',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               color: Colors.white,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
@@ -177,7 +177,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
@@ -259,7 +259,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 11.0,
@@ -328,7 +328,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -336,7 +336,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -390,7 +390,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -515,7 +515,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           color: Colors.white,
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
@@ -599,7 +599,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: Colors.white,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
@@ -643,7 +643,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                           'รายชื่อ',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -949,7 +949,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                   'ชื่อ',
                                                                                   textAlign: TextAlign.start,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
@@ -960,7 +960,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                 ': ',
                                                                                 textAlign: TextAlign.start,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(),
                                                                                       fontSize: 12.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
@@ -978,7 +978,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                   ).toString()}',
                                                                                   textAlign: TextAlign.start,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
@@ -1005,7 +1005,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                   textAlign: TextAlign.start,
                                                                                   maxLines: 1,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
@@ -1017,7 +1017,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                 textAlign: TextAlign.start,
                                                                                 maxLines: 1,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(),
                                                                                       fontSize: 12.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
@@ -1032,7 +1032,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                   ).toString(),
                                                                                   maxLines: 1,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
@@ -1059,7 +1059,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                   textAlign: TextAlign.start,
                                                                                   maxLines: 1,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
@@ -1071,7 +1071,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                 textAlign: TextAlign.start,
                                                                                 maxLines: 1,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(),
                                                                                       fontSize: 12.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
@@ -1093,7 +1093,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                       : 'ยังไม่โทร',
                                                                                   maxLines: 1,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(),
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
@@ -1160,7 +1160,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                       child: Text(
                         'ไม่พบข้อมูลในระบบ',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,

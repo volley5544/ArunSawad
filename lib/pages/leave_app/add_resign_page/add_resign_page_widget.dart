@@ -242,7 +242,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
               title: Text(
                 'ยื่นเรื่องขออนุมัติลาออก',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(),
                       color: Colors.white,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
@@ -377,8 +377,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -442,8 +442,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -480,7 +480,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -604,8 +605,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 fontSize: 15.0,
@@ -652,7 +653,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -713,8 +715,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -766,8 +768,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -807,8 +809,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                           context)
                                                                       .bodySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -880,8 +882,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: Color(
                                                                       0xFF0A0A0A),
                                                                   fontSize:
@@ -926,7 +928,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -966,8 +969,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -981,8 +984,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: Color(
                                                                       0xFF0A0A0A),
                                                                   letterSpacing:
@@ -1055,8 +1058,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -1096,7 +1099,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1273,7 +1277,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1436,7 +1441,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1492,7 +1498,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1548,7 +1555,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1601,8 +1609,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1666,7 +1674,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
@@ -1706,8 +1715,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1771,7 +1780,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
@@ -1811,7 +1821,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1855,7 +1866,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.black,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
@@ -1901,7 +1913,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -1962,8 +1975,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1996,8 +2009,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -2033,8 +2046,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2106,8 +2119,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             color: Color(
                                                                 0xFF0A0A0A),
                                                             fontSize: 15.0,
@@ -2855,17 +2868,19 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .fromSTEB(20.0, 24.0,
                                                               24.0, 24.0),
                                                   color: Color(0xFF00968A),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            color: Colors.white,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
                                                   elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -2920,14 +2935,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'ประเภทการลา :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -2963,7 +2979,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
@@ -3043,7 +3060,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -3073,14 +3091,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'วันที่ทำงานวันสุดท้าย  :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -3122,7 +3141,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
@@ -3160,14 +3180,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'เหตุผลที่ตัดสินใจลาออก (ระบุได้มากกว่า 1 ข้อ)  :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -3220,13 +3241,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   checkColor: Colors.white,
                                                   checkboxBorderColor:
                                                       Color(0xFF95A1AC),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   initialized: _model
                                                           .checkboxGroupEditValues !=
                                                       null,
@@ -3270,8 +3293,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 15.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -3307,8 +3330,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                       context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -3380,8 +3403,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               color: Color(
                                                                   0xFF0A0A0A),
                                                               fontSize: 15.0,
@@ -3419,14 +3442,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'อยากให้บริษัทปรับปรุงการทำงานด้านใดบ้าง  :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -3459,7 +3483,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3469,7 +3494,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           letterSpacing: 0.0,
@@ -3533,7 +3559,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -3566,14 +3593,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'ในช่วงที่แจ้งลาออก สามารถติดต่อได้ที่ :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -3735,14 +3763,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Colors.black,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 hintText: widget!.privince,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
@@ -3890,14 +3919,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Colors.black,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 hintText: widget!.district,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
@@ -3944,14 +3974,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         val),
                                                 width: 180.0,
                                                 height: 50.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Colors.black,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 hintText: widget!.subdistrict,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
@@ -3997,14 +4028,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         val),
                                                 width: 180.0,
                                                 height: 50.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Colors.black,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                                 hintText: widget!.postCode,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
@@ -4044,13 +4076,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'ระบุหมู่ที่/ถนน',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -4101,18 +4135,18 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .fromSTEB(20.0, 24.0,
                                                               24.0, 24.0),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF0A0A0A),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF0A0A0A),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                                 validator: _model
                                                     .batchRoadTextField2TextControllerValidator
                                                     .asValidator(context),
@@ -4139,13 +4173,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'เบอร์ติดต่อ',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -4196,18 +4232,18 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .fromSTEB(20.0, 24.0,
                                                               24.0, 24.0),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF0A0A0A),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF0A0A0A),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                                 keyboardType:
                                                     TextInputType.phone,
                                                 validator: _model
@@ -4234,14 +4270,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'หากมีโอกาสจะกลับมาร่วมงานกับบริษัทหรือไม่  :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -4279,17 +4316,18 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         val),
                                                 width: 90.0,
                                                 height: 60.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Colors.black,
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                                 hintText:
                                                     widget!.willComeBack == 'Y'
                                                         ? 'ร่วมงาน'
@@ -4324,14 +4362,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 'ทรัพย์สินของบริษัทที่ต้องส่งคืน (ระบุได้มากกว่า 1 ข้อ)  :',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -4384,13 +4423,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   checkColor: Colors.white,
                                                   checkboxBorderColor:
                                                       Color(0xFF95A1AC),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .poppins(),
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   initialized: _model
                                                           .checkboxGroupEdit2Values !=
                                                       null,
@@ -4419,7 +4460,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -4453,7 +4495,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
@@ -4517,7 +4560,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
@@ -4941,17 +4985,16 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   .fromSTEB(
                                                       20.0, 24.0, 24.0, 24.0),
                                               color: Color(0xFF00968A),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    color: Colors.white,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                               elevation: 2.0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,

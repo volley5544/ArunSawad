@@ -79,7 +79,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -117,7 +117,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     height: 40.0,
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           color: Colors.white,
                           letterSpacing: 0.0,
                         ),
@@ -149,7 +149,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           color: Colors.white,
                           letterSpacing: 0.0,
                         ),
@@ -178,7 +178,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           color: Colors.white,
                           letterSpacing: 0.0,
                         ),
@@ -200,7 +200,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     '[lat,lng]',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                 )),
@@ -214,7 +214,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     '[name]',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                 )),
@@ -228,7 +228,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     '[zip_code]',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                 )),

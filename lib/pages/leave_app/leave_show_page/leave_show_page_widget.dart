@@ -270,7 +270,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
           title: Text(
             'รายการขออนุมัติลา',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -310,7 +310,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                 width: double.infinity,
                 height: 50.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(),
                       color: Colors.black,
                       letterSpacing: 0.0,
                     ),
@@ -338,7 +338,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                         labelColor: FlutterFlowTheme.of(context).black600,
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
@@ -483,8 +483,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -530,8 +530,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -573,8 +573,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -626,8 +626,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -669,8 +669,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -722,8 +722,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -765,8 +765,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -818,8 +818,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -864,8 +864,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -917,8 +917,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -963,8 +963,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1016,8 +1016,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1064,8 +1064,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1120,8 +1120,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1166,8 +1166,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1223,8 +1223,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1279,8 +1279,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1330,8 +1330,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1401,8 +1401,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1888,8 +1888,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(),
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
@@ -2010,8 +2010,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(),
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:

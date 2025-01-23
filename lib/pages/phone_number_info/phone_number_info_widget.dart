@@ -69,7 +69,7 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
           title: Text(
             'ข้อมูลเขตกลุ่มภาค โทรศัทพ์ใช้งาน',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -103,7 +103,7 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
                   },
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         letterSpacing: 0.0,
                       ),
                 ),

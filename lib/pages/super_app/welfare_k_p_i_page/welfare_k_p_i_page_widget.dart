@@ -162,7 +162,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
             title: Text(
               'ยอดจัดสาขา',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -208,7 +208,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                         labelColor: FlutterFlowTheme.of(context).primary,
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   letterSpacing: 0.0,
                                 ),
                         unselectedLabelStyle: TextStyle(),
@@ -267,7 +267,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -293,7 +293,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -407,7 +407,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color: tabBarTextContentRecord
                                                   ?.kpiTextcolor,
                                               letterSpacing: 0.0,
@@ -435,13 +435,13 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
                                               'ทำได้',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -479,7 +479,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -497,13 +497,13 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
                                               'เป้า',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -537,7 +537,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -555,13 +555,13 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
                                               'สถานะ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -631,7 +631,8 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font:
+                                                          GoogleFonts.poppins(),
                                                       color:
                                                           valueOrDefault<Color>(
                                                         functions
@@ -725,7 +726,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -751,7 +752,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -865,7 +866,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color: tabBarTextContentRecord
                                                   ?.kpiTextcolor,
                                               letterSpacing: 0.0,
@@ -893,13 +894,13 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
                                               'ทำได้',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -937,7 +938,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -955,13 +956,13 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
                                               'เป้า',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -995,7 +996,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -1013,13 +1014,13 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
                                               'สถานะ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -1089,7 +1090,8 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font:
+                                                          GoogleFonts.poppins(),
                                                       color:
                                                           valueOrDefault<Color>(
                                                         functions

@@ -263,8 +263,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               color: Color(
                                                                   0xFF002D5E),
                                                               fontSize: 18.0,
@@ -296,7 +296,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             Color(0xFF002D5E),
                                                         fontSize: 16.0,
@@ -318,18 +319,18 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'เลขที่ 99/392 ศรีสวัสดิ์ ชั้นที่ 4,6 ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF002D5E),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF002D5E),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -343,18 +344,18 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'ซอยแจ้งวัฒนะ 10 แยก 3 (เบญจมิตร) ถนนแจ้งวัฒนะ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF002D5E),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF002D5E),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -368,18 +369,18 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'แขวงทุ่งสองห้อง เขตหลักสี่ กรุงเทพมหานคร 10210',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF002D5E),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF002D5E),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -400,16 +401,16 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                               ),
                                               Text(
                                                 'ติดต่อบริการลูกค้าสัมพันธ์',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF002D5E),
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF002D5E),
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -447,7 +448,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 19.0,
@@ -493,8 +495,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFFDB771A),
                                                                 letterSpacing:
@@ -532,16 +534,16 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                               ),
                                               Text(
                                                 'ช่องทางการติดต่ออื่นๆ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF002D5E),
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF002D5E),
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -555,18 +557,18 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                       20.0, 20.0, 0.0, 0.0),
                                               child: Text(
                                                 'อีเมล',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF646464),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF646464),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -580,16 +582,16 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'callcenter.sawad@srisawadpower.com',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF002D5E),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      color: Color(0xFF002D5E),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -647,8 +649,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFF002D5E),
                                                                 fontSize: 18.0,
@@ -735,8 +737,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: Color(
                                                                     0xFF002D5E),
                                                                 fontSize: 18.0,
@@ -803,7 +805,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   color: Color(0xFF002D5E),
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,

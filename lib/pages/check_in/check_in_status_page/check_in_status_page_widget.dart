@@ -633,7 +633,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                 title: Text(
                   'เวลาเข้างาน - ออกงาน',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
@@ -783,7 +783,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       letterSpacing: 0.0,
                                     ),
                               )),
@@ -830,7 +830,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color: Color(0xFFFF0000),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
@@ -852,7 +852,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(),
                                             color: FlutterFlowTheme.of(context)
                                                 .grayIcon,
                                             letterSpacing: 0.0,
@@ -883,7 +883,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .black600,
@@ -921,8 +922,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .black600,
@@ -964,7 +965,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                               labelStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     letterSpacing: 0.0,
                                   ),
                               unselectedLabelStyle: TextStyle(),
@@ -1026,8 +1027,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -1044,7 +1045,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   )),
@@ -1059,7 +1061,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   )),
@@ -1074,7 +1077,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   )),
@@ -1147,8 +1151,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -1174,8 +1178,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 12.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -1200,8 +1204,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 12.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -1329,8 +1333,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1390,8 +1394,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -1408,7 +1412,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   )),
@@ -1423,7 +1428,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   )),
@@ -1438,7 +1444,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   )),
@@ -1515,8 +1522,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -1542,8 +1549,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 12.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -1568,8 +1575,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 12.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -1703,8 +1710,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:

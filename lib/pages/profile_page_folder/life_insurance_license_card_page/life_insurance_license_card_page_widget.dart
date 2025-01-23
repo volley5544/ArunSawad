@@ -150,7 +150,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Color(0xFF9D50CF),
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
@@ -195,7 +195,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
@@ -243,8 +243,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -269,8 +269,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -304,8 +304,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -330,8 +330,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -369,8 +369,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -390,8 +390,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       16.0,
                                                                   letterSpacing:
@@ -426,8 +426,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -446,8 +446,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -489,8 +489,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:
@@ -503,8 +503,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:
@@ -530,8 +530,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:
@@ -544,8 +544,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:

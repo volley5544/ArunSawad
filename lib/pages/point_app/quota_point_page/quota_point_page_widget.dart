@@ -174,7 +174,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
             'โควต้า สวัสดิ์พอยท์',
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -236,7 +236,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
@@ -254,7 +254,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
@@ -272,7 +272,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
@@ -290,7 +290,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
@@ -346,7 +346,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBtnText,
@@ -365,7 +365,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBtnText,
@@ -384,7 +384,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBtnText,
@@ -407,7 +407,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBtnText,
@@ -445,7 +445,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       letterSpacing: 0.0,
                                     ),
                               ).animateOnPageLoad(
@@ -642,7 +642,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                         height: 50.0,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   color: Colors.black,
                                   letterSpacing: 0.0,
                                 ),
@@ -769,7 +769,8 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                                       context)
                                                   .titleMedium
                                                   .override(
-                                                    fontFamily: 'Lexend Deca',
+                                                    font: GoogleFonts
+                                                        .lexendDeca(),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
@@ -789,7 +790,8 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                                           context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -812,20 +814,20 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                               child: Text(
                                                 '[นางสาวสวัสดี พ้อยท์]',
                                                 textAlign: TextAlign.start,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'Lexend Deca',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .lexendDeca(),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .primaryText,
-                                                      fontSize: 12.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                               ),
                                             ),
                                             Expanded(

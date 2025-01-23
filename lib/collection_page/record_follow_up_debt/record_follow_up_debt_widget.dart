@@ -203,7 +203,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                     Text(
                       'ประวัติการโทร',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
+                            font: GoogleFonts.poppins(),
                             color: Colors.white,
                             fontSize: 18.0,
                             letterSpacing: 0.0,
@@ -272,7 +272,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -296,8 +297,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(),
                                                               fontSize: 12.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -345,8 +346,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -388,8 +389,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 12.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -414,8 +415,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -449,8 +450,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(),
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -495,8 +496,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 12.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -521,8 +522,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -563,8 +564,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:
@@ -608,8 +609,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 12.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -634,8 +635,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -677,8 +678,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   fontSize:
                                                                       12.0,
                                                                   letterSpacing:
@@ -722,8 +723,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                            font: GoogleFonts
+                                                                .poppins(),
                                                             fontSize: 12.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -748,8 +749,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(),
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -821,8 +822,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -897,7 +898,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -950,7 +952,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(),
                                   fontSize: 12.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,

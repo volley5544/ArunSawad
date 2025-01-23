@@ -82,7 +82,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           title: Text(
             'สมัครสมาชิก',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   fontSize: 32.0,
                   letterSpacing: 0.0,
@@ -139,7 +139,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'กรุณากรอก email',
@@ -192,7 +192,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         keyboardType:
@@ -221,7 +221,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'กรุณากรอก password',
@@ -292,7 +292,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -321,7 +321,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    font: GoogleFonts.poppins(),
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'ยืนยัน password',
@@ -394,7 +394,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               letterSpacing: 0.0,
                                             ),
                                         minLines: 1,
@@ -574,7 +574,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(),
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),

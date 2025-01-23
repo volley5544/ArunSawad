@@ -120,7 +120,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
             title: Text(
               'inbox email',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -139,7 +139,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                 Text(
                   'อีเมลล์ทั้งหมด ${_model.subjectEmailOutput?.length?.toString()}ฉบับ',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                       ),
@@ -262,8 +262,8 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .black600,

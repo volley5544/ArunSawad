@@ -221,7 +221,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
             title: Text(
               'รายการลา',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 32.0,
                     letterSpacing: 0.0,
@@ -305,7 +305,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -384,14 +384,14 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                                                     8.0, 12.0, 0.0, 0.0),
                                             child: Text(
                                               'รายการลา',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -461,14 +461,14 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                                                     8.0, 12.0, 0.0, 0.0),
                                             child: Text(
                                               'รายการขออนุมัติลา',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    font: GoogleFonts.poppins(),
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -572,7 +572,8 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -613,14 +614,15 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                                                       8.0, 12.0, 0.0, 0.0),
                                               child: Text(
                                                 'อนุมัติการลา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -687,14 +689,15 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                                                       8.0, 12.0, 0.0, 0.0),
                                               child: Text(
                                                 'รายการที่อนุมัติลา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.poppins(),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ),
                                           ),

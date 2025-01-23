@@ -213,7 +213,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
             title: Text(
               'เข้างาน - ออกงาน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     fontSize: 32.0,
                     letterSpacing: 0.0,
@@ -296,7 +296,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -417,7 +417,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -505,7 +506,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font: GoogleFonts
+                                                            .poppins(),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -594,7 +596,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                                             context)
                                                         .titleMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),

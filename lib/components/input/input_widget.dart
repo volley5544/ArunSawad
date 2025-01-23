@@ -76,7 +76,7 @@ class _InputWidgetState extends State<InputWidget> {
                 labelText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(),
                       letterSpacing: 0.0,
                     ),
                 enabledBorder: UnderlineInputBorder(
@@ -134,7 +134,7 @@ class _InputWidgetState extends State<InputWidget> {
                     : null,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     letterSpacing: 0.0,
                   ),
               keyboardType: TextInputType.number,
@@ -264,7 +264,7 @@ class _InputWidgetState extends State<InputWidget> {
               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
               color: Color(0xFF00CB10),
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(),
                     color: Colors.white,
                     letterSpacing: 0.0,
                   ),

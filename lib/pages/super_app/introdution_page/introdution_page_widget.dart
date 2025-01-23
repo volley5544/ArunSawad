@@ -176,7 +176,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           color: Colors.black,
                                           letterSpacing: 0.0,
                                         ),
@@ -223,7 +223,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),

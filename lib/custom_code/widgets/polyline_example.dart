@@ -24,10 +24,14 @@ class PolylineExample extends StatefulWidget {
     super.key,
     this.width,
     this.height,
+    this.locations,
+    this.times,
   });
 
   final double? width;
   final double? height;
+  final List<LatLng> locations;
+  final List<String> times;
 
   @override
   State<PolylineExample> createState() => _PolylineExampleState();
@@ -204,6 +208,7 @@ class _PolylineExampleState extends State<PolylineExample> {
               _polylineCoordinates.clear();
               _addMarkers();
               _drawPolyline();
+              _updateCameraPosition();
               return Container();
             },
           ),

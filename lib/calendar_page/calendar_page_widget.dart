@@ -54,7 +54,7 @@ class _CalendarPageWidgetState extends State<CalendarPageWidget> {
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -89,27 +89,26 @@ class _CalendarPageWidgetState extends State<CalendarPageWidget> {
                     },
                     titleStyle:
                         FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                     dayOfWeekStyle:
                         FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              font: FlutterFlowTheme.of(context).bodyLarge,
                               letterSpacing: 0.0,
                             ),
                     dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(),
                           letterSpacing: 0.0,
                         ),
                     selectedDateStyle:
                         FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                     inactiveDateStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               letterSpacing: 0.0,
                             ),
                     locale: FFLocalizations.of(context).languageCode,

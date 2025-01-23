@@ -91,7 +91,7 @@ class _LoadingSceneInsuranceWidgetState
                   'กำลังอัพโหลดรูปภาพและบันทึกข้อมูล กระบวนการนี้อาจใช้เวลาสักครู่\nกรุณาอย่าปิดหน้านี้',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(),
                         color: Colors.white,
                         fontSize: 16.0,
                         letterSpacing: 0.0,

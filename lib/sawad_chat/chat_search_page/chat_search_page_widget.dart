@@ -85,7 +85,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
           title: Text(
             'ค้นหาคู่แชท',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -157,14 +157,14 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           letterSpacing: 0.0,
                                         ),
                                     hintText: 'ชื่อ,รหัสพนักงาน...',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(),
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -180,7 +180,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(),
                                         letterSpacing: 0.0,
                                       ),
                                   validator: _model
@@ -851,7 +851,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                                 (_model.getEmployee?.jsonBody ?? ''),
                                                                               )?.elementAtOrNull(employeeListItemIndex)})',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w500,
@@ -880,7 +880,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                                 (_model.getEmployee?.jsonBody ?? ''),
                                                                               )?.elementAtOrNull(employeeListItemIndex)}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
@@ -902,7 +902,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                               maxChars: 50,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,

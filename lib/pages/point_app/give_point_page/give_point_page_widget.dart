@@ -74,7 +74,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
           title: Text(
             'ให้สวัสดิ์พอยท์',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -103,7 +103,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                           child: Text(
                         'ค้นหา  :',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(),
                               fontSize: 15.0,
                               letterSpacing: 0.0,
                             ),
@@ -130,7 +130,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                             hintText: 'ชื่อเล่น/ชื่อ/นามสกุล/รหัสพนักงาน',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(),
                                       letterSpacing: 0.0,
                                     ),
                             enabledBorder: UnderlineInputBorder(
@@ -167,7 +167,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(),
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
