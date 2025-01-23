@@ -191,6 +191,26 @@ class _PolylineExampleState extends State<PolylineExample> {
     );
   }
 
+  void _updateMap() {
+    setState(() {
+      // Clear old markers and polylines
+      _markers.clear();
+      _polylines.clear();
+      _polylineCoordinates.clear();
+
+      // Add new markers
+      _addMarkers();
+
+      // Draw new polyline
+      _drawPolyline();
+
+      // Update the camera position
+      if (FFAppState().polyMapLatLngList.isNotEmpty) {
+        _updateCameraPosition();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
