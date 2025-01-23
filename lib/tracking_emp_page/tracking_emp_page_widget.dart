@@ -794,10 +794,11 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          if (responsiveVisibility(
-                            context: context,
-                            phone: false,
-                          ))
+                          if (false &&
+                              responsiveVisibility(
+                                context: context,
+                                phone: false,
+                              ))
                             Expanded(
                               flex: 2,
                               child: Container(

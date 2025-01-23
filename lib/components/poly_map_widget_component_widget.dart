@@ -45,7 +45,7 @@ class _PolyMapWidgetComponentWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      child: custom_widgets.PolylineExampleCopy(
+      child: custom_widgets.PolylineExample(
         width: double.infinity,
         height: double.infinity,
       ),
