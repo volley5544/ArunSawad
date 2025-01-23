@@ -24,14 +24,10 @@ class PolylineExample extends StatefulWidget {
     super.key,
     this.width,
     this.height,
-    this.locations,
-    this.times,
   });
 
   final double? width;
   final double? height;
-  final List<LatLng> locations;
-  final List<String> times;
 
   @override
   State<PolylineExample> createState() => _PolylineExampleState();
