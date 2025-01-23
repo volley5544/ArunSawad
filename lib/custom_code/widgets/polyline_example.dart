@@ -216,23 +216,13 @@ class _PolylineExampleState extends State<PolylineExample> {
     return Scaffold(
       body: Stack(
         children: [
-          ValueListenableBuilder<List<LatLng>>(
-            valueListenable: latLngNotifier,
-            builder: (context, balance, child) {
-              _markers.clear();
-              _polylines.clear();
-              _polylineCoordinates.clear();
-              _addMarkers();
-              _drawPolyline();
-              _updateCameraPosition();
-              return Container();
-            },
-          ),
           // Google Map
           ggmap.GoogleMap(
             onMapCreated: (controller) {
               _mapController = controller;
-              _updateCameraPosition();
+              if (FFAppState().polyMapLatLngList.isNotEmpty) {
+                _updateCameraPosition();
+              }
             },
             initialCameraPosition: ggmap.CameraPosition(
               target: FFAppState().polyMapLatLngList.isNotEmpty
@@ -247,14 +237,32 @@ class _PolylineExampleState extends State<PolylineExample> {
             markers: _markers,
             polylines: _polylines,
           ),
-          // Navigate to first location button
+          // ValueListenableBuilder for real-time updates
+          ValueListenableBuilder<List<LatLng>>(
+            valueListenable: latLngNotifier,
+            builder: (context, latLngList, child) {
+              // Update markers and polylines when `latLngNotifier` changes
+              _markers.clear();
+              _polylines.clear();
+              _polylineCoordinates.clear();
+
+              _addMarkers();
+              _drawPolyline();
+
+              if (latLngList.isNotEmpty) {
+                _updateCameraPosition();
+              }
+
+              return SizedBox.shrink(); // No visible widget needed
+            },
+          ),
+          // Navigate to the first location button
           Positioned(
             bottom: 100,
             right: 10,
             child: FloatingActionButton(
               onPressed: () {
-                if (FFAppState().polyMapLatLngList != null &&
-                    FFAppState().polyMapLatLngList.isNotEmpty) {
+                if (FFAppState().polyMapLatLngList.isNotEmpty) {
                   _mapController.animateCamera(
                     ggmap.CameraUpdate.newLatLng(
                       ggmap.LatLng(
