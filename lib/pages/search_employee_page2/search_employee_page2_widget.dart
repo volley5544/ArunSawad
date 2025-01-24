@@ -319,8 +319,10 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                '${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                                                        'null'
+                                                ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                            'null') &&
+                                                        ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                            '')
                                                     ? '${FFAppState().EmpProfileLocationSelected.fullprofile}'
                                                     : 'เลือกพนักงาน',
                                                 style:
@@ -778,7 +780,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                             '${FFAppState().EmpProfileLocationSelected.employeeId}',
                                         dateTime: functions
                                             .getDateFormat(_model.datePicked),
-                                        apiUrl: true
+                                        apiUrl: false
                                             ? _model.apiTrackingUrl?.urlLink
                                             : 'https://9f08-115-31-145-24.ngrok-free.app',
                                       );
@@ -862,6 +864,10 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                             ),
                                             ParamType.DataStruct,
                                             isList: true,
+                                          ),
+                                          'index': serializeParam(
+                                            0,
+                                            ParamType.int,
                                           ),
                                         }.withoutNulls,
                                       );

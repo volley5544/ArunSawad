@@ -727,6 +727,7 @@ final parametersBuilderMap =
           'employeePositionName':
               getParameter<String>(data, 'employeePositionName'),
           'selectedDate': getParameter<String>(data, 'selectedDate'),
+          'index': getParameter<int>(data, 'index'),
         },
       ),
   'SearchEmployeePage': ParameterData.none(),

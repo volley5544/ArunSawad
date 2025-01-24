@@ -2393,6 +2393,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   structBuilder:
                       TrackingEmployeeDateModelStruct.fromSerializableMap,
                 ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(

@@ -27,6 +27,7 @@ class TrackingEmpPageWidget extends StatefulWidget {
     this.employeePositionName,
     required this.selectedDate,
     required this.data,
+    this.index,
   });
 
   final String? employeeId;
@@ -35,6 +36,7 @@ class TrackingEmpPageWidget extends StatefulWidget {
   final String? employeePositionName;
   final String? selectedDate;
   final List<TrackingEmployeeDateModelStruct>? data;
+  final int? index;
 
   @override
   State<TrackingEmpPageWidget> createState() => _TrackingEmpPageWidgetState();
@@ -85,9 +87,12 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
       _model.locationDateData =
           widget!.data!.toList().cast<TrackingEmployeeDateModelStruct>();
       safeSetState(() {});
-      _model.dataDateSelected = '${_model.locationDateData.firstOrNull?.date}';
+      _model.dataDateSelected =
+          '${_model.locationDateData.elementAtOrNull(widget!.index!)?.date}';
       safeSetState(() {});
-      _model.locationByDateData = _model.locationDateData.firstOrNull!.data
+      _model.locationByDateData = _model.locationDateData
+          .elementAtOrNull(widget!.index!)!
+          .data
           .toList()
           .cast<TrackingEmployeeLocationModelStruct>();
       safeSetState(() {});
@@ -345,6 +350,29 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                 .isEndDrawerOpen) {
                                           Navigator.pop(context);
                                         }
+
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed(
+                                          'trackingEmpPage',
+                                          queryParameters: {
+                                            'data': serializeParam(
+                                              widget!.data,
+                                              ParamType.DataStruct,
+                                              isList: true,
+                                            ),
+                                            'selectedDate': serializeParam(
+                                              functions.getDateFormat(
+                                                  list30DaysDateTimeListItemItem),
+                                              ParamType.String,
+                                            ),
+                                            'index': serializeParam(
+                                              list30DaysDateTimeListItemIndex,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       },
                                       child: Material(
                                         color: Colors.transparent,
@@ -776,38 +804,41 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                               ),
                                             ),
                                           ),
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (Navigator.of(context)
-                                                .canPop()) {
-                                              context.pop();
-                                            }
-                                            context.pushNamed(
-                                              'trackingEmpPage',
-                                              queryParameters: {
-                                                'data': serializeParam(
-                                                  widget!.data,
-                                                  ParamType.DataStruct,
-                                                  isList: true,
-                                                ),
-                                                'selectedDate': serializeParam(
-                                                  widget!.selectedDate,
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-                                          },
-                                          child: Icon(
-                                            Icons.arrow_forward,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
+                                        if (false)
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              if (Navigator.of(context)
+                                                  .canPop()) {
+                                                context.pop();
+                                              }
+                                              context.pushNamed(
+                                                'trackingEmpPage',
+                                                queryParameters: {
+                                                  'data': serializeParam(
+                                                    widget!.data,
+                                                    ParamType.DataStruct,
+                                                    isList: true,
+                                                  ),
+                                                  'selectedDate':
+                                                      serializeParam(
+                                                    widget!.selectedDate,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            },
+                                            child: Icon(
+                                              Icons.arrow_forward,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
                                           ),
-                                        ),
                                       ],
                                     ),
                                   ),
