@@ -329,7 +329,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -372,7 +372,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),
@@ -462,7 +462,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),

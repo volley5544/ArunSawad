@@ -163,7 +163,7 @@ class _CarSeizedSelectDashboardWidgetState
           title: Text(
             'การเก็บรูปรถยึด',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -312,7 +312,7 @@ class _CarSeizedSelectDashboardWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.notoSansThai(),
+                                        fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF204A77),
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
@@ -436,7 +436,7 @@ class _CarSeizedSelectDashboardWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.notoSansThai(),
+                                      fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF204A77),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
@@ -560,7 +560,7 @@ class _CarSeizedSelectDashboardWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.notoSansThai(),
+                                      fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF204A77),
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,

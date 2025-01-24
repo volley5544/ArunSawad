@@ -153,7 +153,7 @@ class _InspocPageWidgetState extends State<InspocPageWidget> {
             title: Text(
               'Inspoc',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,

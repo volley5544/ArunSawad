@@ -58,7 +58,7 @@ class _ELearningWidgetState extends State<ELearningWidget> {
           title: Text(
             'E-learning',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,

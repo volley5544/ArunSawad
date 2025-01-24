@@ -147,7 +147,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
             title: Text(
               'บันทึกวิดีโอ (ลูกค้า)',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -301,7 +301,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -394,7 +394,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,

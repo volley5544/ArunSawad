@@ -75,7 +75,7 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                 labelText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       letterSpacing: 0.0,
                     ),
                 enabledBorder: UnderlineInputBorder(
@@ -133,7 +133,7 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                     : null,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     letterSpacing: 0.0,
                   ),
               keyboardType: TextInputType.number,
@@ -230,7 +230,7 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
               color: Color(0xFF00CB10),
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     letterSpacing: 0.0,
                   ),

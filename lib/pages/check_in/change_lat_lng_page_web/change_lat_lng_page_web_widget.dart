@@ -226,7 +226,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 24.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -290,8 +290,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -331,8 +330,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                       context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -428,8 +427,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -477,8 +476,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -509,8 +508,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                       context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -606,8 +605,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -631,8 +630,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                           ),
@@ -672,8 +671,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                       context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -682,8 +681,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                       context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -779,8 +778,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -835,8 +834,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -852,8 +851,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               color: Color(
                                                                   0xFF4C525A),
                                                               fontSize: 16.0,
@@ -904,8 +903,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -924,8 +923,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               color: Color(
                                                                   0xFF4C525A),
                                                               fontSize: 16.0,
@@ -1223,7 +1222,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -1269,7 +1268,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1387,7 +1386,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1760,7 +1759,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),

@@ -34,6 +34,8 @@ class SearchEmployeePageModel
 
   // Stores action output result for [Firestore Query - Query a collection] action in SearchEmployeePage widget.
   UrlLinkStorageRecord? apiTrackingUrl;
+  // Stores action output result for [Backend Call - API (APIUsersRegion)] action in SearchEmployeePage widget.
+  ApiCallResponse? apiUserOutput;
   // State field(s) for employeeKeywordInput widget.
   FocusNode? employeeKeywordInputFocusNode;
   TextEditingController? employeeKeywordInputTextController;

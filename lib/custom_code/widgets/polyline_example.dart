@@ -38,8 +38,8 @@ class _PolylineExampleState extends State<PolylineExample> {
   Set<ggmap.Marker> _markers = {};
   Set<ggmap.Polyline> _polylines = {};
   List<ggmap.LatLng> _polylineCoordinates = [];
-  final ValueNotifier<List<LatLng>> latLngNotifier =
-      ValueNotifier<List<LatLng>>([]);
+  //final ValueNotifier<List<LatLng>> latLngNotifier =
+  // ValueNotifier<List<LatLng>>([]);
   final String _googleApiKey =
       "AIzaSyCxgfP7r2FHQ8TZVpKcJqG5x6csoehfDlg"; // Replace with your actual API key
   String? _lastTappedMarkerId;
@@ -237,25 +237,7 @@ class _PolylineExampleState extends State<PolylineExample> {
             markers: _markers,
             polylines: _polylines,
           ),
-          // ValueListenableBuilder for real-time updates
-          ValueListenableBuilder<List<LatLng>>(
-            valueListenable: latLngNotifier,
-            builder: (context, latLngList, child) {
-              // Update markers and polylines when `latLngNotifier` changes
-              _markers.clear();
-              _polylines.clear();
-              _polylineCoordinates.clear();
 
-              _addMarkers();
-              _drawPolyline();
-
-              if (latLngList.isNotEmpty) {
-                _updateCameraPosition();
-              }
-
-              return SizedBox.shrink(); // No visible widget needed
-            },
-          ),
           // Navigate to the first location button
           Positioned(
             bottom: 100,

@@ -117,7 +117,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
-                                                  font: GoogleFonts.outfit(),
+                                                  fontFamily: 'Outfit',
                                                   color: Color(0xFF101213),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
@@ -162,7 +162,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -194,15 +194,16 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                             softWrap: true,
                                             child: Text(
                                               'ชื่อ',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -211,15 +212,16 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                             softWrap: true,
                                             child: Text(
                                               'นามสกุล',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -228,15 +230,16 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                             softWrap: true,
                                             child: Text(
                                               'รหัสพนักงาน',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelLarge
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -254,8 +257,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -268,8 +270,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -282,8 +283,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -326,7 +326,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
-                                    font: GoogleFonts.outfit(),
+                                    fontFamily: 'Outfit',
                                     color: Color(0xFF101213),
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
@@ -344,7 +344,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -360,7 +360,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,

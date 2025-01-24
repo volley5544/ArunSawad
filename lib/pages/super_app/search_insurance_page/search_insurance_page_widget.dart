@@ -148,7 +148,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
           title: Text(
             'การแจ้งเตือน',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Color(0xFF143678),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -192,7 +192,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -207,7 +207,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -246,7 +246,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF868686),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
@@ -293,7 +293,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -308,7 +308,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -347,7 +347,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF868686),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
@@ -394,7 +394,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -409,7 +409,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -448,7 +448,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
@@ -457,7 +457,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -468,7 +468,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                       validator: _model.textControllerValidator
@@ -500,7 +500,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -515,7 +515,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -554,7 +554,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF868686),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
@@ -601,7 +601,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -616,7 +616,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -655,7 +655,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF868686),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
@@ -702,7 +702,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -717,7 +717,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -756,7 +756,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF868686),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
@@ -803,7 +803,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -818,7 +818,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -857,7 +857,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF868686),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
@@ -923,7 +923,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,

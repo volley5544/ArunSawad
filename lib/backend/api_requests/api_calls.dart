@@ -12007,7 +12007,7 @@ class APIUsersRegionCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'APIUsersRegion',
-      apiUrl: 'https://448a-49-231-1-82.ngrok-free.app/api/users/region',
+      apiUrl: 'https://9f08-115-31-145-24.ngrok-free.app/api/users/region',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -12075,6 +12075,24 @@ class APIUsersRegionCall {
       ) as List?)
           ?.withoutNulls
           .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? position(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].position''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<EmpDataLocationStruct>? data(dynamic response) => (getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => EmpDataLocationStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
 }

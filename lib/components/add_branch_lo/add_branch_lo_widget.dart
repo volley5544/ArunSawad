@@ -162,7 +162,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -206,14 +206,14 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -252,7 +252,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -286,14 +286,14 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -332,7 +332,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -366,14 +366,14 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -412,7 +412,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -445,7 +445,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -453,7 +453,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -492,7 +492,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -525,7 +525,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -533,7 +533,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -572,7 +572,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -605,7 +605,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -613,7 +613,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -652,7 +652,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -685,7 +685,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -693,7 +693,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -732,7 +732,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -916,7 +916,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.outfit(),
+                                  fontFamily: 'Outfit',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,

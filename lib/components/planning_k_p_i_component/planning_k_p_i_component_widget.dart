@@ -103,7 +103,7 @@ class _PlanningKPIComponentWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -121,7 +121,7 @@ class _PlanningKPIComponentWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -143,7 +143,7 @@ class _PlanningKPIComponentWidgetState
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
@@ -190,7 +190,7 @@ class _PlanningKPIComponentWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                               validator: _model.textController1Validator
@@ -215,7 +215,7 @@ class _PlanningKPIComponentWidgetState
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
@@ -262,7 +262,7 @@ class _PlanningKPIComponentWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                               validator: _model.textController2Validator

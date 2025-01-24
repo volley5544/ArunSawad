@@ -131,7 +131,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
           title: Text(
             'ประวัติการแจ้ง',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -260,8 +260,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFFFF6500),
                                                             fontSize: 20.0,
@@ -279,8 +279,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -318,8 +317,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               color: Color(
                                                                   0xFFFF6500),
                                                               fontSize: 20.0,
@@ -339,8 +338,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -400,8 +398,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               color: Color(
                                                                   0xFFFF6500),
                                                               fontSize: 20.0,
@@ -426,8 +424,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                           ),

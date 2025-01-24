@@ -95,7 +95,7 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
-                                font: GoogleFonts.poppins(),
+                                fontFamily: 'Poppins',
                                 letterSpacing: 0.0,
                               ),
                         ),
@@ -111,7 +111,7 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                           )}',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.lexendDeca(),
+                                    fontFamily: 'Lexend Deca',
                                     color: Color(0xFF39D2C0),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -130,14 +130,14 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               letterSpacing: 0.0,
                             ),
                       ),
                       Text(
                         'xx วัน',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               color: FlutterFlowTheme.of(context).tertiary400,
                               letterSpacing: 0.0,
                             ),

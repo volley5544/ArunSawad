@@ -131,7 +131,7 @@ class _CustomerCarDeailsStep4WidgetState
           title: Text(
             'อัพโหลดรูปเข้าประมูล',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -181,7 +181,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF404040),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
@@ -202,7 +202,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF404040),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
@@ -224,7 +224,7 @@ class _CustomerCarDeailsStep4WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF404040),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -254,7 +254,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF404040),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
@@ -275,7 +275,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF404040),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
@@ -297,7 +297,7 @@ class _CustomerCarDeailsStep4WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF404040),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -327,7 +327,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
@@ -344,7 +344,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFFFF0000),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -418,7 +418,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -436,7 +436,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -624,8 +624,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -650,8 +649,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -674,8 +672,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -937,7 +934,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -955,7 +952,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -1139,8 +1136,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -1165,8 +1161,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1189,8 +1184,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1452,7 +1446,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -1470,7 +1464,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
@@ -1653,8 +1647,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -1679,8 +1672,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1703,8 +1695,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1966,7 +1957,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -1984,7 +1975,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -2168,8 +2159,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -2194,8 +2184,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -2218,8 +2207,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -2481,7 +2469,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -2499,7 +2487,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -2683,8 +2671,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -2709,8 +2696,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -2733,8 +2719,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -2996,7 +2981,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -3014,7 +2999,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -3198,8 +3183,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -3224,8 +3208,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -3248,8 +3231,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -3515,7 +3497,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -3537,7 +3519,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -3721,8 +3703,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -3747,8 +3728,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -3771,8 +3751,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -4038,7 +4017,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -4060,7 +4039,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -4244,8 +4223,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -4270,8 +4248,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -4294,8 +4271,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -4561,7 +4537,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -4583,7 +4559,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -4767,8 +4743,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -4793,8 +4768,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -4817,8 +4791,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -5084,7 +5057,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -5106,7 +5079,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -5290,8 +5263,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -5316,8 +5288,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -5340,8 +5311,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -5607,7 +5577,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -5629,7 +5599,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFF404040),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
@@ -5813,8 +5783,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
@@ -5839,8 +5808,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -5863,8 +5831,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -6134,8 +6101,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF404040),
                                                         fontSize: 14.0,
@@ -6160,8 +6126,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF404040),
                                                         fontSize: 14.0,
@@ -6361,8 +6326,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                     context)
                                                                 .titleSmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Colors
                                                                       .white,
                                                                   fontSize:
@@ -6396,8 +6361,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -6426,8 +6391,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -6689,8 +6654,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -6710,8 +6675,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -6906,8 +6871,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -6942,8 +6907,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6971,8 +6936,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -7244,8 +7209,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -7265,8 +7230,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -7461,8 +7426,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -7497,8 +7462,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -7526,8 +7491,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -7799,8 +7764,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -7820,8 +7785,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -8016,8 +7981,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -8052,8 +8017,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8081,8 +8046,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8354,8 +8319,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -8375,8 +8340,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 14.0,
@@ -8571,8 +8536,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -8607,8 +8572,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8636,8 +8601,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8918,18 +8883,18 @@ class _CustomerCarDeailsStep4WidgetState
                                             children: [
                                               Text(
                                                 'ราคา',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      color: Color(0xFF404040),
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                               ),
                                               Builder(
                                                 builder: (context) {
@@ -8947,8 +8912,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFFFF0000),
                                                             fontSize: 16.0,
@@ -8964,8 +8929,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFF404040),
                                                             fontSize: 16.0,
@@ -9023,8 +8988,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                     context)
                                                                 .labelMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -9034,8 +8999,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                                     context)
                                                                 .labelMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -9055,8 +9020,8 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             letterSpacing: 0.0,
                                                           ),
                                                       maxLines: null,
@@ -9087,7 +9052,7 @@ class _CustomerCarDeailsStep4WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF404040),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -9099,7 +9064,7 @@ class _CustomerCarDeailsStep4WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF404040),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -9141,22 +9106,19 @@ class _CustomerCarDeailsStep4WidgetState
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText: 'กรอกหมายเหตุ...',
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -9171,14 +9133,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                   focusedErrorBorder:
                                                       InputBorder.none,
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 maxLines: null,
                                                 validator: _model
                                                     .remarkTextFieldTextControllerValidator
@@ -9882,7 +9843,7 @@ class _CustomerCarDeailsStep4WidgetState
                           color: Color(0xFFFF6D00),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

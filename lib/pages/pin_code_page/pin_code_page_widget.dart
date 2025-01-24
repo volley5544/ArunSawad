@@ -839,7 +839,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     child: Text(
                                                                                   'ออกจากระบบ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -914,7 +914,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                       child: Text(
                                                                                     'ล้างข้อมูลแอพ',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.poppins(),
+                                                                                          fontFamily: 'Poppins',
                                                                                           fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -976,7 +976,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 color: Colors.black,
                                                                                 fontSize: 28.0,
                                                                                 letterSpacing: 0.0,
@@ -1087,7 +1087,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     Text(
                                                                                       'โปรดใส่พินเพื่อเข้าใช้งาน',
                                                                                       style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                            font: GoogleFonts.poppins(),
+                                                                                            fontFamily: 'Poppins',
                                                                                             color: Colors.black,
                                                                                             letterSpacing: 0.0,
                                                                                           ),
@@ -1172,7 +1172,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           appContext: context,
                                                                                                           length: 6,
                                                                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                font: GoogleFonts.poppins(),
+                                                                                                                fontFamily: 'Poppins',
                                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                                 letterSpacing: 0.0,
                                                                                                               ),
@@ -2443,7 +2443,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     child: Text(
                                                                                                       'กดเพื่อเข้าใช้งาน Face id หรือ สแกนนิ้ว',
                                                                                                       style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                                            font: GoogleFonts.poppins(),
+                                                                                                            fontFamily: 'Poppins',
                                                                                                             color: Colors.black,
                                                                                                             fontSize: 16.0,
                                                                                                             letterSpacing: 0.0,

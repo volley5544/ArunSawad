@@ -85,7 +85,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
             title: Text(
               'ยกเลิกการลา',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
@@ -178,8 +178,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 fontSize: 20.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -225,8 +225,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -298,8 +298,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         15.0,
                                                                     letterSpacing:
@@ -502,8 +502,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -567,8 +567,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:

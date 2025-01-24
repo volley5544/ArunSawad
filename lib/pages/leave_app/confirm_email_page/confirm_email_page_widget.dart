@@ -75,7 +75,7 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
           title: Text(
             'ยืนยัน Email',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -167,8 +167,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 20.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -211,8 +211,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                           context)
                                                                       .bodySmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -284,8 +284,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -353,8 +353,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
@@ -419,8 +419,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:

@@ -51,7 +51,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
         title: Text(
           'Classes',
           style: FlutterFlowTheme.of(context).displaySmall.override(
-                font: GoogleFonts.poppins(),
+                fontFamily: 'Poppins',
                 letterSpacing: 0.0,
               ),
         ),
@@ -96,7 +96,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                           hintText: 'Search for classes here...',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                           enabledBorder: OutlineInputBorder(
@@ -135,7 +135,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               letterSpacing: 0.0,
                             ),
                         maxLines: null,
@@ -155,7 +155,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                   Text(
                     'Workout Categories',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -213,7 +213,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -267,7 +267,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -321,7 +321,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.lexendDeca(),
+                                        fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -378,7 +378,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.lexendDeca(),
+                                        fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -435,7 +435,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.lexendDeca(),
+                                        fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -460,7 +460,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                   Text(
                     'Upcoming Classes',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -535,7 +535,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -544,7 +544,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.lexendDeca(),
+                                              fontFamily: 'Lexend Deca',
                                               color: Color(0xFF39D2C0),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
@@ -658,7 +658,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -667,7 +667,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.lexendDeca(),
+                                              fontFamily: 'Lexend Deca',
                                               color: Color(0xFF39D2C0),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
@@ -781,7 +781,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -790,7 +790,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.lexendDeca(),
+                                              fontFamily: 'Lexend Deca',
                                               color: Color(0xFF39D2C0),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,

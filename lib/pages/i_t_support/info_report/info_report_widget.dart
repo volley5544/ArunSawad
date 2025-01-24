@@ -175,7 +175,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
           title: Text(
             'ข้อมูลการแจ้ง',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -267,7 +267,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -316,7 +316,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      font: GoogleFonts.notoSerif(),
+                                      fontFamily: 'Noto Serif',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBtnText,
                                       letterSpacing: 0.0,
@@ -356,7 +356,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -383,7 +383,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -431,7 +431,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                       validator: _model
@@ -479,7 +479,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -494,7 +494,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -545,7 +545,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                           '0',
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               letterSpacing: 0.0,
                             ),
                       )),
@@ -590,7 +590,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),

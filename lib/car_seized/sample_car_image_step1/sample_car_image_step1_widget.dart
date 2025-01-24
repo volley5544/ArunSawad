@@ -83,7 +83,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
           title: AutoSizeText(
             'ตัวอย่างภาพถ่าย${widget!.imageName}',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,

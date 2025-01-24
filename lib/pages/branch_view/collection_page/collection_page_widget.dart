@@ -330,7 +330,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
           title: Text(
             'Branch View',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -409,7 +409,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -432,7 +432,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 36.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -477,7 +477,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -525,7 +525,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        font: GoogleFonts.notoSerif(),
+                                        fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
@@ -700,7 +700,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -748,7 +748,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      font: GoogleFonts.notoSerif(),
+                                      fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
@@ -786,7 +786,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -813,7 +813,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                   ),
@@ -866,7 +866,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -907,7 +907,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -928,8 +928,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmall
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
+                                                      fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: UnderlineInputBorder(
@@ -981,7 +980,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 0.0,
                                               ),
                                           textAlign: TextAlign.start,
@@ -1001,7 +1000,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -1132,7 +1131,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
@@ -1175,7 +1174,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1196,8 +1195,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmall
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
+                                                      fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: UnderlineInputBorder(
@@ -1249,7 +1247,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 0.0,
                                               ),
                                           validator: _model
@@ -1274,7 +1272,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                     letterSpacing: 0.0,
                                                   ),
@@ -1325,7 +1323,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1352,7 +1350,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1404,7 +1402,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1446,7 +1444,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1512,16 +1510,14 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
+                                                      fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
+                                                      fontFamily: 'Poppins',
                                                       color: Color(0xFF57636C),
                                                       letterSpacing: 0.0,
                                                     ),
@@ -1580,7 +1576,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1601,8 +1597,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmall
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
+                                                      fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: UnderlineInputBorder(
@@ -1654,7 +1649,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 0.0,
                                               ),
                                           textAlign: TextAlign.start,
@@ -1700,7 +1695,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
@@ -1748,7 +1743,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      font: GoogleFonts.notoSerif(),
+                                      fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
@@ -1786,7 +1781,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1809,7 +1804,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1861,7 +1856,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -1902,7 +1897,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1923,7 +1918,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -1975,7 +1970,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2017,7 +2012,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -2039,7 +2034,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -2091,7 +2086,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2133,7 +2128,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -2155,7 +2150,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -2207,7 +2202,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2249,7 +2244,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -2271,7 +2266,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -2323,7 +2318,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -2430,7 +2425,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -2478,7 +2473,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        font: GoogleFonts.notoSerif(),
+                                        fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
@@ -2706,7 +2701,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),
@@ -3226,7 +3221,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

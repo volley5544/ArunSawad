@@ -123,7 +123,7 @@ class _EmployeeInputForCEOComponentWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -138,7 +138,7 @@ class _EmployeeInputForCEOComponentWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -177,7 +177,7 @@ class _EmployeeInputForCEOComponentWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -198,14 +198,14 @@ class _EmployeeInputForCEOComponentWidgetState
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรอกรหัสพนักงาน...',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -252,7 +252,7 @@ class _EmployeeInputForCEOComponentWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         letterSpacing: 0.0,
                                       ),
                                   textAlign: TextAlign.start,
@@ -286,7 +286,7 @@ class _EmployeeInputForCEOComponentWidgetState
                         color: Color(0xFF24D200),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  font: GoogleFonts.outfit(),
+                                  fontFamily: 'Outfit',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,

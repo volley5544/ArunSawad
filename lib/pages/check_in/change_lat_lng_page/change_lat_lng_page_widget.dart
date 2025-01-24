@@ -251,7 +251,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
           title: Text(
             'Change Lat,Lng',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -311,7 +311,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -338,7 +338,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -390,7 +390,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -423,7 +423,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -449,7 +449,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -501,7 +501,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -534,7 +534,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -558,7 +558,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'กรอกลองจิจูด',
@@ -566,7 +566,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: UnderlineInputBorder(
@@ -618,7 +618,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
@@ -1087,7 +1087,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),
@@ -1123,7 +1123,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1139,7 +1139,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Color(0xFF4C525A),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
@@ -1171,7 +1171,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                       Text(
                         'พิกัดเก่า',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                             ),
@@ -1247,7 +1247,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                       Text(
                         'พิกัดใหม่',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                             ),
@@ -1595,7 +1595,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),

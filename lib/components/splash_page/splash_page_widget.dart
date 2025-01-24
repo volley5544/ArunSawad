@@ -198,6 +198,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                                               FontWeight.w500,
                                                           fontStyle:
                                                               FontStyle.italic,
+                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -276,7 +277,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -319,7 +320,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),
@@ -404,7 +405,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),

@@ -282,7 +282,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
             title: Text(
               'KPI พนักงาน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -302,7 +302,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                     labelColor: FlutterFlowTheme.of(context).primary,
                     labelStyle:
                         FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               letterSpacing: 0.0,
                             ),
                     unselectedLabelStyle: TextStyle(),
@@ -346,7 +346,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -360,7 +360,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                           letterSpacing: 0.0,
@@ -397,15 +397,14 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                               flex: 3,
                                               child: Text(
                                                 'ค้นหาสาขา:',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             Expanded(
@@ -418,27 +417,23 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText:
                                                       'กรอกรหัสสาขา/ชื่อสาขา',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -501,15 +496,14 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                               context)
                                                           .primaryBtnText,
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
                                                     .branchInputTextControllerValidator
@@ -788,8 +782,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -906,16 +899,14 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                   },
                                                   width: 180.0,
                                                   height: 50.0,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText: 'สาขา...',
                                                   fillColor: Colors.white,
                                                   elevation: 2.0,
@@ -979,8 +970,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
@@ -999,8 +990,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFFE3E7ED),
                                                                 letterSpacing:
@@ -1059,8 +1050,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
@@ -1079,8 +1070,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFFE3E7ED),
                                                                 letterSpacing:
@@ -1152,7 +1143,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1186,7 +1177,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1220,7 +1211,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1294,8 +1285,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1333,8 +1324,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1439,8 +1430,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1463,8 +1454,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       22.0,
                                                                   letterSpacing:
@@ -1494,8 +1485,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1518,8 +1509,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       22.0,
                                                                   letterSpacing:
@@ -1549,8 +1540,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1587,8 +1578,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -1685,8 +1676,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1731,8 +1722,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1930,7 +1921,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               Text(
                                                                             'ทำได้',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -1962,7 +1953,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
@@ -1986,7 +1977,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               Text(
                                                                             'เป้า',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -2018,7 +2009,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
@@ -2042,7 +2033,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               Text(
                                                                             'สถานะ',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -2090,7 +2081,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                 letterSpacing: 0.0,
                                                                               ),
@@ -2137,7 +2128,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -2171,7 +2162,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -2205,7 +2196,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -2281,8 +2272,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2320,8 +2311,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2426,8 +2417,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -2450,8 +2441,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       22.0,
                                                                   letterSpacing:
@@ -2481,8 +2472,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -2505,8 +2496,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       22.0,
                                                                   letterSpacing:
@@ -2536,8 +2527,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -2574,8 +2565,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -2673,8 +2664,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2719,8 +2710,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2918,7 +2909,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               Text(
                                                                             'ทำได้',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -2950,7 +2941,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
@@ -2974,7 +2965,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               Text(
                                                                             'เป้า',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -3006,7 +2997,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
@@ -3030,7 +3021,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               Text(
                                                                             'สถานะ',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
@@ -3078,7 +3069,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                 letterSpacing: 0.0,
                                                                               ),
@@ -3152,7 +3143,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                           fontSize: 20.0,
@@ -3182,7 +3173,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -3196,7 +3187,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                           letterSpacing: 0.0,
@@ -3233,15 +3224,14 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                               flex: 3,
                                               child: Text(
                                                 'ค้นหาพนักงาน:',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             Expanded(
@@ -3254,26 +3244,22 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText:
                                                       'ชื่อเล่น/สังกัด/รหัสพนักงาน',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -3331,14 +3317,13 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
                                                     .employeeKeywordInputTextControllerValidator
@@ -3599,8 +3584,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -3725,16 +3709,14 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                   },
                                                   width: 180.0,
                                                   height: 50.0,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText: 'พนักงาน...',
                                                   fillColor: Colors.white,
                                                   elevation: 2.0,
@@ -3798,8 +3780,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
@@ -3818,8 +3800,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFFE3E7ED),
                                                                 letterSpacing:
@@ -3878,8 +3860,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
@@ -3898,8 +3880,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFFE3E7ED),
                                                                 letterSpacing:
@@ -3971,7 +3953,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4005,7 +3987,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4041,7 +4023,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4077,7 +4059,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4139,8 +4121,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -4221,8 +4202,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 16.0,
@@ -4262,8 +4242,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -4283,8 +4263,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 22.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -4313,8 +4293,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -4334,8 +4314,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 22.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -4364,8 +4344,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -4396,8 +4376,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -4476,8 +4456,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -4631,7 +4610,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -4651,8 +4630,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               context)
                                                                           .displaySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -4679,7 +4658,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -4699,8 +4678,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               context)
                                                                           .displaySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -4727,7 +4706,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -4748,8 +4727,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               context)
                                                                           .displaySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             letterSpacing:
@@ -4796,7 +4775,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4830,7 +4809,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4866,7 +4845,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4902,7 +4881,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4964,8 +4943,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -5046,8 +5024,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFFFF0000),
                                                         fontSize: 16.0,
@@ -5087,8 +5064,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5105,8 +5082,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 22.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -5135,8 +5112,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5153,8 +5130,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(),
+                                                              fontFamily:
+                                                                  'Poppins',
                                                               fontSize: 22.0,
                                                               letterSpacing:
                                                                   0.0,
@@ -5183,8 +5160,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5215,8 +5192,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -5295,8 +5272,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -5450,7 +5426,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -5470,8 +5446,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               context)
                                                                           .displaySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -5498,7 +5474,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -5518,8 +5494,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               context)
                                                                           .displaySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -5546,7 +5522,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -5567,8 +5543,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                               context)
                                                                           .displaySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                             letterSpacing:
@@ -5649,7 +5625,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                           fontSize: 20.0,
@@ -5693,7 +5669,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -5720,7 +5696,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Colors.black,
                                             letterSpacing: 0.0,
                                           ),
@@ -5775,7 +5751,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -5822,7 +5798,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                             FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
-                                                  font: GoogleFonts.roboto(),
+                                                  fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
@@ -5832,13 +5808,13 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                             FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   letterSpacing: 0.0,
                                                 ),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         hintText: 'เลือกเขต/ภาค...',
@@ -5921,13 +5897,13 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                   .branchInputAreaTextController!,
                                               options: options.toList(),
                                               onSelected: onSelected,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textHighlightStyle: TextStyle(),
                                               elevation: 4.0,
                                               optionBackgroundColor:
@@ -5965,25 +5941,23 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintText:
                                                     'กรอกรหัสสาขา/ชื่อสาขา',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -6045,14 +6019,14 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textAlign: TextAlign.start,
                                               validator: _model
                                                   .branchInputAreaTextControllerValidator

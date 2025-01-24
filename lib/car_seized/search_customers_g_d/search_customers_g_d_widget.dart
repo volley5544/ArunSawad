@@ -147,7 +147,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
           title: AutoSizeText(
             'ค้นหาลูกค้า',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -228,7 +228,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   letterSpacing: 0.0,
                                 ),
                             hintText: 'ค้นหาโดย....',
@@ -312,23 +312,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'ระบุคำค้นหา',
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
                                                 errorBorder: InputBorder.none,
@@ -351,13 +349,13 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                       )
                                                     : null,
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               validator: _model
                                                   .textControllerValidator
                                                   .asValidator(context),
@@ -1441,7 +1439,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
@@ -1547,8 +1545,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1574,8 +1572,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1604,8 +1602,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1645,8 +1643,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1672,8 +1670,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1699,8 +1697,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1740,8 +1738,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1767,8 +1765,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1797,8 +1795,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1838,8 +1836,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1865,8 +1863,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1895,8 +1893,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1936,8 +1934,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1963,8 +1961,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1993,8 +1991,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2041,8 +2039,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2068,8 +2066,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2095,8 +2093,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2148,8 +2146,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2175,8 +2173,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2202,8 +2200,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2250,8 +2248,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2277,8 +2275,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2307,8 +2305,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -3281,8 +3279,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.notoSansThai(),
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
                                                                           color:
                                                                               Color(0xFF204A77),
                                                                           fontSize:

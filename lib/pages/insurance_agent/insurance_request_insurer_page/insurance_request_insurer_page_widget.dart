@@ -156,7 +156,7 @@ class _InsuranceRequestInsurerPageWidgetState
                 'ทำเรื่องขอประกันนอกเรท  (2/3)\nข้อมูลประเภทประกัน',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
@@ -195,7 +195,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -209,7 +209,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
@@ -238,7 +238,7 @@ class _InsuranceRequestInsurerPageWidgetState
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
@@ -279,7 +279,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),
@@ -294,7 +294,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .lineColor,
                                         letterSpacing: 0.0,
@@ -333,7 +333,7 @@ class _InsuranceRequestInsurerPageWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -386,7 +386,7 @@ class _InsuranceRequestInsurerPageWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -422,7 +422,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -481,7 +481,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         lineHeight: 1.0,
@@ -512,7 +512,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -553,7 +553,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: UnderlineInputBorder(
@@ -616,7 +616,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           lineHeight: 1.0,
@@ -646,7 +646,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -660,7 +660,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
@@ -711,7 +711,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                                 checkboxBorderRadius:
@@ -995,7 +995,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,

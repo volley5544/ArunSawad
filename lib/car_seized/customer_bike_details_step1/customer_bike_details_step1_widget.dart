@@ -71,7 +71,7 @@ class _CustomerBikeDetailsStep1WidgetState
           title: Text(
             'การเก็บรูปยึดรถ',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -110,7 +110,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -131,7 +131,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -149,7 +149,7 @@ class _CustomerBikeDetailsStep1WidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Color(0xFF404040),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
@@ -178,7 +178,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
@@ -196,7 +196,7 @@ class _CustomerBikeDetailsStep1WidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Color(0xFFE21C3D),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
@@ -232,7 +232,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -267,7 +267,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -290,7 +290,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -312,7 +312,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -331,7 +331,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -351,7 +351,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -459,7 +459,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -494,7 +494,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -517,7 +517,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -539,7 +539,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -558,7 +558,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -578,7 +578,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -686,7 +686,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -721,7 +721,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -744,7 +744,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -766,7 +766,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -785,7 +785,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -805,7 +805,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -913,7 +913,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -948,7 +948,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -971,7 +971,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -993,7 +993,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1012,7 +1012,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -1032,7 +1032,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1140,7 +1140,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -1175,7 +1175,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1198,7 +1198,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1220,7 +1220,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1239,7 +1239,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -1259,7 +1259,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1367,7 +1367,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -1402,7 +1402,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1425,7 +1425,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1447,7 +1447,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1466,7 +1466,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -1486,7 +1486,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1594,7 +1594,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -1629,7 +1629,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1652,7 +1652,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1674,7 +1674,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1693,7 +1693,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -1713,7 +1713,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1821,7 +1821,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -1856,7 +1856,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1879,7 +1879,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -1901,7 +1901,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -1920,7 +1920,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -1940,7 +1940,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2048,7 +2048,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -2083,7 +2083,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2106,7 +2106,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2128,7 +2128,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2147,7 +2147,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -2167,7 +2167,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2275,7 +2275,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -2313,7 +2313,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2336,7 +2336,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2358,7 +2358,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2377,7 +2377,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -2397,7 +2397,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2505,7 +2505,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -2543,7 +2543,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2566,7 +2566,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2588,7 +2588,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2607,7 +2607,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -2627,7 +2627,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2735,7 +2735,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
@@ -2773,7 +2773,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2796,7 +2796,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF404040),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
@@ -2818,7 +2818,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2837,7 +2837,7 @@ class _CustomerBikeDetailsStep1WidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Color(0xFF404040),
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
@@ -2857,7 +2857,7 @@ class _CustomerBikeDetailsStep1WidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF404040),
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -2950,7 +2950,7 @@ class _CustomerBikeDetailsStep1WidgetState
                       Text(
                         'หมายเหตุ',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               color: Color(0xFF404040),
                               fontSize: 16.0,
                               letterSpacing: 0.0,

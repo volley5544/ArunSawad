@@ -162,7 +162,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -192,7 +192,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
@@ -238,7 +238,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
@@ -277,7 +277,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
@@ -592,7 +592,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,

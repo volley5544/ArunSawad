@@ -730,6 +730,8 @@ final parametersBuilderMap =
         },
       ),
   'SearchEmployeePage': ParameterData.none(),
+  'SearchEmployeePage2': ParameterData.none(),
+  'searchableemp': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

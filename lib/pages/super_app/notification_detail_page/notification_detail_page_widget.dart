@@ -130,7 +130,7 @@ class _NotificationDetailPageWidgetState
                 title: Text(
                   'การแจ้งเตือน',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        font: GoogleFonts.poppins(),
+                        fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
@@ -343,8 +343,8 @@ class _NotificationDetailPageWidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color: Color(
                                                                 0xFFFF6500),
                                                             fontSize: 20.0,
@@ -364,8 +364,7 @@ class _NotificationDetailPageWidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -407,8 +406,8 @@ class _NotificationDetailPageWidgetState
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .grayIcon,
@@ -443,8 +442,8 @@ class _NotificationDetailPageWidgetState
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .grayIcon,

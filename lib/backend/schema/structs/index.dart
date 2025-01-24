@@ -12,6 +12,7 @@ export 'tracking_employee_location_model_struct.dart';
 export 'url_link_storage_struct.dart';
 export 'vehicle_type_list_struct.dart';
 export 'data_struct.dart';
+export 'emp_data_location_struct.dart';
 export 'fcm_message_struct.dart';
 export 'lead_detail_struct.dart';
 export 'notification_struct.dart';

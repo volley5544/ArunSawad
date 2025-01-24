@@ -74,110 +74,6 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
 
       await Future.delayed(const Duration(milliseconds: 3000));
       Navigator.pop(context);
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.webUrl!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.branchCodeSearch!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.levelSearch!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.regionAccessToken!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.regionEmployeeId!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(functions.containsValueInDataTypeList(
-                      functions
-                          .getDataTypeFromJson(
-                              FFAppState().roleMenuJson, 'adminRoleGroup')
-                          ?.toList(),
-                      FFAppState().employeeID,
-                      'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินTester')!
-                  ? '${widget!.webUrl}?employeeId=${widget!.regionEmployeeId}&branchCodeSearch=${widget!.branchCodeSearch}&token=${widget!.regionAccessToken}&level=ภาค&mode=ภาค&projectName=Arunsawad'
-                  : '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -222,7 +118,7 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     child: Text(
                       'กลับหน้า Home',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.poppins(),
+                            fontFamily: 'Poppins',
                             color: Color(0xFFFF6500),
                             fontSize: 16.0,
                             letterSpacing: 0.0,

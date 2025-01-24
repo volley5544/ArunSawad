@@ -131,7 +131,7 @@ class _SearchProfileLevelComponentWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -146,7 +146,7 @@ class _SearchProfileLevelComponentWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -197,7 +197,7 @@ class _SearchProfileLevelComponentWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -256,7 +256,7 @@ class _SearchProfileLevelComponentWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: Colors.black,
                                           letterSpacing: 0.0,
                                         ),
@@ -316,7 +316,7 @@ class _SearchProfileLevelComponentWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -377,7 +377,7 @@ class _SearchProfileLevelComponentWidgetState
                                         FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                              font: GoogleFonts.roboto(),
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
@@ -387,13 +387,13 @@ class _SearchProfileLevelComponentWidgetState
                                         FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                     hintText: 'เลือกเขต/ภาค...',

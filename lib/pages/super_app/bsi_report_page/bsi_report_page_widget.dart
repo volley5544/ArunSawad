@@ -305,7 +305,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                 title: Text(
                   'รายงาน BSI',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        font: GoogleFonts.poppins(),
+                        fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
@@ -419,14 +419,14 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                             flex: 3,
                                             child: Text(
                                               'ค้นหาสาขา:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           Expanded(
@@ -439,25 +439,23 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintText:
                                                     'กรอกรหัสสาขา/ชื่อสาขา',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -519,14 +517,14 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textAlign: TextAlign.start,
                                               validator: _model
                                                   .branchInputTextControllerValidator
@@ -772,14 +770,14 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                             flex: 3,
                                             child: Text(
                                               'เลือกสาขา:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           Expanded(
@@ -853,21 +851,21 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               width: 180.0,
                                               height: 50.0,
                                               searchHintTextStyle: TextStyle(),
-                                              searchTextStyle: FlutterFlowTheme
-                                                      .of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    color: Colors.black,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              searchTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               hintText: 'สาขา...',
                                               searchHintText:
                                                   'กรอกสาขาที่จะค้นหา...',
@@ -931,14 +929,14 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                             flex: 3,
                                             child: Text(
                                               'เลือกรายงาน:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           Expanded(
@@ -973,21 +971,21 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               width: 180.0,
                                               height: 50.0,
                                               searchHintTextStyle: TextStyle(),
-                                              searchTextStyle: FlutterFlowTheme
-                                                      .of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    color: Colors.black,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              searchTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               hintText: 'รายงาน...',
                                               searchHintText:
                                                   'กรอกสาขาที่จะค้นหา...',
@@ -1103,14 +1101,14 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .info,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,

@@ -80,7 +80,7 @@ class _CheckInStatusPageCopyWidgetState
           title: Text(
             'เวลาเข้างาน - ออกงาน',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -121,7 +121,7 @@ class _CheckInStatusPageCopyWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -136,7 +136,7 @@ class _CheckInStatusPageCopyWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                             )),
@@ -150,7 +150,7 @@ class _CheckInStatusPageCopyWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                             )),
@@ -164,7 +164,7 @@ class _CheckInStatusPageCopyWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                             )),
@@ -224,7 +224,7 @@ class _CheckInStatusPageCopyWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -247,7 +247,7 @@ class _CheckInStatusPageCopyWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),

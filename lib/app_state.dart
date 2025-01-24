@@ -9916,6 +9916,37 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInPolyMapTimeList(int index, String value) {
     polyMapTimeList.insert(index, value);
   }
+
+  List<EmpDataLocationStruct> _EmpProfileLocationData = [];
+  List<EmpDataLocationStruct> get EmpProfileLocationData =>
+      _EmpProfileLocationData;
+  set EmpProfileLocationData(List<EmpDataLocationStruct> value) {
+    _EmpProfileLocationData = value;
+  }
+
+  void addToEmpProfileLocationData(EmpDataLocationStruct value) {
+    EmpProfileLocationData.add(value);
+  }
+
+  void removeFromEmpProfileLocationData(EmpDataLocationStruct value) {
+    EmpProfileLocationData.remove(value);
+  }
+
+  void removeAtIndexFromEmpProfileLocationData(int index) {
+    EmpProfileLocationData.removeAt(index);
+  }
+
+  void updateEmpProfileLocationDataAtIndex(
+    int index,
+    EmpDataLocationStruct Function(EmpDataLocationStruct) updateFn,
+  ) {
+    EmpProfileLocationData[index] = updateFn(_EmpProfileLocationData[index]);
+  }
+
+  void insertAtIndexInEmpProfileLocationData(
+      int index, EmpDataLocationStruct value) {
+    EmpProfileLocationData.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

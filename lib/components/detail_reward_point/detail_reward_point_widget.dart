@@ -61,7 +61,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   child: Text(
                     'สถานะทั้งหมด',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -71,7 +71,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   child: Text(
                     'แลกโทรศัพท์มือถือ 1 เครื่อง *มูลค่าไม่เกิน 30,000 บาท',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                         ),
@@ -82,7 +82,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   child: Text(
                     '500 point',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                         ),
@@ -117,7 +117,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -151,7 +151,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),

@@ -418,7 +418,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                 title: Text(
                   'รายชื่อลีด',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        font: GoogleFonts.poppins(),
+                        fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
@@ -675,8 +675,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -700,8 +700,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -791,8 +791,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -816,8 +816,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -912,8 +912,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -937,8 +937,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1028,8 +1028,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -1053,8 +1053,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1164,8 +1164,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .outfit(),
+                                                              fontFamily:
+                                                                  'Outfit',
                                                               color: Color(
                                                                   0xFF101213),
                                                               fontSize: 20.0,
@@ -1193,8 +1193,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 .of(context)
                                                             .bodySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .outfit(),
+                                                              fontFamily:
+                                                                  'Outfit',
                                                               color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
@@ -1259,8 +1259,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 .of(context)
                                                             .displaySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .outfit(),
+                                                              fontFamily:
+                                                                  'Outfit',
                                                               color: Color(
                                                                   0xFF101213),
                                                               fontSize: 20.0,
@@ -1288,8 +1288,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 .of(context)
                                                             .bodySmall
                                                             .override(
-                                                              font: GoogleFonts
-                                                                  .outfit(),
+                                                              fontFamily:
+                                                                  'Outfit',
                                                               color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
@@ -1459,8 +1459,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               context)
                                                                           .bodySmall
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.outfit(),
+                                                                            fontFamily:
+                                                                                'Outfit',
                                                                             color:
                                                                                 Colors.white,
                                                                             fontSize:
@@ -1513,7 +1513,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               Text(
                                                                             '${functions.showLeadTimeRemain(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)))}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.outfit(),
+                                                                                  fontFamily: 'Outfit',
                                                                                   color: valueOrDefault<Color>(
                                                                                     functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)), Colors.black, Color(0xFFFF0000)),
                                                                                     Colors.black,
@@ -1551,8 +1551,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
@@ -1579,8 +1579,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .outfit(),
+                                                                      fontFamily:
+                                                                          'Outfit',
                                                                       color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
@@ -1607,8 +1607,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .outfit(),
+                                                                      fontFamily:
+                                                                          'Outfit',
                                                                       color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
@@ -1635,8 +1635,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .outfit(),
+                                                                      fontFamily:
+                                                                          'Outfit',
                                                                       color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
@@ -1865,8 +1865,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListIndex) ==
                                                                             '0'
                                                                         ? Color(
@@ -1918,8 +1918,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .outfit(),
+                                                                fontFamily:
+                                                                    'Outfit',
                                                                 color: Color(
                                                                     0xFFFF0000),
                                                                 fontSize: 14.0,
@@ -1960,8 +1960,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .outfit(),
+                                                                  fontFamily:
+                                                                      'Outfit',
                                                                   color: Color(
                                                                       0xFF101213),
                                                                   fontSize:
@@ -1998,8 +1998,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .outfit(),
+                                                                  fontFamily:
+                                                                      'Outfit',
                                                                   color: Color(
                                                                       0xFF101213),
                                                                   fontSize:
@@ -2232,8 +2232,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     context)
                                                                 .titleSmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: Colors
                                                                       .white,
                                                                   letterSpacing:
@@ -2517,8 +2517,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       context)
                                                                   .titleSmall
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Colors
                                                                         .white,
                                                                     letterSpacing:

@@ -87,7 +87,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                           'กรุณากรอก Email ที่ต้องการรับข้อมูล',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -116,7 +116,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
@@ -156,7 +156,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -194,7 +194,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
@@ -401,7 +401,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,

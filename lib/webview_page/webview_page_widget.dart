@@ -77,7 +77,7 @@ class _WebviewPageWidgetState extends State<WebviewPageWidget> {
               'title_Name',
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 32.0,
                   letterSpacing: 0.0,

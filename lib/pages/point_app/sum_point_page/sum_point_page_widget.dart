@@ -186,7 +186,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
           title: Text(
             'สะสม สวัสดิ์พอยท์',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -248,7 +248,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
@@ -267,7 +267,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBtnText,
@@ -323,7 +323,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBtnText,
@@ -346,7 +346,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBtnText,
@@ -384,7 +384,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -581,7 +581,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                         height: 50.0,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.black,
                                   letterSpacing: 0.0,
                                 ),
@@ -709,8 +709,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                                       context)
                                                   .titleMedium
                                                   .override(
-                                                    font: GoogleFonts
-                                                        .lexendDeca(),
+                                                    fontFamily: 'Lexend Deca',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
@@ -730,8 +729,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                                           context)
                                                       .titleSmall
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -754,20 +752,20 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                               child: Text(
                                                 '[นายผู้บริหาร สวัสดิ์]',
                                                 textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .lexendDeca(),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primaryText,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                               ),
                                             ),
                                             Expanded(

@@ -81,7 +81,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
               Text(
                 widget!.textBody!,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       fontSize: 12.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -90,7 +90,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
               Text(
                 '*',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).error,
                       fontSize: 16.0,
                       letterSpacing: 0.0,
@@ -117,13 +117,13 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                 obscureText: false,
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        font: GoogleFonts.poppins(),
+                        fontFamily: 'Poppins',
                         color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
                       ),
                   hintText: 'จำนวนเงินที่นัดจ่าย',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        font: GoogleFonts.poppins(),
+                        fontFamily: 'Poppins',
                         color: Color(0xFF9D9DA2),
                         letterSpacing: 0.0,
                       ),
@@ -159,7 +159,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                       EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 5.0, 5.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).secondaryText,
                       fontSize: 12.0,
                       letterSpacing: 0.0,

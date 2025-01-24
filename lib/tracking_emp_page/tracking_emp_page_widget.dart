@@ -443,8 +443,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                         context)
                                                     .bodyMedium
                                                     .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
+                                                      fontFamily: 'Poppins',
                                                       color:
                                                           valueOrDefault<Color>(
                                                         functions.containStringInListString(
@@ -503,7 +502,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
               title: Text(
                 'ติดตามLocationพนักงาน',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 20.0,
                       letterSpacing: 0.0,
@@ -555,7 +554,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -568,7 +567,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -608,7 +607,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -623,7 +622,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -664,7 +663,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -679,7 +678,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -720,7 +719,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -739,7 +738,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 13.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -1026,8 +1025,8 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(

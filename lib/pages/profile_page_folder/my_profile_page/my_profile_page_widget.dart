@@ -744,7 +744,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.montserrat(),
+                                          fontFamily: 'Montserrat',
                                           color: Color(0xFF0039E3),
                                           fontSize: 24.0,
                                           letterSpacing: 0.0,
@@ -764,7 +764,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF0039E3),
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
@@ -806,7 +806,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF0039E3),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
@@ -852,7 +852,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -1278,7 +1278,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.montserrat(),
+                                          fontFamily: 'Montserrat',
                                           color: Color(0xFF0039E3),
                                           fontSize: 28.0,
                                           letterSpacing: 0.0,
@@ -1298,7 +1298,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF0039E3),
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
@@ -1335,7 +1335,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF0039E3),
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
@@ -1381,7 +1381,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1471,7 +1471,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -1480,7 +1480,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -1490,7 +1490,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -1500,7 +1500,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -1516,7 +1516,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -1525,7 +1525,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -1536,7 +1536,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -1548,7 +1548,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -1613,17 +1613,15 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xFF0039E3),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            color: Colors.white,
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -1707,7 +1705,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1717,7 +1715,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1728,7 +1726,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1739,7 +1737,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1755,7 +1753,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1765,7 +1763,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1777,7 +1775,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 19.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1790,7 +1788,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1862,17 +1860,15 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xFF0039E3),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            color: Colors.white,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 20.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -1967,7 +1963,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
@@ -1996,7 +1992,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       context)
                                                   .displaySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFFFF731B),
                                                     fontSize: 32.0,
                                                     letterSpacing: 0.0,
@@ -2024,8 +2020,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2101,7 +2096,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
@@ -2122,7 +2117,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       context)
                                                   .displaySmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Color(0xFFFF731B),
                                                     fontSize: 32.0,
                                                     letterSpacing: 0.0,
@@ -2150,8 +2145,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2292,8 +2286,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
@@ -2317,8 +2310,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         11.0,
                                                                     letterSpacing:
@@ -2343,8 +2336,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         11.0,
                                                                     letterSpacing:
@@ -2366,8 +2359,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         11.0,
                                                                     letterSpacing:
@@ -2386,8 +2379,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         11.0,
                                                                     letterSpacing:
@@ -2461,8 +2454,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,

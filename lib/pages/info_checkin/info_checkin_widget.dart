@@ -207,7 +207,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
           title: Text(
             'ข้อมูลการเข้างาน - ออกงาน',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
@@ -274,7 +274,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -291,7 +291,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -332,7 +332,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -350,7 +350,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -388,7 +388,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -405,7 +405,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -419,7 +419,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                         ),
                                   )),
@@ -435,7 +435,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -482,7 +482,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -498,7 +498,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -527,7 +527,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),
@@ -636,7 +636,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),

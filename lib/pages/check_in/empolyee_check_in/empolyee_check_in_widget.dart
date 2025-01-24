@@ -826,7 +826,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
             title: Text(
               'ลงเวลางาน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
@@ -1387,8 +1387,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        font: GoogleFonts
-                                                            .poppins(),
+                                                        fontFamily: 'Poppins',
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -1417,14 +1416,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             child: SelectionArea(
                                                 child: Text(
                                               'เลือก:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             )),
                                           ),
                                           if (FFAppState().brachGroupNew ==
@@ -1519,19 +1518,17 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      color: Colors.black,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintText:
                                                     'กรุณาเลือกสาขาที่อยู่',
                                                 searchHintText:
@@ -1579,14 +1576,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             flex: 1,
                                             child: Text(
                                               'ค้นหา:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           Expanded(
@@ -1629,8 +1626,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
                                                     textHighlightStyle:
@@ -1682,8 +1678,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1764,8 +1760,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -2051,14 +2046,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             child: SelectionArea(
                                                 child: Text(
                                               'เลือก:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             )),
                                           ),
                                           Expanded(
@@ -2124,21 +2119,21 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               width: 180.0,
                                               height: 50.0,
                                               searchHintTextStyle: TextStyle(),
-                                              searchTextStyle: FlutterFlowTheme
-                                                      .of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    color: Colors.black,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              searchTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               hintText: 'กรุณาเลือกสาขาที่อยู่',
                                               searchHintText:
                                                   'สาขาที่จะเช็คอิน ...',
@@ -2183,14 +2178,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             flex: 1,
                                             child: Text(
                                               'เหตุผล:',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           Expanded(
@@ -2204,14 +2199,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอกเหตุผล',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -2269,14 +2263,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   ),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textAlign: TextAlign.start,
                                               validator: _model
                                                   .reasoncheckin1TextControllerValidator
@@ -3040,7 +3034,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),
@@ -3297,7 +3291,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),

@@ -254,3 +254,6 @@ export '/tracking_emp_page/tracking_emp_page_widget.dart'
     show TrackingEmpPageWidget;
 export '/pages/search_employee_page/search_employee_page_widget.dart'
     show SearchEmployeePageWidget;
+export '/pages/search_employee_page2/search_employee_page2_widget.dart'
+    show SearchEmployeePage2Widget;
+export '/searchableemp/searchableemp_widget.dart' show SearchableempWidget;

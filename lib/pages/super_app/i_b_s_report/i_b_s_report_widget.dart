@@ -153,7 +153,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
             title: Text(
               'เป้าและผลงานรายเดือน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.poppins(),
+                    fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 20.0,
                     letterSpacing: 0.0,
@@ -173,7 +173,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                   child: Text(
                     'รหัสพนักงาน ${widget!.employeeId}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                         ),
@@ -186,7 +186,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                     Text(
                       'วันที่อัพเดทข้อมูล',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.poppins(),
+                            fontFamily: 'Poppins',
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -208,7 +208,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(
-                                font: GoogleFonts.poppins(),
+                                fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                               ),
@@ -235,7 +235,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(
-                                font: GoogleFonts.poppins(),
+                                fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                               ),
@@ -294,7 +294,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -413,8 +413,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -470,8 +470,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -528,8 +528,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -585,8 +585,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -643,8 +643,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -700,8 +700,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -756,8 +756,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -811,8 +811,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -867,8 +867,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -922,8 +922,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -978,8 +978,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -1033,8 +1033,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1089,8 +1089,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -1175,8 +1175,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           letterSpacing:
@@ -1231,8 +1231,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -1286,8 +1286,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1342,8 +1342,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -1397,8 +1397,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1457,8 +1457,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -1514,8 +1514,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1574,8 +1574,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -1631,8 +1631,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1691,8 +1691,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -1750,8 +1750,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1810,8 +1810,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -1867,8 +1867,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -1927,8 +1927,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -1986,8 +1986,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2046,8 +2046,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -2103,8 +2103,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2163,8 +2163,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -2223,8 +2223,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2283,8 +2283,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -2340,8 +2340,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2410,8 +2410,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -2467,8 +2467,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2525,8 +2525,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -2582,8 +2582,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2640,8 +2640,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -2697,8 +2697,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2753,8 +2753,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -2808,8 +2808,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2864,8 +2864,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -2919,8 +2919,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -2975,8 +2975,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -3030,8 +3030,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3086,8 +3086,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -3168,8 +3168,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           letterSpacing:
@@ -3224,8 +3224,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -3281,8 +3281,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3337,8 +3337,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -3392,8 +3392,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3452,8 +3452,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -3509,8 +3509,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3569,8 +3569,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -3626,8 +3626,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3686,8 +3686,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -3745,8 +3745,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3805,8 +3805,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -3862,8 +3862,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -3922,8 +3922,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -3981,8 +3981,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4041,8 +4041,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -4098,8 +4098,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4158,8 +4158,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -4217,8 +4217,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4277,8 +4277,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -4334,8 +4334,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4404,8 +4404,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -4461,8 +4461,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4519,8 +4519,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -4576,8 +4576,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4634,8 +4634,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -4691,8 +4691,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4747,8 +4747,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -4802,8 +4802,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4858,8 +4858,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -4913,8 +4913,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -4969,8 +4969,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -5024,8 +5024,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5080,8 +5080,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -5162,8 +5162,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           letterSpacing:
@@ -5218,8 +5218,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -5273,8 +5273,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5329,8 +5329,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -5384,8 +5384,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5444,8 +5444,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -5501,8 +5501,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5561,8 +5561,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -5618,8 +5618,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5678,8 +5678,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -5737,8 +5737,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5797,8 +5797,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -5854,8 +5854,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -5914,8 +5914,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -5973,8 +5973,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6033,8 +6033,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -6090,8 +6090,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6150,8 +6150,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -6209,8 +6209,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6269,8 +6269,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -6326,8 +6326,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6396,8 +6396,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -6453,8 +6453,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6511,8 +6511,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -6568,8 +6568,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6626,8 +6626,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -6683,8 +6683,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6739,8 +6739,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -6794,8 +6794,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6850,8 +6850,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -6905,8 +6905,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -6961,8 +6961,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -7016,8 +7016,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7072,8 +7072,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -7154,8 +7154,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           letterSpacing:
@@ -7210,8 +7210,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -7265,8 +7265,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7321,8 +7321,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -7376,8 +7376,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7436,8 +7436,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -7493,8 +7493,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7553,8 +7553,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -7610,8 +7610,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7670,8 +7670,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -7729,8 +7729,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7789,8 +7789,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -7846,8 +7846,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -7906,8 +7906,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -7965,8 +7965,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8025,8 +8025,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -8085,8 +8085,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8145,8 +8145,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -8204,8 +8204,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8264,8 +8264,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -8324,8 +8324,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8394,8 +8394,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -8451,8 +8451,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8509,8 +8509,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -8566,8 +8566,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8624,8 +8624,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -8681,8 +8681,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8737,8 +8737,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -8792,8 +8792,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8848,8 +8848,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -8903,8 +8903,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -8959,8 +8959,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -9014,8 +9014,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9070,8 +9070,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -9152,8 +9152,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           letterSpacing:
@@ -9208,8 +9208,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -9263,8 +9263,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9319,8 +9319,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -9374,8 +9374,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9434,8 +9434,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -9491,8 +9491,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9551,8 +9551,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -9608,8 +9608,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9668,8 +9668,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -9727,8 +9727,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9787,8 +9787,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -9844,8 +9844,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -9904,8 +9904,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -9963,8 +9963,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10023,8 +10023,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -10080,8 +10080,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10140,8 +10140,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -10199,8 +10199,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10259,8 +10259,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -10316,8 +10316,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10386,8 +10386,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -10443,8 +10443,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10501,8 +10501,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -10558,8 +10558,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10616,8 +10616,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -10673,8 +10673,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10729,8 +10729,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -10784,8 +10784,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10840,8 +10840,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -10895,8 +10895,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -10951,8 +10951,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -11006,8 +11006,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11062,8 +11062,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -11144,8 +11144,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBtnText,
                                                                           letterSpacing:
@@ -11200,8 +11200,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -11255,8 +11255,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11311,8 +11311,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 color: Color(
                                                                     0xFF3C4041),
                                                                 letterSpacing:
@@ -11366,8 +11366,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11426,8 +11426,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -11483,8 +11483,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11543,8 +11543,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -11600,8 +11600,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11660,8 +11660,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -11719,8 +11719,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11779,8 +11779,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -11836,8 +11836,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -11896,8 +11896,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -11955,8 +11955,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -12015,8 +12015,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -12072,8 +12072,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -12132,8 +12132,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -12191,8 +12191,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:
@@ -12251,8 +12251,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     color: Color(
                                                                         0xFF3C4041),
                                                                     letterSpacing:
@@ -12308,8 +12308,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Color(0xFFDB771A),
                                                                           letterSpacing:

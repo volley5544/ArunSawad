@@ -107,7 +107,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),
@@ -148,7 +148,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            font: GoogleFonts.poppins(),
+                                            fontFamily: 'Poppins',
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: UnderlineInputBorder(
@@ -193,7 +193,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -287,7 +287,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
@@ -335,7 +335,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
-                                                    font: GoogleFonts.poppins(),
+                                                    fontFamily: 'Poppins',
                                                     color: Colors.white,
                                                     fontSize: 15.0,
                                                     letterSpacing: 0.0,

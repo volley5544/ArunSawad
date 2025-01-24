@@ -131,7 +131,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                       child: Text(
                         'โฮ่ง, โฮ่ง!',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(),
+                              fontFamily: 'Poppins',
                               color: Colors.white,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
@@ -179,7 +179,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                     child: Text(
                       'เมี้ยว, เมี้ยว, เมี้ยว...',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.poppins(),
+                            fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).black600,
                             fontSize: 18.0,
                             letterSpacing: 0.0,
@@ -209,7 +209,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           child: Text(
             'ไม่พบการแชท',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   fontSize: 20.0,
                   letterSpacing: 0.0,
                 ),
@@ -219,7 +219,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           'เหมือนว่าคุณจะยังไม่เคยแชทกับเพื่อนคนนี้มาก่อน',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                font: GoogleFonts.poppins(),
+                fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).grayIcon,
                 fontSize: 16.0,
                 letterSpacing: 0.0,
@@ -230,7 +230,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           'เริ่มแชทด้านล่างเลย!',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                font: GoogleFonts.poppins(),
+                fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).grayIcon,
                 fontSize: 16.0,
                 letterSpacing: 0.0,

@@ -179,7 +179,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                 title: Text(
                   'ยื่นเรื่องขออนุมัติลาออก',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        font: GoogleFonts.poppins(),
+                        fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 0.0,
@@ -229,7 +229,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -263,14 +263,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: '[Some hint text...]',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -328,14 +327,14 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   ),
                                                 ),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textAlign: TextAlign.start,
                                               validator: _model
                                                   .textController1Validator
@@ -365,7 +364,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -463,17 +462,18 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBtnText,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    color: Color(0xFF0A0A0A),
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF0A0A0A),
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                               elevation: 2.0,
                                               borderSide: BorderSide(
                                                 color: Color(0xFFBDBDBD),
@@ -506,7 +506,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -549,13 +549,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               checkColor: Colors.white,
                                               checkboxBorderColor:
                                                   Color(0xFF95A1AC),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               initialized:
                                                   _model.checkboxGroupValues1 !=
                                                       null,
@@ -601,8 +601,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -635,8 +634,8 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -700,8 +699,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(),
+                                                          fontFamily: 'Poppins',
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
@@ -739,7 +737,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -771,26 +769,25 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                 hintText: 'กรุณากรอก...',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      color: Color(0xFF0A0A0A),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF0A0A0A),
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -838,16 +835,16 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                         .fromSTEB(20.0, 40.0,
                                                             24.0, 0.0),
                                               ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                               textAlign: TextAlign.start,
                                               maxLines: 4,
                                               validator: _model
@@ -878,7 +875,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -926,14 +923,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     .provinceInputTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1037,15 +1033,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'กรุณากรอกจังหวัด',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1107,14 +1101,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           .fromSTEB(20.0, 0.0,
                                                               0.0, 0.0),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
                                                     .provinceInputTextControllerValidator
                                                     .asValidator(context),
@@ -1166,14 +1159,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     .districtInputTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1285,15 +1277,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'กรุณากรอกอำเภอ',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1355,14 +1345,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           .fromSTEB(20.0, 0.0,
                                                               0.0, 0.0),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
                                                     .districtInputTextControllerValidator
                                                     .asValidator(context),
@@ -1412,14 +1401,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     .subdistrictInputTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1459,15 +1447,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'กรุณากรอกตำบล',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1529,14 +1515,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           .fromSTEB(20.0, 0.0,
                                                               0.0, 0.0),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
                                                     .subdistrictInputTextControllerValidator
                                                     .asValidator(context),
@@ -1565,13 +1550,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'ระบุหมู่ที่/ถนน',
-                                              hintStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -1619,7 +1604,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF0A0A0A),
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
@@ -1674,14 +1659,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     .postCodeTextFieldTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1722,15 +1706,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'รหัสไปรษณีย์',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1781,18 +1763,18 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           .fromSTEB(20.0, 24.0,
                                                               24.0, 24.0),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      color: Color(0xFF0A0A0A),
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF0A0A0A),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                 validator: _model
                                                     .postCodeTextFieldTextControllerValidator
                                                     .asValidator(context),
@@ -1821,13 +1803,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'เบอร์ติดต่อ',
-                                              hintStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -1875,7 +1857,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF0A0A0A),
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
@@ -1908,7 +1890,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -1937,16 +1919,17 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     val),
                                             width: 90.0,
                                             height: 60.0,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: GoogleFonts.poppins(),
-                                                  color: Colors.black,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.black,
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                             hintText: 'กรุณาเลือก...',
                                             fillColor: Colors.white,
                                             elevation: 2.0,
@@ -1981,7 +1964,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -2024,13 +2007,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               checkColor: Colors.white,
                                               checkboxBorderColor:
                                                   Color(0xFF95A1AC),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               initialized:
                                                   _model.checkboxGroupValues2 !=
                                                       null,
@@ -2060,14 +2043,14 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               'อื่นๆ  :',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.poppins(),
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             )),
                                           ),
                                         ],
@@ -2101,15 +2084,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'ระบุ...',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -2160,18 +2141,18 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           .fromSTEB(20.0, 24.0,
                                                               24.0, 24.0),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.poppins(),
-                                                      color: Color(0xFF0A0A0A),
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF0A0A0A),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                 maxLines: 5,
                                                 validator: _model
                                                     .returnAssetTextFieldTextControllerValidator
@@ -2513,16 +2494,17 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             color: Color(0xFF00968A),
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.poppins(),
-                                                  color: Colors.white,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.white,
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                             elevation: 2.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,

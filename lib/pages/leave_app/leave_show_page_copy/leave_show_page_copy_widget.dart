@@ -171,7 +171,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
           title: Text(
             'รายการขออนุมัติลา',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.poppins(),
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
@@ -211,7 +211,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                 width: double.infinity,
                 height: 50.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      font: GoogleFonts.poppins(),
+                      fontFamily: 'Poppins',
                       color: Colors.black,
                       letterSpacing: 0.0,
                     ),
@@ -239,7 +239,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                         labelColor: FlutterFlowTheme.of(context).black600,
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
@@ -370,8 +370,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            font: GoogleFonts
-                                                                .poppins(),
+                                                            fontFamily:
+                                                                'Poppins',
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -417,8 +417,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -460,8 +460,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -513,8 +513,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -556,8 +556,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -609,8 +609,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -652,8 +652,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -705,8 +705,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -751,8 +751,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -804,8 +804,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -850,8 +850,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -903,8 +903,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -951,8 +951,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1007,8 +1007,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1053,8 +1053,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1110,8 +1110,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1166,8 +1166,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1217,8 +1217,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(),
+                                                                    fontFamily:
+                                                                        'Poppins',
                                                                     fontSize:
                                                                         12.0,
                                                                     letterSpacing:
@@ -1288,8 +1288,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
@@ -1727,8 +1727,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
@@ -1854,8 +1854,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -2047,8 +2047,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       16.0,
                                                                   letterSpacing:
@@ -2101,8 +2101,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2143,8 +2143,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               12.0,
                                                                           letterSpacing:
@@ -2200,8 +2200,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2242,8 +2242,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               12.0,
                                                                           letterSpacing:
@@ -2299,8 +2299,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2341,8 +2341,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               12.0,
                                                                           letterSpacing:
@@ -2398,8 +2398,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2443,8 +2443,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               12.0,
                                                                           letterSpacing:
@@ -2503,8 +2503,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2548,8 +2548,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               12.0,
                                                                           letterSpacing:
@@ -2601,8 +2601,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2661,8 +2661,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 12.0,
                                                                             letterSpacing:
@@ -2711,8 +2711,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               12.0,
                                                                           letterSpacing:
@@ -2967,7 +2967,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                           textStyle: FlutterFlowTheme.of(context)
                                                                               .titleSmall
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 color: Colors.white,
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
@@ -3084,7 +3084,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .titleSmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               color: Colors.white,
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
@@ -3234,7 +3234,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         textStyle: FlutterFlowTheme.of(context)
                                                                             .titleSmall
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               color: Colors.black,
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,

@@ -60,7 +60,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                   child: Text(
                     'สถานะทั้งหมด',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -70,7 +70,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                   child: Text(
                     'เช็คอินเข้า-ออกงาน จะมีแถบสีและสถานะดังนี้',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.poppins(),
+                          fontFamily: 'Poppins',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -106,7 +106,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -151,7 +151,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -196,7 +196,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -241,7 +241,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -286,7 +286,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -331,7 +331,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
@@ -376,7 +376,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,

@@ -2399,6 +2399,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchEmployeePage',
               path: 'SearchEmployeePage',
               builder: (context, params) => SearchEmployeePageWidget(),
+            ),
+            FFRoute(
+              name: 'SearchEmployeePage2',
+              path: 'SearchEmployeePage2',
+              builder: (context, params) => SearchEmployeePage2Widget(),
+            ),
+            FFRoute(
+              name: 'searchableemp',
+              path: 'searchableemp',
+              builder: (context, params) => SearchableempWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

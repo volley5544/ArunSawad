@@ -491,7 +491,7 @@ class _DetailListFollowUpDebtWidgetState
                           'สัญญาลูกค้า',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Colors.white,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
@@ -543,7 +543,7 @@ class _DetailListFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
@@ -604,7 +604,7 @@ class _DetailListFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 16.0,
@@ -902,7 +902,7 @@ class _DetailListFollowUpDebtWidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -1132,7 +1132,7 @@ class _DetailListFollowUpDebtWidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -1186,7 +1186,7 @@ class _DetailListFollowUpDebtWidgetState
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -1194,7 +1194,7 @@ class _DetailListFollowUpDebtWidgetState
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -1248,7 +1248,7 @@ class _DetailListFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -1401,7 +1401,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               Text(
                                                                             'เลขที่สัญญา',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
@@ -1421,7 +1421,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               r'''$.CONTNO''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
@@ -1472,8 +1472,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -1500,7 +1500,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -1521,7 +1521,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1572,8 +1572,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -1601,7 +1601,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1623,7 +1623,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               r'''$.EXP_FRM''',
                                                                             ).toString()})',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
@@ -1669,8 +1669,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -1697,7 +1697,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -1718,7 +1718,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1764,8 +1764,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -1792,7 +1792,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -1813,7 +1813,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1859,8 +1859,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -1887,7 +1887,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -1908,7 +1908,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1954,8 +1954,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -1982,7 +1982,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -2014,7 +2014,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -2076,7 +2076,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
@@ -2099,7 +2099,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             Text(
                                                                               ':',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
@@ -2112,7 +2112,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                                   (_model.getListDataPerson?.jsonBody ?? ''),
                                                                                 )?.elementAtOrNull(listCardIndex))} บาท',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.poppins(),
+                                                                                      fontFamily: 'Poppins',
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
@@ -2158,8 +2158,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            font:
-                                                                                GoogleFonts.poppins(),
+                                                                            fontFamily:
+                                                                                'Poppins',
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -2185,7 +2185,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           Text(
                                                                             ':',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
@@ -2209,7 +2209,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'date_of_data',
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
@@ -2258,8 +2258,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          font:
-                                                                              GoogleFonts.poppins(),
+                                                                          fontFamily:
+                                                                              'Poppins',
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -2287,7 +2287,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                font: GoogleFonts.poppins(),
+                                                                                fontFamily: 'Poppins',
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -2306,7 +2306,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               r'''$.historyCount''',
                                                                             ).toString()}'} ครั้ง',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  font: GoogleFonts.poppins(),
+                                                                                  fontFamily: 'Poppins',
                                                                                   color: int.parse(getJsonField(
                                                                                             listCardItem,
                                                                                             r'''$.historyCount''',
@@ -2389,8 +2389,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      font: GoogleFonts
-                                                                          .poppins(),
+                                                                      fontFamily:
+                                                                          'Poppins',
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
@@ -2468,8 +2468,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(),
+                                                                        fontFamily:
+                                                                            'Poppins',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:

@@ -440,7 +440,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -454,7 +454,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
@@ -482,7 +482,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
-                                  font: GoogleFonts.poppins(),
+                                  fontFamily: 'Poppins',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -643,7 +643,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
                                                 .override(
-                                                  font: GoogleFonts.poppins(),
+                                                  fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
@@ -910,7 +910,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),
@@ -996,7 +996,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          font: GoogleFonts.poppins(),
+                                          fontFamily: 'Poppins',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
@@ -1097,7 +1097,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              font: GoogleFonts.poppins(),
+                                              fontFamily: 'Poppins',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),
@@ -1177,7 +1177,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
@@ -1199,7 +1199,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                font: GoogleFonts.poppins(),
+                                                fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
@@ -1898,8 +1898,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(),
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize:
                                                                       20.0,
                                                                   letterSpacing:
@@ -2079,7 +2079,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'เช็คอิน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -2400,7 +2400,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.poppins(),
+                                                                                          fontFamily: 'Poppins',
                                                                                           color: Colors.white,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -2434,7 +2434,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ขออนุมัติลา',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -2636,7 +2636,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'GEN E-PA',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -2881,7 +2881,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               'บันทึกวีดิโอ (ลูกค้า)',
                                                                               textAlign: TextAlign.center,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -3065,7 +3065,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'รายงานรถยึด',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -3269,7 +3269,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'โครงการ ZUVศษ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -3904,7 +3904,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ประกันนอกเรท',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -4011,7 +4011,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               Text(
                                                                                 'รายงาน BSI',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      font: GoogleFonts.poppins(),
+                                                                                      fontFamily: 'Poppins',
                                                                                       fontSize: 12.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -4173,7 +4173,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'เป้า/ผลงาน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -4483,7 +4483,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'KPI',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -4772,7 +4772,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'ยอดจัดสาขา',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -5088,7 +5088,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'ยอดประกัน',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -5425,7 +5425,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   '%ความสำเร็จ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -5735,7 +5735,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.poppins(),
+                                                                                          fontFamily: 'Poppins',
                                                                                           color: Colors.white,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -5769,7 +5769,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'รายชื่อลีด',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -6055,7 +6055,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'เช็คเบี้ยประกัน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -6368,7 +6368,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'Branch View',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -6653,7 +6653,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'QR พนักงาน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -6939,7 +6939,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'Saleskit',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -7225,7 +7225,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ฟอร์มลีด',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -7511,7 +7511,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'โปรโมชั่น',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -7822,7 +7822,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'COACH',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -8107,7 +8107,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ห้องเรียนทันใจ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -8393,7 +8393,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ข้อมูลไอที',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -8514,8 +8514,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(),
+                                                                fontFamily:
+                                                                    'Poppins',
                                                                 fontSize: 32.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -8703,7 +8703,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'เช็คอิน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -9024,7 +9024,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.poppins(),
+                                                                                          fontFamily: 'Poppins',
                                                                                           color: Colors.white,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -9058,7 +9058,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ขออนุมัติลา',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -9260,7 +9260,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'GEN E-PA',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -9409,7 +9409,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'บันทึกวีดิโอ\n   (ลูกค้า)',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -9593,7 +9593,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'รายงานรถยึด',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -9797,7 +9797,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'โครงการ ZUVศษ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -10463,7 +10463,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ประกันนอกเรท',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -10563,7 +10563,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'รายงาน BSI',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -10715,7 +10715,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'เป้า/ผลงาน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -11018,7 +11018,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'KPI',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -11300,7 +11300,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'ยอดจัดสาขา',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -11616,7 +11616,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   'ยอดประกัน',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -11926,7 +11926,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          font: GoogleFonts.poppins(),
+                                                                                          fontFamily: 'Poppins',
                                                                                           color: Colors.white,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
@@ -11960,7 +11960,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'รายชื่อลีด',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -12288,7 +12288,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   '%ความสำเร็จ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -12576,7 +12576,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'เช็คเบี้ยประกัน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -12889,7 +12889,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'Branch View',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -13174,7 +13174,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'QR พนักงาน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -13460,7 +13460,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'Saleskit',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -13746,7 +13746,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ฟอร์มลีด',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -14032,7 +14032,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'โปรโมชั่น',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -14343,7 +14343,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'COACH',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -14628,7 +14628,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ห้องเรียนทันใจ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -14915,7 +14915,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             Text(
                                                                               'ข้อมูลไอที',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.poppins(),
+                                                                                    fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -16003,7 +16003,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   listViewSawadAnnouncementRecord.title,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         fontSize: 18.0,
                                                                                         letterSpacing: 0.0,
                                                                                       ),
@@ -16014,7 +16014,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 Text(
                                                                                   listViewSawadAnnouncementRecord.announceDate,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
@@ -16022,7 +16022,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   listViewSawadAnnouncementRecord.body,
                                                                                   textAlign: TextAlign.start,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        font: GoogleFonts.poppins(),
+                                                                                        fontFamily: 'Poppins',
                                                                                         letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
@@ -16267,7 +16267,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
@@ -16282,7 +16282,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -16294,7 +16294,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              font: GoogleFonts.poppins(),
+                                                                              fontFamily: 'Poppins',
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),

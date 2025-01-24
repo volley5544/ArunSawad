@@ -188,6 +188,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                                               FontWeight.w500,
                                                           fontStyle:
                                                               FontStyle.italic,
+                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -266,7 +267,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    font: GoogleFonts.poppins(),
+                                    fontFamily: 'Poppins',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -309,7 +310,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        font: GoogleFonts.poppins(),
+                                        fontFamily: 'Poppins',
                                         color: Colors.black,
                                         letterSpacing: 0.0,
                                       ),
@@ -391,7 +392,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      font: GoogleFonts.poppins(),
+                                      fontFamily: 'Poppins',
                                       color: Colors.black,
                                       letterSpacing: 0.0,
                                     ),
