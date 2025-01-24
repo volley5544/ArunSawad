@@ -307,43 +307,6 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                 list30DaysDateTimeListItemItem))!) {
                                           return;
                                         }
-                                        _model.dataDateSelected =
-                                            functions.getDateFormat(
-                                                list30DaysDateTimeListItemItem);
-                                        safeSetState(() {});
-                                        _model.locationByDateData = _model
-                                            .locationDateData
-                                            .elementAtOrNull(functions
-                                                .getIndexOfSomethingList(
-                                                    _model.locationDateData
-                                                        .map((e) => e.date)
-                                                        .toList(),
-                                                    functions.getDateFormat(functions
-                                                        .parseStringToDatetime(
-                                                            list30DaysDateTimeListItemItem
-                                                                .toString()))))!
-                                            .data
-                                            .toList()
-                                            .cast<
-                                                TrackingEmployeeLocationModelStruct>();
-                                        safeSetState(() {});
-                                        FFAppState().polyMapLatLngList =
-                                            functions
-                                                .makeLatLngList(
-                                                    _model.locationByDateData
-                                                        .map((e) => e.latitude)
-                                                        .toList(),
-                                                    _model.locationByDateData
-                                                        .map((e) => e.longitude)
-                                                        .toList())!
-                                                .toList()
-                                                .cast<LatLng>();
-                                        FFAppState().polyMapTimeList = _model
-                                            .locationByDateData
-                                            .map((e) => e.times)
-                                            .toList()
-                                            .cast<String>();
-                                        safeSetState(() {});
                                         if (scaffoldKey
                                                 .currentState!.isDrawerOpen ||
                                             scaffoldKey.currentState!
@@ -367,7 +330,14 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                               ParamType.String,
                                             ),
                                             'index': serializeParam(
-                                              list30DaysDateTimeListItemIndex,
+                                              functions.getIndexOfSomethingList(
+                                                  _model.locationDateData
+                                                      .map((e) => e.date)
+                                                      .toList(),
+                                                  functions.getDateFormat(functions
+                                                      .parseStringToDatetime(
+                                                          list30DaysDateTimeListItemItem
+                                                              .toString()))),
                                               ParamType.int,
                                             ),
                                           }.withoutNulls,

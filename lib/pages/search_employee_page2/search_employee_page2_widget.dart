@@ -57,15 +57,6 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
       unawaited(
         () async {}(),
       );
-      FFAppState().EmpProfileLocationSelected = EmpDataLocationStruct();
-      safeSetState(() {});
-      _model.apiTrackingUrl = await queryUrlLinkStorageRecordOnce(
-        queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
-          'url_name',
-          isEqualTo: 'tracker_url',
-        ),
-        singleRecord: true,
-      ).then((s) => s.firstOrNull);
       showDialog(
         context: context,
         builder: (dialogContext) {
@@ -88,6 +79,15 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
         },
       );
 
+      FFAppState().EmpProfileLocationSelected = EmpDataLocationStruct();
+      safeSetState(() {});
+      _model.apiTrackingUrl = await queryUrlLinkStorageRecordOnce(
+        queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
+          'url_name',
+          isEqualTo: 'tracker_url',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       _model.apiUserOutput = await APIUsersRegionCall.call(
         branchCode: FFAppState().branchCode,
       );
