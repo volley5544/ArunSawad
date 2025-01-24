@@ -363,8 +363,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                               isList: true,
                                             ),
                                             'selectedDate': serializeParam(
-                                              functions.getDateFormat(
-                                                  list30DaysDateTimeListItemItem),
+                                              widget!.selectedDate,
                                               ParamType.String,
                                             ),
                                             'index': serializeParam(
