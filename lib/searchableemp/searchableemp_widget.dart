@@ -227,6 +227,7 @@ class _SearchableempWidgetState extends State<SearchableempWidget> {
                                                       .elementAtOrNull(
                                                           datalistIndex))!;
                                               safeSetState(() {});
+                                              context.safePop();
                                             },
                                             child: Container(
                                               width: double.infinity,
