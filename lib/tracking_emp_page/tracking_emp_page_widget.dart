@@ -776,13 +776,12 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                 ),
                                           ),
                                         ),
-                                        if (false &&
-                                            responsiveVisibility(
-                                              context: context,
-                                              tablet: false,
-                                              tabletLandscape: false,
-                                              desktop: false,
-                                            ))
+                                        if (responsiveVisibility(
+                                          context: context,
+                                          tablet: false,
+                                          tabletLandscape: false,
+                                          desktop: false,
+                                        ))
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
