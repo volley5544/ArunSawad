@@ -5,11 +5,9 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
@@ -35,9 +33,6 @@ class SearchEmployeePage2Model
   UrlLinkStorageRecord? apiTrackingUrl;
   // Stores action output result for [Backend Call - API (APIUsersRegion)] action in SearchEmployeePage2 widget.
   ApiCallResponse? apiUserOutput;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
   DateTime? datePicked;
   // Stores action output result for [Backend Call - API (APIUserLocationTracker)] action in Button widget.
   ApiCallResponse? getUserLocations;

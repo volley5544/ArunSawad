@@ -5,11 +5,9 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
@@ -197,25 +195,6 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 500.0.ms,
-            begin: Offset(0.0, 25.0),
-            end: Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 500.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -285,104 +264,81 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              width: double.infinity,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(
-                                        Icons.check_circle_outline,
-                                        color: Colors.black,
-                                        size: 29.0,
+                            Expanded(
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'searchableemp',
+                                    queryParameters: {
+                                      'listData': serializeParam(
+                                        FFAppState().EmpProfileLocationData,
+                                        ParamType.DataStruct,
+                                        isList: true,
                                       ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'เลือกพนักงาน:',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 5,
-                                      child: FlutterFlowDropDown<String>(
-                                        controller:
-                                            _model.dropDownValueController ??=
-                                                FormFieldController<String>(
-                                          _model.dropDownValue ??= '',
+                                    }.withoutNulls,
+                                  );
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(
+                                            Icons.check_circle_outline,
+                                            color: Colors.black,
+                                            size: 29.0,
+                                          ),
                                         ),
-                                        options: List<String>.from(
-                                            APIUsersRegionCall.employeeid(
-                                          (_model.apiUserOutput?.jsonBody ??
-                                              ''),
-                                        )!),
-                                        optionLabels:
-                                            APIUsersRegionCall.fullprofile(
-                                          (_model.apiUserOutput?.jsonBody ??
-                                              ''),
-                                        )!,
-                                        onChanged: (val) => safeSetState(
-                                            () => _model.dropDownValue = val),
-                                        width: 180.0,
-                                        height: 50.0,
-                                        searchHintTextStyle: TextStyle(),
-                                        searchTextStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              letterSpacing: 0.0,
+                                        Expanded(
+                                          flex: 8,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Text(
+                                              '${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                      'null'
+                                                  ? '${FFAppState().EmpProfileLocationSelected.status}'
+                                                  : 'เลือกพนักงาน',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
-                                        hintText: 'พนักงาน...',
-                                        searchHintText: 'ค้นหาพนักงาน',
-                                        fillColor: Colors.white,
-                                        elevation: 2.0,
-                                        borderColor: Colors.transparent,
-                                        borderWidth: 0.0,
-                                        borderRadius: 0.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 12.0, 4.0),
-                                        hidesUnderline: true,
-                                        isSearchable: true,
-                                        isMultiSelect: false,
-                                      ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation1']!),
+                            ),
                             Divider(
                               thickness: 1.0,
                             ),
                           ],
                         ),
-                        if (_model.dropDownValue != null &&
-                            _model.dropDownValue != '')
+                        if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                            'null')
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -425,7 +381,9 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                       Expanded(
                                         flex: 5,
                                         child: Text(
-                                          '${_model.dropDownValue}',
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .employeeId,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -438,7 +396,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                   ),
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation2']!),
+                                  'containerOnPageLoadAnimation1']!),
                               Container(
                                 width: double.infinity,
                                 height: 40.0,
@@ -478,14 +436,9 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                       Expanded(
                                         flex: 5,
                                         child: Text(
-                                          '${APIUsersRegionCall.nameth(
-                                            (_model.apiUserOutput?.jsonBody ??
-                                                ''),
-                                          )?.elementAtOrNull(functions.getIndexOfSomethingList(APIUsersRegionCall.employeeid(
-                                                (_model.apiUserOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toList(), _model.dropDownValue))}',
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .nameTh,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -498,7 +451,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                   ),
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation3']!),
+                                  'containerOnPageLoadAnimation2']!),
                               Container(
                                 width: double.infinity,
                                 height: 40.0,
@@ -538,14 +491,9 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                       Expanded(
                                         flex: 5,
                                         child: Text(
-                                          '${APIUsersRegionCall.position(
-                                            (_model.apiUserOutput?.jsonBody ??
-                                                ''),
-                                          )?.elementAtOrNull(functions.getIndexOfSomethingList(APIUsersRegionCall.employeeid(
-                                                (_model.apiUserOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toList(), _model.dropDownValue))}',
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .position,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -558,7 +506,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                   ),
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation4']!),
+                                  'containerOnPageLoadAnimation3']!),
                               Container(
                                 width: double.infinity,
                                 height: 40.0,
@@ -598,14 +546,9 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                       Expanded(
                                         flex: 5,
                                         child: Text(
-                                          '${APIUsersRegionCall.branchcode(
-                                            (_model.apiUserOutput?.jsonBody ??
-                                                ''),
-                                          )?.elementAtOrNull(functions.getIndexOfSomethingList(APIUsersRegionCall.employeeid(
-                                                (_model.apiUserOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toList(), _model.dropDownValue))}',
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .branchCode,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -618,11 +561,11 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                   ),
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation5']!),
+                                  'containerOnPageLoadAnimation4']!),
                             ],
                           ),
-                        if (_model.dropDownValue != null &&
-                            _model.dropDownValue != '')
+                        if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                            'null')
                           Divider(
                             thickness: 1.0,
                           ),
@@ -792,7 +735,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                               ),
                             ),
                           ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation6']!),
+                              animationsMap['containerOnPageLoadAnimation5']!),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -800,8 +743,8 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if (_model.dropDownValue != null &&
-                                  _model.dropDownValue != '')
+                              if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                  'null')
                                 Divider(
                                   thickness: 1.0,
                                 ),
@@ -811,7 +754,8 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                     var _shouldSetState = false;
                                     _model.getUserLocations =
                                         await APIUserLocationTrackerCall.call(
-                                      employeeId: _model.dropDownValue,
+                                      employeeId:
+                                          '${FFAppState().EmpProfileLocationSelected.employeeId}',
                                       dateTime: functions
                                           .getDateFormat(_model.datePicked),
                                       apiUrl: true
@@ -880,43 +824,6 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                     context.pushNamed(
                                       'trackingEmpPage',
                                       queryParameters: {
-                                        'employeeId': serializeParam(
-                                          '${_model.dropDownValue}',
-                                          ParamType.String,
-                                        ),
-                                        'employeeName': serializeParam(
-                                          '${APIUsersRegionCall.nameth(
-                                            (_model.apiUserOutput?.jsonBody ??
-                                                ''),
-                                          )?.elementAtOrNull(functions.getIndexOfSomethingList(APIUsersRegionCall.employeeid(
-                                                (_model.apiUserOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toList(), _model.dropDownValue))}',
-                                          ParamType.String,
-                                        ),
-                                        'employeeBranchCode': serializeParam(
-                                          '${APIUsersRegionCall.branchcode(
-                                            (_model.apiUserOutput?.jsonBody ??
-                                                ''),
-                                          )?.elementAtOrNull(functions.getIndexOfSomethingList(APIUsersRegionCall.employeeid(
-                                                (_model.apiUserOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toList(), _model.dropDownValue))}',
-                                          ParamType.String,
-                                        ),
-                                        'employeePositionName': serializeParam(
-                                          '${APIUsersRegionCall.position(
-                                            (_model.apiUserOutput?.jsonBody ??
-                                                ''),
-                                          )?.elementAtOrNull(functions.getIndexOfSomethingList(APIUsersRegionCall.employeeid(
-                                                (_model.apiUserOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toList(), _model.dropDownValue))}',
-                                          ParamType.String,
-                                        ),
                                         'selectedDate': serializeParam(
                                           functions
                                               .getDateFormat(_model.datePicked),
@@ -965,8 +872,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                         ),
                       ],
                     ),
-                    if (_model.dropDownValue != null &&
-                        _model.dropDownValue != '')
+                    if (_model.datePicked != null)
                       Divider(
                         thickness: 1.0,
                       ),

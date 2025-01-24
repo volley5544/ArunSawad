@@ -2798,7 +2798,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               return;
                                                                             }
 
-                                                                            context.goNamed('SearchEmployeePage');
+                                                                            context.goNamed('SearchEmployeePage2');
                                                                           },
                                                                           child:
                                                                               Container(

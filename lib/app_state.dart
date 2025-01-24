@@ -9947,6 +9947,18 @@ class FFAppState extends ChangeNotifier {
       int index, EmpDataLocationStruct value) {
     EmpProfileLocationData.insert(index, value);
   }
+
+  EmpDataLocationStruct _EmpProfileLocationSelected = EmpDataLocationStruct();
+  EmpDataLocationStruct get EmpProfileLocationSelected =>
+      _EmpProfileLocationSelected;
+  set EmpProfileLocationSelected(EmpDataLocationStruct value) {
+    _EmpProfileLocationSelected = value;
+  }
+
+  void updateEmpProfileLocationSelectedStruct(
+      Function(EmpDataLocationStruct) updateFn) {
+    updateFn(_EmpProfileLocationSelected);
+  }
 }
 
 void _safeInit(Function() initializeField) {

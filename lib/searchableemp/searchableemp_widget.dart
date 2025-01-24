@@ -1,7 +1,9 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +12,12 @@ import 'searchableemp_model.dart';
 export 'searchableemp_model.dart';
 
 class SearchableempWidget extends StatefulWidget {
-  const SearchableempWidget({super.key});
+  const SearchableempWidget({
+    super.key,
+    required this.listData,
+  });
+
+  final List<EmpDataLocationStruct>? listData;
 
   @override
   State<SearchableempWidget> createState() => _SearchableempWidgetState();
@@ -180,58 +187,96 @@ class _SearchableempWidgetState extends State<SearchableempWidget> {
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(),
-                          child: ListView(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                height: 60.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
+                          child: Builder(
+                            builder: (context) {
+                              final datalist = widget!.listData!.toList();
+
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: datalist.length,
+                                itemBuilder: (context, datalistIndex) {
+                                  final datalistItem = datalist[datalistIndex];
+                                  return Visibility(
+                                    visible: functions.containWordinStringUrl(
+                                            _model.textController.text,
+                                            (widget!.listData?.elementAtOrNull(
+                                                    datalistIndex))
+                                                ?.fullprofile) ??
+                                        true,
+                                    child: Container(
                                       width: double.infinity,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(),
-                                      child: Row(
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Column(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Hello World',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        letterSpacing: 0.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              FFAppState()
+                                                      .EmpProfileLocationSelected =
+                                                  (widget!.listData!
+                                                      .elementAtOrNull(
+                                                          datalistIndex))!;
+                                              safeSetState(() {});
+                                            },
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 50.0,
+                                              decoration: BoxDecoration(),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        (widget!.listData
+                                                                ?.elementAtOrNull(
+                                                                    datalistIndex))
+                                                            ?.fullprofile,
+                                                        '-',
                                                       ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
+                                          ),
+                                          Divider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
                                           ),
                                         ],
                                       ),
                                     ),
-                                    Divider(
-                                      thickness: 1.0,
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                                  );
+                                },
+                              );
+                            },
                           ),
                         ),
                       ),

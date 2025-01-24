@@ -2408,7 +2408,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'searchableemp',
               path: 'searchableemp',
-              builder: (context, params) => SearchableempWidget(),
+              builder: (context, params) => SearchableempWidget(
+                listData: params.getParam<EmpDataLocationStruct>(
+                  'listData',
+                  ParamType.DataStruct,
+                  isList: true,
+                  structBuilder: EmpDataLocationStruct.fromSerializableMap,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

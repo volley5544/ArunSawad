@@ -21,10 +21,10 @@ export 'tracking_emp_page_model.dart';
 class TrackingEmpPageWidget extends StatefulWidget {
   const TrackingEmpPageWidget({
     super.key,
-    required this.employeeId,
-    required this.employeeName,
-    required this.employeeBranchCode,
-    required this.employeePositionName,
+    this.employeeId,
+    this.employeeName,
+    this.employeeBranchCode,
+    this.employeePositionName,
     required this.selectedDate,
     required this.data,
   });
@@ -563,7 +563,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                 Expanded(
                                   flex: 5,
                                   child: Text(
-                                    '${widget!.employeeId}',
+                                    '${FFAppState().EmpProfileLocationSelected.employeeId}',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -618,7 +618,9 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                   child: Container(
                                     decoration: BoxDecoration(),
                                     child: Text(
-                                      '${widget!.employeeName} (${widget!.employeeBranchCode})',
+                                      FFAppState()
+                                          .EmpProfileLocationSelected
+                                          .nameTh,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -674,7 +676,9 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                   child: Container(
                                     decoration: BoxDecoration(),
                                     child: Text(
-                                      '${widget!.employeePositionName}',
+                                      FFAppState()
+                                          .EmpProfileLocationSelected
+                                          .position,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -772,6 +776,38 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                               ),
                                             ),
                                           ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            if (Navigator.of(context)
+                                                .canPop()) {
+                                              context.pop();
+                                            }
+                                            context.pushNamed(
+                                              'trackingEmpPage',
+                                              queryParameters: {
+                                                'data': serializeParam(
+                                                  widget!.data,
+                                                  ParamType.DataStruct,
+                                                  isList: true,
+                                                ),
+                                                'selectedDate': serializeParam(
+                                                  widget!.selectedDate,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Icon(
+                                            Icons.arrow_forward,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
