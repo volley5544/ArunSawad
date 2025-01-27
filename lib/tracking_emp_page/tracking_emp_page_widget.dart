@@ -754,7 +754,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    4.0, 0.0, 0.0, 0.0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -766,45 +766,10 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                     .openDrawer();
                                               },
                                               child: Icon(
-                                                Icons.update_sharp,
+                                                Icons.calendar_month_rounded,
                                                 color: Color(0xFFFF6500),
-                                                size: 40.0,
+                                                size: 30.0,
                                               ),
-                                            ),
-                                          ),
-                                        if (false)
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              if (Navigator.of(context)
-                                                  .canPop()) {
-                                                context.pop();
-                                              }
-                                              context.pushNamed(
-                                                'trackingEmpPage',
-                                                queryParameters: {
-                                                  'data': serializeParam(
-                                                    widget!.data,
-                                                    ParamType.DataStruct,
-                                                    isList: true,
-                                                  ),
-                                                  'selectedDate':
-                                                      serializeParam(
-                                                    widget!.selectedDate,
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Icon(
-                                              Icons.arrow_forward,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 24.0,
                                             ),
                                           ),
                                       ],
