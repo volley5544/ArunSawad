@@ -872,49 +872,34 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                                           list30DaysDateTimeListItemItem))!) {
                                                 return;
                                               }
-                                              _model.dataDateSelected =
-                                                  functions.getDateFormat(
-                                                      list30DaysDateTimeListItemItem);
-                                              safeSetState(() {});
-                                              _model.locationByDateData = _model
-                                                  .locationDateData
-                                                  .elementAtOrNull(functions
-                                                      .getIndexOfSomethingList(
-                                                          _model
-                                                              .locationDateData
-                                                              .map(
-                                                                  (e) => e.date)
-                                                              .toList(),
-                                                          functions.getDateFormat(
-                                                              functions.parseStringToDatetime(
-                                                                  list30DaysDateTimeListItemItem
-                                                                      .toString()))))!
-                                                  .data
-                                                  .toList()
-                                                  .cast<
-                                                      TrackingEmployeeLocationModelStruct>();
-                                              safeSetState(() {});
-                                              FFAppState().polyMapLatLngList =
-                                                  functions
-                                                      .makeLatLngList(
-                                                          _model
-                                                              .locationByDateData
-                                                              .map((e) =>
-                                                                  e.latitude)
-                                                              .toList(),
-                                                          _model
-                                                              .locationByDateData
-                                                              .map((e) =>
-                                                                  e.longitude)
-                                                              .toList())!
-                                                      .toList()
-                                                      .cast<LatLng>();
-                                              FFAppState().polyMapTimeList =
-                                                  _model.locationByDateData
-                                                      .map((e) => e.times)
-                                                      .toList()
-                                                      .cast<String>();
-                                              safeSetState(() {});
+                                              if (Navigator.of(context)
+                                                  .canPop()) {
+                                                context.pop();
+                                              }
+                                              context.pushNamed(
+                                                'trackingEmpPage',
+                                                queryParameters: {
+                                                  'data': serializeParam(
+                                                    widget!.data,
+                                                    ParamType.DataStruct,
+                                                    isList: true,
+                                                  ),
+                                                  'selectedDate':
+                                                      serializeParam(
+                                                    widget!.selectedDate,
+                                                    ParamType.String,
+                                                  ),
+                                                  'index': serializeParam(
+                                                    functions.getIndexOfSomethingList(
+                                                        _model.locationDateData
+                                                            .map((e) => e.date)
+                                                            .toList(),
+                                                        functions.getDateFormat(
+                                                            list30DaysDateTimeListItemItem)),
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             child: Material(
                                               color: Colors.transparent,

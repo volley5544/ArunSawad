@@ -18,6 +18,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:http/http.dart' as http;
 import 'dart:ui' as ui; // Import for custom drawing
 import 'dart:typed_data'; // For ByteData
+import 'package:label_marker/label_marker.dart' as label;
 
 class PolylineExample extends StatefulWidget {
   const PolylineExample({
@@ -67,24 +68,31 @@ class _PolylineExampleState extends State<PolylineExample> {
           ? FFAppState().polyMapTimeList[i]
           : 'No time available'; // Provide fallback for times
 
-      _markers.add(
-        ggmap.Marker(
-          markerId: ggmap.MarkerId(i.toString()),
-          position: ggmap.LatLng(location.latitude, location.longitude),
-          infoWindow: ggmap.InfoWindow(
-            title: 'Location ${i + 1} ${time}',
-            snippet: 'tap to open Street View',
+      _markers.addLabelMarker(
+        label.LabelMarker(
+            label: '${i + 1}',
+            markerId: ggmap.MarkerId(i.toString()),
+            position: ggmap.LatLng(location.latitude, location.longitude),
+            backgroundColor: Colors.red,
+            textStyle: TextStyle(
+              fontSize: 60,
+              fontWeight: ui.FontWeight.w600,
+              color: Colors.white,
+              fontFamily: 'Noto Sans',
+            ),
+            infoWindow: ggmap.InfoWindow(
+              title: 'Location ${i + 1} ${time}',
+              snippet: 'tap to open Street View',
+              onTap: () {
+                _launchStreetView(location.latitude, location.longitude);
+              },
+            ),
             onTap: () {
-              _launchStreetView(location.latitude, location.longitude);
-            },
-          ),
-          onTap: () {
-            // Handle marker tap to show info window
-            setState(() {
-              _lastTappedMarkerId = i.toString();
-            });
-          },
-        ),
+              // Handle marker tap to show info window
+              setState(() {
+                _lastTappedMarkerId = i.toString();
+              });
+            }),
       );
     }
   }
