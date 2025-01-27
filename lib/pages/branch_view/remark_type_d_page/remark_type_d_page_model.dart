@@ -5,12 +5,14 @@ import '/backend/backend.dart';
 import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
@@ -30,6 +32,27 @@ import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
+  ///  Local state fields for this page.
+
+  List<String> remarkIDList = [];
+  void addToRemarkIDList(String item) => remarkIDList.add(item);
+  void removeFromRemarkIDList(String item) => remarkIDList.remove(item);
+  void removeAtIndexFromRemarkIDList(int index) => remarkIDList.removeAt(index);
+  void insertAtIndexInRemarkIDList(int index, String item) =>
+      remarkIDList.insert(index, item);
+  void updateRemarkIDListAtIndex(int index, Function(String) updateFn) =>
+      remarkIDList[index] = updateFn(remarkIDList[index]);
+
+  List<String> remarkNameList = [];
+  void addToRemarkNameList(String item) => remarkNameList.add(item);
+  void removeFromRemarkNameList(String item) => remarkNameList.remove(item);
+  void removeAtIndexFromRemarkNameList(int index) =>
+      remarkNameList.removeAt(index);
+  void insertAtIndexInRemarkNameList(int index, String item) =>
+      remarkNameList.insert(index, item);
+  void updateRemarkNameListAtIndex(int index, Function(String) updateFn) =>
+      remarkNameList[index] = updateFn(remarkNameList[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - a8] action in RemarkTypeDPage widget.
@@ -51,16 +74,19 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   TextEditingController? coordinateInputTextController;
   String? Function(BuildContext, String?)?
       coordinateInputTextControllerValidator;
-  // State field(s) for remarkInput widget.
-  FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputTextController;
-  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode;
   TextEditingController? idInputTextController;
   String? Function(BuildContext, String?)? idInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (getVloanContractAPI)] action in Button widget.
   ApiCallResponse? getVloanContract;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
+  // State field(s) for remarkInput widget.
+  FocusNode? remarkInputFocusNode;
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController6;
@@ -108,11 +134,11 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
     coordinateInputFocusNode?.dispose();
     coordinateInputTextController?.dispose();
 
-    remarkInputFocusNode?.dispose();
-    remarkInputTextController?.dispose();
-
     idInputFocusNode?.dispose();
     idInputTextController?.dispose();
+
+    remarkInputFocusNode?.dispose();
+    remarkInputTextController?.dispose();
 
     textFieldFocusNode3?.dispose();
     textController6?.dispose();
