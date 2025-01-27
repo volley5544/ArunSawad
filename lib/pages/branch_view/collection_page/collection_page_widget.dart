@@ -878,272 +878,313 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                 ),
                               ),
                             ),
-                            Container(
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.06,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: FaIcon(
-                                        FontAwesomeIcons.creditCard,
-                                        color: Colors.black,
-                                        size: 29.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 4,
-                                      child: Text(
-                                        'เลขที่อ้างอิง:',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    if (!FFAppState().isGetVloanContract)
-                                      Expanded(
-                                        flex: 5,
-                                        child: TextFormField(
-                                          controller:
-                                              _model.idInputTextController,
-                                          focusNode: _model.idInputFocusNode,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText: 'เลขบัตรประชาชนลูกค้า',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          textAlign: TextAlign.start,
-                                          validator: _model
-                                              .idInputTextControllerValidator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                    if (FFAppState().isGetVloanContract)
-                                      Expanded(
-                                        flex: 5,
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            _model.idInputTextController.text,
-                                            'id_input',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.05,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 0.0, 20.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    if (FFAppState().isGetVloanContract) {
-                                      safeSetState(() {
-                                        _model.idInputTextController?.clear();
-                                      });
-                                      FFAppState().vloanContNoListTemp = [];
-                                      FFAppState().vloanCustomerNameListTemp =
-                                          [];
-                                      FFAppState().update(() {});
-                                      FFAppState().vloanServerListTemp = [];
-                                      FFAppState().isGetVloanContract = false;
-                                      FFAppState().update(() {});
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    if (!functions.checkIdCardInput(
-                                        _model.idInputTextController.text)) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              title: Text('ระบบ'),
-                                              content: Text(
-                                                  'กรุณากรอกเลขบัตรประชาชนลูกค้า 13 หลัก'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.getVloanContract =
-                                        await GetVloanContractAPICall.call(
-                                      cuscod: _model.idInputTextController.text,
-                                    );
-
-                                    _shouldSetState = true;
-                                    if (GetVloanContractAPICall.result(
-                                          (_model.getVloanContract?.jsonBody ??
-                                              ''),
-                                        ) !=
-                                        'Success') {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              title: Text('ระบบ'),
-                                              content: Text('ไม่พบข้อมูลสัญญา'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    FFAppState().vloanContNoListTemp =
-                                        GetVloanContractAPICall.contNo(
-                                      (_model.getVloanContract?.jsonBody ?? ''),
-                                    )!
-                                            .toList()
-                                            .cast<String>();
-                                    FFAppState().vloanCustomerNameListTemp =
-                                        GetVloanContractAPICall.customerName(
-                                      (_model.getVloanContract?.jsonBody ?? ''),
-                                    )!
-                                            .toList()
-                                            .cast<String>();
-                                    FFAppState().update(() {});
-                                    FFAppState().vloanServerListTemp =
-                                        GetVloanContractAPICall.vloanServer(
-                                      (_model.getVloanContract?.jsonBody ?? ''),
-                                    )!
-                                            .toList()
-                                            .cast<String>();
-                                    FFAppState().isGetVloanContract = true;
-                                    FFAppState().update(() {});
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  text: functions.buttonTextVloanGetContract(
-                                      FFAppState().isGetVloanContract),
-                                  options: FFButtonOptions(
-                                    width: 130.0,
-                                    height: 40.0,
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.06,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: FaIcon(
+                                            FontAwesomeIcons.creditCard,
+                                            color: Colors.black,
+                                            size: 29.0,
+                                          ),
                                         ),
-                                    elevation: 2.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                        Expanded(
+                                          flex: 4,
+                                          child: Text(
+                                            'เลขที่อ้างอิง:',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 18.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                        if (!FFAppState().isGetVloanContract)
+                                          Expanded(
+                                            flex: 5,
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.idInputTextController,
+                                              focusNode:
+                                                  _model.idInputFocusNode,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                hintText:
+                                                    'เลขบัตรประชาชนลูกค้า',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                errorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                focusedErrorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              textAlign: TextAlign.start,
+                                              validator: _model
+                                                  .idInputTextControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        if (FFAppState().isGetVloanContract)
+                                          Expanded(
+                                            flex: 5,
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                _model
+                                                    .idInputTextController.text,
+                                                'id_input',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                      ],
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
-                              ),
+                                Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.05,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 0.0, 20.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        var _shouldSetState = false;
+                                        HapticFeedback.mediumImpact();
+                                        if (FFAppState().isGetVloanContract) {
+                                          safeSetState(() {
+                                            _model.idInputTextController
+                                                ?.clear();
+                                          });
+                                          FFAppState().vloanContNoListTemp = [];
+                                          FFAppState()
+                                              .vloanCustomerNameListTemp = [];
+                                          FFAppState().update(() {});
+                                          FFAppState().vloanServerListTemp = [];
+                                          FFAppState().isGetVloanContract =
+                                              false;
+                                          FFAppState().update(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        if (!functions.checkIdCardInput(_model
+                                            .idInputTextController.text)) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  title: Text('ระบบ'),
+                                                  content: Text(
+                                                      'กรุณากรอกเลขบัตรประชาชนลูกค้า 13 หลัก'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        _model.getVloanContract =
+                                            await GetVloanContractAPICall.call(
+                                          cuscod:
+                                              _model.idInputTextController.text,
+                                        );
+
+                                        _shouldSetState = true;
+                                        if (GetVloanContractAPICall.result(
+                                              (_model.getVloanContract
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) !=
+                                            'Success') {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  title: Text('ระบบ'),
+                                                  content:
+                                                      Text('ไม่พบข้อมูลสัญญา'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().vloanContNoListTemp =
+                                            GetVloanContractAPICall.contNo(
+                                          (_model.getVloanContract?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().vloanCustomerNameListTemp =
+                                            GetVloanContractAPICall
+                                                    .customerName(
+                                          (_model.getVloanContract?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().update(() {});
+                                        FFAppState().vloanServerListTemp =
+                                            GetVloanContractAPICall.vloanServer(
+                                          (_model.getVloanContract?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().isGetVloanContract = true;
+                                        FFAppState().update(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                      },
+                                      text:
+                                          functions.buttonTextVloanGetContract(
+                                              FFAppState().isGetVloanContract),
+                                      options: FFButtonOptions(
+                                        width: 130.0,
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                             Container(
                               width: double.infinity,

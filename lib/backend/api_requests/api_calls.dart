@@ -12000,6 +12000,7 @@ class GetTokenEmployeeCall {
 class APIUsersRegionCall {
   static Future<ApiCallResponse> call({
     String? branchCode = '',
+    String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -12007,7 +12008,7 @@ class APIUsersRegionCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'APIUsersRegion',
-      apiUrl: 'https://9f08-115-31-145-24.ngrok-free.app/api/users/region',
+      apiUrl: '${apiUrl}/api/users/region',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

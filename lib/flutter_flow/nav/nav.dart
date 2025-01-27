@@ -2420,6 +2420,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   structBuilder: EmpDataLocationStruct.fromSerializableMap,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'RemarkTypeDPage',
+              path: 'RemarkTypeDPage',
+              builder: (context, params) => RemarkTypeDPageWidget(
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

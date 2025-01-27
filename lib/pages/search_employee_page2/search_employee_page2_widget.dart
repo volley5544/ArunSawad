@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
@@ -39,7 +38,6 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
   late SearchEmployeePage2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -52,11 +50,6 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
         parameters: {'screen_name': 'SearchEmployeePage2'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      unawaited(
-        () async {}(),
-      );
       showDialog(
         context: context,
         builder: (dialogContext) {
@@ -90,6 +83,9 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
       ).then((s) => s.firstOrNull);
       _model.apiUserOutput = await APIUsersRegionCall.call(
         branchCode: FFAppState().branchCode,
+        apiUrl: true
+            ? _model.apiTrackingUrl?.urlLink
+            : 'https://9f08-115-31-145-24.ngrok-free.app',
       );
 
       FFAppState().EmpProfileLocationData = APIUsersRegionCall.data(
@@ -780,7 +776,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                             '${FFAppState().EmpProfileLocationSelected.employeeId}',
                                         dateTime: functions
                                             .getDateFormat(_model.datePicked),
-                                        apiUrl: false
+                                        apiUrl: true
                                             ? _model.apiTrackingUrl?.urlLink
                                             : 'https://9f08-115-31-145-24.ngrok-free.app',
                                       );

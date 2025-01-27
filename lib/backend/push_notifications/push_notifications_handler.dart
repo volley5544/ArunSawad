@@ -735,6 +735,14 @@ final parametersBuilderMap =
   'searchableemp': (data) async => ParameterData(
         allParams: {},
       ),
+  'RemarkTypeDPage': (data) async => ParameterData(
+        allParams: {
+          'recordId': getParameter<String>(data, 'recordId'),
+          'coordinate': getParameter<String>(data, 'coordinate'),
+          'remark': getParameter<String>(data, 'remark'),
+          'clockIn': getParameter<DateTime>(data, 'clockIn'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

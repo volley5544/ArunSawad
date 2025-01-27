@@ -257,3 +257,5 @@ export '/pages/search_employee_page/search_employee_page_widget.dart'
 export '/pages/search_employee_page2/search_employee_page2_widget.dart'
     show SearchEmployeePage2Widget;
 export '/searchableemp/searchableemp_widget.dart' show SearchableempWidget;
+export '/pages/branch_view/remark_type_d_page/remark_type_d_page_widget.dart'
+    show RemarkTypeDPageWidget;
