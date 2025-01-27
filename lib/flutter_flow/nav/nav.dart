@@ -2441,6 +2441,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'clockIn',
                   ParamType.DateTime,
                 ),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+                remarkTypeDName: params.getParam(
+                  'remarkTypeDName',
+                  ParamType.String,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

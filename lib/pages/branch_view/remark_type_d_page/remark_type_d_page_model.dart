@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
-import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -13,6 +12,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
@@ -53,14 +53,29 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   void updateRemarkNameListAtIndex(int index, Function(String) updateFn) =>
       remarkNameList[index] = updateFn(remarkNameList[index]);
 
+  List<FFUploadedFile> uploadedimageList = [];
+  void addToUploadedimageList(FFUploadedFile item) =>
+      uploadedimageList.add(item);
+  void removeFromUploadedimageList(FFUploadedFile item) =>
+      uploadedimageList.remove(item);
+  void removeAtIndexFromUploadedimageList(int index) =>
+      uploadedimageList.removeAt(index);
+  void insertAtIndexInUploadedimageList(int index, FFUploadedFile item) =>
+      uploadedimageList.insert(index, item);
+  void updateUploadedimageListAtIndex(
+          int index, Function(FFUploadedFile) updateFn) =>
+      uploadedimageList[index] = updateFn(uploadedimageList[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - a8] action in RemarkTypeDPage widget.
   bool? checkLatLngBVCheckIn;
   // Stores action output result for [Backend Call - Create Document] action in RemarkTypeDPage widget.
   UserLogRecord? createdUserLogBVCheckIn;
-  // Model for cameraButton component.
-  late CameraButtonModel cameraButtonModel;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -118,13 +133,10 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   FileUploadRecord? saveImgToFirebase;
 
   @override
-  void initState(BuildContext context) {
-    cameraButtonModel = createModel(context, () => CameraButtonModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    cameraButtonModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

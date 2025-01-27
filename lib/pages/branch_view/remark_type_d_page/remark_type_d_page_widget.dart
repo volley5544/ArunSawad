@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
-import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -13,6 +12,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
@@ -39,12 +39,16 @@ class RemarkTypeDPageWidget extends StatefulWidget {
     this.coordinate,
     this.remark,
     this.clockIn,
+    this.contNo,
+    this.remarkTypeDName,
   });
 
   final String? recordId;
   final String? coordinate;
   final String? remark;
   final DateTime? clockIn;
+  final String? contNo;
+  final String? remarkTypeDName;
 
   @override
   State<RemarkTypeDPageWidget> createState() => _RemarkTypeDPageWidgetState();
@@ -354,12 +358,115 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                   ),
             ),
             actions: [
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: wrapWithModel(
-                  model: _model.cameraButtonModel,
-                  updateCallback: () => safeSetState(() {}),
-                  child: CameraButtonWidget(),
+              Visibility(
+                visible: !FFAppState().isFromTimesheetPage,
+                child: FlutterFlowIconButton(
+                  borderRadius: 8.0,
+                  buttonSize: 80.0,
+                  icon: FaIcon(
+                    FontAwesomeIcons.camera,
+                    color: Colors.white,
+                    size: 40.0,
+                  ),
+                  onPressed: () async {
+                    HapticFeedback.mediumImpact();
+                    if (_model.uploadedimageList.length >= 10) {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return WebViewAware(
+                            child: AlertDialog(
+                              title: Text('ระบบ'),
+                              content: Text(
+                                  'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด10รูป)'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                      return;
+                    }
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      imageQuality: 30,
+                      allowPhoto: true,
+                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      textColor: Color(0xFFB71C1C),
+                      pickerFontFamily: 'Raleway',
+                    );
+                    if (selectedMedia != null &&
+                        selectedMedia.every((m) =>
+                            validateFileFormat(m.storagePath, context))) {
+                      safeSetState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                      try {
+                        showUploadMessage(
+                          context,
+                          'Uploading file...',
+                          showLoading: true,
+                        );
+                        selectedUploadedFiles = selectedMedia
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                  height: m.dimensions?.height,
+                                  width: m.dimensions?.width,
+                                  blurHash: m.blurHash,
+                                ))
+                            .toList();
+                      } finally {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                          selectedMedia.length) {
+                        safeSetState(() {
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
+                        });
+                        showUploadMessage(context, 'Success!');
+                      } else {
+                        safeSetState(() {});
+                        showUploadMessage(context, 'Failed to upload data');
+                        return;
+                      }
+                    }
+
+                    if (!(_model.uploadedLocalFile != null &&
+                        (_model.uploadedLocalFile.bytes?.isNotEmpty ??
+                            false))) {
+                      Navigator.pop(context);
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return WebViewAware(
+                            child: AlertDialog(
+                              content: Text(
+                                  'ไม่สามารถอัพโหลดรูปได้ กรุณาลองอีกครั้ง'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                      return;
+                    }
+                    _model.addToUploadedimageList(_model.uploadedLocalFile);
+                    safeSetState(() {});
+                  },
                 ),
               ),
             ],
@@ -564,20 +671,21 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                   ),
                                   child: Builder(
                                     builder: (context) {
-                                      final uploadedImg = FFAppState()
-                                          .imgURL
+                                      final uploadedImgListItem = _model
+                                          .uploadedimageList
                                           .toList()
-                                          .take(5)
+                                          .take(10)
                                           .toList();
 
                                       return ListView.builder(
                                         padding: EdgeInsets.zero,
                                         scrollDirection: Axis.horizontal,
-                                        itemCount: uploadedImg.length,
-                                        itemBuilder:
-                                            (context, uploadedImgIndex) {
-                                          final uploadedImgItem =
-                                              uploadedImg[uploadedImgIndex];
+                                        itemCount: uploadedImgListItem.length,
+                                        itemBuilder: (context,
+                                            uploadedImgListItemIndex) {
+                                          final uploadedImgListItemItem =
+                                              uploadedImgListItem[
+                                                  uploadedImgListItemIndex];
                                           return Container(
                                             width: 150.0,
                                             height: 150.0,
@@ -610,16 +718,20 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                   .fade,
                                                           child:
                                                               FlutterFlowExpandedImageView(
-                                                            image:
-                                                                Image.network(
-                                                              uploadedImgItem,
+                                                            image: Image.memory(
+                                                              _model.uploadedimageList
+                                                                      .elementAtOrNull(
+                                                                          uploadedImgListItemIndex)
+                                                                      ?.bytes ??
+                                                                  Uint8List
+                                                                      .fromList(
+                                                                          []),
                                                               fit: BoxFit
                                                                   .contain,
                                                             ),
                                                             allowRotation:
                                                                 false,
-                                                            tag:
-                                                                uploadedImgItem,
+                                                            tag: 'imageTag1',
                                                             useHeroAnimation:
                                                                 true,
                                                           ),
@@ -627,11 +739,16 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       );
                                                     },
                                                     child: Hero(
-                                                      tag: uploadedImgItem,
+                                                      tag: 'imageTag1',
                                                       transitionOnUserGestures:
                                                           true,
-                                                      child: Image.network(
-                                                        uploadedImgItem,
+                                                      child: Image.memory(
+                                                        _model.uploadedimageList
+                                                                .elementAtOrNull(
+                                                                    uploadedImgListItemIndex)
+                                                                ?.bytes ??
+                                                            Uint8List.fromList(
+                                                                []),
                                                         width: 150.0,
                                                         height: 150.0,
                                                         fit: BoxFit.cover,
@@ -683,10 +800,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                     if (!confirmDialogResponse) {
                                                       return;
                                                     }
-                                                    FFAppState()
-                                                        .removeFromImgURL(
-                                                            uploadedImgItem);
-                                                    FFAppState().update(() {});
+                                                    _model.removeAtIndexFromUploadedimageList(
+                                                        uploadedImgListItemIndex);
+                                                    safeSetState(() {});
                                                   },
                                                 ),
                                               ],
@@ -1194,10 +1310,11 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           if (_shouldSetState)
                                             safeSetState(() {});
                                         },
-                                        text: functions
-                                            .buttonTextVloanGetContract(
-                                                FFAppState()
-                                                    .isGetVloanContract),
+                                        text: valueOrDefault<String>(
+                                          functions.buttonTextVloanGetContract(
+                                              FFAppState().isGetVloanContract),
+                                          'ค้นหา',
+                                        ),
                                         options: FFButtonOptions(
                                           width: 130.0,
                                           height: 40.0,
@@ -1230,101 +1347,103 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                   ),
                                 ],
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          flex: 1,
-                                          child: FaIcon(
-                                            FontAwesomeIcons.edit,
-                                            color: Colors.black,
-                                            size: 29.0,
+                              if (FFAppState().isGetVloanContract)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 0.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.format_list_bulleted,
+                                              color: Colors.black,
+                                              size: 29.0,
+                                            ),
                                           ),
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Text(
-                                            'Remark กลุ่ม D',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 5,
-                                          child: Container(
-                                            decoration: BoxDecoration(),
-                                            child: FlutterFlowDropDown<String>(
-                                              controller: _model
-                                                      .dropDownValueController ??=
-                                                  FormFieldController<String>(
-                                                      null),
-                                              options: [
-                                                'Option 1',
-                                                'Option 2',
-                                                'Option 3'
-                                              ],
-                                              onChanged: (val) => safeSetState(
-                                                  () => _model.dropDownValue =
-                                                      val),
-                                              width: 200.0,
-                                              height: 40.0,
-                                              textStyle:
+                                          Expanded(
+                                            flex: 4,
+                                            child: Text(
+                                              'รีมาร์ค กลุ่ม D',
+                                              style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              hintText: 'Select...',
-                                              icon: Icon(
-                                                Icons
-                                                    .keyboard_arrow_down_rounded,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                size: 24.0,
-                                              ),
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 2.0,
-                                              borderColor: Colors.transparent,
-                                              borderWidth: 0.0,
-                                              borderRadius: 8.0,
-                                              margin: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 12.0, 0.0),
-                                              hidesUnderline: true,
-                                              isOverButton: false,
-                                              isSearchable: false,
-                                              isMultiSelect: false,
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          Expanded(
+                                            flex: 5,
+                                            child: Container(
+                                              decoration: BoxDecoration(),
+                                              child:
+                                                  FlutterFlowDropDown<String>(
+                                                controller: _model
+                                                        .dropDownValueController ??=
+                                                    FormFieldController<String>(
+                                                  _model.dropDownValue ??= '',
+                                                ),
+                                                options: List<String>.from(
+                                                    _model.remarkIDList),
+                                                optionLabels:
+                                                    _model.remarkNameList,
+                                                onChanged: (val) =>
+                                                    safeSetState(() => _model
+                                                        .dropDownValue = val),
+                                                width: 200.0,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText: 'รีมาร์ค กลุ่ม D',
+                                                icon: Icon(
+                                                  Icons
+                                                      .keyboard_arrow_down_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 24.0,
+                                                ),
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                elevation: 2.0,
+                                                borderColor: Colors.transparent,
+                                                borderWidth: 0.0,
+                                                borderRadius: 8.0,
+                                                margin: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 12.0, 0.0),
+                                                hidesUnderline: true,
+                                                isOverButton: false,
+                                                isSearchable: false,
+                                                isMultiSelect: false,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
                               Container(
                                 width: double.infinity,
                                 height:
@@ -1657,6 +1776,126 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                   ),
                                 ),
                               ),
+                              Container(
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.06,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: FaIcon(
+                                          FontAwesomeIcons.creditCard,
+                                          color: Colors.black,
+                                          size: 29.0,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 4,
+                                        child: Text(
+                                          'เลขที่สัญญา:',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          valueOrDefault<String>(
+                                            widget!.contNo,
+                                            'cont_no',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              if (FFAppState().isGetVloanContract)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 0.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.format_list_bulleted,
+                                              color: Colors.black,
+                                              size: 29.0,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 4,
+                                            child: Text(
+                                              'รีมาร์ค กลุ่ม D',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 5,
+                                            child: Container(
+                                              decoration: BoxDecoration(),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  widget!.remarkTypeDName,
+                                                  'remark_type_d_name',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               Container(
                                 width: double.infinity,
                                 height:
@@ -2162,79 +2401,109 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                               ),
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 0.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  currentUserLocationValue =
-                                      await getCurrentUserLocation(
-                                          defaultLocation: LatLng(0.0, 0.0));
-                                  var _shouldSetState = false;
-                                  HapticFeedback.mediumImpact();
-                                  if (FFAppState().isFromTimesheetPage) {
-                                    if (_model.remarkTimesheetTextController
-                                                .text !=
-                                            null &&
-                                        _model.remarkTimesheetTextController
-                                                .text !=
-                                            '') {
-                                      _model.updateCheckin =
-                                          await TimesheetDetailAPICall.call(
-                                        pageName: 'check-in',
-                                        token: FFAppState().accessToken,
-                                        apiUrl: FFAppState().apiURLLocalState,
-                                        recordId: widget!.recordId,
-                                        editCheck: 'Y',
-                                        remark: _model
-                                            .remarkTimesheetTextController.text,
-                                      );
-
-                                      _shouldSetState = true;
-                                      if ((_model.updateCheckin?.statusCode ??
-                                              200) !=
-                                          200) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.updateCheckin?.statusCode ?? 200).toString()})'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
+                          if (!FFAppState().isFromTimesheetPage)
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    currentUserLocationValue =
+                                        await getCurrentUserLocation(
+                                            defaultLocation: LatLng(0.0, 0.0));
+                                    var _shouldSetState = false;
+                                    HapticFeedback.mediumImpact();
+                                    if (FFAppState().isFromTimesheetPage) {
+                                      if (_model.remarkTimesheetTextController
+                                                  .text !=
+                                              null &&
+                                          _model.remarkTimesheetTextController
+                                                  .text !=
+                                              '') {
+                                        _model.updateCheckin =
+                                            await TimesheetDetailAPICall.call(
+                                          pageName: 'check-in',
+                                          token: FFAppState().accessToken,
+                                          apiUrl: FFAppState().apiURLLocalState,
+                                          recordId: widget!.recordId,
+                                          editCheck: 'Y',
+                                          remark: _model
+                                              .remarkTimesheetTextController
+                                              .text,
                                         );
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-                                      if (TimesheetDetailAPICall.status(
-                                            (_model.updateCheckin?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          200) {
+
+                                        _shouldSetState = true;
+                                        if ((_model.updateCheckin?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.updateCheckin?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        if (TimesheetDetailAPICall.status(
+                                              (_model.updateCheckin?.jsonBody ??
+                                                  ''),
+                                            ) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${TimesheetDetailAPICall.status(
+                                                    (_model.updateCheckin
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )?.toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
                                                 content: Text(
-                                                    'พบข้อผิดพลาด (${TimesheetDetailAPICall.status(
+                                                    TimesheetDetailAPICall
+                                                        .statusDescription(
                                                   (_model.updateCheckin
                                                           ?.jsonBody ??
                                                       ''),
-                                                )?.toString()})'),
+                                                ).toString()),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -2247,22 +2516,103 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             );
                                           },
                                         );
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'กรุณากรอกหมายเหตุที่จะแก้ไข',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 3000),
+                                            backgroundColor: Color(0xB2000000),
+                                          ),
+                                        );
                                         if (_shouldSetState)
                                           safeSetState(() {});
                                         return;
                                       }
+
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if (!(_model.remarkInputTextController
+                                                .text !=
+                                            null &&
+                                        _model.remarkInputTextController.text !=
+                                            '')) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'กรุณากรอก หมายเหตุ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBtnText,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 3000),
+                                          backgroundColor: Color(0xB3090F13),
+                                        ),
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    var confirmDialogResponse =
+                                        await showDialog<bool>(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                false),
+                                                        child: Text('ยกเลิก'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                true),
+                                                        child: Text('บันทึก'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            ) ??
+                                            false;
+                                    if (!confirmDialogResponse) {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    _model.checkGPSBeforeSave =
+                                        await actions.a8(
+                                      currentUserLocationValue,
+                                    );
+                                    _shouldSetState = true;
+                                    if (!_model.checkGPSBeforeSave!) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
                                               content: Text(
-                                                  TimesheetDetailAPICall
-                                                      .statusDescription(
-                                                (_model.updateCheckin
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()),
+                                                  'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -2275,265 +2625,164 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           );
                                         },
                                       );
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'กรุณากรอกหมายเหตุที่จะแก้ไข',
-                                            style: TextStyle(
-                                              color: Colors.white,
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      barrierColor: Color(0x00000000),
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height: double.infinity,
+                                                child: LoadingSceneWidget(),
+                                              ),
                                             ),
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 3000),
-                                          backgroundColor: Color(0xB2000000),
-                                        ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+
+                                    _model.checkInAPISubmit =
+                                        await CheckInAPICall.call(
+                                      location: valueOrDefault<String>(
+                                        functions.getUserLocation(
+                                            currentUserLocationValue),
+                                        'Latitude,Longitude',
+                                      ),
+                                      remark:
+                                          _model.remarkInputTextController.text,
+                                      uid: FFAppState().imei,
+                                      jobType: 'Check In',
+                                      description: 'เช็คอิน',
+                                      username: FFAppState().employeeID,
+                                      token: FFAppState().accessToken,
+                                      apiUrl: FFAppState().apiURLLocalState,
+                                    );
+
+                                    _shouldSetState = true;
+                                    if (CheckInAPICall.mainStatus(
+                                          (_model.checkInAPISubmit?.jsonBody ??
+                                              ''),
+                                        ) ==
+                                        200) {
+                                      if (FFAppState().imgURL.length != 0) {
+                                        var fileUploadRecordReference =
+                                            FileUploadRecord.collection.doc();
+                                        await fileUploadRecordReference.set({
+                                          ...createFileUploadRecordData(
+                                            recordId: CheckInAPICall.recordID(
+                                              (_model.checkInAPISubmit
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ),
+                                            picDatetime: getCurrentTimestamp,
+                                            picCoordinate:
+                                                functions.getUserLocation(
+                                                    currentUserLocationValue),
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'img_url': FFAppState().imgURL,
+                                            },
+                                          ),
+                                        });
+                                        _model.saveImgToFirebase =
+                                            FileUploadRecord
+                                                .getDocumentFromData({
+                                          ...createFileUploadRecordData(
+                                            recordId: CheckInAPICall.recordID(
+                                              (_model.checkInAPISubmit
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ),
+                                            picDatetime: getCurrentTimestamp,
+                                            picCoordinate:
+                                                functions.getUserLocation(
+                                                    currentUserLocationValue),
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'img_url': FFAppState().imgURL,
+                                            },
+                                          ),
+                                        }, fileUploadRecordReference);
+                                        _shouldSetState = true;
+                                        FFAppState().imgURL = [];
+                                        FFAppState().imgURLTemp =
+                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';
+                                        FFAppState().update(() {});
+                                      }
+                                    } else {
+                                      Navigator.pop(context);
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาด (${CheckInAPICall.status(
+                                                (_model.checkInAPISubmit
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )}) กรุณาลองใหม่ภายหลัง'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
                                       );
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  if (!(_model.remarkInputTextController.text !=
-                                          null &&
-                                      _model.remarkInputTextController.text !=
-                                          '')) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'กรุณากรอก หมายเหตุ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBtnText,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                        duration: Duration(milliseconds: 3000),
-                                        backgroundColor: Color(0xB3090F13),
-                                      ),
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  var confirmDialogResponse =
-                                      await showDialog<bool>(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext,
-                                                              false),
-                                                      child: Text('ยกเลิก'),
-                                                    ),
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext,
-                                                              true),
-                                                      child: Text('บันทึก'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          ) ??
-                                          false;
-                                  if (!confirmDialogResponse) {
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  _model.checkGPSBeforeSave = await actions.a8(
-                                    currentUserLocationValue,
-                                  );
-                                  _shouldSetState = true;
-                                  if (!_model.checkGPSBeforeSave!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    barrierColor: Color(0x00000000),
-                                    context: context,
-                                    builder: (context) {
-                                      return WebViewAware(
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(context).unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: double.infinity,
-                                              child: LoadingSceneWidget(),
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
+                                    context.goNamed('SuccessPage');
 
-                                  _model.checkInAPISubmit =
-                                      await CheckInAPICall.call(
-                                    location: valueOrDefault<String>(
-                                      functions.getUserLocation(
-                                          currentUserLocationValue),
-                                      'Latitude,Longitude',
+                                    if (_shouldSetState) safeSetState(() {});
+                                  },
+                                  text: 'บันทึก',
+                                  options: FFButtonOptions(
+                                    width: 130.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF24D200),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 2.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
                                     ),
-                                    remark:
-                                        _model.remarkInputTextController.text,
-                                    uid: FFAppState().imei,
-                                    jobType: 'Check In',
-                                    description: 'เช็คอิน',
-                                    username: FFAppState().employeeID,
-                                    token: FFAppState().accessToken,
-                                    apiUrl: FFAppState().apiURLLocalState,
-                                  );
-
-                                  _shouldSetState = true;
-                                  if (CheckInAPICall.mainStatus(
-                                        (_model.checkInAPISubmit?.jsonBody ??
-                                            ''),
-                                      ) ==
-                                      200) {
-                                    if (FFAppState().imgURL.length != 0) {
-                                      var fileUploadRecordReference =
-                                          FileUploadRecord.collection.doc();
-                                      await fileUploadRecordReference.set({
-                                        ...createFileUploadRecordData(
-                                          recordId: CheckInAPICall.recordID(
-                                            (_model.checkInAPISubmit
-                                                    ?.jsonBody ??
-                                                ''),
-                                          ),
-                                          picDatetime: getCurrentTimestamp,
-                                          picCoordinate:
-                                              functions.getUserLocation(
-                                                  currentUserLocationValue),
-                                        ),
-                                        ...mapToFirestore(
-                                          {
-                                            'img_url': FFAppState().imgURL,
-                                          },
-                                        ),
-                                      });
-                                      _model.saveImgToFirebase =
-                                          FileUploadRecord.getDocumentFromData({
-                                        ...createFileUploadRecordData(
-                                          recordId: CheckInAPICall.recordID(
-                                            (_model.checkInAPISubmit
-                                                    ?.jsonBody ??
-                                                ''),
-                                          ),
-                                          picDatetime: getCurrentTimestamp,
-                                          picCoordinate:
-                                              functions.getUserLocation(
-                                                  currentUserLocationValue),
-                                        ),
-                                        ...mapToFirestore(
-                                          {
-                                            'img_url': FFAppState().imgURL,
-                                          },
-                                        ),
-                                      }, fileUploadRecordReference);
-                                      _shouldSetState = true;
-                                      FFAppState().imgURL = [];
-                                      FFAppState().imgURLTemp =
-                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';
-                                      FFAppState().update(() {});
-                                    }
-                                  } else {
-                                    Navigator.pop(context);
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาด (${CheckInAPICall.status(
-                                              (_model.checkInAPISubmit
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}) กรุณาลองใหม่ภายหลัง'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-
-                                  context.goNamed('SuccessPage');
-
-                                  if (_shouldSetState) safeSetState(() {});
-                                },
-                                text: 'บันทึก',
-                                options: FFButtonOptions(
-                                  width: 130.0,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF24D200),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  elevation: 2.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                     ),
