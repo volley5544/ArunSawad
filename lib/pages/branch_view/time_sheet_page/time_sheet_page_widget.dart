@@ -790,6 +790,93 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                           safeSetState(() {});
                                         return;
                                       }
+                                      if (functions.showJobType(getJsonField(
+                                            timesheetDataListItem,
+                                            r'''$.Job_Type''',
+                                          ).toString()) ==
+                                          'รีมาร์คสถานะคดี') {
+                                        _model.typeDTimesheetDetail =
+                                            await TimesheetDetailAPICall.call(
+                                          token: FFAppState().accessToken,
+                                          apiUrl: FFAppState().apiURLLocalState,
+                                          pageName: 'check-in',
+                                          recordId: getJsonField(
+                                            timesheetDataListItem,
+                                            r'''$.RecordId''',
+                                          ).toString(),
+                                        );
+
+                                        _shouldSetState = true;
+
+                                        context.pushNamed(
+                                          'RemarkTypeDPage',
+                                          queryParameters: {
+                                            'recordId': serializeParam(
+                                              TimesheetDetailAPICall.recordID(
+                                                (_model.typeDTimesheetDetail
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'coordinate': serializeParam(
+                                              functions.showLocationTimesheet(
+                                                  getJsonField(
+                                                    timesheetDataListItem,
+                                                    r'''$.Latitude''',
+                                                  ),
+                                                  getJsonField(
+                                                    timesheetDataListItem,
+                                                    r'''$.Longitude''',
+                                                  ),
+                                                  true),
+                                              ParamType.String,
+                                            ),
+                                            'remark': serializeParam(
+                                              TimesheetDetailAPICall.remark(
+                                                (_model.typeDTimesheetDetail
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'clockIn': serializeParam(
+                                              functions
+                                                  .showClockIn(getJsonField(
+                                                timesheetDataListItem,
+                                                r'''$.ClockIn''',
+                                              ).toString()),
+                                              ParamType.DateTime,
+                                            ),
+                                            'contNo': serializeParam(
+                                              TimesheetDetailAPICall.contNo(
+                                                (_model.typeDTimesheetDetail
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'remarkTypeDName': serializeParam(
+                                              '',
+                                              ParamType.String,
+                                            ),
+                                            'cusName': serializeParam(
+                                              TimesheetDetailAPICall
+                                                  .customerName(
+                                                (_model.typeDTimesheetDetail
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+
+                                        Navigator.pop(context);
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
                                       Navigator.pop(context);
                                       await showDialog(
                                         context: context,

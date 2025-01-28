@@ -93,7 +93,7 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   FocusNode? idInputFocusNode;
   TextEditingController? idInputTextController;
   String? Function(BuildContext, String?)? idInputTextControllerValidator;
-  // Stores action output result for [Backend Call - API (getVloanContractAPI)] action in Button widget.
+  // Stores action output result for [Backend Call - API (ApiVloanCheckContractTypeD)] action in Button widget.
   ApiCallResponse? getVloanContract;
   // State field(s) for DropDown widget.
   String? dropDownValue;
@@ -119,10 +119,6 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController9;
-  String? Function(BuildContext, String?)? textController9Validator;
   // Stores action output result for [Backend Call - API (TimesheetDetailAPI)] action in Button widget.
   ApiCallResponse? updateCheckin;
   // Stores action output result for [Custom Action - a8] action in Button widget.
@@ -160,8 +156,5 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
 
     remarkTimesheetFocusNode?.dispose();
     remarkTimesheetTextController?.dispose();
-
-    textFieldFocusNode4?.dispose();
-    textController9?.dispose();
   }
 }

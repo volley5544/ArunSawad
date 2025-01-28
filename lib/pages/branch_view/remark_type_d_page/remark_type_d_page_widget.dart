@@ -41,6 +41,7 @@ class RemarkTypeDPageWidget extends StatefulWidget {
     this.clockIn,
     this.contNo,
     this.remarkTypeDName,
+    this.cusName,
   });
 
   final String? recordId;
@@ -49,6 +50,7 @@ class RemarkTypeDPageWidget extends StatefulWidget {
   final DateTime? clockIn;
   final String? contNo;
   final String? remarkTypeDName;
+  final String? cusName;
 
   @override
   State<RemarkTypeDPageWidget> createState() => _RemarkTypeDPageWidgetState();
@@ -187,9 +189,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         TextEditingController(text: widget!.remark);
     _model.remarkTimesheetFocusNode ??= FocusNode();
 
-    _model.textController9 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
-
     animationsMap.addAll({
       'wrapOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -283,7 +282,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'รีมาร์คสถานะคดี';
           _model.textController6?.text = 'รีมาร์คสถานะคดี';
-          _model.textController9?.text = 'รูปภาพ';
         }));
   }
 
@@ -731,7 +729,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                             ),
                                                             allowRotation:
                                                                 false,
-                                                            tag: 'imageTag1',
+                                                            tag: 'imageTag',
                                                             useHeroAnimation:
                                                                 true,
                                                           ),
@@ -739,7 +737,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       );
                                                     },
                                                     child: Hero(
-                                                      tag: 'imageTag1',
+                                                      tag: 'imageTag',
                                                       transitionOnUserGestures:
                                                           true,
                                                       child: Image.memory(
@@ -1197,6 +1195,12 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             safeSetState(() {
                                               _model.idInputTextController
                                                   ?.clear();
+                                              _model.remarkInputTextController
+                                                  ?.clear();
+                                            });
+                                            safeSetState(() {
+                                              _model.dropDownValueController
+                                                  ?.reset();
                                             });
                                             FFAppState().vloanContNoListTemp =
                                                 [];
@@ -1239,25 +1243,53 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             return;
                                           }
                                           _model.getVloanContract =
-                                              await GetVloanContractAPICall
+                                              await ApiVloanCheckContractTypeDCall
                                                   .call(
-                                            cuscod: _model
+                                            contractNo: _model
                                                 .idInputTextController.text,
                                           );
 
                                           _shouldSetState = true;
-                                          if (GetVloanContractAPICall.result(
-                                                (_model.getVloanContract
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              'Success') {
+                                          if ((_model.getVloanContract
+                                                      ?.statusCode ??
+                                                  200) !=
+                                              200) {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
                                                   child: AlertDialog(
                                                     title: Text('ระบบ'),
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด connection (${(_model.getVloanContract?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if ('${getJsonField(
+                                                (_model.getVloanContract
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.code''',
+                                              ).toString()}' !=
+                                              '200') {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
                                                     content: Text(
                                                         'ไม่พบข้อมูลสัญญา'),
                                                     actions: [
@@ -1276,34 +1308,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               safeSetState(() {});
                                             return;
                                           }
-                                          FFAppState().vloanContNoListTemp =
-                                              GetVloanContractAPICall.contNo(
-                                            (_model.getVloanContract
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState()
-                                                  .vloanCustomerNameListTemp =
-                                              GetVloanContractAPICall
-                                                      .customerName(
-                                            (_model.getVloanContract
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState().update(() {});
-                                          FFAppState().vloanServerListTemp =
-                                              GetVloanContractAPICall
-                                                      .vloanServer(
-                                            (_model.getVloanContract
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )!
-                                                  .toList()
-                                                  .cast<String>();
                                           FFAppState().isGetVloanContract =
                                               true;
                                           FFAppState().update(() {});
@@ -1348,226 +1352,316 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                 ],
                               ),
                               if (FFAppState().isGetVloanContract)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                    child: Padding(
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: Icon(
-                                              Icons.format_list_bulleted,
-                                              color: Colors.black,
-                                              size: 29.0,
-                                            ),
-                                          ),
-                                          Expanded(
-                                            flex: 4,
-                                            child: Text(
-                                              'รีมาร์ค กลุ่ม D',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                          0.0, 8.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.06,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                flex: 1,
+                                                child: Icon(
+                                                  Icons.person,
+                                                  color: Colors.black,
+                                                  size: 29.0,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 4,
+                                                child: Text(
+                                                  'ชื่อลูกค้า',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            flex: 5,
-                                            child: Container(
-                                              decoration: BoxDecoration(),
-                                              child:
-                                                  FlutterFlowDropDown<String>(
-                                                controller: _model
-                                                        .dropDownValueController ??=
-                                                    FormFieldController<String>(
-                                                  _model.dropDownValue ??= '',
                                                 ),
-                                                options: List<String>.from(
-                                                    _model.remarkIDList),
-                                                optionLabels:
-                                                    _model.remarkNameList,
-                                                onChanged: (val) =>
-                                                    safeSetState(() => _model
-                                                        .dropDownValue = val),
-                                                width: 200.0,
-                                                textStyle:
+                                              ),
+                                              Expanded(
+                                                flex: 5,
+                                                child: Container(
+                                                  decoration: BoxDecoration(),
+                                                  child: Text(
+                                                    '${ApiVloanCheckContractTypeDCall.firstname(
+                                                      (_model.getVloanContract
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )} ${ApiVloanCheckContractTypeDCall.lastname(
+                                                      (_model.getVloanContract
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: Icon(
+                                                Icons.format_list_bulleted,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 4,
+                                              child: Text(
+                                                'รีมาร์ค กลุ่ม D',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 5,
+                                              child: Container(
+                                                decoration: BoxDecoration(),
+                                                child:
+                                                    FlutterFlowDropDown<String>(
+                                                  controller: _model
+                                                          .dropDownValueController ??=
+                                                      FormFieldController<
+                                                          String>(
+                                                    _model.dropDownValue ??= '',
+                                                  ),
+                                                  options: List<String>.from(
+                                                      _model.remarkIDList),
+                                                  optionLabels:
+                                                      _model.remarkNameList,
+                                                  onChanged: (val) =>
+                                                      safeSetState(() => _model
+                                                          .dropDownValue = val),
+                                                  width: 200.0,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  hintText: 'รีมาร์ค กลุ่ม D',
+                                                  icon: Icon(
+                                                    Icons
+                                                        .keyboard_arrow_down_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  elevation: 2.0,
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderWidth: 0.0,
+                                                  borderRadius: 8.0,
+                                                  margin: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 12.0, 0.0),
+                                                  hidesUnderline: true,
+                                                  isOverButton: false,
+                                                  isSearchable: false,
+                                                  isMultiSelect: false,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.06,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: FaIcon(
+                                                FontAwesomeIcons.edit,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 4,
+                                              child: Text(
+                                                'หมายเหตุ:',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 5,
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .remarkInputTextController,
+                                                focusNode:
+                                                    _model.remarkInputFocusNode,
+                                                autofocus: false,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  hintText: 'หมายเหตุ',
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  errorBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                                style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                hintText: 'รีมาร์ค กลุ่ม D',
-                                                icon: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 24.0,
-                                                ),
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                elevation: 2.0,
-                                                borderColor: Colors.transparent,
-                                                borderWidth: 0.0,
-                                                borderRadius: 8.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 12.0, 0.0),
-                                                hidesUnderline: true,
-                                                isOverButton: false,
-                                                isSearchable: false,
-                                                isMultiSelect: false,
+                                                textAlign: TextAlign.start,
+                                                validator: _model
+                                                    .remarkInputTextControllerValidator
+                                                    .asValidator(context),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              Container(
-                                width: double.infinity,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.06,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        flex: 1,
-                                        child: FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: Colors.black,
-                                          size: 29.0,
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 4,
-                                        child: Text(
-                                          'หมายเหตุ:',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 18.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 5,
-                                        child: TextFormField(
-                                          controller:
-                                              _model.remarkInputTextController,
-                                          focusNode:
-                                              _model.remarkInputFocusNode,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintText: 'หมายเหตุ',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(4.0),
-                                                topRight: Radius.circular(4.0),
-                                              ),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          textAlign: TextAlign.start,
-                                          validator: _model
-                                              .remarkInputTextControllerValidator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                             ],
                           ).animateOnPageLoad(
                               animationsMap['wrapOnPageLoadAnimation1']!),
@@ -1832,6 +1926,67 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                   ),
                                 ),
                               ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.06,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(
+                                            Icons.person,
+                                            color: Colors.black,
+                                            size: 29.0,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 4,
+                                          child: Text(
+                                            'ชื่อลูกค้า',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 18.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 5,
+                                          child: Container(
+                                            decoration: BoxDecoration(),
+                                            child: Text(
+                                              '${widget!.cusName}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                               if (FFAppState().isGetVloanContract)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -2072,240 +2227,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                               }),
                             ).animateOnPageLoad(animationsMap[
                                 'containerOnPageLoadAnimation1']!),
-                          ),
-                        if (FFAppState().isFromTimesheetPage == true)
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
-                            child: Wrap(
-                              spacing: 0.0,
-                              runSpacing: 0.0,
-                              alignment: WrapAlignment.start,
-                              crossAxisAlignment: WrapCrossAlignment.start,
-                              direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.07,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: TextFormField(
-                                    controller: _model.textController9,
-                                    focusNode: _model.textFieldFocusNode4,
-                                    autofocus: true,
-                                    readOnly: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: '[Some hint text...]',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      filled: true,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .override(
-                                          fontFamily: 'Noto Serif',
-                                          color: FlutterFlowTheme.of(context)
-                                              .black600,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    validator: _model.textController9Validator
-                                        .asValidator(context),
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 150.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: FutureBuilder<List<FileUploadRecord>>(
-                                    future: queryFileUploadRecordOnce(
-                                      queryBuilder: (fileUploadRecord) =>
-                                          fileUploadRecord.where(
-                                        'RecordId',
-                                        isEqualTo: widget!.recordId != ''
-                                            ? widget!.recordId
-                                            : null,
-                                      ),
-                                      singleRecord: true,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<FileUploadRecord>
-                                          listViewFileUploadRecordList =
-                                          snapshot.data!;
-                                      // Return an empty Container when the item does not exist.
-                                      if (snapshot.data!.isEmpty) {
-                                        return Container();
-                                      }
-                                      final listViewFileUploadRecord =
-                                          listViewFileUploadRecordList
-                                                  .isNotEmpty
-                                              ? listViewFileUploadRecordList
-                                                  .first
-                                              : null;
-
-                                      return Builder(
-                                        builder: (context) {
-                                          final imgFromFirestore =
-                                              listViewFileUploadRecord?.imgUrl
-                                                      ?.toList() ??
-                                                  [];
-
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount: imgFromFirestore.length,
-                                            itemBuilder: (context,
-                                                imgFromFirestoreIndex) {
-                                              final imgFromFirestoreItem =
-                                                  imgFromFirestore[
-                                                      imgFromFirestoreIndex];
-                                              return Container(
-                                                width: 150.0,
-                                                height: 150.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Stack(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await Navigator.push(
-                                                            context,
-                                                            PageTransition(
-                                                              type:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              child:
-                                                                  FlutterFlowExpandedImageView(
-                                                                image: Image
-                                                                    .network(
-                                                                  imgFromFirestoreItem,
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                                allowRotation:
-                                                                    false,
-                                                                tag:
-                                                                    imgFromFirestoreItem,
-                                                                useHeroAnimation:
-                                                                    true,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                        child: Hero(
-                                                          tag:
-                                                              imgFromFirestoreItem,
-                                                          transitionOnUserGestures:
-                                                              true,
-                                                          child: Image.network(
-                                                            imgFromFirestoreItem,
-                                                            width: 150.0,
-                                                            height: 150.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
                       ],
                     ),

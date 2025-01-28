@@ -42,6 +42,8 @@ class TimeSheetPageModel extends FlutterFlowModel<TimeSheetPageWidget> {
   ApiCallResponse? surveyNPATimesheetDetail;
   // Stores action output result for [Backend Call - API (TimesheetDetailAPI)] action in Container widget.
   ApiCallResponse? checkerTimesheetDetail;
+  // Stores action output result for [Backend Call - API (TimesheetDetailAPI)] action in Container widget.
+  ApiCallResponse? typeDTimesheetDetail;
 
   @override
   void initState(BuildContext context) {}

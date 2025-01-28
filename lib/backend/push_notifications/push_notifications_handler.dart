@@ -743,6 +743,7 @@ final parametersBuilderMap =
           'clockIn': getParameter<DateTime>(data, 'clockIn'),
           'contNo': getParameter<String>(data, 'contNo'),
           'remarkTypeDName': getParameter<String>(data, 'remarkTypeDName'),
+          'cusName': getParameter<String>(data, 'cusName'),
         },
       ),
 };

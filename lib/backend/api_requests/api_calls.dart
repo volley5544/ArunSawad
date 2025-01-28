@@ -2943,6 +2943,87 @@ class CollectionAPICall {
       ));
 }
 
+class CollectionAPICopyCall {
+  static Future<ApiCallResponse> call({
+    String? description = '',
+    String? remark = '',
+    String? uid = '',
+    String? jobType = '',
+    String? location = '',
+    String? username = '',
+    String? token = '',
+    String? citizenId = '',
+    String? customerName = '',
+    String? contNo = '',
+    String? apiUrl = '',
+    FFUploadedFile? image1,
+    FFUploadedFile? image2,
+    FFUploadedFile? image3,
+    FFUploadedFile? image4,
+    FFUploadedFile? image5,
+    FFUploadedFile? image6,
+    FFUploadedFile? image7,
+    FFUploadedFile? image8,
+    FFUploadedFile? image9,
+    FFUploadedFile? image10,
+    String? typeDRemarkId = '',
+    String? typeDRemarkName = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'CollectionAPI Copy',
+      apiUrl: '${apiUrl}/api/send-data/collection',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {
+        'Description': description,
+        'Remark': remark,
+        'UID': uid,
+        'Job_Type': jobType,
+        'Location': location,
+        'Username': username,
+        'token': token,
+        'Customer_Name': customerName,
+        'ContNo': contNo,
+        'image1': image1,
+        'image2': image2,
+        'image3': image3,
+        'image4': image4,
+        'image5': image5,
+        'image6': image6,
+        'image7': image7,
+        'image8': image8,
+        'image9': image9,
+        'image10': image10,
+        'typeDRemarkId': typeDRemarkId,
+        'typeDRemarkName': typeDRemarkName,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.info.Timesheet.status_code''',
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.info.Timesheet.Data.RecordId''',
+      ));
+}
+
 class CheckerAPICall {
   static Future<ApiCallResponse> call({
     String? description = '',
@@ -12223,6 +12304,64 @@ class APIUserLocationTrackerCall {
           .map((x) => TrackingEmployeeDateModelStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
+}
+
+class ApiVloanCheckContractTypeDCall {
+  static Future<ApiCallResponse> call({
+    String? contractNo = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "contract_no": "${escapeStringForJson(contractNo)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'ApiVloanCheckContractTypeD',
+      apiUrl: 'https://dev.swpfin.com:8179/api/vloan/check-contract',
+      callType: ApiCallType.POST,
+      headers: {
+        'ContentType': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? code(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static int? total(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.total''',
+      ));
+  static String? data(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data''',
+      ));
+  static String? contractflag(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.contract_flag''',
+      ));
+  static String? prefix(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.profiles.PREFIX''',
+      ));
+  static String? firstname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.profiles.FIRSTNAME''',
+      ));
+  static String? lastname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.profiles.LASTNAME''',
+      ));
 }
 
 class ApiPagingParams {

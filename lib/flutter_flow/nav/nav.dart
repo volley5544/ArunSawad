@@ -2449,6 +2449,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'remarkTypeDName',
                   ParamType.String,
                 ),
+                cusName: params.getParam(
+                  'cusName',
+                  ParamType.String,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

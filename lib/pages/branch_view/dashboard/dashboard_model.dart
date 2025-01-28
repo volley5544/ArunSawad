@@ -75,6 +75,8 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   UrlLinkStorageRecord? getVloanRemarkApiUrl;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginTimesheetPage;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginTimesheetPageremark;
 
   @override
   void initState(BuildContext context) {}
