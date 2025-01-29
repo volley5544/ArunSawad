@@ -1574,6 +1574,16 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                             .addToUploadedFileTypeList(
                                                                 'image');
                                                         safeSetState(() {});
+                                                        safeSetState(() {
+                                                          _model.isDataUploading1 =
+                                                              false;
+                                                          _model.uploadedLocalFile1 =
+                                                              FFUploadedFile(
+                                                                  bytes: Uint8List
+                                                                      .fromList(
+                                                                          []));
+                                                        });
+
                                                         await _model
                                                             .columnController
                                                             ?.animateTo(
@@ -1766,6 +1776,16 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                               .addToUploadedFileTypeList(
                                                                   'pdf');
                                                           safeSetState(() {});
+                                                          safeSetState(() {
+                                                            _model.isDataUploading2 =
+                                                                false;
+                                                            _model.uploadedLocalFile2 =
+                                                                FFUploadedFile(
+                                                                    bytes: Uint8List
+                                                                        .fromList(
+                                                                            []));
+                                                          });
+
                                                           await _model
                                                               .columnController
                                                               ?.animateTo(
