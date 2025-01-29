@@ -18,6 +18,20 @@ String getUserLocation(LatLng? userLocation) {
   return userLatLng;
 }
 
+String returnStringWithMaxLength(
+  int? urlLength,
+  String? remark,
+  int? maxLength,
+) {
+  int endIndex = maxLength!;
+  if (endIndex > remark!.length) {
+    return remark!;
+  }
+  String output = remark!.substring(0, endIndex);
+
+  return output;
+}
+
 int getIndexOfBoolList(
   List<bool>? boolList,
   bool? boolValue,
@@ -4701,4 +4715,9 @@ List<String>? genDropdownCodeAndName(
   }
 
   return outputList;
+}
+
+String? replaceEnterInStringText(String? inputString) {
+  String output = inputString!.replaceAll('\n', '');
+  return output;
 }

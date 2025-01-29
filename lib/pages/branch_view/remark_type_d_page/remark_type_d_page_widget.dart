@@ -1190,8 +1190,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           [];
                                                       safeSetState(() {});
                                                     },
-                                                    width: 200.0,
-                                                    maxHeight: 100.0,
+                                                    width: 300.0,
                                                     searchHintTextStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -1255,158 +1254,187 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        width: double.infinity,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.06,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.edit,
-                                                  color: Colors.black,
-                                                  size: 29.0,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          constraints: BoxConstraints(
+                                            minHeight:
+                                                MediaQuery.sizeOf(context)
+                                                        .height *
+                                                    0.06,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 10.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  flex: 1,
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons.edit,
+                                                    color: Colors.black,
+                                                    size: 29.0,
+                                                  ),
                                                 ),
-                                              ),
-                                              Expanded(
-                                                flex: 4,
-                                                child: Text(
-                                                  'หมายเหตุ:',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 5,
-                                                child: TextFormField(
-                                                  controller: _model
-                                                      .remarkInputTextController,
-                                                  focusNode: _model
-                                                      .remarkInputFocusNode,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
+                                                Expanded(
+                                                  flex: 4,
+                                                  child: Text(
+                                                    'หมายเหตุ:',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    hintText: 'หมายเหตุ',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  flex: 5,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .remarkInputTextController,
+                                                      focusNode: _model
+                                                          .remarkInputFocusNode,
+                                                      autofocus: false,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        isDense: true,
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintText: 'หมายเหตุ',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
                                                         ),
-                                                    enabledBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
+                                                        focusedBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        errorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            UnderlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
                                                       ),
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
-                                                    ),
-                                                    focusedBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
-                                                    ),
-                                                    errorBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: null,
+                                                      maxLength: 200,
+                                                      maxLengthEnforcement:
+                                                          MaxLengthEnforcement
+                                                              .enforced,
+                                                      validator: _model
+                                                          .remarkInputTextControllerValidator
+                                                          .asValidator(context),
                                                     ),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  textAlign: TextAlign.start,
-                                                  validator: _model
-                                                      .remarkInputTextControllerValidator
-                                                      .asValidator(context),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -2639,7 +2667,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Expanded(
                                           flex: 1,
@@ -2669,19 +2697,36 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         Expanded(
                                           flex: 5,
                                           child: Container(
+                                            constraints: BoxConstraints(
+                                              minHeight:
+                                                  MediaQuery.sizeOf(context)
+                                                          .height *
+                                                      0.06,
+                                            ),
                                             decoration: BoxDecoration(),
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                widget!.remark,
-                                                'remark',
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      widget!.remark,
+                                                      'remark',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ],
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
                                             ),
                                           ),
                                         ),
@@ -3084,8 +3129,17 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
 
                                         _model.lawLedAPISubmit =
                                             await LawLedAPICall.call(
-                                          remark: _model
-                                              .remarkInputTextController.text,
+                                          remark: functions.returnStringWithMaxLength(
+                                              (functions.replaceEnterInStringText(
+                                                      _model
+                                                          .remarkInputTextController
+                                                          .text)!)
+                                                  .length,
+                                              functions.replaceEnterInStringText(
+                                                  _model
+                                                      .remarkInputTextController
+                                                      .text),
+                                              200),
                                           uid: FFAppState().imei,
                                           location: valueOrDefault<String>(
                                             functions.getUserLocation(
