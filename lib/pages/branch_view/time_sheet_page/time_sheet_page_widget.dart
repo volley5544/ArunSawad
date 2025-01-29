@@ -933,7 +933,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                               ParamType.String,
                                             ),
                                             'remarkTypeDName': serializeParam(
-                                              '(${getJsonField(
+                                              '[${getJsonField(
                                                 TimesheetDetailAPICall
                                                     .lawLedDataJson(
                                                   (_model.typeDTimesheetDetail
@@ -941,7 +941,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                       ''),
                                                 ),
                                                 r'''$.remark_code''',
-                                              ).toString()}) ${getJsonField(
+                                              ).toString()}]${getJsonField(
                                                 TimesheetDetailAPICall
                                                     .lawLedDataJson(
                                                   (_model.typeDTimesheetDetail

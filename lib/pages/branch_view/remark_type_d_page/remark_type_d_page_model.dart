@@ -127,11 +127,6 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   TextEditingController? coordinateTimesheetTextController;
   String? Function(BuildContext, String?)?
       coordinateTimesheetTextControllerValidator;
-  // State field(s) for remarkTimesheet widget.
-  FocusNode? remarkTimesheetFocusNode;
-  TextEditingController? remarkTimesheetTextController;
-  String? Function(BuildContext, String?)?
-      remarkTimesheetTextControllerValidator;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -168,8 +163,5 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
 
     coordinateTimesheetFocusNode?.dispose();
     coordinateTimesheetTextController?.dispose();
-
-    remarkTimesheetFocusNode?.dispose();
-    remarkTimesheetTextController?.dispose();
   }
 }
