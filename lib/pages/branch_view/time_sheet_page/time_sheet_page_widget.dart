@@ -185,7 +185,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                               Completer<ApiCallResponse>()
                                 ..complete(GetTimesheetAPICall.call(
                                   token: FFAppState().accessToken,
-                                  apiUrl: FFAppState().apiURLLocalState,
+                                  apiUrl: 'https://dev.swpfin.com:8179',
                                 )))
                           .future,
                       builder: (context, snapshot) {
@@ -790,16 +790,16 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if (functions.showJobType(getJsonField(
+                                      if ('${getJsonField(
                                             timesheetDataListItem,
                                             r'''$.Job_Type''',
-                                          ).toString()) ==
-                                          'รีมาร์คสถานะคดี') {
+                                          ).toString()}' ==
+                                          'Law Led') {
                                         _model.typeDTimesheetDetail =
                                             await TimesheetDetailAPICall.call(
                                           token: FFAppState().accessToken,
-                                          apiUrl: FFAppState().apiURLLocalState,
-                                          pageName: 'check-in',
+                                          apiUrl: 'https://dev.swpfin.com:8179',
+                                          pageName: 'law-led',
                                           recordId: getJsonField(
                                             timesheetDataListItem,
                                             r'''$.RecordId''',
