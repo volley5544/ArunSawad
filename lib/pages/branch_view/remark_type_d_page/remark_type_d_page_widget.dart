@@ -2,12 +2,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/image_or_pdf_viewer_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -26,7 +25,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'remark_type_d_page_model.dart';
@@ -167,9 +165,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
-
     _model.coordinateInputTextController ??= TextEditingController();
     _model.coordinateInputFocusNode ??= FocusNode();
 
@@ -178,6 +173,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
 
     _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
+
+    _model.textController5 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     _model.textController6 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
@@ -210,6 +208,26 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           ),
         ],
       ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'wrapOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -230,7 +248,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation1': AnimationInfo(
+      'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 1000.ms),
@@ -250,7 +268,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
+      'containerOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 1250.ms),
@@ -279,8 +297,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.textController1?.text = 'รูปภาพ';
-          _model.textController2?.text = 'รีมาร์คสถานะคดี';
+          _model.textController1?.text = 'รีมาร์คสถานะคดี';
+          _model.textController5?.text = 'ไฟล์ที่อัพโหลด';
           _model.textController6?.text = 'รีมาร์คสถานะคดี';
         }));
   }
@@ -355,119 +373,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                     letterSpacing: 0.0,
                   ),
             ),
-            actions: [
-              Visibility(
-                visible: !FFAppState().isFromTimesheetPage,
-                child: FlutterFlowIconButton(
-                  borderRadius: 8.0,
-                  buttonSize: 80.0,
-                  icon: FaIcon(
-                    FontAwesomeIcons.camera,
-                    color: Colors.white,
-                    size: 40.0,
-                  ),
-                  onPressed: () async {
-                    HapticFeedback.mediumImpact();
-                    if (_model.uploadedimageList.length >= 10) {
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return WebViewAware(
-                            child: AlertDialog(
-                              title: Text('ระบบ'),
-                              content: Text(
-                                  'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด10รูป)'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                      return;
-                    }
-                    final selectedMedia =
-                        await selectMediaWithSourceBottomSheet(
-                      context: context,
-                      imageQuality: 30,
-                      allowPhoto: true,
-                      backgroundColor: FlutterFlowTheme.of(context).secondary,
-                      textColor: Color(0xFFB71C1C),
-                      pickerFontFamily: 'Raleway',
-                    );
-                    if (selectedMedia != null &&
-                        selectedMedia.every((m) =>
-                            validateFileFormat(m.storagePath, context))) {
-                      safeSetState(() => _model.isDataUploading = true);
-                      var selectedUploadedFiles = <FFUploadedFile>[];
-
-                      try {
-                        showUploadMessage(
-                          context,
-                          'Uploading file...',
-                          showLoading: true,
-                        );
-                        selectedUploadedFiles = selectedMedia
-                            .map((m) => FFUploadedFile(
-                                  name: m.storagePath.split('/').last,
-                                  bytes: m.bytes,
-                                  height: m.dimensions?.height,
-                                  width: m.dimensions?.width,
-                                  blurHash: m.blurHash,
-                                ))
-                            .toList();
-                      } finally {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                        _model.isDataUploading = false;
-                      }
-                      if (selectedUploadedFiles.length ==
-                          selectedMedia.length) {
-                        safeSetState(() {
-                          _model.uploadedLocalFile =
-                              selectedUploadedFiles.first;
-                        });
-                        showUploadMessage(context, 'Success!');
-                      } else {
-                        safeSetState(() {});
-                        showUploadMessage(context, 'Failed to upload data');
-                        return;
-                      }
-                    }
-
-                    if (!(_model.uploadedLocalFile != null &&
-                        (_model.uploadedLocalFile.bytes?.isNotEmpty ??
-                            false))) {
-                      Navigator.pop(context);
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return WebViewAware(
-                            child: AlertDialog(
-                              content: Text(
-                                  'ไม่สามารถอัพโหลดรูปได้ กรุณาลองอีกครั้ง'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                      return;
-                    }
-                    _model.addToUploadedimageList(_model.uploadedLocalFile);
-                    safeSetState(() {});
-                  },
-                ),
-              ),
-            ],
+            actions: [],
             centerTitle: true,
             elevation: 10.0,
           ),
@@ -568,252 +474,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                               ],
                             ),
                           ),
-                        if (functions.visibleUploadedImg(
-                            FFAppState().isFromTimesheetPage,
-                            FFAppState().imgURL.length))
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
-                            child: Wrap(
-                              spacing: 0.0,
-                              runSpacing: 0.0,
-                              alignment: WrapAlignment.start,
-                              crossAxisAlignment: WrapCrossAlignment.start,
-                              direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.07,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: TextFormField(
-                                    controller: _model.textController1,
-                                    focusNode: _model.textFieldFocusNode1,
-                                    autofocus: true,
-                                    readOnly: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: '[Some hint text...]',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      filled: true,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .override(
-                                          fontFamily: 'Noto Serif',
-                                          color: FlutterFlowTheme.of(context)
-                                              .black600,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    validator: _model.textController1Validator
-                                        .asValidator(context),
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 150.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Builder(
-                                    builder: (context) {
-                                      final uploadedImgListItem = _model
-                                          .uploadedimageList
-                                          .toList()
-                                          .take(10)
-                                          .toList();
-
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: uploadedImgListItem.length,
-                                        itemBuilder: (context,
-                                            uploadedImgListItemIndex) {
-                                          final uploadedImgListItemItem =
-                                              uploadedImgListItem[
-                                                  uploadedImgListItemIndex];
-                                          return Container(
-                                            width: 150.0,
-                                            height: 150.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
-                                            child: Stack(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 5.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await Navigator.push(
-                                                        context,
-                                                        PageTransition(
-                                                          type:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          child:
-                                                              FlutterFlowExpandedImageView(
-                                                            image: Image.memory(
-                                                              _model.uploadedimageList
-                                                                      .elementAtOrNull(
-                                                                          uploadedImgListItemIndex)
-                                                                      ?.bytes ??
-                                                                  Uint8List
-                                                                      .fromList(
-                                                                          []),
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                            allowRotation:
-                                                                false,
-                                                            tag: 'imageTag',
-                                                            useHeroAnimation:
-                                                                true,
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                    child: Hero(
-                                                      tag: 'imageTag',
-                                                      transitionOnUserGestures:
-                                                          true,
-                                                      child: Image.memory(
-                                                        _model.uploadedimageList
-                                                                .elementAtOrNull(
-                                                                    uploadedImgListItemIndex)
-                                                                ?.bytes ??
-                                                            Uint8List.fromList(
-                                                                []),
-                                                        width: 150.0,
-                                                        height: 150.0,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                FlutterFlowIconButton(
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 35.0,
-                                                  icon: Icon(
-                                                    Icons.close,
-                                                    color: Color(0xFFFF0000),
-                                                    size: 20.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    var confirmDialogResponse =
-                                                        await showDialog<bool>(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                    content: Text(
-                                                                        'คุณต้องการจะลบรูปหรือไม่?'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            false),
-                                                                        child: Text(
-                                                                            'ยกเลิก'),
-                                                                      ),
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            true),
-                                                                        child: Text(
-                                                                            'ตกลง'),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ) ??
-                                                            false;
-                                                    if (!confirmDialogResponse) {
-                                                      return;
-                                                    }
-                                                    _model.removeAtIndexFromUploadedimageList(
-                                                        uploadedImgListItemIndex);
-                                                    safeSetState(() {});
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         if (FFAppState().isFromTimesheetPage == false)
                           Wrap(
                             spacing: 0.0,
@@ -834,8 +494,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: _model.textController2,
-                                  focusNode: _model.textFieldFocusNode2,
+                                  controller: _model.textController1,
+                                  focusNode: _model.textFieldFocusNode1,
                                   autofocus: false,
                                   readOnly: true,
                                   obscureText: false,
@@ -898,7 +558,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         letterSpacing: 0.0,
                                       ),
                                   textAlign: TextAlign.start,
-                                  validator: _model.textController2Validator
+                                  validator: _model.textController1Validator
                                       .asValidator(context),
                                 ),
                               ),
@@ -1660,11 +1320,683 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         ),
                                       ),
                                     ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 10.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  20.0, 0.0, 20.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                flex: 1,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      HapticFeedback
+                                                          .mediumImpact();
+                                                      if (_model
+                                                              .uploadedimageList
+                                                              .length >=
+                                                          10) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                title: Text(
+                                                                    'ระบบ'),
+                                                                content: Text(
+                                                                    'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด10รูป)'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        return;
+                                                      }
+                                                      final selectedMedia =
+                                                          await selectMediaWithSourceBottomSheet(
+                                                        context: context,
+                                                        imageQuality: 30,
+                                                        allowPhoto: true,
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        textColor:
+                                                            Color(0xFFB71C1C),
+                                                        pickerFontFamily:
+                                                            'Raleway',
+                                                      );
+                                                      if (selectedMedia !=
+                                                              null &&
+                                                          selectedMedia.every((m) =>
+                                                              validateFileFormat(
+                                                                  m.storagePath,
+                                                                  context))) {
+                                                        safeSetState(() => _model
+                                                                .isDataUploading1 =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+
+                                                        try {
+                                                          showUploadMessage(
+                                                            context,
+                                                            'Uploading file...',
+                                                            showLoading: true,
+                                                          );
+                                                          selectedUploadedFiles =
+                                                              selectedMedia
+                                                                  .map((m) =>
+                                                                      FFUploadedFile(
+                                                                        name: m
+                                                                            .storagePath
+                                                                            .split('/')
+                                                                            .last,
+                                                                        bytes: m
+                                                                            .bytes,
+                                                                        height: m
+                                                                            .dimensions
+                                                                            ?.height,
+                                                                        width: m
+                                                                            .dimensions
+                                                                            ?.width,
+                                                                        blurHash:
+                                                                            m.blurHash,
+                                                                      ))
+                                                                  .toList();
+                                                        } finally {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .hideCurrentSnackBar();
+                                                          _model.isDataUploading1 =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                .length ==
+                                                            selectedMedia
+                                                                .length) {
+                                                          safeSetState(() {
+                                                            _model.uploadedLocalFile1 =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                          });
+                                                          showUploadMessage(
+                                                              context,
+                                                              'Success!');
+                                                        } else {
+                                                          safeSetState(() {});
+                                                          showUploadMessage(
+                                                              context,
+                                                              'Failed to upload data');
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      if (!(_model.uploadedLocalFile1 !=
+                                                              null &&
+                                                          (_model
+                                                                  .uploadedLocalFile1
+                                                                  .bytes
+                                                                  ?.isNotEmpty ??
+                                                              false))) {
+                                                        Navigator.pop(context);
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'ไม่สามารถอัพโหลดรูปได้ กรุณาลองอีกครั้ง'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        return;
+                                                      }
+                                                      _model.addToUploadedimageList(
+                                                          _model
+                                                              .uploadedLocalFile1);
+                                                      _model
+                                                          .addToUploadedFileTypeList(
+                                                              'image');
+                                                      safeSetState(() {});
+                                                    },
+                                                    text: 'อัพโหลดรูป',
+                                                    options: FFButtonOptions(
+                                                      width: 130.0,
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xFFFF6500),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .white,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      elevation: 2.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              if (!FFAppState()
+                                                  .isFromTimesheetPage)
+                                                Expanded(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        HapticFeedback
+                                                            .mediumImpact();
+                                                        if (_model
+                                                                .uploadedimageList
+                                                                .length >=
+                                                            10) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  title: Text(
+                                                                      'ระบบ'),
+                                                                  content: Text(
+                                                                      'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด10รูป)'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          return;
+                                                        }
+                                                        final selectedFiles =
+                                                            await selectFiles(
+                                                          allowedExtensions: [
+                                                            'pdf'
+                                                          ],
+                                                          multiFile: false,
+                                                        );
+                                                        if (selectedFiles !=
+                                                            null) {
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading2 =
+                                                                  true);
+                                                          var selectedUploadedFiles =
+                                                              <FFUploadedFile>[];
+
+                                                          try {
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Uploading file...',
+                                                              showLoading: true,
+                                                            );
+                                                            selectedUploadedFiles =
+                                                                selectedFiles
+                                                                    .map((m) =>
+                                                                        FFUploadedFile(
+                                                                          name: m
+                                                                              .storagePath
+                                                                              .split('/')
+                                                                              .last,
+                                                                          bytes:
+                                                                              m.bytes,
+                                                                        ))
+                                                                    .toList();
+                                                          } finally {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
+                                                            _model.isDataUploading2 =
+                                                                false;
+                                                          }
+                                                          if (selectedUploadedFiles
+                                                                  .length ==
+                                                              selectedFiles
+                                                                  .length) {
+                                                            safeSetState(() {
+                                                              _model.uploadedLocalFile2 =
+                                                                  selectedUploadedFiles
+                                                                      .first;
+                                                            });
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Success!',
+                                                            );
+                                                          } else {
+                                                            safeSetState(() {});
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Failed to upload file',
+                                                            );
+                                                            return;
+                                                          }
+                                                        }
+
+                                                        if (!(_model.uploadedLocalFile2 !=
+                                                                null &&
+                                                            (_model
+                                                                    .uploadedLocalFile2
+                                                                    .bytes
+                                                                    ?.isNotEmpty ??
+                                                                false))) {
+                                                          Navigator.pop(
+                                                              context);
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'ไม่สามารถอัพโหลดไฟล์PDFได้ กรุณาลองอีกครั้ง'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          return;
+                                                        }
+                                                        _model.addToUploadedimageList(
+                                                            _model
+                                                                .uploadedLocalFile2);
+                                                        _model
+                                                            .addToUploadedFileTypeList(
+                                                                'pdf');
+                                                        safeSetState(() {});
+                                                      },
+                                                      text: 'เพิ่ม PDF ไฟล์',
+                                                      options: FFButtonOptions(
+                                                        width: 130.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color: Colors.white,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        elevation: 2.0,
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF6500),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'containerOnPageLoadAnimation1']!),
+                                    ),
                                   ],
                                 ),
                             ],
                           ).animateOnPageLoad(
                               animationsMap['wrapOnPageLoadAnimation1']!),
+                        if (functions.visibleUploadedImg(
+                            FFAppState().isFromTimesheetPage,
+                            FFAppState().imgURL.length))
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.0),
+                            child: Wrap(
+                              spacing: 0.0,
+                              runSpacing: 0.0,
+                              alignment: WrapAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.start,
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.start,
+                              verticalDirection: VerticalDirection.down,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.07,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: TextFormField(
+                                    controller: _model.textController5,
+                                    focusNode: _model.textFieldFocusNode2,
+                                    autofocus: true,
+                                    readOnly: true,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText: '[Some hint text...]',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 1.0,
+                                        ),
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(4.0),
+                                          topRight: Radius.circular(4.0),
+                                        ),
+                                      ),
+                                      focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 1.0,
+                                        ),
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(4.0),
+                                          topRight: Radius.circular(4.0),
+                                        ),
+                                      ),
+                                      errorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 1.0,
+                                        ),
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(4.0),
+                                          topRight: Radius.circular(4.0),
+                                        ),
+                                      ),
+                                      focusedErrorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 1.0,
+                                        ),
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(4.0),
+                                          topRight: Radius.circular(4.0),
+                                        ),
+                                      ),
+                                      filled: true,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineMedium
+                                        .override(
+                                          fontFamily: 'Noto Serif',
+                                          color: FlutterFlowTheme.of(context)
+                                              .black600,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    validator: _model.textController5Validator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final uploadedFileListItem = _model
+                                          .uploadedimageList
+                                          .toList()
+                                          .take(10)
+                                          .toList();
+
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: List.generate(
+                                            uploadedFileListItem.length,
+                                            (uploadedFileListItemIndex) {
+                                          final uploadedFileListItemItem =
+                                              uploadedFileListItem[
+                                                  uploadedFileListItemIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 4.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  barrierColor:
+                                                      Color(0xBB000000),
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child: Container(
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                0.8,
+                                                            child:
+                                                                ImageOrPdfViewerComponentWidget(
+                                                              fileType: _model
+                                                                  .uploadedFileTypeList
+                                                                  .elementAtOrNull(
+                                                                      uploadedFileListItemIndex)!,
+                                                              fileByte:
+                                                                  uploadedFileListItemItem,
+                                                              fileName:
+                                                                  '${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'}',
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 30.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 12.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Expanded(
+                                                        flex: 3,
+                                                        child: Text(
+                                                          '${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        flex: 2,
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, 0.0),
+                                                          child: Builder(
+                                                            builder: (context) {
+                                                              if (_model
+                                                                      .uploadedFileTypeList
+                                                                      .elementAtOrNull(
+                                                                          uploadedFileListItemIndex) ==
+                                                                  'image') {
+                                                                return Icon(
+                                                                  Icons
+                                                                      .image_search,
+                                                                  color: Color(
+                                                                      0xFFFF6500),
+                                                                  size: 30.0,
+                                                                );
+                                                              } else {
+                                                                return Icon(
+                                                                  Icons
+                                                                      .picture_as_pdf_outlined,
+                                                                  color: Color(
+                                                                      0xFFFF6500),
+                                                                  size: 30.0,
+                                                                );
+                                                              }
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }).addToEnd(SizedBox(height: 12.0)),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         if (FFAppState().isFromTimesheetPage == true)
                           Wrap(
                             spacing: 0.0,
@@ -2226,7 +2558,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                 );
                               }),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation1']!),
+                                'containerOnPageLoadAnimation2']!),
                           ),
                       ],
                     ),
@@ -2325,106 +2657,26 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                           if (!FFAppState().isFromTimesheetPage)
                             Expanded(
                               flex: 1,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 0.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    currentUserLocationValue =
-                                        await getCurrentUserLocation(
-                                            defaultLocation: LatLng(0.0, 0.0));
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    if (FFAppState().isFromTimesheetPage) {
-                                      if (_model.remarkTimesheetTextController
-                                                  .text !=
-                                              null &&
-                                          _model.remarkTimesheetTextController
-                                                  .text !=
-                                              '') {
-                                        _model.updateCheckin =
-                                            await TimesheetDetailAPICall.call(
-                                          pageName: 'check-in',
-                                          token: FFAppState().accessToken,
-                                          apiUrl: FFAppState().apiURLLocalState,
-                                          recordId: widget!.recordId,
-                                          editCheck: 'Y',
-                                          remark: _model
-                                              .remarkTimesheetTextController
-                                              .text,
-                                        );
-
-                                        _shouldSetState = true;
-                                        if ((_model.updateCheckin?.statusCode ??
-                                                200) !=
-                                            200) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'พบข้อผิดพลาด (${(_model.updateCheckin?.statusCode ?? 200).toString()})'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                        if (TimesheetDetailAPICall.status(
-                                              (_model.updateCheckin?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            200) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'พบข้อผิดพลาด (${TimesheetDetailAPICall.status(
-                                                    (_model.updateCheckin
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.toString()})'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
+                              child: Builder(
+                                builder: (context) => Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 0.0, 0.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      currentUserLocationValue =
+                                          await getCurrentUserLocation(
+                                              defaultLocation:
+                                                  LatLng(0.0, 0.0));
+                                      var _shouldSetState = false;
+                                      HapticFeedback.mediumImpact();
+                                      if (!FFAppState().isGetVloanContract) {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
                                                 content: Text(
-                                                    TimesheetDetailAPICall
-                                                        .statusDescription(
-                                                  (_model.updateCheckin
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ).toString()),
+                                                    'กรุณาค้นหาเลขที่สัญญา'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -2437,269 +2689,390 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             );
                                           },
                                         );
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'กรุณากรอกหมายเหตุที่จะแก้ไข',
-                                              style: TextStyle(
-                                                color: Colors.white,
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (!(_model.dropDownValue != null &&
+                                          _model.dropDownValue != '')) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกรีมาร์คกลุ่ม D'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
                                               ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 3000),
-                                            backgroundColor: Color(0xB2000000),
-                                          ),
+                                            );
+                                          },
                                         );
                                         if (_shouldSetState)
                                           safeSetState(() {});
                                         return;
                                       }
-
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    if (!(_model.remarkInputTextController
-                                                .text !=
-                                            null &&
-                                        _model.remarkInputTextController.text !=
-                                            '')) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'กรุณากรอก หมายเหตุ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBtnText,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 3000),
-                                          backgroundColor: Color(0xB3090F13),
-                                        ),
-                                      );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    var confirmDialogResponse =
-                                        await showDialog<bool>(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    content: Text(
-                                                        'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext,
-                                                                false),
-                                                        child: Text('ยกเลิก'),
-                                                      ),
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext,
-                                                                true),
-                                                        child: Text('บันทึก'),
-                                                      ),
-                                                    ],
+                                      if (!(_model.remarkInputTextController
+                                                  .text !=
+                                              null &&
+                                          _model.remarkInputTextController
+                                                  .text !=
+                                              '')) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content:
+                                                    Text('กรุณากรอก หมายเหตุ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
                                                   ),
-                                                );
-                                              },
-                                            ) ??
-                                            false;
-                                    if (!confirmDialogResponse) {
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    _model.checkGPSBeforeSave =
-                                        await actions.a8(
-                                      currentUserLocationValue,
-                                    );
-                                    _shouldSetState = true;
-                                    if (!_model.checkGPSBeforeSave!) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (_model.uploadedimageList.length <=
+                                          0) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาอัพโหลดรูปภาพหรือไฟล์PDF อย่างน้อย 1 ไฟล์'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      var confirmDialogResponse =
+                                          await showDialog<bool>(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext,
+                                                                  false),
+                                                          child: Text('ยกเลิก'),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext,
+                                                                  true),
+                                                          child: Text('บันทึก'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              ) ??
+                                              false;
+                                      if (!confirmDialogResponse) {
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      _model.checkGPSBeforeSave =
+                                          await actions.a8(
+                                        currentUserLocationValue,
                                       );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
+                                      _shouldSetState = true;
+                                      if (!_model.checkGPSBeforeSave!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: LoadingSceneWidget(),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-
-                                    _model.checkInAPISubmit =
-                                        await CheckInAPICall.call(
-                                      location: valueOrDefault<String>(
-                                        functions.getUserLocation(
-                                            currentUserLocationValue),
-                                        'Latitude,Longitude',
-                                      ),
-                                      remark:
-                                          _model.remarkInputTextController.text,
-                                      uid: FFAppState().imei,
-                                      jobType: 'Check In',
-                                      description: 'เช็คอิน',
-                                      username: FFAppState().employeeID,
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
-
-                                    _shouldSetState = true;
-                                    if (CheckInAPICall.mainStatus(
-                                          (_model.checkInAPISubmit?.jsonBody ??
-                                              ''),
-                                        ) ==
-                                        200) {
-                                      if (FFAppState().imgURL.length != 0) {
-                                        var fileUploadRecordReference =
-                                            FileUploadRecord.collection.doc();
-                                        await fileUploadRecordReference.set({
-                                          ...createFileUploadRecordData(
-                                            recordId: CheckInAPICall.recordID(
-                                              (_model.checkInAPISubmit
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ),
-                                            picDatetime: getCurrentTimestamp,
-                                            picCoordinate:
-                                                functions.getUserLocation(
-                                                    currentUserLocationValue),
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'img_url': FFAppState().imgURL,
-                                            },
-                                          ),
-                                        });
-                                        _model.saveImgToFirebase =
-                                            FileUploadRecord
-                                                .getDocumentFromData({
-                                          ...createFileUploadRecordData(
-                                            recordId: CheckInAPICall.recordID(
-                                              (_model.checkInAPISubmit
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ),
-                                            picDatetime: getCurrentTimestamp,
-                                            picCoordinate:
-                                                functions.getUserLocation(
-                                                    currentUserLocationValue),
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'img_url': FFAppState().imgURL,
-                                            },
-                                          ),
-                                        }, fileUploadRecordReference);
-                                        _shouldSetState = true;
-                                        FFAppState().imgURL = [];
-                                        FFAppState().imgURLTemp =
-                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';
-                                        FFAppState().update(() {});
-                                      }
-                                    } else {
-                                      Navigator.pop(context);
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาด (${CheckInAPICall.status(
-                                                (_model.checkInAPISubmit
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}) กรุณาลองใหม่ภายหลัง'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
 
-                                    context.goNamed('SuccessPage');
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  text: 'บันทึก',
-                                  options: FFButtonOptions(
-                                    width: 130.0,
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFF24D200),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
+                                      _model.lawLedAPISubmit =
+                                          await LawLedAPICall.call(
+                                        remark: _model
+                                            .remarkInputTextController.text,
+                                        uid: FFAppState().imei,
+                                        location: valueOrDefault<String>(
+                                          functions.getUserLocation(
+                                              currentUserLocationValue),
+                                          'Latitude,Longitude',
                                         ),
-                                    elevation: 2.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                        token: FFAppState().accessToken,
+                                        customerName:
+                                            '${ApiVloanCheckContractTypeDCall.firstname(
+                                          (_model.getVloanContract?.jsonBody ??
+                                              ''),
+                                        )}',
+                                        customerLastname:
+                                            '${ApiVloanCheckContractTypeDCall.lastname(
+                                          (_model.getVloanContract?.jsonBody ??
+                                              ''),
+                                        )}',
+                                        contNo:
+                                            _model.idInputTextController.text,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                        typeDRemarkId: _model.dropDownValue,
+                                        typeDRemarkName: _model.remarkNameList
+                                            .elementAtOrNull(functions
+                                                .getIndexOfSomethingList(
+                                                    _model.remarkIDList
+                                                        .toList(),
+                                                    _model.dropDownValue)),
+                                        image1: _model
+                                            .uploadedimageList.firstOrNull,
+                                        image2:
+                                            _model.uploadedimageList.length >= 2
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(1)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image3:
+                                            _model.uploadedimageList.length >= 3
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(2)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image4:
+                                            _model.uploadedimageList.length >= 4
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(3)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image5:
+                                            _model.uploadedimageList.length >= 5
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(4)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image6:
+                                            _model.uploadedimageList.length >= 6
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(5)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image7:
+                                            _model.uploadedimageList.length >= 7
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(6)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image8:
+                                            _model.uploadedimageList.length >= 8
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(7)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image9:
+                                            _model.uploadedimageList.length >= 9
+                                                ? _model
+                                                    .uploadedimageList
+                                                    .elementAtOrNull(8)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                        image10:
+                                            _model.uploadedimageList.length >=
+                                                    10
+                                                ? _model.uploadedimageList
+                                                    .elementAtOrNull(9)
+                                                : functions
+                                                    .returnFileUploadedNull(),
+                                      );
+
+                                      _shouldSetState = true;
+                                      _model.checkInAPISubmit =
+                                          await CheckInAPICall.call(
+                                        location: valueOrDefault<String>(
+                                          functions.getUserLocation(
+                                              currentUserLocationValue),
+                                          'Latitude,Longitude',
+                                        ),
+                                        remark: _model
+                                            .remarkInputTextController.text,
+                                        uid: FFAppState().imei,
+                                        jobType: 'Check In',
+                                        description: 'เช็คอิน',
+                                        username: FFAppState().employeeID,
+                                        token: FFAppState().accessToken,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                      );
+
+                                      _shouldSetState = true;
+                                      if ((_model.lawLedAPISubmit?.statusCode ??
+                                              200) !=
+                                          200) {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'พบข้อผิดพลาดConnection (${(_model.lawLedAPISubmit?.statusCode ?? 200).toString()})'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if ('${getJsonField(
+                                            (_model.lawLedAPISubmit?.jsonBody ??
+                                                ''),
+                                            r'''$.code''',
+                                          ).toString()}' !=
+                                          '200') {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text('${getJsonField(
+                                                  (_model.lawLedAPISubmit
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                  r'''$.message''',
+                                                ).toString()}'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      Navigator.pop(context);
+
+                                      context.goNamed('SuccessPage');
+
+                                      if (_shouldSetState) safeSetState(() {});
+                                    },
+                                    text: 'บันทึก',
+                                    options: FFButtonOptions(
+                                      width: 130.0,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Color(0xFF24D200),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 2.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ),
@@ -2708,7 +3081,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                       ),
                     ),
                   ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation2']!),
+                      animationsMap['containerOnPageLoadAnimation3']!),
                 ),
               ],
             ),

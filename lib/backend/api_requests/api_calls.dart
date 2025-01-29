@@ -2943,16 +2943,13 @@ class CollectionAPICall {
       ));
 }
 
-class CollectionAPICopyCall {
+class LawLedAPICall {
   static Future<ApiCallResponse> call({
-    String? description = '',
     String? remark = '',
     String? uid = '',
-    String? jobType = '',
     String? location = '',
-    String? username = '',
     String? token = '',
-    String? citizenId = '',
+    String? customerLastname = '',
     String? customerName = '',
     String? contNo = '',
     String? apiUrl = '',
@@ -2970,23 +2967,20 @@ class CollectionAPICopyCall {
     String? typeDRemarkName = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'CollectionAPI Copy',
-      apiUrl: '${apiUrl}/api/send-data/collection',
+      callName: 'LawLedAPI',
+      apiUrl: '${apiUrl}/api/send-data/law-led',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {
-        'Description': description,
-        'Remark': remark,
-        'UID': uid,
-        'Job_Type': jobType,
-        'Location': location,
-        'Username': username,
+        'remark': remark,
+        'uid': uid,
+        'location': location,
         'token': token,
-        'Customer_Name': customerName,
-        'ContNo': contNo,
+        'firstname': customerName,
+        'contract_no': contNo,
         'image1': image1,
         'image2': image2,
         'image3': image3,
@@ -2997,8 +2991,9 @@ class CollectionAPICopyCall {
         'image8': image8,
         'image9': image9,
         'image10': image10,
-        'typeDRemarkId': typeDRemarkId,
-        'typeDRemarkName': typeDRemarkName,
+        'remark_code': typeDRemarkId,
+        'remark_name': typeDRemarkName,
+        'lastname': customerLastname,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,

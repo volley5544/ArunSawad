@@ -2,12 +2,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/image_or_pdf_viewer_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -27,7 +26,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
@@ -66,24 +64,28 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
           int index, Function(FFUploadedFile) updateFn) =>
       uploadedimageList[index] = updateFn(uploadedimageList[index]);
 
+  List<String> uploadedFileTypeList = [];
+  void addToUploadedFileTypeList(String item) => uploadedFileTypeList.add(item);
+  void removeFromUploadedFileTypeList(String item) =>
+      uploadedFileTypeList.remove(item);
+  void removeAtIndexFromUploadedFileTypeList(int index) =>
+      uploadedFileTypeList.removeAt(index);
+  void insertAtIndexInUploadedFileTypeList(int index, String item) =>
+      uploadedFileTypeList.insert(index, item);
+  void updateUploadedFileTypeListAtIndex(
+          int index, Function(String) updateFn) =>
+      uploadedFileTypeList[index] = updateFn(uploadedFileTypeList[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - a8] action in RemarkTypeDPage widget.
   bool? checkLatLngBVCheckIn;
   // Stores action output result for [Backend Call - Create Document] action in RemarkTypeDPage widget.
   UserLogRecord? createdUserLogBVCheckIn;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode;
   TextEditingController? coordinateInputTextController;
@@ -102,6 +104,18 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   FocusNode? remarkInputFocusNode;
   TextEditingController? remarkInputTextController;
   String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController6;
@@ -119,14 +133,12 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
-  // Stores action output result for [Backend Call - API (TimesheetDetailAPI)] action in Button widget.
-  ApiCallResponse? updateCheckin;
   // Stores action output result for [Custom Action - a8] action in Button widget.
   bool? checkGPSBeforeSave;
+  // Stores action output result for [Backend Call - API (LawLedAPI)] action in Button widget.
+  ApiCallResponse? lawLedAPISubmit;
   // Stores action output result for [Backend Call - API (CheckInAPI)] action in Button widget.
   ApiCallResponse? checkInAPISubmit;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  FileUploadRecord? saveImgToFirebase;
 
   @override
   void initState(BuildContext context) {}
@@ -136,9 +148,6 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
-
     coordinateInputFocusNode?.dispose();
     coordinateInputTextController?.dispose();
 
@@ -147,6 +156,9 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
 
     remarkInputFocusNode?.dispose();
     remarkInputTextController?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    textController5?.dispose();
 
     textFieldFocusNode3?.dispose();
     textController6?.dispose();
