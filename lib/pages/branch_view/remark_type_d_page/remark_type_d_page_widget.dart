@@ -92,11 +92,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
             .toList()
             .cast<String>();
         _model.remarkNameList = functions
-            .getDataFromMapJson(
+            .getDataFromMapJsonToList(
                 functions.getDataFromMapJson(
                     FFAppState().roleMenuJson, 'branchViewRemarkConfig'),
                 'remarkName')!
-            .cast<String>()
             .toList()
             .cast<String>();
         safeSetState(() {});

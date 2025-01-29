@@ -1020,7 +1020,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         0.0,
                                                                         10.0),
                                                             child: Text(
-                                                              'GSB',
+                                                              'Truck',
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
