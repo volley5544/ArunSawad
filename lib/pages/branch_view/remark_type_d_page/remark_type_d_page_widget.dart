@@ -74,115 +74,117 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      showDialog(
-        context: context,
-        builder: (dialogContext) {
-          return Dialog(
-            elevation: 0,
-            insetPadding: EdgeInsets.zero,
-            backgroundColor: Colors.transparent,
-            alignment: AlignmentDirectional(0.0, 0.0)
-                .resolve(Directionality.of(context)),
-            child: WebViewAware(
-              child: GestureDetector(
-                onTap: () {
-                  FocusScope.of(dialogContext).unfocus();
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: Container(
-                  height: double.infinity,
-                  child: LoadingSceneWidget(),
+      if (!FFAppState().isFromTimesheetPage) {
+        showDialog(
+          context: context,
+          builder: (dialogContext) {
+            return Dialog(
+              elevation: 0,
+              insetPadding: EdgeInsets.zero,
+              backgroundColor: Colors.transparent,
+              alignment: AlignmentDirectional(0.0, 0.0)
+                  .resolve(Directionality.of(context)),
+              child: WebViewAware(
+                child: GestureDetector(
+                  onTap: () {
+                    FocusScope.of(dialogContext).unfocus();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Container(
+                    height: double.infinity,
+                    child: LoadingSceneWidget(),
+                  ),
                 ),
               ),
-            ),
+            );
+          },
+        );
+
+        if (isAndroid) {
+          await actions.allowScreenRecordAndroid();
+        } else {
+          await actions.allowScreenRecordIOS();
+        }
+
+        _model.checkLatLngBVCheckIn = await actions.a8(
+          currentUserLocationValue,
+        );
+        if (_model.checkLatLngBVCheckIn!) {
+          _model.remarkIDList = functions
+              .getDataFromMapJsonToList(
+                  functions.getDataFromMapJson(
+                      FFAppState().roleMenuJson, 'branchViewRemarkConfig'),
+                  'remarkId')!
+              .toList()
+              .cast<String>();
+          _model.remarkNameList = functions
+              .getDataFromMapJsonToList(
+                  functions.getDataFromMapJson(
+                      FFAppState().roleMenuJson, 'branchViewRemarkConfig'),
+                  'remarkName')!
+              .toList()
+              .cast<String>();
+          safeSetState(() {});
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(_model.remarkIDList.length.toString()),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
           );
-        },
-      );
+        } else {
+          Navigator.pop(context);
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  title: Text('ระบบ'),
+                  content: Text('กรุณาเปิดGPS ก่อนทำรายการ'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
 
-      if (isAndroid) {
-        await actions.allowScreenRecordAndroid();
-      } else {
-        await actions.allowScreenRecordIOS();
-      }
+          context.goNamed('Dashboard');
 
-      _model.checkLatLngBVCheckIn = await actions.a8(
-        currentUserLocationValue,
-      );
-      if (_model.checkLatLngBVCheckIn!) {
-        _model.remarkIDList = functions
-            .getDataFromMapJsonToList(
-                functions.getDataFromMapJson(
-                    FFAppState().roleMenuJson, 'branchViewRemarkConfig'),
-                'remarkId')!
-            .toList()
-            .cast<String>();
-        _model.remarkNameList = functions
-            .getDataFromMapJsonToList(
-                functions.getDataFromMapJson(
-                    FFAppState().roleMenuJson, 'branchViewRemarkConfig'),
-                'remarkName')!
-            .toList()
-            .cast<String>();
-        safeSetState(() {});
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text(_model.remarkIDList.length.toString()),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
+          return;
+        }
+
+        if (!FFAppState().isFromTimesheetPage) {
+          var userLogRecordReference = UserLogRecord.collection.doc();
+          await userLogRecordReference.set(createUserLogRecordData(
+            employeeId: FFAppState().employeeID,
+            action: 'Branch_View_CheckIn',
+            actionTime: getCurrentTimestamp,
+            userLocation: currentUserLocationValue,
+          ));
+          _model.createdUserLogBVCheckIn = UserLogRecord.getDocumentFromData(
+              createUserLogRecordData(
+                employeeId: FFAppState().employeeID,
+                action: 'Branch_View_CheckIn',
+                actionTime: getCurrentTimestamp,
+                userLocation: currentUserLocationValue,
               ),
-            );
-          },
-        );
-      } else {
+              userLogRecordReference);
+        }
         Navigator.pop(context);
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                title: Text('ระบบ'),
-                content: Text('กรุณาเปิดGPS ก่อนทำรายการ'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-
-        context.goNamed('Dashboard');
-
-        return;
       }
-
-      if (!FFAppState().isFromTimesheetPage) {
-        var userLogRecordReference = UserLogRecord.collection.doc();
-        await userLogRecordReference.set(createUserLogRecordData(
-          employeeId: FFAppState().employeeID,
-          action: 'Branch_View_CheckIn',
-          actionTime: getCurrentTimestamp,
-          userLocation: currentUserLocationValue,
-        ));
-        _model.createdUserLogBVCheckIn = UserLogRecord.getDocumentFromData(
-            createUserLogRecordData(
-              employeeId: FFAppState().employeeID,
-              action: 'Branch_View_CheckIn',
-              actionTime: getCurrentTimestamp,
-              userLocation: currentUserLocationValue,
-            ),
-            userLogRecordReference);
-      }
-      Navigator.pop(context);
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -1584,6 +1586,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                           []));
                                                         });
 
+                                                        if (_model
+                                                                .uploadedimageList
+                                                                .length ==
+                                                            1) {
+                                                          await Future.delayed(
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      1000));
+                                                        }
                                                         await _model
                                                             .columnController
                                                             ?.animateTo(
@@ -1786,6 +1797,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                             []));
                                                           });
 
+                                                          if (_model
+                                                                  .uploadedimageList
+                                                                  .length ==
+                                                              1) {
+                                                            await Future.delayed(
+                                                                const Duration(
+                                                                    milliseconds:
+                                                                        1000));
+                                                          }
                                                           await _model
                                                               .columnController
                                                               ?.animateTo(
@@ -2502,70 +2522,69 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                     ),
                                   ),
                                 ),
-                                if (FFAppState().isGetVloanContract)
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Expanded(
-                                              flex: 1,
-                                              child: Icon(
-                                                Icons.format_list_bulleted,
-                                                color: Colors.black,
-                                                size: 29.0,
-                                              ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 0.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.format_list_bulleted,
+                                              color: Colors.black,
+                                              size: 29.0,
                                             ),
-                                            Expanded(
-                                              flex: 4,
+                                          ),
+                                          Expanded(
+                                            flex: 4,
+                                            child: Text(
+                                              'รีมาร์ค กลุ่ม D',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 5,
+                                            child: Container(
+                                              decoration: BoxDecoration(),
                                               child: Text(
-                                                'รีมาร์ค กลุ่ม D',
+                                                valueOrDefault<String>(
+                                                  widget!.remarkTypeDName,
+                                                  'remark_type_d_name',
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
-                                            Expanded(
-                                              flex: 5,
-                                              child: Container(
-                                                decoration: BoxDecoration(),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    widget!.remarkTypeDName,
-                                                    'remark_type_d_name',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
+                                ),
                                 Container(
                                   width: double.infinity,
                                   height:
