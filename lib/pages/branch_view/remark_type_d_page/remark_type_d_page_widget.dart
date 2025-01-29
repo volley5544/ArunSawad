@@ -1712,8 +1712,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                       .bytes
                                                                       ?.isNotEmpty ??
                                                                   false))) {
-                                                            Navigator.pop(
-                                                                context);
                                                             await showDialog(
                                                               context: context,
                                                               builder:
@@ -1805,9 +1803,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                               ],
                             ).animateOnPageLoad(
                                 animationsMap['wrapOnPageLoadAnimation1']!),
-                          if (functions.visibleUploadedImg(
-                              FFAppState().isFromTimesheetPage,
-                              FFAppState().imgURL.length))
+                          if (_model.uploadedimageList.length > 0)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
