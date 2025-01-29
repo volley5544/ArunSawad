@@ -2715,18 +2715,21 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      widget!.remark,
-                                                      'remark',
+                                                  Expanded(
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        widget!.remark,
+                                                        'remark',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
                                                   ),
                                                 ],
                                               ),

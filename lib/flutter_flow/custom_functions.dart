@@ -3777,7 +3777,8 @@ List<String>? returnInsuranceBasicInsurerList(
 }
 
 FFUploadedFile? returnFileUploadedNull() {
-  return null;
+  FFUploadedFile? fileNull = null;
+  return fileNull;
 }
 
 List<String>? ganerateYearList(
