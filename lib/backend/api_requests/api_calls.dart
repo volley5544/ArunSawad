@@ -1678,6 +1678,10 @@ class TimesheetDetailAPICall {
         response,
         r'''$.info[:].status_desc''',
       );
+  static dynamic? lawLedDataJson(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[0]''',
+      );
 }
 
 class GetUserProfileAPICall {

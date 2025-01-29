@@ -807,16 +807,84 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         _shouldSetState = true;
+                                        if ((_model.typeDTimesheetDetail
+                                                    ?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาดConnection (${(_model.typeDTimesheetDetail?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        if ('${getJsonField(
+                                              (_model.typeDTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                              r'''$.code''',
+                                            ).toString()}' !=
+                                            '200') {
+                                          Navigator.pop(context);
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content:
+                                                      Text('${'${getJsonField(
+                                                    (_model.typeDTimesheetDetail
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.message''',
+                                                  ).toString()}'}'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
 
                                         context.pushNamed(
                                           'RemarkTypeDPage',
                                           queryParameters: {
                                             'recordId': serializeParam(
-                                              TimesheetDetailAPICall.recordID(
-                                                (_model.typeDTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
+                                              '${getJsonField(
+                                                TimesheetDetailAPICall
+                                                    .lawLedDataJson(
+                                                  (_model.typeDTimesheetDetail
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                r'''$.RecordId''',
+                                              ).toString()}',
                                               ParamType.String,
                                             ),
                                             'coordinate': serializeParam(
@@ -833,11 +901,15 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                               ParamType.String,
                                             ),
                                             'remark': serializeParam(
-                                              TimesheetDetailAPICall.remark(
-                                                (_model.typeDTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
+                                              '${getJsonField(
+                                                TimesheetDetailAPICall
+                                                    .lawLedDataJson(
+                                                  (_model.typeDTimesheetDetail
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                r'''$.remark''',
+                                              ).toString()}',
                                               ParamType.String,
                                             ),
                                             'clockIn': serializeParam(
@@ -849,24 +921,47 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                               ParamType.DateTime,
                                             ),
                                             'contNo': serializeParam(
-                                              TimesheetDetailAPICall.contNo(
-                                                (_model.typeDTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
+                                              '${getJsonField(
+                                                TimesheetDetailAPICall
+                                                    .lawLedDataJson(
+                                                  (_model.typeDTimesheetDetail
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                r'''$.contract_no''',
+                                              ).toString()}',
                                               ParamType.String,
                                             ),
                                             'remarkTypeDName': serializeParam(
-                                              '',
+                                              '${getJsonField(
+                                                TimesheetDetailAPICall
+                                                    .lawLedDataJson(
+                                                  (_model.typeDTimesheetDetail
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                r'''$.remark_name''',
+                                              ).toString()}',
                                               ParamType.String,
                                             ),
                                             'cusName': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .customerName(
-                                                (_model.typeDTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
+                                              '${'${getJsonField(
+                                                TimesheetDetailAPICall
+                                                    .lawLedDataJson(
+                                                  (_model.typeDTimesheetDetail
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                r'''$.firstname''',
+                                              ).toString()}'} ${'${getJsonField(
+                                                TimesheetDetailAPICall
+                                                    .lawLedDataJson(
+                                                  (_model.typeDTimesheetDetail
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                r'''$.lastname''',
+                                              ).toString()}'}',
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,
