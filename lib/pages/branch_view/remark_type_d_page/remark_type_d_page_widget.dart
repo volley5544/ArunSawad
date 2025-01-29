@@ -1191,6 +1191,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       safeSetState(() {});
                                                     },
                                                     width: 200.0,
+                                                    maxHeight: 100.0,
                                                     searchHintTextStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -2289,8 +2290,11 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.06,
+                                  constraints: BoxConstraints(
+                                    minHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.06,
+                                  ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -2421,8 +2425,11 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.06,
+                                  constraints: BoxConstraints(
+                                    minHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.06,
+                                  ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -2548,75 +2555,70 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    constraints: BoxConstraints(
-                                      minHeight:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.06,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, 0.0),
-                                              child: Icon(
-                                                Icons.format_list_bulleted,
-                                                color: Colors.black,
-                                                size: 29.0,
-                                              ),
+                                Container(
+                                  width: double.infinity,
+                                  constraints: BoxConstraints(
+                                    minHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.06,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Icon(
+                                              Icons.format_list_bulleted,
+                                              color: Colors.black,
+                                              size: 29.0,
                                             ),
                                           ),
-                                          Expanded(
-                                            flex: 4,
+                                        ),
+                                        Expanded(
+                                          flex: 4,
+                                          child: Text(
+                                            'รีมาร์ค กลุ่ม D',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 18.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 5,
+                                          child: Container(
+                                            decoration: BoxDecoration(),
                                             child: Text(
-                                              'รีมาร์ค กลุ่ม D',
+                                              valueOrDefault<String>(
+                                                widget!.remarkTypeDName,
+                                                'remark_type_d_name',
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
-                                          Expanded(
-                                            flex: 5,
-                                            child: Container(
-                                              decoration: BoxDecoration(),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget!.remarkTypeDName,
-                                                  'remark_type_d_name',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
