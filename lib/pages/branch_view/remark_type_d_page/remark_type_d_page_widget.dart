@@ -1,5 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/components/image_or_pdf_viewer_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -16,6 +18,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -69,43 +72,23 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         parameters: {'screen_name': 'RemarkTypeDPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return WebViewAware(
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: Container(
-                  height: double.infinity,
-                  child: LoadingSceneWidget(),
-                ),
-              ),
-            ),
-          );
-        },
-      ).then((value) => safeSetState(() {}));
-
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if (isAndroid) {
         await actions.allowScreenRecordAndroid();
       } else {
         await actions.allowScreenRecordIOS();
       }
 
-      if (true) {
+      _model.checkLatLngBVCheckIn = await actions.a8(
+        currentUserLocationValue,
+      );
+      if (_model.checkLatLngBVCheckIn!) {
         _model.remarkIDList = functions
-            .getDataFromMapJson(
+            .getDataFromMapJsonToList(
                 functions.getDataFromMapJson(
                     FFAppState().roleMenuJson, 'branchViewRemarkConfig'),
                 'remarkId')!
-            .cast<String>()
             .toList()
             .cast<String>();
         _model.remarkNameList = functions
@@ -157,7 +140,23 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         return;
       }
 
-      Navigator.pop(context);
+      if (!FFAppState().isFromTimesheetPage) {
+        var userLogRecordReference = UserLogRecord.collection.doc();
+        await userLogRecordReference.set(createUserLogRecordData(
+          employeeId: FFAppState().employeeID,
+          action: 'Branch_View_CheckIn',
+          actionTime: getCurrentTimestamp,
+          userLocation: currentUserLocationValue,
+        ));
+        _model.createdUserLogBVCheckIn = UserLogRecord.getDocumentFromData(
+            createUserLogRecordData(
+              employeeId: FFAppState().employeeID,
+              action: 'Branch_View_CheckIn',
+              actionTime: getCurrentTimestamp,
+              userLocation: currentUserLocationValue,
+            ),
+            userLogRecordReference);
+      }
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
