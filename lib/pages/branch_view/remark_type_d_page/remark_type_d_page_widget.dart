@@ -1264,7 +1264,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 MediaQuery.sizeOf(context)
                                                         .height *
                                                     0.06,
-                                            maxHeight: 150.0,
                                           ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
