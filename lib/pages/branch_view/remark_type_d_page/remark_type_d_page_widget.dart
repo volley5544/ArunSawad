@@ -1189,8 +1189,13 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                     ),
                                                     options: List<String>.from(
                                                         _model.remarkIDList),
-                                                    optionLabels:
-                                                        _model.remarkNameList,
+                                                    optionLabels: functions
+                                                        .genDropdownCodeAndName(
+                                                            _model.remarkIDList
+                                                                .toList(),
+                                                            _model
+                                                                .remarkNameList
+                                                                .toList())!,
                                                     onChanged: (val) async {
                                                       safeSetState(() => _model
                                                           .dropDownValue = val);
@@ -1604,15 +1609,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                           []));
                                                         });
 
-                                                        if (_model
-                                                                .uploadedimageList
-                                                                .length ==
-                                                            1) {
-                                                          await Future.delayed(
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      1000));
-                                                        }
+                                                        await Future.delayed(
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    1000));
                                                         await _model
                                                             .columnController
                                                             ?.animateTo(
@@ -1815,15 +1815,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                             []));
                                                           });
 
-                                                          if (_model
-                                                                  .uploadedimageList
-                                                                  .length ==
-                                                              1) {
-                                                            await Future.delayed(
-                                                                const Duration(
-                                                                    milliseconds:
-                                                                        1000));
-                                                          }
+                                                          await Future.delayed(
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      1000));
                                                           await _model
                                                               .columnController
                                                               ?.animateTo(
@@ -2177,20 +2172,34 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                         .elementAtOrNull(
                                                                             uploadedFileListItemIndex) ==
                                                                     'image') {
-                                                                  return Icon(
-                                                                    Icons
-                                                                        .image_search,
-                                                                    color: Color(
-                                                                        0xFFFF6500),
-                                                                    size: 30.0,
+                                                                  return Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .image_search,
+                                                                      color: Color(
+                                                                          0xFFFF6500),
+                                                                      size:
+                                                                          30.0,
+                                                                    ),
                                                                   );
                                                                 } else {
-                                                                  return Icon(
-                                                                    Icons
-                                                                        .picture_as_pdf_outlined,
-                                                                    color: Color(
-                                                                        0xFFFF6500),
-                                                                    size: 30.0,
+                                                                  return Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .picture_as_pdf_outlined,
+                                                                      color: Color(
+                                                                          0xFFFF6500),
+                                                                      size:
+                                                                          30.0,
+                                                                    ),
                                                                   );
                                                                 }
                                                               },
@@ -2316,10 +2325,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       children: [
                                         Expanded(
                                           flex: 1,
-                                          child: Icon(
-                                            Icons.language_outlined,
-                                            color: Colors.black,
-                                            size: 29.0,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Icon(
+                                              Icons.language_outlined,
+                                              color: Colors.black,
+                                              size: 29.0,
+                                            ),
                                           ),
                                         ),
                                         Expanded(
@@ -2440,10 +2453,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       children: [
                                         Expanded(
                                           flex: 1,
-                                          child: FaIcon(
-                                            FontAwesomeIcons.creditCard,
-                                            color: Colors.black,
-                                            size: 29.0,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: FaIcon(
+                                              FontAwesomeIcons.creditCard,
+                                              color: Colors.black,
+                                              size: 29.0,
+                                            ),
                                           ),
                                         ),
                                         Expanded(
@@ -2499,10 +2516,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         children: [
                                           Expanded(
                                             flex: 1,
-                                            child: Icon(
-                                              Icons.person,
-                                              color: Colors.black,
-                                              size: 29.0,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Icon(
+                                                Icons.person,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -2559,10 +2580,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         children: [
                                           Expanded(
                                             flex: 1,
-                                            child: Icon(
-                                              Icons.format_list_bulleted,
-                                              color: Colors.black,
-                                              size: 29.0,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Icon(
+                                                Icons.format_list_bulleted,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -2621,10 +2646,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       children: [
                                         Expanded(
                                           flex: 1,
-                                          child: FaIcon(
-                                            FontAwesomeIcons.edit,
-                                            color: Colors.black,
-                                            size: 29.0,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: FaIcon(
+                                              FontAwesomeIcons.edit,
+                                              color: Colors.black,
+                                              size: 29.0,
+                                            ),
                                           ),
                                         ),
                                         Expanded(

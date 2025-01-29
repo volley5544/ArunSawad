@@ -4689,3 +4689,16 @@ List<DateTime>? generateLast30DateTimeList(String? selectedDate) {
   //print(last30Days);
   return last30Days;
 }
+
+List<String>? genDropdownCodeAndName(
+  List<String>? codeList,
+  List<String>? nameList,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < codeList!.length; i++) {
+    outputList.add('[${codeList![i]}] ${nameList![i]}');
+  }
+
+  return outputList;
+}
