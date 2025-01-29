@@ -1303,6 +1303,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 Expanded(
                                                   flex: 5,
                                                   child: Container(
+                                                    constraints: BoxConstraints(
+                                                      maxHeight: 150.0,
+                                                    ),
                                                     decoration: BoxDecoration(),
                                                     child: TextFormField(
                                                       controller: _model
@@ -3161,7 +3164,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           )}',
                                           contNo:
                                               _model.idInputTextController.text,
-                                          apiUrl: FFAppState().apiURLLocalState,
+                                          apiUrl: '',
                                           typeDRemarkId: _model.dropDownValue,
                                           typeDRemarkName: _model.remarkNameList
                                               .elementAtOrNull(functions
