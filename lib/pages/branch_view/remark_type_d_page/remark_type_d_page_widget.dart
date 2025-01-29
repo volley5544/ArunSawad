@@ -100,6 +100,22 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           },
         );
 
+        FFAppState().isGetVloanContract = false;
+        safeSetState(() {});
+        safeSetState(() {
+          _model.dropDownValueController?.reset();
+        });
+        safeSetState(() {
+          _model.textController1?.text = 'สถานะคดี';
+
+          _model.coordinateInputTextController?.clear();
+          _model.idInputTextController?.clear();
+          _model.remarkInputTextController?.clear();
+          _model.textController5?.text = 'ไฟล์ที่อัพโหลด';
+
+          _model.coordinateTimesheetTextController?.clear();
+          _model.textController6?.text = 'สถานะคดี';
+        });
         if (isAndroid) {
           await actions.allowScreenRecordAndroid();
         } else {
@@ -3177,69 +3193,60 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       _model.dropDownValue)),
                                           image1: _model
                                               .uploadedimageList.firstOrNull,
-                                          image2: _model.uploadedimageList
-                                                      .length >=
-                                                  2
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(1)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image3: _model.uploadedimageList
-                                                      .length >=
-                                                  3
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(2)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image4: _model.uploadedimageList
-                                                      .length >=
-                                                  4
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(3)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image5: _model.uploadedimageList
-                                                      .length >=
-                                                  5
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(4)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image6: _model.uploadedimageList
-                                                      .length >=
-                                                  6
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(5)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image7: _model.uploadedimageList
-                                                      .length >=
-                                                  7
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(6)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image8: _model.uploadedimageList
-                                                      .length >=
-                                                  8
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(7)
-                                              : functions
-                                                  .returnFileUploadedNull(),
-                                          image9: _model.uploadedimageList
-                                                      .length >=
-                                                  9
-                                              ? _model.uploadedimageList
-                                                  .elementAtOrNull(8)
-                                              : functions
-                                                  .returnFileUploadedNull(),
+                                          image2:
+                                              _model.uploadedimageList.length >=
+                                                      2
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(1)
+                                                  : _model.uploadedLocalFile1,
+                                          image3:
+                                              _model.uploadedimageList.length >=
+                                                      3
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(2)
+                                                  : _model.uploadedLocalFile1,
+                                          image4:
+                                              _model.uploadedimageList.length >=
+                                                      4
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(3)
+                                                  : _model.uploadedLocalFile1,
+                                          image5:
+                                              _model.uploadedimageList.length >=
+                                                      5
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(4)
+                                                  : _model.uploadedLocalFile1,
+                                          image6:
+                                              _model.uploadedimageList.length >=
+                                                      6
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(5)
+                                                  : _model.uploadedLocalFile1,
+                                          image7:
+                                              _model.uploadedimageList.length >=
+                                                      7
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(6)
+                                                  : _model.uploadedLocalFile1,
+                                          image8:
+                                              _model.uploadedimageList.length >=
+                                                      8
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(7)
+                                                  : _model.uploadedLocalFile1,
+                                          image9:
+                                              _model.uploadedimageList.length >=
+                                                      9
+                                                  ? _model.uploadedimageList
+                                                      .elementAtOrNull(8)
+                                                  : _model.uploadedLocalFile1,
                                           image10:
                                               _model.uploadedimageList.length >=
                                                       10
                                                   ? _model.uploadedimageList
                                                       .elementAtOrNull(9)
-                                                  : functions
-                                                      .returnFileUploadedNull(),
+                                                  : _model.uploadedLocalFile1,
                                         );
 
                                         _shouldSetState = true;
@@ -3306,6 +3313,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             safeSetState(() {});
                                           return;
                                         }
+                                        FFAppState().isGetVloanContract = false;
+                                        safeSetState(() {});
                                         Navigator.pop(context);
 
                                         context.goNamed('SuccessPage');
