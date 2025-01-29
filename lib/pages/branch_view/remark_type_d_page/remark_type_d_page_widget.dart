@@ -609,10 +609,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       children: [
                                         Expanded(
                                           flex: 1,
-                                          child: Icon(
-                                            Icons.language_outlined,
-                                            color: Colors.black,
-                                            size: 29.0,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Icon(
+                                              Icons.language_outlined,
+                                              color: Colors.black,
+                                              size: 29.0,
+                                            ),
                                           ),
                                         ),
                                         Expanded(
@@ -741,10 +745,14 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           children: [
                                             Expanded(
                                               flex: 1,
-                                              child: FaIcon(
-                                                FontAwesomeIcons.creditCard,
-                                                color: Colors.black,
-                                                size: 29.0,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.creditCard,
+                                                  color: Colors.black,
+                                                  size: 29.0,
+                                                ),
                                               ),
                                             ),
                                             Expanded(
@@ -1069,10 +1077,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               children: [
                                                 Expanded(
                                                   flex: 1,
-                                                  child: Icon(
-                                                    Icons.person,
-                                                    color: Colors.black,
-                                                    size: 29.0,
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.person,
+                                                      color: Colors.black,
+                                                      size: 29.0,
+                                                    ),
                                                   ),
                                                 ),
                                                 Expanded(
@@ -1136,10 +1149,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             children: [
                                               Expanded(
                                                 flex: 1,
-                                                child: Icon(
-                                                  Icons.format_list_bulleted,
-                                                  color: Colors.black,
-                                                  size: 29.0,
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.format_list_bulleted,
+                                                    color: Colors.black,
+                                                    size: 29.0,
+                                                  ),
                                                 ),
                                               ),
                                               Expanded(
