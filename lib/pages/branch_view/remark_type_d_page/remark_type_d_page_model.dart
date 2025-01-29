@@ -139,8 +139,6 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   bool? checkGPSBeforeSave;
   // Stores action output result for [Backend Call - API (LawLedAPI)] action in Button widget.
   ApiCallResponse? lawLedAPISubmit;
-  // Stores action output result for [Backend Call - API (CheckInAPI)] action in Button widget.
-  ApiCallResponse? checkInAPISubmit;
 
   @override
   void initState(BuildContext context) {

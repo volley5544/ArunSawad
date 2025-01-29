@@ -2699,13 +2699,33 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                 ),
                                 child: Builder(builder: (context) {
                                   final _googleMapMarker =
-                                      currentUserLocationValue;
+                                      (('${widget!.coordinate}' != '') &&
+                                              ('${widget!.coordinate}' !=
+                                                  'null')
+                                          ? functions.stringToLatLng(
+                                              (String location) {
+                                                return location.split(',')[0];
+                                              }(widget!.coordinate!),
+                                              (String location) {
+                                                return location.split(',')[1];
+                                              }(widget!.coordinate!))
+                                          : currentUserLocationValue);
                                   return FlutterFlowGoogleMap(
                                     controller: _model.googleMapsController,
                                     onCameraIdle: (latLng) =>
                                         _model.googleMapsCenter = latLng,
                                     initialLocation: _model.googleMapsCenter ??=
-                                        currentUserLocationValue!,
+                                        ('${widget!.coordinate}' != '') &&
+                                                ('${widget!.coordinate}' !=
+                                                    'null')
+                                            ? functions.stringToLatLng(
+                                                (String location) {
+                                                  return location.split(',')[0];
+                                                }(widget!.coordinate!),
+                                                (String location) {
+                                                  return location.split(',')[1];
+                                                }(widget!.coordinate!))!
+                                            : currentUserLocationValue!,
                                     markers: [
                                       if (_googleMapMarker != null)
                                         FlutterFlowMarker(
@@ -2720,11 +2740,16 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                     allowInteraction: true,
                                     allowZoom: true,
                                     showZoomControls: true,
-                                    showLocation: true,
+                                    showLocation: !(('${widget!.coordinate}' !=
+                                            '') &&
+                                        ('${widget!.coordinate}' != 'null')),
                                     showCompass: false,
                                     showMapToolbar: false,
                                     showTraffic: false,
-                                    centerMapOnMarkerTap: true,
+                                    centerMapOnMarkerTap:
+                                        !(('${widget!.coordinate}' != '') &&
+                                            ('${widget!.coordinate}' !=
+                                                'null')),
                                   );
                                 }),
                               ).animateOnPageLoad(animationsMap[
@@ -3139,24 +3164,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       .elementAtOrNull(9)
                                                   : functions
                                                       .returnFileUploadedNull(),
-                                        );
-
-                                        _shouldSetState = true;
-                                        _model.checkInAPISubmit =
-                                            await CheckInAPICall.call(
-                                          location: valueOrDefault<String>(
-                                            functions.getUserLocation(
-                                                currentUserLocationValue),
-                                            'Latitude,Longitude',
-                                          ),
-                                          remark: _model
-                                              .remarkInputTextController.text,
-                                          uid: FFAppState().imei,
-                                          jobType: 'Check In',
-                                          description: 'เช็คอิน',
-                                          username: FFAppState().employeeID,
-                                          token: FFAppState().accessToken,
-                                          apiUrl: FFAppState().apiURLLocalState,
                                         );
 
                                         _shouldSetState = true;
