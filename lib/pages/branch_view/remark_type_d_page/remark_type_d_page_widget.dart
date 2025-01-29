@@ -417,6 +417,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: SingleChildScrollView(
+                      controller: _model.columnController,
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1170,11 +1171,43 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                         _model.remarkIDList),
                                                     optionLabels:
                                                         _model.remarkNameList,
-                                                    onChanged: (val) =>
-                                                        safeSetState(() => _model
-                                                                .dropDownValue =
-                                                            val),
+                                                    onChanged: (val) async {
+                                                      safeSetState(() => _model
+                                                          .dropDownValue = val);
+                                                      safeSetState(() {
+                                                        _model
+                                                            .remarkInputTextController
+                                                            ?.clear();
+                                                      });
+                                                      _model.uploadedimageList =
+                                                          [];
+                                                      _model.uploadedFileTypeList =
+                                                          [];
+                                                      safeSetState(() {});
+                                                    },
                                                     width: 200.0,
+                                                    searchHintTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xFFA7A7A7),
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                    searchTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyMedium
@@ -1183,6 +1216,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     hintText: 'รีมาร์ค กลุ่ม D',
+                                                    searchHintText: 'คำค้นหา',
                                                     icon: Icon(
                                                       Icons
                                                           .keyboard_arrow_down_rounded,
@@ -1206,7 +1240,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 12.0, 0.0),
                                                     hidesUnderline: true,
                                                     isOverButton: false,
-                                                    isSearchable: false,
+                                                    isSearchable: true,
                                                     isMultiSelect: false,
                                                   ),
                                                 ),
@@ -1400,6 +1434,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 5.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
+                                                        await actions
+                                                            .hideKeyboardAction(
+                                                          context,
+                                                        );
                                                         HapticFeedback
                                                             .mediumImpact();
                                                         if (_model
@@ -1459,11 +1497,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                               <FFUploadedFile>[];
 
                                                           try {
-                                                            showUploadMessage(
-                                                              context,
-                                                              'Uploading file...',
-                                                              showLoading: true,
-                                                            );
                                                             selectedUploadedFiles =
                                                                 selectedMedia
                                                                     .map((m) =>
@@ -1485,9 +1518,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                         ))
                                                                     .toList();
                                                           } finally {
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .hideCurrentSnackBar();
                                                             _model.isDataUploading1 =
                                                                 false;
                                                           }
@@ -1500,14 +1530,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
-                                                            showUploadMessage(
-                                                                context,
-                                                                'Success!');
                                                           } else {
                                                             safeSetState(() {});
-                                                            showUploadMessage(
-                                                                context,
-                                                                'Failed to upload data');
                                                             return;
                                                           }
                                                         }
@@ -1550,6 +1574,18 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                             .addToUploadedFileTypeList(
                                                                 'image');
                                                         safeSetState(() {});
+                                                        await _model
+                                                            .columnController
+                                                            ?.animateTo(
+                                                          _model
+                                                              .columnController!
+                                                              .position
+                                                              .maxScrollExtent,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  100),
+                                                          curve: Curves.ease,
+                                                        );
                                                       },
                                                       text: 'อัพโหลดรูป',
                                                       options: FFButtonOptions(
@@ -1610,6 +1646,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                   0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          await actions
+                                                              .hideKeyboardAction(
+                                                            context,
+                                                          );
                                                           HapticFeedback
                                                               .mediumImpact();
                                                           if (_model
@@ -1658,12 +1698,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 <FFUploadedFile>[];
 
                                                             try {
-                                                              showUploadMessage(
-                                                                context,
-                                                                'Uploading file...',
-                                                                showLoading:
-                                                                    true,
-                                                              );
                                                               selectedUploadedFiles =
                                                                   selectedFiles
                                                                       .map((m) =>
@@ -1675,9 +1709,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                           ))
                                                                       .toList();
                                                             } finally {
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .hideCurrentSnackBar();
                                                               _model.isDataUploading2 =
                                                                   false;
                                                             }
@@ -1690,17 +1721,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                     selectedUploadedFiles
                                                                         .first;
                                                               });
-                                                              showUploadMessage(
-                                                                context,
-                                                                'Success!',
-                                                              );
                                                             } else {
                                                               safeSetState(
                                                                   () {});
-                                                              showUploadMessage(
-                                                                context,
-                                                                'Failed to upload file',
-                                                              );
                                                               return;
                                                             }
                                                           }
@@ -1743,6 +1766,18 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                               .addToUploadedFileTypeList(
                                                                   'pdf');
                                                           safeSetState(() {});
+                                                          await _model
+                                                              .columnController
+                                                              ?.animateTo(
+                                                            _model
+                                                                .columnController!
+                                                                .position
+                                                                .maxScrollExtent,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            curve: Curves.ease,
+                                                          );
                                                         },
                                                         text: 'เพิ่ม PDF ไฟล์',
                                                         options:
@@ -2010,11 +2045,39 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 Colors
                                                                     .transparent,
                                                             onTap: () async {
+                                                              var confirmDialogResponse =
+                                                                  await showDialog<
+                                                                          bool>(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('คุณต้องการลบไฟล์ ${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'} หรือไม่?'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: Text('ยกเลิก'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: Text('ลบ'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ) ??
+                                                                      false;
+                                                              if (!confirmDialogResponse) {
+                                                                return;
+                                                              }
                                                               _model.removeAtIndexFromUploadedimageList(
                                                                   uploadedFileListItemIndex);
-                                                              _model
-                                                                  .removeAtIndexFromUploadedFileTypeList(
-                                                                      0);
+                                                              _model.removeAtIndexFromUploadedFileTypeList(
+                                                                  uploadedFileListItemIndex);
                                                               safeSetState(
                                                                   () {});
                                                             },

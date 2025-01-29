@@ -82,6 +82,8 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   bool? checkLatLngBVCheckIn;
   // Stores action output result for [Backend Call - Create Document] action in RemarkTypeDPage widget.
   UserLogRecord? createdUserLogBVCheckIn;
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -141,10 +143,13 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   ApiCallResponse? checkInAPISubmit;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+  }
 
   @override
   void dispose() {
+    columnController?.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

@@ -65,57 +65,64 @@ class _ImageOrPdfViewerComponentWidgetState
         children: [
           Align(
             alignment: AlignmentDirectional(-1.0, -1.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.close_outlined,
-                        color: Color(0xFFFF0000),
-                        size: 40.0,
+            child: Container(
+              height: 70.0,
+              decoration: BoxDecoration(),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.close_outlined,
+                            color: Color(0xFFFF0000),
+                            size: 40.0,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 1.0,
-                    height: 1.0,
-                    decoration: BoxDecoration(),
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Text(
-                    valueOrDefault<String>(
-                      widget!.fileName,
-                      'file_name',
+                    Expanded(
+                      child: Container(
+                        width: 1.0,
+                        height: 1.0,
+                        decoration: BoxDecoration(),
+                      ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                          letterSpacing: 0.0,
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget!.fileName,
+                          'file_name',
                         ),
-                  ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        width: 1.0,
+                        height: 1.0,
+                        decoration: BoxDecoration(),
+                      ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: Container(
-                    width: 1.0,
-                    height: 1.0,
-                    decoration: BoxDecoration(),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
           Expanded(
