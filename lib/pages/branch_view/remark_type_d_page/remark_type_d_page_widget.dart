@@ -324,9 +324,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.textController1?.text = 'รีมาร์คสถานะคดี';
+          _model.textController1?.text = 'สถานะคดี';
           _model.textController5?.text = 'ไฟล์ที่อัพโหลด';
-          _model.textController6?.text = 'รีมาร์คสถานะคดี';
+          _model.textController6?.text = 'สถานะคดี';
         }));
   }
 

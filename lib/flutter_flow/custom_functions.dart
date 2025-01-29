@@ -437,7 +437,7 @@ String showJobType(String? jobType) {
   } else if (jobType == 'OPS') {
     text = 'ทรัพย์สิน OPS';
   } else if (jobType == 'Law Led') {
-    text = 'รีมาร์คสถานะคดี';
+    text = 'สถานะคดี';
   }
 
   return text;
