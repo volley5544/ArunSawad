@@ -1991,6 +1991,42 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              _model.removeAtIndexFromUploadedimageList(
+                                                                  uploadedFileListItemIndex);
+                                                              _model
+                                                                  .removeAtIndexFromUploadedFileTypeList(
+                                                                      0);
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
+                                                            child: Icon(
+                                                              Icons
+                                                                  .close_outlined,
+                                                              color: Color(
+                                                                  0xFFFF0000),
+                                                              size: 30.0,
+                                                            ),
+                                                          ),
+                                                        ),
                                                         Expanded(
                                                           flex: 3,
                                                           child: Text(
