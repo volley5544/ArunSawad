@@ -1,7 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
-import '/backend/backend.dart';
 import '/components/image_or_pdf_viewer_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -18,7 +16,6 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -72,18 +69,13 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         parameters: {'screen_name': 'RemarkTypeDPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if (isAndroid) {
         await actions.allowScreenRecordAndroid();
       } else {
         await actions.allowScreenRecordIOS();
       }
 
-      _model.checkLatLngBVCheckIn = await actions.a8(
-        currentUserLocationValue,
-      );
-      if (_model.checkLatLngBVCheckIn!) {
+      if (true) {
         _model.remarkIDList = functions
             .getDataFromMapJson(
                 functions.getDataFromMapJson(
@@ -139,24 +131,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         context.goNamed('Dashboard');
 
         return;
-      }
-
-      if (!FFAppState().isFromTimesheetPage) {
-        var userLogRecordReference = UserLogRecord.collection.doc();
-        await userLogRecordReference.set(createUserLogRecordData(
-          employeeId: FFAppState().employeeID,
-          action: 'Branch_View_CheckIn',
-          actionTime: getCurrentTimestamp,
-          userLocation: currentUserLocationValue,
-        ));
-        _model.createdUserLogBVCheckIn = UserLogRecord.getDocumentFromData(
-            createUserLogRecordData(
-              employeeId: FFAppState().employeeID,
-              action: 'Branch_View_CheckIn',
-              actionTime: getCurrentTimestamp,
-              userLocation: currentUserLocationValue,
-            ),
-            userLogRecordReference);
       }
     });
 
@@ -872,32 +846,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             FFAppState().isGetVloanContract =
                                                 false;
                                             FFAppState().update(() {});
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                          if (!functions.checkIdCardInput(_model
-                                              .idInputTextController.text)) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณากรอกเลขบัตรประชาชนลูกค้า 13 หลัก'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            );
                                             if (_shouldSetState)
                                               safeSetState(() {});
                                             return;
