@@ -69,6 +69,30 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
         parameters: {'screen_name': 'RemarkTypeDPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
       if (isAndroid) {
         await actions.allowScreenRecordAndroid();
       } else {
@@ -132,6 +156,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
 
         return;
       }
+
+      Navigator.pop(context);
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
