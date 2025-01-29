@@ -436,6 +436,8 @@ String showJobType(String? jobType) {
     text = 'สำรวจ NPA';
   } else if (jobType == 'OPS') {
     text = 'ทรัพย์สิน OPS';
+  } else if (jobType == 'Law Led') {
+    text = 'รีมาร์คสถานะคดี';
   }
 
   return text;
