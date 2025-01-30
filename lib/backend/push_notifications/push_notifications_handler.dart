@@ -744,6 +744,7 @@ final parametersBuilderMap =
           'contNo': getParameter<String>(data, 'contNo'),
           'remarkTypeDName': getParameter<String>(data, 'remarkTypeDName'),
           'cusName': getParameter<String>(data, 'cusName'),
+          'filesCount': getParameter<int>(data, 'filesCount'),
         },
       ),
 };

@@ -972,6 +972,124 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                               ).toString()}'}',
                                               ParamType.String,
                                             ),
+                                            'filesCount': serializeParam(
+                                              functions.countFilesUploaded(
+                                                  ((String image1,
+                                                              String image2,
+                                                              String image3,
+                                                              String image4,
+                                                              String image5,
+                                                              String image6,
+                                                              String image7,
+                                                              String image8,
+                                                              String image9,
+                                                              String image10) {
+                                                return [
+                                                  image1,
+                                                  image2,
+                                                  image3,
+                                                  image4,
+                                                  image5,
+                                                  image6,
+                                                  image7,
+                                                  image8,
+                                                  image9,
+                                                  image10
+                                                ];
+                                              }(
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_01''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_02''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_03''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_04''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_05''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_06''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_07''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_08''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_09''',
+                                                          ).toString()}',
+                                                          '${getJsonField(
+                                                            TimesheetDetailAPICall
+                                                                .lawLedDataJson(
+                                                              (_model.typeDTimesheetDetail
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            r'''$.images_10''',
+                                                          ).toString()}'))
+                                                      .toList()),
+                                              ParamType.int,
+                                            ),
                                           }.withoutNulls,
                                         );
 

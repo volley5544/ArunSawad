@@ -4722,3 +4722,14 @@ String? replaceEnterInStringText(String? inputString) {
   String output = inputString!.replaceAll('\n', '');
   return output;
 }
+
+int? countFilesUploaded(List<String>? filesUploadedList) {
+  int countFiles = 0;
+
+  for (int i = 0; i < filesUploadedList!.length; i++) {
+    if (filesUploadedList![i] != 'null') {
+      countFiles++;
+    }
+  }
+  return countFiles;
+}

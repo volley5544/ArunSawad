@@ -2453,6 +2453,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'cusName',
                   ParamType.String,
                 ),
+                filesCount: params.getParam(
+                  'filesCount',
+                  ParamType.int,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

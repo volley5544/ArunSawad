@@ -40,6 +40,7 @@ class RemarkTypeDPageWidget extends StatefulWidget {
     this.contNo,
     this.remarkTypeDName,
     this.cusName,
+    this.filesCount,
   });
 
   final String? recordId;
@@ -49,6 +50,7 @@ class RemarkTypeDPageWidget extends StatefulWidget {
   final String? contNo;
   final String? remarkTypeDName;
   final String? cusName;
+  final int? filesCount;
 
   @override
   State<RemarkTypeDPageWidget> createState() => _RemarkTypeDPageWidgetState();
@@ -2254,294 +2256,97 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                               ),
                             ),
                           if (FFAppState().isFromTimesheetPage == true)
-                            Wrap(
-                              spacing: 0.0,
-                              runSpacing: 0.0,
-                              alignment: WrapAlignment.start,
-                              crossAxisAlignment: WrapCrossAlignment.start,
-                              direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.07,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: TextFormField(
-                                    controller: _model.textController6,
-                                    focusNode: _model.textFieldFocusNode3,
-                                    autofocus: false,
-                                    readOnly: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: '[Some hint text...]',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 20.0),
+                              child: Wrap(
+                                spacing: 0.0,
+                                runSpacing: 0.0,
+                                alignment: WrapAlignment.start,
+                                crossAxisAlignment: WrapCrossAlignment.start,
+                                direction: Axis.horizontal,
+                                runAlignment: WrapAlignment.start,
+                                verticalDirection: VerticalDirection.down,
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.07,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: TextFormField(
+                                      controller: _model.textController6,
+                                      focusNode: _model.textFieldFocusNode3,
+                                      autofocus: false,
+                                      readOnly: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        hintText: '[Some hint text...]',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(4.0),
+                                            topRight: Radius.circular(4.0),
+                                          ),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(4.0),
+                                            topRight: Radius.circular(4.0),
+                                          ),
+                                        ),
+                                        errorBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(4.0),
+                                            topRight: Radius.circular(4.0),
+                                          ),
+                                        ),
+                                        focusedErrorBorder:
+                                            UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(4.0),
+                                            topRight: Radius.circular(4.0),
+                                          ),
+                                        ),
+                                        filled: true,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Noto Serif',
+                                            color: FlutterFlowTheme.of(context)
+                                                .black600,
                                             letterSpacing: 0.0,
                                           ),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      filled: true,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .override(
-                                          fontFamily: 'Noto Serif',
-                                          color: FlutterFlowTheme.of(context)
-                                              .black600,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    validator: _model.textController6Validator
-                                        .asValidator(context),
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  constraints: BoxConstraints(
-                                    minHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.06,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          flex: 1,
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: Icon(
-                                              Icons.language_outlined,
-                                              color: Colors.black,
-                                              size: 29.0,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Text(
-                                            'ค่าพิกัด:',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 5,
-                                          child: TextFormField(
-                                            controller: _model
-                                                .coordinateTimesheetTextController,
-                                            focusNode: _model
-                                                .coordinateTimesheetFocusNode,
-                                            autofocus: false,
-                                            readOnly: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              isDense: false,
-                                              hintText: widget!.coordinate,
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                  topLeft: Radius.circular(4.0),
-                                                  topRight:
-                                                      Radius.circular(4.0),
-                                                ),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                  topLeft: Radius.circular(4.0),
-                                                  topRight:
-                                                      Radius.circular(4.0),
-                                                ),
-                                              ),
-                                              errorBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                  topLeft: Radius.circular(4.0),
-                                                  topRight:
-                                                      Radius.circular(4.0),
-                                                ),
-                                              ),
-                                              focusedErrorBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                  topLeft: Radius.circular(4.0),
-                                                  topRight:
-                                                      Radius.circular(4.0),
-                                                ),
-                                              ),
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                            validator: _model
-                                                .coordinateTimesheetTextControllerValidator
-                                                .asValidator(context),
-                                          ),
-                                        ),
-                                      ],
+                                      validator: _model.textController6Validator
+                                          .asValidator(context),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  constraints: BoxConstraints(
-                                    minHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.06,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          flex: 1,
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.creditCard,
-                                              color: Colors.black,
-                                              size: 29.0,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Text(
-                                            'เลขที่สัญญา:',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 5,
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              widget!.contNo,
-                                              'cont_no',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 0.0),
-                                  child: Container(
+                                  Container(
                                     width: double.infinity,
                                     constraints: BoxConstraints(
                                       minHeight:
@@ -2566,7 +2371,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Icon(
-                                                Icons.person,
+                                                Icons.language_outlined,
                                                 color: Colors.black,
                                                 size: 29.0,
                                               ),
@@ -2575,7 +2380,282 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           Expanded(
                                             flex: 4,
                                             child: Text(
-                                              'ชื่อลูกค้า',
+                                              'ค่าพิกัด:',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 5,
+                                            child: TextFormField(
+                                              controller: _model
+                                                  .coordinateTimesheetTextController,
+                                              focusNode: _model
+                                                  .coordinateTimesheetFocusNode,
+                                              autofocus: false,
+                                              readOnly: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                isDense: false,
+                                                hintText: widget!.coordinate,
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                errorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                focusedErrorBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              validator: _model
+                                                  .coordinateTimesheetTextControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    constraints: BoxConstraints(
+                                      minHeight:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.06,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.creditCard,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 4,
+                                            child: Text(
+                                              'เลขที่สัญญา:',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 5,
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                widget!.contNo,
+                                                'cont_no',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      constraints: BoxConstraints(
+                                        minHeight:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.06,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Icon(
+                                                  Icons.person,
+                                                  color: Colors.black,
+                                                  size: 29.0,
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 4,
+                                              child: Text(
+                                                'ชื่อลูกค้า',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 5,
+                                              child: Container(
+                                                decoration: BoxDecoration(),
+                                                child: Text(
+                                                  '${widget!.cusName}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    constraints: BoxConstraints(
+                                      minHeight:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.06,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Icon(
+                                                Icons.format_list_bulleted,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 4,
+                                            child: Text(
+                                              'รีมาร์ค กลุ่ม D',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2591,7 +2671,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             child: Container(
                                               decoration: BoxDecoration(),
                                               child: Text(
-                                                '${widget!.cusName}',
+                                                valueOrDefault<String>(
+                                                  widget!.remarkTypeDName,
+                                                  'remark_type_d_name',
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -2606,164 +2689,233 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  constraints: BoxConstraints(
-                                    minHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.06,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          flex: 1,
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: Icon(
-                                              Icons.format_list_bulleted,
-                                              color: Colors.black,
-                                              size: 29.0,
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      constraints: BoxConstraints(
+                                        minHeight:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.06,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.edit,
+                                                  color: Colors.black,
+                                                  size: 29.0,
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 4,
+                                              child: Text(
+                                                'หมายเหตุ:',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 5,
+                                              child: Container(
+                                                constraints: BoxConstraints(
+                                                  minHeight:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.06,
+                                                ),
+                                                decoration: BoxDecoration(),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            widget!.remark,
+                                                            'remark',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    constraints: BoxConstraints(
+                                      minHeight:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.06,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Icon(
+                                                Icons.attach_file_rounded,
+                                                color: Colors.black,
+                                                size: 29.0,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Text(
-                                            'รีมาร์ค กลุ่ม D',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 5,
-                                          child: Container(
-                                            decoration: BoxDecoration(),
+                                          Expanded(
+                                            flex: 4,
                                             child: Text(
-                                              valueOrDefault<String>(
-                                                widget!.remarkTypeDName,
-                                                'remark_type_d_name',
-                                              ),
+                                              'ไฟล์อัพโหลด:',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  constraints: BoxConstraints(
-                                    minHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.06,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Expanded(
-                                          flex: 1,
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.edit,
-                                              color: Colors.black,
-                                              size: 29.0,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Text(
-                                            'หมายเหตุ:',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 5,
-                                          child: Container(
-                                            constraints: BoxConstraints(
-                                              minHeight:
-                                                  MediaQuery.sizeOf(context)
-                                                          .height *
-                                                      0.06,
-                                            ),
-                                            decoration: BoxDecoration(),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                              child: Row(
+                                          Expanded(
+                                            flex: 5,
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                minHeight:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.06,
+                                              ),
+                                              decoration: BoxDecoration(),
+                                              child: Column(
                                                 mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                  Expanded(
-                                                    child: Text(
-                                                      valueOrDefault<String>(
-                                                        widget!.remark,
-                                                        'remark',
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            letterSpacing: 0.0,
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Text(
+                                                            'จำนวน ${widget!.filesCount?.toString()} ไฟล์',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Text(
+                                                            '*ดูไฟล์ที่อัพโหลดได้ที่ Vloan',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xFFFF0000),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ).animateOnPageLoad(
-                                animationsMap['wrapOnPageLoadAnimation2']!),
+                                ],
+                              ).animateOnPageLoad(
+                                  animationsMap['wrapOnPageLoadAnimation2']!),
+                            ),
                         ],
                       ),
                     ),
