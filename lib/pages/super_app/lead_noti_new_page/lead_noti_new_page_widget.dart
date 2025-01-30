@@ -1321,23 +1321,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: valueOrDefault<Color>(
-                                          functions.leadDetailCardColor(
-                                              FFAppState()
-                                                  .leadCallStatus
-                                                  .toList(),
-                                              leadListItemIndex,
-                                              Colors.white,
-                                              Color(0xFFE9FFEA),
-                                              Color(0xFFFFFFE9),
-                                              FFAppState()
-                                                  .leadIdCalledInApp
-                                                  .toList(),
-                                              functions.showMatNameInList(
-                                                  FFAppState().leadID.toList(),
-                                                  leadListItemIndex)),
-                                          FlutterFlowTheme.of(context).tertiary,
-                                        ),
+                                        color: Colors.white,
                                         boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4.0,
@@ -1357,18 +1341,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             width: 110.0,
                                             height: 32.0,
                                             decoration: BoxDecoration(
-                                              color: valueOrDefault<Color>(
-                                                functions.leadChannelLabelColor(
-                                                    FFAppState()
-                                                        .leadChannelList
-                                                        .toList(),
-                                                    leadNotiNewPageLeadChannelColorRecord
-                                                        ?.color
-                                                        ?.toList(),
-                                                    leadListItemIndex),
-                                                FlutterFlowTheme.of(context)
-                                                    .textColor,
-                                              ),
+                                              color: Color(0xFF00A600),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(0.0),
