@@ -1473,10 +1473,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             ).toString()}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Outfit',
-                                                                                  color: valueOrDefault<Color>(
-                                                                                    functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListItemIndex, leadNotiNewPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListItemIndex))!)), Colors.black, Color(0xFFFF0000)),
-                                                                                    Colors.black,
-                                                                                  ),
+                                                                                  color: Color(0xFF101213),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
@@ -2216,20 +2213,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
-                                                        color: valueOrDefault<
-                                                            Color>(
-                                                          functions.leadChannelLabelColor(
-                                                              FFAppState()
-                                                                  .leadChannelList
-                                                                  .toList(),
-                                                              leadNotiNewPageLeadChannelColorRecord
-                                                                  ?.color
-                                                                  ?.toList(),
-                                                              leadListItemIndex),
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .textColor,
-                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2501,20 +2488,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            functions.leadChannelLabelColor(
-                                                                FFAppState()
-                                                                    .leadChannelList
-                                                                    .toList(),
-                                                                leadNotiNewPageLeadChannelColorRecord
-                                                                    ?.color
-                                                                    ?.toList(),
-                                                                leadListItemIndex),
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textColor,
-                                                          ),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
