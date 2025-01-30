@@ -148,10 +148,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
           );
         },
       );
-      _model.leadDataByCategory =
-          functions.returnLeadListByChannel(GetLeadDetailAPICall.leadDataJson(
-        (_model.getLeadDetail?.jsonBody ?? ''),
-      )?.toList());
+      _model.leadDataByCategory = functions.returnLeadListByChannel(
+          GetLeadDetailAPICall.leadDataJson(
+            (_model.getLeadDetail?.jsonBody ?? ''),
+          )?.toList(),
+          FFAppState().employeeID);
       safeSetState(() {});
       await showDialog(
         context: context,
@@ -194,6 +195,18 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
         _model.leadDataByCategory,
         r'''$.LeadTruck''',
         true,
+      )!
+          .toList()
+          .cast<dynamic>();
+      _model.leadOwnerDataJson = getJsonField(
+        _model.leadDataByCategory,
+        r'''$.OwnerLead''',
+        true,
+      )!
+          .toList()
+          .cast<dynamic>();
+      _model.currentShowingDataJson = GetLeadDetailAPICall.leadDataJson(
+        (_model.getLeadDetail?.jsonBody ?? ''),
       )!
           .toList()
           .cast<dynamic>();
@@ -451,23 +464,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       onTap: () async {
                                                         HapticFeedback
                                                             .mediumImpact();
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead Survey';
-                                                        FFAppState()
-                                                            .update(() {});
+                                                        _model.currentShowingDataJson =
+                                                            _model
+                                                                .leadSurveyDataJson
+                                                                .toList()
+                                                                .cast<
+                                                                    dynamic>();
+                                                        _model.selectedTab =
+                                                            'Survey';
+                                                        safeSetState(() {});
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
                                                         height: 100.0,
                                                         decoration:
                                                             BoxDecoration(
-                                                          color: functions
-                                                              .leadChannelAmountCardColor(
-                                                                  'Lead Survey',
-                                                                  leadNotiNewPageLeadChannelColorRecord
-                                                                      ?.color
-                                                                      ?.toList()),
+                                                          color: _model
+                                                                      .selectedTab ==
+                                                                  'Survey'
+                                                              ? (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Survey')))
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
                                                           boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
@@ -565,23 +589,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       onTap: () async {
                                                         HapticFeedback
                                                             .mediumImpact();
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead Telesale';
-                                                        FFAppState()
-                                                            .update(() {});
+                                                        _model.currentShowingDataJson =
+                                                            _model
+                                                                .leadTeleDataJson
+                                                                .toList()
+                                                                .cast<
+                                                                    dynamic>();
+                                                        _model.selectedTab =
+                                                            'Telesale';
+                                                        safeSetState(() {});
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
                                                         height: 100.0,
                                                         decoration:
                                                             BoxDecoration(
-                                                          color: functions
-                                                              .leadChannelAmountCardColor(
-                                                                  'Lead Telesale',
-                                                                  leadNotiNewPageLeadChannelColorRecord
-                                                                      ?.color
-                                                                      ?.toList()),
+                                                          color: _model
+                                                                      .selectedTab ==
+                                                                  'Telesale'
+                                                              ? (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Telesale')))
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
                                                           boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
@@ -684,23 +719,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       onTap: () async {
                                                         HapticFeedback
                                                             .mediumImpact();
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead Agent';
-                                                        FFAppState()
-                                                            .update(() {});
+                                                        _model.currentShowingDataJson =
+                                                            _model
+                                                                .leadAgentDataJson
+                                                                .toList()
+                                                                .cast<
+                                                                    dynamic>();
+                                                        _model.selectedTab =
+                                                            'Agent';
+                                                        safeSetState(() {});
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
                                                         height: 100.0,
                                                         decoration:
                                                             BoxDecoration(
-                                                          color: functions
-                                                              .leadChannelAmountCardColor(
-                                                                  'Lead Agent',
-                                                                  leadNotiNewPageLeadChannelColorRecord
-                                                                      ?.color
-                                                                      ?.toList()),
+                                                          color: _model
+                                                                      .selectedTab ==
+                                                                  'Agent'
+                                                              ? (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Agent')))
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
                                                           boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
@@ -798,23 +844,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       onTap: () async {
                                                         HapticFeedback
                                                             .mediumImpact();
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead GSB';
-                                                        FFAppState()
-                                                            .update(() {});
+                                                        _model.currentShowingDataJson =
+                                                            _model
+                                                                .leadTruckDataJson
+                                                                .toList()
+                                                                .cast<
+                                                                    dynamic>();
+                                                        _model.selectedTab =
+                                                            'Truck';
+                                                        safeSetState(() {});
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
                                                         height: 100.0,
                                                         decoration:
                                                             BoxDecoration(
-                                                          color: functions
-                                                              .leadChannelAmountCardColor(
-                                                                  'Lead GSB',
-                                                                  leadNotiNewPageLeadChannelColorRecord
-                                                                      ?.color
-                                                                      ?.toList()),
+                                                          color: _model
+                                                                      .selectedTab ==
+                                                                  'Truck'
+                                                              ? (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Truck')))
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
                                                           boxShadow: [
                                                             BoxShadow(
                                                               blurRadius: 4.0,
@@ -940,104 +997,146 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             children: [
                                               Expanded(
                                                 flex: 1,
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    HapticFeedback
-                                                        .mediumImpact();
-                                                    FFAppState()
-                                                            .leadChannelSelected =
-                                                        FFAppState().employeeID;
-                                                    FFAppState().update(() {});
-                                                  },
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .stretch,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    0.0),
-                                                        child: Icon(
-                                                          Icons.person,
-                                                          color:
-                                                              Color(0xFF101213),
-                                                          size: 30.0,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(0.0),
+                                                      bottomRight:
+                                                          Radius.circular(0.0),
+                                                      topLeft:
+                                                          Radius.circular(24.0),
+                                                      topRight:
+                                                          Radius.circular(24.0),
+                                                    ),
+                                                    border: Border.all(
+                                                      color: _model
+                                                                  .selectedTab ==
+                                                              'Owner'
+                                                          ? Color(0xFFFF6500)
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                      width:
+                                                          _model.selectedTab ==
+                                                                  'Owner'
+                                                              ? 3.0
+                                                              : 0.0,
+                                                    ),
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      HapticFeedback
+                                                          .mediumImpact();
+                                                      _model.currentShowingDataJson =
+                                                          _model
+                                                              .leadOwnerDataJson
+                                                              .toList()
+                                                              .cast<dynamic>();
+                                                      _model.selectedTab =
+                                                          'Owner';
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .stretch,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      12.0,
+                                                                      12.0,
+                                                                      0.0),
+                                                          child: Icon(
+                                                            Icons.person,
+                                                            color: Color(
+                                                                0xFF101213),
+                                                            size: 30.0,
+                                                          ),
                                                         ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    4.0),
-                                                        child: Text(
-                                                          '0',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .displaySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: Color(
-                                                                    0xFF101213),
-                                                                fontSize: 20.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      12.0,
+                                                                      12.0,
+                                                                      4.0),
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              _model
+                                                                  .leadOwnerDataJson
+                                                                  .length
+                                                                  .toString(),
+                                                              '0',
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: Color(
+                                                                      0xFF101213),
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'จำนวนลีดส่วนตัว',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: Color(
-                                                                    0xFF57636C),
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      12.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'จำนวนลีดส่วนตัว',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: Color(
+                                                                      0xFF57636C),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1045,104 +1144,143 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 thickness: 1.0,
                                               ),
                                               Expanded(
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    HapticFeedback
-                                                        .mediumImpact();
-                                                    FFAppState()
-                                                            .leadChannelSelected =
-                                                        'All';
-                                                    FFAppState().update(() {});
-                                                  },
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .stretch,
-                                                    children: [
-                                                      Icon(
-                                                        Icons
-                                                            .supervisor_account_rounded,
-                                                        color:
-                                                            Color(0xFF101213),
-                                                        size: 30.0,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    12.0,
-                                                                    12.0,
-                                                                    4.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            '${GetLeadDetailAPICall.leadDataJson(
-                                                              (_model.getLeadDetail
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.length?.toString()}',
-                                                            '0',
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(24.0),
+                                                      bottomRight:
+                                                          Radius.circular(24.0),
+                                                      topLeft:
+                                                          Radius.circular(0.0),
+                                                      topRight:
+                                                          Radius.circular(0.0),
+                                                    ),
+                                                    border: Border.all(
+                                                      color: _model
+                                                                  .selectedTab ==
+                                                              'All'
+                                                          ? Color(0xFFFF6500)
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                      width:
+                                                          _model.selectedTab ==
+                                                                  'All'
+                                                              ? 3.0
+                                                              : 0.0,
+                                                    ),
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      HapticFeedback
+                                                          .mediumImpact();
+                                                      _model.currentShowingDataJson =
+                                                          GetLeadDetailAPICall
+                                                                  .leadDataJson(
+                                                        (_model.getLeadDetail
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!
+                                                              .toList()
+                                                              .cast<dynamic>();
+                                                      _model.selectedTab =
+                                                          'All';
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .stretch,
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .supervisor_account_rounded,
+                                                          color:
+                                                              Color(0xFF101213),
+                                                          size: 30.0,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      12.0,
+                                                                      12.0,
+                                                                      4.0),
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              '${GetLeadDetailAPICall.leadDataJson(
+                                                                (_model.getLeadDetail
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.length?.toString()}',
+                                                              '0',
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: Color(
+                                                                      0xFF101213),
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .displaySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: Color(
-                                                                    0xFF101213),
-                                                                fontSize: 20.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
                                                         ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'จำนวนลีดทั้งหมด',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: Color(
-                                                                    0xFF57636C),
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      12.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'จำนวนลีดทั้งหมด',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: Color(
+                                                                      0xFF57636C),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1166,490 +1304,482 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                           decoration: BoxDecoration(),
                           child: Builder(
                             builder: (context) {
-                              final leadList =
-                                  FFAppState().defaultList5.toList();
+                              final leadListItem =
+                                  _model.currentShowingDataJson.toList();
 
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
-                                itemCount: leadList.length,
-                                itemBuilder: (context, leadListIndex) {
-                                  final leadListItem = leadList[leadListIndex];
-                                  return Visibility(
-                                    visible: (FFAppState()
-                                                .leadChannelSelected ==
-                                            '${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListIndex)}') ||
-                                        (FFAppState().leadChannelSelected ==
-                                            'All') ||
-                                        (FFAppState().leadChannelSelected ==
-                                            '${functions.showMatNameInList(FFAppState().leadEmployeeID.toList(), leadListIndex)}'),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 8.0, 12.0, 12.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: valueOrDefault<Color>(
-                                            functions.leadDetailCardColor(
-                                                FFAppState()
-                                                    .leadCallStatus
-                                                    .toList(),
-                                                leadListIndex,
-                                                Colors.white,
-                                                Color(0xFFE9FFEA),
-                                                Color(0xFFFFFFE9),
-                                                FFAppState()
-                                                    .leadIdCalledInApp
-                                                    .toList(),
-                                                functions.showMatNameInList(
-                                                    FFAppState()
-                                                        .leadID
-                                                        .toList(),
-                                                    leadListIndex)),
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                          ),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 4.0,
-                                              color: Color(0x2B202529),
-                                              offset: Offset(
-                                                0.0,
-                                                2.0,
-                                              ),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
+                                itemCount: leadListItem.length,
+                                itemBuilder: (context, leadListItemIndex) {
+                                  final leadListItemItem =
+                                      leadListItem[leadListItemIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 8.0, 12.0, 12.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: valueOrDefault<Color>(
+                                          functions.leadDetailCardColor(
+                                              FFAppState()
+                                                  .leadCallStatus
+                                                  .toList(),
+                                              leadListItemIndex,
+                                              Colors.white,
+                                              Color(0xFFE9FFEA),
+                                              Color(0xFFFFFFE9),
+                                              FFAppState()
+                                                  .leadIdCalledInApp
+                                                  .toList(),
+                                              functions.showMatNameInList(
+                                                  FFAppState().leadID.toList(),
+                                                  leadListItemIndex)),
+                                          FlutterFlowTheme.of(context).tertiary,
                                         ),
-                                        child: Stack(
-                                          children: [
-                                            Container(
-                                              width: 110.0,
-                                              height: 32.0,
-                                              decoration: BoxDecoration(
-                                                color: valueOrDefault<Color>(
-                                                  functions.leadChannelLabelColor(
-                                                      FFAppState()
-                                                          .leadChannelList
-                                                          .toList(),
-                                                      leadNotiNewPageLeadChannelColorRecord
-                                                          ?.color
-                                                          ?.toList(),
-                                                      leadListIndex),
-                                                  FlutterFlowTheme.of(context)
-                                                      .textColor,
-                                                ),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(0.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(0.0),
-                                                ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x2B202529),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            width: 110.0,
+                                            height: 32.0,
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                functions.leadChannelLabelColor(
+                                                    FFAppState()
+                                                        .leadChannelList
+                                                        .toList(),
+                                                    leadNotiNewPageLeadChannelColorRecord
+                                                        ?.color
+                                                        ?.toList(),
+                                                    leadListItemIndex),
+                                                FlutterFlowTheme.of(context)
+                                                    .textColor,
+                                              ),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(0.0),
                                               ),
                                             ),
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 0.0, 0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      4.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Expanded(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Text(
-                                                                        '${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListIndex)}',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall
-                                                                            .override(
-                                                                              fontFamily: 'Outfit',
-                                                                              color: Colors.white,
-                                                                              fontSize: 14.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                    Expanded(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.start,
-                                                                        children: [
-                                                                          Container(
-                                                                            width:
-                                                                                27.0,
-                                                                            height:
-                                                                                27.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: Color(0xFFF1F4F8),
-                                                                              shape: BoxShape.circle,
-                                                                            ),
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.timer_outlined,
-                                                                              color: Colors.black,
-                                                                              size: 20.0,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              '${functions.showLeadTimeRemain(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiNewPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)))}',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Outfit',
-                                                                                    color: valueOrDefault<Color>(
-                                                                                      functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiNewPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)), Colors.black, Color(0xFFFF0000)),
-                                                                                      Colors.black,
-                                                                                    ),
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Expanded(
-                                                                      flex: 2,
-                                                                      child:
-                                                                          Text(
-                                                                        '${functions.showMatNameInList(FFAppState().leadCustomerNameList.toList(), leadListIndex)}${' ${functions.showCensorPhoneNumber(functions.showMatNameInList(FFAppState().leadPhoneNumberList.toList(), leadListIndex))}'}',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 16.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w500,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  '${functions.showLeadIdInList(FFAppState().leadID.toList(), leadListIndex, FFAppState().leadBranchCode.toList())}',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Outfit',
-                                                                        color: Color(
-                                                                            0xFF57636C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  'หลักทรัพย์: ${functions.checkNullValueAndReturn('${functions.showMatNameInList(FFAppState().leadCarVehicleName.toList(), leadListIndex)}')}',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Outfit',
-                                                                        color: Color(
-                                                                            0xFF57636C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  'ยอดขอ: ${functions.returnNumberWithComma2Decimal('${FFAppState().amountRequestJson.elementAtOrNull(leadListIndex)?.toString()}')} บาท',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Outfit',
-                                                                        color: Color(
-                                                                            0xFF57636C),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if ('${functions.showMatNameInList(FFAppState().leadContractStatus.toList(), leadListIndex)}' !=
-                                                              'ทำสัญญาแล้ว')
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    8.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    4.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
-                                                                          12.0,
+                                                                          10.0,
                                                                           0.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  var _shouldSetState =
-                                                                      false;
-                                                                  HapticFeedback
-                                                                      .mediumImpact();
-                                                                  var confirmDialogResponse =
-                                                                      await showDialog<
-                                                                              bool>(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  content: Text('คุณต้องการจะโทรออกหรือไม่?'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                      child: Text('ยกเลิก'),
-                                                                                    ),
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                      child: Text('โทร'),
-                                                                                    ),
-                                                                                  ],
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child: Text(
+                                                                      '${getJsonField(
+                                                                        leadListItemItem,
+                                                                        r'''$.channel''',
+                                                                      ).toString()}',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            color:
+                                                                                Colors.white,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Container(
+                                                                          width:
+                                                                              27.0,
+                                                                          height:
+                                                                              27.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Color(0xFFF1F4F8),
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.timer_outlined,
+                                                                            color:
+                                                                                Colors.black,
+                                                                            size:
+                                                                                20.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              12.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            '${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.days_remaining''',
+                                                                            ).toString()}',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Outfit',
+                                                                                  color: valueOrDefault<Color>(
+                                                                                    functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListItemIndex, leadNotiNewPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListItemIndex))!)), Colors.black, Color(0xFFFF0000)),
+                                                                                    Colors.black,
+                                                                                  ),
+                                                                                  fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
                                                                                 ),
-                                                                              );
-                                                                            },
-                                                                          ) ??
-                                                                          false;
-                                                                  if (!confirmDialogResponse) {
-                                                                    if (_shouldSetState)
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    return;
-                                                                  }
-                                                                  if (functions.showMatNameInList(
-                                                                          FFAppState()
-                                                                              .leadCallStatus
-                                                                              .toList(),
-                                                                          leadListIndex) ==
-                                                                      'NEW') {
-                                                                    if (!functions.checkLeadIdCalledInApp(
-                                                                        FFAppState()
-                                                                            .leadIdCalledInApp
-                                                                            .toList(),
-                                                                        functions.showMatNameInList(
-                                                                            FFAppState().leadID.toList(),
-                                                                            leadListIndex))) {
-                                                                      FFAppState().addToLeadIdCalledInApp(functions.showMatNameInList(
-                                                                          FFAppState()
-                                                                              .leadID
-                                                                              .toList(),
-                                                                          leadListIndex)!);
-                                                                      FFAppState()
-                                                                          .update(
-                                                                              () {});
-                                                                    }
-                                                                  }
-                                                                  _model.addCalledLead =
-                                                                      await AddPhoneCalledLeadAPICall
-                                                                          .call(
-                                                                    apiUrl: FFAppState()
-                                                                        .apiURLLocalState,
-                                                                    leadID: functions.showMatNameInList(
-                                                                        FFAppState()
-                                                                            .leadID
-                                                                            .toList(),
-                                                                        leadListIndex),
-                                                                    token: FFAppState()
-                                                                        .accessToken,
-                                                                  );
-
-                                                                  _shouldSetState =
-                                                                      true;
-                                                                  FFAppState().leadCountCalled = functions
-                                                                      .increasedValueIntStringInList(
-                                                                          FFAppState().leadCountCalled.toList(),
-                                                                          leadListIndex,
-                                                                          AddPhoneCalledLeadAPICall.countCalled(
-                                                                            (_model.addCalledLead?.jsonBody ??
-                                                                                ''),
-                                                                          ).toString())!
-                                                                      .toList()
-                                                                      .cast<String>();
-                                                                  FFAppState()
-                                                                      .update(
-                                                                          () {});
-                                                                  await actions
-                                                                      .open3CXAction(
-                                                                    functions.showMatNameInList(
-                                                                        FFAppState()
-                                                                            .leadPhoneNumberList
-                                                                            .toList(),
-                                                                        leadListIndex),
-                                                                  );
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 2,
+                                                                    child: Text(
+                                                                      '${'${getJsonField(
+                                                                        leadListItemItem,
+                                                                        r'''$.first_name''',
+                                                                      ).toString()}'} ${functions.showCensorPhoneNumber('${getJsonField(
+                                                                        leadListItemItem,
+                                                                        r'''$.phone_number''',
+                                                                      ).toString()}')}',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            fontSize:
+                                                                                16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Lead ID: ${'${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.lead_id''',
+                                                                ).toString()}'} (${'${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.branch_code''',
+                                                                ).toString()}'})',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      color: Color(
+                                                                          0xFF57636C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'หลักทรัพย์: ${'${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.car_vehicle_name''',
+                                                                ).toString()}'}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      color: Color(
+                                                                          0xFF57636C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'ยอดขอ: ${functions.returnNumberWithComma2Decimal('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.amount_request''',
+                                                                ).toString()}')} บาท',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      color: Color(
+                                                                          0xFF57636C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        if ('${getJsonField(
+                                                              leadListItemItem,
+                                                              r'''$.StatusContract''',
+                                                            ).toString()}' !=
+                                                            'ทำสัญญาแล้ว')
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                var _shouldSetState =
+                                                                    false;
+                                                                HapticFeedback
+                                                                    .mediumImpact();
+                                                                var confirmDialogResponse =
+                                                                    await showDialog<
+                                                                            bool>(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('คุณต้องการจะโทรออกหรือไม่?'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                    child: Text('ยกเลิก'),
+                                                                                  ),
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                    child: Text('โทร'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ) ??
+                                                                        false;
+                                                                if (!confirmDialogResponse) {
                                                                   if (_shouldSetState)
                                                                     safeSetState(
                                                                         () {});
-                                                                },
-                                                                child:
-                                                                    ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            0.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                  ),
-                                                                  child: Image
-                                                                      .asset(
-                                                                    'assets/images/call-pic.gif',
-                                                                    width: 70.0,
-                                                                    height:
-                                                                        70.0,
-                                                                    fit: BoxFit
-                                                                        .contain,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          if ('${functions.showMatNameInList(FFAppState().leadContractStatus.toList(), leadListIndex)}' ==
-                                                              'ทำสัญญาแล้ว')
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          12.0,
-                                                                          0.0),
+                                                                  return;
+                                                                }
+                                                                if (functions.showMatNameInList(
+                                                                        FFAppState()
+                                                                            .leadCallStatus
+                                                                            .toList(),
+                                                                        leadListItemIndex) ==
+                                                                    'NEW') {
+                                                                  if (!functions.checkLeadIdCalledInApp(
+                                                                      FFAppState()
+                                                                          .leadIdCalledInApp
+                                                                          .toList(),
+                                                                      functions.showMatNameInList(
+                                                                          FFAppState()
+                                                                              .leadID
+                                                                              .toList(),
+                                                                          leadListItemIndex))) {
+                                                                    FFAppState().addToLeadIdCalledInApp(functions.showMatNameInList(
+                                                                        FFAppState()
+                                                                            .leadID
+                                                                            .toList(),
+                                                                        leadListItemIndex)!);
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                  }
+                                                                }
+                                                                _model.addCalledLead =
+                                                                    await AddPhoneCalledLeadAPICall
+                                                                        .call(
+                                                                  apiUrl: FFAppState()
+                                                                      .apiURLLocalState,
+                                                                  leadID: functions.showMatNameInList(
+                                                                      FFAppState()
+                                                                          .leadID
+                                                                          .toList(),
+                                                                      leadListItemIndex),
+                                                                  token: FFAppState()
+                                                                      .accessToken,
+                                                                );
+
+                                                                _shouldSetState =
+                                                                    true;
+                                                                FFAppState().leadCountCalled = functions
+                                                                    .increasedValueIntStringInList(
+                                                                        FFAppState().leadCountCalled.toList(),
+                                                                        leadListItemIndex,
+                                                                        AddPhoneCalledLeadAPICall.countCalled(
+                                                                          (_model.addCalledLead?.jsonBody ??
+                                                                              ''),
+                                                                        ).toString())!
+                                                                    .toList()
+                                                                    .cast<String>();
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                await actions
+                                                                    .open3CXAction(
+                                                                  functions.showMatNameInList(
+                                                                      FFAppState()
+                                                                          .leadPhoneNumberList
+                                                                          .toList(),
+                                                                      leadListItemIndex),
+                                                                );
+                                                                if (_shouldSetState)
+                                                                  safeSetState(
+                                                                      () {});
+                                                              },
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
@@ -1669,7 +1799,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 ),
                                                                 child:
                                                                     Image.asset(
-                                                                  'assets/images/favpng_logo-telephone-call-icon-black.png',
+                                                                  'assets/images/call-pic.gif',
                                                                   width: 70.0,
                                                                   height: 70.0,
                                                                   fit: BoxFit
@@ -1677,61 +1807,158 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 ),
                                                               ),
                                                             ),
-                                                          if (('${functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListIndex)}' !=
-                                                                  '0') &&
-                                                              ('${functions.showMatNameInList(FFAppState().leadCallStatus.toList(), leadListIndex)}' !=
-                                                                  'NEW'))
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          12.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                '${functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListIndex)}' ==
-                                                                        '0'
-                                                                    ? 'ยังไม่โทร'
-                                                                    : 'โทร ${functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListIndex)} ครั้ง',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListIndex) ==
-                                                                              '0'
-                                                                          ? Color(
-                                                                              0xFFFF0000)
-                                                                          : Colors
-                                                                              .black,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                    ),
+                                                          ),
+                                                        if ('${getJsonField(
+                                                              leadListItemItem,
+                                                              r'''$.StatusContract''',
+                                                            ).toString()}' ==
+                                                            'ทำสัญญาแล้ว')
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                              ),
+                                                              child:
+                                                                  Image.asset(
+                                                                'assets/images/favpng_logo-telephone-call-icon-black.png',
+                                                                width: 70.0,
+                                                                height: 70.0,
+                                                                fit: BoxFit
+                                                                    .contain,
                                                               ),
                                                             ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
+                                                          ),
+                                                        if (('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.countCall''',
+                                                                ).toString()}' !=
+                                                                '0') &&
+                                                            ('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.countCall''',
+                                                                ).toString()}' !=
+                                                                'NEW'))
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              '${getJsonField(
+                                                                        leadListItemItem,
+                                                                        r'''$.countCall''',
+                                                                      ).toString()}' ==
+                                                                      '0'
+                                                                  ? 'ยังไม่โทร'
+                                                                  : 'โทร ${'${getJsonField(
+                                                                      leadListItemItem,
+                                                                      r'''$.countCall''',
+                                                                    ).toString()}'} ครั้ง',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListItemIndex) ==
+                                                                            '0'
+                                                                        ? Color(
+                                                                            0xFFFF0000)
+                                                                        : Colors
+                                                                            .black,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                      ],
+                                                    ),
+                                                  ],
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 16.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Padding(
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 16.0, 8.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            '${getJsonField(
+                                                                      leadListItemItem,
+                                                                      r'''$.StatusContract''',
+                                                                    ).toString()}' ==
+                                                                    'ทำสัญญาแล้ว'
+                                                                ? '${'${getJsonField(
+                                                                    leadListItemItem,
+                                                                    r'''$.StatusContract''',
+                                                                  ).toString()}'}'
+                                                                : 'v',
+                                                            '[contract_status]',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                color: Color(
+                                                                    0xFFFF0000),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
@@ -1740,22 +1967,26 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              '${functions.showMatNameInList(FFAppState().leadContractStatus.toList(), leadListIndex)}' ==
-                                                                      'ทำสัญญาแล้ว'
-                                                                  ? '${functions.showMatNameInList(FFAppState().leadContractStatus.toList(), leadListIndex)}'
-                                                                  : '${functions.leadCalledStatusText('${functions.leadDetailCardColorForStatus(FFAppState().leadCallStatus.toList(), leadListIndex, FFAppState().leadIdCalledInApp.toList(), functions.showMatNameInList(FFAppState().leadID.toList(), leadListIndex))}', '${functions.showMatNameInList(FFAppState().leadCallStatus.toList(), leadListIndex)}', '${functions.showMatNameInList(FFAppState().leadCalledStatusReason.toList(), leadListIndex)}')}',
-                                                              '[contract_status]',
+                                                            dateTimeFormat(
+                                                              "Hm",
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      '${getJsonField(
+                                                                leadListItemItem,
+                                                                r'''$.created_at''',
+                                                              ).toString()}'),
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
                                                                   color: Color(
-                                                                      0xFFFF0000),
+                                                                      0xFF101213),
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1766,107 +1997,297 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 ),
                                                           ),
                                                         ),
-                                                      ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                "Hm",
-                                                                functions.showLeadCreatedTime(
-                                                                    FFAppState()
-                                                                        .leadCreatedTimeList
-                                                                        .toList(),
-                                                                    leadListIndex),
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ),
-                                                              style: FlutterFlowTheme
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            dateTimeFormat(
+                                                              "d/M/y",
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      '${getJsonField(
+                                                                leadListItemItem,
+                                                                r'''$.created_at''',
+                                                              ).toString()}'),
+                                                              locale: FFLocalizations
                                                                       .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    color: Color(
-                                                                        0xFF101213),
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
+                                                                  .languageCode,
                                                             ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: Color(
+                                                                      0xFF101213),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              dateTimeFormat(
-                                                                "d/M/y",
-                                                                functions.showLeadCreatedTime(
-                                                                    FFAppState()
-                                                                        .leadCreatedTimeList
-                                                                        .toList(),
-                                                                    leadListIndex),
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    color: Color(
-                                                                        0xFF101213),
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 16.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      FFButtonWidget(
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 16.0, 8.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    FFButtonWidget(
+                                                      onPressed: () async {
+                                                        var _shouldSetState =
+                                                            false;
+                                                        showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          barrierColor:
+                                                              Color(0x00000000),
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        LoadingSceneWidget(),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+
+                                                        _model.getCalledStatusCode =
+                                                            await GetLeadCalledStatusDropdownAPICall
+                                                                .call(
+                                                          apiUrl: FFAppState()
+                                                              .apiURLLocalState,
+                                                          token: FFAppState()
+                                                              .accessToken,
+                                                          leadChannel:
+                                                              '${functions.getLeadChannelCode('${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListItemIndex)}')}',
+                                                        );
+
+                                                        _shouldSetState = true;
+                                                        if (!(((_model.getCalledStatusCode
+                                                                        ?.statusCode ??
+                                                                    200) ==
+                                                                200) &&
+                                                            (GetLeadCalledStatusDropdownAPICall
+                                                                    .statusLayer1(
+                                                                  (_model.getCalledStatusCode
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ) ==
+                                                                200))) {
+                                                          Navigator.pop(
+                                                              context);
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'Connection Status ${(_model.getCalledStatusCode?.statusCode ?? 200).toString()} Status Layer1 ${GetLeadCalledStatusDropdownAPICall.statusLayer1(
+                                                                    (_model.getCalledStatusCode
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?.toString()}'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          if (_shouldSetState)
+                                                            safeSetState(() {});
+                                                          return;
+                                                        }
+                                                        Navigator.pop(context);
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          barrierColor:
+                                                              Color(0x00000000),
+                                                          isDismissible: false,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      Container(
+                                                                    height:
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            0.6,
+                                                                    child:
+                                                                        SavedLeadCalledStatusWidget(
+                                                                      leadChannel:
+                                                                          '${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListItemIndex)}',
+                                                                      leadId:
+                                                                          '${functions.showMatNameInList(FFAppState().leadID.toList(), leadListItemIndex)}',
+                                                                      callStatusId:
+                                                                          GetLeadCalledStatusDropdownAPICall
+                                                                              .callStatusId(
+                                                                        (_model.getCalledStatusCode?.jsonBody ??
+                                                                            ''),
+                                                                      ),
+                                                                      callStatussName:
+                                                                          GetLeadCalledStatusDropdownAPICall
+                                                                              .callStatusName(
+                                                                        (_model.getCalledStatusCode?.jsonBody ??
+                                                                            ''),
+                                                                      ),
+                                                                      leadIndex:
+                                                                          leadListItemIndex,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                      },
+                                                      text: 'บันทึกการโทร',
+                                                      options: FFButtonOptions(
+                                                        width: 130.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          functions.leadChannelLabelColor(
+                                                              FFAppState()
+                                                                  .leadChannelList
+                                                                  .toList(),
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.toList(),
+                                                              leadListItemIndex),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textColor,
+                                                        ),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        elevation: 2.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(24.0),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: FFButtonWidget(
                                                         onPressed: () async {
                                                           var _shouldSetState =
                                                               false;
+                                                          HapticFeedback
+                                                              .mediumImpact();
                                                           showModalBottomSheet(
                                                             isScrollControlled:
                                                                 true,
@@ -1910,30 +2331,39 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               safeSetState(
                                                                   () {}));
 
-                                                          _model.getCalledStatusCode =
-                                                              await GetLeadCalledStatusDropdownAPICall
+                                                          _model.getCallHistory =
+                                                              await GetLeadCalledHistoryAPICall
                                                                   .call(
                                                             apiUrl: FFAppState()
                                                                 .apiURLLocalState,
                                                             token: FFAppState()
                                                                 .accessToken,
-                                                            leadChannel:
-                                                                '${functions.getLeadChannelCode('${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListIndex)}')}',
+                                                            leadID:
+                                                                '${functions.showMatNameInList(FFAppState().leadID.toList(), leadListItemIndex)}',
                                                           );
 
                                                           _shouldSetState =
                                                               true;
-                                                          if (!(((_model.getCalledStatusCode
-                                                                          ?.statusCode ??
-                                                                      200) ==
-                                                                  200) &&
-                                                              (GetLeadCalledStatusDropdownAPICall
-                                                                      .statusLayer1(
-                                                                    (_model.getCalledStatusCode
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ) ==
-                                                                  200))) {
+                                                          if (!((((_model.getCallHistory
+                                                                              ?.statusCode ??
+                                                                          200) ==
+                                                                      200) &&
+                                                                  (GetLeadCalledHistoryAPICall
+                                                                          .statusLayer2(
+                                                                        (_model.getCallHistory?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      200)) ||
+                                                              (((_model.getCallHistory
+                                                                              ?.statusCode ??
+                                                                          200) ==
+                                                                      200) &&
+                                                                  (GetLeadCalledHistoryAPICall
+                                                                          .statusLayer2(
+                                                                        (_model.getCallHistory?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      404)))) {
                                                             Navigator.pop(
                                                                 context);
                                                             await showDialog(
@@ -1944,11 +2374,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   child:
                                                                       AlertDialog(
                                                                     content: Text(
-                                                                        'Connection Status ${(_model.getCalledStatusCode?.statusCode ?? 200).toString()} Status Layer1 ${GetLeadCalledStatusDropdownAPICall.statusLayer1(
-                                                                      (_model.getCalledStatusCode
+                                                                        'พบข้อผิดพลาดConnection (${(_model.getCallHistory?.statusCode ?? 200).toString()}) Layer2 (${GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                      (_model.getCallHistory
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?.toString()}'),
+                                                                    )?.toString()})'),
                                                                     actions: [
                                                                       TextButton(
                                                                         onPressed:
@@ -1973,12 +2403,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             isScrollControlled:
                                                                 true,
                                                             backgroundColor:
-                                                                Colors
-                                                                    .transparent,
+                                                                Color(
+                                                                    0xB3000000),
                                                             barrierColor: Color(
                                                                 0x00000000),
-                                                            isDismissible:
-                                                                false,
                                                             enableDrag: false,
                                                             context: context,
                                                             builder: (context) {
@@ -2003,25 +2431,65 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         Container(
                                                                       height:
                                                                           MediaQuery.sizeOf(context).height *
-                                                                              0.6,
+                                                                              0.8,
                                                                       child:
-                                                                          SavedLeadCalledStatusWidget(
-                                                                        leadChannel:
-                                                                            '${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListIndex)}',
-                                                                        leadId:
-                                                                            '${functions.showMatNameInList(FFAppState().leadID.toList(), leadListIndex)}',
-                                                                        callStatusId:
-                                                                            GetLeadCalledStatusDropdownAPICall.callStatusId(
-                                                                          (_model.getCalledStatusCode?.jsonBody ??
+                                                                          CallHistoryWidget(
+                                                                        leadCreatedTime: functions.showLeadCreatedTime(
+                                                                            FFAppState().leadCreatedTimeList.toList(),
+                                                                            leadListItemIndex),
+                                                                        callStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404
+                                                                            ? FFAppState().defaultList1
+                                                                            : functions.reverseList(GetLeadCalledHistoryAPICall.callStatus(
+                                                                                (_model.getCallHistory?.jsonBody ?? ''),
+                                                                              )?.toList()),
+                                                                        historyStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404
+                                                                            ? FFAppState().defaultList1
+                                                                            : functions.reverseList(GetLeadCalledHistoryAPICall.historyStatus(
+                                                                                (_model.getCallHistory?.jsonBody ?? ''),
+                                                                              )?.toList()),
+                                                                        historyTimeCallList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404
+                                                                            ? FFAppState().defaultList1
+                                                                            : functions.reverseList(GetLeadCalledHistoryAPICall.callTime(
+                                                                                (_model.getCallHistory?.jsonBody ?? ''),
+                                                                              )?.toList()),
+                                                                        employeeIdList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404
+                                                                            ? FFAppState().defaultList1
+                                                                            : functions.reverseList(GetLeadCalledHistoryAPICall.employeeId(
+                                                                                (_model.getCallHistory?.jsonBody ?? ''),
+                                                                              )?.toList()),
+                                                                        reasonNameList: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404
+                                                                            ? FFAppState().defaultList1
+                                                                            : functions.reverseList(GetLeadCalledHistoryAPICall.reasonName(
+                                                                                (_model.getCallHistory?.jsonBody ?? ''),
+                                                                              )?.toList()),
+                                                                        note: GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                404
+                                                                            ? FFAppState().defaultList1
+                                                                            : functions.reverseList(GetLeadCalledHistoryAPICall.note(
+                                                                                (_model.getCallHistory?.jsonBody ?? ''),
+                                                                              )?.map((e) => e.toString()).toList()?.toList()),
+                                                                        apiStatusCode:
+                                                                            GetLeadCalledHistoryAPICall.statusLayer2(
+                                                                          (_model.getCallHistory?.jsonBody ??
                                                                               ''),
                                                                         ),
-                                                                        callStatussName:
-                                                                            GetLeadCalledStatusDropdownAPICall.callStatusName(
-                                                                          (_model.getCalledStatusCode?.jsonBody ??
-                                                                              ''),
-                                                                        ),
-                                                                        leadIndex:
-                                                                            leadListIndex,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -2035,7 +2503,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           if (_shouldSetState)
                                                             safeSetState(() {});
                                                         },
-                                                        text: 'บันทึกการโทร',
+                                                        text: 'ประวัติการโทร',
                                                         options:
                                                             FFButtonOptions(
                                                           width: 130.0,
@@ -2063,7 +2531,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 leadNotiNewPageLeadChannelColorRecord
                                                                     ?.color
                                                                     ?.toList(),
-                                                                leadListIndex),
+                                                                leadListItemIndex),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .textColor,
@@ -2093,301 +2561,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       24.0),
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            var _shouldSetState =
-                                                                false;
-                                                            HapticFeedback
-                                                                .mediumImpact();
-                                                            showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              barrierColor: Color(
-                                                                  0x00000000),
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
-                                                                        child:
-                                                                            LoadingSceneWidget(),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-
-                                                            _model.getCallHistory =
-                                                                await GetLeadCalledHistoryAPICall
-                                                                    .call(
-                                                              apiUrl: FFAppState()
-                                                                  .apiURLLocalState,
-                                                              token: FFAppState()
-                                                                  .accessToken,
-                                                              leadID:
-                                                                  '${functions.showMatNameInList(FFAppState().leadID.toList(), leadListIndex)}',
-                                                            );
-
-                                                            _shouldSetState =
-                                                                true;
-                                                            if (!((((_model.getCallHistory?.statusCode ??
-                                                                            200) ==
-                                                                        200) &&
-                                                                    (GetLeadCalledHistoryAPICall
-                                                                            .statusLayer2(
-                                                                          (_model.getCallHistory?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        200)) ||
-                                                                (((_model.getCallHistory?.statusCode ??
-                                                                            200) ==
-                                                                        200) &&
-                                                                    (GetLeadCalledHistoryAPICall
-                                                                            .statusLayer2(
-                                                                          (_model.getCallHistory?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        404)))) {
-                                                              Navigator.pop(
-                                                                  context);
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (alertDialogContext) {
-                                                                  return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                      content: Text(
-                                                                          'พบข้อผิดพลาดConnection (${(_model.getCallHistory?.statusCode ?? 200).toString()}) Layer2 (${GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                        (_model.getCallHistory?.jsonBody ??
-                                                                            ''),
-                                                                      )?.toString()})'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                              if (_shouldSetState)
-                                                                safeSetState(
-                                                                    () {});
-                                                              return;
-                                                            }
-                                                            Navigator.pop(
-                                                                context);
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xB3000000),
-                                                              barrierColor: Color(
-                                                                  0x00000000),
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          Container(
-                                                                        height: MediaQuery.sizeOf(context).height *
-                                                                            0.8,
-                                                                        child:
-                                                                            CallHistoryWidget(
-                                                                          leadCreatedTime: functions.showLeadCreatedTime(
-                                                                              FFAppState().leadCreatedTimeList.toList(),
-                                                                              leadListIndex),
-                                                                          callStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  404
-                                                                              ? FFAppState().defaultList1
-                                                                              : functions.reverseList(GetLeadCalledHistoryAPICall.callStatus(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                )?.toList()),
-                                                                          historyStatusList: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  404
-                                                                              ? FFAppState().defaultList1
-                                                                              : functions.reverseList(GetLeadCalledHistoryAPICall.historyStatus(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                )?.toList()),
-                                                                          historyTimeCallList: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  404
-                                                                              ? FFAppState().defaultList1
-                                                                              : functions.reverseList(GetLeadCalledHistoryAPICall.callTime(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                )?.toList()),
-                                                                          employeeIdList: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  404
-                                                                              ? FFAppState().defaultList1
-                                                                              : functions.reverseList(GetLeadCalledHistoryAPICall.employeeId(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                )?.toList()),
-                                                                          reasonNameList: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  404
-                                                                              ? FFAppState().defaultList1
-                                                                              : functions.reverseList(GetLeadCalledHistoryAPICall.reasonName(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                )?.toList()),
-                                                                          note: GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                                    (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  404
-                                                                              ? FFAppState().defaultList1
-                                                                              : functions.reverseList(GetLeadCalledHistoryAPICall.note(
-                                                                                  (_model.getCallHistory?.jsonBody ?? ''),
-                                                                                )?.map((e) => e.toString()).toList()?.toList()),
-                                                                          apiStatusCode:
-                                                                              GetLeadCalledHistoryAPICall.statusLayer2(
-                                                                            (_model.getCallHistory?.jsonBody ??
-                                                                                ''),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-
-                                                            if (_shouldSetState)
-                                                              safeSetState(
-                                                                  () {});
-                                                          },
-                                                          text: 'ประวัติการโทร',
-                                                          options:
-                                                              FFButtonOptions(
-                                                            width: 130.0,
-                                                            height: 40.0,
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color:
-                                                                valueOrDefault<
-                                                                    Color>(
-                                                              functions.leadChannelLabelColor(
-                                                                  FFAppState()
-                                                                      .leadChannelList
-                                                                      .toList(),
-                                                                  leadNotiNewPageLeadChannelColorRecord
-                                                                      ?.color
-                                                                      ?.toList(),
-                                                                  leadListIndex),
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .textColor,
-                                                            ),
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: Colors
-                                                                          .white,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            elevation: 2.0,
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              width: 1.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24.0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   );

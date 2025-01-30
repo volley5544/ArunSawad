@@ -2112,7 +2112,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   () async {}(),
                                                                 );
 
-                                                                context.pushNamed(
+                                                                context.goNamed(
                                                                     'LeadNotiNewPage');
                                                               },
                                                               child: Text(

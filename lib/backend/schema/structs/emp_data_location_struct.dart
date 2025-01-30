@@ -17,6 +17,7 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
     String? level,
     String? status,
     String? fullprofile,
+    int? locationCount,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _nameTh = nameTh,
         _employeeId = employeeId,
@@ -25,6 +26,7 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
         _level = level,
         _status = status,
         _fullprofile = fullprofile,
+        _locationCount = locationCount,
         super(firestoreUtilData);
 
   // "name_th" field.
@@ -76,6 +78,16 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
 
   bool hasFullprofile() => _fullprofile != null;
 
+  // "location_count" field.
+  int? _locationCount;
+  int get locationCount => _locationCount ?? 0;
+  set locationCount(int? val) => _locationCount = val;
+
+  void incrementLocationCount(int amount) =>
+      locationCount = locationCount + amount;
+
+  bool hasLocationCount() => _locationCount != null;
+
   static EmpDataLocationStruct fromMap(Map<String, dynamic> data) =>
       EmpDataLocationStruct(
         nameTh: data['name_th'] as String?,
@@ -85,6 +97,7 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
         level: data['level'] as String?,
         status: data['status'] as String?,
         fullprofile: data['fullprofile'] as String?,
+        locationCount: castToType<int>(data['location_count']),
       );
 
   static EmpDataLocationStruct? maybeFromMap(dynamic data) => data is Map
@@ -99,6 +112,7 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
         'level': _level,
         'status': _status,
         'fullprofile': _fullprofile,
+        'location_count': _locationCount,
       }.withoutNulls;
 
   @override
@@ -130,6 +144,10 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
         'fullprofile': serializeParam(
           _fullprofile,
           ParamType.String,
+        ),
+        'location_count': serializeParam(
+          _locationCount,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -170,6 +188,11 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        locationCount: deserializeParam(
+          data['location_count'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -184,12 +207,21 @@ class EmpDataLocationStruct extends FFFirebaseStruct {
         position == other.position &&
         level == other.level &&
         status == other.status &&
-        fullprofile == other.fullprofile;
+        fullprofile == other.fullprofile &&
+        locationCount == other.locationCount;
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [nameTh, employeeId, branchCode, position, level, status, fullprofile]);
+  int get hashCode => const ListEquality().hash([
+        nameTh,
+        employeeId,
+        branchCode,
+        position,
+        level,
+        status,
+        fullprofile,
+        locationCount
+      ]);
 }
 
 EmpDataLocationStruct createEmpDataLocationStruct({
@@ -200,6 +232,7 @@ EmpDataLocationStruct createEmpDataLocationStruct({
   String? level,
   String? status,
   String? fullprofile,
+  int? locationCount,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -213,6 +246,7 @@ EmpDataLocationStruct createEmpDataLocationStruct({
       level: level,
       status: status,
       fullprofile: fullprofile,
+      locationCount: locationCount,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

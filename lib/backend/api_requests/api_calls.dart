@@ -12181,6 +12181,15 @@ class APIUsersRegionCall {
           .map((x) => EmpDataLocationStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
+  static List<int>? locationcount(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].location_count''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
 }
 
 class APIUserLocationTrackerCall {

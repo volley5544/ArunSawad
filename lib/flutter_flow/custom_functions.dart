@@ -4738,12 +4738,16 @@ List<dynamic>? reverseJsonList(List<dynamic>? inputJsonList) {
   return inputJsonList!.reversed.toList();
 }
 
-dynamic returnLeadListByChannel(List<dynamic>? leadJsonList) {
+dynamic returnLeadListByChannel(
+  List<dynamic>? leadJsonList,
+  String? ownerEmployeeId,
+) {
   dynamic output = {
     'LeadSurvey': [],
     'LeadTelesale': [],
     'LeadAgent': [],
-    'LeadTruck': []
+    'LeadTruck': [],
+    'OwnerLead': []
   };
   //Map<String, dynamic> mapInputData = leadJsonList![0];
   // print(mapInputData);
@@ -4756,6 +4760,9 @@ dynamic returnLeadListByChannel(List<dynamic>? leadJsonList) {
   for (int i = 0; i < leadJsonList!.length; i++) {
     Map<String, dynamic> mapInputData = leadJsonList![i];
     output['${mapInputData['channel'].replaceAll(' ', '')}'].add(mapInputData);
+    if ('${mapInputData['employee_id']}' == ownerEmployeeId!) {
+      output['OwnerLead'].add(mapInputData);
+    }
   }
 
   return output;
