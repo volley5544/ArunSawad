@@ -4733,3 +4733,30 @@ int? countFilesUploaded(List<String>? filesUploadedList) {
   }
   return countFiles;
 }
+
+List<dynamic>? reverseJsonList(List<dynamic>? inputJsonList) {
+  return inputJsonList!.reversed.toList();
+}
+
+dynamic returnLeadListByChannel(List<dynamic>? leadJsonList) {
+  dynamic output = {
+    'LeadSurvey': [],
+    'LeadTelesale': [],
+    'LeadAgent': [],
+    'LeadTruck': []
+  };
+  //Map<String, dynamic> mapInputData = leadJsonList![0];
+  // print(mapInputData);
+//   Map<String, dynamic> mapInputData = leadJsonList![0];
+//   print(mapInputData['channel']);
+//   print(output['${mapInputData['channel']}']);
+
+  //return output;
+
+  for (int i = 0; i < leadJsonList!.length; i++) {
+    Map<String, dynamic> mapInputData = leadJsonList![i];
+    output['${mapInputData['channel'].replaceAll(' ', '')}'].add(mapInputData);
+  }
+
+  return output;
+}

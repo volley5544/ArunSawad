@@ -4628,7 +4628,7 @@ class FFAppState extends ChangeNotifier {
     defaultList4.insert(index, value);
   }
 
-  List<String> _defaultList5 = ['Hello World'];
+  List<String> _defaultList5 = [];
   List<String> get defaultList5 => _defaultList5;
   set defaultList5(List<String> value) {
     _defaultList5 = value;

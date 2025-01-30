@@ -2334,6 +2334,11 @@ class GetLeadDetailAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List? leadDataJson(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:]''',
+        true,
+      ) as List?;
 }
 
 class GetWelfareKpiCurrentMonthAPICall {

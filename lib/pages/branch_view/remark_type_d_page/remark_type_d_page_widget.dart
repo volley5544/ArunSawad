@@ -2919,21 +2919,34 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 10.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 200.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Builder(builder: (context) {
-                                  final _googleMapMarker =
-                                      (('${widget!.coordinate}' != '') &&
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 10.0),
+                            child: Container(
+                              width: double.infinity,
+                              height: 200.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Builder(builder: (context) {
+                                final _googleMapMarker =
+                                    (('${widget!.coordinate}' != '') &&
+                                            ('${widget!.coordinate}' != 'null')
+                                        ? functions.stringToLatLng(
+                                            (String location) {
+                                              return location.split(',')[0];
+                                            }(widget!.coordinate!),
+                                            (String location) {
+                                              return location.split(',')[1];
+                                            }(widget!.coordinate!))
+                                        : currentUserLocationValue);
+                                return FlutterFlowGoogleMap(
+                                  controller: _model.googleMapsController,
+                                  onCameraIdle: (latLng) =>
+                                      _model.googleMapsCenter = latLng,
+                                  initialLocation: _model.googleMapsCenter ??=
+                                      ('${widget!.coordinate}' != '') &&
                                               ('${widget!.coordinate}' !=
                                                   'null')
                                           ? functions.stringToLatLng(
@@ -2942,53 +2955,35 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               }(widget!.coordinate!),
                                               (String location) {
                                                 return location.split(',')[1];
-                                              }(widget!.coordinate!))
-                                          : currentUserLocationValue);
-                                  return FlutterFlowGoogleMap(
-                                    controller: _model.googleMapsController,
-                                    onCameraIdle: (latLng) =>
-                                        _model.googleMapsCenter = latLng,
-                                    initialLocation: _model.googleMapsCenter ??=
-                                        ('${widget!.coordinate}' != '') &&
-                                                ('${widget!.coordinate}' !=
-                                                    'null')
-                                            ? functions.stringToLatLng(
-                                                (String location) {
-                                                  return location.split(',')[0];
-                                                }(widget!.coordinate!),
-                                                (String location) {
-                                                  return location.split(',')[1];
-                                                }(widget!.coordinate!))!
-                                            : currentUserLocationValue!,
-                                    markers: [
-                                      if (_googleMapMarker != null)
-                                        FlutterFlowMarker(
-                                          _googleMapMarker.serialize(),
-                                          _googleMapMarker,
-                                        ),
-                                    ],
-                                    markerColor: GoogleMarkerColor.red,
-                                    mapType: MapType.hybrid,
-                                    style: GoogleMapStyle.standard,
-                                    initialZoom: 16.0,
-                                    allowInteraction: true,
-                                    allowZoom: true,
-                                    showZoomControls: true,
-                                    showLocation: !(('${widget!.coordinate}' !=
-                                            '') &&
-                                        ('${widget!.coordinate}' != 'null')),
-                                    showCompass: false,
-                                    showMapToolbar: false,
-                                    showTraffic: false,
-                                    centerMapOnMarkerTap:
-                                        !(('${widget!.coordinate}' != '') &&
-                                            ('${widget!.coordinate}' !=
-                                                'null')),
-                                  );
-                                }),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation2']!),
-                            ),
+                                              }(widget!.coordinate!))!
+                                          : currentUserLocationValue!,
+                                  markers: [
+                                    if (_googleMapMarker != null)
+                                      FlutterFlowMarker(
+                                        _googleMapMarker.serialize(),
+                                        _googleMapMarker,
+                                      ),
+                                  ],
+                                  markerColor: GoogleMarkerColor.red,
+                                  mapType: MapType.hybrid,
+                                  style: GoogleMapStyle.standard,
+                                  initialZoom: 16.0,
+                                  allowInteraction: true,
+                                  allowZoom: true,
+                                  showZoomControls: true,
+                                  showLocation:
+                                      !(('${widget!.coordinate}' != '') &&
+                                          ('${widget!.coordinate}' != 'null')),
+                                  showCompass: false,
+                                  showMapToolbar: false,
+                                  showTraffic: false,
+                                  centerMapOnMarkerTap:
+                                      !(('${widget!.coordinate}' != '') &&
+                                          ('${widget!.coordinate}' != 'null')),
+                                );
+                              }),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation2']!),
                           ),
                         ],
                       ),
