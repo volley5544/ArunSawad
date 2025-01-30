@@ -308,6 +308,39 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
               .toList()
               .cast<String>();
           safeSetState(() {});
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('left'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('right'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
         }
       }
       Navigator.pop(context);

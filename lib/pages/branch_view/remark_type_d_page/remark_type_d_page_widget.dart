@@ -1446,6 +1446,11 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       maxLengthEnforcement:
                                                           MaxLengthEnforcement
                                                               .enforced,
+                                                      buildCounter: (context,
+                                                              {required currentLength,
+                                                              required isFocused,
+                                                              maxLength}) =>
+                                                          null,
                                                       validator: _model
                                                           .remarkInputTextControllerValidator
                                                           .asValidator(context),
