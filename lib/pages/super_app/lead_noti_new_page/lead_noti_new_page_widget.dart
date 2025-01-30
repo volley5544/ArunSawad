@@ -1222,11 +1222,17 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           child: Text(
                                                             valueOrDefault<
                                                                 String>(
-                                                              '${GetLeadDetailAPICall.leadDataJson(
-                                                                (_model.getLeadDetail
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )?.length?.toString()}',
+                                                              '${valueOrDefault<String>(
+                                                                GetLeadDetailAPICall
+                                                                        .leadDataJson(
+                                                                  (_model.getLeadDetail
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )
+                                                                    ?.length
+                                                                    ?.toString(),
+                                                                '0',
+                                                              )}',
                                                               '0',
                                                             ),
                                                             textAlign: TextAlign
