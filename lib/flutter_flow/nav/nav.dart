@@ -2458,6 +2458,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.int,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'LeadNotiNewPage',
+              path: 'leadNotiNewPage',
+              builder: (context, params) => LeadNotiNewPageWidget(
+                color: params.getParam<Color>(
+                  'color',
+                  ParamType.Color,
+                  isList: true,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

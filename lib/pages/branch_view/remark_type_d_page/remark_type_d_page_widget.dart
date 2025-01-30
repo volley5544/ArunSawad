@@ -202,7 +202,15 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
 
     _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
-
+    _model.remarkInputFocusNode!.addListener(
+      () async {
+        await _model.columnController?.animateTo(
+          _model.columnController!.position.maxScrollExtent,
+          duration: Duration(milliseconds: 100),
+          curve: Curves.ease,
+        );
+      },
+    );
     _model.textController5 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 

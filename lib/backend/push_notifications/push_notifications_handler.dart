@@ -747,6 +747,9 @@ final parametersBuilderMap =
           'filesCount': getParameter<int>(data, 'filesCount'),
         },
       ),
+  'LeadNotiNewPage': (data) async => ParameterData(
+        allParams: {},
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
