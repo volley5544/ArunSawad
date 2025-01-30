@@ -2111,6 +2111,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 unawaited(
                                                                   () async {}(),
                                                                 );
+
+                                                                context.pushNamed(
+                                                                    'LeadNotiNewPage');
                                                               },
                                                               child: Text(
                                                                 'บริการ',
