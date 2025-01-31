@@ -180,6 +180,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
       )!
           .toList()
           .cast<dynamic>();
+      _model.allLeadDataJson = GetLeadDetailAPICall.leadDataJson(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<dynamic>();
       safeSetState(() {});
       Navigator.pop(context);
     });
@@ -1541,23 +1546,33 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                                 Padding(
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                   child: Text(
-                                                                                    '${getJsonField(
-                                                                                              leadListItemItem,
-                                                                                              r'''$.days_remaining''',
-                                                                                            ).toString()}' ==
-                                                                                            '0'
-                                                                                        ? 'วันสุดท้าย'
-                                                                                        : '${getJsonField(
+                                                                                    () {
+                                                                                      if ('${getJsonField(
                                                                                             leadListItemItem,
                                                                                             r'''$.days_remaining''',
-                                                                                          ).toString()} วัน',
+                                                                                          ).toString()}' ==
+                                                                                          '0') {
+                                                                                        return 'ไม่หมดอายุ';
+                                                                                      } else if ('${getJsonField(
+                                                                                            leadListItemItem,
+                                                                                            r'''$.days_remaining''',
+                                                                                          ).toString()}' ==
+                                                                                          '1') {
+                                                                                        return 'วันสุดท้าย';
+                                                                                      } else {
+                                                                                        return '${getJsonField(
+                                                                                          leadListItemItem,
+                                                                                          r'''$.days_remaining''',
+                                                                                        ).toString()} วัน';
+                                                                                      }
+                                                                                    }(),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Outfit',
                                                                                           color: '${getJsonField(
                                                                                                     leadListItemItem,
                                                                                                     r'''$.days_remaining''',
                                                                                                   ).toString()}' ==
-                                                                                                  '0'
+                                                                                                  '1'
                                                                                               ? Color(0xFFFF0000)
                                                                                               : FlutterFlowTheme.of(context).primaryText,
                                                                                           fontSize: 14.0,
