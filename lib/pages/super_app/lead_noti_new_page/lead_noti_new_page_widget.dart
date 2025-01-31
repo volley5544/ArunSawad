@@ -1719,6 +1719,33 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             false;
                                                                         HapticFeedback
                                                                             .mediumImpact();
+                                                                        if (!functions
+                                                                            .checkPhoneNumberChar('${getJsonField(
+                                                                          leadListItemItem,
+                                                                          r'''$.phone_number''',
+                                                                        ).toString()}')) {
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('เบอร์โทรไม่ถูกต้อง ไม่สามารถโทรได้'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
                                                                         var confirmDialogResponse = await showDialog<bool>(
                                                                               context: context,
                                                                               builder: (alertDialogContext) {
@@ -1745,46 +1772,32 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             safeSetState(() {});
                                                                           return;
                                                                         }
-                                                                        if (functions.showMatNameInList(FFAppState().leadCallStatus.toList(),
-                                                                                leadListItemIndex) ==
-                                                                            'NEW') {
-                                                                          if (!functions.checkLeadIdCalledInApp(
-                                                                              FFAppState().leadIdCalledInApp.toList(),
-                                                                              functions.showMatNameInList(FFAppState().leadID.toList(), leadListItemIndex))) {
-                                                                            FFAppState().addToLeadIdCalledInApp(functions.showMatNameInList(FFAppState().leadID.toList(),
-                                                                                leadListItemIndex)!);
-                                                                            FFAppState().update(() {});
-                                                                          }
-                                                                        }
+                                                                        if ('${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.call_status''',
+                                                                            ).toString()}' ==
+                                                                            'NEW') {}
                                                                         _model.addCalledLead =
                                                                             await AddPhoneCalledLeadAPICall.call(
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
-                                                                          leadID: functions.showMatNameInList(
-                                                                              FFAppState().leadID.toList(),
-                                                                              leadListItemIndex),
+                                                                          leadID:
+                                                                              '${getJsonField(
+                                                                            leadListItemItem,
+                                                                            r'''$.lead_id''',
+                                                                          ).toString()}',
                                                                           token:
                                                                               FFAppState().accessToken,
                                                                         );
 
                                                                         _shouldSetState =
                                                                             true;
-                                                                        FFAppState().leadCountCalled = functions
-                                                                            .increasedValueIntStringInList(
-                                                                                FFAppState().leadCountCalled.toList(),
-                                                                                leadListItemIndex,
-                                                                                AddPhoneCalledLeadAPICall.countCalled(
-                                                                                  (_model.addCalledLead?.jsonBody ?? ''),
-                                                                                ).toString())!
-                                                                            .toList()
-                                                                            .cast<String>();
-                                                                        FFAppState()
-                                                                            .update(() {});
                                                                         await actions
                                                                             .open3CXAction(
-                                                                          functions.showMatNameInList(
-                                                                              FFAppState().leadPhoneNumberList.toList(),
-                                                                              leadListItemIndex),
+                                                                          '${getJsonField(
+                                                                            leadListItemItem,
+                                                                            r'''$.phone_number''',
+                                                                          ).toString()}',
                                                                         );
                                                                         if (_shouldSetState)
                                                                           safeSetState(
