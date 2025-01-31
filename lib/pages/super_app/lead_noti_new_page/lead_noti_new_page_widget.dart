@@ -1127,7 +1127,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         12.0,
-                                                                        0.0,
+                                                                        4.0,
                                                                         12.0,
                                                                         0.0),
                                                             child: Icon(
@@ -2227,48 +2227,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       onPressed: () async {
                                                         var _shouldSetState =
                                                             false;
-                                                        showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          barrierColor:
-                                                              Color(0x00000000),
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
-                                                                    child:
-                                                                        LoadingSceneWidget(),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-
                                                         _model.getCalledStatusCode =
                                                             await GetLeadCalledStatusDropdownAPICall
                                                                 .call(
@@ -2277,7 +2235,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           token: FFAppState()
                                                               .accessToken,
                                                           leadChannel:
-                                                              '${functions.getLeadChannelCode('${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListItemIndex)}')}',
+                                                              '${functions.getLeadChannelCode('${getJsonField(
+                                                            leadListItemItem,
+                                                            r'''$.channel''',
+                                                          ).toString()}')}',
                                                         );
 
                                                         _shouldSetState = true;
@@ -2292,8 +2253,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       ''),
                                                                 ) ==
                                                                 200))) {
-                                                          Navigator.pop(
-                                                              context);
                                                           await showDialog(
                                                             context: context,
                                                             builder:
@@ -2324,7 +2283,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             safeSetState(() {});
                                                           return;
                                                         }
-                                                        Navigator.pop(context);
                                                         await showModalBottomSheet(
                                                           isScrollControlled:
                                                               true,
@@ -2361,7 +2319,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                     child:
                                                                         SavedLeadCalledStatusWidget(
                                                                       leadChannel:
-                                                                          '${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListItemIndex)}',
+                                                                          '${getJsonField(
+                                                                        leadListItemItem,
+                                                                        r'''$.channel''',
+                                                                      ).toString()}',
                                                                       leadId:
                                                                           '${functions.showMatNameInList(FFAppState().leadID.toList(), leadListItemIndex)}',
                                                                       callStatusId:
