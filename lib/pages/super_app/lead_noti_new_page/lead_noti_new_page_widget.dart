@@ -901,6 +901,12 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
+                                                                      color: _model.selectedTab ==
+                                                                              'Truck'
+                                                                          ? Colors
+                                                                              .white
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .primaryText,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -923,6 +929,12 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
+                                                                    color: _model.selectedTab ==
+                                                                            'Truck'
+                                                                        ? Colors
+                                                                            .white
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
