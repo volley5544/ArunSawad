@@ -1459,11 +1459,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       maxLengthEnforcement:
                                                           MaxLengthEnforcement
                                                               .enforced,
-                                                      buildCounter: (context,
-                                                              {required currentLength,
-                                                              required isFocused,
-                                                              maxLength}) =>
-                                                          null,
                                                       validator: _model
                                                           .remarkInputTextControllerValidator
                                                           .asValidator(context),
@@ -1672,7 +1667,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                           curve: Curves.ease,
                                                         );
                                                       },
-                                                      text: 'อัพโหลดรูป',
+                                                      text: 'อัปโหลดรูป',
                                                       options: FFButtonOptions(
                                                         width: 130.0,
                                                         height: 40.0,
@@ -1973,7 +1968,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                   .fromSTEB(
                                                       16.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'ไฟล์ที่อัพโหลด',
+                                                'ไฟล์ที่อัปโหลด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
@@ -1992,7 +1987,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                   .fromSTEB(
                                                       16.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'รวม ${functions.checkTotalFileSizeMB(_model.uploadedimageList.toList())?.toString()} MB (Max 50 MB)',
+                                                'รวม ${functions.checkTotalFileSizeMB(_model.uploadedimageList.toList())?.toString()} MB (สูงสุด 50 MB)',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
@@ -2844,7 +2839,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           Expanded(
                                             flex: 4,
                                             child: Text(
-                                              'ไฟล์อัพโหลด:',
+                                              'ไฟล์อัปโหลด:',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2911,7 +2906,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       children: [
                                                         Expanded(
                                                           child: Text(
-                                                            '*ดูไฟล์ที่อัพโหลดได้ที่ Vloan',
+                                                            '*ดูไฟล์ที่อัปโหลดได้ที่ Vloan',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -3243,7 +3238,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               return WebViewAware(
                                                 child: AlertDialog(
                                                   content: Text(
-                                                      'ไฟล์ทั้งหมดมีขนาดเกิน 50mb'),
+                                                      'ไฟล์อัปโหลดทั้งหมดมีขนาดเกิน 50 MB'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>

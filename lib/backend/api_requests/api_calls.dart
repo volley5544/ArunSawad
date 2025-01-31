@@ -2096,22 +2096,15 @@ class GetLeadDetailAPICall {
     String? token = '',
     String? apiUrl = '',
   }) async {
-    final ffApiRequestBody = '''
-{
-  "token": "${token}",
-  "api_url": "${apiUrl}"
-}''';
     return ApiManager.instance.makeApiCall(
       callName: 'getLeadDetailAPI',
       apiUrl: '${apiUrl}/api/lead/getlead',
-      callType: ApiCallType.POST,
+      callType: ApiCallType.GET,
       headers: {
         'ContentType': 'application/json; charset=utf-8,',
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
