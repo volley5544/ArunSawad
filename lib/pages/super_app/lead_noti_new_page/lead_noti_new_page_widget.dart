@@ -1121,86 +1121,99 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           CrossAxisAlignment
                                                               .stretch,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      12.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Icon(
-                                                            Icons.person,
-                                                            color: Color(
-                                                                0xFF101213),
-                                                            size: 30.0,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      12.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              _model
-                                                                  .leadOwnerDataJson
-                                                                  .length
-                                                                  .toString(),
-                                                              '0',
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                            child: Icon(
+                                                              Icons.person,
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              size: 30.0,
                                                             ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: Color(
-                                                                      0xFF101213),
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
                                                           ),
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'จำนวนลีดส่วนตัว',
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: Color(
-                                                                      0xFF57636C),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        12.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                _model
+                                                                    .leadOwnerDataJson
+                                                                    .length
+                                                                    .toString(),
+                                                                '0',
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .displaySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: Color(
+                                                                        0xFF101213),
+                                                                    fontSize:
+                                                                        20.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'จำนวนลีดส่วนตัว',
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      color: Color(
+                                                                          0xFF57636C),
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ],

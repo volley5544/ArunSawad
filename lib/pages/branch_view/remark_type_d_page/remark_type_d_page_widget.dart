@@ -1207,6 +1207,17 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                       _model.uploadedFileTypeList =
                                                           [];
                                                       safeSetState(() {});
+                                                      await _model
+                                                          .columnController
+                                                          ?.animateTo(
+                                                        _model
+                                                            .columnController!
+                                                            .position
+                                                            .maxScrollExtent,
+                                                        duration: Duration(
+                                                            milliseconds: 100),
+                                                        curve: Curves.ease,
+                                                      );
                                                     },
                                                     width: 300.0,
                                                     searchHintTextStyle:
@@ -1942,63 +1953,61 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                 children: [
                                   Container(
                                     width: double.infinity,
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.07,
+                                    height: 55.0,
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).accent4,
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'ไฟล์ที่อัพโหลด',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                    child: Container(
+                                      decoration: BoxDecoration(),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                'ไฟล์ที่อัพโหลด',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontSize: 22.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'รวม${functions.checkTotalFileSizeMB(_model.uploadedimageList.toList())?.toString()} MB (Max 50 MB)',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFFFF0000),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                'รวม ${functions.checkTotalFileSizeMB(_model.uploadedimageList.toList())?.toString()} MB (Max 50 MB)',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFFFF0000),
+                                                          fontSize: 13.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                   Container(
@@ -2018,8 +2027,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         return Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: List.generate(
-                                              uploadedFileListItem.length,
-                                              (uploadedFileListItemIndex) {
+                                                  uploadedFileListItem.length,
+                                                  (uploadedFileListItemIndex) {
                                             final uploadedFileListItemItem =
                                                 uploadedFileListItem[
                                                     uploadedFileListItemIndex];
@@ -2097,6 +2106,9 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
                                                       children: [
                                                         Padding(
                                                           padding:
@@ -2162,19 +2174,62 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        Expanded(
+                                                        Flexible(
                                                           flex: 3,
-                                                          child: Text(
-                                                            '${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'}(${functions.checkFileSize(_model.uploadedimageList.elementAtOrNull(uploadedFileListItemIndex))?.toString()} MB)',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Text(
+                                                                  '${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'}',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                                 ),
+                                                                Expanded(
+                                                                  flex: 3,
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      '(${functions.checkFileSize(_model.uploadedimageList.elementAtOrNull(uploadedFileListItemIndex))?.toString()} MB)',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                Color(0xFFFF0000),
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
                                                         Expanded(
@@ -2231,7 +2286,10 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 ),
                                               ),
                                             );
-                                          }).addToEnd(SizedBox(height: 12.0)),
+                                          })
+                                              .addToStart(
+                                                  SizedBox(height: 12.0))
+                                              .addToEnd(SizedBox(height: 12.0)),
                                         );
                                       },
                                     ),
