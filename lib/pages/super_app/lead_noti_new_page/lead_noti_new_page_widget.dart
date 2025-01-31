@@ -815,30 +815,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Truck';
                                                         safeSetState(() {});
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(_model
-                                                                    .currentShowingDataJson
-                                                                    .length
-                                                                    .toString()),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
                                                         await _model
                                                             .listViewController
                                                             ?.animateTo(
