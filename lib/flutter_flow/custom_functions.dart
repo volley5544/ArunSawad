@@ -4797,7 +4797,7 @@ double? checkTotalFileSizeMB(List<FFUploadedFile>? uploadedFiles) {
     print("Total size within limit: $totalSizeInMB MB");
   }
 
-  return totalSizeInMB; // Return size in MB
+  return formattedSize; // Return size in MB
 }
 
 double? checkFileSize(FFUploadedFile? uploadedFile) {

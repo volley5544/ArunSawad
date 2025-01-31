@@ -3174,72 +3174,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             safeSetState(() {});
                                           return;
                                         }
-                                        var confirmDialogResponse =
-                                            await showDialog<bool>(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    false),
-                                                            child:
-                                                                Text('ยกเลิก'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    true),
-                                                            child:
-                                                                Text('บันทึก'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                ) ??
-                                                false;
-                                        if (!confirmDialogResponse) {
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
-                                        _model.checkGPSBeforeSave =
-                                            await actions.a8(
-                                          currentUserLocationValue,
-                                        );
-                                        _shouldSetState = true;
-                                        if (!_model.checkGPSBeforeSave!) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState)
-                                            safeSetState(() {});
-                                          return;
-                                        }
                                         if (functions.checkTotalFileSizeMB(
                                                 _model.uploadedimageList
                                                     .toList())! <
@@ -3315,6 +3249,72 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           return;
                                         }
 
+                                        var confirmDialogResponse =
+                                            await showDialog<bool>(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    false),
+                                                            child:
+                                                                Text('ยกเลิก'),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    true),
+                                                            child:
+                                                                Text('บันทึก'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                ) ??
+                                                false;
+                                        if (!confirmDialogResponse) {
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        _model.checkGPSBeforeSave =
+                                            await actions.a8(
+                                          currentUserLocationValue,
+                                        );
+                                        _shouldSetState = true;
+                                        if (!_model.checkGPSBeforeSave!) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
                                         showDialog(
                                           context: context,
                                           builder: (dialogContext) {
