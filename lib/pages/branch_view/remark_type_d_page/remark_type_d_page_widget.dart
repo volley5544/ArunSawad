@@ -1517,10 +1517,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     AlertDialog(
-                                                                  title: Text(
-                                                                      'ระบบ'),
                                                                   content: Text(
-                                                                      'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด10รูป)'),
+                                                                      'ไม่สามารถอัปโหลดรูปเพิ่มได้เนื่องจากอัปโหลดได้สูงสุด10รูป'),
                                                                   actions: [
                                                                     TextButton(
                                                                       onPressed:
@@ -1617,7 +1615,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 child:
                                                                     AlertDialog(
                                                                   content: Text(
-                                                                      'ไม่สามารถอัพโหลดรูปได้ กรุณาลองอีกครั้ง'),
+                                                                      'ไม่สามารถอัปโหลดรูปได้ กรุณาลองอีกครั้ง'),
                                                                   actions: [
                                                                     TextButton(
                                                                       onPressed:
@@ -1743,10 +1741,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                 return WebViewAware(
                                                                   child:
                                                                       AlertDialog(
-                                                                    title: Text(
-                                                                        'ระบบ'),
                                                                     content: Text(
-                                                                        'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด10รูป)'),
+                                                                        'ไม่สามารถอัปโหลดไฟล์เพิ่มได้เนื่องจากสูงสุด10ไฟล์'),
                                                                     actions: [
                                                                       TextButton(
                                                                         onPressed:
@@ -1823,7 +1819,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                                   child:
                                                                       AlertDialog(
                                                                     content: Text(
-                                                                        'ไม่สามารถอัพโหลดไฟล์PDFได้ กรุณาลองอีกครั้ง'),
+                                                                        'ไม่สามารถอัปโหลดไฟล์PDFได้ กรุณาลองอีกครั้ง'),
                                                                     actions: [
                                                                       TextButton(
                                                                         onPressed:
@@ -3210,7 +3206,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                               return WebViewAware(
                                                 child: AlertDialog(
                                                   content: Text(
-                                                      'กรุณาอัพโหลดรูปภาพหรือไฟล์PDF อย่างน้อย 1 ไฟล์'),
+                                                      'กรุณาอัปโหลดรูปภาพหรือไฟล์PDF อย่างน้อย 1 ไฟล์'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
