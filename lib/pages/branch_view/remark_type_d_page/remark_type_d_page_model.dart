@@ -118,10 +118,6 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for coordinateTimesheet widget.
   FocusNode? coordinateTimesheetFocusNode;
   TextEditingController? coordinateTimesheetTextController;
@@ -157,9 +153,6 @@ class RemarkTypeDPageModel extends FlutterFlowModel<RemarkTypeDPageWidget> {
 
     textFieldFocusNode2?.dispose();
     textController5?.dispose();
-
-    textFieldFocusNode3?.dispose();
-    textController6?.dispose();
 
     coordinateTimesheetFocusNode?.dispose();
     coordinateTimesheetTextController?.dispose();

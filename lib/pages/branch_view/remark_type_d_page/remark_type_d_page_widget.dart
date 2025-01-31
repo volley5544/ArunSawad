@@ -108,15 +108,11 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
           _model.dropDownValueController?.reset();
         });
         safeSetState(() {
-          _model.textController1?.text = 'สถานะคดี';
-
           _model.coordinateInputTextController?.clear();
           _model.idInputTextController?.clear();
           _model.remarkInputTextController?.clear();
-          _model.textController5?.text = 'ไฟล์ที่อัพโหลด';
-
           _model.coordinateTimesheetTextController?.clear();
-          _model.textController6?.text = 'สถานะคดี';
+          _model.textController5?.text = 'สถานะคดี';
         });
         if (isAndroid) {
           await actions.allowScreenRecordAndroid();
@@ -213,9 +209,6 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
     );
     _model.textController5 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
-
-    _model.textController6 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
 
     _model.coordinateTimesheetTextController ??= TextEditingController();
     _model.coordinateTimesheetFocusNode ??= FocusNode();
@@ -331,8 +324,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'สถานะคดี';
-          _model.textController5?.text = 'ไฟล์ที่อัพโหลด';
-          _model.textController6?.text = 'สถานะคดี';
+          _model.textController5?.text = 'สถานะคดี';
         }));
   }
 
@@ -1953,76 +1945,60 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                     height: MediaQuery.sizeOf(context).height *
                                         0.07,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent4,
                                     ),
-                                    child: TextFormField(
-                                      controller: _model.textController5,
-                                      focusNode: _model.textFieldFocusNode2,
-                                      autofocus: true,
-                                      readOnly: true,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        hintText: '[Some hint text...]',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'ไฟล์ที่อัพโหลด',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
-                                        enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(4.0),
-                                            topRight: Radius.circular(4.0),
                                           ),
                                         ),
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(4.0),
-                                            topRight: Radius.circular(4.0),
-                                          ),
-                                        ),
-                                        errorBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(4.0),
-                                            topRight: Radius.circular(4.0),
-                                          ),
-                                        ),
-                                        focusedErrorBorder:
-                                            UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(4.0),
-                                            topRight: Radius.circular(4.0),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'รวม${functions.checkTotalFileSizeMB(_model.uploadedimageList.toList())?.toString()} MB (Max 50 MB)',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
                                           ),
                                         ),
-                                        filled: true,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            fontFamily: 'Noto Serif',
-                                            color: FlutterFlowTheme.of(context)
-                                                .black600,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      validator: _model.textController5Validator
-                                          .asValidator(context),
+                                      ],
                                     ),
                                   ),
                                   Container(
@@ -2189,7 +2165,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                         Expanded(
                                                           flex: 3,
                                                           child: Text(
-                                                            '${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'}',
+                                                            '${(uploadedFileListItemIndex + 1).toString()}. ${_model.uploadedFileTypeList.elementAtOrNull(uploadedFileListItemIndex) == 'image' ? 'รูปภาพ' : 'ไฟล์ PDF'}(${functions.checkFileSize(_model.uploadedimageList.elementAtOrNull(uploadedFileListItemIndex))?.toString()} MB)',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -2286,8 +2262,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           .secondaryBackground,
                                     ),
                                     child: TextFormField(
-                                      controller: _model.textController6,
-                                      focusNode: _model.textFieldFocusNode3,
+                                      controller: _model.textController5,
+                                      focusNode: _model.textFieldFocusNode2,
                                       autofocus: false,
                                       readOnly: true,
                                       obscureText: false,
@@ -2350,7 +2326,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                 .black600,
                                             letterSpacing: 0.0,
                                           ),
-                                      validator: _model.textController6Validator
+                                      validator: _model.textController5Validator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -3267,7 +3243,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         if (functions.checkTotalFileSizeMB(
                                                 _model.uploadedimageList
                                                     .toList())! <
-                                            50) {
+                                            50.0) {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {

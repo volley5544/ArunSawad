@@ -4768,7 +4768,7 @@ dynamic returnLeadListByChannel(
   return output;
 }
 
-int? checkTotalFileSizeMB(List<FFUploadedFile>? uploadedFiles) {
+double? checkTotalFileSizeMB(List<FFUploadedFile>? uploadedFiles) {
   const int maxSizeInBytes = 50 * 1024 * 1024;
 
   // If uploadedFiles is null or empty, return 0 (no size to check)
@@ -4787,7 +4787,8 @@ int? checkTotalFileSizeMB(List<FFUploadedFile>? uploadedFiles) {
   }
 
   // Convert total size to MB
-  int totalSizeInMB = (totalSize / (1024 * 1024)).floor();
+  double totalSizeInMB = totalSize / (1024 * 1024); // Get size in MB
+  double formattedSize = double.parse(totalSizeInMB.toStringAsFixed(2));
 
   // Print the result
   if (totalSize > maxSizeInBytes) {
@@ -4797,4 +4798,19 @@ int? checkTotalFileSizeMB(List<FFUploadedFile>? uploadedFiles) {
   }
 
   return totalSizeInMB; // Return size in MB
+}
+
+double? checkFileSize(FFUploadedFile? uploadedFile) {
+  if (uploadedFile == null) {
+    print("No files provided.");
+    return 0; // Return 0 MB
+  }
+
+  int totalSize = uploadedFile.bytes!.length;
+
+  // Convert total size to MB
+  double totalSizeInMB = totalSize / (1024 * 1024); // Get size in MB
+  double formattedSize = double.parse(totalSizeInMB.toStringAsFixed(2));
+
+  return formattedSize;
 }
