@@ -1403,7 +1403,17 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: valueOrDefault<Color>(
+                                          '${getJsonField(
+                                                    leadListItemItem,
+                                                    r'''$.call_status''',
+                                                  ).toString()}' !=
+                                                  'NEW'
+                                              ? Color(0xFFE9FFEA)
+                                              : Colors.white,
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
                                         boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4.0,
@@ -1423,7 +1433,75 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             width: 110.0,
                                             height: 32.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF00A600),
+                                              color: valueOrDefault<Color>(
+                                                () {
+                                                  if ('${getJsonField(
+                                                        leadListItemItem,
+                                                        r'''$.channel''',
+                                                      ).toString()}' ==
+                                                      'Lead Survey') {
+                                                    return valueOrDefault<
+                                                        Color>(
+                                                      leadNotiNewPageLeadChannelColorRecord
+                                                          ?.color
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  leadNotiNewPageLeadChannelColorRecord
+                                                                      ?.leadChannel
+                                                                      ?.toList(),
+                                                                  'Lead Survey')),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                    );
+                                                  } else if ('${getJsonField(
+                                                        leadListItemItem,
+                                                        r'''$.channel''',
+                                                      ).toString()}' ==
+                                                      'Lead Telesale') {
+                                                    return (leadNotiNewPageLeadChannelColorRecord
+                                                        ?.color
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfSomethingList(
+                                                                leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.leadChannel
+                                                                    ?.toList(),
+                                                                'Lead Telesale')));
+                                                  } else if ('${getJsonField(
+                                                        leadListItemItem,
+                                                        r'''$.channel''',
+                                                      ).toString()}' ==
+                                                      'Lead Agent') {
+                                                    return (leadNotiNewPageLeadChannelColorRecord
+                                                        ?.color
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfSomethingList(
+                                                                leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.leadChannel
+                                                                    ?.toList(),
+                                                                'Lead Agent')));
+                                                  } else if ('${getJsonField(
+                                                        leadListItemItem,
+                                                        r'''$.channel''',
+                                                      ).toString()}' ==
+                                                      'Lead Truck') {
+                                                    return (leadNotiNewPageLeadChannelColorRecord
+                                                        ?.color
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfSomethingList(
+                                                                leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.leadChannel
+                                                                    ?.toList(),
+                                                                'Lead Truck')));
+                                                  } else {
+                                                    return FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent1;
+                                                  }
+                                                }(),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                              ),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(0.0),
@@ -1544,12 +1622,24 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           child:
                                                                               Text(
                                                                             '${getJsonField(
-                                                                              leadListItemItem,
-                                                                              r'''$.days_remaining''',
-                                                                            ).toString()}',
+                                                                                      leadListItemItem,
+                                                                                      r'''$.days_remaining''',
+                                                                                    ).toString()}' ==
+                                                                                    '0'
+                                                                                ? 'วันสุดท้าย'
+                                                                                : '${getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$.days_remaining''',
+                                                                                  ).toString()} วัน',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Outfit',
-                                                                                  color: Color(0xFF101213),
+                                                                                  color: '${getJsonField(
+                                                                                            leadListItemItem,
+                                                                                            r'''$.days_remaining''',
+                                                                                          ).toString()}' ==
+                                                                                          '0'
+                                                                                      ? Color(0xFFFF0000)
+                                                                                      : FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
@@ -1935,12 +2025,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListItemIndex) ==
+                                                                    color: '${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.countCall''',
+                                                                            ).toString()}' ==
                                                                             '0'
-                                                                        ? Color(
-                                                                            0xFFFF0000)
-                                                                        : Colors
-                                                                            .black,
+                                                                        ? Color(0xFFFF0000)
+                                                                        : Colors.black,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1976,16 +2067,32 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            '${getJsonField(
-                                                                      leadListItemItem,
-                                                                      r'''$.StatusContract''',
-                                                                    ).toString()}' ==
-                                                                    'ทำสัญญาแล้ว'
-                                                                ? '${'${getJsonField(
+                                                            () {
+                                                              if ('${getJsonField(
                                                                     leadListItemItem,
                                                                     r'''$.StatusContract''',
-                                                                  ).toString()}'}'
-                                                                : 'v',
+                                                                  ).toString()}' ==
+                                                                  'ทำสัญญาแล้ว') {
+                                                                return '${'${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.StatusContract''',
+                                                                ).toString()}'}';
+                                                              } else if ('${getJsonField(
+                                                                    leadListItemItem,
+                                                                    r'''$.call_status''',
+                                                                  ).toString()}' !=
+                                                                  'NEW') {
+                                                                return '${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.call_status''',
+                                                                ).toString()} ${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.statusCallOut''',
+                                                                ).toString()}';
+                                                              } else {
+                                                                return 'ยังไม่ได้โทร';
+                                                              }
+                                                            }(),
                                                             '[contract_status]',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2289,10 +2396,73 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          () {
+                                                            if ('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.channel''',
+                                                                ).toString()}' ==
+                                                                'Lead Survey') {
+                                                              return valueOrDefault<
+                                                                  Color>(
+                                                                leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Survey')),
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                              );
+                                                            } else if ('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.channel''',
+                                                                ).toString()}' ==
+                                                                'Lead Telesale') {
+                                                              return (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Telesale')));
+                                                            } else if ('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.channel''',
+                                                                ).toString()}' ==
+                                                                'Lead Agent') {
+                                                              return (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Agent')));
+                                                            } else if ('${getJsonField(
+                                                                  leadListItemItem,
+                                                                  r'''$.channel''',
+                                                                ).toString()}' ==
+                                                                'Lead Truck') {
+                                                              return (leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.color
+                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.leadChannel
+                                                                          ?.toList(),
+                                                                      'Lead Truck')));
+                                                            } else {
+                                                              return FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .accent1;
+                                                            }
+                                                          }(),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                        ),
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2564,9 +2734,73 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            () {
+                                                              if ('${getJsonField(
+                                                                    leadListItemItem,
+                                                                    r'''$.channel''',
+                                                                  ).toString()}' ==
+                                                                  'Lead Survey') {
+                                                                return valueOrDefault<
+                                                                    Color>(
+                                                                  leadNotiNewPageLeadChannelColorRecord
+                                                                      ?.color
+                                                                      ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                          leadNotiNewPageLeadChannelColorRecord
+                                                                              ?.leadChannel
+                                                                              ?.toList(),
+                                                                          'Lead Survey')),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                );
+                                                              } else if ('${getJsonField(
+                                                                    leadListItemItem,
+                                                                    r'''$.channel''',
+                                                                  ).toString()}' ==
+                                                                  'Lead Telesale') {
+                                                                return (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Telesale')));
+                                                              } else if ('${getJsonField(
+                                                                    leadListItemItem,
+                                                                    r'''$.channel''',
+                                                                  ).toString()}' ==
+                                                                  'Lead Agent') {
+                                                                return (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Agent')));
+                                                              } else if ('${getJsonField(
+                                                                    leadListItemItem,
+                                                                    r'''$.channel''',
+                                                                  ).toString()}' ==
+                                                                  'Lead Truck') {
+                                                                return (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Truck')));
+                                                              } else {
+                                                                return FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent1;
+                                                              }
+                                                            }(),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryBackground,
+                                                          ),
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)

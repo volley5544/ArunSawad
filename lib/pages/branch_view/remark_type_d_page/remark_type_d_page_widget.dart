@@ -3264,6 +3264,81 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                             safeSetState(() {});
                                           return;
                                         }
+                                        if (functions.checkTotalFileSizeMB(
+                                                _model.uploadedimageList
+                                                    .toList())! <
+                                            50) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(functions
+                                                      .checkTotalFileSizeMB(
+                                                          _model
+                                                              .uploadedimageList
+                                                              .toList())!
+                                                      .toString()),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(functions
+                                                      .checkTotalFileSizeMB(
+                                                          _model
+                                                              .uploadedimageList
+                                                              .toList())!
+                                                      .toString()),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'ไฟล์ทั้งหมดมีขนาดเกิน 50mb'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+
                                         showDialog(
                                           context: context,
                                           builder: (dialogContext) {

@@ -4767,3 +4767,34 @@ dynamic returnLeadListByChannel(
 
   return output;
 }
+
+int? checkTotalFileSizeMB(List<FFUploadedFile>? uploadedFiles) {
+  const int maxSizeInBytes = 50 * 1024 * 1024;
+
+  // If uploadedFiles is null or empty, return 0 (no size to check)
+  if (uploadedFiles == null) {
+    print("No files provided.");
+    return 0; // Return 0 MB
+  }
+
+  int totalSize = 0;
+
+  // Iterate through the list and calculate the total size
+  for (FFUploadedFile file in uploadedFiles) {
+    if (file.bytes != null) {
+      totalSize += file.bytes!.length; // Add file size to the total
+    }
+  }
+
+  // Convert total size to MB
+  int totalSizeInMB = (totalSize / (1024 * 1024)).floor();
+
+  // Print the result
+  if (totalSize > maxSizeInBytes) {
+    print("Total size exceeds limit: $totalSizeInMB MB");
+  } else {
+    print("Total size within limit: $totalSizeInMB MB");
+  }
+
+  return totalSizeInMB; // Return size in MB
+}
