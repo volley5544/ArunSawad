@@ -2104,7 +2104,9 @@ class GetLeadDetailAPICall {
         'ContentType': 'application/json; charset=utf-8,',
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
-      params: {},
+      params: {
+        'token': token,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
