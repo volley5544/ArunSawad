@@ -473,6 +473,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Survey';
                                                         safeSetState(() {});
+                                                        await _model
+                                                            .listViewController
+                                                            ?.animateTo(
+                                                          0,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  100),
+                                                          curve: Curves.ease,
+                                                        );
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
@@ -598,6 +607,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Telesale';
                                                         safeSetState(() {});
+                                                        await _model
+                                                            .listViewController
+                                                            ?.animateTo(
+                                                          0,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  100),
+                                                          curve: Curves.ease,
+                                                        );
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
@@ -728,6 +746,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Agent';
                                                         safeSetState(() {});
+                                                        await _model
+                                                            .listViewController
+                                                            ?.animateTo(
+                                                          0,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  100),
+                                                          curve: Curves.ease,
+                                                        );
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
@@ -853,6 +880,39 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Truck';
                                                         safeSetState(() {});
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(_model
+                                                                    .currentShowingDataJson
+                                                                    .length
+                                                                    .toString()),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        await _model
+                                                            .listViewController
+                                                            ?.animateTo(
+                                                          0,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  100),
+                                                          curve: Curves.ease,
+                                                        );
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
@@ -1045,6 +1105,14 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       _model.selectedTab =
                                                           'Owner';
                                                       safeSetState(() {});
+                                                      await _model
+                                                          .listViewController
+                                                          ?.animateTo(
+                                                        0,
+                                                        duration: Duration(
+                                                            milliseconds: 100),
+                                                        curve: Curves.ease,
+                                                      );
                                                     },
                                                     child: Column(
                                                       mainAxisSize:
@@ -1196,6 +1264,14 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       _model.selectedTab =
                                                           'All';
                                                       safeSetState(() {});
+                                                      await _model
+                                                          .listViewController
+                                                          ?.animateTo(
+                                                        0,
+                                                        duration: Duration(
+                                                            milliseconds: 100),
+                                                        curve: Curves.ease,
+                                                      );
                                                     },
                                                     child: Column(
                                                       mainAxisSize:
@@ -2527,6 +2603,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                     ),
                                   );
                                 },
+                                controller: _model.listViewController,
                               );
                             },
                           ),

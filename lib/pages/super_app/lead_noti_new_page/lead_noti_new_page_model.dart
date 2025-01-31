@@ -103,6 +103,8 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
 
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiNewPage widget.
   ApiCallResponse? getLeadDetail;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
   // Stores action output result for [Backend Call - API (addPhoneCalledLeadAPI)] action in Image widget.
   ApiCallResponse? addCalledLead;
   // Stores action output result for [Backend Call - API (getLeadCalledStatusDropdownAPI)] action in Button widget.
@@ -111,8 +113,12 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
   ApiCallResponse? getCallHistory;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    listViewController = ScrollController();
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    listViewController?.dispose();
+  }
 }
