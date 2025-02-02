@@ -504,10 +504,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                _model
-                                                                    .leadSurveyDataJson
-                                                                    .length
-                                                                    .toString(),
+                                                                functions.showNumberWithComma(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  _model
+                                                                      .leadTeleDataJson
+                                                                      .length
+                                                                      .toString(),
+                                                                  '0',
+                                                                )),
                                                                 '0',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -638,10 +643,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                _model
-                                                                    .leadTeleDataJson
-                                                                    .length
-                                                                    .toString(),
+                                                                functions.showNumberWithComma(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  _model
+                                                                      .leadTeleDataJson
+                                                                      .length
+                                                                      .toString(),
+                                                                  '0',
+                                                                )),
                                                                 '0',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -777,10 +787,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                _model
-                                                                    .leadAgentDataJson
-                                                                    .length
-                                                                    .toString(),
+                                                                functions.showNumberWithComma(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  _model
+                                                                      .leadAgentDataJson
+                                                                      .length
+                                                                      .toString(),
+                                                                  '0',
+                                                                )),
                                                                 '0',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -917,10 +932,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                _model
-                                                                    .leadTruckDataJson
-                                                                    .length
-                                                                    .toString(),
+                                                                functions.showNumberWithComma(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  _model
+                                                                      .leadTruckDataJson
+                                                                      .length
+                                                                      .toString(),
+                                                                  '0',
+                                                                )),
                                                                 '0',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -1078,10 +1098,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                _model
-                                                                    .leadOwnerDataJson
-                                                                    .length
-                                                                    .toString(),
+                                                                functions.showNumberWithComma(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  _model
+                                                                      .leadOwnerDataJson
+                                                                      .length
+                                                                      .toString(),
+                                                                  '0',
+                                                                )),
                                                                 '0',
                                                               ),
                                                               textAlign:
@@ -1239,17 +1264,22 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           child: Text(
                                                             valueOrDefault<
                                                                 String>(
-                                                              '${valueOrDefault<String>(
-                                                                GetLeadDetailAPICall
-                                                                        .leadDataJson(
-                                                                  (_model.getLeadDetail
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )
-                                                                    ?.length
-                                                                    ?.toString(),
+                                                              functions.showNumberWithComma(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                '${valueOrDefault<String>(
+                                                                  GetLeadDetailAPICall
+                                                                          .leadDataJson(
+                                                                    (_model.getLeadDetail
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )
+                                                                      ?.length
+                                                                      ?.toString(),
+                                                                  '0',
+                                                                )}',
                                                                 '0',
-                                                              )}',
+                                                              )),
                                                               '0',
                                                             ),
                                                             textAlign: TextAlign
