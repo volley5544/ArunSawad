@@ -97,6 +97,10 @@ class CustomerCarDeailsStep4Model
   FFUploadedFile uploadedLocalFile16 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  bool isDataUploading17 = false;
+  FFUploadedFile uploadedLocalFile17 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
   // State field(s) for PriceTextField widget.
   FocusNode? priceTextFieldFocusNode;
   TextEditingController? priceTextFieldTextController;

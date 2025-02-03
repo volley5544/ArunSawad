@@ -60,6 +60,8 @@ class CustomerCarDeailsPictureStep1Model
   String? image15File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
   String? image16File;
+  // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
+  String? image17File;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

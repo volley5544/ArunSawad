@@ -362,6 +362,19 @@ class _CustomerCarDeailsPictureStep1WidgetState
             );
           }
         }),
+        Future(() async {
+          if (UploadImagesGoogleDriveGroup.searchImagesCall.images16(
+                (_model.imagesAPIOutput?.jsonBody ?? ''),
+              ) !=
+              '') {
+            _model.image17File = await actions.convertBase64ToFFFiles(
+              UploadImagesGoogleDriveGroup.searchImagesCall.images17(
+                (_model.imagesAPIOutput?.jsonBody ?? ''),
+              ),
+              '17',
+            );
+          }
+        }),
       ]);
       Navigator.pop(context);
     });
@@ -4827,19 +4840,19 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         width: 200.0,
                                         height: 200.0,
                                         imageFilePath1:
-                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images16(
+                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images17(
                                                           (_model.imagesAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )}' !=
                                                         '') &&
-                                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images16(
+                                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images17(
                                                           (_model.imagesAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )}' !=
                                                         'null')
-                                                ? _model.image16File
+                                                ? _model.image17File
                                                 : _model.noImageAvailableFile,
                                       ),
                                     ),
