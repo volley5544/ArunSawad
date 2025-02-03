@@ -1667,10 +1667,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             (_model.usernameInputTextController.text ==
                                                                                 '31622')) {
                                                                           FFAppState().employeeID =
-                                                                              '${GetUserProfileAPICall.profileEmployeeID(
+                                                                              '${functions.toUpperCase(GetUserProfileAPICall.profileEmployeeID(
                                                                             (_model.getUserProfile?.jsonBody ??
                                                                                 ''),
-                                                                          )}';
+                                                                          ))}';
                                                                           FFAppState()
                                                                               .update(() {});
                                                                           FFAppState().branchCode =
