@@ -222,23 +222,33 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                             queryBuilder: (userCustomRecord) =>
                                 userCustomRecord.where(
                               'employee_id',
-                              isEqualTo: valueOrDefault(
-                                          currentUserDocument?.employeeId, 0) >=
-                                      100000
-                                  ? valueOrDefault(
-                                          currentUserDocument?.employeeId, 0)
-                                      .toString()
-                                  : FFAppState().employeeID != ''
+                              isEqualTo: functions
+                                      .checkIntFromString(
+                                          FFAppState().employeeID)!
+                                  ? (valueOrDefault(
+                                              currentUserDocument?.employeeId,
+                                              0) >=
+                                          100000
                                       ? valueOrDefault(
-                                                  currentUserDocument
-                                                      ?.employeeId,
-                                                  0) >=
-                                              100000
-                                          ? valueOrDefault(
-                                                  currentUserDocument
-                                                      ?.employeeId,
-                                                  0)
-                                              .toString()
+                                              currentUserDocument?.employeeId,
+                                              0)
+                                          .toString()
+                                      : FFAppState().employeeID)
+                                  : FFAppState().employeeID != ''
+                                      ? functions
+                                              .checkIntFromString(
+                                                  FFAppState().employeeID)!
+                                          ? (valueOrDefault(
+                                                      currentUserDocument
+                                                          ?.employeeId,
+                                                      0) >=
+                                                  100000
+                                              ? valueOrDefault(
+                                                      currentUserDocument
+                                                          ?.employeeId,
+                                                      0)
+                                                  .toString()
+                                              : FFAppState().employeeID)
                                           : FFAppState().employeeID
                                       : null,
                             ),

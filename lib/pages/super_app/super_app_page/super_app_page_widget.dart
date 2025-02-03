@@ -346,6 +346,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
           .toList()
           .cast<DateTime>();
       safeSetState(() {});
+      if (functions.checkIntFromString(FFAppState().employeeID)!) {
+        if (valueOrDefault(currentUserDocument?.employeeId, 0) < 100000) {
+          FFAppState().expInsuLessthen30 = functions
+              .compareDate30(
+                  FFAppState().profileInsuExpdateAD.toList(),
+                  GetDateTimeAPICall.currentDateYMD(
+                    (_model.datetimeAPIOutput?.jsonBody ?? ''),
+                  ).toString())!
+              .toList()
+              .cast<bool>();
+          safeSetState(() {});
+        }
+      }
       if (valueOrDefault(currentUserDocument?.employeeId, 0) < 100000) {
         FFAppState().expInsuLessthen30 = functions
             .compareDate30(
