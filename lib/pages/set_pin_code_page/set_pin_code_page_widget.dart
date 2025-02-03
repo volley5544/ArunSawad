@@ -401,23 +401,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 FFAppState().firstLoginLocation =
                                     currentUserLocationValue;
                                 safeSetState(() {});
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(FFAppState().employeeID),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 if (functions.checkIntFromString(
                                     FFAppState().employeeID)!) {
                                   await showDialog(
