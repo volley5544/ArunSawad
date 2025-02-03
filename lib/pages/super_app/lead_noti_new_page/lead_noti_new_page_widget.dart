@@ -504,15 +504,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                functions.showNumberWithComma(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  _model
-                                                                      .leadTeleDataJson
-                                                                      .length
-                                                                      .toString(),
-                                                                  '0',
-                                                                )),
+                                                                functions.showNumberWithComma(_model
+                                                                    .leadSurveyDataJson
+                                                                    .length
+                                                                    .toString()),
                                                                 '0',
                                                               ),
                                                               style: FlutterFlowTheme
