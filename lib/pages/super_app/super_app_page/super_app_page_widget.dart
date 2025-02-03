@@ -359,17 +359,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
           safeSetState(() {});
         }
       }
-      if (valueOrDefault(currentUserDocument?.employeeId, 0) < 100000) {
-        FFAppState().expInsuLessthen30 = functions
-            .compareDate30(
-                FFAppState().profileInsuExpdateAD.toList(),
-                GetDateTimeAPICall.currentDateYMD(
-                  (_model.datetimeAPIOutput?.jsonBody ?? ''),
-                ).toString())!
-            .toList()
-            .cast<bool>();
-        safeSetState(() {});
-      }
       FFAppState().isInApp = true;
       FFAppState().update(() {});
     });
