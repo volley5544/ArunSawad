@@ -6366,17 +6366,21 @@ class _CustomerCarDeailsStep1WidgetState
                                       decoration: BoxDecoration(
                                         color: Color(0xFFFAFAFA),
                                       ),
-                                      child: Text(
-                                        '13.',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF404040),
-                                              fontSize: 11.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Text(
+                                          '13.',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF404040),
+                                                fontSize: 11.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -6388,19 +6392,17 @@ class _CustomerCarDeailsStep1WidgetState
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            flex: 10,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFFAFAFA),
-                                                  ),
-                                                  child: Text(
-                                                    'พนักงานรับรถคู่กับรถ',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFFAFAFA),
+                                            ),
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Text(
+                                                'พนักงานรับรถคู่กับรถ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
@@ -6411,35 +6413,36 @@ class _CustomerCarDeailsStep1WidgetState
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                  ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 0.0, 0.0),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          4.0, 0.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFFAFAFA),
-                                                    ),
-                                                    child: Text(
-                                                      '(บังคับถ่าย)',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            color: Color(
-                                                                0xFFFF0000),
-                                                            fontSize: 11.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -9989,6 +9992,7 @@ class _CustomerCarDeailsStep1WidgetState
                                             widget!.userRoleSave)!)
                                     ? widget!.impoundCarLocateParamSet?.receiver
                                     : '',
+                                images17: _model.uploadedLocalFile13,
                               );
 
                               _shouldSetState = true;

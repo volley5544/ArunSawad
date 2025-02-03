@@ -10415,6 +10415,7 @@ class _CustomerCarDeailsStep4WidgetState
                                 : '',
                             dbCode: widget!.impoundCarParamSet?.impoundDbCode,
                             dbName: widget!.impoundCarParamSet?.impoundDbName,
+                            images17: _model.uploadedLocalFile13,
                           );
 
                           _shouldSetState = true;

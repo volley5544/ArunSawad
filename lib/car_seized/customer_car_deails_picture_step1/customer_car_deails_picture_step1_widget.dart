@@ -4626,17 +4626,22 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                           decoration: BoxDecoration(
                                             color: Color(0xFFFAFAFA),
                                           ),
-                                          child: Text(
-                                            '13.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 11.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Text(
+                                              '13.',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xFF404040),
+                                                    fontSize: 11.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -4649,41 +4654,25 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
-                                                flex: 12,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Expanded(
-                                                      flex: 3,
-                                                      child: Container(
-                                                        width: 37.0,
-                                                        decoration:
-                                                            BoxDecoration(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Text(
+                                                    'พนักงานรับรถคู่กับรถ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
                                                           color:
-                                                              Color(0xFFFAFAFA),
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
                                                         ),
-                                                        child: Text(
-                                                          'พนักงานรับรถคู่กับรถ',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: Color(
-                                                                    0xFF404040),
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                  ),
                                                 ),
                                               ),
                                             ],

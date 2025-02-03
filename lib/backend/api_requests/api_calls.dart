@@ -909,6 +909,7 @@ class UploadGoogleDriveAPICall {
     String? locatNameDelivercar = '',
     String? logisticsComany = '',
     String? receiver = '',
+    FFUploadedFile? images17,
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -997,6 +998,7 @@ class UploadGoogleDriveAPICall {
         'locat_name_delivercar': locatNameDelivercar,
         'logistics_comany': logisticsComany,
         'receiver': receiver,
+        'images17': images17,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
