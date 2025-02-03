@@ -30,6 +30,8 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
   bool? checkLatLngBeforeSetPin;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   UserLogRecord? createdUserLogSetPin;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  UserLogRecord? createdUserLogSetPin2;
 
   @override
   void initState(BuildContext context) {

@@ -1279,18 +1279,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
-                                                                                                            if (valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000) {
-                                                                                                              FFAppState().isFromAuthenPage = true;
-                                                                                                              FFAppState().dailyText = functions.helloDailyRandomText(pinCodePageSplashPageImgRecord?.text?.toList());
-                                                                                                              FFAppState().update(() {});
-                                                                                                              FFAppState().DateHoliday = columnfirstSplashPageHolidayImgRecord?.date;
-                                                                                                              FFAppState().DateExpHoliday = columnfirstSplashPageHolidayImgRecord?.dateExp;
-                                                                                                              FFAppState().update(() {});
+                                                                                                            if (functions.checkIntFromString(FFAppState().employeeID)!) {
+                                                                                                              if (valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000) {
+                                                                                                                FFAppState().isFromAuthenPage = true;
+                                                                                                                FFAppState().dailyText = functions.helloDailyRandomText(pinCodePageSplashPageImgRecord?.text?.toList());
+                                                                                                                FFAppState().update(() {});
+                                                                                                                FFAppState().DateHoliday = columnfirstSplashPageHolidayImgRecord?.date;
+                                                                                                                FFAppState().DateExpHoliday = columnfirstSplashPageHolidayImgRecord?.dateExp;
+                                                                                                                FFAppState().update(() {});
 
-                                                                                                              context.pushNamed('SuperAppPage');
+                                                                                                                context.pushNamed('SuperAppPage');
 
-                                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                                              return;
+                                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                                return;
+                                                                                                              }
                                                                                                             }
                                                                                                             showModalBottomSheet(
                                                                                                               isScrollControlled: true,

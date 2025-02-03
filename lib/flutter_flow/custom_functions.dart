@@ -4814,3 +4814,13 @@ double? checkFileSize(FFUploadedFile? uploadedFile) {
 
   return formattedSize;
 }
+
+bool? checkIntFromString(String? input) {
+  int? check = int.tryParse(input!);
+
+  if (check != null) {
+    return true;
+  } else {
+    return false;
+  }
+}

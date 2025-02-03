@@ -401,45 +401,68 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 FFAppState().firstLoginLocation =
                                     currentUserLocationValue;
                                 safeSetState(() {});
-
-                                var userLogRecordReference =
-                                    UserLogRecord.collection.doc();
-                                await userLogRecordReference
-                                    .set(createUserLogRecordData(
-                                  employeeId: valueOrDefault(
-                                              currentUserDocument?.employeeId,
-                                              0) >=
-                                          100000
-                                      ? valueOrDefault(
-                                              currentUserDocument?.employeeId,
-                                              0)
-                                          .toString()
-                                      : FFAppState().employeeID,
-                                  action: 'Set_Pin_Code',
-                                  actionTime: getCurrentTimestamp,
-                                  userLocation: currentUserLocationValue,
-                                ));
-                                _model.createdUserLogSetPin =
-                                    UserLogRecord.getDocumentFromData(
-                                        createUserLogRecordData(
-                                          employeeId: valueOrDefault(
-                                                      currentUserDocument
-                                                          ?.employeeId,
-                                                      0) >=
-                                                  100000
-                                              ? valueOrDefault(
-                                                      currentUserDocument
-                                                          ?.employeeId,
-                                                      0)
-                                                  .toString()
-                                              : FFAppState().employeeID,
-                                          action: 'Set_Pin_Code',
-                                          actionTime: getCurrentTimestamp,
-                                          userLocation:
-                                              currentUserLocationValue,
-                                        ),
-                                        userLogRecordReference);
-                                _shouldSetState = true;
+                                if (functions.checkIntFromString(
+                                    FFAppState().employeeID)!) {
+                                  var userLogRecordReference1 =
+                                      UserLogRecord.collection.doc();
+                                  await userLogRecordReference1
+                                      .set(createUserLogRecordData(
+                                    employeeId: valueOrDefault(
+                                                currentUserDocument?.employeeId,
+                                                0) >=
+                                            100000
+                                        ? valueOrDefault(
+                                                currentUserDocument?.employeeId,
+                                                0)
+                                            .toString()
+                                        : FFAppState().employeeID,
+                                    action: 'Set_Pin_Code',
+                                    actionTime: getCurrentTimestamp,
+                                    userLocation: currentUserLocationValue,
+                                  ));
+                                  _model.createdUserLogSetPin =
+                                      UserLogRecord.getDocumentFromData(
+                                          createUserLogRecordData(
+                                            employeeId: valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.employeeId,
+                                                        0) >=
+                                                    100000
+                                                ? valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.employeeId,
+                                                        0)
+                                                    .toString()
+                                                : FFAppState().employeeID,
+                                            action: 'Set_Pin_Code',
+                                            actionTime: getCurrentTimestamp,
+                                            userLocation:
+                                                currentUserLocationValue,
+                                          ),
+                                          userLogRecordReference1);
+                                  _shouldSetState = true;
+                                } else {
+                                  var userLogRecordReference2 =
+                                      UserLogRecord.collection.doc();
+                                  await userLogRecordReference2
+                                      .set(createUserLogRecordData(
+                                    employeeId: FFAppState().employeeID,
+                                    action: 'Set_Pin_Code',
+                                    actionTime: getCurrentTimestamp,
+                                    userLocation: currentUserLocationValue,
+                                  ));
+                                  _model.createdUserLogSetPin2 =
+                                      UserLogRecord.getDocumentFromData(
+                                          createUserLogRecordData(
+                                            employeeId: FFAppState().employeeID,
+                                            action: 'Set_Pin_Code',
+                                            actionTime: getCurrentTimestamp,
+                                            userLocation:
+                                                currentUserLocationValue,
+                                          ),
+                                          userLogRecordReference2);
+                                  _shouldSetState = true;
+                                }
 
                                 context.goNamed('SuperAppPage');
 
