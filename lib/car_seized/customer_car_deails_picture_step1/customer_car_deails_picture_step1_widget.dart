@@ -4584,16 +4584,12 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         thickness: 1.0,
                         color: FlutterFlowTheme.of(context).accent4,
                       ),
-                    ],
-                  ),
-                  if (functions.getBoolValueInJson(functions.getDataFromMapJson(
-                          functions.getDataFromMapJson(
-                              widget!.saveAccessRoleData, widget!.step),
-                          'allow_16_pic')) ??
-                      true)
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
+                      if (functions.getBoolValueInJson(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.readAccessRoleData, widget!.step),
+                                  'deliver_image_required')) ??
+                          true)
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -4631,6 +4627,326 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                           ),
                                         ),
                                       ),
+                                      Expanded(
+                                        flex: 12,
+                                        child: Container(
+                                          height: 25.0,
+                                          decoration: BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                flex: 12,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 3,
+                                                      child: Container(
+                                                        width: 37.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFFAFAFA),
+                                                        ),
+                                                        child: Text(
+                                                          'พนักงานรับรถคู่กับรถ',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Color(
+                                                                    0xFF404040),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Container(
+                                          width: 35.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFAFAFA),
+                                          ),
+                                          child: Text(
+                                            'สถานะ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF404040),
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 10.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFFAFAFA),
+                                        ),
+                                        child: Text(
+                                          ':',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF404040),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 6,
+                                        child: Container(
+                                          width: 37.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFAFAFA),
+                                          ),
+                                          child: Text(
+                                            UploadImagesGoogleDriveGroup
+                                                        .searchImagesCall
+                                                        .images16(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ) !=
+                                                    ''
+                                                ? 'อัพโหลดสำเร็จ'
+                                                : 'ยังไม่อัพโหลด',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF404040),
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Builder(
+                                          builder: (context) {
+                                            if (UploadImagesGoogleDriveGroup
+                                                    .searchImagesCall
+                                                    .images16(
+                                                  (_model.imagesAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) !=
+                                                '') {
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      child: Container(
+                                                        width: 20.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFFAFAFA),
+                                                        ),
+                                                        child: Icon(
+                                                          Icons
+                                                              .check_circle_rounded,
+                                                          color:
+                                                              Color(0xFF24BF03),
+                                                          size: 20.0,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.0, 0.0),
+                                                child: Container(
+                                                  width: 20.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFFAFAFA),
+                                                  ),
+                                                  child: Icon(
+                                                    Icons.cancel_rounded,
+                                                    color: Color(0xFFE21C3D),
+                                                    size: 20.0,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 12.0),
+                              child: Container(
+                                width: 200.0,
+                                height: 200.0,
+                                decoration: BoxDecoration(),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: 200.0,
+                                      height: 200.0,
+                                      child: custom_widgets.ImageWidget5544(
+                                        width: 200.0,
+                                        height: 200.0,
+                                        imageFilePath1:
+                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images16(
+                                                          (_model.imagesAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}' !=
+                                                        '') &&
+                                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images16(
+                                                          (_model.imagesAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}' !=
+                                                        'null')
+                                                ? _model.image16File
+                                                : _model.noImageAvailableFile,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                              color: FlutterFlowTheme.of(context).accent4,
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
+                  if (functions.getBoolValueInJson(functions.getDataFromMapJson(
+                          functions.getDataFromMapJson(
+                              widget!.saveAccessRoleData, widget!.step),
+                          'allow_16_pic')) ??
+                      true)
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
+                              child: Container(
+                                height: 25.0,
+                                decoration: BoxDecoration(),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 15.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      if (functions.getBoolValueInJson(
+                                              functions.getDataFromMapJson(
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .readAccessRoleData,
+                                                      widget!.step),
+                                                  'deliver_image_required')) ??
+                                          true)
+                                        Expanded(
+                                          flex: 2,
+                                          child: Builder(
+                                            builder: (context) {
+                                              if (functions.getBoolValueInJson(
+                                                      functions.getDataFromMapJson(
+                                                          functions
+                                                              .getDataFromMapJson(
+                                                                  widget!
+                                                                      .readAccessRoleData,
+                                                                  widget!.step),
+                                                          'deliver_image_required')) ??
+                                                  false) {
+                                                return Container(
+                                                  width: 20.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFFAFAFA),
+                                                  ),
+                                                  child: Text(
+                                                    '14.',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return Container(
+                                                  width: 20.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFFAFAFA),
+                                                  ),
+                                                  child: Text(
+                                                    '13.',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                );
+                                              }
+                                            },
+                                          ),
+                                        ),
                                       Expanded(
                                         flex: 12,
                                         child: Container(
@@ -4875,23 +5191,62 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     children: [
                                       Expanded(
                                         flex: 2,
-                                        child: Container(
-                                          width: 20.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            '14.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 11.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Builder(
+                                          builder: (context) {
+                                            if (functions.getBoolValueInJson(
+                                                    functions.getDataFromMapJson(
+                                                        functions
+                                                            .getDataFromMapJson(
+                                                                widget!
+                                                                    .readAccessRoleData,
+                                                                widget!.step),
+                                                        'deliver_image_required')) ??
+                                                false) {
+                                              return Container(
+                                                width: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '15.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF404040),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              );
+                                            } else {
+                                              return Container(
+                                                width: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
+                                                ),
+                                                child: Text(
+                                                  '14.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF404040),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              );
+                                            }
+                                          },
                                         ),
                                       ),
                                       Expanded(
@@ -5138,23 +5493,62 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     children: [
                                       Expanded(
                                         flex: 2,
-                                        child: Container(
-                                          width: 20.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            '15.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 11.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Builder(
+                                          builder: (context) {
+                                            if (functions.getBoolValueInJson(
+                                                    functions.getDataFromMapJson(
+                                                        functions
+                                                            .getDataFromMapJson(
+                                                                widget!
+                                                                    .readAccessRoleData,
+                                                                widget!.step),
+                                                        'deliver_image_required')) ??
+                                                false) {
+                                              return Container(
+                                                width: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '16.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF404040),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              );
+                                            } else {
+                                              return Container(
+                                                width: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
+                                                ),
+                                                child: Text(
+                                                  '15.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF404040),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              );
+                                            }
+                                          },
                                         ),
                                       ),
                                       Expanded(
@@ -5401,23 +5795,62 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     children: [
                                       Expanded(
                                         flex: 2,
-                                        child: Container(
-                                          width: 20.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            '16.',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 11.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Builder(
+                                          builder: (context) {
+                                            if (functions.getBoolValueInJson(
+                                                    functions.getDataFromMapJson(
+                                                        functions
+                                                            .getDataFromMapJson(
+                                                                widget!
+                                                                    .readAccessRoleData,
+                                                                widget!.step),
+                                                        'deliver_image_required')) ??
+                                                false) {
+                                              return Container(
+                                                width: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '17.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF404040),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              );
+                                            } else {
+                                              return Container(
+                                                width: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
+                                                ),
+                                                child: Text(
+                                                  '16.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF404040),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              );
+                                            }
+                                          },
                                         ),
                                       ),
                                       Expanded(

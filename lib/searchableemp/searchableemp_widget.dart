@@ -147,7 +147,8 @@ class _SearchableempWidgetState extends State<SearchableempWidget> {
                                                       fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
-                                            hintText: 'กรอกชื่อสาขาที่จะค้นหา',
+                                            hintText:
+                                                'ค้นหาด้วย รหัสพนักงาน/ชื่อ',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium

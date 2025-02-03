@@ -106,6 +106,8 @@ class CustomerCarDeailsStep1Model
   FFUploadedFile uploadedLocalFile12 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  // Model for CaptureCameraWidget component.
+  late CaptureCameraWidgetModel captureCameraWidgetModel13;
   bool isDataUploading13 = false;
   FFUploadedFile uploadedLocalFile13 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -120,6 +122,10 @@ class CustomerCarDeailsStep1Model
 
   bool isDataUploading16 = false;
   FFUploadedFile uploadedLocalFile16 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isDataUploading17 = false;
+  FFUploadedFile uploadedLocalFile17 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for PriceTextField widget.
@@ -161,6 +167,8 @@ class CustomerCarDeailsStep1Model
         createModel(context, () => CaptureCameraWidgetModel());
     captureCameraWidgetModel12 =
         createModel(context, () => CaptureCameraWidgetModel());
+    captureCameraWidgetModel13 =
+        createModel(context, () => CaptureCameraWidgetModel());
   }
 
   @override
@@ -177,6 +185,7 @@ class CustomerCarDeailsStep1Model
     captureCameraWidgetModel10.dispose();
     captureCameraWidgetModel11.dispose();
     captureCameraWidgetModel12.dispose();
+    captureCameraWidgetModel13.dispose();
     priceTextFieldFocusNode?.dispose();
     priceTextFieldTextController?.dispose();
 
