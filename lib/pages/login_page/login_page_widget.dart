@@ -1367,9 +1367,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 FFAppState().accessToken = AuthenAPICall.token(
                                                                                   (_model.confirmAuthen?.jsonBody ?? ''),
                                                                                 )!;
-                                                                                FFAppState().employeeID = AuthenAPICall.employeeID(
+                                                                                FFAppState().employeeID = functions.toUpperCase(AuthenAPICall.employeeID(
                                                                                   (_model.confirmAuthen?.jsonBody ?? ''),
-                                                                                )!;
+                                                                                ))!;
                                                                                 FFAppState().update(() {});
                                                                                 FFAppState().branchCode = AuthenAPICall.branchCode(
                                                                                   (_model.confirmAuthen?.jsonBody ?? ''),
