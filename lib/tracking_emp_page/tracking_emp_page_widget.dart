@@ -113,7 +113,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
           .toList()
           .toList()
           .cast<String>();
-      safeSetState(() {});
+      FFAppState().update(() {});
       Navigator.pop(context);
     });
 
