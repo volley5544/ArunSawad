@@ -265,70 +265,68 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Expanded(
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'searchableemp',
-                                queryParameters: {
-                                  'listData': serializeParam(
-                                    FFAppState().EmpProfileLocationData,
-                                    ParamType.DataStruct,
-                                    isList: true,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(
-                                        Icons.check_circle_outline,
-                                        color: Colors.black,
-                                        size: 29.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 8,
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: Text(
-                                          ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                                                      'null') &&
-                                                  ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                                                      '')
-                                              ? '${FFAppState().EmpProfileLocationSelected.fullprofile}'
-                                              : 'เลือกพนักงาน',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'searchableemp',
+                              queryParameters: {
+                                'listData': serializeParam(
+                                  FFAppState().EmpProfileLocationData,
+                                  ParamType.DataStruct,
+                                  isList: true,
                                 ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 70.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Icon(
+                                      Icons.check_circle_outline,
+                                      color: Colors.black,
+                                      size: 29.0,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 8,
+                                    child: Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
+                                      child: Text(
+                                        ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                    'null') &&
+                                                ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                    '')
+                                            ? '${FFAppState().EmpProfileLocationSelected.fullprofile}'
+                                            : 'เลือกพนักงาน',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
