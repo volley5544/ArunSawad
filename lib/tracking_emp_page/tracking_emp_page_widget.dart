@@ -314,10 +314,7 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
                                           Navigator.pop(context);
                                         }
 
-                                        if (Navigator.of(context).canPop()) {
-                                          context.pop();
-                                        }
-                                        context.pushNamed(
+                                        context.goNamed(
                                           'trackingEmpPage',
                                           queryParameters: {
                                             'data': serializeParam(
