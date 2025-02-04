@@ -3871,11 +3871,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (widget!.motocycleConfig
-                                                    ?.contains(widget!
-                                                        .impoundCarParamSet
-                                                        ?.improundCONTNOTYPE) ??
-                                                true)
+                                            if (false)
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
@@ -3896,35 +3892,30 @@ class _CustomerCarDeailsStep1WidgetState
                                                       ),
                                                 ),
                                               ),
-                                            if (widget!.carConfig?.contains(
-                                                    widget!.impoundCarParamSet
-                                                        ?.improundCONTNOTYPE) ??
-                                                true)
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFFAFAFA),
-                                                  ),
-                                                  child: Text(
-                                                    '(บังคับถ่าย)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFFFF0000),
-                                                          fontSize: 11.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                  ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
+                                                ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
                                               ),
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -9376,29 +9367,30 @@ class _CustomerCarDeailsStep1WidgetState
                               } else if (_model.uploadedLocalFile8 == null ||
                                   (_model.uploadedLocalFile8.bytes?.isEmpty ??
                                       true)) {
-                                if (widget!.carConfig!.contains(widget!
-                                    .impoundCarParamSet?.improundCONTNOTYPE)) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text(
-                                              'กรุณาถ่ายรูปตำแหน่ง คอนโซลหน้า'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(widget!.carConfig!
+                                                .contains(widget!
+                                                    .impoundCarParamSet
+                                                    ?.improundCONTNOTYPE)
+                                            ? 'กรุณาถ่ายรูปตำแหน่ง คอนโซลหน้า'
+                                            : 'กรุณาถ่ายรูปตำแหน่ง รูปเครื่องยนต์'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                if (_shouldSetState) safeSetState(() {});
+                                return;
                               }
 
                               if (_model.uploadedLocalFile9 == null ||
@@ -9777,7 +9769,8 @@ class _CustomerCarDeailsStep1WidgetState
                                 userid: FFAppState().employeeID,
                                 locat:
                                     '${widget!.impoundCarParamSet?.improundLOCAT}',
-                                remark: (_model.remarkTextFieldTextController
+                                remark: functions.replaceEnterInStringText((_model
+                                                    .remarkTextFieldTextController
                                                     .text !=
                                                 null &&
                                             _model.remarkTextFieldTextController
@@ -9787,7 +9780,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                 .text !=
                                             '')
                                     ? '${_model.remarkTextFieldTextController.text}'
-                                    : '',
+                                    : ''),
                                 images1: _model.uploadedLocalFile1,
                                 images2: _model.uploadedLocalFile2,
                                 images3: _model.uploadedLocalFile3,

@@ -3705,8 +3705,10 @@ class _ChangeCarLocationPageWidgetState
                                                     .priceTextFieldTextController
                                                     .text)
                                             : '0.00',
-                                        remarkPrice: _model
-                                            .remarkTextFieldTextController.text,
+                                        remarkPrice: functions
+                                            .replaceEnterInStringText(_model
+                                                .remarkTextFieldTextController
+                                                .text),
                                         step: widget!.step,
                                         locatDelivercar: ((FFAppState()
                                                             .profileLevel ==
