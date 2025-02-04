@@ -252,39 +252,105 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
             ),
             body: SafeArea(
               top: true,
-              child: Visibility(
-                visible: APIUsersRegionCall.code(
-                      (_model.apiUserOutput?.jsonBody ?? ''),
-                    ) ==
-                    200,
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'searchableemp',
-                                  queryParameters: {
-                                    'listData': serializeParam(
-                                      FFAppState().EmpProfileLocationData,
-                                      ParamType.DataStruct,
-                                      isList: true,
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(),
+                child: Visibility(
+                  visible: APIUsersRegionCall.code(
+                        (_model.apiUserOutput?.jsonBody ?? ''),
+                      ) ==
+                      200,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'searchableemp',
+                                    queryParameters: {
+                                      'listData': serializeParam(
+                                        FFAppState().EmpProfileLocationData,
+                                        ParamType.DataStruct,
+                                        isList: true,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(
+                                            Icons.check_circle_outline,
+                                            color: Colors.black,
+                                            size: 29.0,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 8,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Text(
+                                              ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                          'null') &&
+                                                      ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                                          '')
+                                                  ? '${FFAppState().EmpProfileLocationSelected.fullprofile}'
+                                                  : 'เลือกพนักงาน',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                            ),
+                          ],
+                        ),
+                        if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                            'null')
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: 40.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -300,585 +366,533 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                       Expanded(
                                         flex: 1,
                                         child: Icon(
-                                          Icons.check_circle_outline,
+                                          Icons.grid_3x3,
                                           color: Colors.black,
                                           size: 29.0,
                                         ),
                                       ),
                                       Expanded(
-                                        flex: 8,
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          child: Text(
-                                            ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                                                        'null') &&
-                                                    ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                                                        '')
-                                                ? '${FFAppState().EmpProfileLocationSelected.fullprofile}'
-                                                : 'เลือกพนักงาน',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
+                                        flex: 3,
+                                        child: Text(
+                                          'รหัสพนักงาน :',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .employeeId,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.0,
-                          ),
-                        ],
-                      ),
-                      if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                          'null')
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(
-                                        Icons.grid_3x3,
-                                        color: Colors.black,
-                                        size: 29.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'รหัสพนักงาน :',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 5,
-                                      child: Text(
-                                        FFAppState()
-                                            .EmpProfileLocationSelected
-                                            .employeeId,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation1']!),
+                              Container(
+                                width: double.infinity,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                 ),
-                              ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation1']!),
-                            Container(
-                              width: double.infinity,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(
-                                        Icons.person,
-                                        color: Colors.black,
-                                        size: 29.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'ชื่อพนักงาน : ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 5,
-                                      child: Text(
-                                        FFAppState()
-                                            .EmpProfileLocationSelected
-                                            .nameTh,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation2']!),
-                            Container(
-                              width: double.infinity,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(
-                                        Icons.work,
-                                        color: Colors.black,
-                                        size: 29.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'ตำแหน่ง : ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 5,
-                                      child: Text(
-                                        FFAppState()
-                                            .EmpProfileLocationSelected
-                                            .position,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation3']!),
-                            Container(
-                              width: double.infinity,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(
-                                        Icons.home_rounded,
-                                        color: Colors.black,
-                                        size: 29.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'Branch Code : ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 5,
-                                      child: Text(
-                                        FFAppState()
-                                            .EmpProfileLocationSelected
-                                            .branchCode,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation4']!),
-                          ],
-                        ),
-                      if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                          'null')
-                        Divider(
-                          thickness: 1.0,
-                        ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Icon(
-                                    Icons.date_range_rounded,
-                                    color: Colors.black,
-                                    size: 29.0,
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    'วันที่ Location : ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      if (kIsWeb) {
-                                        final _datePickedDate =
-                                            await showDatePicker(
-                                          context: context,
-                                          initialDate: getCurrentTimestamp,
-                                          firstDate: DateTime(1900),
-                                          lastDate: getCurrentTimestamp,
-                                          builder: (context, child) {
-                                            return wrapInMaterialDatePickerTheme(
-                                              context,
-                                              child!,
-                                              headerBackgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              headerForegroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                              headerTextStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineLarge
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 32.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                              pickerBackgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              pickerForegroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              selectedDateTimeBackgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              selectedDateTimeForegroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                              actionButtonForegroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              iconSize: 24.0,
-                                            );
-                                          },
-                                        );
-
-                                        if (_datePickedDate != null) {
-                                          safeSetState(() {
-                                            _model.datePicked = DateTime(
-                                              _datePickedDate.year,
-                                              _datePickedDate.month,
-                                              _datePickedDate.day,
-                                            );
-                                          });
-                                        }
-                                      } else {
-                                        await DatePicker.showDatePicker(
-                                          context,
-                                          showTitleActions: true,
-                                          onConfirm: (date) {
-                                            safeSetState(() {
-                                              _model.datePicked = date;
-                                            });
-                                          },
-                                          currentTime: getCurrentTimestamp,
-                                          minTime: DateTime(0, 0, 0),
-                                          maxTime: getCurrentTimestamp,
-                                          locale: LocaleType.values.firstWhere(
-                                            (l) =>
-                                                l.name ==
-                                                FFLocalizations.of(context)
-                                                    .languageCode,
-                                            orElse: () => LocaleType.en,
-                                          ),
-                                        );
-                                      }
-                                    },
-                                    child: Container(
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent2,
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Icon(
+                                          Icons.person,
+                                          color: Colors.black,
+                                          size: 29.0,
                                         ),
                                       ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                      Expanded(
+                                        flex: 3,
                                         child: Text(
-                                          valueOrDefault<String>(
-                                            _model.datePicked != null
-                                                ? functions.showDateBE(_model
-                                                    .datePicked
-                                                    ?.toString())
-                                                : 'กรุณาเลือกวันที่',
-                                            'กรุณาเลือกวันที่',
-                                          ),
-                                          textAlign: TextAlign.center,
+                                          'ชื่อพนักงาน : ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent2,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
-                                    ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .nameTh,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation5']!),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
-                                'null')
-                              Divider(
-                                thickness: 1.0,
-                              ),
-                            if (_model.datePicked != null)
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  var _shouldSetState = false;
-                                  _model.getUserLocations =
-                                      await APIUserLocationTrackerCall.call(
-                                    employeeId:
-                                        '${FFAppState().EmpProfileLocationSelected.employeeId}',
-                                    dateTime: functions
-                                        .getDateFormat(_model.datePicked),
-                                    apiUrl: true
-                                        ? _model.apiTrackingUrl?.urlLink
-                                        : 'https://9f08-115-31-145-24.ngrok-free.app',
-                                  );
-
-                                  _shouldSetState = true;
-                                  if ((_model.getUserLocations?.statusCode ??
-                                          200) !=
-                                      200) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาดConnection (${(_model.getUserLocations?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  if ('${APIUserLocationTrackerCall.code(
-                                        (_model.getUserLocations?.jsonBody ??
-                                            ''),
-                                      )?.toString()}' !=
-                                      '200') {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                '${APIUserLocationTrackerCall.message(
-                                              (_model.getUserLocations
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-
-                                  context.pushNamed(
-                                    'trackingEmpPage',
-                                    queryParameters: {
-                                      'selectedDate': serializeParam(
-                                        functions
-                                            .getDateFormat(_model.datePicked),
-                                        ParamType.String,
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation2']!),
+                              Container(
+                                width: double.infinity,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Icon(
+                                          Icons.work,
+                                          color: Colors.black,
+                                          size: 29.0,
+                                        ),
                                       ),
-                                      'data': serializeParam(
-                                        APIUserLocationTrackerCall
-                                            .dataLayerDate(
+                                      Expanded(
+                                        flex: 3,
+                                        child: Text(
+                                          'ตำแหน่ง : ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .position,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation3']!),
+                              Container(
+                                width: double.infinity,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Icon(
+                                          Icons.home_rounded,
+                                          color: Colors.black,
+                                          size: 29.0,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Text(
+                                          'Branch Code : ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Text(
+                                          FFAppState()
+                                              .EmpProfileLocationSelected
+                                              .branchCode,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation4']!),
+                            ],
+                          ),
+                        if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                            'null')
+                          Divider(
+                            thickness: 1.0,
+                          ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Icon(
+                                      Icons.date_range_rounded,
+                                      color: Colors.black,
+                                      size: 29.0,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 3,
+                                    child: Text(
+                                      'วันที่ Location : ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 5,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        if (kIsWeb) {
+                                          final _datePickedDate =
+                                              await showDatePicker(
+                                            context: context,
+                                            initialDate: getCurrentTimestamp,
+                                            firstDate: DateTime(1900),
+                                            lastDate: getCurrentTimestamp,
+                                            builder: (context, child) {
+                                              return wrapInMaterialDatePickerTheme(
+                                                context,
+                                                child!,
+                                                headerBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                headerForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                headerTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLarge
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 32.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                pickerBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                pickerForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                selectedDateTimeBackgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                selectedDateTimeForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                actionButtonForegroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                iconSize: 24.0,
+                                              );
+                                            },
+                                          );
+
+                                          if (_datePickedDate != null) {
+                                            safeSetState(() {
+                                              _model.datePicked = DateTime(
+                                                _datePickedDate.year,
+                                                _datePickedDate.month,
+                                                _datePickedDate.day,
+                                              );
+                                            });
+                                          }
+                                        } else {
+                                          await DatePicker.showDatePicker(
+                                            context,
+                                            showTitleActions: true,
+                                            onConfirm: (date) {
+                                              safeSetState(() {
+                                                _model.datePicked = date;
+                                              });
+                                            },
+                                            currentTime: getCurrentTimestamp,
+                                            minTime: DateTime(0, 0, 0),
+                                            maxTime: getCurrentTimestamp,
+                                            locale:
+                                                LocaleType.values.firstWhere(
+                                              (l) =>
+                                                  l.name ==
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                              orElse: () => LocaleType.en,
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      child: Container(
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent2,
+                                          ),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              _model.datePicked != null
+                                                  ? functions.showDateBE(_model
+                                                      .datePicked
+                                                      ?.toString())
+                                                  : 'กรุณาเลือกวันที่',
+                                              'กรุณาเลือกวันที่',
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent2,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation5']!),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              if ('${FFAppState().EmpProfileLocationSelected.nameTh}' !=
+                                  'null')
+                                Divider(
+                                  thickness: 1.0,
+                                ),
+                              if (_model.datePicked != null)
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    var _shouldSetState = false;
+                                    _model.getUserLocations =
+                                        await APIUserLocationTrackerCall.call(
+                                      employeeId:
+                                          '${FFAppState().EmpProfileLocationSelected.employeeId}',
+                                      dateTime: functions
+                                          .getDateFormat(_model.datePicked),
+                                      apiUrl: true
+                                          ? _model.apiTrackingUrl?.urlLink
+                                          : 'https://9f08-115-31-145-24.ngrok-free.app',
+                                    );
+
+                                    _shouldSetState = true;
+                                    if ((_model.getUserLocations?.statusCode ??
+                                            200) !=
+                                        200) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาดConnection (${(_model.getUserLocations?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if ('${APIUserLocationTrackerCall.code(
                                           (_model.getUserLocations?.jsonBody ??
                                               ''),
-                                        ),
-                                        ParamType.DataStruct,
-                                        isList: true,
-                                      ),
-                                      'index': serializeParam(
-                                        APIUserLocationTrackerCall
-                                                    .dataLayerDate(
-                                              (_model.getUserLocations
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                .length -
-                                            1,
-                                        ParamType.int,
-                                      ),
-                                    }.withoutNulls,
-                                  );
+                                        )?.toString()}' !=
+                                        '200') {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  '${APIUserLocationTrackerCall.message(
+                                                (_model.getUserLocations
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )}'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
 
-                                  if (_shouldSetState) safeSetState(() {});
-                                },
-                                text: 'ตรวจสอบ Location',
-                                icon: Icon(
-                                  Icons.not_listed_location_outlined,
-                                  size: 24.0,
+                                    context.pushNamed(
+                                      'trackingEmpPage',
+                                      queryParameters: {
+                                        'selectedDate': serializeParam(
+                                          functions
+                                              .getDateFormat(_model.datePicked),
+                                          ParamType.String,
+                                        ),
+                                        'data': serializeParam(
+                                          APIUserLocationTrackerCall
+                                              .dataLayerDate(
+                                            (_model.getUserLocations
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ),
+                                          ParamType.DataStruct,
+                                          isList: true,
+                                        ),
+                                        'index': serializeParam(
+                                          APIUserLocationTrackerCall
+                                                      .dataLayerDate(
+                                                (_model.getUserLocations
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                  .length -
+                                              1,
+                                          ParamType.int,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+
+                                    if (_shouldSetState) safeSetState(() {});
+                                  },
+                                  text: 'ตรวจสอบ Location',
+                                  icon: Icon(
+                                    Icons.not_listed_location_outlined,
+                                    size: 24.0,
+                                  ),
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF213BFF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
                                 ),
-                                options: FFButtonOptions(
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF213BFF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      if (_model.datePicked != null)
-                        Divider(
-                          thickness: 1.0,
-                        ),
-                    ].addToStart(SizedBox(height: 12.0)),
+                        if (_model.datePicked != null)
+                          Divider(
+                            thickness: 1.0,
+                          ),
+                      ].addToStart(SizedBox(height: 12.0)),
+                    ),
                   ),
                 ),
               ),
