@@ -862,14 +862,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                             isList: true,
                                           ),
                                           'index': serializeParam(
-                                            APIUserLocationTrackerCall
-                                                        .dataLayerDate(
-                                                  (_model.getUserLocations
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )!
-                                                    .length -
-                                                1,
+                                            0,
                                             ParamType.int,
                                           ),
                                         }.withoutNulls,
