@@ -84,22 +84,6 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
         },
       );
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.index!.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       _model.locationDateData =
           widget!.data!.toList().cast<TrackingEmployeeDateModelStruct>();
       safeSetState(() {});
