@@ -83,18 +83,82 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('1'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.locationDateData =
           widget!.data!.toList().cast<TrackingEmployeeDateModelStruct>();
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('2'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.dataDateSelected =
           '${_model.locationDateData.elementAtOrNull(widget!.index!)?.date}';
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('3'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.locationByDateData = _model.locationDateData
           .elementAtOrNull(widget!.index!)!
           .data
           .toList()
           .cast<TrackingEmployeeLocationModelStruct>();
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('4'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().polyMapLatLngList = functions
           .makeLatLngList(
               _model.locationByDateData
@@ -113,6 +177,23 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
           .toList()
           .cast<String>();
       FFAppState().update(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('5'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      Navigator.pop(context);
     });
 
     animationsMap.addAll({
