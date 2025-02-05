@@ -114,6 +114,22 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
           .toList()
           .cast<String>();
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('โหลดข้อมูลสำเร็จ'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       Navigator.pop(context);
     });
 
