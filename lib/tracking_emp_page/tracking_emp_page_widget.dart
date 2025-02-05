@@ -73,13 +73,17 @@ class _TrackingEmpPageWidgetState extends State<TrackingEmpPageWidget>
               },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: LoadingSceneWidget(),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
           );
         },
       ).then((value) => safeSetState(() {}));
 
+      await Future.delayed(const Duration(milliseconds: 1000));
       _model.locationDateData =
           widget!.data!.toList().cast<TrackingEmployeeDateModelStruct>();
       safeSetState(() {});
