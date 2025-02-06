@@ -185,7 +185,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                               Completer<ApiCallResponse>()
                                 ..complete(GetTimesheetAPICall.call(
                                   token: FFAppState().accessToken,
-                                  apiUrl: 'https://dev.swpfin.com:8179',
+                                  apiUrl: FFAppState().apiURLLocalState,
                                 )))
                           .future,
                       builder: (context, snapshot) {
@@ -798,7 +798,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _model.typeDTimesheetDetail =
                                             await TimesheetDetailAPICall.call(
                                           token: FFAppState().accessToken,
-                                          apiUrl: 'https://dev.swpfin.com:8179',
+                                          apiUrl: FFAppState().apiURLLocalState,
                                           pageName: 'law-led',
                                           recordId: getJsonField(
                                             timesheetDataListItem,

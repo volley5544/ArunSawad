@@ -241,22 +241,6 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
           .toList()
           .cast<dynamic>();
       FFAppState().update(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(FFAppState().amountRequestJson.length.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       FFAppState().leadCalledStatusReason = GetLeadDetailAPICall.statusReason(
         (_model.getLeadDetail?.jsonBody ?? ''),
       )!
