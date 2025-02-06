@@ -79,8 +79,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
         },
       );
 
-      FFAppState().apiURLLocalState = 'https://dev.swpfin.com:8179';
-      safeSetState(() {});
       _model.getLeadDetail = await GetLeadDetailAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,

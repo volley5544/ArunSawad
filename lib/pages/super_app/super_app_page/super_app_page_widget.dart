@@ -13976,7 +13976,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 );
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('LeadNotiPage');
+                                                                                context.goNamed('LeadNotiNewPage');
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
