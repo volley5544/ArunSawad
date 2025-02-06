@@ -88,7 +88,6 @@ dependencies:
       ref: v2.0.0
   flutter_blurhash: 0.8.2
   flutter_cache_manager: 3.4.1
-  flutter_datetime_picker_plus: 2.0.1
   flutter_google_places: 
     git:
       url: https://github.com/ShehanYjoz/flutter_google_places.git

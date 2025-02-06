@@ -9917,7 +9917,10 @@ class FFAppState extends ChangeNotifier {
     polyMapTimeList.insert(index, value);
   }
 
-  List<EmpDataLocationStruct> _EmpProfileLocationData = [];
+  List<EmpDataLocationStruct> _EmpProfileLocationData = [
+    EmpDataLocationStruct.fromSerializableMap(jsonDecode(
+        '{\"name_th\":\"Hello World\",\"employee_id\":\"Hello World\",\"branch_code\":\"Hello World\",\"position\":\"Hello World\",\"level\":\"Hello World\",\"status\":\"Hello World\",\"fullprofile\":\"Hello World\",\"location_count\":\"0\"}'))
+  ];
   List<EmpDataLocationStruct> get EmpProfileLocationData =>
       _EmpProfileLocationData;
   set EmpProfileLocationData(List<EmpDataLocationStruct> value) {

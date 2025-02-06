@@ -12323,6 +12323,7 @@ class APIUserLocationTrackerCall {
 class ApiVloanCheckContractTypeDCall {
   static Future<ApiCallResponse> call({
     String? contractNo = '',
+    String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -12330,7 +12331,7 @@ class ApiVloanCheckContractTypeDCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ApiVloanCheckContractTypeD',
-      apiUrl: 'https://dev.swpfin.com:8179/api/vloan/check-contract',
+      apiUrl: '${apiUrl}/api/vloan/check-contract',
       callType: ApiCallType.POST,
       headers: {
         'ContentType': 'application/json',

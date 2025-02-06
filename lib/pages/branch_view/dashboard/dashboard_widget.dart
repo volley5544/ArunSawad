@@ -125,6 +125,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
       FFAppState().materialImgList = [];
       FFAppState().materialNameList = [];
       FFAppState().update(() {});
+      _model.showRemarkOutput = await queryHideInAppContentRecordOnce(
+        queryBuilder: (hideInAppContentRecord) => hideInAppContentRecord.where(
+          'content_name',
+          isEqualTo: 'remark_typeD',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       Navigator.pop(context);
     });
 
@@ -2425,70 +2432,98 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   ),
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation8']!),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    var _shouldSetState = false;
-                                    HapticFeedback.mediumImpact();
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
+                                if (_model.showRemarkOutput?.isShowContent ??
+                                    true)
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      var _shouldSetState = false;
+                                      HapticFeedback.mediumImpact();
+                                      showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        barrierColor: Color(0x00000000),
+                                        context: context,
+                                        builder: (context) {
+                                          return WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: LoadingSceneWidget(),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
 
-                                    _model.checkLoginTimesheetPageremark =
-                                        await ActionUserAPICall.call(
-                                      token: FFAppState().accessToken,
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                    );
+                                      _model.checkLoginTimesheetPageremark =
+                                          await ActionUserAPICall.call(
+                                        token: FFAppState().accessToken,
+                                        apiUrl: FFAppState().apiURLLocalState,
+                                      );
 
-                                    _shouldSetState = true;
-                                    if ((_model.checkLoginTimesheetPageremark
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      if (!((ActionUserAPICall.message(
-                                                (_model.checkLoginTimesheetPageremark
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'The token has been blacklisted') ||
-                                          (ActionUserAPICall.message(
-                                                (_model.checkLoginTimesheetPageremark
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              'Token Signature could not be verified.'))) {
+                                      _shouldSetState = true;
+                                      if ((_model.checkLoginTimesheetPageremark
+                                                  ?.statusCode ??
+                                              200) !=
+                                          200) {
+                                        if (!((ActionUserAPICall.message(
+                                                  (_model.checkLoginTimesheetPageremark
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'The token has been blacklisted') ||
+                                            (ActionUserAPICall.message(
+                                                  (_model.checkLoginTimesheetPageremark
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'Token Signature could not be verified.'))) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPageremark?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
                                                 content: Text(
-                                                    'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPageremark?.statusCode ?? 200).toString()})'),
+                                                    'Session Loginหมดอายุ'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>
@@ -2501,150 +2536,131 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
+                                        FFAppState().loginStateFirebase =
+                                            '[loginStateFirebase]';
+                                        FFAppState().deleteAccessToken();
+                                        FFAppState().accessToken =
+                                            'access_token';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteEmployeeID();
+                                        FFAppState().employeeID = 'employee_id';
+
+                                        FFAppState().QRCodeLink = 'qrcode_link';
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteApiURLLocalState();
+                                        FFAppState().apiURLLocalState =
+                                            'api_url_local_state';
+
+                                        FFAppState().deleteBranchCode();
+                                        FFAppState().branchCode = 'branch_code';
+
+                                        FFAppState().update(() {});
+                                        FFAppState().isFromSetPinPage = false;
+                                        FFAppState().leadChannelColor = [];
+                                        FFAppState().update(() {});
+                                        FFAppState().leadChannelList = [];
+                                        FFAppState().isFromLoginPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deletePinCodeAuthen();
+                                        FFAppState().pinCodeAuthen = '013972';
+
+                                        FFAppState().isFromAuthenPage = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().deleteDateDoNotShowAgain();
+                                        FFAppState().dateDoNotShowAgain = null;
+
+                                        FFAppState().deleteDoNotShowAgain();
+                                        FFAppState().doNotShowAgain = false;
+
+                                        FFAppState().update(() {});
+                                        FFAppState().inAppViaNotification =
+                                            true;
+                                        FFAppState().isInApp = false;
+                                        FFAppState().update(() {});
+                                        FFAppState().fcmToken = 'fcm_token';
+                                        FFAppState().isPassLoginSection = false;
+                                        FFAppState().update(() {});
+                                        Navigator.pop(context);
+                                        await actions.a22();
+
+                                        context.goNamed('LoginPage');
+
                                         if (_shouldSetState)
                                           safeSetState(() {});
                                         return;
                                       }
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('Session Loginหมดอายุ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      FFAppState().loginStateFirebase =
-                                          '[loginStateFirebase]';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
+                                      FFAppState().isFromTimesheetPage = false;
+                                      FFAppState().update(() {});
 
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
-
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
-
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-
-                                      FFAppState().update(() {});
-                                      FFAppState().isFromSetPinPage = false;
-                                      FFAppState().leadChannelColor = [];
-                                      FFAppState().update(() {});
-                                      FFAppState().leadChannelList = [];
-                                      FFAppState().isFromLoginPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deletePinCodeAuthen();
-                                      FFAppState().pinCodeAuthen = '013972';
-
-                                      FFAppState().isFromAuthenPage = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().deleteDateDoNotShowAgain();
-                                      FFAppState().dateDoNotShowAgain = null;
-
-                                      FFAppState().deleteDoNotShowAgain();
-                                      FFAppState().doNotShowAgain = false;
-
-                                      FFAppState().update(() {});
-                                      FFAppState().inAppViaNotification = true;
-                                      FFAppState().isInApp = false;
-                                      FFAppState().update(() {});
-                                      FFAppState().fcmToken = 'fcm_token';
-                                      FFAppState().isPassLoginSection = false;
-                                      FFAppState().update(() {});
-                                      Navigator.pop(context);
-                                      await actions.a22();
-
-                                      context.goNamed('LoginPage');
+                                      context.goNamed('RemarkTypeDPage');
 
                                       if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    FFAppState().isFromTimesheetPage = false;
-                                    FFAppState().update(() {});
-
-                                    context.goNamed('RemarkTypeDPage');
-
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.45,
-                                    height: 190.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x230E151B),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(4.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.asset(
-                                              'assets/images/imageslawsuit.png',
-                                              width: double.infinity,
-                                              height: 115.0,
-                                              fit: BoxFit.cover,
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.45,
+                                      height: 190.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x230E151B),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
                                             ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      8.0, 12.0, 0.0, 0.0),
-                                              child: Text(
-                                                'สถานะคดี',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(4.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: Image.asset(
+                                                'assets/images/imageslawsuit.png',
+                                                width: double.infinity,
+                                                height: 115.0,
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'สถานะคดี',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation9']!),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation9']!),
                                 InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,

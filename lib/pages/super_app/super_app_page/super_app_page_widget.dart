@@ -2113,9 +2113,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 unawaited(
                                                                   () async {}(),
                                                                 );
-
-                                                                context.goNamed(
-                                                                    'LeadNotiNewPage');
                                                               },
                                                               child: Text(
                                                                 'บริการ',
@@ -6594,7 +6591,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             );
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('LeadNotiPage');
+                                                                            context.goNamed('LeadNotiNewPage');
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});

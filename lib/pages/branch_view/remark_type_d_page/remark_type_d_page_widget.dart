@@ -942,6 +942,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                                     .call(
                                               contractNo: _model
                                                   .idInputTextController.text,
+                                              apiUrl:
+                                                  FFAppState().apiURLLocalState,
                                             );
 
                                             _shouldSetState = true;
@@ -3384,7 +3386,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                           )}',
                                           contNo:
                                               _model.idInputTextController.text,
-                                          apiUrl: 'https://dev.swpfin.com:8179',
+                                          apiUrl: FFAppState().apiURLLocalState,
                                           typeDRemarkId: _model.dropDownValue,
                                           typeDRemarkName: _model.remarkNameList
                                               .elementAtOrNull(functions
