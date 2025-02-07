@@ -1316,156 +1316,256 @@ class _DetailListFollowUpDebtWidgetState
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 15.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              if (FFAppState()
-                                                  .selectCardList
-                                                  .elementAtOrNull(
-                                                      listCardIndex)!) {
-                                                FFAppState()
-                                                    .updateSelectCardListAtIndex(
-                                                  listCardIndex,
-                                                  (_) => false,
-                                                );
-                                                safeSetState(() {});
-                                              } else {
-                                                FFAppState()
-                                                    .updateSelectCardListAtIndex(
-                                                  listCardIndex,
-                                                  (_) => true,
-                                                );
-                                                safeSetState(() {});
-                                              }
-                                            },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 5.0,
-                                              shape: RoundedRectangleBorder(
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            elevation: 5.0,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.8,
+                                              decoration: BoxDecoration(
+                                                color: valueOrDefault<Color>(
+                                                  (CollectionApiGetDataPersonCall
+                                                              .calltype(
+                                                            (_model.getListDataPerson
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.elementAtOrNull(
+                                                              listCardIndex)) ==
+                                                          'Y'
+                                                      ? Color(0xFFE9FFEA)
+                                                      : Color(0xFFFADEC2),
+                                                  Color(0xFFFADEC2),
+                                                ),
                                                 borderRadius:
                                                     BorderRadius.circular(20.0),
                                               ),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.8,
-                                                decoration: BoxDecoration(
-                                                  color: valueOrDefault<Color>(
-                                                    (CollectionApiGetDataPersonCall
-                                                                .calltype(
-                                                              (_model.getListDataPerson
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.elementAtOrNull(
-                                                                listCardIndex)) ==
-                                                            'Y'
-                                                        ? Color(0xFFE9FFEA)
-                                                        : Color(0xFFFADEC2),
-                                                    Color(0xFFFADEC2),
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                ),
-                                                child: Stack(
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  -1.0, -1.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    10.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
+                                              child: Stack(
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, -1.0),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            if (FFAppState()
+                                                                .selectCardList
+                                                                .elementAtOrNull(
+                                                                    listCardIndex)!) {
+                                                              FFAppState()
+                                                                  .updateSelectCardListAtIndex(
+                                                                listCardIndex,
+                                                                (_) => false,
+                                                              );
+                                                              safeSetState(
+                                                                  () {});
+                                                            } else {
+                                                              FFAppState()
+                                                                  .updateSelectCardListAtIndex(
+                                                                listCardIndex,
+                                                                (_) => true,
+                                                              );
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+                                                          },
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(
+                                                                          10.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Expanded(
                                                                     child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                        Container(
+                                                                      width:
+                                                                          100.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
                                                                       child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.start,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              'เลขที่สัญญา',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                              child: Text(
+                                                                                'เลขที่สัญญา',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                15.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              getJsonField(
-                                                                                listCardItem,
-                                                                                r'''$.CONTNO''',
-                                                                              ).toString(),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                                                                              child: Text(
+                                                                                getJsonField(
+                                                                                  listCardItem,
+                                                                                  r'''$.CONTNO''',
+                                                                                ).toString(),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                    ),
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                        ],
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                        Divider(
-                                                          thickness: 1.0,
-                                                          color: Colors.white,
+                                                      ),
+                                                      Divider(
+                                                        thickness: 1.0,
+                                                        color: Colors.white,
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Text(
+                                                                  'วันที่ครบกำหนดชำระ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        ':',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          '${functions.dateToBEDate(getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.DATEOFDUE''',
+                                                                          ).toString())}',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
+                                                      ),
+                                                      if ('0' !=
+                                                          getJsonField(
+                                                            listCardItem,
+                                                            r'''$.EXP_FRM''',
+                                                          ).toString())
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
@@ -1475,7 +1575,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         15.0,
-                                                                        0.0,
+                                                                        10.0,
                                                                         0.0,
                                                                         0.0),
                                                             child: Row(
@@ -1492,7 +1592,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                 Expanded(
                                                                   flex: 1,
                                                                   child: Text(
-                                                                    'วันที่ครบกำหนดชำระ',
+                                                                    'วันค้าง/งวดค้าง',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
@@ -1542,8 +1642,11 @@ class _DetailListFollowUpDebtWidgetState
                                                                               Text(
                                                                             '${functions.dateToBEDate(getJsonField(
                                                                               listCardItem,
-                                                                              r'''$.DATEOFDUE''',
-                                                                            ).toString())}',
+                                                                              r'''$.DATEOFEXP''',
+                                                                            ).toString())}(งวด${getJsonField(
+                                                                              listCardItem,
+                                                                              r'''$.EXP_FRM''',
+                                                                            ).toString()})',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 14.0,
@@ -1560,536 +1663,83 @@ class _DetailListFollowUpDebtWidgetState
                                                             ),
                                                           ),
                                                         ),
-                                                        if ('0' !=
-                                                            getJsonField(
-                                                              listCardItem,
-                                                              r'''$.EXP_FRM''',
-                                                            ).toString())
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Expanded(
-                                                                    flex: 1,
-                                                                    child: Text(
-                                                                      'วันค้าง/งวดค้าง',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    flex: 1,
-                                                                    child:
-                                                                        Container(
-                                                                      width:
-                                                                          100.0,
-                                                                      decoration:
-                                                                          BoxDecoration(),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            ':',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 12.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                5.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              '${functions.dateToBEDate(getJsonField(
-                                                                                listCardItem,
-                                                                                r'''$.DATEOFEXP''',
-                                                                              ).toString())}(งวด${getJsonField(
-                                                                                listCardItem,
-                                                                                r'''$.EXP_FRM''',
-                                                                              ).toString()})',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Text(
+                                                                  'สถานะสัญญา (เป้าเริ่มต้น)',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
                                                                       ),
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                                ),
                                                               ),
-                                                            ),
-                                                          ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child: Text(
-                                                                    'สถานะสัญญา (เป้าเริ่มต้น)',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                fontSize: 12.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              listCardItem,
-                                                                              r'''$.TARGETSTAT''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child: Text(
-                                                                    'เป้าเร่งรัด',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                fontSize: 12.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              listCardItem,
-                                                                              r'''$.CONTSTAT''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child: Text(
-                                                                    'วันที่ชำระล่าสุด',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                fontSize: 12.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            '${functions.dateToBEDate(CollectionApiGetDataPersonCall.lastPayDate(
-                                                                              (_model.getListDataPerson?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(listCardIndex))}',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child: Text(
-                                                                    'ยอดหนี้ค้างชำระ',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Expanded(
-                                                                  flex: 1,
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                fontSize: 12.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            ('0.00' ==
-                                                                                        getJsonField(
-                                                                                          listCardItem,
-                                                                                          r'''$.EXP_AMT''',
-                                                                                        ).toString()) ||
-                                                                                    ('0' ==
-                                                                                        getJsonField(
-                                                                                          listCardItem,
-                                                                                          r'''$.EXP_AMT''',
-                                                                                        ).toString())
-                                                                                ? '-'
-                                                                                : '${functions.showNumberWithComma(getJsonField(
-                                                                                    listCardItem,
-                                                                                    r'''$.EXP_AMT''',
-                                                                                  ).toString())} บาท',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            if ((widget!.followupDebtTab ==
-                                                                    1) ||
-                                                                (valueOrDefault<
-                                                                        String>(
-                                                                      CollectionApiGetDataPersonCall
-                                                                          .dataTab(
-                                                                        (_model.getListDataPerson?.jsonBody ??
-                                                                            ''),
-                                                                      )?.firstOrNull,
-                                                                      '-',
-                                                                    ) ==
-                                                                    'นัดชำระ'))
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
                                                                             .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
                                                                     children: [
-                                                                      Expanded(
-                                                                        flex: 1,
+                                                                      Text(
+                                                                        ':',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
-                                                                          'ค่างวดที่ต้องชำระ',
+                                                                          getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.TARGETSTAT''',
+                                                                          ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -2100,50 +1750,327 @@ class _DetailListFollowUpDebtWidgetState
                                                                               ),
                                                                         ),
                                                                       ),
-                                                                      Expanded(
-                                                                        flex: 1,
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Text(
+                                                                  'เป้าเร่งรัด',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        ':',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
-                                                                            Container(
-                                                                          width:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Text(
-                                                                                ':',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
-                                                                                      fontSize: 12.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                    ),
+                                                                            Text(
+                                                                          getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.CONTSTAT''',
+                                                                          ).toString(),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
                                                                               ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  '${functions.showNumberWithComma(CollectionApiGetDataPersonCall.sumCurrentDueAmt(
-                                                                                    (_model.getListDataPerson?.jsonBody ?? ''),
-                                                                                  )?.elementAtOrNull(listCardIndex))} บาท',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        fontSize: 14.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ],
                                                                   ),
                                                                 ),
                                                               ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Text(
+                                                                  'วันที่ชำระล่าสุด',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        ':',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          '${functions.dateToBEDate(CollectionApiGetDataPersonCall.lastPayDate(
+                                                                            (_model.getListDataPerson?.jsonBody ??
+                                                                                ''),
+                                                                          )?.elementAtOrNull(listCardIndex))}',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Text(
+                                                                  'ยอดหนี้ค้างชำระ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        ':',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          ('0.00' ==
+                                                                                      getJsonField(
+                                                                                        listCardItem,
+                                                                                        r'''$.EXP_AMT''',
+                                                                                      ).toString()) ||
+                                                                                  ('0' ==
+                                                                                      getJsonField(
+                                                                                        listCardItem,
+                                                                                        r'''$.EXP_AMT''',
+                                                                                      ).toString())
+                                                                              ? '-'
+                                                                              : '${functions.showNumberWithComma(getJsonField(
+                                                                                  listCardItem,
+                                                                                  r'''$.EXP_AMT''',
+                                                                                ).toString())} บาท',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          if ((widget!.followupDebtTab ==
+                                                                  1) ||
+                                                              (valueOrDefault<
+                                                                      String>(
+                                                                    CollectionApiGetDataPersonCall
+                                                                        .dataTab(
+                                                                      (_model.getListDataPerson
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )?.firstOrNull,
+                                                                    '-',
+                                                                  ) ==
+                                                                  'นัดชำระ'))
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
@@ -2170,7 +2097,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                       flex: 1,
                                                                       child:
                                                                           Text(
-                                                                        'ข้อมูล ณ วันที่',
+                                                                        'ค่างวดที่ต้องชำระ',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -2206,15 +2133,9 @@ class _DetailListFollowUpDebtWidgetState
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                                                                               child: Text(
-                                                                                valueOrDefault<String>(
-                                                                                  functions.dateToBEDate(valueOrDefault<String>(
-                                                                                    CollectionApiGetDataPersonCall.dateOfData(
-                                                                                      (_model.getListDataPerson?.jsonBody ?? ''),
-                                                                                    )?.elementAtOrNull(listCardIndex),
-                                                                                    'date_of_data',
-                                                                                  )),
-                                                                                  'date_of_data',
-                                                                                ),
+                                                                                '${functions.showNumberWithComma(CollectionApiGetDataPersonCall.sumCurrentDueAmt(
+                                                                                  (_model.getListDataPerson?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(listCardIndex))} บาท',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 14.0,
@@ -2231,9 +2152,6 @@ class _DetailListFollowUpDebtWidgetState
                                                                 ),
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
-                                                        if (true)
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
@@ -2245,7 +2163,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                           15.0,
                                                                           10.0,
                                                                           0.0,
-                                                                          10.0),
+                                                                          0.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -2260,7 +2178,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                   Expanded(
                                                                     flex: 1,
                                                                     child: Text(
-                                                                      'จำนวนครั้งที่บันทึกการโทร',
+                                                                      'ข้อมูล ณ วันที่',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -2306,19 +2224,17 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 0.0),
                                                                             child:
                                                                                 Text(
-                                                                              '${'${getJsonField(
-                                                                                listCardItem,
-                                                                                r'''$.historyCount''',
-                                                                              ).toString()}'} ครั้ง',
+                                                                              valueOrDefault<String>(
+                                                                                functions.dateToBEDate(valueOrDefault<String>(
+                                                                                  CollectionApiGetDataPersonCall.dateOfData(
+                                                                                    (_model.getListDataPerson?.jsonBody ?? ''),
+                                                                                  )?.elementAtOrNull(listCardIndex),
+                                                                                  'date_of_data',
+                                                                                )),
+                                                                                'date_of_data',
+                                                                              ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
-                                                                                    color: int.parse(getJsonField(
-                                                                                              listCardItem,
-                                                                                              r'''$.historyCount''',
-                                                                                            ).toString()) ==
-                                                                                            0
-                                                                                        ? Color(0xFFFF0000)
-                                                                                        : FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
@@ -2333,101 +2249,135 @@ class _DetailListFollowUpDebtWidgetState
                                                               ),
                                                             ),
                                                           ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceEvenly,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          9.0,
-                                                                          0.0),
-                                                              child:
-                                                                  FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  context
-                                                                      .pushNamed(
-                                                                    'recordFollowUpDebt',
-                                                                    queryParameters:
-                                                                        {
-                                                                      'contNo':
-                                                                          serializeParam(
-                                                                        getJsonField(
-                                                                          listCardItem,
-                                                                          r'''$.CONTNO''',
-                                                                        ).toString(),
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                  );
-                                                                },
-                                                                text:
-                                                                    'ประวัติการโทร',
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: 160.0,
-                                                                  height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          24.0,
-                                                                          0.0,
-                                                                          24.0,
-                                                                          0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color: Color(
-                                                                      0xFFDB771A),
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                  elevation:
-                                                                      3.0,
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                    width: 2.0,
+                                                        ],
+                                                      ),
+                                                      if (true)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        15.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        10.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Expanded(
+                                                                  flex: 1,
+                                                                  child: Text(
+                                                                    'จำนวนครั้งที่บันทึกการโทร',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
                                                                   ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              10.0),
                                                                 ),
-                                                              ).animateOnPageLoad(
-                                                                      animationsMap[
-                                                                          'buttonOnPageLoadAnimation3']!),
+                                                                Expanded(
+                                                                  flex: 1,
+                                                                  child:
+                                                                      Container(
+                                                                    width:
+                                                                        100.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Text(
+                                                                          ':',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              5.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            '${'${getJsonField(
+                                                                              listCardItem,
+                                                                              r'''$.historyCount''',
+                                                                            ).toString()}'} ครั้ง',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: int.parse(getJsonField(
+                                                                                            listCardItem,
+                                                                                            r'''$.historyCount''',
+                                                                                          ).toString()) ==
+                                                                                          0
+                                                                                      ? Color(0xFFFF0000)
+                                                                                      : FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                            FFButtonWidget(
+                                                          ),
+                                                        ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        9.0,
+                                                                        0.0),
+                                                            child:
+                                                                FFButtonWidget(
                                                               onPressed:
                                                                   () async {
                                                                 context
                                                                     .pushNamed(
-                                                                  'InterestPage',
+                                                                  'recordFollowUpDebt',
                                                                   queryParameters:
                                                                       {
-                                                                    'contno':
+                                                                    'contNo':
                                                                         serializeParam(
                                                                       getJsonField(
                                                                         listCardItem,
@@ -2436,20 +2386,11 @@ class _DetailListFollowUpDebtWidgetState
                                                                       ParamType
                                                                           .String,
                                                                     ),
-                                                                    'dbName':
-                                                                        serializeParam(
-                                                                      getJsonField(
-                                                                        listCardItem,
-                                                                        r'''$.DBNAME''',
-                                                                      ).toString(),
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
                                                                   }.withoutNulls,
                                                                 );
                                                               },
                                                               text:
-                                                                  'QR ชำระเงิน',
+                                                                  'ประวัติการโทร',
                                                               options:
                                                                   FFButtonOptions(
                                                                 width: 160.0,
@@ -2468,7 +2409,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             0.0,
                                                                             0.0),
                                                                 color: Color(
-                                                                    0xFF4BB718),
+                                                                    0xFFDB771A),
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmall
@@ -2494,152 +2435,230 @@ class _DetailListFollowUpDebtWidgetState
                                                                         .circular(
                                                                             10.0),
                                                               ),
+                                                            ).animateOnPageLoad(
+                                                                    animationsMap[
+                                                                        'buttonOnPageLoadAnimation3']!),
+                                                          ),
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              context.pushNamed(
+                                                                'InterestPage',
+                                                                queryParameters:
+                                                                    {
+                                                                  'contno':
+                                                                      serializeParam(
+                                                                    getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.CONTNO''',
+                                                                    ).toString(),
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'dbName':
+                                                                      serializeParam(
+                                                                    getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.DBNAME''',
+                                                                    ).toString(),
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            text: 'QR ชำระเงิน',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 160.0,
+                                                              height: 40.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xFF4BB718),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 2.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          10.0),
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 12.0)),
-                                                    ),
-                                                    if (FFAppState()
-                                                            .selectCardList
-                                                            .elementAtOrNull(
-                                                                listCardIndex) ==
-                                                        false)
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.81, -0.9),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      100.0,
-                                                                      14.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Material(
-                                                            color: Colors
-                                                                .transparent,
-                                                            elevation: 3.0,
-                                                            child: Container(
-                                                              width: 20.0,
-                                                              height: 20.0,
-                                                              decoration:
-                                                                  BoxDecoration(
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ].addToEnd(
+                                                        SizedBox(height: 12.0)),
+                                                  ),
+                                                  if (FFAppState()
+                                                          .selectCardList
+                                                          .elementAtOrNull(
+                                                              listCardIndex) ==
+                                                      false)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.81, -0.9),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    100.0,
+                                                                    14.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          elevation: 3.0,
+                                                          child: Container(
+                                                            width: 20.0,
+                                                            height: 20.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                              border:
+                                                                  Border.all(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryBackground,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
+                                                                    .primaryText,
                                                               ),
-                                                              child: Visibility(
-                                                                visible: false,
-                                                                child: Theme(
-                                                                  data:
-                                                                      ThemeData(
-                                                                    checkboxTheme:
-                                                                        CheckboxThemeData(
-                                                                      visualDensity:
-                                                                          VisualDensity
-                                                                              .compact,
-                                                                      materialTapTargetSize:
-                                                                          MaterialTapTargetSize
-                                                                              .shrinkWrap,
-                                                                      shape:
-                                                                          RoundedRectangleBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(0.0),
-                                                                      ),
+                                                            ),
+                                                            child: Visibility(
+                                                              visible: false,
+                                                              child: Theme(
+                                                                data: ThemeData(
+                                                                  checkboxTheme:
+                                                                      CheckboxThemeData(
+                                                                    visualDensity:
+                                                                        VisualDensity
+                                                                            .compact,
+                                                                    materialTapTargetSize:
+                                                                        MaterialTapTargetSize
+                                                                            .shrinkWrap,
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
                                                                     ),
-                                                                    unselectedWidgetColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryBackground,
                                                                   ),
-                                                                  child:
-                                                                      Checkbox(
-                                                                    value: _model
-                                                                            .checkboxValueMap[
-                                                                        listCardItem] ??= false,
-                                                                    onChanged:
-                                                                        (newValue) async {
-                                                                      safeSetState(() =>
-                                                                          _model.checkboxValueMap[listCardItem] =
-                                                                              newValue!);
-                                                                      if (newValue!) {
-                                                                        HapticFeedback
-                                                                            .mediumImpact();
-                                                                        FFAppState()
-                                                                            .updateSelectCardListAtIndex(
-                                                                          listCardIndex,
-                                                                          (_) =>
-                                                                              true,
-                                                                        );
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      } else {
-                                                                        HapticFeedback
-                                                                            .mediumImpact();
-                                                                        FFAppState()
-                                                                            .updateSelectCardListAtIndex(
-                                                                          listCardIndex,
-                                                                          (_) =>
-                                                                              false,
-                                                                        );
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      }
-                                                                    },
-                                                                    side:
-                                                                        BorderSide(
-                                                                      width: 2,
-                                                                      color: FlutterFlowTheme.of(
+                                                                  unselectedWidgetColor:
+                                                                      FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBackground,
-                                                                    ),
-                                                                    activeColor:
-                                                                        Color(
-                                                                            0xFFFB8447),
-                                                                    checkColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryBackground,
+                                                                ),
+                                                                child: Checkbox(
+                                                                  value: _model
+                                                                          .checkboxValueMap[
+                                                                      listCardItem] ??= false,
+                                                                  onChanged:
+                                                                      (newValue) async {
+                                                                    safeSetState(() =>
+                                                                        _model.checkboxValueMap[listCardItem] =
+                                                                            newValue!);
+                                                                    if (newValue!) {
+                                                                      HapticFeedback
+                                                                          .mediumImpact();
+                                                                      FFAppState()
+                                                                          .updateSelectCardListAtIndex(
+                                                                        listCardIndex,
+                                                                        (_) =>
+                                                                            true,
+                                                                      );
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    } else {
+                                                                      HapticFeedback
+                                                                          .mediumImpact();
+                                                                      FFAppState()
+                                                                          .updateSelectCardListAtIndex(
+                                                                        listCardIndex,
+                                                                        (_) =>
+                                                                            false,
+                                                                      );
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }
+                                                                  },
+                                                                  side:
+                                                                      BorderSide(
+                                                                    width: 2,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
                                                                   ),
+                                                                  activeColor:
+                                                                      Color(
+                                                                          0xFFFB8447),
+                                                                  checkColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    if (FFAppState()
-                                                            .selectCardList
-                                                            .elementAtOrNull(
-                                                                listCardIndex) ==
-                                                        true)
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.83, -1.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      100.0,
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Icon(
-                                                            Icons.check_box,
-                                                            color: Color(
-                                                                0xFFFB8447),
-                                                            size: 25.0,
-                                                          ),
+                                                    ),
+                                                  if (FFAppState()
+                                                          .selectCardList
+                                                          .elementAtOrNull(
+                                                              listCardIndex) ==
+                                                      true)
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.83, -1.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    100.0,
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Icon(
+                                                          Icons.check_box,
+                                                          color:
+                                                              Color(0xFFFB8447),
+                                                          size: 25.0,
                                                         ),
                                                       ),
-                                                  ],
-                                                ),
+                                                    ),
+                                                ],
                                               ),
                                             ),
                                           ),
