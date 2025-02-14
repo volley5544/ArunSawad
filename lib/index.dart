@@ -261,3 +261,5 @@ export '/pages/branch_view/remark_type_d_page/remark_type_d_page_widget.dart'
     show RemarkTypeDPageWidget;
 export '/pages/super_app/lead_noti_new_page/lead_noti_new_page_widget.dart'
     show LeadNotiNewPageWidget;
+export '/pages/super_app/webview_new_page_copy/webview_new_page_copy_widget.dart'
+    show WebviewNewPageCopyWidget;

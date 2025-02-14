@@ -36,12 +36,12 @@ dynamic returnLeadListBySearch(
   List<dynamic>? leadJsonList,
   String? searchWord,
 ) {
-  dynamic output = [];
+  List<dynamic> output = [];
 
-  for (int i = 0; i < leadJsonList!.length; i++) {
-    if (leadJsonList[i].first_name.contains(searchWord!) ||
-        leadJsonList[i].phone_number.contains(searchWord!)) {
-      output.add(leadJsonList[i]);
+  for (var lead in leadJsonList!) {
+    if ((lead['first_name']?.toString().contains(searchWord!) ?? false) ||
+        (lead['phone_number']?.toString().contains(searchWord!) ?? false)) {
+      output.add(lead);
     }
   }
 

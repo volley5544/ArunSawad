@@ -187,8 +187,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
       Navigator.pop(context);
     });
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.textFieldSearchTextController ??= TextEditingController();
+    _model.textFieldSearchFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -414,6 +414,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Survey';
                                                         safeSetState(() {});
+                                                        safeSetState(() {
+                                                          _model
+                                                              .textFieldSearchTextController
+                                                              ?.clear();
+                                                        });
                                                         await _model
                                                             .listViewController
                                                             ?.animateTo(
@@ -548,6 +553,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Telesale';
                                                         safeSetState(() {});
+                                                        safeSetState(() {
+                                                          _model
+                                                              .textFieldSearchTextController
+                                                              ?.clear();
+                                                        });
                                                         await _model
                                                             .listViewController
                                                             ?.animateTo(
@@ -692,6 +702,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Agent';
                                                         safeSetState(() {});
+                                                        safeSetState(() {
+                                                          _model
+                                                              .textFieldSearchTextController
+                                                              ?.clear();
+                                                        });
                                                         await _model
                                                             .listViewController
                                                             ?.animateTo(
@@ -831,6 +846,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         _model.selectedTab =
                                                             'Truck';
                                                         safeSetState(() {});
+                                                        safeSetState(() {
+                                                          _model
+                                                              .textFieldSearchTextController
+                                                              ?.clear();
+                                                        });
                                                         await _model
                                                             .listViewController
                                                             ?.animateTo(
@@ -1344,7 +1364,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
+                                    10.0, 10.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1355,8 +1375,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         height: 40.0,
                                         decoration: BoxDecoration(),
                                         child: TextFormField(
-                                          controller: _model.textController,
-                                          focusNode: _model.textFieldFocusNode,
+                                          controller: _model
+                                              .textFieldSearchTextController,
+                                          focusNode:
+                                              _model.textFieldSearchFocusNode,
                                           autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -1382,7 +1404,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(0.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -1390,7 +1412,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(0.0),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -1400,7 +1422,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(0.0),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -1411,7 +1433,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(0.0),
                                             ),
                                             filled: true,
                                             fillColor:
@@ -1429,7 +1451,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
                                           validator: _model
-                                              .textControllerValidator
+                                              .textFieldSearchTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1443,24 +1465,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           HapticFeedback.mediumImpact();
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text('search'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
                                           _model.leadSearchDataJson = functions
                                               .returnLeadListBySearch(
                                                   GetLeadDetailAPICall
@@ -1469,7 +1473,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             ?.jsonBody ??
                                                         ''),
                                                   )?.toList(),
-                                                  _model.textController.text)!
+                                                  _model
+                                                      .textFieldSearchTextController
+                                                      .text)!
                                               .toList()
                                               .cast<dynamic>();
                                           safeSetState(() {});
@@ -1477,6 +1483,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               .leadSearchDataJson
                                               .toList()
                                               .cast<dynamic>();
+                                          _model.selectedTab = 'search';
                                           safeSetState(() {});
                                           await _model.listViewController
                                               ?.animateTo(
@@ -1487,8 +1494,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           );
                                         },
                                         child: Container(
-                                          height: 50.0,
-                                          decoration: BoxDecoration(),
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
                                           child: Icon(
                                             Icons.search_outlined,
                                             color: FlutterFlowTheme.of(context)
@@ -1543,8 +1553,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           );
                                         },
                                         child: Container(
-                                          height: 50.0,
-                                          decoration: BoxDecoration(),
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
                                           child: Icon(
                                             Icons.cancel_sharp,
                                             color: FlutterFlowTheme.of(context)

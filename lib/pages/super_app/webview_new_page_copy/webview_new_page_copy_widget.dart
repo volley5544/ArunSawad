@@ -1,19 +1,20 @@
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'webview_new_page_model.dart';
-export 'webview_new_page_model.dart';
+import 'webview_new_page_copy_model.dart';
+export 'webview_new_page_copy_model.dart';
 
-class WebviewNewPageWidget extends StatefulWidget {
-  const WebviewNewPageWidget({
+class WebviewNewPageCopyWidget extends StatefulWidget {
+  const WebviewNewPageCopyWidget({
     super.key,
     required this.webUrl,
     this.branchCodeSearch,
@@ -29,21 +30,22 @@ class WebviewNewPageWidget extends StatefulWidget {
   final String? regionEmployeeId;
 
   @override
-  State<WebviewNewPageWidget> createState() => _WebviewNewPageWidgetState();
+  State<WebviewNewPageCopyWidget> createState() =>
+      _WebviewNewPageCopyWidgetState();
 }
 
-class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
-  late WebviewNewPageModel _model;
+class _WebviewNewPageCopyWidgetState extends State<WebviewNewPageCopyWidget> {
+  late WebviewNewPageCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WebviewNewPageModel());
+    _model = createModel(context, () => WebviewNewPageCopyModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'WebviewNewPage'});
+        parameters: {'screen_name': 'WebviewNewPageCopy'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       showDialog(
@@ -141,13 +143,21 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
-                    child: Container(
-                      width: double.infinity,
+                    child: FlutterFlowWebView(
+                      content: functions.containsValueInDataTypeList(
+                              functions
+                                  .getDataTypeFromJson(
+                                      FFAppState().roleMenuJson,
+                                      'adminRoleGroup')
+                                  ?.toList(),
+                              FFAppState().employeeID,
+                              'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินTester')!
+                          ? '${widget!.webUrl}?employeeId=${widget!.regionEmployeeId}&branchCodeSearch=${widget!.branchCodeSearch}&token=${widget!.regionAccessToken}&level=ภาค&mode=ภาค&projectName=Arunsawad'
+                          : '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad',
+                      bypass: true,
                       height: 500.0,
-                      child: custom_widgets.FlutterInappwebviewWidget(
-                        width: double.infinity,
-                        height: 500.0,
-                      ),
+                      verticalScroll: false,
+                      horizontalScroll: false,
                     ),
                   ),
                 ),

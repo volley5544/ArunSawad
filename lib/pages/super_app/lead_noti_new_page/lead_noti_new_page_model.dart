@@ -124,10 +124,11 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
 
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiNewPage widget.
   ApiCallResponse? getLeadDetail;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for TextFieldSearch widget.
+  FocusNode? textFieldSearchFocusNode;
+  TextEditingController? textFieldSearchTextController;
+  String? Function(BuildContext, String?)?
+      textFieldSearchTextControllerValidator;
   // State field(s) for ListView widget.
   ScrollController? listViewController;
   // Stores action output result for [Backend Call - API (addPhoneCalledLeadAPI)] action in Image widget.
@@ -144,8 +145,8 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
 
   @override
   void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    textFieldSearchFocusNode?.dispose();
+    textFieldSearchTextController?.dispose();
 
     listViewController?.dispose();
   }

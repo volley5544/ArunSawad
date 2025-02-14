@@ -750,6 +750,15 @@ final parametersBuilderMap =
   'LeadNotiNewPage': (data) async => ParameterData(
         allParams: {},
       ),
+  'WebviewNewPageCopy': (data) async => ParameterData(
+        allParams: {
+          'webUrl': getParameter<String>(data, 'webUrl'),
+          'branchCodeSearch': getParameter<String>(data, 'branchCodeSearch'),
+          'levelSearch': getParameter<String>(data, 'levelSearch'),
+          'regionAccessToken': getParameter<String>(data, 'regionAccessToken'),
+          'regionEmployeeId': getParameter<String>(data, 'regionEmployeeId'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

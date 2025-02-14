@@ -2469,6 +2469,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: true,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'WebviewNewPageCopy',
+              path: 'webviewNewPageCopy',
+              builder: (context, params) => WebviewNewPageCopyWidget(
+                webUrl: params.getParam(
+                  'webUrl',
+                  ParamType.String,
+                ),
+                branchCodeSearch: params.getParam(
+                  'branchCodeSearch',
+                  ParamType.String,
+                ),
+                levelSearch: params.getParam(
+                  'levelSearch',
+                  ParamType.String,
+                ),
+                regionAccessToken: params.getParam(
+                  'regionAccessToken',
+                  ParamType.String,
+                ),
+                regionEmployeeId: params.getParam(
+                  'regionEmployeeId',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
