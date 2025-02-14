@@ -187,6 +187,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
       Navigator.pop(context);
     });
 
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -1338,6 +1341,179 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                     ),
                                   ),
                                 ],
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 5.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 4,
+                                      child: Container(
+                                        height: 40.0,
+                                        decoration: BoxDecoration(),
+                                        child: TextFormField(
+                                          controller: _model.textController,
+                                          focusNode: _model.textFieldFocusNode,
+                                          autofocus: false,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            isDense: true,
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            hintText: 'ค้นหาชื่อ , เบอร์โทร',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                          validator: _model
+                                              .textControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.leadSearchDataJson = functions
+                                              .returnLeadListBySearch(
+                                                  GetLeadDetailAPICall
+                                                      .leadDataJson(
+                                                    (_model.getLeadDetail
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )?.toList(),
+                                                  _model.textController.text)!
+                                              .toList()
+                                              .cast<dynamic>();
+                                          safeSetState(() {});
+                                          _model.currentShowingDataJson = _model
+                                              .leadSearchDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          safeSetState(() {});
+                                          _model.selectedTab = 'All';
+                                          safeSetState(() {});
+                                          await _model.listViewController
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Icon(
+                                          Icons.search_outlined,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.currentShowingDataJson =
+                                              GetLeadDetailAPICall.leadDataJson(
+                                            (_model.getLeadDetail?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                          _model.selectedTab = 'All';
+                                          safeSetState(() {});
+                                          await _model.listViewController
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Icon(
+                                          Icons.cancel_sharp,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

@@ -406,6 +406,14 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     _datePickedDate.day,
                                                   );
                                                 });
+                                              } else if (_model.datePicked !=
+                                                  null) {
+                                                safeSetState(() {
+                                                  _model.datePicked = functions
+                                                      .startLeaveCalendar(
+                                                          getCurrentTimestamp,
+                                                          30);
+                                                });
                                               }
                                             },
                                             text: valueOrDefault<String>(

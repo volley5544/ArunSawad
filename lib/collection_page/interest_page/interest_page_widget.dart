@@ -199,6 +199,10 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                         _datePickedDate.day,
                                       );
                                     });
+                                  } else if (_model.datePicked != null) {
+                                    safeSetState(() {
+                                      _model.datePicked = getCurrentTimestamp;
+                                    });
                                   }
                                   FFAppState().paidDateCollection =
                                       functions.dateToBEDate(dateTimeFormat(

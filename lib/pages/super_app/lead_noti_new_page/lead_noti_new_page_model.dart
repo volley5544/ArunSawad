@@ -109,10 +109,25 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
   void updateAllLeadDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
       allLeadDataJson[index] = updateFn(allLeadDataJson[index]);
 
+  List<dynamic> leadSearchDataJson = [];
+  void addToLeadSearchDataJson(dynamic item) => leadSearchDataJson.add(item);
+  void removeFromLeadSearchDataJson(dynamic item) =>
+      leadSearchDataJson.remove(item);
+  void removeAtIndexFromLeadSearchDataJson(int index) =>
+      leadSearchDataJson.removeAt(index);
+  void insertAtIndexInLeadSearchDataJson(int index, dynamic item) =>
+      leadSearchDataJson.insert(index, item);
+  void updateLeadSearchDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
+      leadSearchDataJson[index] = updateFn(leadSearchDataJson[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiNewPage widget.
   ApiCallResponse? getLeadDetail;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for ListView widget.
   ScrollController? listViewController;
   // Stores action output result for [Backend Call - API (addPhoneCalledLeadAPI)] action in Image widget.
@@ -129,6 +144,9 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
 
   @override
   void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+
     listViewController?.dispose();
   }
 }

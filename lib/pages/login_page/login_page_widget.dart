@@ -1484,7 +1484,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             (_model.usernameInputTextController.text ==
                                                                                 '31622') ||
                                                                             (_model.usernameInputTextController.text ==
-                                                                                '23328')) {
+                                                                                '23328') ||
+                                                                            (_model.usernameInputTextController.text ==
+                                                                                '30427')) {
                                                                           await showModalBottomSheet(
                                                                             isScrollControlled:
                                                                                 true,

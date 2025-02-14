@@ -1987,6 +1987,12 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       _datePickedDate.day,
                                                     );
                                                   });
+                                                } else if (_model.datePicked !=
+                                                    null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked =
+                                                        getCurrentTimestamp;
+                                                  });
                                                 }
                                               },
                                               child: Container(

@@ -32,6 +32,22 @@ String returnStringWithMaxLength(
   return output;
 }
 
+dynamic returnLeadListBySearch(
+  List<dynamic>? leadJsonList,
+  String? searchWord,
+) {
+  dynamic output = [];
+
+  for (int i = 0; i < leadJsonList!.length; i++) {
+    if (leadJsonList[i].first_name.contains(searchWord!) ||
+        leadJsonList[i].phone_number.contains(searchWord!)) {
+      output.add(leadJsonList[i]);
+    }
+  }
+
+  return output;
+}
+
 int getIndexOfBoolList(
   List<bool>? boolList,
   bool? boolValue,

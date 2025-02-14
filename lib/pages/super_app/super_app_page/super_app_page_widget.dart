@@ -706,7 +706,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                       if ((FFAppState().secretEmployee == '33511') ||
                           (FFAppState().secretEmployee == '31622') ||
                           (FFAppState().secretEmployee == 'euai') ||
-                          (FFAppState().secretEmployee == '23328'))
+                          (FFAppState().secretEmployee == '23328') ||
+                          (FFAppState().secretEmployee == '30427'))
                         Expanded(
                           flex: 1,
                           child: Container(

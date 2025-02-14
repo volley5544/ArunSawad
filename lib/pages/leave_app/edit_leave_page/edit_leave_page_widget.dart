@@ -464,6 +464,22 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             _datePickedDate.day,
                                                           );
                                                         });
+                                                      } else if (_model
+                                                              .datePicked !=
+                                                          null) {
+                                                        safeSetState(() {
+                                                          _model.datePicked = functions.startLeaveCalendar(
+                                                              getCurrentTimestamp,
+                                                              functions.leaveTypeToCanLeaveSince(
+                                                                  widget!
+                                                                      .leaveType,
+                                                                  containerLeaveDaysAfterRecord
+                                                                      ?.leaveListAllowDay
+                                                                      ?.toList(),
+                                                                  containerLeaveDaysAfterRecord
+                                                                      ?.leaveListAllowInt
+                                                                      ?.toList()));
+                                                        });
                                                       }
                                                       if (functions
                                                           .checkSundayDate(_model
