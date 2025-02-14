@@ -1344,7 +1344,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 5.0, 0.0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1443,6 +1443,24 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           HapticFeedback.mediumImpact();
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text('search'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
                                           _model.leadSearchDataJson = functions
                                               .returnLeadListBySearch(
                                                   GetLeadDetailAPICall
@@ -1460,8 +1478,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               .toList()
                                               .cast<dynamic>();
                                           safeSetState(() {});
-                                          _model.selectedTab = 'All';
-                                          safeSetState(() {});
                                           await _model.listViewController
                                               ?.animateTo(
                                             0,
@@ -1470,11 +1486,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             curve: Curves.ease,
                                           );
                                         },
-                                        child: Icon(
-                                          Icons.search_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 24.0,
+                                        child: Container(
+                                          height: 50.0,
+                                          decoration: BoxDecoration(),
+                                          child: Icon(
+                                            Icons.search_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -1487,6 +1507,24 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           HapticFeedback.mediumImpact();
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text('clear'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
                                           _model.currentShowingDataJson =
                                               GetLeadDetailAPICall.leadDataJson(
                                             (_model.getLeadDetail?.jsonBody ??
@@ -1504,11 +1542,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             curve: Curves.ease,
                                           );
                                         },
-                                        child: Icon(
-                                          Icons.cancel_sharp,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 24.0,
+                                        child: Container(
+                                          height: 50.0,
+                                          decoration: BoxDecoration(),
+                                          child: Icon(
+                                            Icons.cancel_sharp,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
