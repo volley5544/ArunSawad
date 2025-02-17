@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -147,6 +148,16 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                       child: custom_widgets.FlutterInappwebviewWidget(
                         width: double.infinity,
                         height: 500.0,
+                        webUrl: functions.containsValueInDataTypeList(
+                                functions
+                                    .getDataTypeFromJson(
+                                        FFAppState().roleMenuJson,
+                                        'adminRoleGroup')
+                                    ?.toList(),
+                                FFAppState().employeeID,
+                                'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินTester')!
+                            ? '${widget!.webUrl}?employeeId=${widget!.regionEmployeeId}&branchCodeSearch=${widget!.branchCodeSearch}&token=${widget!.regionAccessToken}&level=ภาค&mode=ภาค&projectName=Arunsawad'
+                            : '${widget!.webUrl}?employeeId=${FFAppState().employeeID}&branchCodeSearch=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.branchCodeSearch : FFAppState().profileBranch}&token=${FFAppState().accessToken}&level=${FFAppState().profileLevel}&mode=${functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')! ? widget!.levelSearch : FFAppState().profileLevel}&projectName=Arunsawad',
                       ),
                     ),
                   ),
