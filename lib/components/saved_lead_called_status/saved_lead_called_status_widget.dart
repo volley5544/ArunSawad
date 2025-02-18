@@ -556,9 +556,13 @@ class _SavedLeadCalledStatusWidgetState
                             .toList()
                             .cast<String>();
                         FFAppState().savingLeadCallStatus =
-                            _model.callStatusDropDownValue!;
+                            SaveCallStatusAPICall.callStatus(
+                          (_model.saveCallOutput?.jsonBody ?? ''),
+                        )!;
                         FFAppState().savingLeadStatusCallOut =
-                            _model.reasonDropDownValue!;
+                            SaveCallStatusAPICall.callStatusReason(
+                          (_model.saveCallOutput?.jsonBody ?? ''),
+                        )!;
                         safeSetState(() {});
                         Navigator.pop(context, '200');
                         if (_shouldSetState) safeSetState(() {});

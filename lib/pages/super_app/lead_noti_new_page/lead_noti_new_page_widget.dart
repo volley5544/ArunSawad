@@ -2753,6 +2753,26 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         'null') &&
                                                                     ('${_model.savedCallStatus}' !=
                                                                         '200')) {
+                                                                  await showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('200'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                              child: Text('Ok'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  );
                                                                   _model.leadDataByCategory = functions.returnLeadListByChannel(
                                                                       functions
                                                                           .updateActionSave(
