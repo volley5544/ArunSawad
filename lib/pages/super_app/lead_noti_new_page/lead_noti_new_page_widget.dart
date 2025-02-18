@@ -2750,9 +2750,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 if (('${_model.savedCallStatus}' !=
                                                                         '') &&
                                                                     ('${_model.savedCallStatus}' !=
-                                                                        'null') &&
-                                                                    ('${_model.savedCallStatus}' !=
-                                                                        '200')) {
+                                                                        'null')) {
                                                                   await showDialog(
                                                                     context:
                                                                         context,
