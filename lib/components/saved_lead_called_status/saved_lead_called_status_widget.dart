@@ -139,7 +139,7 @@ class _SavedLeadCalledStatusWidgetState
                           FFAppState().savingLeadStatusCallOut =
                               _model.reasonDropDownValue!;
                           safeSetState(() {});
-                          Navigator.pop(context, '200');
+                          Navigator.pop(context);
                         },
                       ),
                     ),
@@ -556,13 +556,13 @@ class _SavedLeadCalledStatusWidgetState
                             .toList()
                             .cast<String>();
                         FFAppState().savingLeadCallStatus =
-                            SaveCallStatusAPICall.callStatus(
+                            '${SaveCallStatusAPICall.callStatus(
                           (_model.saveCallOutput?.jsonBody ?? ''),
-                        )!;
+                        )}';
                         FFAppState().savingLeadStatusCallOut =
-                            SaveCallStatusAPICall.callStatusReason(
+                            '${SaveCallStatusAPICall.callStatusReason(
                           (_model.saveCallOutput?.jsonBody ?? ''),
-                        )!;
+                        )}';
                         safeSetState(() {});
                         Navigator.pop(context, '200');
                         if (_shouldSetState) safeSetState(() {});

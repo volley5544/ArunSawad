@@ -1538,6 +1538,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                     Duration(milliseconds: 100),
                                                 curve: Curves.ease,
                                               );
+                                              await actions.hideKeyboardAction(
+                                                context,
+                                              );
                                             },
                                             child: Container(
                                               height: 60.0,
@@ -1596,6 +1599,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                     Duration(milliseconds: 100),
                                                 curve: Curves.ease,
                                               );
+                                              safeSetState(() {
+                                                _model
+                                                    .textFieldSearchTextController
+                                                    ?.clear();
+                                              });
                                             },
                                             child: Container(
                                               height: 60.0,
