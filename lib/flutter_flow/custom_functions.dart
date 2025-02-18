@@ -4840,3 +4840,43 @@ bool? checkIntFromString(String? input) {
     return false;
   }
 }
+
+List<dynamic>? addDataToJson(List<dynamic>? jsonList) {
+  if (jsonList == null || jsonList.isEmpty) {
+    return []; // Return an empty list if input is null or empty
+  }
+
+  try {
+    // Ensure all items in the list are Map<String, dynamic> before modifying
+    return jsonList.map((item) {
+      if (item is Map<String, dynamic>) {
+        return {...item, "actionCall": "N", "saveCallStatus": "-"};
+      } else {
+        throw Exception("Invalid item in list: Expected Map<String, dynamic>");
+      }
+    }).toList(); // Return updated list
+  } catch (e) {
+    print("Error processing JSON: $e");
+    return null; // Return null if an error occurs
+  }
+}
+
+List<dynamic>? updateActionCall(
+  List<dynamic>? jsonList,
+  String? leadId,
+  String? status,
+) {
+  if (jsonList == null ||
+      jsonList.isEmpty ||
+      leadId == null ||
+      status == null) {
+    return jsonList; // Return original list if any required parameter is null or empty
+  }
+
+  return jsonList.map((item) {
+    if (item is Map<String, dynamic> && item["lead_id"] == leadId) {
+      return {...item, "actionCall": status};
+    }
+    return item;
+  }).toList();
+}
