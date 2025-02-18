@@ -133,9 +133,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
         return;
       }
       _model.leadDataByCategory = functions.returnLeadListByChannel(
-          GetLeadDetailAPICall.leadDataJson(
-            (_model.getLeadDetail?.jsonBody ?? ''),
-          )?.toList(),
+          functions
+              .addDataToJson(GetLeadDetailAPICall.leadDataJson(
+                (_model.getLeadDetail?.jsonBody ?? ''),
+              )?.toList())
+              ?.toList(),
           FFAppState().employeeID);
       safeSetState(() {});
       _model.leadNotiModifyJson = functions
