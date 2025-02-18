@@ -65,7 +65,10 @@ class FlutterInappwebviewWidgetState extends State<FlutterInappwebviewWidget> {
                 initialOptions: InAppWebViewGroupOptions(
                   crossPlatform: InAppWebViewOptions(
                       mediaPlaybackRequiresUserGesture: false,
-                      useShouldOverrideUrlLoading: true
+                      useShouldOverrideUrlLoading: true,
+                      clearCache: true,
+                      javaScriptEnabled: true,
+                      javaScriptCanOpenWindowsAutomatically: true
                       //debuggingEnabled: true,
                       ),
                 ),

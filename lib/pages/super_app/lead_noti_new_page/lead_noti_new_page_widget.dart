@@ -2109,6 +2109,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               (alertDialogContext) {
                                                                             return WebViewAware(
                                                                               child: AlertDialog(
+                                                                                title: Text('after phone call'),
                                                                                 content: Text('${getJsonField(
                                                                                   leadListItemItem,
                                                                                   r'''$.actionCall''',
@@ -2144,15 +2145,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         safeSetState(
                                                                             () {});
                                                                         _model.leadNotiModifyJson = functions
-                                                                            .addDataToJson(functions
-                                                                                .updateActionCall(
-                                                                                    _model.leadNotiModifyJson.toList(),
-                                                                                    '${getJsonField(
-                                                                                      leadListItemItem,
-                                                                                      r'''$.lead_id''',
-                                                                                    ).toString()}',
-                                                                                    'Call')
-                                                                                ?.toList())!
+                                                                            .updateActionCall(
+                                                                                _model.leadNotiModifyJson.toList(),
+                                                                                '${getJsonField(
+                                                                                  leadListItemItem,
+                                                                                  r'''$.lead_id''',
+                                                                                ).toString()}',
+                                                                                'Call')!
                                                                             .toList()
                                                                             .cast<dynamic>();
                                                                         safeSetState(
@@ -2219,6 +2218,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               (alertDialogContext) {
                                                                             return WebViewAware(
                                                                               child: AlertDialog(
+                                                                                title: Text('after phone call'),
                                                                                 content: Text('${getJsonField(
                                                                                   leadListItemItem,
                                                                                   r'''$.actionCall''',
@@ -2662,15 +2662,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 safeSetState(
                                                                     () {});
                                                                 _model.leadNotiModifyJson = functions
-                                                                    .addDataToJson(functions
-                                                                        .updateActionCall(
-                                                                            _model.leadNotiModifyJson.toList(),
-                                                                            '${getJsonField(
-                                                                              leadListItemItem,
-                                                                              r'''$.lead_id''',
-                                                                            ).toString()}',
-                                                                            'Save')
-                                                                        ?.toList())!
+                                                                    .updateActionCall(
+                                                                        _model.leadNotiModifyJson.toList(),
+                                                                        '${getJsonField(
+                                                                          leadListItemItem,
+                                                                          r'''$.lead_id''',
+                                                                        ).toString()}',
+                                                                        'Save')!
                                                                     .toList()
                                                                     .cast<dynamic>();
                                                                 safeSetState(
