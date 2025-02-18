@@ -37,15 +37,15 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>arun_sawad</string>
+        <string>www.arunsawad</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>com.srisawad.publicarunsawad</string>
+        <string>arunsawad</string>
         </array>
         </dict>
     </array>
     <key>FlutterDeepLinkingEnabled</key>
-    <false/>
+    <true/>
 
 
 	<key>CFBundleVersion</key>

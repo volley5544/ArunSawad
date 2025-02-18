@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -22,8 +21,6 @@ import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
-export '/backend/firebase_dynamic_links/firebase_dynamic_links.dart'
-    show generateCurrentPageLink;
 
 const kTransitionInfoKey = '__transition_info__';
 
@@ -87,10 +84,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => _RouteErrorBuilder(
-        state: state,
-        child: appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
-      ),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -2739,58 +2734,6 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
-}
-
-class _RouteErrorBuilder extends StatefulWidget {
-  const _RouteErrorBuilder({
-    Key? key,
-    required this.state,
-    required this.child,
-  }) : super(key: key);
-
-  final GoRouterState state;
-  final Widget child;
-
-  @override
-  State<_RouteErrorBuilder> createState() => _RouteErrorBuilderState();
-}
-
-class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
-  @override
-  void initState() {
-    super.initState();
-
-    // Handle erroneous links from Firebase Dynamic Links.
-
-    String? location;
-
-    /*
-    Handle `links` routes that have dynamic-link entangled with deep-link 
-    */
-    if (widget.state.uri.toString().startsWith('/link') &&
-        widget.state.uri.queryParameters.containsKey('deep_link_id')) {
-      final deepLinkId = widget.state.uri.queryParameters['deep_link_id'];
-      if (deepLinkId != null) {
-        final deepLinkUri = Uri.parse(deepLinkId);
-        final link = deepLinkUri.toString();
-        final host = deepLinkUri.host;
-        location = link.split(host).last;
-      }
-    }
-
-    if (widget.state.uri.toString().startsWith('/link') &&
-        widget.state.uri.toString().contains('request_ip_version')) {
-      location = '/';
-    }
-
-    if (location != null) {
-      SchedulerBinding.instance
-          .addPostFrameCallback((_) => context.go(location!));
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) => widget.child;
 }
 
 class RootPageContext {
