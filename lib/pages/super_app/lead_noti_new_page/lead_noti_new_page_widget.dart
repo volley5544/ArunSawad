@@ -1606,10 +1606,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         '${getJsonField(
                                                                   leadListItemItem,
                                                                   r'''$.actionCall''',
-                                                                ).toString()}' !=
+                                                                ).toString()}' ==
                                                                 'Call'
                                                             ? Color(0xFFF39F7B)
-                                                            : Colors.white,
+                                                            : Color(0xFFE9FFEA),
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .secondaryBackground,
@@ -2081,6 +2081,48 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
 
                                                                         _shouldSetState =
                                                                             true;
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('${getJsonField(
+                                                                                  leadListItemItem,
+                                                                                  r'''$.lead_id''',
+                                                                                ).toString()}'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('${getJsonField(
+                                                                                  leadListItemItem,
+                                                                                  r'''$.actionCall''',
+                                                                                ).toString()}'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
                                                                         await actions
                                                                             .open3CXAction(
                                                                           '${getJsonField(
@@ -2170,6 +2212,27 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             .cast<dynamic>();
                                                                         safeSetState(
                                                                             () {});
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return WebViewAware(
+                                                                              child: AlertDialog(
+                                                                                content: Text('${getJsonField(
+                                                                                  leadListItemItem,
+                                                                                  r'''$.actionCall''',
+                                                                                ).toString()}'),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                    child: Text('Ok'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
                                                                         if (_shouldSetState)
                                                                           safeSetState(
                                                                               () {});
