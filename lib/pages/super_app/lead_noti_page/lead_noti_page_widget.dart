@@ -2206,9 +2206,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             );
                                                           },
                                                         ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
+                                                            safeSetState(() =>
+                                                                _model.savedCallStatus =
+                                                                    value));
 
+                                                        _shouldSetState = true;
                                                         if (_shouldSetState)
                                                           safeSetState(() {});
                                                       },

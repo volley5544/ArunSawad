@@ -37,6 +37,8 @@ class LeadNotiPageModel extends FlutterFlowModel<LeadNotiPageWidget> {
   ApiCallResponse? addCalledLead;
   // Stores action output result for [Backend Call - API (getLeadCalledStatusDropdownAPI)] action in Button widget.
   ApiCallResponse? getCalledStatusCode;
+  // Stores action output result for [Bottom Sheet - savedLeadCalledStatus] action in Button widget.
+  String? savedCallStatus;
   // Stores action output result for [Backend Call - API (getLeadCalledHistoryAPI)] action in Button widget.
   ApiCallResponse? getCallHistory;
 

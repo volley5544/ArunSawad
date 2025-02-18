@@ -9962,6 +9962,18 @@ class FFAppState extends ChangeNotifier {
       Function(EmpDataLocationStruct) updateFn) {
     updateFn(_EmpProfileLocationSelected);
   }
+
+  String _savingLeadCallStatus = '';
+  String get savingLeadCallStatus => _savingLeadCallStatus;
+  set savingLeadCallStatus(String value) {
+    _savingLeadCallStatus = value;
+  }
+
+  String _savingLeadStatusCallOut = '';
+  String get savingLeadStatusCallOut => _savingLeadStatusCallOut;
+  set savingLeadStatusCallOut(String value) {
+    _savingLeadStatusCallOut = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

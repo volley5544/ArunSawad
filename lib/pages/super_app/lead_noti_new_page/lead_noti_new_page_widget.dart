@@ -371,12 +371,12 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                     flex: 1,
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 3.0, 0.0),
+                                          8.0, 0.0, 0.0, 0.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.45,
-                                        height: 220.0,
+                                        height: 140.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -432,7 +432,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
-                                                        height: 100.0,
+                                                        height: 69.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: _model
@@ -571,7 +571,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
-                                                        height: 100.0,
+                                                        height: 69.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: _model
@@ -720,7 +720,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
-                                                        height: 100.0,
+                                                        height: 69.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: _model
@@ -864,7 +864,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       },
                                                       child: Container(
                                                         width: double.infinity,
-                                                        height: 100.0,
+                                                        height: 69.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: _model
@@ -1009,348 +1009,380 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.45,
-                                          height: 220.0,
+                                          height: 140.0,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
                                                 BorderRadius.circular(24.0),
                                           ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(0.0),
-                                                      bottomRight:
-                                                          Radius.circular(0.0),
-                                                      topLeft:
-                                                          Radius.circular(24.0),
-                                                      topRight:
-                                                          Radius.circular(24.0),
-                                                    ),
-                                                    border: Border.all(
-                                                      color: _model
-                                                                  .selectedTab ==
-                                                              'Owner'
-                                                          ? Color(0xFFFF6500)
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      width:
-                                                          _model.selectedTab ==
-                                                                  'Owner'
-                                                              ? 3.0
-                                                              : 0.0,
-                                                    ),
-                                                  ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      HapticFeedback
-                                                          .mediumImpact();
-                                                      _model.currentShowingDataJson =
-                                                          _model
-                                                              .leadOwnerDataJson
-                                                              .toList()
-                                                              .cast<dynamic>();
-                                                      _model.selectedTab =
-                                                          'Owner';
-                                                      safeSetState(() {});
-                                                      await _model
-                                                          .listViewController
-                                                          ?.animateTo(
-                                                        0,
-                                                        duration: Duration(
-                                                            milliseconds: 100),
-                                                        curve: Curves.ease,
-                                                      );
-                                                    },
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        4.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            child: Icon(
-                                                              Icons.person,
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              size: 30.0,
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            child: Stack(
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    4.0),
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      24.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      24.0),
+                                                            ),
+                                                            border: Border.all(
+                                                              color: _model
+                                                                          .selectedTab ==
+                                                                      'Owner'
+                                                                  ? Color(
+                                                                      0xFFFF6500)
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              width:
+                                                                  _model.selectedTab ==
+                                                                          'Owner'
+                                                                      ? 3.0
+                                                                      : 0.0,
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                functions.showNumberWithComma(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  _model
-                                                                      .leadOwnerDataJson
-                                                                      .length
-                                                                      .toString(),
-                                                                  '0',
-                                                                )),
-                                                                '0',
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .displaySmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    color: Color(
-                                                                        0xFF101213),
-                                                                    fontSize:
-                                                                        20.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              HapticFeedback
+                                                                  .mediumImpact();
+                                                              _model.currentShowingDataJson = _model
+                                                                  .leadOwnerDataJson
+                                                                  .toList()
+                                                                  .cast<
+                                                                      dynamic>();
+                                                              _model.selectedTab =
+                                                                  'Owner';
+                                                              safeSetState(
+                                                                  () {});
+                                                              await _model
+                                                                  .listViewController
+                                                                  ?.animateTo(
+                                                                0,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        100),
+                                                                curve:
+                                                                    Curves.ease,
+                                                              );
+                                                            },
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .stretch,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            12.0,
+                                                                            8.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        functions
+                                                                            .showNumberWithComma(valueOrDefault<String>(
+                                                                          _model
+                                                                              .leadOwnerDataJson
+                                                                              .length
+                                                                              .toString(),
+                                                                          '0',
+                                                                        )),
+                                                                        '0',
+                                                                      ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .displaySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            color:
+                                                                                Color(0xFF101213),
+                                                                            fontSize:
+                                                                                20.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                          ),
+                                                                    ),
                                                                   ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
+                                                                ),
+                                                                Expanded(
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           12.0,
                                                                           0.0),
-                                                              child: Text(
-                                                                'จำนวนลีดส่วนตัว',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      color: Color(
-                                                                          0xFF57636C),
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
+                                                                      child:
+                                                                          Text(
+                                                                        'จำนวนลีดส่วนตัว',
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodySmall
+                                                                            .override(
+                                                                              fontFamily: 'Outfit',
+                                                                              color: Color(0xFF57636C),
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
                                                                     ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Divider(
-                                                thickness: 1.0,
-                                              ),
-                                              Expanded(
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(24.0),
-                                                      bottomRight:
-                                                          Radius.circular(24.0),
-                                                      topLeft:
-                                                          Radius.circular(0.0),
-                                                      topRight:
-                                                          Radius.circular(0.0),
-                                                    ),
-                                                    border: Border.all(
-                                                      color: _model
-                                                                  .selectedTab ==
-                                                              'All'
-                                                          ? Color(0xFFFF6500)
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      width:
-                                                          _model.selectedTab ==
-                                                                  'All'
-                                                              ? 3.0
-                                                              : 0.0,
-                                                    ),
-                                                  ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      HapticFeedback
-                                                          .mediumImpact();
-                                                      _model.currentShowingDataJson =
-                                                          _model
-                                                              .leadNotiModifyJson
-                                                              .toList()
-                                                              .cast<dynamic>();
-                                                      _model.selectedTab =
-                                                          'All';
-                                                      safeSetState(() {});
-                                                      await _model
-                                                          .listViewController
-                                                          ?.animateTo(
-                                                        0,
-                                                        duration: Duration(
-                                                            milliseconds: 100),
-                                                        curve: Curves.ease,
-                                                      );
-                                                    },
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      children: [
-                                                        Icon(
-                                                          Icons
-                                                              .supervisor_account_rounded,
-                                                          color:
-                                                              Color(0xFF101213),
-                                                          size: 30.0,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      12.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              functions.showNumberWithComma(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                '${valueOrDefault<String>(
-                                                                  GetLeadDetailAPICall
-                                                                          .leadDataJson(
-                                                                    (_model.getLeadDetail
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )
-                                                                      ?.length
-                                                                      ?.toString(),
-                                                                  '0',
-                                                                )}',
-                                                                '0',
-                                                              )),
-                                                              '0',
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .displaySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: Color(
-                                                                      0xFF101213),
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
+                                                                  ),
                                                                 ),
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      24.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          24.0),
+                                                              topLeft: Radius
+                                                                  .circular(
                                                                       0.0),
-                                                          child: Text(
-                                                            'จำนวนลีดทั้งหมด',
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: Color(
-                                                                      0xFF57636C),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                            ),
+                                                            border: Border.all(
+                                                              color: _model
+                                                                          .selectedTab ==
+                                                                      'All'
+                                                                  ? Color(
+                                                                      0xFFFF6500)
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              width:
+                                                                  _model.selectedTab ==
+                                                                          'All'
+                                                                      ? 3.0
+                                                                      : 0.0,
+                                                            ),
+                                                          ),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              HapticFeedback
+                                                                  .mediumImpact();
+                                                              _model.currentShowingDataJson = _model
+                                                                  .leadNotiModifyJson
+                                                                  .toList()
+                                                                  .cast<
+                                                                      dynamic>();
+                                                              _model.selectedTab =
+                                                                  'All';
+                                                              safeSetState(
+                                                                  () {});
+                                                              await _model
+                                                                  .listViewController
+                                                                  ?.animateTo(
+                                                                0,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        100),
+                                                                curve:
+                                                                    Curves.ease,
+                                                              );
+                                                            },
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .stretch,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          4.0,
+                                                                          12.0,
+                                                                          4.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      functions.showNumberWithComma(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                        '${valueOrDefault<String>(
+                                                                          GetLeadDetailAPICall
+                                                                              .leadDataJson(
+                                                                            (_model.getLeadDetail?.jsonBody ??
+                                                                                ''),
+                                                                          )?.length?.toString(),
+                                                                          '0',
+                                                                        )}',
+                                                                        '0',
+                                                                      )),
+                                                                      '0',
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              Color(0xFF101213),
+                                                                          fontSize:
+                                                                              20.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ),
                                                                 ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          4.0),
+                                                                  child: Text(
+                                                                    'จำนวนลีดทั้งหมด',
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          color:
+                                                                              Color(0xFF57636C),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
-                                                      ],
+                                                      ),
                                                     ),
+                                                  ],
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 4.0, 0.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .stretch,
+                                                    children: [
+                                                      Divider(
+                                                        thickness: 1.0,
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ).animateOnPageLoad(animationsMap[
@@ -1361,203 +1393,228 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 10.0, 10.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      flex: 4,
-                                      child: Container(
-                                        height: 40.0,
-                                        decoration: BoxDecoration(),
-                                        child: TextFormField(
-                                          controller: _model
-                                              .textFieldSearchTextController,
-                                          focusNode:
-                                              _model.textFieldSearchFocusNode,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            isDense: true,
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintText: 'ค้นหาชื่อ , เบอร์โทร',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Container(
+                                  height: 60.0,
+                                  decoration: BoxDecoration(),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 5,
+                                          child: Container(
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
+                                            child: TextFormField(
+                                              controller: _model
+                                                  .textFieldSearchTextController,
+                                              focusNode: _model
+                                                  .textFieldSearchFocusNode,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                isDense: false,
+                                                labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText:
+                                                    'ค้นหาชื่อ , เบอร์โทร',
+                                                hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                          cursorColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryText,
-                                          validator: _model
-                                              .textFieldSearchTextControllerValidator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          HapticFeedback.mediumImpact();
-                                          _model.leadSearchDataJson = functions
-                                              .returnLeadListBySearch(
-                                                  _model.leadNotiModifyJson
-                                                      .toList(),
-                                                  _model
-                                                      .textFieldSearchTextController
-                                                      .text)!
-                                              .toList()
-                                              .cast<dynamic>();
-                                          safeSetState(() {});
-                                          _model.currentShowingDataJson = _model
-                                              .leadSearchDataJson
-                                              .toList()
-                                              .cast<dynamic>();
-                                          _model.selectedTab = 'search';
-                                          safeSetState(() {});
-                                          await _model.listViewController
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        child: Container(
-                                          height: 40.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Icon(
-                                            Icons.search_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          HapticFeedback.mediumImpact();
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text('clear'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
                                                 ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                                filled: true,
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              cursorColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              validator: _model
+                                                  .textFieldSearchTextControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              HapticFeedback.mediumImpact();
+                                              _model.leadSearchDataJson = functions
+                                                  .returnLeadListBySearch(
+                                                      _model.leadNotiModifyJson
+                                                          .toList(),
+                                                      _model
+                                                          .textFieldSearchTextController
+                                                          .text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              safeSetState(() {});
+                                              _model.currentShowingDataJson =
+                                                  _model.leadSearchDataJson
+                                                      .toList()
+                                                      .cast<dynamic>();
+                                              _model.selectedTab = 'search';
+                                              safeSetState(() {});
+                                              await _model.listViewController
+                                                  ?.animateTo(
+                                                0,
+                                                duration:
+                                                    Duration(milliseconds: 100),
+                                                curve: Curves.ease,
                                               );
                                             },
-                                          );
-                                          _model.currentShowingDataJson = _model
-                                              .leadNotiModifyJson
-                                              .toList()
-                                              .cast<dynamic>();
-                                          _model.selectedTab = 'All';
-                                          safeSetState(() {});
-                                          await _model.listViewController
-                                              ?.animateTo(
-                                            0,
-                                            duration:
-                                                Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        child: Container(
-                                          height: 40.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Icon(
-                                            Icons.cancel_sharp,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
+                                            child: Container(
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Icon(
+                                                Icons.search_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              HapticFeedback.mediumImpact();
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text('clear'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              _model.currentShowingDataJson =
+                                                  _model.leadNotiModifyJson
+                                                      .toList()
+                                                      .cast<dynamic>();
+                                              _model.selectedTab = 'All';
+                                              safeSetState(() {});
+                                              await _model.listViewController
+                                                  ?.animateTo(
+                                                0,
+                                                duration:
+                                                    Duration(milliseconds: 100),
+                                                curve: Curves.ease,
+                                              );
+                                            },
+                                            child: Container(
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Icon(
+                                                Icons.cancel_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -1608,7 +1665,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   r'''$.actionCall''',
                                                                 ).toString()}' ==
                                                                 'Call'
-                                                            ? Color(0xFFF39F7B)
+                                                            ? Color(0xFFFFFFE9)
                                                             : Color(0xFFE9FFEA),
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -2004,8 +2061,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        var _shouldSetState =
-                                                                            false;
                                                                         HapticFeedback
                                                                             .mediumImpact();
                                                                         if (!functions
@@ -2031,8 +2086,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               );
                                                                             },
                                                                           );
-                                                                          if (_shouldSetState)
-                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         var confirmDialogResponse = await showDialog<bool>(
@@ -2057,8 +2110,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             ) ??
                                                                             false;
                                                                         if (!confirmDialogResponse) {
-                                                                          if (_shouldSetState)
-                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if ('${getJsonField(
@@ -2066,21 +2117,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               r'''$.call_status''',
                                                                             ).toString()}' ==
                                                                             'NEW') {}
-                                                                        _model.addCalledLead =
-                                                                            await AddPhoneCalledLeadAPICall.call(
-                                                                          apiUrl:
-                                                                              FFAppState().apiURLLocalState,
-                                                                          leadID:
-                                                                              '${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.lead_id''',
-                                                                          ).toString()}',
-                                                                          token:
-                                                                              FFAppState().accessToken,
-                                                                        );
-
-                                                                        _shouldSetState =
-                                                                            true;
                                                                         await showDialog(
                                                                           context:
                                                                               context,
@@ -2201,8 +2237,27 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         )!
                                                                             .toList()
                                                                             .cast<dynamic>();
-                                                                        _model.currentShowingDataJson = _model
-                                                                            .leadNotiModifyJson
+                                                                        _model
+                                                                            .currentShowingDataJson = () {
+                                                                          if (_model.selectedTab ==
+                                                                              'Telesale') {
+                                                                            return _model.leadTeleDataJson;
+                                                                          } else if (_model.selectedTab ==
+                                                                              'Survey') {
+                                                                            return _model.leadSurveyDataJson;
+                                                                          } else if (_model.selectedTab ==
+                                                                              'Agent') {
+                                                                            return _model.leadAgentDataJson;
+                                                                          } else if (_model.selectedTab ==
+                                                                              'Owner') {
+                                                                            return _model.leadOwnerDataJson;
+                                                                          } else if (_model.selectedTab ==
+                                                                              'Truck') {
+                                                                            return _model.leadTruckDataJson;
+                                                                          } else {
+                                                                            return _model.leadNotiModifyJson;
+                                                                          }
+                                                                        }()
                                                                             .toList()
                                                                             .cast<dynamic>();
                                                                         _model.allLeadDataJson = _model
@@ -2233,9 +2288,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             );
                                                                           },
                                                                         );
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
                                                                       },
                                                                       child:
                                                                           ClipRRect(
@@ -2645,96 +2697,183 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                     );
                                                                   },
                                                                 ).then((value) =>
-                                                                    safeSetState(
-                                                                        () {}));
+                                                                    safeSetState(() =>
+                                                                        _model.savedCallStatus =
+                                                                            value));
 
-                                                                _model.leadDataByCategory = functions.returnLeadListByChannel(
-                                                                    functions
-                                                                        .updateActionCall(
-                                                                            _model.leadNotiModifyJson.toList(),
-                                                                            '${getJsonField(
-                                                                              leadListItemItem,
-                                                                              r'''$.lead_id''',
-                                                                            ).toString()}',
-                                                                            'Save')
-                                                                        ?.toList(),
-                                                                    FFAppState().employeeID);
-                                                                safeSetState(
-                                                                    () {});
-                                                                _model.leadNotiModifyJson = functions
-                                                                    .updateActionCall(
-                                                                        _model.leadNotiModifyJson.toList(),
-                                                                        '${getJsonField(
-                                                                          leadListItemItem,
-                                                                          r'''$.lead_id''',
-                                                                        ).toString()}',
-                                                                        'Save')!
-                                                                    .toList()
-                                                                    .cast<dynamic>();
-                                                                safeSetState(
-                                                                    () {});
-                                                                _model.leadSurveyDataJson =
-                                                                    getJsonField(
+                                                                _shouldSetState =
+                                                                    true;
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text(FFAppState().savingLeadCallStatus),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text(FFAppState().savingLeadStatusCallOut),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                                if (('${_model.savedCallStatus}' !=
+                                                                        '') &&
+                                                                    ('${_model.savedCallStatus}' !=
+                                                                        'null') &&
+                                                                    ('${_model.savedCallStatus}' !=
+                                                                        '200')) {
+                                                                  _model.leadDataByCategory = functions.returnLeadListByChannel(
+                                                                      functions
+                                                                          .updateActionSave(
+                                                                              _model.leadNotiModifyJson.toList(),
+                                                                              '${getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$.lead_id''',
+                                                                              ).toString()}',
+                                                                              'Save',
+                                                                              FFAppState().savingLeadCallStatus,
+                                                                              FFAppState().savingLeadStatusCallOut)
+                                                                          ?.toList(),
+                                                                      FFAppState().employeeID);
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  _model.leadNotiModifyJson = functions
+                                                                      .updateActionSave(
+                                                                          _model.leadNotiModifyJson.toList(),
+                                                                          '${getJsonField(
+                                                                            leadListItemItem,
+                                                                            r'''$.lead_id''',
+                                                                          ).toString()}',
+                                                                          'Save',
+                                                                          FFAppState().savingLeadCallStatus,
+                                                                          FFAppState().savingLeadStatusCallOut)!
+                                                                      .toList()
+                                                                      .cast<dynamic>();
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  _model.leadSurveyDataJson =
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .leadDataByCategory,
+                                                                    r'''$.LeadSurvey''',
+                                                                    true,
+                                                                  )!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              dynamic>();
+                                                                  _model.leadTeleDataJson =
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .leadDataByCategory,
+                                                                    r'''$.LeadTelesale''',
+                                                                    true,
+                                                                  )!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              dynamic>();
+                                                                  _model.leadAgentDataJson =
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .leadDataByCategory,
+                                                                    r'''$.LeadAgent''',
+                                                                    true,
+                                                                  )!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              dynamic>();
+                                                                  _model.leadTruckDataJson =
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .leadDataByCategory,
+                                                                    r'''$.LeadTruck''',
+                                                                    true,
+                                                                  )!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              dynamic>();
+                                                                  _model.leadOwnerDataJson =
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .leadDataByCategory,
+                                                                    r'''$.OwnerLead''',
+                                                                    true,
+                                                                  )!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              dynamic>();
                                                                   _model
-                                                                      .leadDataByCategory,
-                                                                  r'''$.LeadSurvey''',
-                                                                  true,
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            dynamic>();
-                                                                _model.leadTeleDataJson =
-                                                                    getJsonField(
-                                                                  _model
-                                                                      .leadDataByCategory,
-                                                                  r'''$.LeadTelesale''',
-                                                                  true,
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            dynamic>();
-                                                                _model.leadAgentDataJson =
-                                                                    getJsonField(
-                                                                  _model
-                                                                      .leadDataByCategory,
-                                                                  r'''$.LeadAgent''',
-                                                                  true,
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            dynamic>();
-                                                                _model.leadTruckDataJson =
-                                                                    getJsonField(
-                                                                  _model
-                                                                      .leadDataByCategory,
-                                                                  r'''$.LeadTruck''',
-                                                                  true,
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            dynamic>();
-                                                                _model.leadOwnerDataJson =
-                                                                    getJsonField(
-                                                                  _model
-                                                                      .leadDataByCategory,
-                                                                  r'''$.OwnerLead''',
-                                                                  true,
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            dynamic>();
-                                                                _model.currentShowingDataJson = _model
-                                                                    .leadNotiModifyJson
-                                                                    .toList()
-                                                                    .cast<
-                                                                        dynamic>();
-                                                                _model.allLeadDataJson = _model
-                                                                    .leadNotiModifyJson
-                                                                    .toList()
-                                                                    .cast<
-                                                                        dynamic>();
-                                                                safeSetState(
-                                                                    () {});
+                                                                      .currentShowingDataJson = () {
+                                                                    if (_model
+                                                                            .selectedTab ==
+                                                                        'Telesale') {
+                                                                      return _model
+                                                                          .leadTeleDataJson;
+                                                                    } else if (_model
+                                                                            .selectedTab ==
+                                                                        'Survey') {
+                                                                      return _model
+                                                                          .leadSurveyDataJson;
+                                                                    } else if (_model
+                                                                            .selectedTab ==
+                                                                        'Agent') {
+                                                                      return _model
+                                                                          .leadAgentDataJson;
+                                                                    } else if (_model
+                                                                            .selectedTab ==
+                                                                        'Owner') {
+                                                                      return _model
+                                                                          .leadOwnerDataJson;
+                                                                    } else if (_model
+                                                                            .selectedTab ==
+                                                                        'Truck') {
+                                                                      return _model
+                                                                          .leadTruckDataJson;
+                                                                    } else {
+                                                                      return _model
+                                                                          .leadNotiModifyJson;
+                                                                    }
+                                                                  }()
+                                                                      .toList()
+                                                                      .cast<dynamic>();
+                                                                  _model.allLeadDataJson = _model
+                                                                      .leadNotiModifyJson
+                                                                      .toList()
+                                                                      .cast<
+                                                                          dynamic>();
+                                                                  safeSetState(
+                                                                      () {});
+                                                                }
                                                                 if (_shouldSetState)
                                                                   safeSetState(
                                                                       () {});

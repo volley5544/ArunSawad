@@ -18,6 +18,35 @@ String getUserLocation(LatLng? userLocation) {
   return userLatLng;
 }
 
+List<dynamic>? updateActionSave(
+  List<dynamic>? jsonList,
+  String? leadId,
+  String? status,
+  String? callStatus,
+  String? statusCallOut,
+) {
+  if (jsonList == null ||
+      jsonList.isEmpty ||
+      leadId == null ||
+      status == null ||
+      callStatus == null ||
+      statusCallOut == null) {
+    return jsonList; // Return original list if any required parameter is null or empty
+  }
+
+  return jsonList.map((item) {
+    if (item is Map<String, dynamic> && item["lead_id"] == leadId) {
+      return {
+        ...item,
+        "actionCall": status,
+        "call_status": callStatus,
+        "statusCallOut": statusCallOut,
+      };
+    }
+    return item;
+  }).toList();
+}
+
 String returnStringWithMaxLength(
   int? urlLength,
   String? remark,
@@ -40,7 +69,9 @@ dynamic returnLeadListBySearch(
 
   for (var lead in leadJsonList!) {
     if ((lead['first_name']?.toString().contains(searchWord!) ?? false) ||
-        (lead['phone_number']?.toString().contains(searchWord!) ?? false)) {
+        (lead['phone_number']?.toString().contains(searchWord!) ?? false) ||
+        (lead['lead_id']?.toString().contains(searchWord!) ?? false) ||
+        (lead['branch_code']?.toString().contains(searchWord!) ?? false)) {
       output.add(lead);
     }
   }
@@ -4875,7 +4906,10 @@ List<dynamic>? updateActionCall(
 
   return jsonList.map((item) {
     if (item is Map<String, dynamic> && item["lead_id"] == leadId) {
-      return {...item, "actionCall": status};
+      return {
+        ...item,
+        "actionCall": status,
+      };
     }
     return item;
   }).toList();

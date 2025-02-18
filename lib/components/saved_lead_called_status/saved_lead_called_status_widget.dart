@@ -134,7 +134,12 @@ class _SavedLeadCalledStatusWidgetState
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          Navigator.pop(context);
+                          FFAppState().savingLeadCallStatus =
+                              _model.callStatusDropDownValue!;
+                          FFAppState().savingLeadStatusCallOut =
+                              _model.reasonDropDownValue!;
+                          safeSetState(() {});
+                          Navigator.pop(context, '200');
                         },
                       ),
                     ),
@@ -550,8 +555,12 @@ class _SavedLeadCalledStatusWidgetState
                                 )}')!
                             .toList()
                             .cast<String>();
+                        FFAppState().savingLeadCallStatus =
+                            _model.callStatusDropDownValue!;
+                        FFAppState().savingLeadStatusCallOut =
+                            _model.reasonDropDownValue!;
                         safeSetState(() {});
-                        Navigator.pop(context);
+                        Navigator.pop(context, '200');
                         if (_shouldSetState) safeSetState(() {});
                       },
                       text: 'บันทึกการโทร',
