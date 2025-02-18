@@ -2585,6 +2585,95 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                     safeSetState(
                                                                         () {}));
 
+                                                                _model.leadDataByCategory = functions.returnLeadListByChannel(
+                                                                    functions
+                                                                        .updateActionCall(
+                                                                            _model.leadNotiModifyJson.toList(),
+                                                                            '${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.lead_id''',
+                                                                            ).toString()}',
+                                                                            'Save')
+                                                                        ?.toList(),
+                                                                    FFAppState().employeeID);
+                                                                safeSetState(
+                                                                    () {});
+                                                                _model.leadNotiModifyJson = functions
+                                                                    .addDataToJson(functions
+                                                                        .updateActionCall(
+                                                                            _model.leadNotiModifyJson.toList(),
+                                                                            '${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$.lead_id''',
+                                                                            ).toString()}',
+                                                                            'Save')
+                                                                        ?.toList())!
+                                                                    .toList()
+                                                                    .cast<dynamic>();
+                                                                safeSetState(
+                                                                    () {});
+                                                                _model.leadSurveyDataJson =
+                                                                    getJsonField(
+                                                                  _model
+                                                                      .leadDataByCategory,
+                                                                  r'''$.LeadSurvey''',
+                                                                  true,
+                                                                )!
+                                                                        .toList()
+                                                                        .cast<
+                                                                            dynamic>();
+                                                                _model.leadTeleDataJson =
+                                                                    getJsonField(
+                                                                  _model
+                                                                      .leadDataByCategory,
+                                                                  r'''$.LeadTelesale''',
+                                                                  true,
+                                                                )!
+                                                                        .toList()
+                                                                        .cast<
+                                                                            dynamic>();
+                                                                _model.leadAgentDataJson =
+                                                                    getJsonField(
+                                                                  _model
+                                                                      .leadDataByCategory,
+                                                                  r'''$.LeadAgent''',
+                                                                  true,
+                                                                )!
+                                                                        .toList()
+                                                                        .cast<
+                                                                            dynamic>();
+                                                                _model.leadTruckDataJson =
+                                                                    getJsonField(
+                                                                  _model
+                                                                      .leadDataByCategory,
+                                                                  r'''$.LeadTruck''',
+                                                                  true,
+                                                                )!
+                                                                        .toList()
+                                                                        .cast<
+                                                                            dynamic>();
+                                                                _model.leadOwnerDataJson =
+                                                                    getJsonField(
+                                                                  _model
+                                                                      .leadDataByCategory,
+                                                                  r'''$.OwnerLead''',
+                                                                  true,
+                                                                )!
+                                                                        .toList()
+                                                                        .cast<
+                                                                            dynamic>();
+                                                                _model.currentShowingDataJson = _model
+                                                                    .leadNotiModifyJson
+                                                                    .toList()
+                                                                    .cast<
+                                                                        dynamic>();
+                                                                _model.allLeadDataJson = _model
+                                                                    .leadNotiModifyJson
+                                                                    .toList()
+                                                                    .cast<
+                                                                        dynamic>();
+                                                                safeSetState(
+                                                                    () {});
                                                                 if (_shouldSetState)
                                                                   safeSetState(
                                                                       () {});
