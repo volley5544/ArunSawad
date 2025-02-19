@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:ui';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -537,24 +536,6 @@ class _SavedLeadCalledStatusWidgetState
                             );
                           },
                         );
-                        FFAppState().leadCalledStatusReason = functions
-                            .changeValueAtIndexSomethingList(
-                                FFAppState().leadCalledStatusReason.toList(),
-                                widget!.leadIndex,
-                                '${SaveCallStatusAPICall.callStatusReason(
-                                  (_model.saveCallOutput?.jsonBody ?? ''),
-                                )}')!
-                            .toList()
-                            .cast<String>();
-                        FFAppState().leadCallStatus = functions
-                            .changeValueAtIndexSomethingList(
-                                FFAppState().leadCallStatus.toList(),
-                                widget!.leadIndex,
-                                '${SaveCallStatusAPICall.callStatus(
-                                  (_model.saveCallOutput?.jsonBody ?? ''),
-                                )}')!
-                            .toList()
-                            .cast<String>();
                         FFAppState().savingLeadCallStatus =
                             '${SaveCallStatusAPICall.callStatus(
                           (_model.saveCallOutput?.jsonBody ?? ''),
