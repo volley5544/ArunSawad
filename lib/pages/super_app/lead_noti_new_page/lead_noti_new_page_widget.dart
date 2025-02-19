@@ -2713,74 +2713,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
 
                                                                 _shouldSetState =
                                                                     true;
-                                                                await showDialog(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (alertDialogContext) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                        content:
-                                                                            Text(FFAppState().savingLeadCallStatus),
-                                                                        actions: [
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                            child:
-                                                                                Text('Ok'),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                );
-                                                                await showDialog(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (alertDialogContext) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                        content:
-                                                                            Text(FFAppState().savingLeadStatusCallOut),
-                                                                        actions: [
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                            child:
-                                                                                Text('Ok'),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                );
                                                                 if (('${_model.savedCallStatus}' !=
                                                                         '') &&
                                                                     ('${_model.savedCallStatus}' !=
                                                                         'null')) {
-                                                                  await showDialog(
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (alertDialogContext) {
-                                                                      return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                          content:
-                                                                              Text('200'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                              child: Text('Ok'),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  );
                                                                   _model.leadDataByCategory = functions.returnLeadListByChannel(
                                                                       functions
                                                                           .updateActionSave(
