@@ -4906,9 +4906,14 @@ List<dynamic>? updateActionCall(
 
   return jsonList.map((item) {
     if (item is Map<String, dynamic> && item["lead_id"] == leadId) {
+      // Convert countCall to int, increment by 1, then convert back to string
+      int newCount = int.tryParse(item["countCall"] ?? "0") ?? 0;
+      newCount += 1;
+
       return {
         ...item,
         "actionCall": status,
+        "countCall": newCount.toString(), // Convert back to string
       };
     }
     return item;

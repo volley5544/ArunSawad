@@ -2071,6 +2071,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
+                                                                        var _shouldSetState =
+                                                                            false;
                                                                         HapticFeedback
                                                                             .mediumImpact();
                                                                         if (!functions
@@ -2096,6 +2098,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               );
                                                                             },
                                                                           );
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         var confirmDialogResponse = await showDialog<bool>(
@@ -2120,6 +2124,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             ) ??
                                                                             false;
                                                                         if (!confirmDialogResponse) {
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if ('${getJsonField(
@@ -2127,49 +2133,21 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                               r'''$.call_status''',
                                                                             ).toString()}' ==
                                                                             'NEW') {}
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                                content: Text('${getJsonField(
-                                                                                  leadListItemItem,
-                                                                                  r'''$.lead_id''',
-                                                                                ).toString()}'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            );
-                                                                          },
+                                                                        _model.addCalledLead =
+                                                                            await AddPhoneCalledLeadAPICall.call(
+                                                                          apiUrl:
+                                                                              FFAppState().apiURLLocalState,
+                                                                          leadID:
+                                                                              '${getJsonField(
+                                                                            leadListItemItem,
+                                                                            r'''$.lead_id''',
+                                                                          ).toString()}',
+                                                                          token:
+                                                                              FFAppState().accessToken,
                                                                         );
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                                title: Text('after phone call'),
-                                                                                content: Text('${getJsonField(
-                                                                                  leadListItemItem,
-                                                                                  r'''$.actionCall''',
-                                                                                ).toString()}'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
+
+                                                                        _shouldSetState =
+                                                                            true;
                                                                         await actions
                                                                             .open3CXAction(
                                                                           '${getJsonField(
@@ -2276,28 +2254,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             .cast<dynamic>();
                                                                         safeSetState(
                                                                             () {});
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                                title: Text('after phone call'),
-                                                                                content: Text('${getJsonField(
-                                                                                  leadListItemItem,
-                                                                                  r'''$.actionCall''',
-                                                                                ).toString()}'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           ClipRRect(

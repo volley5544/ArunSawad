@@ -142,6 +142,8 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
       textFieldSearchTextControllerValidator;
   // State field(s) for ListView widget.
   ScrollController? listViewController;
+  // Stores action output result for [Backend Call - API (addPhoneCalledLeadAPI)] action in Image widget.
+  ApiCallResponse? addCalledLead;
   // Stores action output result for [Backend Call - API (getLeadCalledStatusDropdownAPI)] action in Button widget.
   ApiCallResponse? getCalledStatusCode;
   // Stores action output result for [Bottom Sheet - savedLeadCalledStatus] action in Button widget.
