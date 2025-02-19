@@ -21,10 +21,6 @@
             "package_name": "com.mycompany.publicarunsawad",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
-        },
-        {
-          "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -36,14 +32,10 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com",
+              "client_id": "379132035355-3bnp3181se9rse1se385td4rd7016tc0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.publicarunsawad"
+                "bundle_id": "com.srisawad.publicarunsawad"
               }
             }
           ]
@@ -57,12 +49,7 @@
           "package_name": "com.myconpany.publicarunsawad"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDOACtWXC1vzqk2EikhCN0rEdhn_FMQRbk"
@@ -72,14 +59,10 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com",
+              "client_id": "379132035355-3bnp3181se9rse1se385td4rd7016tc0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.publicarunsawad"
+                "bundle_id": "com.srisawad.publicarunsawad"
               }
             }
           ]
@@ -93,12 +76,7 @@
           "package_name": "com.srisawad.impoundcarconfigdashboard"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDOACtWXC1vzqk2EikhCN0rEdhn_FMQRbk"
@@ -108,14 +86,10 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com",
+              "client_id": "379132035355-3bnp3181se9rse1se385td4rd7016tc0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.publicarunsawad"
+                "bundle_id": "com.srisawad.publicarunsawad"
               }
             }
           ]
@@ -137,10 +111,6 @@
             "package_name": "com.srisawad.publicarunsawad",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
-        },
-        {
-          "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -152,14 +122,10 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com",
+              "client_id": "379132035355-3bnp3181se9rse1se385td4rd7016tc0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.publicarunsawad"
+                "bundle_id": "com.srisawad.publicarunsawad"
               }
             }
           ]
@@ -181,10 +147,6 @@
             "package_name": "com.srisawad.showcheckininfomation",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
-        },
-        {
-          "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -196,14 +158,10 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com",
+              "client_id": "379132035355-3bnp3181se9rse1se385td4rd7016tc0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mycompany.publicarunsawad"
+                "bundle_id": "com.srisawad.publicarunsawad"
               }
             }
           ]
