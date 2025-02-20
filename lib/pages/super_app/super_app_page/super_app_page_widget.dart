@@ -435,25 +435,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
-          floatingActionButton: Align(
-            alignment: AlignmentDirectional(1.0, 0.8),
-            child: FloatingActionButton.extended(
-              onPressed: () {
-                print('FloatingActionButton pressed ...');
-              },
-              backgroundColor: Colors.transparent,
-              label: FlutterFlowVideoPlayer(
-                path:
-                    'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
-                videoType: VideoType.network,
-                width: 150.0,
-                height: 200.0,
-                autoPlay: true,
-                looping: true,
-                showControls: true,
-                allowFullScreen: true,
-                allowPlaybackSpeedMenu: false,
-                pauseOnNavigate: false,
+          floatingActionButton: Opacity(
+            opacity: 0.0,
+            child: Align(
+              alignment: AlignmentDirectional(1.0, 0.8),
+              child: FloatingActionButton.extended(
+                onPressed: () {
+                  print('FloatingActionButton pressed ...');
+                },
+                backgroundColor: Colors.transparent,
+                label: FlutterFlowVideoPlayer(
+                  path:
+                      'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
+                  videoType: VideoType.asset,
+                  width: 150.0,
+                  height: 200.0,
+                  autoPlay: true,
+                  looping: true,
+                  showControls: true,
+                  allowFullScreen: true,
+                  allowPlaybackSpeedMenu: true,
+                ),
               ),
             ),
           ),
