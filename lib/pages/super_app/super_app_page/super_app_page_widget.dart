@@ -254,6 +254,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       }
       if (FFAppState().isInApp) {
         Navigator.pop(context);
+        _model.isShowVideoPlayer = true;
+        safeSetState(() {});
         return;
       }
       _model.checkDoNotShowIsEmpty = await actions.a17(
@@ -311,6 +313,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         Navigator.pop(context);
         FFAppState().isInApp = true;
         FFAppState().update(() {});
+        _model.isShowVideoPlayer = true;
+        safeSetState(() {});
         return;
       }
       await showModalBottomSheet(
@@ -366,6 +370,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       }
       FFAppState().isInApp = true;
       FFAppState().update(() {});
+      _model.isShowVideoPlayer = true;
+      safeSetState(() {});
     });
 
     animationsMap.addAll({
@@ -17024,120 +17030,102 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                 ),
                 if (_model.isShowVideoPlayer)
                   Align(
-                    alignment: AlignmentDirectional(1.0, 0.95),
+                    alignment: AlignmentDirectional(0.9, 0.95),
                     child: Draggable<String>(
                       data: '',
                       feedback: Material(
                         type: MaterialType.transparency,
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 4.0, 0.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 5.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Container(
-                              width: 120.0,
-                              height: 206.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  width: 2.0,
-                                ),
-                              ),
-                              child: Stack(
-                                children: [
-                                  FlutterFlowVideoPlayer(
-                                    path:
-                                        'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
-                                    videoType: VideoType.asset,
-                                    width: 120.0,
-                                    height: 210.0,
-                                    autoPlay: true,
-                                    looping: true,
-                                    showControls: true,
-                                    allowFullScreen: true,
-                                    allowPlaybackSpeedMenu: true,
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1.0, -1.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        _model.isShowVideoPlayer = false;
-                                        safeSetState(() {});
-                                      },
-                                      child: Icon(
-                                        Icons.close_outlined,
-                                        color: Color(0xFFFF0000),
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 5.0,
-                          shape: RoundedRectangleBorder(
+                        child: Container(
+                          width: 170.0,
+                          height: 300.0,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          child: Container(
-                            width: 120.0,
-                            height: 206.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                width: 2.0,
-                              ),
-                            ),
-                            child: Stack(
-                              children: [
-                                FlutterFlowVideoPlayer(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(1.0, 0.0),
+                                child: FlutterFlowVideoPlayer(
                                   path:
                                       'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
                                   videoType: VideoType.asset,
-                                  width: 120.0,
-                                  height: 210.0,
+                                  width: 170.0,
+                                  height: 300.0,
                                   autoPlay: true,
                                   looping: true,
                                   showControls: true,
                                   allowFullScreen: true,
-                                  allowPlaybackSpeedMenu: true,
+                                  allowPlaybackSpeedMenu: false,
+                                  pauseOnNavigate: false,
                                 ),
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, -1.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      _model.isShowVideoPlayer = false;
-                                      safeSetState(() {});
-                                    },
-                                    child: Icon(
-                                      Icons.close_outlined,
-                                      color: Color(0xFFFF0000),
-                                      size: 24.0,
-                                    ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(1.0, -1.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.isShowVideoPlayer = false;
+                                    safeSetState(() {});
+                                  },
+                                  child: Icon(
+                                    Icons.close_outlined,
+                                    color: Color(0xFFFF0000),
+                                    size: 24.0,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
+                        ),
+                      ),
+                      child: Container(
+                        width: 170.0,
+                        height: 300.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(1.0, 0.0),
+                              child: FlutterFlowVideoPlayer(
+                                path:
+                                    'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
+                                videoType: VideoType.asset,
+                                width: 170.0,
+                                height: 300.0,
+                                autoPlay: true,
+                                looping: true,
+                                showControls: true,
+                                allowFullScreen: true,
+                                allowPlaybackSpeedMenu: false,
+                                pauseOnNavigate: false,
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(1.0, -1.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.isShowVideoPlayer = false;
+                                  safeSetState(() {});
+                                },
+                                child: Icon(
+                                  Icons.close_outlined,
+                                  color: Color(0xFFFF0000),
+                                  size: 24.0,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
