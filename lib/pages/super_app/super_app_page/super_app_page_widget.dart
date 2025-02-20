@@ -16867,40 +16867,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                 Align(
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: GestureDetector(
-                                    onHorizontalDragEnd: (details) async {
-                                      _model.xAxis = details.globalPosition.dx <
-                                              (MediaQuery.sizeOf(context)
-                                                      .width /
-                                                  2)
-                                          ? (-(details.globalPosition.dx /
-                                              (MediaQuery.sizeOf(context)
-                                                      .width /
-                                                  2)))
-                                          : (((details.globalPosition.dx -
-                                                  (MediaQuery.sizeOf(context)
-                                                          .width /
-                                                      2)) /
-                                              (MediaQuery.sizeOf(context)
-                                                      .width /
-                                                  2)));
-                                      _model.yAxis = details.globalPosition.dy <
-                                              (MediaQuery.sizeOf(context)
-                                                      .height /
-                                                  2)
-                                          ? (-(details.globalPosition.dy /
-                                              (MediaQuery.sizeOf(context)
-                                                      .height /
-                                                  2)))
-                                          : (((details.globalPosition.dy -
-                                                  (MediaQuery.sizeOf(context)
-                                                          .height /
-                                                      2)) /
-                                              (MediaQuery.sizeOf(context)
-                                                      .height /
-                                                  2)));
-                                      safeSetState(() {});
-                                    },
-                                    onVerticalDragEnd: (details) async {
+                                    onHorizontalDragUpdate: (details) async {
                                       _model.xAxis = details.globalPosition.dx <
                                               (MediaQuery.sizeOf(context)
                                                       .width /
@@ -16982,34 +16949,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                               Align(
                                 alignment: AlignmentDirectional(1.0, 0.0),
                                 child: GestureDetector(
-                                  onHorizontalDragEnd: (details) async {
-                                    _model.xAxis = details.globalPosition.dx <
-                                            (MediaQuery.sizeOf(context).width /
-                                                2)
-                                        ? (-(details.globalPosition.dx /
-                                            (MediaQuery.sizeOf(context).width /
-                                                2)))
-                                        : (((details.globalPosition.dx -
-                                                (MediaQuery.sizeOf(context)
-                                                        .width /
-                                                    2)) /
-                                            (MediaQuery.sizeOf(context).width /
-                                                2)));
-                                    _model.yAxis = details.globalPosition.dy <
-                                            (MediaQuery.sizeOf(context).height /
-                                                2)
-                                        ? (-(details.globalPosition.dy /
-                                            (MediaQuery.sizeOf(context).height /
-                                                2)))
-                                        : (((details.globalPosition.dy -
-                                                (MediaQuery.sizeOf(context)
-                                                        .height /
-                                                    2)) /
-                                            (MediaQuery.sizeOf(context).height /
-                                                2)));
-                                    safeSetState(() {});
-                                  },
-                                  onVerticalDragEnd: (details) async {
+                                  onHorizontalDragUpdate: (details) async {
                                     _model.xAxis = details.globalPosition.dx <
                                             (MediaQuery.sizeOf(context).width /
                                                 2)
