@@ -12,6 +12,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -28,6 +29,9 @@ class EmployeeKPIPageWidget extends StatefulWidget {
   });
 
   final String? annoucementUrl;
+
+  static String routeName = 'EmployeeKPIPage';
+  static String routePath = 'employeeKPIPage';
 
   @override
   State<EmployeeKPIPageWidget> createState() => _EmployeeKPIPageWidgetState();
@@ -192,7 +196,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
           Navigator.pop(context);
           await actions.a22();
 
-          context.goNamed('LoginPage');
+          context.goNamed(LoginPageWidget.routeName);
 
           return;
         } else {
@@ -568,7 +572,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

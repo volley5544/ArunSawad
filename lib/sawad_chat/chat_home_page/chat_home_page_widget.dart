@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,9 @@ export 'chat_home_page_model.dart';
 
 class ChatHomePageWidget extends StatefulWidget {
   const ChatHomePageWidget({super.key});
+
+  static String routeName = 'ChatHomePage';
+  static String routePath = 'chatHomePage';
 
   @override
   State<ChatHomePageWidget> createState() => _ChatHomePageWidgetState();
@@ -76,7 +80,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'ChatSearchPage',
+                        ChatSearchPageWidget.routeName,
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -153,7 +157,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'ChattingPage',
+                                  ChattingPageWidget.routeName,
                                   queryParameters: {
                                     'userBProfileImage': serializeParam(
                                       listViewChatsRecord.userBProfileImage,

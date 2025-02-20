@@ -12,6 +12,9 @@ export 'type_pic_step1_model.dart';
 class TypePicStep1Widget extends StatefulWidget {
   const TypePicStep1Widget({super.key});
 
+  static String routeName = 'TypePicStep1';
+  static String routePath = 'typePicStep1';
+
   @override
   State<TypePicStep1Widget> createState() => _TypePicStep1WidgetState();
 }

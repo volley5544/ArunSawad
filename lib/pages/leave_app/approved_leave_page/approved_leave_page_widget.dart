@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -25,6 +26,9 @@ export 'approved_leave_page_model.dart';
 
 class ApprovedLeavePageWidget extends StatefulWidget {
   const ApprovedLeavePageWidget({super.key});
+
+  static String routeName = 'ApprovedLeavePage';
+  static String routePath = 'approvedLeavePage';
 
   @override
   State<ApprovedLeavePageWidget> createState() =>
@@ -205,7 +209,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
           Navigator.pop(context);
           await actions.a22();
 
-          context.goNamed('LoginPage');
+          context.goNamed(LoginPageWidget.routeName);
 
           return;
         } else {
@@ -265,7 +269,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('DashboardLeavePage');
+                context.goNamed(DashboardLeavePageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -666,7 +670,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                         Navigator.pop(context);
                                         context.pop();
 
-                                        context.pushNamed('ApprovedLeavePage');
+                                        context.pushNamed(
+                                            ApprovedLeavePageWidget.routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});
@@ -2591,7 +2596,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -2619,7 +2624,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     }
                                                                                   }
 
-                                                                                  context.pushNamed('ApprovedLeavePage');
+                                                                                  context.pushNamed(ApprovedLeavePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                 },
@@ -2805,7 +2810,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     Navigator.pop(context);
                                                                                     context.pop();
 
-                                                                                    context.pushNamed('ApprovedLeavePage');
+                                                                                    context.pushNamed(ApprovedLeavePageWidget.routeName);
                                                                                   } else {
                                                                                     if ((LeaveFlagApproveAPICall.messageLayer1(
                                                                                               (_model.leaveFlagApproveAPIOutput2?.jsonBody ?? ''),
@@ -2897,7 +2902,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;

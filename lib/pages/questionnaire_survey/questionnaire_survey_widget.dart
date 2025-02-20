@@ -12,6 +12,9 @@ export 'questionnaire_survey_model.dart';
 class QuestionnaireSurveyWidget extends StatefulWidget {
   const QuestionnaireSurveyWidget({super.key});
 
+  static String routeName = 'QuestionnaireSurvey';
+  static String routePath = 'questionnaireSurvey';
+
   @override
   State<QuestionnaireSurveyWidget> createState() =>
       _QuestionnaireSurveyWidgetState();

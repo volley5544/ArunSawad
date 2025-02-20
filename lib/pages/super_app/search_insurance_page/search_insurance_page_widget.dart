@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,6 +36,9 @@ class SearchInsurancePageWidget extends StatefulWidget {
   final String? landmark;
   final String? remark;
   final DateTime? clockIn;
+
+  static String routeName = 'SearchInsurancePage';
+  static String routePath = 'searchInsurancePage';
 
   @override
   State<SearchInsurancePageWidget> createState() =>
@@ -80,7 +84,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -137,7 +141,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,

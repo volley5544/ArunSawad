@@ -16,6 +16,9 @@ export 'find_place_page_model.dart';
 class FindPlacePageWidget extends StatefulWidget {
   const FindPlacePageWidget({super.key});
 
+  static String routeName = 'FindPlacePage';
+  static String routePath = 'findPlacePage';
+
   @override
   State<FindPlacePageWidget> createState() => _FindPlacePageWidgetState();
 }

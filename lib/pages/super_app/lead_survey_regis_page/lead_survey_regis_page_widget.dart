@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,6 +17,9 @@ export 'lead_survey_regis_page_model.dart';
 
 class LeadSurveyRegisPageWidget extends StatefulWidget {
   const LeadSurveyRegisPageWidget({super.key});
+
+  static String routeName = 'LeadSurveyRegisPage';
+  static String routePath = 'leadSurveyRegisPage';
 
   @override
   State<LeadSurveyRegisPageWidget> createState() =>
@@ -117,7 +121,7 @@ class _LeadSurveyRegisPageWidgetState extends State<LeadSurveyRegisPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

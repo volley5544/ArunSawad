@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'car_seized_select_dashboard_widget.dart'
     show CarSeizedSelectDashboardWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';

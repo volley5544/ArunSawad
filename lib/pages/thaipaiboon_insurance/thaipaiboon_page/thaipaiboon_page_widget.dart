@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +25,9 @@ export 'thaipaiboon_page_model.dart';
 
 class ThaipaiboonPageWidget extends StatefulWidget {
   const ThaipaiboonPageWidget({super.key});
+
+  static String routeName = 'ThaipaiboonPage';
+  static String routePath = 'thaipaiboonPage';
 
   @override
   State<ThaipaiboonPageWidget> createState() => _ThaipaiboonPageWidgetState();
@@ -200,7 +204,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back_sharp,

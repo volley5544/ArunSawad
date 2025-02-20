@@ -13,6 +13,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -35,6 +36,9 @@ class AddLeavePageWidget extends StatefulWidget {
   });
 
   final String? leaveType;
+
+  static String routeName = 'AddLeavePage';
+  static String routePath = 'addLeavePage';
 
   @override
   State<AddLeavePageWidget> createState() => _AddLeavePageWidgetState();
@@ -130,7 +134,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('LeavePage');
+                context.goNamed(LeavePageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -2593,7 +2597,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       .a22();
 
                                                                   context.goNamed(
-                                                                      'LoginPage');
+                                                                      LoginPageWidget
+                                                                          .routeName);
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(
@@ -3016,7 +3021,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                     .a22();
 
                                                                 context.goNamed(
-                                                                    'LoginPage');
+                                                                    LoginPageWidget
+                                                                        .routeName);
 
                                                                 if (_shouldSetState)
                                                                   safeSetState(
@@ -3210,7 +3216,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         }
 
                                                         context.goNamed(
-                                                            'LeaveShowPage');
+                                                            LeaveShowPageWidget
+                                                                .routeName);
 
                                                         if (_shouldSetState)
                                                           safeSetState(() {});

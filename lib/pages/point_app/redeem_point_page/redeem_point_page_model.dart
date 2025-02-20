@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'redeem_point_page_widget.dart' show RedeemPointPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,9 @@ class WebviewPageWidget extends StatefulWidget {
 
   final String? titleName;
   final String? webUrl;
+
+  static String routeName = 'WebviewPage';
+  static String routePath = 'webviewPage';
 
   @override
   State<WebviewPageWidget> createState() => _WebviewPageWidgetState();
@@ -63,7 +67,7 @@ class _WebviewPageWidgetState extends State<WebviewPageWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back_rounded,

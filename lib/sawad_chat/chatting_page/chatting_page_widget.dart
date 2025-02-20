@@ -39,6 +39,9 @@ class ChattingPageWidget extends StatefulWidget {
   final String userBNickname;
   final String userBEmployeeId;
 
+  static String routeName = 'ChattingPage';
+  static String routePath = 'chattingPage';
+
   @override
   State<ChattingPageWidget> createState() => _ChattingPageWidgetState();
 }

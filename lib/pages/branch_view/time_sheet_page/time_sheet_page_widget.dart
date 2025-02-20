@@ -11,6 +11,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,9 @@ export 'time_sheet_page_model.dart';
 
 class TimeSheetPageWidget extends StatefulWidget {
   const TimeSheetPageWidget({super.key});
+
+  static String routeName = 'TimeSheetPage';
+  static String routePath = 'timeSheetPage';
 
   @override
   State<TimeSheetPageWidget> createState() => _TimeSheetPageWidgetState();
@@ -74,7 +78,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -133,7 +137,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('Dashboard');
+                  context.goNamed(DashboardWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back_sharp,
@@ -282,7 +286,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _shouldSetState = true;
 
                                         context.pushNamed(
-                                          'CheckInPage',
+                                          CheckInPageWidget.routeName,
                                           queryParameters: {
                                             'recordId': serializeParam(
                                               TimesheetDetailAPICall.recordID(
@@ -348,7 +352,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _shouldSetState = true;
 
                                         context.pushNamed(
-                                          'SurveyPage',
+                                          SurveyPageWidget.routeName,
                                           queryParameters: {
                                             'recordId': serializeParam(
                                               TimesheetDetailAPICall.recordID(
@@ -448,7 +452,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _shouldSetState = true;
 
                                         context.pushNamed(
-                                          'CollectionPage',
+                                          CollectionPageWidget.routeName,
                                           queryParameters: {
                                             'coordinate': serializeParam(
                                               functions.showLocationTimesheet(
@@ -539,7 +543,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _shouldSetState = true;
 
                                         context.pushNamed(
-                                          'MarketingPage',
+                                          MarketingPageWidget.routeName,
                                           queryParameters: {
                                             'coordinate': serializeParam(
                                               functions.showLocationTimesheet(
@@ -632,7 +636,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _shouldSetState = true;
 
                                         context.pushNamed(
-                                          'NPApage',
+                                          NPApageWidget.routeName,
                                           queryParameters: {
                                             'recordId': serializeParam(
                                               TimesheetDetailAPICall.recordID(
@@ -692,7 +696,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.Job_Type''',
                                           ).toString()) ==
                                           'OPS') {
-                                        context.pushNamed('OPSpage');
+                                        context
+                                            .pushNamed(OPSpageWidget.routeName);
 
                                         Navigator.pop(context);
                                         if (_shouldSetState)
@@ -718,7 +723,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         _shouldSetState = true;
 
                                         context.pushNamed(
-                                          'CheckerPage',
+                                          CheckerPageWidget.routeName,
                                           queryParameters: {
                                             'recordId': serializeParam(
                                               TimesheetDetailAPICall.recordID(
@@ -873,7 +878,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         }
 
                                         context.pushNamed(
-                                          'RemarkTypeDPage',
+                                          RemarkTypeDPageWidget.routeName,
                                           queryParameters: {
                                             'recordId': serializeParam(
                                               '${getJsonField(

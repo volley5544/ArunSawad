@@ -13,6 +13,9 @@ export 'customer_bike_details_step1_model.dart';
 class CustomerBikeDetailsStep1Widget extends StatefulWidget {
   const CustomerBikeDetailsStep1Widget({super.key});
 
+  static String routeName = 'CustomerBikeDetailsStep1';
+  static String routePath = 'customerBikeDetailsStep1';
+
   @override
   State<CustomerBikeDetailsStep1Widget> createState() =>
       _CustomerBikeDetailsStep1WidgetState();

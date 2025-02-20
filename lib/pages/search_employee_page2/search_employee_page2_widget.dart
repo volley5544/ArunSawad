@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
@@ -26,6 +27,9 @@ export 'search_employee_page2_model.dart';
 
 class SearchEmployeePage2Widget extends StatefulWidget {
   const SearchEmployeePage2Widget({super.key});
+
+  static String routeName = 'SearchEmployeePage2';
+  static String routePath = 'SearchEmployeePage2';
 
   @override
   State<SearchEmployeePage2Widget> createState() =>
@@ -228,7 +232,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -271,7 +275,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'searchableemp',
+                              SearchableempWidget.routeName,
                               queryParameters: {
                                 'listData': serializeParam(
                                   FFAppState().EmpProfileLocationData,
@@ -800,7 +804,7 @@ class _SearchEmployeePage2WidgetState extends State<SearchEmployeePage2Widget>
                                     }
 
                                     context.pushNamed(
-                                      'trackingEmpPage',
+                                      TrackingEmpPageWidget.routeName,
                                       queryParameters: {
                                         'selectedDate': serializeParam(
                                           functions

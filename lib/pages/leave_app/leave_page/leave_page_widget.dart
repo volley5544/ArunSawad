@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +21,9 @@ export 'leave_page_model.dart';
 
 class LeavePageWidget extends StatefulWidget {
   const LeavePageWidget({super.key});
+
+  static String routeName = 'LeavePage';
+  static String routePath = 'leavePage';
 
   @override
   State<LeavePageWidget> createState() => _LeavePageWidgetState();
@@ -88,7 +92,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
             },
           );
 
-          context.goNamed('LeavePage');
+          context.goNamed(LeavePageWidget.routeName);
 
           return;
         }
@@ -198,7 +202,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('DashboardLeavePage');
+                  context.goNamed(DashboardLeavePageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -436,7 +440,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.pushNamed(
-                                            'AddLeavePage',
+                                            AddLeavePageWidget.routeName,
                                             queryParameters: {
                                               'leaveType': serializeParam(
                                                 'ลาป่วย',
@@ -669,7 +673,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.pushNamed(
-                                            'AddLeavePage',
+                                            AddLeavePageWidget.routeName,
                                             queryParameters: {
                                               'leaveType': serializeParam(
                                                 'ลากิจ',
@@ -903,7 +907,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.pushNamed(
-                                            'AddLeavePage',
+                                            AddLeavePageWidget.routeName,
                                             queryParameters: {
                                               'leaveType': serializeParam(
                                                 'ลาพักร้อน',
@@ -1137,7 +1141,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.pushNamed(
-                                            'AddLeavePage',
+                                            AddLeavePageWidget.routeName,
                                             queryParameters: {
                                               'leaveType': serializeParam(
                                                 'ลาอุปสมบท',
@@ -1371,7 +1375,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.pushNamed(
-                                            'AddLeavePage',
+                                            AddLeavePageWidget.routeName,
                                             queryParameters: {
                                               'leaveType': serializeParam(
                                                 'ลาเพื่อรับราชการทหาร',
@@ -1604,7 +1608,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.pushNamed(
-                                            'AddLeavePage',
+                                            AddLeavePageWidget.routeName,
                                             queryParameters: {
                                               'leaveType': serializeParam(
                                                 'ลาคลอด',
@@ -1830,7 +1834,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                         }
 
                                         context.pushNamed(
-                                          'AddLeavePage',
+                                          AddLeavePageWidget.routeName,
                                           queryParameters: {
                                             'leaveType': serializeParam(
                                               'ลาทำหมัน',
@@ -1937,7 +1941,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                         HapticFeedback.mediumImpact();
 
                                         context.pushNamed(
-                                          'AddLeavePage',
+                                          AddLeavePageWidget.routeName,
                                           queryParameters: {
                                             'leaveType': serializeParam(
                                               'ลาโดยไม่รับค่าตอบแทน',
@@ -2075,7 +2079,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           }
 
                                           context.goNamed(
-                                            'AddResignPage',
+                                            AddResignPageWidget.routeName,
                                             queryParameters: {
                                               'isFromDashboard': serializeParam(
                                                 true,

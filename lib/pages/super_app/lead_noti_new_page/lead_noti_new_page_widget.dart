@@ -14,6 +14,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -32,6 +33,9 @@ class LeadNotiNewPageWidget extends StatefulWidget {
   });
 
   final List<Color>? color;
+
+  static String routeName = 'LeadNotiNewPage';
+  static String routePath = 'leadNotiNewPage';
 
   @override
   State<LeadNotiNewPageWidget> createState() => _LeadNotiNewPageWidgetState();
@@ -288,7 +292,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('SuperAppPage');
+                      context.goNamed(SuperAppPageWidget.routeName);
                     },
                     child: Icon(
                       Icons.arrow_back,
@@ -1433,7 +1437,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 hintText:
-                                                    'ค้นหาชื่อ , เบอร์โทร',
+                                                    'ค้นหาชื่อ , เบอร์โทร, รหัสสาขา, LeadID',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium

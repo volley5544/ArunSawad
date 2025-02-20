@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -40,6 +41,9 @@ class InfoCheckinWidget extends StatefulWidget {
   final Color? colorStatus;
   final String? checkinLatitude;
   final String? checkinLongitude;
+
+  static String routeName = 'InfoCheckin';
+  static String routePath = 'infoCheckin';
 
   @override
   State<InfoCheckinWidget> createState() => _InfoCheckinWidgetState();
@@ -86,7 +90,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -622,7 +626,8 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                 100.0, 0.0, 100.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.goNamed('CheckInStatusPage');
+                                context
+                                    .goNamed(CheckInStatusPageWidget.routeName);
                               },
                               text: 'ตกลง',
                               options: FFButtonOptions(

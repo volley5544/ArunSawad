@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,9 @@ class RecordVideoWebviewPageWidget extends StatefulWidget {
   });
 
   final String? webUrl;
+
+  static String routeName = 'RecordVideoWebviewPage';
+  static String routePath = 'RecordVideoWebviewPage';
 
   @override
   State<RecordVideoWebviewPageWidget> createState() =>
@@ -63,7 +67,7 @@ class _RecordVideoWebviewPageWidgetState
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,

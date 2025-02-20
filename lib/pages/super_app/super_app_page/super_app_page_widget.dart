@@ -14,6 +14,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -23,6 +24,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -49,6 +51,9 @@ class SuperAppPageWidget extends StatefulWidget {
   });
 
   final String? dailyText;
+
+  static String routeName = 'SuperAppPage';
+  static String routePath = 'superAppPage';
 
   @override
   State<SuperAppPageWidget> createState() => _SuperAppPageWidgetState();
@@ -89,7 +94,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       if (FFAppState().apiURLLocalState == 'api_url_local_state') {
         await actions.a22();
 
-        context.goNamed('LoginPage');
+        context.goNamed(LoginPageWidget.routeName);
 
         await showDialog(
           context: context,
@@ -161,7 +166,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         } else {
           Navigator.pop(context);
 
-          context.goNamed('SetPinCodePage');
+          context.goNamed(SetPinCodePageWidget.routeName);
 
           return;
         }
@@ -169,7 +174,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         if (!FFAppState().isFromAuthenPage) {
           Navigator.pop(context);
 
-          context.goNamed('PinCodePage');
+          context.goNamed(PinCodePageWidget.routeName);
 
           return;
         }
@@ -223,7 +228,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             FFAppState().update(() {});
             Navigator.pop(context);
 
-            context.goNamed('DashboardLeavePage');
+            context.goNamed(DashboardLeavePageWidget.routeName);
 
             return;
           }
@@ -232,7 +237,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             FFAppState().update(() {});
             Navigator.pop(context);
 
-            context.goNamed('NotificationDetailPage');
+            context.goNamed(NotificationDetailPageWidget.routeName);
 
             return;
           }
@@ -240,7 +245,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
           FFAppState().update(() {});
           Navigator.pop(context);
 
-          context.goNamed('LeadNotiPage');
+          context.goNamed(LeadNotiPageWidget.routeName);
         } else {
           Navigator.pop(context);
         }
@@ -430,6 +435,28 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
+          floatingActionButton: Align(
+            alignment: AlignmentDirectional(1.0, 0.8),
+            child: FloatingActionButton.extended(
+              onPressed: () {
+                print('FloatingActionButton pressed ...');
+              },
+              backgroundColor: Colors.transparent,
+              label: FlutterFlowVideoPlayer(
+                path:
+                    'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                videoType: VideoType.network,
+                width: 150.0,
+                height: 200.0,
+                autoPlay: true,
+                looping: true,
+                showControls: true,
+                allowFullScreen: true,
+                allowPlaybackSpeedMenu: false,
+                pauseOnNavigate: false,
+              ),
+            ),
+          ),
           drawer: Container(
             width: 240.0,
             child: Drawer(
@@ -666,7 +693,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                         FFAppState().leadChannelAmountList = [];
                                         FFAppState().update(() {});
 
-                                        context.goNamed('LoginPage');
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
                                       },
                                       child: Material(
                                         color: Colors.transparent,
@@ -889,7 +917,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                         FFAppState().isFromSetPinPage)) {
                                       Navigator.pop(context);
 
-                                      context.goNamed('PinCodePage');
+                                      context
+                                          .goNamed(PinCodePageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -1090,7 +1119,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     Navigator.pop(context);
                                     await actions.a22();
 
-                                    context.goNamed('LoginPage');
+                                    context.goNamed(LoginPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
@@ -1321,7 +1350,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               FFAppState().isFromSetPinPage)) {
                                             Navigator.pop(context);
 
-                                            context.goNamed('PinCodePage');
+                                            context.goNamed(
+                                                PinCodePageWidget.routeName);
 
                                             return;
                                           }
@@ -1335,7 +1365,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           }
 
                                           context.goNamed(
-                                              'NotificationDetailPage');
+                                              NotificationDetailPageWidget
+                                                  .routeName);
                                         },
                                       ).animateOnPageLoad(animationsMap[
                                           'iconButtonOnPageLoadAnimation']!),
@@ -2234,12 +2265,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               return;
                                                                             }
 
-                                                                            context.goNamed('DashboardCheckin');
+                                                                            context.goNamed(DashboardCheckinWidget.routeName);
                                                                           },
                                                                           child:
                                                                               Container(
@@ -2309,7 +2340,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -2438,7 +2469,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -2459,7 +2490,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             safeSetState(() {});
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('DashboardLeavePage');
+                                                                            context.goNamed(DashboardLeavePageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -2584,7 +2615,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -2713,7 +2744,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -2721,7 +2752,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('CarSeizedSelectDashboard');
+                                                                            context.goNamed(CarSeizedSelectDashboardWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -2796,12 +2827,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               return;
                                                                             }
 
-                                                                            context.goNamed('SearchEmployeePage2');
+                                                                            context.goNamed(SearchEmployeePage2Widget.routeName);
                                                                           },
                                                                           child:
                                                                               Container(
@@ -2874,7 +2905,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -2912,7 +2943,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             Navigator.pop(context);
 
                                                                             context.goNamed(
-                                                                              'WebviewNewPage',
+                                                                              WebviewNewPageWidget.routeName,
                                                                               queryParameters: {
                                                                                 'webUrl': serializeParam(
                                                                                   _model.queryLandAndHouseArunsawadUrl?.urlLink,
@@ -3003,7 +3034,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -3186,7 +3217,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
 
                                                                                   context.goNamed(
-                                                                                    'WebviewNewPage',
+                                                                                    WebviewNewPageWidget.routeName,
                                                                                     queryParameters: {
                                                                                       'webUrl': serializeParam(
                                                                                         _model.queryLandAndHouseUrlTester?.urlLink,
@@ -3273,7 +3304,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             Navigator.pop(context);
 
                                                                             context.goNamed(
-                                                                              'WebviewNewPage',
+                                                                              WebviewNewPageWidget.routeName,
                                                                               queryParameters: {
                                                                                 'webUrl': serializeParam(
                                                                                   _model.queryLandAndHouseUrl?.urlLink,
@@ -3364,7 +3395,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -3583,7 +3614,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -3726,7 +3757,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               _shouldSetState = true;
 
                                                                               context.goNamed(
-                                                                                'RecordVideoCustomer',
+                                                                                RecordVideoCustomerWidget.routeName,
                                                                                 queryParameters: {
                                                                                   'vloanApiUrl': serializeParam(
                                                                                     _model.queryVloanApiUrl?.urlLink,
@@ -3798,7 +3829,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 }
 
                                                                                 context.goNamed(
-                                                                                  'RecordVideoWebviewPage',
+                                                                                  RecordVideoWebviewPageWidget.routeName,
                                                                                   queryParameters: {
                                                                                     'webUrl': serializeParam(
                                                                                       _model.getWebRecodeVideoUrl?.urlLink,
@@ -3879,7 +3910,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               () async {
                                                                             HapticFeedback.mediumImpact();
 
-                                                                            context.pushNamed('Roadmapinsurance');
+                                                                            context.pushNamed(RoadmapinsuranceWidget.routeName);
                                                                           },
                                                                           child:
                                                                               Container(
@@ -3975,7 +4006,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -4111,7 +4142,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -4252,7 +4283,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -4409,7 +4440,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -4549,7 +4580,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -4679,7 +4710,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -5119,7 +5150,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                             }
 
-                                                                            context.goNamed('InsuranceRequestDashboardPage');
+                                                                            context.goNamed(InsuranceRequestDashboardPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -5195,12 +5226,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('PinCodePage');
+                                                                                context.goNamed(PinCodePageWidget.routeName);
 
                                                                                 return;
                                                                               }
 
-                                                                              context.goNamed('BsiReportPage');
+                                                                              context.goNamed(BsiReportPageWidget.routeName);
                                                                             },
                                                                             child:
                                                                                 Container(
@@ -5268,7 +5299,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               return;
                                                                             }
@@ -5307,7 +5338,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
 
                                                                             context.goNamed(
-                                                                              'IBSReport',
+                                                                              IBSReportWidget.routeName,
                                                                               queryParameters: {
                                                                                 'employeeId': serializeParam(
                                                                                   FFAppState().employeeID,
@@ -5424,7 +5455,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -5547,7 +5578,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -5555,7 +5586,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('EmployeeKpiCEOPage');
+                                                                                  context.goNamed(EmployeeKpiCEOPageWidget.routeName);
                                                                                 } else {
                                                                                   Navigator.pop(context);
                                                                                   if (FFAppState().profileLevel == 'ภาค') {
@@ -5578,7 +5609,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   }
 
                                                                                   context.goNamed(
-                                                                                    'EmployeeKPIPage',
+                                                                                    EmployeeKPIPageWidget.routeName,
                                                                                     queryParameters: {
                                                                                       'annoucementUrl': serializeParam(
                                                                                         functions.findIndexOfList(_model.queryAnnouncement?.map((e) => e.title).toList()?.toList(), _model.queryAnnouncement?.map((e) => e.pdfUrl).toList()?.toList(), 'เป้าหมายการขายรายบุคคล'),
@@ -5688,7 +5719,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -5811,7 +5842,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -5819,11 +5850,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (functions.checkIsHaveThisValueInList(containerWelfareAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('WelfareKPICEOPage');
+                                                                                  context.goNamed(WelfareKPICEOPageWidget.routeName);
                                                                                 } else {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('WelfareKPIPage');
+                                                                                  context.goNamed(WelfareKPIPageWidget.routeName);
                                                                                 }
 
                                                                                 if (_shouldSetState) safeSetState(() {});
@@ -5931,7 +5962,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -6055,7 +6086,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -6198,7 +6229,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -6321,7 +6352,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -6452,7 +6483,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -6580,7 +6611,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -6592,7 +6623,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             );
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('LeadNotiNewPage');
+                                                                            context.goNamed(LeadNotiNewPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -6717,7 +6748,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -6845,7 +6876,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -6853,7 +6884,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('CheckInsurancePage');
+                                                                            context.goNamed(CheckInsurancePageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -6927,7 +6958,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7055,7 +7086,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7063,7 +7094,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('Dashboard');
+                                                                            context.goNamed(DashboardWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -7137,7 +7168,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7265,7 +7296,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7273,7 +7304,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('GenQRPage');
+                                                                            context.goNamed(GenQRPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -7346,7 +7377,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7474,7 +7505,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7482,7 +7513,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('SaleskitPage');
+                                                                            context.goNamed(SaleskitPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -7556,7 +7587,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7684,7 +7715,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7692,7 +7723,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('LeadSurveyRegisPage');
+                                                                            context.goNamed(LeadSurveyRegisPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -7766,7 +7797,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7894,7 +7925,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -7902,7 +7933,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('PromotionPage');
+                                                                            context.goNamed(PromotionPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -7978,7 +8009,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8106,7 +8137,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8205,7 +8236,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8333,7 +8364,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8341,7 +8372,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('ClassroomPage');
+                                                                            context.goNamed(ClassroomPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -8414,7 +8445,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8542,7 +8573,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               Navigator.pop(context);
                                                                               await actions.a22();
 
-                                                                              context.goNamed('LoginPage');
+                                                                              context.goNamed(LoginPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8550,7 +8581,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             }
                                                                             Navigator.pop(context);
 
-                                                                            context.goNamed('ITSupportPage');
+                                                                            context.goNamed(ITSupportPageWidget.routeName);
 
                                                                             if (_shouldSetState)
                                                                               safeSetState(() {});
@@ -8625,7 +8656,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8736,7 +8767,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 FFAppState().isFromSetPinPage)) {
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('PinCodePage');
+                                                                              context.goNamed(PinCodePageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -8981,7 +9012,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                     Navigator.pop(context);
 
-                                                                                    context.goNamed('PinCodePage');
+                                                                                    context.goNamed(PinCodePageWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -8993,7 +9024,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'เช็คอิน') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9439,7 +9470,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
                                                                                     }
 
-                                                                                    context.goNamed('InsuranceRequestDashboardPage');
+                                                                                    context.goNamed(InsuranceRequestDashboardPageWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9451,7 +9482,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'ขออนุมัติลา') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9463,7 +9494,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'รายชื่อลีด') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9475,7 +9506,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'เช็คเบี้ยประกัน') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9487,7 +9518,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'ยอดจัดสาขา') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9499,7 +9530,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'โปรโมชั่น') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9511,7 +9542,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'KPI') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9523,7 +9554,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'Branch View') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9535,7 +9566,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         'menu_name',
                                                                                       ) ==
                                                                                       'QR พนักงาน') {
-                                                                                    context.goNamed('DashboardCheckin');
+                                                                                    context.goNamed(DashboardCheckinWidget.routeName);
 
                                                                                     if (_shouldSetState) safeSetState(() {});
                                                                                     return;
@@ -9870,13 +9901,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       return;
                                                                                     }
                                                                                     if ((columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex)) == 'ฟอร์มลีด') {
-                                                                                      context.goNamed('LeadSurveyRegisPage');
+                                                                                      context.goNamed(LeadSurveyRegisPageWidget.routeName);
 
                                                                                       return;
                                                                                     }
 
                                                                                     context.pushNamed(
-                                                                                      'WebviewPage',
+                                                                                      WebviewPageWidget.routeName,
                                                                                       queryParameters: {
                                                                                         'titleName': serializeParam(
                                                                                           columnRoleMenuRecord?.othermenuName?.elementAtOrNull(otherMenuListItemIndex),
@@ -10200,12 +10231,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   return;
                                                                                 }
 
-                                                                                context.goNamed('DashboardCheckin');
+                                                                                context.goNamed(DashboardCheckinWidget.routeName);
                                                                               },
                                                                               child: Container(
                                                                                 width: 100.0,
@@ -10267,7 +10298,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -10391,7 +10422,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -10408,7 +10439,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 safeSetState(() {});
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('DashboardLeavePage');
+                                                                                context.goNamed(DashboardLeavePageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -10522,7 +10553,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -10646,14 +10677,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('CarSeizedSelectDashboard');
+                                                                                context.goNamed(CarSeizedSelectDashboardWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -10708,12 +10739,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   return;
                                                                                 }
 
-                                                                                context.goNamed('SearchEmployeePage2');
+                                                                                context.goNamed(SearchEmployeePage2Widget.routeName);
                                                                               },
                                                                               child: Container(
                                                                                 width: 100.0,
@@ -10767,7 +10798,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -10801,7 +10832,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 Navigator.pop(context);
 
                                                                                 context.goNamed(
-                                                                                  'WebviewNewPage',
+                                                                                  WebviewNewPageWidget.routeName,
                                                                                   queryParameters: {
                                                                                     'webUrl': serializeParam(
                                                                                       _model.queryLandAndHouseArunsawadUrlTab?.urlLink,
@@ -10872,7 +10903,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -11051,7 +11082,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
 
                                                                                       context.goNamed(
-                                                                                        'WebviewNewPage',
+                                                                                        WebviewNewPageWidget.routeName,
                                                                                         queryParameters: {
                                                                                           'webUrl': serializeParam(
                                                                                             _model.queryLandAndHouseUrlTesterTab?.urlLink,
@@ -11135,7 +11166,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 Navigator.pop(context);
 
                                                                                 context.goNamed(
-                                                                                  'WebviewNewPage',
+                                                                                  WebviewNewPageWidget.routeName,
                                                                                   queryParameters: {
                                                                                     'webUrl': serializeParam(
                                                                                       _model.queryLandAndHouseUrlTab?.urlLink,
@@ -11312,7 +11343,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -11435,7 +11466,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -11573,7 +11604,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   _shouldSetState = true;
 
                                                                                   context.goNamed(
-                                                                                    'RecordVideoCustomer',
+                                                                                    RecordVideoCustomerWidget.routeName,
                                                                                     queryParameters: {
                                                                                       'vloanApiUrl': serializeParam(
                                                                                         _model.queryVloanApiUrlTab?.urlLink,
@@ -11605,7 +11636,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     await requestPermission(microphonePermission);
 
                                                                                     context.goNamed(
-                                                                                      'RecordVideoWebviewPage',
+                                                                                      RecordVideoWebviewPageWidget.routeName,
                                                                                       queryParameters: {
                                                                                         'webUrl': serializeParam(
                                                                                           _model.getWebRecodeVideoUrlTab?.urlLink,
@@ -11679,7 +11710,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               onTap: () async {
                                                                                 HapticFeedback.mediumImpact();
 
-                                                                                context.goNamed('Roadmapinsurance');
+                                                                                context.goNamed(RoadmapinsuranceWidget.routeName);
                                                                               },
                                                                               child: Container(
                                                                                 width: 100.0,
@@ -11757,7 +11788,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -11880,7 +11911,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -12013,7 +12044,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -12163,7 +12194,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -12296,7 +12327,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -12419,7 +12450,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -12858,7 +12889,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 safeSetState(() {});
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('InsuranceRequestDashboardPage');
+                                                                                context.goNamed(InsuranceRequestDashboardPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -12920,12 +12951,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   return;
                                                                                 }
 
-                                                                                context.goNamed('BsiReportPage');
+                                                                                context.goNamed(BsiReportPageWidget.routeName);
                                                                               },
                                                                               child: Container(
                                                                                 width: 100.0,
@@ -12985,7 +13016,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   return;
                                                                                 }
@@ -13023,7 +13054,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 }
 
                                                                                 context.goNamed(
-                                                                                  'IBSReport',
+                                                                                  IBSReportWidget.routeName,
                                                                                   queryParameters: {
                                                                                     'employeeId': serializeParam(
                                                                                       FFAppState().employeeID,
@@ -13127,7 +13158,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -13250,7 +13281,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -13258,7 +13289,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('EmployeeKpiCEOPage');
+                                                                                      context.goNamed(EmployeeKpiCEOPageWidget.routeName);
                                                                                     } else {
                                                                                       Navigator.pop(context);
                                                                                       if (FFAppState().profileLevel == 'ภาค') {
@@ -13280,7 +13311,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         return;
                                                                                       }
 
-                                                                                      context.goNamed('EmployeeKPIPage');
+                                                                                      context.goNamed(EmployeeKPIPageWidget.routeName);
                                                                                     }
 
                                                                                     if (_shouldSetState) safeSetState(() {});
@@ -13376,7 +13407,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -13499,7 +13530,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -13507,11 +13538,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (functions.checkIsHaveThisValueInList(containerWelfareTabAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.pushNamed('WelfareKPICEOPage');
+                                                                                      context.pushNamed(WelfareKPICEOPageWidget.routeName);
                                                                                     } else {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('WelfareKPIPage');
+                                                                                      context.goNamed(WelfareKPIPageWidget.routeName);
                                                                                     }
 
                                                                                     if (_shouldSetState) safeSetState(() {});
@@ -13613,7 +13644,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -13737,7 +13768,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -13843,7 +13874,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -13966,7 +13997,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -13977,7 +14008,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 );
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('LeadNotiNewPage');
+                                                                                context.goNamed(LeadNotiNewPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -14120,7 +14151,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                       Navigator.pop(context);
 
-                                                                                      context.goNamed('PinCodePage');
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -14243,7 +14274,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
-                                                                                      context.goNamed('LoginPage');
+                                                                                      context.goNamed(LoginPageWidget.routeName);
 
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
@@ -14369,7 +14400,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -14492,14 +14523,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('CheckInsurancePage');
+                                                                                context.goNamed(CheckInsurancePageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -14563,7 +14594,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -14686,7 +14717,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -14710,7 +14741,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 _shouldSetState = true;
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('Dashboard');
+                                                                                context.goNamed(DashboardWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -14773,7 +14804,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -14896,14 +14927,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('GenQRPage');
+                                                                                context.goNamed(GenQRPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -14965,7 +14996,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -15088,14 +15119,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('SaleskitPage');
+                                                                                context.goNamed(SaleskitPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -15158,7 +15189,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -15281,14 +15312,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('LeadSurveyRegisPage');
+                                                                                context.goNamed(LeadSurveyRegisPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -15351,7 +15382,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -15474,14 +15505,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('PromotionPage');
+                                                                                context.goNamed(PromotionPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -15545,7 +15576,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -15668,7 +15699,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -15753,7 +15784,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -15876,14 +15907,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('ClassroomPage');
+                                                                                context.goNamed(ClassroomPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -15945,7 +15976,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -16068,14 +16099,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   Navigator.pop(context);
                                                                                   await actions.a22();
 
-                                                                                  context.goNamed('LoginPage');
+                                                                                  context.goNamed(LoginPageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
                                                                                 }
                                                                                 Navigator.pop(context);
 
-                                                                                context.goNamed('ITSupportPage');
+                                                                                context.goNamed(ITSupportPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                               },
@@ -16138,7 +16169,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -16232,7 +16263,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                   Navigator.pop(context);
 
-                                                                                  context.goNamed('PinCodePage');
+                                                                                  context.goNamed(PinCodePageWidget.routeName);
 
                                                                                   if (_shouldSetState) safeSetState(() {});
                                                                                   return;
@@ -16425,7 +16456,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       context);
 
                                                                   context.goNamed(
-                                                                      'PinCodePage');
+                                                                      PinCodePageWidget
+                                                                          .routeName);
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(
@@ -16654,7 +16686,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       .a22();
 
                                                                   context.goNamed(
-                                                                      'LoginPage');
+                                                                      LoginPageWidget
+                                                                          .routeName);
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(
@@ -16717,7 +16750,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                     context);
 
                                                                 context.goNamed(
-                                                                  'FormServicePage',
+                                                                  FormServicePageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'formServiceName':
@@ -17100,7 +17134,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       .a22();
 
                                                                   context.goNamed(
-                                                                      'LoginPage');
+                                                                      LoginPageWidget
+                                                                          .routeName);
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(
@@ -17163,7 +17198,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                     context);
 
                                                                 context.goNamed(
-                                                                  'FormServicePage',
+                                                                  FormServicePageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'formServiceName':
@@ -17391,7 +17427,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                           Navigator.pop(context);
 
-                                                                                          context.goNamed('PinCodePage');
+                                                                                          context.goNamed(PinCodePageWidget.routeName);
 
                                                                                           return;
                                                                                         }

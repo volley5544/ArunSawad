@@ -12,6 +12,7 @@ class PinCodeAuthenInputModel
 
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
+  FocusNode? pinCodeFocusNode;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
 
   @override
@@ -21,6 +22,7 @@ class PinCodeAuthenInputModel
 
   @override
   void dispose() {
+    pinCodeFocusNode?.dispose();
     pinCodeController?.dispose();
   }
 }

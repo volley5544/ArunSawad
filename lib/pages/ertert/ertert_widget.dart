@@ -12,6 +12,9 @@ export 'ertert_model.dart';
 class ErtertWidget extends StatefulWidget {
   const ErtertWidget({super.key});
 
+  static String routeName = 'ertert';
+  static String routePath = 'ertert';
+
   @override
   State<ErtertWidget> createState() => _ErtertWidgetState();
 }

@@ -11,6 +11,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -53,6 +54,9 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
   final String fromPage2;
+
+  static String routeName = 'customerCarDeailsPictureStep1';
+  static String routePath = 'customerCarDeailsPictureStep1';
 
   @override
   State<CustomerCarDeailsPictureStep1Widget> createState() =>
@@ -473,7 +477,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                     context.pop();
                   }
                   context.pushNamed(
-                    'ChangeCarLocationPage',
+                    ChangeCarLocationPageWidget.routeName,
                     queryParameters: {
                       'step': serializeParam(
                         widget!.step,
@@ -821,7 +825,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                               context.pop();
                                             }
                                             context.pushNamed(
-                                              'ChangeCarLocationPage',
+                                              ChangeCarLocationPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'step': serializeParam(
                                                   widget!.step,
@@ -1124,7 +1129,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'หน้าตรง',
@@ -1411,7 +1416,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'หน้าซ้าย 45 องศา',
@@ -1693,7 +1698,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'หลังซ้าย 45 องศา',
@@ -1975,7 +1980,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'หลังตรง',
@@ -2257,7 +2262,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'หลังขวา 45 องศา',
@@ -2539,7 +2544,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'หน้าขวา 45 องศา',
@@ -2824,7 +2829,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         widget!.impoundCarParamSet
@@ -3117,7 +3122,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         widget!.impoundCarParamSet
@@ -3419,7 +3424,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         widget!.impoundCarParamSet
@@ -3727,7 +3732,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                   }
 
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'เครื่องยนต์',
@@ -4031,7 +4036,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                   }
 
                                   context.pushNamed(
-                                    'SampleCarImageStep1',
+                                    SampleCarImageStep1Widget.routeName,
                                     queryParameters: {
                                       'imageName': serializeParam(
                                         'เลขตัวถังรถ',
@@ -4338,7 +4343,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       }
 
                                       context.pushNamed(
-                                        'SampleCarImageStep1',
+                                        SampleCarImageStep1Widget.routeName,
                                         queryParameters: {
                                           'imageName': serializeParam(
                                             'แผ่นเพลทรถ',

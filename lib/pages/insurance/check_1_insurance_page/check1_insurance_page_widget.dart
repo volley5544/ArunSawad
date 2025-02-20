@@ -11,6 +11,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,6 +37,9 @@ class Check1InsurancePageWidget extends StatefulWidget {
   final String? province;
   final String? driver;
   final String? vehicleUsage;
+
+  static String routeName = 'Check_1InsurancePage';
+  static String routePath = 'check1InsurancePage';
 
   @override
   State<Check1InsurancePageWidget> createState() =>
@@ -892,7 +896,8 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 return;
                               }
 
-                              context.pushNamed('ListInsurancPage');
+                              context
+                                  .pushNamed(ListInsurancPageWidget.routeName);
 
                               if (_shouldSetState) safeSetState(() {});
                             },

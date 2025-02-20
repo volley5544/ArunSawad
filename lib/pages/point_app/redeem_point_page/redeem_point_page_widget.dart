@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,6 +22,9 @@ class RedeemPointPageWidget extends StatefulWidget {
   });
 
   final String? jwtToken;
+
+  static String routeName = 'redeemPointPage';
+  static String routePath = 'redeemPointPage';
 
   @override
   State<RedeemPointPageWidget> createState() => _RedeemPointPageWidgetState();
@@ -67,7 +71,7 @@ class _RedeemPointPageWidgetState extends State<RedeemPointPageWidget>
         await authManager.signOut();
         GoRouter.of(context).clearRedirectLocation();
 
-        context.goNamedAuth('LoginPage', context.mounted);
+        context.goNamedAuth(LoginPageWidget.routeName, context.mounted);
 
         return;
       }
@@ -228,7 +232,7 @@ class _RedeemPointPageWidgetState extends State<RedeemPointPageWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('DashboardITSupport');
+              context.goNamed(DashboardITSupportWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back_rounded,

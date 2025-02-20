@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +25,9 @@ class LifeInsuranceLicenseCardPageWidget extends StatefulWidget {
   final int? index;
   final String? insuranceName;
   final String? insuranceType;
+
+  static String routeName = 'LifeInsuranceLicenseCardPage';
+  static String routePath = 'lifeInsuranceLicenseCardPage';
 
   @override
   State<LifeInsuranceLicenseCardPageWidget> createState() =>
@@ -98,7 +102,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.goNamed('MyProfilePage');
+                          context.goNamed(MyProfilePageWidget.routeName);
                         },
                         child: Container(
                           width: 50.0,

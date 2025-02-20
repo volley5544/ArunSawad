@@ -19,6 +19,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -51,6 +52,9 @@ class CheckerPageWidget extends StatefulWidget {
   final String? customerName;
   final String? remark;
   final DateTime? clockIn;
+
+  static String routeName = 'CheckerPage';
+  static String routePath = 'checkerPage';
 
   @override
   State<CheckerPageWidget> createState() => _CheckerPageWidgetState();
@@ -103,7 +107,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -316,7 +320,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('Dashboard');
+                  context.goNamed(DashboardWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -2549,7 +2553,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                   return;
                                 }
 
-                                context.goNamed('Dashboard');
+                                context.goNamed(DashboardWidget.routeName);
                               },
                               text: functions.cancelButtonText(
                                   FFAppState().isFromTimesheetPage),
@@ -3060,7 +3064,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     return;
                                   }
 
-                                  context.goNamed('SuccessPage');
+                                  context.goNamed(SuccessPageWidget.routeName);
 
                                   if (_shouldSetState) safeSetState(() {});
                                 },

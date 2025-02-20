@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
@@ -23,6 +24,9 @@ export 'chat_search_page_model.dart';
 
 class ChatSearchPageWidget extends StatefulWidget {
   const ChatSearchPageWidget({super.key});
+
+  static String routeName = 'ChatSearchPage';
+  static String routePath = 'chatSearchPage';
 
   @override
   State<ChatSearchPageWidget> createState() => _ChatSearchPageWidgetState();
@@ -672,7 +676,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                             }
 
                                             context.pushNamed(
-                                              'ChattingPage',
+                                              ChattingPageWidget.routeName,
                                               queryParameters: {
                                                 'userBProfileImage':
                                                     serializeParam(

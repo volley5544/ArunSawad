@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -18,6 +19,9 @@ export 'sum_point_page_model.dart';
 
 class SumPointPageWidget extends StatefulWidget {
   const SumPointPageWidget({super.key});
+
+  static String routeName = 'SumPointPage';
+  static String routePath = 'sumPointPage';
 
   @override
   State<SumPointPageWidget> createState() => _SumPointPageWidgetState();
@@ -175,7 +179,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('MyProfilePage');
+              context.goNamed(MyProfilePageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,
@@ -409,7 +413,8 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.goNamed('GivePointPage');
+                                      context.goNamed(
+                                          GivePointPageWidget.routeName);
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -479,7 +484,8 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.goNamed('QuotaPointPage');
+                                      context.goNamed(
+                                          QuotaPointPageWidget.routeName);
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *

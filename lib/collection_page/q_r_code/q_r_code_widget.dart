@@ -17,6 +17,9 @@ class QRCodeWidget extends StatefulWidget {
 
   final int? followUpDebtTab;
 
+  static String routeName = 'QRCode';
+  static String routePath = 'QRCode';
+
   @override
   State<QRCodeWidget> createState() => _QRCodeWidgetState();
 }

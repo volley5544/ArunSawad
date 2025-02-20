@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -19,6 +20,9 @@ export 'insurance_request_insurer_page_model.dart';
 
 class InsuranceRequestInsurerPageWidget extends StatefulWidget {
   const InsuranceRequestInsurerPageWidget({super.key});
+
+  static String routeName = 'InsuranceRequestInsurerPage';
+  static String routePath = 'InsuranceRequestPageCopy';
 
   @override
   State<InsuranceRequestInsurerPageWidget> createState() =>
@@ -980,7 +984,8 @@ class _InsuranceRequestInsurerPageWidgetState
                                       safeSetState(() {});
 
                                       context.pushNamed(
-                                          'InsuranceRequestImagePage');
+                                          InsuranceRequestImagePageWidget
+                                              .routeName);
                                     },
                                     text: 'ถัดไป',
                                     icon: Icon(

@@ -10,6 +10,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -23,6 +24,9 @@ export 'tab_collection_model.dart';
 
 class TabCollectionWidget extends StatefulWidget {
   const TabCollectionWidget({super.key});
+
+  static String routeName = 'tabCollection';
+  static String routePath = 'tabCollection';
 
   @override
   State<TabCollectionWidget> createState() => _TabCollectionWidgetState();
@@ -614,7 +618,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'SearchCollectionPage',
+                              SearchCollectionPageWidget.routeName,
                               queryParameters: {
                                 'followUpDebtTab': serializeParam(
                                   7,
@@ -656,7 +660,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'listNameTabFollowUpDebt',
+                                    ListNameTabFollowUpDebtWidget.routeName,
                                     queryParameters: {
                                       'followUpDebtTab': serializeParam(
                                         1,
@@ -853,7 +857,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               11,
@@ -1065,7 +1070,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               12,
@@ -1277,7 +1283,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               13,
@@ -1489,7 +1496,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               14,
@@ -1733,7 +1741,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               15,
@@ -1983,7 +1992,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               2,
@@ -2195,7 +2205,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               3,
@@ -2407,7 +2418,8 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'listNameTabFollowUpDebt',
+                                          ListNameTabFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'followUpDebtTab': serializeParam(
                                               4,
@@ -2621,7 +2633,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'listNameTabFollowUpDebt',
+                                    ListNameTabFollowUpDebtWidget.routeName,
                                     queryParameters: {
                                       'followUpDebtTab': serializeParam(
                                         5,
@@ -2863,7 +2875,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'listNameTabFollowUpDebt',
+                                    ListNameTabFollowUpDebtWidget.routeName,
                                     queryParameters: {
                                       'followUpDebtTab': serializeParam(
                                         6,
@@ -3054,7 +3066,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SearchCollectionPP',
+                                    SearchCollectionPPWidget.routeName,
                                     queryParameters: {
                                       'followUpDebtTab': serializeParam(
                                         7,

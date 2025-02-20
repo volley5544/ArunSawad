@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,9 @@ export 'phone_number_info_model.dart';
 
 class PhoneNumberInfoWidget extends StatefulWidget {
   const PhoneNumberInfoWidget({super.key});
+
+  static String routeName = 'PhoneNumberInfo';
+  static String routePath = 'phoneNumberInfo';
 
   @override
   State<PhoneNumberInfoWidget> createState() => _PhoneNumberInfoWidgetState();
@@ -58,7 +62,7 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,

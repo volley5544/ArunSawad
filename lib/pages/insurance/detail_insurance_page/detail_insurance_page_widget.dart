@@ -33,6 +33,9 @@ class DetailInsurancePageWidget extends StatefulWidget {
   final String? actAmount;
   final String? expiryDate;
 
+  static String routeName = 'DetailInsurancePage';
+  static String routePath = 'detailInsurancePage';
+
   @override
   State<DetailInsurancePageWidget> createState() =>
       _DetailInsurancePageWidgetState();

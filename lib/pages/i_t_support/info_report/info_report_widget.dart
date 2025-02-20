@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -21,6 +22,9 @@ export 'info_report_model.dart';
 
 class InfoReportWidget extends StatefulWidget {
   const InfoReportWidget({super.key});
+
+  static String routeName = 'InfoReport';
+  static String routePath = 'infoReport';
 
   @override
   State<InfoReportWidget> createState() => _InfoReportWidgetState();
@@ -67,7 +71,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -576,7 +580,8 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                 5.0, 0.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed('DashboardITSupport');
+                                context.pushNamed(
+                                    DashboardITSupportWidget.routeName);
                               },
                               text: 'ตกลง',
                               options: FFButtonOptions(

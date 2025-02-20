@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,9 @@ export 'insurance_request_list_page_model.dart';
 
 class InsuranceRequestListPageWidget extends StatefulWidget {
   const InsuranceRequestListPageWidget({super.key});
+
+  static String routeName = 'InsuranceRequestListPage';
+  static String routePath = 'InsuranceRequestListPage';
 
   @override
   State<InsuranceRequestListPageWidget> createState() =>
@@ -192,7 +196,8 @@ class _InsuranceRequestListPageWidgetState
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('InsuranceRequestDashboardPage');
+                      context.goNamed(
+                          InsuranceRequestDashboardPageWidget.routeName);
                     },
                     child: Icon(
                       Icons.arrow_back,
@@ -508,7 +513,8 @@ class _InsuranceRequestListPageWidgetState
                                                 Navigator.pop(context);
 
                                                 context.goNamed(
-                                                  'InsuranceRequestEditPage',
+                                                  InsuranceRequestEditPageWidget
+                                                      .routeName,
                                                   queryParameters: {
                                                     'leadId': serializeParam(
                                                       InsuranceRequestDetailAPICall
@@ -1589,7 +1595,8 @@ class _InsuranceRequestListPageWidgetState
                                                 Navigator.pop(context);
 
                                                 context.goNamed(
-                                                    'InsuranceRequestBasicPage');
+                                                    InsuranceRequestBasicPageWidget
+                                                        .routeName);
 
                                                 safeSetState(() {});
                                               },

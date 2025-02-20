@@ -14,6 +14,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,9 @@ export 'change_lat_lng_page_model.dart';
 
 class ChangeLatLngPageWidget extends StatefulWidget {
   const ChangeLatLngPageWidget({super.key});
+
+  static String routeName = 'ChangeLatLngPage';
+  static String routePath = 'changeLatLngPage';
 
   @override
   State<ChangeLatLngPageWidget> createState() => _ChangeLatLngPageWidgetState();
@@ -81,7 +85,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -238,7 +242,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('DashboardCheckin');
+                  context.goNamed(DashboardCheckinWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

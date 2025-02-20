@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,6 +22,9 @@ class CategorySupportWidget extends StatefulWidget {
   });
 
   final String? jwtToken;
+
+  static String routeName = 'CategorySupport';
+  static String routePath = 'categorySupport';
 
   @override
   State<CategorySupportWidget> createState() => _CategorySupportWidgetState();
@@ -67,7 +71,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
         await authManager.signOut();
         GoRouter.of(context).clearRedirectLocation();
 
-        context.goNamedAuth('LoginPage', context.mounted);
+        context.goNamedAuth(LoginPageWidget.routeName, context.mounted);
 
         return;
       }
@@ -188,7 +192,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('DashboardITSupport');
+              context.goNamed(DashboardITSupportWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back_rounded,
@@ -272,7 +276,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'FormItSupport',
+                              FormItSupportWidget.routeName,
                               queryParameters: {
                                 'fixType': serializeParam(
                                   'ฮาร์ดแวร์',
@@ -344,7 +348,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'FormItSupport',
+                              FormItSupportWidget.routeName,
                               queryParameters: {
                                 'fixType': serializeParam(
                                   'แอปพริเคชัน',
@@ -416,7 +420,7 @@ class _CategorySupportWidgetState extends State<CategorySupportWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'FormItSupport',
+                              FormItSupportWidget.routeName,
                               queryParameters: {
                                 'fixType': serializeParam(
                                   'เน็ตเวิร์ค',

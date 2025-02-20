@@ -27,6 +27,9 @@ class RecordFollowUpDebtWidget extends StatefulWidget {
 
   final String? contNo;
 
+  static String routeName = 'recordFollowUpDebt';
+  static String routePath = 'recordFollowUpDebt';
+
   @override
   State<RecordFollowUpDebtWidget> createState() =>
       _RecordFollowUpDebtWidgetState();

@@ -11,6 +11,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,9 @@ export 'notification_detail_page_model.dart';
 
 class NotificationDetailPageWidget extends StatefulWidget {
   const NotificationDetailPageWidget({super.key});
+
+  static String routeName = 'NotificationDetailPage';
+  static String routePath = 'notificationDetailPage';
 
   @override
   State<NotificationDetailPageWidget> createState() =>
@@ -119,7 +123,7 @@ class _NotificationDetailPageWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.goNamed('SuperAppPage');
+                    context.goNamed(SuperAppPageWidget.routeName);
                   },
                   child: Icon(
                     Icons.arrow_back,
@@ -271,7 +275,8 @@ class _NotificationDetailPageWidgetState
                                         safeSetState(() {});
                                         Navigator.pop(context);
 
-                                        context.goNamed('DashboardLeavePage');
+                                        context.goNamed(
+                                            DashboardLeavePageWidget.routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});
@@ -280,7 +285,8 @@ class _NotificationDetailPageWidgetState
                                         if (listViewNotificationRecord
                                                 .notiType ==
                                             'Lead') {
-                                          context.goNamed('LeadNotiPage');
+                                          context.goNamed(
+                                              LeadNotiPageWidget.routeName);
 
                                           if (_shouldSetState)
                                             safeSetState(() {});
@@ -289,7 +295,8 @@ class _NotificationDetailPageWidgetState
                                           if (listViewNotificationRecord
                                                   .notiType ==
                                               'insurance') {
-                                            context.goNamed('MyProfilePage');
+                                            context.goNamed(
+                                                MyProfilePageWidget.routeName);
                                           }
                                         }
                                       }

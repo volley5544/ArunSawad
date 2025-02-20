@@ -12,6 +12,9 @@ export 'e_learning_model.dart';
 class ELearningWidget extends StatefulWidget {
   const ELearningWidget({super.key});
 
+  static String routeName = 'E-learning';
+  static String routePath = 'eLearning';
+
   @override
   State<ELearningWidget> createState() => _ELearningWidgetState();
 }

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -17,6 +18,9 @@ export 'quota_point_page_model.dart';
 
 class QuotaPointPageWidget extends StatefulWidget {
   const QuotaPointPageWidget({super.key});
+
+  static String routeName = 'QuotaPointPage';
+  static String routePath = 'quotaPointPage';
 
   @override
   State<QuotaPointPageWidget> createState() => _QuotaPointPageWidgetState();
@@ -162,7 +166,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('MyProfilePage');
+              context.goNamed(MyProfilePageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,
@@ -470,7 +474,8 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.goNamed('GivePointPage');
+                                      context.goNamed(
+                                          GivePointPageWidget.routeName);
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -540,7 +545,8 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.goNamed('SumPointPage');
+                                      context.goNamed(
+                                          SumPointPageWidget.routeName);
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *

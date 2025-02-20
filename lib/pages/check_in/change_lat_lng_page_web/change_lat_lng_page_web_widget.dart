@@ -30,6 +30,9 @@ class ChangeLatLngPageWebWidget extends StatefulWidget {
 
   final String? token;
 
+  static String routeName = 'ChangeLatLngPageWeb';
+  static String routePath = 'changeLatLngPageWeb';
+
   @override
   State<ChangeLatLngPageWebWidget> createState() =>
       _ChangeLatLngPageWebWidgetState();

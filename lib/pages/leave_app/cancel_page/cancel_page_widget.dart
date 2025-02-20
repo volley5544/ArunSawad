@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,9 @@ class CancelPageWidget extends StatefulWidget {
   });
 
   final String? leaveId;
+
+  static String routeName = 'CancelPage';
+  static String routePath = 'cancelPage';
 
   @override
   State<CancelPageWidget> createState() => _CancelPageWidgetState();
@@ -73,7 +77,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('AddLeavePage');
+                  context.pushNamed(AddLeavePageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -473,7 +477,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                   }
 
                                                                   context.pushNamed(
-                                                                      'LeaveShowPage');
+                                                                      LeaveShowPageWidget
+                                                                          .routeName);
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(
@@ -540,7 +545,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                               onPressed:
                                                                   () async {
                                                                 context.goNamed(
-                                                                    'LeaveShowPage');
+                                                                    LeaveShowPageWidget
+                                                                        .routeName);
                                                               },
                                                               text: 'ยกเลิก',
                                                               options:

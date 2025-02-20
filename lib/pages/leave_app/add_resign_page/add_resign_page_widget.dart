@@ -12,6 +12,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +60,9 @@ class AddResignPageWidget extends StatefulWidget {
   final String? assetEtc;
   final String? subdistrict;
   final String? leaveListId;
+
+  static String routeName = 'AddResignPage';
+  static String routePath = 'addResignPage';
 
   @override
   State<AddResignPageWidget> createState() => _AddResignPageWidgetState();
@@ -225,12 +229,12 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   if (!widget!.isFromDashboard!) {
-                    context.goNamed('LeaveShowPage');
+                    context.goNamed(LeaveShowPageWidget.routeName);
 
                     return;
                   }
 
-                  context.goNamed('LeavePage');
+                  context.goNamed(LeavePageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -2810,8 +2814,9 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     },
                                                   );
 
-                                                  context
-                                                      .goNamed('LeaveShowPage');
+                                                  context.goNamed(
+                                                      LeaveShowPageWidget
+                                                          .routeName);
 
                                                   if (_shouldSetState)
                                                     safeSetState(() {});
@@ -4899,7 +4904,9 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 },
                                               );
 
-                                              context.goNamed('LeaveShowPage');
+                                              context.goNamed(
+                                                  LeaveShowPageWidget
+                                                      .routeName);
 
                                               if (_shouldSetState)
                                                 safeSetState(() {});

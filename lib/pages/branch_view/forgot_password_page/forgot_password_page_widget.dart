@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,6 +17,9 @@ export 'forgot_password_page_model.dart';
 
 class ForgotPasswordPageWidget extends StatefulWidget {
   const ForgotPasswordPageWidget({super.key});
+
+  static String routeName = 'ForgotPasswordPage';
+  static String routePath = 'forgotPasswordPage';
 
   @override
   State<ForgotPasswordPageWidget> createState() =>
@@ -242,7 +246,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   return;
                 }
 
-                context.pushNamed('LoginPage');
+                context.pushNamed(LoginPageWidget.routeName);
               },
               child: Icon(
                 Icons.login_outlined,
@@ -761,7 +765,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                         return;
                                       }
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
                                     },
                                     text: 'ยกเลิก',
                                     options: FFButtonOptions(
@@ -963,7 +968,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                         return;
                                       }
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
                                     },
                                     text: 'เปลี่ยนรหัสผ่าน',
                                     options: FFButtonOptions(

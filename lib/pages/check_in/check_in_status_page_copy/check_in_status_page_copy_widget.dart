@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,9 @@ class CheckInStatusPageCopyWidget extends StatefulWidget {
   });
 
   final String? checkinImage;
+
+  static String routeName = 'CheckInStatusPageCopy';
+  static String routePath = 'checkInStatusPageCopy';
 
   @override
   State<CheckInStatusPageCopyWidget> createState() =>
@@ -68,7 +72,7 @@ class _CheckInStatusPageCopyWidgetState
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('DashboardCheckin');
+                context.goNamed(DashboardCheckinWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back_sharp,

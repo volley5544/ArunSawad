@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,6 +17,9 @@ export 'saleskit_page_model.dart';
 
 class SaleskitPageWidget extends StatefulWidget {
   const SaleskitPageWidget({super.key});
+
+  static String routeName = 'SaleskitPage';
+  static String routePath = 'saleskitPage';
 
   @override
   State<SaleskitPageWidget> createState() => _SaleskitPageWidgetState();
@@ -116,7 +120,7 @@ class _SaleskitPageWidgetState extends State<SaleskitPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

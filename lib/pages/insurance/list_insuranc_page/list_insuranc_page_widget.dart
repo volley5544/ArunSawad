@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,9 @@ export 'list_insuranc_page_model.dart';
 
 class ListInsurancPageWidget extends StatefulWidget {
   const ListInsurancPageWidget({super.key});
+
+  static String routeName = 'ListInsurancPage';
+  static String routePath = 'listInsurancPage';
 
   @override
   State<ListInsurancPageWidget> createState() => _ListInsurancPageWidgetState();
@@ -313,7 +317,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'DetailInsurancePage',
+                                            DetailInsurancePageWidget.routeName,
                                             queryParameters: {
                                               'fullName': serializeParam(
                                                 functions.showMatNameInList(

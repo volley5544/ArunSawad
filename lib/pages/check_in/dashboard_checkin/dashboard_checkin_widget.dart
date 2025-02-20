@@ -8,6 +8,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +26,9 @@ class DashboardCheckinWidget extends StatefulWidget {
   });
 
   final String? jwtToken;
+
+  static String routeName = 'DashboardCheckin';
+  static String routePath = 'dashboardCheckin';
 
   @override
   State<DashboardCheckinWidget> createState() => _DashboardCheckinWidgetState();
@@ -202,7 +206,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back_rounded,
@@ -289,7 +293,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed('CheckInStatusPageCopy');
+                              context.goNamed(
+                                  CheckInStatusPageCopyWidget.routeName);
                             },
                             child: Text(
                               'เมนู',
@@ -363,7 +368,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                                   LatLng(0.0, 0.0));
                                       HapticFeedback.mediumImpact();
 
-                                      context.pushNamed('EmpolyeeCheckIn');
+                                      context.pushNamed(
+                                          EmpolyeeCheckInWidget.routeName);
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -438,7 +444,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                       HapticFeedback.mediumImpact();
 
                                       context.goNamed(
-                                        'CheckInStatusPage',
+                                        CheckInStatusPageWidget.routeName,
                                         queryParameters: {
                                           'holidayDate': serializeParam(
                                             wrapHolidayDateRecord?.holidayDate,
@@ -539,7 +545,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                       onTap: () async {
                                         HapticFeedback.mediumImpact();
 
-                                        context.pushNamed('ChangeLatLngPage');
+                                        context.pushNamed(
+                                            ChangeLatLngPageWidget.routeName);
                                       },
                                       child: Container(
                                         width:

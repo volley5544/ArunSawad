@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,9 @@ class HtmlPageWidget extends StatefulWidget {
   });
 
   final String? contentHtml;
+
+  static String routeName = 'htmlPage';
+  static String routePath = 'htmlPage';
 
   @override
   State<HtmlPageWidget> createState() => _HtmlPageWidgetState();
@@ -64,7 +68,7 @@ class _HtmlPageWidgetState extends State<HtmlPageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('inboxEmail');
+                context.goNamed(InboxEmailWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,

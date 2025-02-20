@@ -17,6 +17,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +68,9 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
   final String? lastPayDate;
   final String? historyCount;
 
+  static String routeName = 'saveOnSiteFollowUpDebt';
+  static String routePath = 'saveOnSiteFollowUpDebt';
+
   @override
   State<SaveOnSiteFollowUpDebtWidget> createState() =>
       _SaveOnSiteFollowUpDebtWidgetState();
@@ -114,7 +118,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -2273,7 +2277,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     return;
                                   }
 
-                                  context.goNamed('SuccessPage');
+                                  context.goNamed(SuccessPageWidget.routeName);
 
                                   if (_shouldSetState) safeSetState(() {});
                                 },

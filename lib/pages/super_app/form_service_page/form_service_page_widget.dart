@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -23,6 +24,9 @@ class FormServicePageWidget extends StatefulWidget {
 
   final String? formServiceName;
   final String? formServiceUrl;
+
+  static String routeName = 'FormServicePage';
+  static String routePath = 'formServicePage';
 
   @override
   State<FormServicePageWidget> createState() => _FormServicePageWidgetState();
@@ -129,7 +133,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

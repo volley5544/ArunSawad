@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -11,6 +12,9 @@ export 'success_page_collecction_model.dart';
 
 class SuccessPageCollecctionWidget extends StatefulWidget {
   const SuccessPageCollecctionWidget({super.key});
+
+  static String routeName = 'successPageCollecction';
+  static String routePath = 'successPageCollecction';
 
   @override
   State<SuccessPageCollecctionWidget> createState() =>
@@ -110,7 +114,7 @@ class _SuccessPageCollecctionWidgetState
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            context.goNamed('Dashboard');
+                            context.goNamed(DashboardWidget.routeName);
                           },
                           text: 'เมนู',
                           options: FFButtonOptions(

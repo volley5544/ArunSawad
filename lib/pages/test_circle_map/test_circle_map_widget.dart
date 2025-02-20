@@ -16,6 +16,9 @@ export 'test_circle_map_model.dart';
 class TestCircleMapWidget extends StatefulWidget {
   const TestCircleMapWidget({super.key});
 
+  static String routeName = 'testCircleMap';
+  static String routePath = 'testCircleMap';
+
   @override
   State<TestCircleMapWidget> createState() => _TestCircleMapWidgetState();
 }

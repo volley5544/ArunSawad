@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -11,6 +12,9 @@ export 'success_page_model.dart';
 
 class SuccessPageWidget extends StatefulWidget {
   const SuccessPageWidget({super.key});
+
+  static String routeName = 'SuccessPage';
+  static String routePath = 'successPage';
 
   @override
   State<SuccessPageWidget> createState() => _SuccessPageWidgetState();
@@ -107,7 +111,7 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            context.goNamed('Dashboard');
+                            context.goNamed(DashboardWidget.routeName);
                           },
                           text: 'เมนู',
                           options: FFButtonOptions(
@@ -143,7 +147,7 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             FFAppState().isFromTimesheetPage = true;
                             FFAppState().update(() {});
 
-                            context.goNamed('TimeSheetPage');
+                            context.goNamed(TimeSheetPageWidget.routeName);
                           },
                           text: 'ไทม์ชีท',
                           options: FFButtonOptions(

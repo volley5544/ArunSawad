@@ -11,6 +11,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,9 @@ export 'check_insurance_page_model.dart';
 
 class CheckInsurancePageWidget extends StatefulWidget {
   const CheckInsurancePageWidget({super.key});
+
+  static String routeName = 'CheckInsurancePage';
+  static String routePath = 'checkInsurancePage';
 
   @override
   State<CheckInsurancePageWidget> createState() =>
@@ -327,7 +331,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -1786,7 +1790,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                     }
 
                                     context.pushNamed(
-                                      'Check_1InsurancePage',
+                                      Check1InsurancePageWidget.routeName,
                                       queryParameters: {
                                         'brandCode': serializeParam(
                                           functions.getTeleBrandID(

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,6 +29,9 @@ class WebviewNewPageWidget extends StatefulWidget {
   final String? levelSearch;
   final String? regionAccessToken;
   final String? regionEmployeeId;
+
+  static String routeName = 'WebviewNewPage';
+  static String routePath = 'webviewNewPage';
 
   @override
   State<WebviewNewPageWidget> createState() => _WebviewNewPageWidgetState();
@@ -113,7 +117,7 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('SuperAppPage');
+                      context.goNamed(SuperAppPageWidget.routeName);
                     },
                     child: Text(
                       'กลับหน้า Home',

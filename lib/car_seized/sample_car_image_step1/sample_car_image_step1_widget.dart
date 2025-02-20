@@ -26,6 +26,9 @@ class SampleCarImageStep1Widget extends StatefulWidget {
   final List<String>? carConfig;
   final List<String>? motocycleConfig;
 
+  static String routeName = 'SampleCarImageStep1';
+  static String routePath = 'sampleCarImageStep1';
+
   @override
   State<SampleCarImageStep1Widget> createState() =>
       _SampleCarImageStep1WidgetState();

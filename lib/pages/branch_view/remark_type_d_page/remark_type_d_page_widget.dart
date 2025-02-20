@@ -18,6 +18,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -51,6 +52,9 @@ class RemarkTypeDPageWidget extends StatefulWidget {
   final String? remarkTypeDName;
   final String? cusName;
   final int? filesCount;
+
+  static String routeName = 'RemarkTypeDPage';
+  static String routePath = 'RemarkTypeDPage';
 
   @override
   State<RemarkTypeDPageWidget> createState() => _RemarkTypeDPageWidgetState();
@@ -159,7 +163,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
             },
           );
 
-          context.goNamed('Dashboard');
+          context.goNamed(DashboardWidget.routeName);
 
           return;
         }
@@ -380,7 +384,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('Dashboard');
+                      context.goNamed(DashboardWidget.routeName);
                     },
                     child: Icon(
                       Icons.arrow_back,
@@ -3078,7 +3082,7 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                       return;
                                     }
 
-                                    context.goNamed('Dashboard');
+                                    context.goNamed(DashboardWidget.routeName);
                                   },
                                   text: functions.cancelButtonText(
                                       FFAppState().isFromTimesheetPage),
@@ -3520,7 +3524,8 @@ class _RemarkTypeDPageWidgetState extends State<RemarkTypeDPageWidget>
                                         safeSetState(() {});
                                         Navigator.pop(context);
 
-                                        context.goNamed('SuccessPage');
+                                        context.goNamed(
+                                            SuccessPageWidget.routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});

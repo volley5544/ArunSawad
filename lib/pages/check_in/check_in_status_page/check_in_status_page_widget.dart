@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -48,6 +49,9 @@ class CheckInStatusPageWidget extends StatefulWidget {
   final List<String>? checkinLastMonthTimeOut;
   final List<String>? holidayDate;
   final List<String>? holidayName;
+
+  static String routeName = 'CheckInStatusPage';
+  static String routePath = 'checkInStatusPage';
 
   @override
   State<CheckInStatusPageWidget> createState() =>
@@ -214,7 +218,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
             Navigator.pop(context);
             await actions.a22();
 
-            context.goNamed('LoginPage');
+            context.goNamed(LoginPageWidget.routeName);
 
             return;
           } else {
@@ -376,7 +380,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
             Navigator.pop(context);
             await actions.a22();
 
-            context.goNamed('LoginPage');
+            context.goNamed(LoginPageWidget.routeName);
 
             return;
           } else {
@@ -622,7 +626,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.goNamed('DashboardCheckin');
+                    context.goNamed(DashboardCheckinWidget.routeName);
                   },
                   child: Icon(
                     Icons.arrow_back_sharp,

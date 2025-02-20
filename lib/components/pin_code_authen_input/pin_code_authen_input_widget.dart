@@ -29,6 +29,8 @@ class _PinCodeAuthenInputWidgetState extends State<PinCodeAuthenInputWidget> {
     super.initState();
     _model = createModel(context, () => PinCodeAuthenInputModel());
 
+    _model.pinCodeFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -53,6 +55,7 @@ class _PinCodeAuthenInputWidgetState extends State<PinCodeAuthenInputWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       enableActiveFill: false,
       autoFocus: true,
+      focusNode: _model.pinCodeFocusNode,
       enablePinAutofill: true,
       errorTextSpace: 16.0,
       showCursor: true,

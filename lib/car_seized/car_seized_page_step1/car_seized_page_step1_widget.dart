@@ -13,6 +13,9 @@ export 'car_seized_page_step1_model.dart';
 class CarSeizedPageStep1Widget extends StatefulWidget {
   const CarSeizedPageStep1Widget({super.key});
 
+  static String routeName = 'CarSeizedPageStep1';
+  static String routePath = 'carSeizedPageStep1';
+
   @override
   State<CarSeizedPageStep1Widget> createState() =>
       _CarSeizedPageStep1WidgetState();

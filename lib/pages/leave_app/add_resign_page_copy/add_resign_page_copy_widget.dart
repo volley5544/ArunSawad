@@ -11,6 +11,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,9 @@ export 'add_resign_page_copy_model.dart';
 
 class AddResignPageCopyWidget extends StatefulWidget {
   const AddResignPageCopyWidget({super.key});
+
+  static String routeName = 'AddResignPageCopy';
+  static String routePath = 'addResignPageCopy';
 
   @override
   State<AddResignPageCopyWidget> createState() =>
@@ -166,7 +170,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('SuperAppPage');
+                      context.goNamed(SuperAppPageWidget.routeName);
                     },
                     child: Icon(
                       Icons.arrow_back,
@@ -2458,7 +2462,8 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               return;
                                             }
 
-                                            context.pushNamed('LeaveShowPage');
+                                            context.pushNamed(
+                                                LeaveShowPageWidget.routeName);
                                           },
                                           text: 'บันทึก',
                                           options: FFButtonOptions(

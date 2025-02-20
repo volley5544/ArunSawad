@@ -13,6 +13,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -25,6 +26,9 @@ export 'approve_show_page_model.dart';
 
 class ApproveShowPageWidget extends StatefulWidget {
   const ApproveShowPageWidget({super.key});
+
+  static String routeName = 'ApproveShowPage';
+  static String routePath = 'approveShowPage';
 
   @override
   State<ApproveShowPageWidget> createState() => _ApproveShowPageWidgetState();
@@ -226,7 +230,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
           Navigator.pop(context);
           await actions.a22();
 
-          context.goNamed('LoginPage');
+          context.goNamed(LoginPageWidget.routeName);
 
           return;
         } else {
@@ -375,7 +379,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('DashboardLeavePage');
+                context.goNamed(DashboardLeavePageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -1373,7 +1377,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         .pop();
 
                                                                     context.pushNamed(
-                                                                        'ApproveShowPage');
+                                                                        ApproveShowPageWidget
+                                                                            .routeName);
                                                                   },
                                                                   text:
                                                                       'ยกเลิก',

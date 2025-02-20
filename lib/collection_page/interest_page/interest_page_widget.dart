@@ -29,6 +29,9 @@ class InterestPageWidget extends StatefulWidget {
   final String? contno;
   final String? dbName;
 
+  static String routeName = 'InterestPage';
+  static String routePath = 'InterestPage';
+
   @override
   State<InterestPageWidget> createState() => _InterestPageWidgetState();
 }

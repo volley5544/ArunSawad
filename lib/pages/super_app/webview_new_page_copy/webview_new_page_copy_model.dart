@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'webview_new_page_copy_widget.dart' show WebviewNewPageCopyWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

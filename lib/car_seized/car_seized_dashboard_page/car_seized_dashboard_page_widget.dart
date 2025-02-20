@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +35,9 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
   final List<String>? motocycleConfig;
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
+
+  static String routeName = 'CarSeizedDashboardPage';
+  static String routePath = 'carSeizedDashboardPage';
 
   @override
   State<CarSeizedDashboardPageWidget> createState() =>
@@ -180,7 +184,7 @@ class _CarSeizedDashboardPageWidgetState
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'searchCustomersGD',
+                        SearchCustomersGDWidget.routeName,
                         queryParameters: {
                           'fromPage': serializeParam(
                             widget!.fromPage,
@@ -463,7 +467,7 @@ class _CarSeizedDashboardPageWidgetState
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'searchCustomersGD',
+                        SearchCustomersGDWidget.routeName,
                         queryParameters: {
                           'fromPage': serializeParam(
                             widget!.fromPage,
@@ -733,7 +737,7 @@ class _CarSeizedDashboardPageWidgetState
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'searchCustomersGD',
+                        SearchCustomersGDWidget.routeName,
                         queryParameters: {
                           'fromPage': serializeParam(
                             widget!.fromPage,
@@ -1003,7 +1007,7 @@ class _CarSeizedDashboardPageWidgetState
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'searchCustomersGD',
+                        SearchCustomersGDWidget.routeName,
                         queryParameters: {
                           'fromPage': serializeParam(
                             widget!.fromPage,

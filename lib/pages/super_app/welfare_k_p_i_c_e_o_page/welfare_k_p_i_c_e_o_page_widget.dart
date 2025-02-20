@@ -16,6 +16,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -28,6 +29,9 @@ export 'welfare_k_p_i_c_e_o_page_model.dart';
 
 class WelfareKPICEOPageWidget extends StatefulWidget {
   const WelfareKPICEOPageWidget({super.key});
+
+  static String routeName = 'WelfareKPICEOPage';
+  static String routePath = 'welfareKPICEOPage';
 
   @override
   State<WelfareKPICEOPageWidget> createState() =>
@@ -154,7 +158,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

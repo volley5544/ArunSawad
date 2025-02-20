@@ -17,6 +17,9 @@ export 'customer_car_deails_picture_step12_model.dart';
 class CustomerCarDeailsPictureStep12Widget extends StatefulWidget {
   const CustomerCarDeailsPictureStep12Widget({super.key});
 
+  static String routeName = 'customerCarDeailsPictureStep12';
+  static String routePath = 'customerCarDeailsPictureStep12';
+
   @override
   State<CustomerCarDeailsPictureStep12Widget> createState() =>
       _CustomerCarDeailsPictureStep12WidgetState();

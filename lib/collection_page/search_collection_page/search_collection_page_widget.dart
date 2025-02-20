@@ -13,6 +13,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -33,6 +34,9 @@ class SearchCollectionPageWidget extends StatefulWidget {
   });
 
   final int? followUpDebtTab;
+
+  static String routeName = 'SearchCollectionPage';
+  static String routePath = 'SearchCollectionPage';
 
   @override
   State<SearchCollectionPageWidget> createState() =>
@@ -792,7 +796,8 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'detailListFollowUpDebt',
+                                          DetailListFollowUpDebtWidget
+                                              .routeName,
                                           queryParameters: {
                                             'cusCod': serializeParam(
                                               getJsonField(
@@ -1203,7 +1208,8 @@ class _SearchCollectionPageWidgetState extends State<SearchCollectionPageWidget>
 
                                                                     context
                                                                         .pushNamed(
-                                                                      'detailListFollowUpDebt',
+                                                                      DetailListFollowUpDebtWidget
+                                                                          .routeName,
                                                                       queryParameters:
                                                                           {
                                                                         'cusCod':

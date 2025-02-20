@@ -11,6 +11,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -582,7 +583,7 @@ class _SearchEmployeeComponentWidgetState
                           }
                           if (widget!.fromPage == 'เป้า/ผลงาน') {
                             context.goNamed(
-                              'IBSReport',
+                              IBSReportWidget.routeName,
                               queryParameters: {
                                 'employeeId': serializeParam(
                                   _model.dropDownValue,

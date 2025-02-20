@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -17,6 +18,9 @@ class SuccessCheckinPageWidget extends StatefulWidget {
   });
 
   final String? checkinPhoto;
+
+  static String routeName = 'SuccessCheckinPage';
+  static String routePath = 'successCheckinPage';
 
   @override
   State<SuccessCheckinPageWidget> createState() =>
@@ -115,7 +119,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            context.goNamed('DashboardCheckin');
+                            context.goNamed(DashboardCheckinWidget.routeName);
                           },
                           text: 'กลับหน้าหลัก',
                           options: FFButtonOptions(
@@ -180,7 +184,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                             return FFButtonWidget(
                               onPressed: () async {
                                 context.goNamed(
-                                  'CheckInStatusPage',
+                                  CheckInStatusPageWidget.routeName,
                                   queryParameters: {
                                     'holidayDate': serializeParam(
                                       buttonHolidayDateRecord?.holidayDate,

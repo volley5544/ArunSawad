@@ -14,6 +14,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'pin_code_page_widget.dart' show PinCodePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -53,6 +54,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   UserLogRecord? createdUserLogLogout;
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
+  FocusNode? pinCodeFocusNode;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
   // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in PinCode widget.
   ApiCallResponse? getUserProfilePin;
@@ -87,6 +89,7 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
 
   @override
   void dispose() {
+    pinCodeFocusNode?.dispose();
     pinCodeController?.dispose();
   }
 }

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,6 +17,9 @@ export 'inbox_email_model.dart';
 
 class InboxEmailWidget extends StatefulWidget {
   const InboxEmailWidget({super.key});
+
+  static String routeName = 'inboxEmail';
+  static String routePath = 'inboxEmail';
 
   @override
   State<InboxEmailWidget> createState() => _InboxEmailWidgetState();
@@ -108,7 +112,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('Dashboard');
+                  context.goNamed(DashboardWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back_sharp,
@@ -197,7 +201,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'htmlPage',
+                                        HtmlPageWidget.routeName,
                                         queryParameters: {
                                           'contentHtml': serializeParam(
                                             _model.contentEmailOutput

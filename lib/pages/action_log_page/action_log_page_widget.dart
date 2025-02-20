@@ -13,6 +13,9 @@ export 'action_log_page_model.dart';
 class ActionLogPageWidget extends StatefulWidget {
   const ActionLogPageWidget({super.key});
 
+  static String routeName = 'ActionLogPage';
+  static String routePath = 'actionLogPage';
+
   @override
   State<ActionLogPageWidget> createState() => _ActionLogPageWidgetState();
 }

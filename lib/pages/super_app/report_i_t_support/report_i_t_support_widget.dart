@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -39,6 +40,9 @@ class ReportITSupportWidget extends StatefulWidget {
   final String? landmark;
   final String? remark;
   final DateTime? clockIn;
+
+  static String routeName = 'ReportITSupport';
+  static String routePath = 'reportITSupport';
 
   @override
   State<ReportITSupportWidget> createState() => _ReportITSupportWidgetState();
@@ -86,7 +90,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -1009,7 +1013,8 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                 0.0, 0.0, 5.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed('DashboardITSupport');
+                                context.pushNamed(
+                                    DashboardITSupportWidget.routeName);
                               },
                               text: 'ยกเลิก',
                               options: FFButtonOptions(
@@ -1044,7 +1049,8 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                 5.0, 0.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.goNamed('DashboardITSupport');
+                                context.goNamed(
+                                    DashboardITSupportWidget.routeName);
                               },
                               text: 'บันทึก',
                               options: FFButtonOptions(

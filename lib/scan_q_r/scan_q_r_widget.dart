@@ -20,6 +20,9 @@ export 'scan_q_r_model.dart';
 class ScanQRWidget extends StatefulWidget {
   const ScanQRWidget({super.key});
 
+  static String routeName = 'ScanQR';
+  static String routePath = 'scanQR';
+
   @override
   State<ScanQRWidget> createState() => _ScanQRWidgetState();
 }

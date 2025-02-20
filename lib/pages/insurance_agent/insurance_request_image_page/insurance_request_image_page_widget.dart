@@ -9,6 +9,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +21,9 @@ export 'insurance_request_image_page_model.dart';
 
 class InsuranceRequestImagePageWidget extends StatefulWidget {
   const InsuranceRequestImagePageWidget({super.key});
+
+  static String routeName = 'InsuranceRequestImagePage';
+  static String routePath = 'InsuranceRequestImagePage';
 
   @override
   State<InsuranceRequestImagePageWidget> createState() =>
@@ -9370,11 +9374,13 @@ class _InsuranceRequestImagePageWidgetState
                                         'กรุณาเลือก';
                                     safeSetState(() {});
 
-                                    context
-                                        .goNamed('InsuranceRequestBasicPage');
+                                    context.goNamed(
+                                        InsuranceRequestBasicPageWidget
+                                            .routeName);
 
                                     context.goNamed(
-                                        'InsuranceRequestDashboardPage');
+                                        InsuranceRequestDashboardPageWidget
+                                            .routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },

@@ -13,6 +13,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,9 @@ class LoginPageWidget extends StatefulWidget {
 
   final DocumentReference? apiURL;
   final String token;
+
+  static String routeName = 'LoginPage';
+  static String routePath = 'loginPage';
 
   @override
   State<LoginPageWidget> createState() => _LoginPageWidgetState();
@@ -85,7 +89,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           FFAppState().InsuranceLicenseStatusCodeDefault.toList().cast<int>();
       safeSetState(() {});
       if (!FFAppState().firstUseApp) {
-        context.goNamed('IntrodutionPage');
+        context.goNamed(IntrodutionPageWidget.routeName);
 
         return;
       }
@@ -809,7 +813,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('register');
+                                                context.pushNamed(
+                                                    RegisterWidget.routeName);
                                               },
                                               child: Text(
                                                 'sign up account',
@@ -1267,7 +1272,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             true;
 
                                                                         context.goNamedAuth(
-                                                                            'SetPinCodePage',
+                                                                            SetPinCodePageWidget.routeName,
                                                                             context.mounted);
 
                                                                         if (_shouldSetState)
@@ -2122,7 +2127,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       }
 
                                                                       context.goNamedAuth(
-                                                                          'SetPinCodePage',
+                                                                          SetPinCodePageWidget
+                                                                              .routeName,
                                                                           context
                                                                               .mounted);
 

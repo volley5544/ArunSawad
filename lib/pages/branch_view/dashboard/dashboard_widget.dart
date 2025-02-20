@@ -13,6 +13,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,9 @@ class DashboardWidget extends StatefulWidget {
   });
 
   final String? jwtToken;
+
+  static String routeName = 'Dashboard';
+  static String routePath = 'dashboard';
 
   @override
   State<DashboardWidget> createState() => _DashboardWidgetState();
@@ -370,7 +374,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back_rounded,
@@ -621,7 +625,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       Navigator.pop(context);
                                       await actions.a22();
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -683,7 +688,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       return;
                                     }
 
-                                    context.goNamed('CheckInPage');
+                                    context
+                                        .goNamed(CheckInPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
@@ -895,7 +901,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       Navigator.pop(context);
                                       await actions.a22();
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -957,7 +964,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       return;
                                     }
 
-                                    context.goNamed('SurveyPage');
+                                    context.goNamed(SurveyPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
@@ -1201,7 +1208,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         Navigator.pop(context);
                                         await actions.a22();
 
-                                        context.goNamed('LoginPage');
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});
@@ -1292,7 +1300,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         return;
                                       }
 
-                                      context.pushNamed('tabCollection');
+                                      context.pushNamed(
+                                          TabCollectionWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -1505,7 +1514,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       Navigator.pop(context);
                                       await actions.a22();
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -1568,7 +1578,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       return;
                                     }
 
-                                    context.goNamed('MarketingPage');
+                                    context
+                                        .goNamed(MarketingPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
@@ -1779,7 +1790,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       Navigator.pop(context);
                                       await actions.a22();
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -1841,7 +1853,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       return;
                                     }
 
-                                    context.goNamed('NPApage');
+                                    context.goNamed(NPApageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
@@ -2003,7 +2015,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             .clearRedirectLocation();
 
                                         context.goNamedAuth(
-                                            'LoginPage', context.mounted);
+                                            LoginPageWidget.routeName,
+                                            context.mounted);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});
@@ -2072,7 +2085,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       }
 
                                       context.goNamedAuth(
-                                          'OPSpage', context.mounted);
+                                          OPSpageWidget.routeName,
+                                          context.mounted);
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -2288,7 +2302,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       Navigator.pop(context);
                                       await actions.a22();
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -2365,7 +2380,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       return;
                                     }
 
-                                    context.goNamed('CheckerPage');
+                                    context
+                                        .goNamed(CheckerPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
@@ -2584,7 +2600,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         Navigator.pop(context);
                                         await actions.a22();
 
-                                        context.goNamed('LoginPage');
+                                        context
+                                            .goNamed(LoginPageWidget.routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});
@@ -2593,7 +2610,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       FFAppState().isFromTimesheetPage = false;
                                       FFAppState().update(() {});
 
-                                      context.goNamed('RemarkTypeDPage');
+                                      context.goNamed(
+                                          RemarkTypeDPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -2806,7 +2824,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       Navigator.pop(context);
                                       await actions.a22();
 
-                                      context.goNamed('LoginPage');
+                                      context
+                                          .goNamed(LoginPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
@@ -2814,7 +2833,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     FFAppState().isFromTimesheetPage = true;
                                     FFAppState().update(() {});
 
-                                    context.goNamed('TimeSheetPage');
+                                    context
+                                        .goNamed(TimeSheetPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },

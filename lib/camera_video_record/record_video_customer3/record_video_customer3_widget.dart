@@ -35,6 +35,9 @@ class RecordVideoCustomer3Widget extends StatefulWidget {
   final String? contNo;
   final String? checkType;
 
+  static String routeName = 'RecordVideoCustomer3';
+  static String routePath = 'recordVideoCustomer3';
+
   @override
   State<RecordVideoCustomer3Widget> createState() =>
       _RecordVideoCustomer3WidgetState();

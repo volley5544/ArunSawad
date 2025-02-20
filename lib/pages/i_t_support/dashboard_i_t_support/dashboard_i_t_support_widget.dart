@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,6 +22,9 @@ class DashboardITSupportWidget extends StatefulWidget {
   });
 
   final String? jwtToken;
+
+  static String routeName = 'DashboardITSupport';
+  static String routePath = 'dashboardITSupport';
 
   @override
   State<DashboardITSupportWidget> createState() =>
@@ -68,7 +72,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
         await authManager.signOut();
         GoRouter.of(context).clearRedirectLocation();
 
-        context.goNamedAuth('LoginPage', context.mounted);
+        context.goNamedAuth(LoginPageWidget.routeName, context.mounted);
 
         return;
       }
@@ -189,7 +193,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back_rounded,
@@ -272,7 +276,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('CategorySupport');
+                            context.pushNamed(CategorySupportWidget.routeName);
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.45,
@@ -300,7 +304,8 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.goNamed('CategorySupport');
+                                  context
+                                      .goNamed(CategorySupportWidget.routeName);
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -345,7 +350,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('ReportList');
+                            context.pushNamed(ReportListWidget.routeName);
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.45,
@@ -409,7 +414,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.goNamed('ReportList');
+                            context.goNamed(ReportListWidget.routeName);
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.45,
@@ -437,7 +442,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.goNamed('ReportList');
+                                  context.goNamed(ReportListWidget.routeName);
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,

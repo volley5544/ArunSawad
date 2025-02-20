@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'forgot_password_page_widget.dart' show ForgotPasswordPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

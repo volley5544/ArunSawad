@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -32,6 +33,9 @@ export 'my_profile_page_model.dart';
 
 class MyProfilePageWidget extends StatefulWidget {
   const MyProfilePageWidget({super.key});
+
+  static String routeName = 'MyProfilePage';
+  static String routePath = 'myProfilePage';
 
   @override
   State<MyProfilePageWidget> createState() => _MyProfilePageWidgetState();
@@ -75,7 +79,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
       if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
         Navigator.pop(context);
 
-        context.goNamed('PinCodePage');
+        context.goNamed(PinCodePageWidget.routeName);
 
         return;
       }
@@ -1563,7 +1567,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.goNamed(
-                                                'InsurancePlan',
+                                                InsurancePlanWidget.routeName,
                                                 queryParameters: {
                                                   'planInsurance':
                                                       serializeParam(
@@ -1598,8 +1602,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  context
-                                                      .goNamed('GuideBookPage');
+                                                  context.goNamed(
+                                                      GuideBookPageWidget
+                                                          .routeName);
                                                 },
                                                 text: 'คู่มือพนักงาน',
                                                 options: FFButtonOptions(
@@ -1809,7 +1814,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'InsurancePlan',
+                                                  InsurancePlanWidget.routeName,
                                                   queryParameters: {
                                                     'planInsurance':
                                                         serializeParam(
@@ -1845,8 +1850,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  context
-                                                      .goNamed('GuideBookPage');
+                                                  context.goNamed(
+                                                      GuideBookPageWidget
+                                                          .routeName);
                                                 },
                                                 text: 'คู่มือพนักงาน',
                                                 options: FFButtonOptions(
@@ -1924,7 +1930,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('QuotaPointPage');
+                                    context.pushNamed(
+                                        QuotaPointPageWidget.routeName);
                                   },
                                   child: Container(
                                     width:
@@ -2057,7 +2064,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('SumPointPage');
+                                    context.pushNamed(
+                                        SumPointPageWidget.routeName);
                                   },
                                   child: Container(
                                     width:
@@ -2403,7 +2411,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.goNamed(
-                                                        'LifeInsuranceLicenseCardPage',
+                                                        LifeInsuranceLicenseCardPageWidget
+                                                            .routeName,
                                                         queryParameters: {
                                                           'index':
                                                               serializeParam(

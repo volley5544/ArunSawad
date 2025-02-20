@@ -10,6 +10,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -24,6 +25,9 @@ export 'insurance_request_basic_page_model.dart';
 
 class InsuranceRequestBasicPageWidget extends StatefulWidget {
   const InsuranceRequestBasicPageWidget({super.key});
+
+  static String routeName = 'InsuranceRequestBasicPage';
+  static String routePath = 'InsuranceRequestBasicPage';
 
   @override
   State<InsuranceRequestBasicPageWidget> createState() =>
@@ -306,12 +310,13 @@ class _InsuranceRequestBasicPageWidgetState
                     _model.vehicleTypeDropDownValueController?.reset();
                   });
                   if (FFAppState().fromPage == 'ListPage') {
-                    context.goNamed('InsuranceRequestListPage');
+                    context.goNamed(InsuranceRequestListPageWidget.routeName);
 
                     return;
                   }
 
-                  context.goNamed('InsuranceRequestDashboardPage');
+                  context
+                      .goNamed(InsuranceRequestDashboardPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -4771,7 +4776,8 @@ class _InsuranceRequestBasicPageWidgetState
                                     safeSetState(() {});
 
                                     context.pushNamed(
-                                        'InsuranceRequestInsurerPage');
+                                        InsuranceRequestInsurerPageWidget
+                                            .routeName);
                                   },
                                   text: 'ถัดไป',
                                   icon: Icon(

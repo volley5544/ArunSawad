@@ -16,6 +16,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -32,6 +33,9 @@ export 'k_p_i_all_c_e_o_page_model.dart';
 
 class KPIAllCEOPageWidget extends StatefulWidget {
   const KPIAllCEOPageWidget({super.key});
+
+  static String routeName = 'KPIAllCEOPage';
+  static String routePath = 'kPIAllCEOPage';
 
   @override
   State<KPIAllCEOPageWidget> createState() => _KPIAllCEOPageWidgetState();
@@ -227,7 +231,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

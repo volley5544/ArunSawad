@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ export 'roadmapinsurance_model.dart';
 
 class RoadmapinsuranceWidget extends StatefulWidget {
   const RoadmapinsuranceWidget({super.key});
+
+  static String routeName = 'Roadmapinsurance';
+  static String routePath = 'roadmapinsurance';
 
   @override
   State<RoadmapinsuranceWidget> createState() => _RoadmapinsuranceWidgetState();
@@ -124,7 +128,7 @@ class _RoadmapinsuranceWidgetState extends State<RoadmapinsuranceWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

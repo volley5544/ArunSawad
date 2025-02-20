@@ -9,6 +9,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,9 @@ class RecordVideoCustomerWidget extends StatefulWidget {
   });
 
   final String? vloanApiUrl;
+
+  static String routeName = 'RecordVideoCustomer';
+  static String routePath = 'recordVideoCustomer';
 
   @override
   State<RecordVideoCustomerWidget> createState() =>
@@ -75,7 +79,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -488,7 +492,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         await requestPermission(microphonePermission);
                         if (true) {
                           context.pushNamed(
-                            'RecordVideoCustomer2',
+                            RecordVideoCustomer2Widget.routeName,
                             queryParameters: {
                               'contNo': serializeParam(
                                 _model.textController.text,

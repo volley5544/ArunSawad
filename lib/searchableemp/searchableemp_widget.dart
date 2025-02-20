@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,9 @@ class SearchableempWidget extends StatefulWidget {
   });
 
   final List<EmpDataLocationStruct>? listData;
+
+  static String routeName = 'searchableemp';
+  static String routePath = 'searchableemp';
 
   @override
   State<SearchableempWidget> createState() => _SearchableempWidgetState();
@@ -67,7 +71,7 @@ class _SearchableempWidgetState extends State<SearchableempWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back_rounded,

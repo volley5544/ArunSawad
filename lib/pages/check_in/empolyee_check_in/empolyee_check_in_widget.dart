@@ -19,6 +19,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,9 @@ class EmpolyeeCheckInWidget extends StatefulWidget {
   final String? coordinate;
   final String? remark;
   final DateTime? clockIn;
+
+  static String routeName = 'EmpolyeeCheckIn';
+  static String routePath = 'empolyeeCheckIn';
 
   @override
   State<EmpolyeeCheckInWidget> createState() => _EmpolyeeCheckInWidgetState();
@@ -342,7 +346,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                 Navigator.pop(context);
                 await actions.a22();
 
-                context.goNamed('LoginPage');
+                context.goNamed(LoginPageWidget.routeName);
 
                 return;
               } else {
@@ -497,7 +501,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
             Navigator.pop(context);
             await actions.a22();
 
-            context.goNamed('LoginPage');
+            context.goNamed(LoginPageWidget.routeName);
 
             return;
           } else {
@@ -815,7 +819,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       .delete();
                 }
 
-                context.goNamed('DashboardCheckin');
+                context.goNamed(DashboardCheckinWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -2898,7 +2902,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             Navigator.pop(context);
                                             await actions.a22();
 
-                                            context.goNamed('LoginPage');
+                                            context.goNamed(
+                                                LoginPageWidget.routeName);
 
                                             if (_shouldSetState)
                                               safeSetState(() {});
@@ -3010,7 +3015,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       FFAppState().update(() {});
 
                                       context.goNamed(
-                                        'SuccessCheckinPage',
+                                        SuccessCheckinPageWidget.routeName,
                                         queryParameters: {
                                           'checkinPhoto': serializeParam(
                                             FFAppState().imgURLTemp,

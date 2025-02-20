@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,9 @@ class SearchCustomersGDWidget extends StatefulWidget {
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
   final String contractNumber;
+
+  static String routeName = 'searchCustomersGD';
+  static String routePath = 'searchCustomersGD';
 
   @override
   State<SearchCustomersGDWidget> createState() =>
@@ -2354,7 +2358,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   'takeImages') {
                                                                 context
                                                                     .pushNamed(
-                                                                  'ChangeCarLocationPage',
+                                                                  ChangeCarLocationPageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'step':
@@ -2626,7 +2631,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                               }
 
                                                               context.pushNamed(
-                                                                'ChangeCarLocationPage',
+                                                                ChangeCarLocationPageWidget
+                                                                    .routeName,
                                                                 queryParameters:
                                                                     {
                                                                   'step':
@@ -2862,7 +2868,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                               );
                                                             } else {
                                                               context.pushNamed(
-                                                                'customerCarDeailsPictureStep1',
+                                                                CustomerCarDeailsPictureStep1Widget
+                                                                    .routeName,
                                                                 queryParameters:
                                                                     {
                                                                   'step':

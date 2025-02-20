@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,6 +36,9 @@ class AboutUsPageWidget extends StatefulWidget {
   final String? landmark;
   final String? remark;
   final DateTime? clockIn;
+
+  static String routeName = 'AboutUsPage';
+  static String routePath = 'aboutUsPage';
 
   @override
   State<AboutUsPageWidget> createState() => _AboutUsPageWidgetState();
@@ -78,7 +82,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -507,7 +511,8 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.goNamed('ContactUsPage');
+                                    context
+                                        .goNamed(ContactUsPageWidget.routeName);
                                   },
                                   child: Icon(
                                     Icons.arrow_back,

@@ -23,6 +23,9 @@ export 'branch_selected_page_model.dart';
 class BranchSelectedPageWidget extends StatefulWidget {
   const BranchSelectedPageWidget({super.key});
 
+  static String routeName = 'BranchSelectedPage';
+  static String routePath = 'BranchSelectedPage';
+
   @override
   State<BranchSelectedPageWidget> createState() =>
       _BranchSelectedPageWidgetState();

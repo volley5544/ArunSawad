@@ -20,6 +20,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -53,6 +54,9 @@ class OPSpageWidget extends StatefulWidget {
   final String? carPlateNo;
   final String? signboardStatus;
   final String? remark;
+
+  static String routeName = 'OPSpage';
+  static String routePath = 'oPSpage';
 
   @override
   State<OPSpageWidget> createState() => _OPSpageWidgetState();
@@ -2619,7 +2623,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   .clearRedirectLocation();
 
                                               context.goNamedAuth(
-                                                  'LoginPage', context.mounted);
+                                                  LoginPageWidget.routeName,
+                                                  context.mounted);
 
                                               if (_shouldSetState)
                                                 safeSetState(() {});
@@ -2632,7 +2637,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           }
 
                                           context.goNamedAuth(
-                                              'Dashboard', context.mounted);
+                                              DashboardWidget.routeName,
+                                              context.mounted);
 
                                           if (_shouldSetState)
                                             safeSetState(() {});
@@ -3081,7 +3087,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         .clearRedirectLocation();
 
                                                     context.goNamedAuth(
-                                                        'LoginPage',
+                                                        LoginPageWidget
+                                                            .routeName,
                                                         context.mounted);
 
                                                     if (_shouldSetState)
@@ -3421,7 +3428,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         .clearRedirectLocation();
 
                                                     context.goNamedAuth(
-                                                        'LoginPage',
+                                                        LoginPageWidget
+                                                            .routeName,
                                                         context.mounted);
 
                                                     if (_shouldSetState)
@@ -3756,7 +3764,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       .clearRedirectLocation();
 
                                                   context.goNamedAuth(
-                                                      'LoginPage',
+                                                      LoginPageWidget.routeName,
                                                       context.mounted);
 
                                                   if (_shouldSetState)
@@ -3792,7 +3800,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             }
 
                                             context.goNamedAuth(
-                                                'SuccessPage', context.mounted);
+                                                SuccessPageWidget.routeName,
+                                                context.mounted);
 
                                             if (_shouldSetState)
                                               safeSetState(() {});

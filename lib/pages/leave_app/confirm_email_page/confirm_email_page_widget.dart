@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,9 @@ export 'confirm_email_page_model.dart';
 
 class ConfirmEmailPageWidget extends StatefulWidget {
   const ConfirmEmailPageWidget({super.key});
+
+  static String routeName = 'ConfirmEmailPage';
+  static String routePath = 'confirmEmailPage';
 
   @override
   State<ConfirmEmailPageWidget> createState() => _ConfirmEmailPageWidgetState();
@@ -63,7 +67,7 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('LeaveShowPage');
+                context.pushNamed(LeaveShowPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -326,7 +330,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                               onPressed:
                                                                   () async {
                                                                 context.pushNamed(
-                                                                    'LeaveShowPage');
+                                                                    LeaveShowPageWidget
+                                                                        .routeName);
                                                               },
                                                               text: 'ตกลง',
                                                               options:
@@ -391,7 +396,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                             onPressed:
                                                                 () async {
                                                               context.pushNamed(
-                                                                  'ConfirmEmailPage');
+                                                                  ConfirmEmailPageWidget
+                                                                      .routeName);
                                                             },
                                                             text: 'ยกเลิก',
                                                             options:

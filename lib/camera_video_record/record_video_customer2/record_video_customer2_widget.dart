@@ -19,6 +19,9 @@ class RecordVideoCustomer2Widget extends StatefulWidget {
   final String? contNo;
   final String? checkApp;
 
+  static String routeName = 'RecordVideoCustomer2';
+  static String routePath = 'recordVideoCustomer2';
+
   @override
   State<RecordVideoCustomer2Widget> createState() =>
       _RecordVideoCustomer2WidgetState();

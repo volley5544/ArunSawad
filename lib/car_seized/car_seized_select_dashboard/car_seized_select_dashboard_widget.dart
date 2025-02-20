@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ export 'car_seized_select_dashboard_model.dart';
 
 class CarSeizedSelectDashboardWidget extends StatefulWidget {
   const CarSeizedSelectDashboardWidget({super.key});
+
+  static String routeName = 'CarSeizedSelectDashboard';
+  static String routePath = 'carSeizedSelectDashboard';
 
   @override
   State<CarSeizedSelectDashboardWidget> createState() =>
@@ -157,7 +161,7 @@ class _CarSeizedSelectDashboardWidgetState
               size: 30.0,
             ),
             onPressed: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
           ),
           title: Text(
@@ -211,7 +215,7 @@ class _CarSeizedSelectDashboardWidgetState
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'CarSeizedDashboardPage',
+                          CarSeizedDashboardPageWidget.routeName,
                           queryParameters: {
                             'fromPage': serializeParam(
                               'takeImages',
@@ -340,7 +344,7 @@ class _CarSeizedSelectDashboardWidgetState
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'CarSeizedDashboardPage',
+                          CarSeizedDashboardPageWidget.routeName,
                           queryParameters: {
                             'fromPage': serializeParam(
                               'seeImages',
@@ -463,7 +467,7 @@ class _CarSeizedSelectDashboardWidgetState
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'CarSeizedDashboardPage',
+                          CarSeizedDashboardPageWidget.routeName,
                           queryParameters: {
                             'fromPage': serializeParam(
                               'changeCarLocation',

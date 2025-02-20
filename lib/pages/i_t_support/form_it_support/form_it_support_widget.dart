@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -21,6 +22,9 @@ class FormItSupportWidget extends StatefulWidget {
   });
 
   final String? fixType;
+
+  static String routeName = 'FormItSupport';
+  static String routePath = 'formItSupport';
 
   @override
   State<FormItSupportWidget> createState() => _FormItSupportWidgetState();
@@ -83,7 +87,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('LeavePage');
+                  context.goNamed(LeavePageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

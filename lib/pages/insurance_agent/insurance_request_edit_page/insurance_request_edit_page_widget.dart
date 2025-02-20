@@ -13,6 +13,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -142,6 +143,9 @@ class InsuranceRequestEditPageWidget extends StatefulWidget {
   final List<dynamic>? imageOther;
   final List<String>? imageOtherName;
 
+  static String routeName = 'InsuranceRequestEditPage';
+  static String routePath = 'InsuranceRequestEditPage';
+
   @override
   State<InsuranceRequestEditPageWidget> createState() =>
       _InsuranceRequestEditPageWidgetState();
@@ -259,7 +263,7 @@ class _InsuranceRequestEditPageWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('InsuranceRequestListPage');
+                  context.goNamed(InsuranceRequestListPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -11090,7 +11094,8 @@ class _InsuranceRequestEditPageWidgetState
                                         }
 
                                         context.goNamed(
-                                            'InsuranceRequestListPage');
+                                            InsuranceRequestListPageWidget
+                                                .routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});

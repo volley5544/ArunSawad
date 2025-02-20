@@ -15,6 +15,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -34,6 +35,9 @@ class LeadNotiPageWidget extends StatefulWidget {
   });
 
   final List<Color>? color;
+
+  static String routeName = 'LeadNotiPage';
+  static String routePath = 'leadNotiPage';
 
   @override
   State<LeadNotiPageWidget> createState() => _LeadNotiPageWidgetState();
@@ -424,7 +428,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.goNamed('SuperAppPage');
+                    context.goNamed(SuperAppPageWidget.routeName);
                   },
                   child: Icon(
                     Icons.arrow_back,

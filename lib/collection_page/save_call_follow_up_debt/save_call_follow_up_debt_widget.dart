@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -65,6 +66,9 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
   final List<String>? historyCount;
   final List<String>? arnow;
   final List<String>? dbName;
+
+  static String routeName = 'saveCallFollowUpDebt';
+  static String routePath = 'saveCallFollowUpDebt';
 
   @override
   State<SaveCallFollowUpDebtWidget> createState() =>
@@ -3189,7 +3193,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                           Navigator.pop(context);
 
                                           context.pushNamed(
-                                              'successPageCollecction');
+                                              SuccessPageCollecctionWidget
+                                                  .routeName);
 
                                           if (_shouldSetState)
                                             safeSetState(() {});

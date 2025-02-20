@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -17,6 +18,9 @@ export 'inspoc_page_model.dart';
 
 class InspocPageWidget extends StatefulWidget {
   const InspocPageWidget({super.key});
+
+  static String routeName = 'InspocPage';
+  static String routePath = 'inspocPage';
 
   @override
   State<InspocPageWidget> createState() => _InspocPageWidgetState();
@@ -141,7 +145,7 @@ class _InspocPageWidgetState extends State<InspocPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

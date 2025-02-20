@@ -15,6 +15,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,9 @@ export 'leave_show_page_model.dart';
 
 class LeaveShowPageWidget extends StatefulWidget {
   const LeaveShowPageWidget({super.key});
+
+  static String routeName = 'LeaveShowPage';
+  static String routePath = 'leaveShowPage';
 
   @override
   State<LeaveShowPageWidget> createState() => _LeaveShowPageWidgetState();
@@ -168,7 +172,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
           Navigator.pop(context);
           await actions.a22();
 
-          context.goNamed('LoginPage');
+          context.goNamed(LoginPageWidget.routeName);
 
           return;
         } else {
@@ -259,7 +263,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('DashboardLeavePage');
+              context.goNamed(DashboardLeavePageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,
@@ -1671,7 +1675,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'ลาออก') {
                                                                       context
                                                                           .goNamed(
-                                                                        'AddResignPage',
+                                                                        AddResignPageWidget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'isFromDashboard':
@@ -1731,7 +1736,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
 
                                                                     context
                                                                         .goNamed(
-                                                                      'EditLeavePage',
+                                                                      EditLeavePageWidget
+                                                                          .routeName,
                                                                       queryParameters:
                                                                           {
                                                                         'leaveType':

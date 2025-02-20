@@ -16,6 +16,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,9 @@ export 'bsi_report_page_model.dart';
 
 class BsiReportPageWidget extends StatefulWidget {
   const BsiReportPageWidget({super.key});
+
+  static String routeName = 'BsiReportPage';
+  static String routePath = 'bsiReportPage';
 
   @override
   State<BsiReportPageWidget> createState() => _BsiReportPageWidgetState();
@@ -293,7 +297,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('SuperAppPage');
+                      context.goNamed(SuperAppPageWidget.routeName);
                     },
                     child: Icon(
                       Icons.arrow_back,
@@ -1074,8 +1078,9 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                         .urlLink;
                                                 safeSetState(() {});
 
-                                                context
-                                                    .pushNamed('tabCollection');
+                                                context.pushNamed(
+                                                    TabCollectionWidget
+                                                        .routeName);
 
                                                 if (_shouldSetState)
                                                   safeSetState(() {});

@@ -13,6 +13,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'dart:async';
 import 'search_collection_page_widget.dart' show SearchCollectionPageWidget;
 import 'package:auto_size_text/auto_size_text.dart';

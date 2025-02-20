@@ -11,13 +11,14 @@ import '/auth/base_auth_user_provider.dart';
 
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
-import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/lat_lng.dart';
 import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -94,8 +95,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
           routes: [
             FFRoute(
-              name: 'LoginPage',
-              path: 'loginPage',
+              name: LoginPageWidget.routeName,
+              path: LoginPageWidget.routePath,
               builder: (context, params) => LoginPageWidget(
                 apiURL: params.getParam(
                   'apiURL',
@@ -110,18 +111,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SetPinCodePage',
-              path: 'setPinCodePage',
+              name: SetPinCodePageWidget.routeName,
+              path: SetPinCodePageWidget.routePath,
               builder: (context, params) => SetPinCodePageWidget(),
             ),
             FFRoute(
-              name: 'PinCodePage',
-              path: 'pinCodePage',
+              name: PinCodePageWidget.routeName,
+              path: PinCodePageWidget.routePath,
               builder: (context, params) => PinCodePageWidget(),
             ),
             FFRoute(
-              name: 'Dashboard',
-              path: 'dashboard',
+              name: DashboardWidget.routeName,
+              path: DashboardWidget.routePath,
               builder: (context, params) => DashboardWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -130,8 +131,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CheckInPage',
-              path: 'checkInPage',
+              name: CheckInPageWidget.routeName,
+              path: CheckInPageWidget.routePath,
               builder: (context, params) => CheckInPageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -152,8 +153,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SurveyPage',
-              path: 'surveyPage',
+              name: SurveyPageWidget.routeName,
+              path: SurveyPageWidget.routePath,
               builder: (context, params) => SurveyPageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -190,8 +191,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SuperAppPage',
-              path: 'superAppPage',
+              name: SuperAppPageWidget.routeName,
+              path: SuperAppPageWidget.routePath,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'SuperAppPage')
                   : SuperAppPageWidget(
@@ -202,20 +203,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     ),
             ),
             FFRoute(
-              name: 'NotificationDetailPage',
-              path: 'notificationDetailPage',
+              name: NotificationDetailPageWidget.routeName,
+              path: NotificationDetailPageWidget.routePath,
               builder: (context, params) => NotificationDetailPageWidget(),
             ),
             FFRoute(
-              name: 'MyProfilePage',
-              path: 'myProfilePage',
+              name: MyProfilePageWidget.routeName,
+              path: MyProfilePageWidget.routePath,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'MyProfilePage')
                   : MyProfilePageWidget(),
             ),
             FFRoute(
-              name: 'LeadNotiPage',
-              path: 'leadNotiPage',
+              name: LeadNotiPageWidget.routeName,
+              path: LeadNotiPageWidget.routePath,
               builder: (context, params) => LeadNotiPageWidget(
                 color: params.getParam<Color>(
                   'color',
@@ -225,8 +226,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CollectionPage',
-              path: 'collectionPage',
+              name: CollectionPageWidget.routeName,
+              path: CollectionPageWidget.routePath,
               builder: (context, params) => CollectionPageWidget(
                 coordinate: params.getParam(
                   'coordinate',
@@ -259,8 +260,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'MarketingPage',
-              path: 'marketingPage',
+              name: MarketingPageWidget.routeName,
+              path: MarketingPageWidget.routePath,
               builder: (context, params) => MarketingPageWidget(
                 coordinate: params.getParam(
                   'coordinate',
@@ -293,8 +294,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'OPSpage',
-              path: 'oPSpage',
+              name: OPSpageWidget.routeName,
+              path: OPSpageWidget.routePath,
               builder: (context, params) => OPSpageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -331,8 +332,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CheckerPage',
-              path: 'checkerPage',
+              name: CheckerPageWidget.routeName,
+              path: CheckerPageWidget.routePath,
               builder: (context, params) => CheckerPageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -365,8 +366,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'NPApage',
-              path: 'nPApage',
+              name: NPApageWidget.routeName,
+              path: NPApageWidget.routePath,
               builder: (context, params) => NPApageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -391,23 +392,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'TimeSheetPage',
-              path: 'timeSheetPage',
+              name: TimeSheetPageWidget.routeName,
+              path: TimeSheetPageWidget.routePath,
               builder: (context, params) => TimeSheetPageWidget(),
             ),
             FFRoute(
-              name: 'ForgotPasswordPage',
-              path: 'forgotPasswordPage',
+              name: ForgotPasswordPageWidget.routeName,
+              path: ForgotPasswordPageWidget.routePath,
               builder: (context, params) => ForgotPasswordPageWidget(),
             ),
             FFRoute(
-              name: 'SuccessPage',
-              path: 'successPage',
+              name: SuccessPageWidget.routeName,
+              path: SuccessPageWidget.routePath,
               builder: (context, params) => SuccessPageWidget(),
             ),
             FFRoute(
-              name: 'FormServicePage',
-              path: 'formServicePage',
+              name: FormServicePageWidget.routeName,
+              path: FormServicePageWidget.routePath,
               builder: (context, params) => FormServicePageWidget(
                 formServiceName: params.getParam(
                   'formServiceName',
@@ -420,38 +421,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'GenQRPage',
-              path: 'genQRPage',
+              name: GenQRPageWidget.routeName,
+              path: GenQRPageWidget.routePath,
               builder: (context, params) => GenQRPageWidget(),
             ),
             FFRoute(
-              name: 'LeadSurveyRegisPage',
-              path: 'leadSurveyRegisPage',
+              name: LeadSurveyRegisPageWidget.routeName,
+              path: LeadSurveyRegisPageWidget.routePath,
               builder: (context, params) => LeadSurveyRegisPageWidget(),
             ),
             FFRoute(
-              name: 'SaleskitPage',
-              path: 'saleskitPage',
+              name: SaleskitPageWidget.routeName,
+              path: SaleskitPageWidget.routePath,
               builder: (context, params) => SaleskitPageWidget(),
             ),
             FFRoute(
-              name: 'ITSupportPage',
-              path: 'iTSupportPage',
+              name: ITSupportPageWidget.routeName,
+              path: ITSupportPageWidget.routePath,
               builder: (context, params) => ITSupportPageWidget(),
             ),
             FFRoute(
-              name: 'ActionLogPage',
-              path: 'actionLogPage',
+              name: ActionLogPageWidget.routeName,
+              path: ActionLogPageWidget.routePath,
               builder: (context, params) => ActionLogPageWidget(),
             ),
             FFRoute(
-              name: 'IntrodutionPage',
-              path: 'introdutionPage',
+              name: IntrodutionPageWidget.routeName,
+              path: IntrodutionPageWidget.routePath,
               builder: (context, params) => IntrodutionPageWidget(),
             ),
             FFRoute(
-              name: 'ReportITSupport',
-              path: 'reportITSupport',
+              name: ReportITSupportWidget.routeName,
+              path: ReportITSupportWidget.routePath,
               builder: (context, params) => ReportITSupportWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -488,13 +489,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'LeavePage',
-              path: 'leavePage',
+              name: LeavePageWidget.routeName,
+              path: LeavePageWidget.routePath,
               builder: (context, params) => LeavePageWidget(),
             ),
             FFRoute(
-              name: 'SuccessCheckinPage',
-              path: 'successCheckinPage',
+              name: SuccessCheckinPageWidget.routeName,
+              path: SuccessCheckinPageWidget.routePath,
               builder: (context, params) => SuccessCheckinPageWidget(
                 checkinPhoto: params.getParam(
                   'checkinPhoto',
@@ -503,8 +504,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'EmpolyeeCheckIn',
-              path: 'empolyeeCheckIn',
+              name: EmpolyeeCheckInWidget.routeName,
+              path: EmpolyeeCheckInWidget.routePath,
               builder: (context, params) => EmpolyeeCheckInWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -525,13 +526,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'LeaveShowPage',
-              path: 'leaveShowPage',
+              name: LeaveShowPageWidget.routeName,
+              path: LeaveShowPageWidget.routePath,
               builder: (context, params) => LeaveShowPageWidget(),
             ),
             FFRoute(
-              name: 'AddLeavePage',
-              path: 'addLeavePage',
+              name: AddLeavePageWidget.routeName,
+              path: AddLeavePageWidget.routePath,
               builder: (context, params) => AddLeavePageWidget(
                 leaveType: params.getParam(
                   'leaveType',
@@ -540,8 +541,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CancelPage',
-              path: 'cancelPage',
+              name: CancelPageWidget.routeName,
+              path: CancelPageWidget.routePath,
               builder: (context, params) => CancelPageWidget(
                 leaveId: params.getParam(
                   'leaveId',
@@ -550,18 +551,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ApprovedLeavePage',
-              path: 'approvedLeavePage',
+              name: ApprovedLeavePageWidget.routeName,
+              path: ApprovedLeavePageWidget.routePath,
               builder: (context, params) => ApprovedLeavePageWidget(),
             ),
             FFRoute(
-              name: 'CheckInsurancePage',
-              path: 'checkInsurancePage',
+              name: CheckInsurancePageWidget.routeName,
+              path: CheckInsurancePageWidget.routePath,
               builder: (context, params) => CheckInsurancePageWidget(),
             ),
             FFRoute(
-              name: 'Check_1InsurancePage',
-              path: 'check1InsurancePage',
+              name: Check1InsurancePageWidget.routeName,
+              path: Check1InsurancePageWidget.routePath,
               builder: (context, params) => Check1InsurancePageWidget(
                 brandCode: params.getParam(
                   'brandCode',
@@ -590,13 +591,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ConfirmEmailPage',
-              path: 'confirmEmailPage',
+              name: ConfirmEmailPageWidget.routeName,
+              path: ConfirmEmailPageWidget.routePath,
               builder: (context, params) => ConfirmEmailPageWidget(),
             ),
             FFRoute(
-              name: 'InfoCheckin',
-              path: 'infoCheckin',
+              name: InfoCheckinWidget.routeName,
+              path: InfoCheckinWidget.routePath,
               builder: (context, params) => InfoCheckinWidget(
                 checkinLocation: params.getParam(
                   'checkinLocation',
@@ -633,18 +634,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ListInsurancPage',
-              path: 'listInsurancPage',
+              name: ListInsurancPageWidget.routeName,
+              path: ListInsurancPageWidget.routePath,
               builder: (context, params) => ListInsurancPageWidget(),
             ),
             FFRoute(
-              name: 'FindPlacePage',
-              path: 'findPlacePage',
+              name: FindPlacePageWidget.routeName,
+              path: FindPlacePageWidget.routePath,
               builder: (context, params) => FindPlacePageWidget(),
             ),
             FFRoute(
-              name: 'DetailInsurancePage',
-              path: 'detailInsurancePage',
+              name: DetailInsurancePageWidget.routeName,
+              path: DetailInsurancePageWidget.routePath,
               builder: (context, params) => DetailInsurancePageWidget(
                 fullName: params.getParam(
                   'fullName',
@@ -685,8 +686,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'DashboardITSupport',
-              path: 'dashboardITSupport',
+              name: DashboardITSupportWidget.routeName,
+              path: DashboardITSupportWidget.routePath,
               builder: (context, params) => DashboardITSupportWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -695,8 +696,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CheckInStatusPage',
-              path: 'checkInStatusPage',
+              name: CheckInStatusPageWidget.routeName,
+              path: CheckInStatusPageWidget.routePath,
               builder: (context, params) => CheckInStatusPageWidget(
                 checkinImage: params.getParam(
                   'checkinImage',
@@ -745,8 +746,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CategorySupport',
-              path: 'categorySupport',
+              name: CategorySupportWidget.routeName,
+              path: CategorySupportWidget.routePath,
               builder: (context, params) => CategorySupportWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -755,18 +756,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ReportList',
-              path: 'reportList',
+              name: ReportListWidget.routeName,
+              path: ReportListWidget.routePath,
               builder: (context, params) => ReportListWidget(),
             ),
             FFRoute(
-              name: 'InfoReport',
-              path: 'infoReport',
+              name: InfoReportWidget.routeName,
+              path: InfoReportWidget.routePath,
               builder: (context, params) => InfoReportWidget(),
             ),
             FFRoute(
-              name: 'CheckInStatusPageCopy',
-              path: 'checkInStatusPageCopy',
+              name: CheckInStatusPageCopyWidget.routeName,
+              path: CheckInStatusPageCopyWidget.routePath,
               builder: (context, params) => CheckInStatusPageCopyWidget(
                 checkinImage: params.getParam(
                   'checkinImage',
@@ -775,8 +776,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'DashboardCheckin',
-              path: 'dashboardCheckin',
+              name: DashboardCheckinWidget.routeName,
+              path: DashboardCheckinWidget.routePath,
               builder: (context, params) => DashboardCheckinWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -785,13 +786,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'PromotionPage',
-              path: 'promotionPage',
+              name: PromotionPageWidget.routeName,
+              path: PromotionPageWidget.routePath,
               builder: (context, params) => PromotionPageWidget(),
             ),
             FFRoute(
-              name: 'EmployeeKPIPage',
-              path: 'employeeKPIPage',
+              name: EmployeeKPIPageWidget.routeName,
+              path: EmployeeKPIPageWidget.routePath,
               builder: (context, params) => EmployeeKPIPageWidget(
                 annoucementUrl: params.getParam(
                   'annoucementUrl',
@@ -800,13 +801,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'GuideBookPage',
-              path: 'guideBookPage',
+              name: GuideBookPageWidget.routeName,
+              path: GuideBookPageWidget.routePath,
               builder: (context, params) => GuideBookPageWidget(),
             ),
             FFRoute(
-              name: 'AddResignPage',
-              path: 'addResignPage',
+              name: AddResignPageWidget.routeName,
+              path: AddResignPageWidget.routePath,
               builder: (context, params) => AddResignPageWidget(
                 isFromDashboard: params.getParam(
                   'isFromDashboard',
@@ -871,8 +872,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'DashboardLeavePage',
-              path: 'dashboardLeavePage',
+              name: DashboardLeavePageWidget.routeName,
+              path: DashboardLeavePageWidget.routePath,
               builder: (context, params) => DashboardLeavePageWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -885,18 +886,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ApproveShowPage',
-              path: 'approveShowPage',
+              name: ApproveShowPageWidget.routeName,
+              path: ApproveShowPageWidget.routePath,
               builder: (context, params) => ApproveShowPageWidget(),
             ),
             FFRoute(
-              name: 'AddResignPageCopy',
-              path: 'addResignPageCopy',
+              name: AddResignPageCopyWidget.routeName,
+              path: AddResignPageCopyWidget.routePath,
               builder: (context, params) => AddResignPageCopyWidget(),
             ),
             FFRoute(
-              name: 'EditLeavePage',
-              path: 'editLeavePage',
+              name: EditLeavePageWidget.routeName,
+              path: EditLeavePageWidget.routePath,
               builder: (context, params) => EditLeavePageWidget(
                 leaveType: params.getParam(
                   'leaveType',
@@ -934,8 +935,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'FormItSupport',
-              path: 'formItSupport',
+              name: FormItSupportWidget.routeName,
+              path: FormItSupportWidget.routePath,
               builder: (context, params) => FormItSupportWidget(
                 fixType: params.getParam(
                   'fixType',
@@ -944,28 +945,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SumPointPage',
-              path: 'sumPointPage',
+              name: SumPointPageWidget.routeName,
+              path: SumPointPageWidget.routePath,
               builder: (context, params) => SumPointPageWidget(),
             ),
             FFRoute(
-              name: 'QuotaPointPage',
-              path: 'quotaPointPage',
+              name: QuotaPointPageWidget.routeName,
+              path: QuotaPointPageWidget.routePath,
               builder: (context, params) => QuotaPointPageWidget(),
             ),
             FFRoute(
-              name: 'WelfareKPIPage',
-              path: 'welfareKPIPage',
+              name: WelfareKPIPageWidget.routeName,
+              path: WelfareKPIPageWidget.routePath,
               builder: (context, params) => WelfareKPIPageWidget(),
             ),
             FFRoute(
-              name: 'GivePointPage',
-              path: 'givePointPage',
+              name: GivePointPageWidget.routeName,
+              path: GivePointPageWidget.routePath,
               builder: (context, params) => GivePointPageWidget(),
             ),
             FFRoute(
-              name: 'InsurancePlan',
-              path: 'insurancePlan',
+              name: InsurancePlanWidget.routeName,
+              path: InsurancePlanWidget.routePath,
               builder: (context, params) => InsurancePlanWidget(
                 planInsurance: params.getParam(
                   'planInsurance',
@@ -974,28 +975,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'QuestionnaireSurvey',
-              path: 'questionnaireSurvey',
+              name: QuestionnaireSurveyWidget.routeName,
+              path: QuestionnaireSurveyWidget.routePath,
               builder: (context, params) => QuestionnaireSurveyWidget(),
             ),
             FFRoute(
-              name: 'PhoneNumberInfo',
-              path: 'phoneNumberInfo',
+              name: PhoneNumberInfoWidget.routeName,
+              path: PhoneNumberInfoWidget.routePath,
               builder: (context, params) => PhoneNumberInfoWidget(),
             ),
             FFRoute(
-              name: 'E-learning',
-              path: 'eLearning',
+              name: ELearningWidget.routeName,
+              path: ELearningWidget.routePath,
               builder: (context, params) => ELearningWidget(),
             ),
             FFRoute(
-              name: 'supportTemplate',
-              path: 'supportTemplate',
+              name: SupportTemplateWidget.routeName,
+              path: SupportTemplateWidget.routePath,
               builder: (context, params) => SupportTemplateWidget(),
             ),
             FFRoute(
-              name: 'htmlPage',
-              path: 'htmlPage',
+              name: HtmlPageWidget.routeName,
+              path: HtmlPageWidget.routePath,
               builder: (context, params) => HtmlPageWidget(
                 contentHtml: params.getParam(
                   'contentHtml',
@@ -1004,43 +1005,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'EmployeeKpiCEOPage',
-              path: 'employeeKpiCEOPage',
+              name: EmployeeKpiCEOPageWidget.routeName,
+              path: EmployeeKpiCEOPageWidget.routePath,
               builder: (context, params) => EmployeeKpiCEOPageWidget(),
             ),
             FFRoute(
-              name: 'WelfareKPICEOPage',
-              path: 'welfareKPICEOPage',
+              name: WelfareKPICEOPageWidget.routeName,
+              path: WelfareKPICEOPageWidget.routePath,
               builder: (context, params) => WelfareKPICEOPageWidget(),
             ),
             FFRoute(
-              name: 'ertert',
-              path: 'ertert',
+              name: ErtertWidget.routeName,
+              path: ErtertWidget.routePath,
               builder: (context, params) => ErtertWidget(),
             ),
             FFRoute(
-              name: 'InspocPage',
-              path: 'inspocPage',
+              name: InspocPageWidget.routeName,
+              path: InspocPageWidget.routePath,
               builder: (context, params) => InspocPageWidget(),
             ),
             FFRoute(
-              name: 'ChangeLatLngPage',
-              path: 'changeLatLngPage',
+              name: ChangeLatLngPageWidget.routeName,
+              path: ChangeLatLngPageWidget.routePath,
               builder: (context, params) => ChangeLatLngPageWidget(),
             ),
             FFRoute(
-              name: 'ClassroomPage',
-              path: 'classroomPage',
+              name: ClassroomPageWidget.routeName,
+              path: ClassroomPageWidget.routePath,
               builder: (context, params) => ClassroomPageWidget(),
             ),
             FFRoute(
-              name: 'testCircleMap',
-              path: 'testCircleMap',
+              name: TestCircleMapWidget.routeName,
+              path: TestCircleMapWidget.routePath,
               builder: (context, params) => TestCircleMapWidget(),
             ),
             FFRoute(
-              name: 'redeemPointPage',
-              path: 'redeemPointPage',
+              name: RedeemPointPageWidget.routeName,
+              path: RedeemPointPageWidget.routePath,
               builder: (context, params) => RedeemPointPageWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -1049,23 +1050,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'PlanningSelfKPI',
-              path: 'planningSelfKPI',
+              name: PlanningSelfKPIWidget.routeName,
+              path: PlanningSelfKPIWidget.routePath,
               builder: (context, params) => PlanningSelfKPIWidget(),
             ),
             FFRoute(
-              name: 'ThaipaiboonPage',
-              path: 'thaipaiboonPage',
+              name: ThaipaiboonPageWidget.routeName,
+              path: ThaipaiboonPageWidget.routePath,
               builder: (context, params) => ThaipaiboonPageWidget(),
             ),
             FFRoute(
-              name: 'LeaveShowPageCopy',
-              path: 'leaveShowPageCopy',
+              name: LeaveShowPageCopyWidget.routeName,
+              path: LeaveShowPageCopyWidget.routePath,
               builder: (context, params) => LeaveShowPageCopyWidget(),
             ),
             FFRoute(
-              name: 'LifeInsuranceLicenseCardPage',
-              path: 'lifeInsuranceLicenseCardPage',
+              name: LifeInsuranceLicenseCardPageWidget.routeName,
+              path: LifeInsuranceLicenseCardPageWidget.routePath,
               builder: (context, params) => LifeInsuranceLicenseCardPageWidget(
                 index: params.getParam(
                   'index',
@@ -1082,8 +1083,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ChangeLatLngPageWeb',
-              path: 'changeLatLngPageWeb',
+              name: ChangeLatLngPageWebWidget.routeName,
+              path: ChangeLatLngPageWebWidget.routePath,
               builder: (context, params) => ChangeLatLngPageWebWidget(
                 token: params.getParam(
                   'token',
@@ -1092,18 +1093,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ChatSearchPage',
-              path: 'chatSearchPage',
+              name: ChatSearchPageWidget.routeName,
+              path: ChatSearchPageWidget.routePath,
               builder: (context, params) => ChatSearchPageWidget(),
             ),
             FFRoute(
-              name: 'ChatHomePage',
-              path: 'chatHomePage',
+              name: ChatHomePageWidget.routeName,
+              path: ChatHomePageWidget.routePath,
               builder: (context, params) => ChatHomePageWidget(),
             ),
             FFRoute(
-              name: 'ChattingPage',
-              path: 'chattingPage',
+              name: ChattingPageWidget.routeName,
+              path: ChattingPageWidget.routePath,
               builder: (context, params) => ChattingPageWidget(
                 userBProfileImage: params.getParam(
                   'userBProfileImage',
@@ -1130,28 +1131,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'InsuranceRequestInsurerPage',
-              path: 'InsuranceRequestPageCopy',
+              name: InsuranceRequestInsurerPageWidget.routeName,
+              path: InsuranceRequestInsurerPageWidget.routePath,
               builder: (context, params) => InsuranceRequestInsurerPageWidget(),
             ),
             FFRoute(
-              name: 'InsuranceRequestImagePage',
-              path: 'InsuranceRequestImagePage',
+              name: InsuranceRequestImagePageWidget.routeName,
+              path: InsuranceRequestImagePageWidget.routePath,
               builder: (context, params) => InsuranceRequestImagePageWidget(),
             ),
             FFRoute(
-              name: 'InsuranceRequestBasicPage',
-              path: 'InsuranceRequestBasicPage',
+              name: InsuranceRequestBasicPageWidget.routeName,
+              path: InsuranceRequestBasicPageWidget.routePath,
               builder: (context, params) => InsuranceRequestBasicPageWidget(),
             ),
             FFRoute(
-              name: 'InsuranceRequestListPage',
-              path: 'InsuranceRequestListPage',
+              name: InsuranceRequestListPageWidget.routeName,
+              path: InsuranceRequestListPageWidget.routePath,
               builder: (context, params) => InsuranceRequestListPageWidget(),
             ),
             FFRoute(
-              name: 'InsuranceRequestDashboardPage',
-              path: 'insuranceRequestDashboardPage',
+              name: InsuranceRequestDashboardPageWidget.routeName,
+              path: InsuranceRequestDashboardPageWidget.routePath,
               builder: (context, params) => InsuranceRequestDashboardPageWidget(
                 jwtToken: params.getParam(
                   'jwtToken',
@@ -1160,8 +1161,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'InsuranceRequestEditPage',
-              path: 'InsuranceRequestEditPage',
+              name: InsuranceRequestEditPageWidget.routeName,
+              path: InsuranceRequestEditPageWidget.routePath,
               builder: (context, params) => InsuranceRequestEditPageWidget(
                 leadId: params.getParam(
                   'leadId',
@@ -1413,13 +1414,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'inboxEmail',
-              path: 'inboxEmail',
+              name: InboxEmailWidget.routeName,
+              path: InboxEmailWidget.routePath,
               builder: (context, params) => InboxEmailWidget(),
             ),
             FFRoute(
-              name: 'SearchInsurancePage',
-              path: 'searchInsurancePage',
+              name: SearchInsurancePageWidget.routeName,
+              path: SearchInsurancePageWidget.routePath,
               builder: (context, params) => SearchInsurancePageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -1456,8 +1457,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'AboutUsPage',
-              path: 'aboutUsPage',
+              name: AboutUsPageWidget.routeName,
+              path: AboutUsPageWidget.routePath,
               builder: (context, params) => AboutUsPageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -1494,8 +1495,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ContactUsPage',
-              path: 'contactUsPage',
+              name: ContactUsPageWidget.routeName,
+              path: ContactUsPageWidget.routePath,
               builder: (context, params) => ContactUsPageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -1532,8 +1533,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'IBSReport',
-              path: 'iBSReport',
+              name: IBSReportWidget.routeName,
+              path: IBSReportWidget.routePath,
               builder: (context, params) => IBSReportWidget(
                 employeeId: params.getParam(
                   'employeeId',
@@ -1542,18 +1543,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'KPIAllCEOPage',
-              path: 'kPIAllCEOPage',
+              name: KPIAllCEOPageWidget.routeName,
+              path: KPIAllCEOPageWidget.routePath,
               builder: (context, params) => KPIAllCEOPageWidget(),
             ),
             FFRoute(
-              name: 'BsiReportPage',
-              path: 'bsiReportPage',
+              name: BsiReportPageWidget.routeName,
+              path: BsiReportPageWidget.routePath,
               builder: (context, params) => BsiReportPageWidget(),
             ),
             FFRoute(
-              name: 'listNameTabFollowUpDebt',
-              path: 'listNameTabFollowUpDebt',
+              name: ListNameTabFollowUpDebtWidget.routeName,
+              path: ListNameTabFollowUpDebtWidget.routePath,
               builder: (context, params) => ListNameTabFollowUpDebtWidget(
                 followUpDebtTab: params.getParam(
                   'followUpDebtTab',
@@ -1562,8 +1563,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'RecordVideoWebviewPage',
-              path: 'RecordVideoWebviewPage',
+              name: RecordVideoWebviewPageWidget.routeName,
+              path: RecordVideoWebviewPageWidget.routePath,
               builder: (context, params) => RecordVideoWebviewPageWidget(
                 webUrl: params.getParam(
                   'webUrl',
@@ -1572,8 +1573,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'detailListFollowUpDebt',
-              path: 'detailListFollowUpDebt',
+              name: DetailListFollowUpDebtWidget.routeName,
+              path: DetailListFollowUpDebtWidget.routePath,
               builder: (context, params) => DetailListFollowUpDebtWidget(
                 cusCod: params.getParam(
                   'cusCod',
@@ -1598,8 +1599,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'saveOnSiteFollowUpDebt',
-              path: 'saveOnSiteFollowUpDebt',
+              name: SaveOnSiteFollowUpDebtWidget.routeName,
+              path: SaveOnSiteFollowUpDebtWidget.routePath,
               builder: (context, params) => SaveOnSiteFollowUpDebtWidget(
                 firstname: params.getParam(
                   'firstname',
@@ -1668,8 +1669,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'saveCallFollowUpDebt',
-              path: 'saveCallFollowUpDebt',
+              name: SaveCallFollowUpDebtWidget.routeName,
+              path: SaveCallFollowUpDebtWidget.routePath,
               builder: (context, params) => SaveCallFollowUpDebtWidget(
                 name1: params.getParam(
                   'name1',
@@ -1756,8 +1757,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'recordFollowUpDebt',
-              path: 'recordFollowUpDebt',
+              name: RecordFollowUpDebtWidget.routeName,
+              path: RecordFollowUpDebtWidget.routePath,
               builder: (context, params) => RecordFollowUpDebtWidget(
                 contNo: params.getParam(
                   'contNo',
@@ -1766,18 +1767,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'successPageCollecction',
-              path: 'successPageCollecction',
+              name: SuccessPageCollecctionWidget.routeName,
+              path: SuccessPageCollecctionWidget.routePath,
               builder: (context, params) => SuccessPageCollecctionWidget(),
             ),
             FFRoute(
-              name: 'tabCollection',
-              path: 'tabCollection',
+              name: TabCollectionWidget.routeName,
+              path: TabCollectionWidget.routePath,
               builder: (context, params) => TabCollectionWidget(),
             ),
             FFRoute(
-              name: 'SearchCollectionPage',
-              path: 'SearchCollectionPage',
+              name: SearchCollectionPageWidget.routeName,
+              path: SearchCollectionPageWidget.routePath,
               builder: (context, params) => SearchCollectionPageWidget(
                 followUpDebtTab: params.getParam(
                   'followUpDebtTab',
@@ -1786,8 +1787,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SearchCollectionPP',
-              path: 'SearchCollectionPP',
+              name: SearchCollectionPPWidget.routeName,
+              path: SearchCollectionPPWidget.routePath,
               builder: (context, params) => SearchCollectionPPWidget(
                 followUpDebtTab: params.getParam(
                   'followUpDebtTab',
@@ -1796,13 +1797,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'register',
-              path: 'register',
+              name: RegisterWidget.routeName,
+              path: RegisterWidget.routePath,
               builder: (context, params) => RegisterWidget(),
             ),
             FFRoute(
-              name: 'InterestPage',
-              path: 'InterestPage',
+              name: InterestPageWidget.routeName,
+              path: InterestPageWidget.routePath,
               builder: (context, params) => InterestPageWidget(
                 contno: params.getParam(
                   'contno',
@@ -1815,8 +1816,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'QRCode',
-              path: 'QRCode',
+              name: QRCodeWidget.routeName,
+              path: QRCodeWidget.routePath,
               builder: (context, params) => QRCodeWidget(
                 followUpDebtTab: params.getParam(
                   'followUpDebtTab',
@@ -1825,13 +1826,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'RecordVideoPage',
-              path: 'recordVideoPage',
+              name: RecordVideoPageWidget.routeName,
+              path: RecordVideoPageWidget.routePath,
               builder: (context, params) => RecordVideoPageWidget(),
             ),
             FFRoute(
-              name: 'RecordVideoCustomer',
-              path: 'recordVideoCustomer',
+              name: RecordVideoCustomerWidget.routeName,
+              path: RecordVideoCustomerWidget.routePath,
               builder: (context, params) => RecordVideoCustomerWidget(
                 vloanApiUrl: params.getParam(
                   'vloanApiUrl',
@@ -1840,8 +1841,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'RecordVideoCustomer2',
-              path: 'recordVideoCustomer2',
+              name: RecordVideoCustomer2Widget.routeName,
+              path: RecordVideoCustomer2Widget.routePath,
               builder: (context, params) => RecordVideoCustomer2Widget(
                 contNo: params.getParam(
                   'contNo',
@@ -1854,8 +1855,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'RecordVideoCustomer3',
-              path: 'recordVideoCustomer3',
+              name: RecordVideoCustomer3Widget.routeName,
+              path: RecordVideoCustomer3Widget.routePath,
               builder: (context, params) => RecordVideoCustomer3Widget(
                 contNo: params.getParam(
                   'contNo',
@@ -1868,8 +1869,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SuperAppNewPage',
-              path: 'superAppNewPage',
+              name: SuperAppNewPageWidget.routeName,
+              path: SuperAppNewPageWidget.routePath,
               builder: (context, params) => SuperAppNewPageWidget(
                 dailyText: params.getParam(
                   'dailyText',
@@ -1878,8 +1879,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'WebviewPage',
-              path: 'webviewPage',
+              name: WebviewPageWidget.routeName,
+              path: WebviewPageWidget.routePath,
               builder: (context, params) => WebviewPageWidget(
                 titleName: params.getParam(
                   'titleName',
@@ -1892,18 +1893,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'Roadmapinsurance',
-              path: 'roadmapinsurance',
+              name: RoadmapinsuranceWidget.routeName,
+              path: RoadmapinsuranceWidget.routePath,
               builder: (context, params) => RoadmapinsuranceWidget(),
             ),
             FFRoute(
-              name: 'CarSeizedPageStep1',
-              path: 'carSeizedPageStep1',
+              name: CarSeizedPageStep1Widget.routeName,
+              path: CarSeizedPageStep1Widget.routePath,
               builder: (context, params) => CarSeizedPageStep1Widget(),
             ),
             FFRoute(
-              name: 'CarSeizedDashboardPage',
-              path: 'carSeizedDashboardPage',
+              name: CarSeizedDashboardPageWidget.routeName,
+              path: CarSeizedDashboardPageWidget.routePath,
               builder: (context, params) => CarSeizedDashboardPageWidget(
                 fromPage: params.getParam(
                   'fromPage',
@@ -1946,8 +1947,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CustomerCarDeailsStep1',
-              path: 'customerCarDeailsStep1',
+              name: CustomerCarDeailsStep1Widget.routeName,
+              path: CustomerCarDeailsStep1Widget.routePath,
               builder: (context, params) => CustomerCarDeailsStep1Widget(
                 step: params.getParam(
                   'step',
@@ -2003,8 +2004,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SampleCarImageStep1',
-              path: 'sampleCarImageStep1',
+              name: SampleCarImageStep1Widget.routeName,
+              path: SampleCarImageStep1Widget.routePath,
               builder: (context, params) => SampleCarImageStep1Widget(
                 imageName: params.getParam(
                   'imageName',
@@ -2031,8 +2032,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'CustomerCarDeailsStep4',
-              path: 'customerCarDeailsStep4',
+              name: CustomerCarDeailsStep4Widget.routeName,
+              path: CustomerCarDeailsStep4Widget.routePath,
               builder: (context, params) => CustomerCarDeailsStep4Widget(
                 step: params.getParam(
                   'step',
@@ -2088,28 +2089,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'TypePicStep1',
-              path: 'typePicStep1',
+              name: TypePicStep1Widget.routeName,
+              path: TypePicStep1Widget.routePath,
               builder: (context, params) => TypePicStep1Widget(),
             ),
             FFRoute(
-              name: 'CustomerBikeDetailsStep1',
-              path: 'customerBikeDetailsStep1',
+              name: CustomerBikeDetailsStep1Widget.routeName,
+              path: CustomerBikeDetailsStep1Widget.routePath,
               builder: (context, params) => CustomerBikeDetailsStep1Widget(),
             ),
             FFRoute(
-              name: 'CustomerBikeDeailsStep4',
-              path: 'customerBikeDeailsStep4',
+              name: CustomerBikeDeailsStep4Widget.routeName,
+              path: CustomerBikeDeailsStep4Widget.routePath,
               builder: (context, params) => CustomerBikeDeailsStep4Widget(),
             ),
             FFRoute(
-              name: 'CarSeizedSelectDashboard',
-              path: 'carSeizedSelectDashboard',
+              name: CarSeizedSelectDashboardWidget.routeName,
+              path: CarSeizedSelectDashboardWidget.routePath,
               builder: (context, params) => CarSeizedSelectDashboardWidget(),
             ),
             FFRoute(
-              name: 'searchCustomersGD',
-              path: 'searchCustomersGD',
+              name: SearchCustomersGDWidget.routeName,
+              path: SearchCustomersGDWidget.routePath,
               builder: (context, params) => SearchCustomersGDWidget(
                 fromPage: params.getParam(
                   'fromPage',
@@ -2164,8 +2165,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'customerCarDeailsPictureStep1',
-              path: 'customerCarDeailsPictureStep1',
+              name: CustomerCarDeailsPictureStep1Widget.routeName,
+              path: CustomerCarDeailsPictureStep1Widget.routePath,
               builder: (context, params) => CustomerCarDeailsPictureStep1Widget(
                 step: params.getParam(
                   'step',
@@ -2233,14 +2234,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'customerCarDeailsPictureStep12',
-              path: 'customerCarDeailsPictureStep12',
+              name: CustomerCarDeailsPictureStep12Widget.routeName,
+              path: CustomerCarDeailsPictureStep12Widget.routePath,
               builder: (context, params) =>
                   CustomerCarDeailsPictureStep12Widget(),
             ),
             FFRoute(
-              name: 'ChangeCarLocationPage',
-              path: 'ChangeCarLocationPage',
+              name: ChangeCarLocationPageWidget.routeName,
+              path: ChangeCarLocationPageWidget.routePath,
               builder: (context, params) => ChangeCarLocationPageWidget(
                 step: params.getParam(
                   'step',
@@ -2312,13 +2313,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'calendarPage',
-              path: 'calendarPage',
+              name: CalendarPageWidget.routeName,
+              path: CalendarPageWidget.routePath,
               builder: (context, params) => CalendarPageWidget(),
             ),
             FFRoute(
-              name: 'TestPage',
-              path: 'testPage',
+              name: TestPageWidget.routeName,
+              path: TestPageWidget.routePath,
               builder: (context, params) => TestPageWidget(
                 fromPage: params.getParam(
                   'fromPage',
@@ -2327,18 +2328,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'ScanQR',
-              path: 'scanQR',
+              name: ScanQRWidget.routeName,
+              path: ScanQRWidget.routePath,
               builder: (context, params) => ScanQRWidget(),
             ),
             FFRoute(
-              name: 'BranchSelectedPage',
-              path: 'BranchSelectedPage',
+              name: BranchSelectedPageWidget.routeName,
+              path: BranchSelectedPageWidget.routePath,
               builder: (context, params) => BranchSelectedPageWidget(),
             ),
             FFRoute(
-              name: 'WebviewNewPage',
-              path: 'webviewNewPage',
+              name: WebviewNewPageWidget.routeName,
+              path: WebviewNewPageWidget.routePath,
               builder: (context, params) => WebviewNewPageWidget(
                 webUrl: params.getParam(
                   'webUrl',
@@ -2363,8 +2364,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'trackingEmpPage',
-              path: 'trackingEmpPage',
+              name: TrackingEmpPageWidget.routeName,
+              path: TrackingEmpPageWidget.routePath,
               builder: (context, params) => TrackingEmpPageWidget(
                 employeeId: params.getParam(
                   'employeeId',
@@ -2400,18 +2401,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SearchEmployeePage',
-              path: 'SearchEmployeePage',
+              name: SearchEmployeePageWidget.routeName,
+              path: SearchEmployeePageWidget.routePath,
               builder: (context, params) => SearchEmployeePageWidget(),
             ),
             FFRoute(
-              name: 'SearchEmployeePage2',
-              path: 'SearchEmployeePage2',
+              name: SearchEmployeePage2Widget.routeName,
+              path: SearchEmployeePage2Widget.routePath,
               builder: (context, params) => SearchEmployeePage2Widget(),
             ),
             FFRoute(
-              name: 'searchableemp',
-              path: 'searchableemp',
+              name: SearchableempWidget.routeName,
+              path: SearchableempWidget.routePath,
               builder: (context, params) => SearchableempWidget(
                 listData: params.getParam<EmpDataLocationStruct>(
                   'listData',
@@ -2422,8 +2423,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'RemarkTypeDPage',
-              path: 'RemarkTypeDPage',
+              name: RemarkTypeDPageWidget.routeName,
+              path: RemarkTypeDPageWidget.routePath,
               builder: (context, params) => RemarkTypeDPageWidget(
                 recordId: params.getParam(
                   'recordId',
@@ -2460,8 +2461,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'LeadNotiNewPage',
-              path: 'leadNotiNewPage',
+              name: LeadNotiNewPageWidget.routeName,
+              path: LeadNotiNewPageWidget.routePath,
               builder: (context, params) => LeadNotiNewPageWidget(
                 color: params.getParam<Color>(
                   'color',
@@ -2471,8 +2472,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'WebviewNewPageCopy',
-              path: 'webviewNewPageCopy',
+              name: WebviewNewPageCopyWidget.routeName,
+              path: WebviewNewPageCopyWidget.routePath,
               builder: (context, params) => WebviewNewPageCopyWidget(
                 webUrl: params.getParam(
                   'webUrl',

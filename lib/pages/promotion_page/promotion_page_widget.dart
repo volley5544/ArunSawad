@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -19,6 +20,9 @@ export 'promotion_page_model.dart';
 
 class PromotionPageWidget extends StatefulWidget {
   const PromotionPageWidget({super.key});
+
+  static String routeName = 'PromotionPage';
+  static String routePath = 'promotionPage';
 
   @override
   State<PromotionPageWidget> createState() => _PromotionPageWidgetState();
@@ -99,7 +103,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

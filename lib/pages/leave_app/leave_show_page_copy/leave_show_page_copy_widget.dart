@@ -13,6 +13,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -26,6 +27,9 @@ export 'leave_show_page_copy_model.dart';
 
 class LeaveShowPageCopyWidget extends StatefulWidget {
   const LeaveShowPageCopyWidget({super.key});
+
+  static String routeName = 'LeaveShowPageCopy';
+  static String routePath = 'leaveShowPageCopy';
 
   @override
   State<LeaveShowPageCopyWidget> createState() =>
@@ -160,7 +164,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.goNamed('DashboardLeavePage');
+              context.goNamed(DashboardLeavePageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,
@@ -1510,7 +1514,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                         'ลาออก') {
                                                                       context
                                                                           .goNamed(
-                                                                        'AddResignPage',
+                                                                        AddResignPageWidget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'isFromDashboard':
@@ -1570,7 +1575,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
 
                                                                     context
                                                                         .goNamed(
-                                                                      'EditLeavePage',
+                                                                      EditLeavePageWidget
+                                                                          .routeName,
                                                                       queryParameters:
                                                                           {
                                                                         'leaveType':
@@ -1825,7 +1831,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                   context.pop();
 
                                                                   context.pushNamed(
-                                                                      'LeaveShowPage');
+                                                                      LeaveShowPageWidget
+                                                                          .routeName);
                                                                 },
                                                                 text: 'ยกเลิก',
                                                                 icon: Icon(
@@ -2787,7 +2794,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
 
                                                                           context
                                                                               .goNamed(
-                                                                            'AddResignPage',
+                                                                            AddResignPageWidget.routeName,
                                                                             queryParameters:
                                                                                 {
                                                                               'isFromDashboard': serializeParam(
@@ -3052,7 +3059,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                             .pop();
 
                                                                         context.pushNamed(
-                                                                            'LeaveShowPage');
+                                                                            LeaveShowPageWidget.routeName);
                                                                       },
                                                                       text:
                                                                           'ยกเลิก',

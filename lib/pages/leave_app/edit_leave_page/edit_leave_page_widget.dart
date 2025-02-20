@@ -13,6 +13,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -48,6 +49,9 @@ class EditLeavePageWidget extends StatefulWidget {
   final String? leaveDate;
   final String? userPhoneNumber;
   final List<String>? leaveDocumentOld;
+
+  static String routeName = 'EditLeavePage';
+  static String routePath = 'editLeavePage';
 
   @override
   State<EditLeavePageWidget> createState() => _EditLeavePageWidgetState();
@@ -145,7 +149,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('LeaveShowPage');
+                context.goNamed(LeaveShowPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -2609,8 +2613,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       Navigator.pop(context);
                                                       await actions.a22();
 
-                                                      context
-                                                          .goNamed('LoginPage');
+                                                      context.goNamed(
+                                                          LoginPageWidget
+                                                              .routeName);
 
                                                       if (_shouldSetState)
                                                         safeSetState(() {});
@@ -3019,8 +3024,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                     Navigator.pop(context);
                                                     await actions.a22();
 
-                                                    context
-                                                        .goNamed('LoginPage');
+                                                    context.goNamed(
+                                                        LoginPageWidget
+                                                            .routeName);
 
                                                     if (_shouldSetState)
                                                       safeSetState(() {});
@@ -3094,7 +3100,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                               return;
                                             }
 
-                                            context.goNamed('LeaveShowPage');
+                                            context.goNamed(
+                                                LeaveShowPageWidget.routeName);
 
                                             if (_shouldSetState)
                                               safeSetState(() {});

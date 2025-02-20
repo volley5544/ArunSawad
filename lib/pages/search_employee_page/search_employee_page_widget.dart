@@ -15,6 +15,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
@@ -30,6 +31,9 @@ export 'search_employee_page_model.dart';
 
 class SearchEmployeePageWidget extends StatefulWidget {
   const SearchEmployeePageWidget({super.key});
+
+  static String routeName = 'SearchEmployeePage';
+  static String routePath = 'SearchEmployeePage';
 
   @override
   State<SearchEmployeePageWidget> createState() =>
@@ -250,7 +254,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -1251,7 +1255,7 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                     }
 
                                     context.pushNamed(
-                                      'trackingEmpPage',
+                                      TrackingEmpPageWidget.routeName,
                                       queryParameters: {
                                         'employeeId': serializeParam(
                                           '${_model.dropDownValue}',

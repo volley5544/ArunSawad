@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'sum_point_page_widget.dart' show SumPointPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

@@ -7,6 +7,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
+import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +18,9 @@ export 'register_model.dart';
 
 class RegisterWidget extends StatefulWidget {
   const RegisterWidget({super.key});
+
+  static String routeName = 'register';
+  static String routePath = 'register';
 
   @override
   State<RegisterWidget> createState() => _RegisterWidgetState();
@@ -558,7 +562,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         );
 
                                         context.goNamedAuth(
-                                            'LoginPage', context.mounted);
+                                            LoginPageWidget.routeName,
+                                            context.mounted);
                                       },
                                       text: 'สมัครสมาชิก',
                                       options: FFButtonOptions(

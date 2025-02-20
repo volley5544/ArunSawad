@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/index.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ export 'report_list_model.dart';
 
 class ReportListWidget extends StatefulWidget {
   const ReportListWidget({super.key});
+
+  static String routeName = 'ReportList';
+  static String routePath = 'reportList';
 
   @override
   State<ReportListWidget> createState() => _ReportListWidgetState();
@@ -62,7 +66,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }
@@ -119,7 +123,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('DashboardITSupport');
+                context.pushNamed(DashboardITSupportWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back_sharp,
@@ -218,7 +222,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.goNamed('InfoReport');
+                                    context.goNamed(InfoReportWidget.routeName);
                                   },
                                   child: Container(
                                     width: double.infinity,
@@ -236,7 +240,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.goNamed('InfoReport');
+                                        context.goNamed(
+                                            InfoReportWidget.routeName);
                                       },
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,

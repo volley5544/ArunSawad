@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -43,6 +44,9 @@ class DetailListFollowUpDebtWidget extends StatefulWidget {
   final String? lastName;
   final int? followupDebtTab;
   final bool? fromIconCall;
+
+  static String routeName = 'detailListFollowUpDebt';
+  static String routePath = 'detailListFollowUpDebt';
 
   @override
   State<DetailListFollowUpDebtWidget> createState() =>
@@ -693,7 +697,7 @@ class _DetailListFollowUpDebtWidgetState
                             safeSetState(() {});
 
                             context.pushNamed(
-                              'saveOnSiteFollowUpDebt',
+                              SaveOnSiteFollowUpDebtWidget.routeName,
                               queryParameters: {
                                 'firstname': serializeParam(
                                   widget!.name,
@@ -946,7 +950,7 @@ class _DetailListFollowUpDebtWidgetState
                             safeSetState(() {});
 
                             context.pushNamed(
-                              'saveCallFollowUpDebt',
+                              SaveCallFollowUpDebtWidget.routeName,
                               queryParameters: {
                                 'countNo': serializeParam(
                                   functions.returnMapListFromBoolList(
@@ -2374,7 +2378,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                   () async {
                                                                 context
                                                                     .pushNamed(
-                                                                  'recordFollowUpDebt',
+                                                                  RecordFollowUpDebtWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'contNo':
@@ -2443,7 +2448,8 @@ class _DetailListFollowUpDebtWidgetState
                                                             onPressed:
                                                                 () async {
                                                               context.pushNamed(
-                                                                'InterestPage',
+                                                                InterestPageWidget
+                                                                    .routeName,
                                                                 queryParameters:
                                                                     {
                                                                   'contno':

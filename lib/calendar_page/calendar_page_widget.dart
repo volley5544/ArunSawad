@@ -12,6 +12,9 @@ export 'calendar_page_model.dart';
 class CalendarPageWidget extends StatefulWidget {
   const CalendarPageWidget({super.key});
 
+  static String routeName = 'calendarPage';
+  static String routePath = 'calendarPage';
+
   @override
   State<CalendarPageWidget> createState() => _CalendarPageWidgetState();
 }

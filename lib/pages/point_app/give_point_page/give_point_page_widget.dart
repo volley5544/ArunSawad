@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,9 @@ export 'give_point_page_model.dart';
 
 class GivePointPageWidget extends StatefulWidget {
   const GivePointPageWidget({super.key});
+
+  static String routeName = 'GivePointPage';
+  static String routePath = 'givePointPage';
 
   @override
   State<GivePointPageWidget> createState() => _GivePointPageWidgetState();
@@ -63,7 +67,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.pushNamed('SumPointPage');
+              context.pushNamed(SumPointPageWidget.routeName);
             },
             child: Icon(
               Icons.arrow_back,

@@ -15,6 +15,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -59,6 +60,9 @@ class ChangeCarLocationPageWidget extends StatefulWidget {
   final ImpoundCarLocateParamSetStruct? impoundCarLocateParamSet;
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
+
+  static String routeName = 'ChangeCarLocationPage';
+  static String routePath = 'ChangeCarLocationPage';
 
   @override
   State<ChangeCarLocationPageWidget> createState() =>
@@ -223,7 +227,7 @@ class _ChangeCarLocationPageWidgetState
                 ),
                 onPressed: () async {
                   context.pushNamed(
-                    'customerCarDeailsPictureStep1',
+                    CustomerCarDeailsPictureStep1Widget.routeName,
                     queryParameters: {
                       'step': serializeParam(
                         widget!.step,
@@ -1966,7 +1970,8 @@ class _ChangeCarLocationPageWidgetState
                                                 }
 
                                                 context.pushNamed(
-                                                    'BranchSelectedPage');
+                                                    BranchSelectedPageWidget
+                                                        .routeName);
                                               },
                                               child: Container(
                                                 width: 100.0,
@@ -3939,7 +3944,8 @@ class _ChangeCarLocationPageWidgetState
                                         }
 
                                         context.goNamed(
-                                          'customerCarDeailsPictureStep1',
+                                          CustomerCarDeailsPictureStep1Widget
+                                              .routeName,
                                           queryParameters: {
                                             'step': serializeParam(
                                               widget!.step,
@@ -4725,7 +4731,7 @@ class _ChangeCarLocationPageWidgetState
 
                                     if (widget!.step == 'step4') {
                                       context.pushNamed(
-                                        'CustomerCarDeailsStep4',
+                                        CustomerCarDeailsStep4Widget.routeName,
                                         queryParameters: {
                                           'step': serializeParam(
                                             widget!.step,
@@ -5095,7 +5101,7 @@ class _ChangeCarLocationPageWidgetState
                                       );
                                     } else {
                                       context.pushNamed(
-                                        'CustomerCarDeailsStep1',
+                                        CustomerCarDeailsStep1Widget.routeName,
                                         queryParameters: {
                                           'step': serializeParam(
                                             widget!.step,

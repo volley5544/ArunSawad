@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -25,6 +26,9 @@ class InsuranceRequestDashboardPageWidget extends StatefulWidget {
   });
 
   final String? jwtToken;
+
+  static String routeName = 'InsuranceRequestDashboardPage';
+  static String routePath = 'insuranceRequestDashboardPage';
 
   @override
   State<InsuranceRequestDashboardPageWidget> createState() =>
@@ -231,7 +235,7 @@ class _InsuranceRequestDashboardPageWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.goNamed('SuperAppPage');
+                    context.goNamed(SuperAppPageWidget.routeName);
                   },
                   child: Icon(
                     Icons.arrow_back_rounded,
@@ -283,7 +287,8 @@ class _InsuranceRequestDashboardPageWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed('CheckInStatusPageCopy');
+                              context.goNamed(
+                                  CheckInStatusPageCopyWidget.routeName);
                             },
                             child: Text(
                               'เมนู',
@@ -324,7 +329,9 @@ class _InsuranceRequestDashboardPageWidgetState
                                   FFAppState().fromPage = 'Dashboard';
                                   safeSetState(() {});
 
-                                  context.goNamed('InsuranceRequestBasicPage');
+                                  context.goNamed(
+                                      InsuranceRequestBasicPageWidget
+                                          .routeName);
                                 },
                                 child: Container(
                                   width:
@@ -401,7 +408,8 @@ class _InsuranceRequestDashboardPageWidgetState
                                           .urlLink;
                                   safeSetState(() {});
 
-                                  context.goNamed('InsuranceRequestListPage');
+                                  context.goNamed(
+                                      InsuranceRequestListPageWidget.routeName);
                                 },
                                 child: Container(
                                   width:

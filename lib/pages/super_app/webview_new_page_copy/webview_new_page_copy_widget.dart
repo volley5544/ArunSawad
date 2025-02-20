@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,6 +29,9 @@ class WebviewNewPageCopyWidget extends StatefulWidget {
   final String? levelSearch;
   final String? regionAccessToken;
   final String? regionEmployeeId;
+
+  static String routeName = 'WebviewNewPageCopy';
+  static String routePath = 'webviewNewPageCopy';
 
   @override
   State<WebviewNewPageCopyWidget> createState() =>
@@ -114,7 +118,7 @@ class _WebviewNewPageCopyWidgetState extends State<WebviewNewPageCopyWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed('SuperAppPage');
+                      context.goNamed(SuperAppPageWidget.routeName);
                     },
                     child: Text(
                       'กลับหน้า Home',

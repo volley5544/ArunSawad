@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -14,6 +15,9 @@ export 'introdution_page_model.dart';
 
 class IntrodutionPageWidget extends StatefulWidget {
   const IntrodutionPageWidget({super.key});
+
+  static String routeName = 'IntrodutionPage';
+  static String routePath = 'introdutionPage';
 
   @override
   State<IntrodutionPageWidget> createState() => _IntrodutionPageWidgetState();
@@ -208,7 +212,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                   FFAppState().firstUseApp = true;
                                   FFAppState().update(() {});
 
-                                  context.goNamed('LoginPage');
+                                  context.goNamed(LoginPageWidget.routeName);
                                 },
                                 text: functions.introPageTextButton(
                                     FFAppState().introPageIndex),

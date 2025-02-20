@@ -16,6 +16,9 @@ class TestPageWidget extends StatefulWidget {
 
   final String? fromPage;
 
+  static String routeName = 'TestPage';
+  static String routePath = 'testPage';
+
   @override
   State<TestPageWidget> createState() => _TestPageWidgetState();
 }

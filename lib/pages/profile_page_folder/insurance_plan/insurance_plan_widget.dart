@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +18,9 @@ class InsurancePlanWidget extends StatefulWidget {
   });
 
   final String? planInsurance;
+
+  static String routeName = 'InsurancePlan';
+  static String routePath = 'insurancePlan';
 
   @override
   State<InsurancePlanWidget> createState() => _InsurancePlanWidgetState();
@@ -125,7 +129,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('MyProfilePage');
+                context.goNamed(MyProfilePageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,

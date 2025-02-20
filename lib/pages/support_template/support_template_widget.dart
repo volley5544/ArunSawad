@@ -11,6 +11,9 @@ export 'support_template_model.dart';
 class SupportTemplateWidget extends StatefulWidget {
   const SupportTemplateWidget({super.key});
 
+  static String routeName = 'supportTemplate';
+  static String routePath = 'supportTemplate';
+
   @override
   State<SupportTemplateWidget> createState() => _SupportTemplateWidgetState();
 }

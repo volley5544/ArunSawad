@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -36,6 +37,9 @@ class ContactUsPageWidget extends StatefulWidget {
   final String? landmark;
   final String? remark;
   final DateTime? clockIn;
+
+  static String routeName = 'ContactUsPage';
+  static String routePath = 'contactUsPage';
 
   @override
   State<ContactUsPageWidget> createState() => _ContactUsPageWidgetState();
@@ -80,7 +84,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
           },
         );
 
-        context.goNamed('Dashboard');
+        context.goNamed(DashboardWidget.routeName);
 
         return;
       }

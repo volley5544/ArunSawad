@@ -18,6 +18,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,9 @@ export 'employee_kpi_c_e_o_page_model.dart';
 
 class EmployeeKpiCEOPageWidget extends StatefulWidget {
   const EmployeeKpiCEOPageWidget({super.key});
+
+  static String routeName = 'EmployeeKpiCEOPage';
+  static String routePath = 'employeeKpiCEOPage';
 
   @override
   State<EmployeeKpiCEOPageWidget> createState() =>
@@ -270,7 +274,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,6 +17,9 @@ export 'classroom_page_model.dart';
 
 class ClassroomPageWidget extends StatefulWidget {
   const ClassroomPageWidget({super.key});
+
+  static String routeName = 'ClassroomPage';
+  static String routePath = 'classroomPage';
 
   @override
   State<ClassroomPageWidget> createState() => _ClassroomPageWidgetState();
@@ -116,7 +120,7 @@ class _ClassroomPageWidgetState extends State<ClassroomPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed('SuperAppPage');
+                  context.goNamed(SuperAppPageWidget.routeName);
                 },
                 child: Icon(
                   Icons.arrow_back,

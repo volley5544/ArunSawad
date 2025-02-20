@@ -12,6 +12,9 @@ export 'planning_self_k_p_i_model.dart';
 class PlanningSelfKPIWidget extends StatefulWidget {
   const PlanningSelfKPIWidget({super.key});
 
+  static String routeName = 'PlanningSelfKPI';
+  static String routePath = 'planningSelfKPI';
+
   @override
   State<PlanningSelfKPIWidget> createState() => _PlanningSelfKPIWidgetState();
 }
