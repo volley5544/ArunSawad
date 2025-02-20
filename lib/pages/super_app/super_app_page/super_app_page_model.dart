@@ -107,6 +107,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
 
   String? levelLandAndHouse;
 
+  bool isShowVideoPlayer = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
