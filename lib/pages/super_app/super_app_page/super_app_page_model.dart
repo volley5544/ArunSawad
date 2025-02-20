@@ -109,6 +109,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
 
   bool isShowVideoPlayer = false;
 
+  double? xAxis = 0.9;
+
+  double? yAxis = 0.95;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
