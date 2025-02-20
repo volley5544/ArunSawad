@@ -1145,8 +1145,42 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             top: true,
             child: GestureDetector(
               onHorizontalDragEnd: (details) async {
-                _model.xAxis = details.localPosition.dx;
-                _model.yAxis = details.localPosition.dy;
+                await showDialog(
+                  context: context,
+                  builder: (alertDialogContext) {
+                    return WebViewAware(
+                      child: AlertDialog(
+                        title: Text(details.globalPosition.dx.toString()),
+                        content: Text(details.globalPosition.dy.toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+                await showDialog(
+                  context: context,
+                  builder: (alertDialogContext) {
+                    return WebViewAware(
+                      child: AlertDialog(
+                        title: Text(details.localPosition.dx.toString()),
+                        content: Text(details.globalPosition.dy.toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+                _model.xAxis = details.globalPosition.dx;
+                _model.yAxis = details.globalPosition.dy;
                 safeSetState(() {});
               },
               child: Stack(
