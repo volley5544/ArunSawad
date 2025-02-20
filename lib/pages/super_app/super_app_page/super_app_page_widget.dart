@@ -1168,7 +1168,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                     return WebViewAware(
                       child: AlertDialog(
                         title: Text(details.localPosition.dx.toString()),
-                        content: Text(details.globalPosition.dy.toString()),
+                        content: Text(details.localPosition.dy.toString()),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(alertDialogContext),
@@ -16866,18 +16866,86 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                               children: [
                                 Align(
                                   alignment: AlignmentDirectional(1.0, 0.0),
-                                  child: FlutterFlowVideoPlayer(
-                                    path:
-                                        'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
-                                    videoType: VideoType.asset,
-                                    width: 170.0,
-                                    height: 300.0,
-                                    autoPlay: true,
-                                    looping: true,
-                                    showControls: true,
-                                    allowFullScreen: true,
-                                    allowPlaybackSpeedMenu: false,
-                                    pauseOnNavigate: false,
+                                  child: GestureDetector(
+                                    onHorizontalDragEnd: (details) async {
+                                      _model.xAxis = details.globalPosition.dx <
+                                              (MediaQuery.sizeOf(context)
+                                                      .width /
+                                                  2)
+                                          ? (-(details.globalPosition.dx /
+                                              (MediaQuery.sizeOf(context)
+                                                      .width /
+                                                  2)))
+                                          : (((details.globalPosition.dx -
+                                                  (MediaQuery.sizeOf(context)
+                                                          .width /
+                                                      2)) /
+                                              (MediaQuery.sizeOf(context)
+                                                      .width /
+                                                  2)));
+                                      _model.yAxis = details.globalPosition.dy <
+                                              (MediaQuery.sizeOf(context)
+                                                      .height /
+                                                  2)
+                                          ? (-(details.globalPosition.dy /
+                                              (MediaQuery.sizeOf(context)
+                                                      .height /
+                                                  2)))
+                                          : (((details.globalPosition.dy -
+                                                  (MediaQuery.sizeOf(context)
+                                                          .height /
+                                                      2)) /
+                                              (MediaQuery.sizeOf(context)
+                                                      .height /
+                                                  2)));
+                                      safeSetState(() {});
+                                    },
+                                    onVerticalDragEnd: (details) async {
+                                      _model.xAxis = details.globalPosition.dx <
+                                              (MediaQuery.sizeOf(context)
+                                                      .width /
+                                                  2)
+                                          ? (-(details.globalPosition.dx /
+                                              (MediaQuery.sizeOf(context)
+                                                      .width /
+                                                  2)))
+                                          : (((details.globalPosition.dx -
+                                                  (MediaQuery.sizeOf(context)
+                                                          .width /
+                                                      2)) /
+                                              (MediaQuery.sizeOf(context)
+                                                      .width /
+                                                  2)));
+                                      _model.yAxis = details.globalPosition.dy <
+                                              (MediaQuery.sizeOf(context)
+                                                      .height /
+                                                  2)
+                                          ? (-(details.globalPosition.dy /
+                                              (MediaQuery.sizeOf(context)
+                                                      .height /
+                                                  2)))
+                                          : (((details.globalPosition.dy -
+                                                  (MediaQuery.sizeOf(context)
+                                                          .height /
+                                                      2)) /
+                                              (MediaQuery.sizeOf(context)
+                                                      .height /
+                                                  2)));
+                                      safeSetState(() {});
+                                    },
+                                    child: FlutterFlowVideoPlayer(
+                                      path:
+                                          'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
+                                      videoType: VideoType.asset,
+                                      width: 170.0,
+                                      height: 300.0,
+                                      autoPlay: true,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                      pauseOnNavigate: false,
+                                    ),
                                   ),
                                 ),
                                 Align(
@@ -16913,18 +16981,74 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                             children: [
                               Align(
                                 alignment: AlignmentDirectional(1.0, 0.0),
-                                child: FlutterFlowVideoPlayer(
-                                  path:
-                                      'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
-                                  videoType: VideoType.asset,
-                                  width: 170.0,
-                                  height: 300.0,
-                                  autoPlay: true,
-                                  looping: true,
-                                  showControls: true,
-                                  allowFullScreen: true,
-                                  allowPlaybackSpeedMenu: false,
-                                  pauseOnNavigate: false,
+                                child: GestureDetector(
+                                  onHorizontalDragEnd: (details) async {
+                                    _model.xAxis = details.globalPosition.dx <
+                                            (MediaQuery.sizeOf(context).width /
+                                                2)
+                                        ? (-(details.globalPosition.dx /
+                                            (MediaQuery.sizeOf(context).width /
+                                                2)))
+                                        : (((details.globalPosition.dx -
+                                                (MediaQuery.sizeOf(context)
+                                                        .width /
+                                                    2)) /
+                                            (MediaQuery.sizeOf(context).width /
+                                                2)));
+                                    _model.yAxis = details.globalPosition.dy <
+                                            (MediaQuery.sizeOf(context).height /
+                                                2)
+                                        ? (-(details.globalPosition.dy /
+                                            (MediaQuery.sizeOf(context).height /
+                                                2)))
+                                        : (((details.globalPosition.dy -
+                                                (MediaQuery.sizeOf(context)
+                                                        .height /
+                                                    2)) /
+                                            (MediaQuery.sizeOf(context).height /
+                                                2)));
+                                    safeSetState(() {});
+                                  },
+                                  onVerticalDragEnd: (details) async {
+                                    _model.xAxis = details.globalPosition.dx <
+                                            (MediaQuery.sizeOf(context).width /
+                                                2)
+                                        ? (-(details.globalPosition.dx /
+                                            (MediaQuery.sizeOf(context).width /
+                                                2)))
+                                        : (((details.globalPosition.dx -
+                                                (MediaQuery.sizeOf(context)
+                                                        .width /
+                                                    2)) /
+                                            (MediaQuery.sizeOf(context).width /
+                                                2)));
+                                    _model.yAxis = details.globalPosition.dy <
+                                            (MediaQuery.sizeOf(context).height /
+                                                2)
+                                        ? (-(details.globalPosition.dy /
+                                            (MediaQuery.sizeOf(context).height /
+                                                2)))
+                                        : (((details.globalPosition.dy -
+                                                (MediaQuery.sizeOf(context)
+                                                        .height /
+                                                    2)) /
+                                            (MediaQuery.sizeOf(context).height /
+                                                2)));
+                                    safeSetState(() {});
+                                  },
+                                  child: FlutterFlowVideoPlayer(
+                                    path:
+                                        'assets/videos/DEE9E58E026C4CAC23DC2E6132C4587111ECAA4E_(1).mp4',
+                                    videoType: VideoType.asset,
+                                    width: 170.0,
+                                    height: 300.0,
+                                    autoPlay: true,
+                                    looping: true,
+                                    showControls: true,
+                                    allowFullScreen: true,
+                                    allowPlaybackSpeedMenu: false,
+                                    pauseOnNavigate: false,
+                                  ),
                                 ),
                               ),
                               Align(
