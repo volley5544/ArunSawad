@@ -15,6 +15,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'employee_k_p_i_page_widget.dart' show EmployeeKPIPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,6 +35,14 @@ class EmployeeKPIPageModel extends FlutterFlowModel<EmployeeKPIPageWidget> {
   ApiCallResponse? getTargetBudget;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in EmployeeKPIPage widget.
   ApiCallResponse? getServerDateTime;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UrlLinkStorageRecord? tableauBaseUrlQueryPip;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  ReportStorageRecord? reportStoragePIPKPIQueryPip;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UrlLinkStorageRecord? tableauBaseUrlQueryKpi;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  ReportStorageRecord? reportStoragePIPKPIQueryKpi;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
