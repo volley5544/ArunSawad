@@ -133,11 +133,6 @@ class _SavedLeadCalledStatusWidgetState
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          FFAppState().savingLeadCallStatus =
-                              _model.callStatusDropDownValue!;
-                          FFAppState().savingLeadStatusCallOut =
-                              _model.reasonDropDownValue!;
-                          safeSetState(() {});
                           Navigator.pop(context);
                         },
                       ),
