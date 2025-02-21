@@ -3079,44 +3079,107 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           if (_shouldSetState) safeSetState(() {});
                                                                                           return;
                                                                                         }
-                                                                                        showModalBottomSheet(
-                                                                                          isScrollControlled: true,
-                                                                                          backgroundColor: Colors.transparent,
-                                                                                          enableDrag: false,
-                                                                                          context: context,
-                                                                                          builder: (context) {
-                                                                                            return WebViewAware(
-                                                                                              child: GestureDetector(
-                                                                                                onTap: () {
-                                                                                                  FocusScope.of(context).unfocus();
-                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                },
-                                                                                                child: Padding(
-                                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                                  child: Container(
-                                                                                                    height: double.infinity,
-                                                                                                    child: LoadingSceneWidget(),
+                                                                                        var confirmDialogResponse = await showDialog<bool>(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('เลือกรายงานที่ต้องการจะดู'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                        child: Text('PIP'),
+                                                                                                      ),
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                        child: Text('KPI'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            ) ??
+                                                                                            false;
+                                                                                        if (confirmDialogResponse) {
+                                                                                          showModalBottomSheet(
+                                                                                            isScrollControlled: true,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            enableDrag: false,
+                                                                                            context: context,
+                                                                                            builder: (context) {
+                                                                                              return WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: double.infinity,
+                                                                                                      child: LoadingSceneWidget(),
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
-                                                                                              ),
-                                                                                            );
-                                                                                          },
-                                                                                        ).then((value) => safeSetState(() {}));
+                                                                                              );
+                                                                                            },
+                                                                                          ).then((value) => safeSetState(() {}));
 
-                                                                                        _model.reportStoragePIPKPIQuery = await queryReportStorageRecordOnce(
-                                                                                          queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
-                                                                                            'report_name',
-                                                                                            isEqualTo: 'PIP/KPI',
-                                                                                          ),
-                                                                                          singleRecord: true,
-                                                                                        ).then((s) => s.firstOrNull);
-                                                                                        _shouldSetState = true;
-                                                                                        Navigator.pop(context);
-                                                                                        await actions.openTableauBrowser(
-                                                                                          FFAppState().accessToken,
-                                                                                          '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQuery?.reportUrl?.firstOrNull}',
-                                                                                          FFAppState().isOpenAndroidTableauBrowser,
-                                                                                        );
+                                                                                          _model.reportStoragePIPKPIQueryKpi = await queryReportStorageRecordOnce(
+                                                                                            queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                              'report_name',
+                                                                                              isEqualTo: 'PIP/KPI',
+                                                                                            ),
+                                                                                            singleRecord: true,
+                                                                                          ).then((s) => s.firstOrNull);
+                                                                                          _shouldSetState = true;
+                                                                                          Navigator.pop(context);
+                                                                                          await actions.openTableauBrowser(
+                                                                                            FFAppState().accessToken,
+                                                                                            '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQueryKpi?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryKpi?.reportUrlName?.toList(), 'kpi'))}',
+                                                                                            FFAppState().isOpenAndroidTableauBrowser,
+                                                                                          );
+                                                                                        } else {
+                                                                                          showModalBottomSheet(
+                                                                                            isScrollControlled: true,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            enableDrag: false,
+                                                                                            context: context,
+                                                                                            builder: (context) {
+                                                                                              return WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: double.infinity,
+                                                                                                      child: LoadingSceneWidget(),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          ).then((value) => safeSetState(() {}));
+
+                                                                                          _model.reportStoragePIPKPIQueryPip = await queryReportStorageRecordOnce(
+                                                                                            queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                              'report_name',
+                                                                                              isEqualTo: 'PIP/KPI',
+                                                                                            ),
+                                                                                            singleRecord: true,
+                                                                                          ).then((s) => s.firstOrNull);
+                                                                                          _shouldSetState = true;
+                                                                                          Navigator.pop(context);
+                                                                                          await actions.openTableauBrowser(
+                                                                                            FFAppState().accessToken,
+                                                                                            '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQueryPip?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryPip?.reportUrlName?.toList(), 'pip'))}',
+                                                                                            FFAppState().isOpenAndroidTableauBrowser,
+                                                                                          );
+                                                                                        }
+
                                                                                         if (_shouldSetState) safeSetState(() {});
                                                                                       },
                                                                                       child: Container(
