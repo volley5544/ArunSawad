@@ -18014,7 +18014,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                         ],
                       ),
                     ),
-                    if (_model.isShowVideoPlayer)
+                    if (false)
                       Align(
                         alignment: AlignmentDirectional(0.9, 0.95),
                         child: Container(
