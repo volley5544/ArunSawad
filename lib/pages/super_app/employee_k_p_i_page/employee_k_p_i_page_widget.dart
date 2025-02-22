@@ -583,7 +583,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
               ),
             ),
             title: Text(
-              'KPI พนักงาน',
+              'PIP และเกรดโบนัส',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,

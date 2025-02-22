@@ -5757,7 +5757,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             ),
                                                                                           ),
                                                                                           Text(
-                                                                                            'รายงาน BSI',
+                                                                                            'รายงาน BSI\n(รวมสาขา)',
+                                                                                            textAlign: TextAlign.center,
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   fontSize: () {
@@ -5883,7 +5884,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Text(
-                                                                                          'เป้า/ผลงาน',
+                                                                                          'เป้า/ผลงาน\n(ของแต่ละคน)',
+                                                                                          textAlign: TextAlign.center,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Poppins',
                                                                                                 fontSize: () {
@@ -6163,7 +6165,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               ),
                                                                                             ),
                                                                                             Text(
-                                                                                              'KPI',
+                                                                                              'PIP\nและเกรดโบนัส',
+                                                                                              textAlign: TextAlign.center,
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Poppins',
                                                                                                     fontSize: () {

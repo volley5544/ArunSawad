@@ -155,7 +155,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
               },
             ),
             title: Text(
-              'เป้าและผลงานรายเดือน',
+              'เป้าและผลงานรายเดือน\n(ของแต่ละคน)',
+              textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
