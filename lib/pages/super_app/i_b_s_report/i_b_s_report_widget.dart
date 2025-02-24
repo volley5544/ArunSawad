@@ -4927,9 +4927,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -4965,8 +4969,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5042,9 +5055,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5080,8 +5097,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5157,9 +5183,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5193,8 +5223,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5268,9 +5307,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5304,8 +5347,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5379,9 +5431,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5415,8 +5471,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5490,9 +5555,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5526,8 +5595,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5628,9 +5706,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5664,8 +5746,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5739,9 +5830,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5775,8 +5870,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5850,9 +5954,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -5890,8 +5998,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -5967,9 +6083,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6007,8 +6127,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6084,9 +6212,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6124,8 +6256,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6203,9 +6343,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6243,8 +6387,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6320,9 +6472,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6360,8 +6516,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6439,9 +6603,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6479,8 +6647,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6556,9 +6732,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6596,8 +6776,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6675,9 +6863,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6715,8 +6907,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -6932,9 +7132,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -6970,8 +7174,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7047,9 +7260,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7085,8 +7302,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7162,9 +7388,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7198,8 +7428,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7273,9 +7512,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7309,8 +7552,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7384,9 +7636,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7420,10 +7676,22 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .underline,
                                                               ),
                                                         ),
                                                       ),
@@ -7495,9 +7763,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7531,8 +7803,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7633,9 +7914,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7669,8 +7954,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7744,9 +8038,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7780,8 +8078,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -7855,9 +8162,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -7895,8 +8206,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -7972,9 +8291,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8012,8 +8335,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8089,9 +8420,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8129,8 +8464,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8208,9 +8551,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8248,8 +8595,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8325,9 +8680,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8365,8 +8724,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8444,9 +8811,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8484,8 +8855,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8564,9 +8943,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8604,8 +8987,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8683,9 +9074,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8723,8 +9118,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -8943,9 +9346,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -8981,8 +9388,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9058,9 +9474,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9096,8 +9516,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9173,9 +9602,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9209,8 +9642,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9284,9 +9726,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9320,8 +9766,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9395,9 +9850,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9431,8 +9890,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9506,9 +9974,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9542,8 +10014,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9644,9 +10125,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9680,8 +10165,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9755,9 +10249,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9791,8 +10289,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -9866,9 +10373,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -9906,8 +10417,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -9983,9 +10502,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10023,8 +10546,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10100,9 +10631,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10140,8 +10675,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10219,9 +10762,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10259,8 +10806,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10336,9 +10891,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10376,8 +10935,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10455,9 +11022,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10495,8 +11066,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10572,9 +11151,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10612,8 +11195,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10691,9 +11282,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10731,8 +11326,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -10948,9 +11551,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -10986,8 +11593,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11063,9 +11679,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11101,8 +11721,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11178,9 +11807,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(1),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11214,8 +11847,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          1),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11289,9 +11931,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11325,8 +11971,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11400,9 +12055,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11436,8 +12095,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11511,9 +12179,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(2),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11547,8 +12219,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          2),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11649,9 +12330,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11685,8 +12370,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11760,9 +12454,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11796,8 +12494,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: Color(
-                                                                    0xFF3C4041),
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  rowKPIAllChangeRecord
+                                                                      ?.textColor
+                                                                      ?.elementAtOrNull(
+                                                                          3),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -11871,9 +12578,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -11911,8 +12622,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -11988,9 +12707,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(4),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -12028,8 +12751,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              4),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -12105,9 +12836,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -12145,8 +12880,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -12224,9 +12967,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(5),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -12264,8 +13011,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              5),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -12341,9 +13096,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -12381,8 +13140,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -12460,9 +13227,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(6),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -12500,8 +13271,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              6),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -12577,9 +13356,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
@@ -12617,8 +13400,16 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
-                                                                    color: Color(
-                                                                        0xFF3C4041),
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      rowKPIAllChangeRecord
+                                                                          ?.textColor
+                                                                          ?.elementAtOrNull(
+                                                                              7),
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -12696,9 +13487,13 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                color: valueOrDefault<Color>(
+                                                  rowKPIAllChangeRecord
+                                                      ?.backgroundColor
+                                                      ?.elementAtOrNull(7),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 0.0,
