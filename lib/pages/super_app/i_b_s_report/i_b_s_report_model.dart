@@ -19,6 +19,10 @@ import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
+  ///  Local state fields for this page.
+
+  double? borderWidth = 7.0;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (GetKPIAll)] action in IBSReport widget.

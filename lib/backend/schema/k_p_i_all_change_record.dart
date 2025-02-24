@@ -56,6 +56,11 @@ class KPIAllChangeRecord extends FirestoreRecord {
   List<Color> get textColor => _textColor ?? const [];
   bool hasTextColor() => _textColor != null;
 
+  // "borderColor" field.
+  List<Color>? _borderColor;
+  List<Color> get borderColor => _borderColor ?? const [];
+  bool hasBorderColor() => _borderColor != null;
+
   void _initializeFields() {
     _danger = castToType<double>(snapshotData['danger']);
     _normal = castToType<double>(snapshotData['normal']);
@@ -65,6 +70,7 @@ class KPIAllChangeRecord extends FirestoreRecord {
     _groupName = getDataList(snapshotData['groupName']);
     _backgroundColor = getColorsList(snapshotData['backgroundColor']);
     _textColor = getColorsList(snapshotData['textColor']);
+    _borderColor = getColorsList(snapshotData['borderColor']);
   }
 
   static CollectionReference get collection =>
@@ -135,7 +141,8 @@ class KPIAllChangeRecordDocumentEquality
         e1?.goodColor == e2?.goodColor &&
         listEquality.equals(e1?.groupName, e2?.groupName) &&
         listEquality.equals(e1?.backgroundColor, e2?.backgroundColor) &&
-        listEquality.equals(e1?.textColor, e2?.textColor);
+        listEquality.equals(e1?.textColor, e2?.textColor) &&
+        listEquality.equals(e1?.borderColor, e2?.borderColor);
   }
 
   @override
@@ -147,7 +154,8 @@ class KPIAllChangeRecordDocumentEquality
         e?.goodColor,
         e?.groupName,
         e?.backgroundColor,
-        e?.textColor
+        e?.textColor,
+        e?.borderColor
       ]);
 
   @override
