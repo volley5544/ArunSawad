@@ -698,7 +698,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                 ).then((s) => s.firstOrNull);
                                 await actions.openTableauBrowser(
                                   FFAppState().accessToken,
-                                  '${_model.tableauBaseUrlQueryKpi?.urlLink}${_model.reportStoragePIPKPIQueryPip?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryPip?.reportUrlName?.toList(), 'kpi'))}',
+                                  '${_model.tableauBaseUrlQueryKpi?.urlLink}${_model.reportStoragePIPKPIQueryKpi?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryPip?.reportUrlName?.toList(), 'kpi'))}',
                                   FFAppState().isOpenAndroidTableauBrowser,
                                 );
 
