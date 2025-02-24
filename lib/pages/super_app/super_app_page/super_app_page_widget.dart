@@ -5148,6 +5148,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             ),
                                                                                             Text(
                                                                                               'โครงการ ZUVศษ',
+                                                                                              textAlign: TextAlign.center,
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Poppins',
                                                                                                     fontSize: () {

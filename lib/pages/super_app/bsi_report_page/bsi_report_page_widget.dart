@@ -307,7 +307,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                   ),
                 ),
                 title: Text(
-                  'รายงาน BSI (ของแต่ละคน)',
+                  'รายงาน BSI (รวมสาขา)',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Poppins',
                         color: Colors.white,

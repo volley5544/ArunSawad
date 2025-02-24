@@ -41,12 +41,30 @@ class KPIAllChangeRecord extends FirestoreRecord {
   Color? get goodColor => _goodColor;
   bool hasGoodColor() => _goodColor != null;
 
+  // "groupName" field.
+  List<String>? _groupName;
+  List<String> get groupName => _groupName ?? const [];
+  bool hasGroupName() => _groupName != null;
+
+  // "backgroundColor" field.
+  List<Color>? _backgroundColor;
+  List<Color> get backgroundColor => _backgroundColor ?? const [];
+  bool hasBackgroundColor() => _backgroundColor != null;
+
+  // "textColor" field.
+  List<Color>? _textColor;
+  List<Color> get textColor => _textColor ?? const [];
+  bool hasTextColor() => _textColor != null;
+
   void _initializeFields() {
     _danger = castToType<double>(snapshotData['danger']);
     _normal = castToType<double>(snapshotData['normal']);
     _dangerColor = getSchemaColor(snapshotData['dangerColor']);
     _normalColor = getSchemaColor(snapshotData['normalColor']);
     _goodColor = getSchemaColor(snapshotData['goodColor']);
+    _groupName = getDataList(snapshotData['groupName']);
+    _backgroundColor = getColorsList(snapshotData['backgroundColor']);
+    _textColor = getColorsList(snapshotData['textColor']);
   }
 
   static CollectionReference get collection =>
@@ -109,16 +127,28 @@ class KPIAllChangeRecordDocumentEquality
 
   @override
   bool equals(KPIAllChangeRecord? e1, KPIAllChangeRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.danger == e2?.danger &&
         e1?.normal == e2?.normal &&
         e1?.dangerColor == e2?.dangerColor &&
         e1?.normalColor == e2?.normalColor &&
-        e1?.goodColor == e2?.goodColor;
+        e1?.goodColor == e2?.goodColor &&
+        listEquality.equals(e1?.groupName, e2?.groupName) &&
+        listEquality.equals(e1?.backgroundColor, e2?.backgroundColor) &&
+        listEquality.equals(e1?.textColor, e2?.textColor);
   }
 
   @override
-  int hash(KPIAllChangeRecord? e) => const ListEquality().hash(
-      [e?.danger, e?.normal, e?.dangerColor, e?.normalColor, e?.goodColor]);
+  int hash(KPIAllChangeRecord? e) => const ListEquality().hash([
+        e?.danger,
+        e?.normal,
+        e?.dangerColor,
+        e?.normalColor,
+        e?.goodColor,
+        e?.groupName,
+        e?.backgroundColor,
+        e?.textColor
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is KPIAllChangeRecord;
