@@ -387,23 +387,23 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         .secondaryBackground,
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    blurRadius: 0.0,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .lineColor,
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
                                                     offset: Offset(
                                                       0.0,
-                                                      1.0,
+                                                      2.0,
                                                     ),
                                                   )
                                                 ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(0),
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .primary,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -528,13 +528,28 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(1),
                                                     FlutterFlowTheme.of(context)
-                                                        .tertiary,
+                                                        .secondary,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -932,440 +947,464 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: valueOrDefault<Color>(
-                                                    rowKPIAllChangeRecord
-                                                        ?.borderColor
-                                                        ?.elementAtOrNull(2),
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                  ),
-                                                  width: valueOrDefault<double>(
-                                                    _model.borderWidth,
-                                                    7.0,
+                                            Material(
+                                              color: Colors.transparent,
+                                              elevation: 8.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(0.0),
+                                              ),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 4.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
+                                                      ),
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      rowKPIAllChangeRecord
+                                                          ?.borderColor
+                                                          ?.elementAtOrNull(2),
+                                                      Colors.transparent,
+                                                    ),
+                                                    width:
+                                                        valueOrDefault<double>(
+                                                      _model.borderWidth,
+                                                      7.0,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        rowKPIAllChangeRecord
-                                                            ?.backgroundColor
-                                                            ?.elementAtOrNull(
-                                                                2),
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 0.0,
-                                                          color:
-                                                              Color(0xFFE0E3E7),
-                                                          offset: Offset(
-                                                            0.0,
-                                                            1.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  12.0,
-                                                                  16.0,
-                                                                  12.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            flex: 4,
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Text(
-                                                                'ยอดจัดรายสัญญา (บาท)',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: valueOrDefault<
-                                                                          Color>(
-                                                                        rowKPIAllChangeRecord
-                                                                            ?.textColor
-                                                                            ?.elementAtOrNull(2),
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          rowKPIAllChangeRecord
+                                                              ?.backgroundColor
+                                                              ?.elementAtOrNull(
+                                                                  2),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: Color(
+                                                                0xFFE0E3E7),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
                                                             ),
-                                                          ),
-                                                          Expanded(
-                                                            flex: 2,
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0xFFEFE2D8),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              10.0),
-                                                                    ),
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            4.0,
-                                                                            8.0,
-                                                                            4.0),
-                                                                        child:
-                                                                            Text(
-                                                                          functions.showNumberWithComma(GetKPIAllCall
-                                                                              .sumKEYINCSHPRCLead(
-                                                                            (_model.kPIAllOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )?.elementAtOrNull(
-                                                                              0)),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                color: Color(0xFFDB771A),
-                                                                                letterSpacing: 0.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
+                                                          )
                                                         ],
                                                       ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        rowKPIAllChangeRecord
-                                                            ?.backgroundColor
-                                                            ?.elementAtOrNull(
-                                                                2),
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 0.0,
-                                                          color:
-                                                              Color(0xFFE0E3E7),
-                                                          offset: Offset(
-                                                            0.0,
-                                                            1.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  12.0,
-                                                                  16.0,
-                                                                  12.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            flex: 4,
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Text(
-                                                                'เป้าหมายยอดจัด (บาท)',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: valueOrDefault<
-                                                                          Color>(
-                                                                        rowKPIAllChangeRecord
-                                                                            ?.textColor
-                                                                            ?.elementAtOrNull(2),
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Expanded(
-                                                            flex: 2,
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0xFFEFE2D8),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              10.0),
-                                                                    ),
-                                                                    child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            4.0,
-                                                                            8.0,
-                                                                            4.0),
-                                                                        child:
-                                                                            Text(
-                                                                          functions.showNumberWithComma(GetKPIAllCall
-                                                                              .tagetkeyincshprc(
-                                                                            (_model.kPIAllOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )?.elementAtOrNull(
-                                                                              0)),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                color: Color(0xFFDB771A),
-                                                                                letterSpacing: 0.0,
-                                                                              ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    12.0,
+                                                                    16.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 4,
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -1.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  'ยอดจัดรายสัญญา (บาท)',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: valueOrDefault<
+                                                                            Color>(
+                                                                          rowKPIAllChangeRecord
+                                                                              ?.textColor
+                                                                              ?.elementAtOrNull(2),
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryText,
                                                                         ),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
-                                                                    ),
-                                                                  ),
                                                                 ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        rowKPIAllChangeRecord
-                                                            ?.backgroundColor
-                                                            ?.elementAtOrNull(
-                                                                2),
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 0.0,
-                                                          color:
-                                                              Color(0xFFE0E3E7),
-                                                          offset: Offset(
-                                                            0.0,
-                                                            1.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  12.0,
-                                                                  16.0,
-                                                                  12.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            flex: 4,
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Text(
-                                                                '%Achieve ยอดจัด',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: valueOrDefault<
-                                                                          Color>(
-                                                                        rowKPIAllChangeRecord
-                                                                            ?.textColor
-                                                                            ?.elementAtOrNull(2),
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                      ),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
                                                               ),
                                                             ),
-                                                          ),
-                                                          Expanded(
-                                                            flex: 2,
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: valueOrDefault<
-                                                                          Color>(
-                                                                        () {
-                                                                          if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
-                                                                                (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              )?.elementAtOrNull(0))) <
-                                                                              rowKPIAllChangeRecord!.danger) {
-                                                                            return rowKPIAllChangeRecord?.dangerColor;
-                                                                          } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
-                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  )?.elementAtOrNull(0))) <
-                                                                                  rowKPIAllChangeRecord!.normal) &&
-                                                                              (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
-                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  )?.elementAtOrNull(0))) >=
-                                                                                  rowKPIAllChangeRecord!.danger)) {
-                                                                            return rowKPIAllChangeRecord?.normalColor;
-                                                                          } else {
-                                                                            return rowKPIAllChangeRecord?.goodColor;
-                                                                          }
-                                                                        }(),
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                      ),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              10.0),
-                                                                    ),
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Expanded(
                                                                     child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: Color(
+                                                                            0xFFEFE2D8),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(10.0),
+                                                                      ),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            4.0,
-                                                                            8.0,
-                                                                            4.0),
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
-                                                                            Text(
-                                                                          '${functions.roundStringTo2(valueOrDefault<String>(
-                                                                            GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              8.0,
+                                                                              4.0,
+                                                                              8.0,
+                                                                              4.0),
+                                                                          child:
+                                                                              Text(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.sumKEYINCSHPRCLead(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(0),
-                                                                            '0',
-                                                                          ))} %',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                color: FlutterFlowTheme.of(context).primaryBtnText,
-                                                                                letterSpacing: 0.0,
-                                                                              ),
+                                                                            )?.elementAtOrNull(0)),
+                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ].divide(SizedBox(height: 2.0)),
+                                                    Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          rowKPIAllChangeRecord
+                                                              ?.backgroundColor
+                                                              ?.elementAtOrNull(
+                                                                  2),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: Color(
+                                                                0xFFE0E3E7),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    12.0,
+                                                                    16.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 4,
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -1.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  'เป้าหมายยอดจัด (บาท)',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: valueOrDefault<
+                                                                            Color>(
+                                                                          rowKPIAllChangeRecord
+                                                                              ?.textColor
+                                                                              ?.elementAtOrNull(2),
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryText,
+                                                                        ),
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: Color(
+                                                                            0xFFEFE2D8),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(10.0),
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              8.0,
+                                                                              4.0,
+                                                                              8.0,
+                                                                              4.0),
+                                                                          child:
+                                                                              Text(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.tagetkeyincshprc(
+                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                            )?.elementAtOrNull(0)),
+                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          rowKPIAllChangeRecord
+                                                              ?.backgroundColor
+                                                              ?.elementAtOrNull(
+                                                                  2),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 0.0,
+                                                            color: Color(
+                                                                0xFFE0E3E7),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              1.0,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    12.0,
+                                                                    16.0,
+                                                                    12.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 4,
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -1.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  '%Achieve ยอดจัด',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: valueOrDefault<
+                                                                            Color>(
+                                                                          rowKPIAllChangeRecord
+                                                                              ?.textColor
+                                                                              ?.elementAtOrNull(2),
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryText,
+                                                                        ),
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: valueOrDefault<
+                                                                            Color>(
+                                                                          () {
+                                                                            if (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                                  (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(0))) <
+                                                                                rowKPIAllChangeRecord!.danger) {
+                                                                              return rowKPIAllChangeRecord?.dangerColor;
+                                                                            } else if ((functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                                      (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(0))) <
+                                                                                    rowKPIAllChangeRecord!.normal) &&
+                                                                                (functions.stringToDouble(functions.roundStringTo2(GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                                      (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(0))) >=
+                                                                                    rowKPIAllChangeRecord!.danger)) {
+                                                                              return rowKPIAllChangeRecord?.normalColor;
+                                                                            } else {
+                                                                              return rowKPIAllChangeRecord?.goodColor;
+                                                                            }
+                                                                          }(),
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(10.0),
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              8.0,
+                                                                              4.0,
+                                                                              8.0,
+                                                                              4.0),
+                                                                          child:
+                                                                              Text(
+                                                                            '${functions.roundStringTo2(valueOrDefault<String>(
+                                                                              GetKPIAllCall.achieveKEYINCSHPRCLead(
+                                                                                (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                              )?.elementAtOrNull(0),
+                                                                              '0',
+                                                                            ))} %',
+                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 2.0)),
+                                                ),
                                               ),
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(3),
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .alternate,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -1629,18 +1668,160 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
+                                                  Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        rowKPIAllChangeRecord
+                                                            ?.backgroundColor
+                                                            ?.elementAtOrNull(
+                                                                3),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0xFFE0E3E7),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Text(
+                                                                'เป้ารายคน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        rowKPIAllChangeRecord
+                                                                            ?.textColor
+                                                                            ?.elementAtOrNull(3),
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFEFE2D8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          functions
+                                                                              .showNumberWithComma(getJsonField(
+                                                                            (_model.kPIAllOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.results.data[*]..TotalPerPersonTPB[0]''',
+                                                                          ).toString()),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFFDB771A),
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(4),
                                                     FlutterFlowTheme.of(context)
-                                                        .success,
+                                                        .primaryText,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -1922,13 +2103,28 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(5),
                                                     FlutterFlowTheme.of(context)
-                                                        .info,
+                                                        .secondaryText,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -2207,13 +2403,28 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(6),
                                                     FlutterFlowTheme.of(context)
-                                                        .tertiary400,
+                                                        .success,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -2492,13 +2703,28 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                                 border: Border.all(
                                                   color: valueOrDefault<Color>(
                                                     rowKPIAllChangeRecord
                                                         ?.borderColor
                                                         ?.elementAtOrNull(7),
                                                     FlutterFlowTheme.of(context)
-                                                        .warning,
+                                                        .error,
                                                   ),
                                                   width: valueOrDefault<double>(
                                                     _model.borderWidth,
@@ -2775,7 +3001,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                          ],
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                         ListView(
                                           padding: EdgeInsets.fromLTRB(
@@ -4035,6 +4261,133 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
+                                                  Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        rowKPIAllChangeRecord
+                                                            ?.backgroundColor
+                                                            ?.elementAtOrNull(
+                                                                3),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0xFFE0E3E7),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Text(
+                                                                'เป้ารายคน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        rowKPIAllChangeRecord
+                                                                            ?.textColor
+                                                                            ?.elementAtOrNull(3),
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFEFE2D8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          functions
+                                                                              .showNumberWithComma(getJsonField(
+                                                                            (_model.kPIAllOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.results.data[*]..TotalPerPersonTPB[1]''',
+                                                                          ).toString()),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFFDB771A),
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
@@ -5176,7 +5529,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                          ],
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                         ListView(
                                           padding: EdgeInsets.fromLTRB(
@@ -6434,6 +6787,133 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
+                                                  Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        rowKPIAllChangeRecord
+                                                            ?.backgroundColor
+                                                            ?.elementAtOrNull(
+                                                                3),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0xFFE0E3E7),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Text(
+                                                                'เป้ารายคน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        rowKPIAllChangeRecord
+                                                                            ?.textColor
+                                                                            ?.elementAtOrNull(3),
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFEFE2D8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          functions
+                                                                              .showNumberWithComma(getJsonField(
+                                                                            (_model.kPIAllOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.results.data[*]..TotalPerPersonTPB[2]''',
+                                                                          ).toString()),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFFDB771A),
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
@@ -7575,7 +8055,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                          ],
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                         ListView(
                                           padding: EdgeInsets.fromLTRB(
@@ -8847,6 +9327,133 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
+                                                  Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        rowKPIAllChangeRecord
+                                                            ?.backgroundColor
+                                                            ?.elementAtOrNull(
+                                                                3),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0xFFE0E3E7),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Text(
+                                                                'เป้ารายคน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        rowKPIAllChangeRecord
+                                                                            ?.textColor
+                                                                            ?.elementAtOrNull(3),
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFEFE2D8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          functions
+                                                                              .showNumberWithComma(getJsonField(
+                                                                            (_model.kPIAllOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.results.data[*]..TotalPerPersonTPB[3]''',
+                                                                          ).toString()),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFFDB771A),
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
@@ -10018,7 +10625,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                          ],
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                         ListView(
                                           padding: EdgeInsets.fromLTRB(
@@ -10586,7 +11193,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -11016,7 +11623,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -11298,7 +11905,134 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                  Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        rowKPIAllChangeRecord
+                                                            ?.backgroundColor
+                                                            ?.elementAtOrNull(
+                                                                3),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0xFFE0E3E7),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Text(
+                                                                'เป้ารายคน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        rowKPIAllChangeRecord
+                                                                            ?.textColor
+                                                                            ?.elementAtOrNull(3),
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFEFE2D8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          functions
+                                                                              .showNumberWithComma(getJsonField(
+                                                                            (_model.kPIAllOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.results.data[*]..TotalPerPersonTPB[4]''',
+                                                                          ).toString()),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFFDB771A),
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -11588,7 +12322,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -11880,7 +12614,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -12172,7 +12906,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -12464,10 +13198,10 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                          ],
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                         ListView(
                                           padding: EdgeInsets.fromLTRB(
@@ -12670,6 +13404,17 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                 context)
                                                             .secondaryBackground,
                                                       ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0x33000000),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
                                                     ),
                                                     child: Padding(
                                                       padding:
@@ -12790,9 +13535,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 0.0,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .lineColor,
+                                                          color:
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -13029,7 +13773,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -13075,7 +13819,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -13202,7 +13946,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -13459,7 +14203,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -13505,7 +14249,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -13631,7 +14375,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -13741,7 +14485,134 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                  Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        rowKPIAllChangeRecord
+                                                            ?.backgroundColor
+                                                            ?.elementAtOrNull(
+                                                                3),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color:
+                                                              Color(0xFFE0E3E7),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            1.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 4,
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Text(
+                                                                'เป้ารายคน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        rowKPIAllChangeRecord
+                                                                            ?.textColor
+                                                                            ?.elementAtOrNull(3),
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFEFE2D8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
+                                                                    ),
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          functions
+                                                                              .showNumberWithComma(getJsonField(
+                                                                            (_model.kPIAllOutput?.jsonBody ??
+                                                                                ''),
+                                                                            r'''$.results.data[*]..TotalPerPersonTPB[5]''',
+                                                                          ).toString()),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFFDB771A),
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -13787,7 +14658,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -14031,7 +14902,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -14077,7 +14948,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -14323,7 +15194,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -14369,7 +15240,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -14615,7 +15486,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
                                             Container(
@@ -14661,7 +15532,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                         BoxShadow(
                                                           blurRadius: 0.0,
                                                           color:
-                                                              Color(0xFFE0E3E7),
+                                                              Color(0x33000000),
                                                           offset: Offset(
                                                             0.0,
                                                             1.0,
@@ -14910,7 +15781,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                 ].divide(SizedBox(height: 2.0)),
                                               ),
                                             ),
-                                          ],
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                       ],
                                     ),

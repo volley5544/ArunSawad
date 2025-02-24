@@ -8494,6 +8494,10 @@ class GetKPIAllCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static dynamic totalPerPersonTPB(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[*]..TotalPerPersonTPB''',
+      );
 }
 
 class GetLeadCalledStatusDropdownAPICall {
