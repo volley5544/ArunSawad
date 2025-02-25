@@ -1761,10 +1761,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..TotalPerPersonTPB[0]''',
-                                                                            ).toString()),
+                                                                            ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[0]''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[0]''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? functions.showNumberWithComma(getJsonField(
+                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    r'''$.results.data[*]..TotalPerPersonTPB[0]''',
+                                                                                  ).toString())
+                                                                                : '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -4315,10 +4326,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..TotalPerPersonTPB[1]''',
-                                                                            ).toString()),
+                                                                            ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[1]''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[1]''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? functions.showNumberWithComma(getJsonField(
+                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    r'''$.results.data[*]..TotalPerPersonTPB[1]''',
+                                                                                  ).toString())
+                                                                                : '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -6810,10 +6832,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..TotalPerPersonTPB[2]''',
-                                                                            ).toString()),
+                                                                            ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[2]''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[2]''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? functions.showNumberWithComma(getJsonField(
+                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    r'''$.results.data[*]..TotalPerPersonTPB[2]''',
+                                                                                  ).toString())
+                                                                                : '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -9319,10 +9352,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..TotalPerPersonTPB[3]''',
-                                                                            ).toString()),
+                                                                            ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[3]''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[3]''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? functions.showNumberWithComma(getJsonField(
+                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    r'''$.results.data[*]..TotalPerPersonTPB[3]''',
+                                                                                  ).toString())
+                                                                                : '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -11870,10 +11914,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..TotalPerPersonTPB[4]''',
-                                                                            ).toString()),
+                                                                            ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[4]''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[4]''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? functions.showNumberWithComma(getJsonField(
+                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    r'''$.results.data[*]..TotalPerPersonTPB[4]''',
+                                                                                  ).toString())
+                                                                                : '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -14419,10 +14474,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..TotalPerPersonTPB[5]''',
-                                                                            ).toString()),
+                                                                            ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[5]''',
+                                                                                        ).toString()}' !=
+                                                                                        'null') &&
+                                                                                    ('${getJsonField(
+                                                                                          (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                          r'''$.results.data[*]..TotalPerPersonTPB[5]''',
+                                                                                        ).toString()}' !=
+                                                                                        '')
+                                                                                ? functions.showNumberWithComma(getJsonField(
+                                                                                    (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                                    r'''$.results.data[*]..TotalPerPersonTPB[5]''',
+                                                                                  ).toString())
+                                                                                : '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
