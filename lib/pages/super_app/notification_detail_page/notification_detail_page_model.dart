@@ -31,6 +31,8 @@ class NotificationDetailPageModel
   Completer<List<NotificationRecord>>? firestoreRequestCompleter;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputNotipage;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseUrl;
 
   @override
   void initState(BuildContext context) {}
