@@ -42,6 +42,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? androidIMEI;
   // Stores action output result for [Custom Action - a4] action in LoginPage widget.
   String? iOSidentifierForVendor;
+  // Stores action output result for [Backend Call - Create Document] action in Container widget.
+  MaterialRecord? createLocationLog;
   // State field(s) for usernameInput widget.
   FocusNode? usernameInputFocusNode;
   TextEditingController? usernameInputTextController;

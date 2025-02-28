@@ -408,6 +408,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     currentUserLocationValue =
                                         await getCurrentUserLocation(
                                             defaultLocation: LatLng(0.0, 0.0));
+
+                                    var materialRecordReference =
+                                        MaterialRecord.collection.doc();
+                                    await materialRecordReference
+                                        .set(createMaterialRecordData(
+                                      latLng: currentUserLocationValue,
+                                      latitude: functions.userLatitude(
+                                          currentUserLocationValue),
+                                      longitude: functions.userLongitude(
+                                          currentUserLocationValue),
+                                      dateTime: getCurrentTimestamp,
+                                    ));
+                                    _model.createLocationLog =
+                                        MaterialRecord.getDocumentFromData(
+                                            createMaterialRecordData(
+                                              latLng: currentUserLocationValue,
+                                              latitude: functions.userLatitude(
+                                                  currentUserLocationValue),
+                                              longitude:
+                                                  functions.userLongitude(
+                                                      currentUserLocationValue),
+                                              dateTime: getCurrentTimestamp,
+                                            ),
+                                            materialRecordReference);
+
+                                    safeSetState(() {});
                                   },
                                   child: Container(
                                     width:
