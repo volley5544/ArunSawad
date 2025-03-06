@@ -263,3 +263,9 @@ export '/pages/super_app/lead_noti_new_page/lead_noti_new_page_widget.dart'
     show LeadNotiNewPageWidget;
 export '/pages/super_app/webview_new_page_copy/webview_new_page_copy_widget.dart'
     show WebviewNewPageCopyWidget;
+export '/gen_q_r_customer/search_q_r_customer_page/search_q_r_customer_page_widget.dart'
+    show SearchQRCustomerPageWidget;
+export '/gen_q_r_customer/detail_q_r_customer_page/detail_q_r_customer_page_widget.dart'
+    show DetailQRCustomerPageWidget;
+export '/gen_q_r_customer/payment_q_rcode/payment_q_rcode_widget.dart'
+    show PaymentQRcodeWidget;

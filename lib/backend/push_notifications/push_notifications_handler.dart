@@ -767,6 +767,21 @@ final parametersBuilderMap =
           'regionEmployeeId': getParameter<String>(data, 'regionEmployeeId'),
         },
       ),
+  'searchQRCustomerPage': (data) async => ParameterData(
+        allParams: {
+          'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+        },
+      ),
+  'detailQRCustomerPage': (data) async => ParameterData(
+        allParams: {
+          'cusCod': getParameter<String>(data, 'cusCod'),
+          'name': getParameter<String>(data, 'name'),
+          'lastName': getParameter<String>(data, 'lastName'),
+          'followupDebtTab': getParameter<int>(data, 'followupDebtTab'),
+          'fromIconCall': getParameter<bool>(data, 'fromIconCall'),
+        },
+      ),
+  'paymentQRcode': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -2496,6 +2496,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: SearchQRCustomerPageWidget.routeName,
+              path: SearchQRCustomerPageWidget.routePath,
+              builder: (context, params) => SearchQRCustomerPageWidget(
+                followUpDebtTab: params.getParam(
+                  'followUpDebtTab',
+                  ParamType.int,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: DetailQRCustomerPageWidget.routeName,
+              path: DetailQRCustomerPageWidget.routePath,
+              builder: (context, params) => DetailQRCustomerPageWidget(
+                cusCod: params.getParam(
+                  'cusCod',
+                  ParamType.String,
+                ),
+                name: params.getParam(
+                  'name',
+                  ParamType.String,
+                ),
+                lastName: params.getParam(
+                  'lastName',
+                  ParamType.String,
+                ),
+                followupDebtTab: params.getParam(
+                  'followupDebtTab',
+                  ParamType.int,
+                ),
+                fromIconCall: params.getParam(
+                  'fromIconCall',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: PaymentQRcodeWidget.routeName,
+              path: PaymentQRcodeWidget.routePath,
+              builder: (context, params) => PaymentQRcodeWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

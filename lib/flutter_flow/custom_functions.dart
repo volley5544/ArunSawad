@@ -4919,3 +4919,26 @@ List<dynamic>? updateActionCall(
     return item;
   }).toList();
 }
+
+String? genQRCodePayment(
+  String? suffix,
+  String? ref1,
+  String? ref2,
+  String? amount,
+  String? taxId,
+) {
+  double originalValue = double.parse(amount!);
+
+  // Step 2: Perform the Multiplication
+  double multipliedValue = originalValue * 100;
+
+  // Step 3: Format the Result with 2 decimal places
+  String amount100 = multipliedValue.toString();
+  String data = '''
+|$taxId$suffix
+$ref1
+$ref2
+$amount100
+''';
+  return data;
+}
