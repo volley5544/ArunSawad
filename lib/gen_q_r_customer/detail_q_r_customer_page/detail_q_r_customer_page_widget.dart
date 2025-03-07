@@ -1226,7 +1226,7 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                           )?.elementAtOrNull(
                                                               listCardIndex)) ==
                                                           'Y'
-                                                      ? Color(0xFFE9FFEA)
+                                                      ? Color(0xFFFADEC2)
                                                       : Color(0xFFFADEC2),
                                                   Color(0xFFFADEC2),
                                                 ),

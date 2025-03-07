@@ -763,7 +763,7 @@ class _SearchQRCustomerPageWidgetState
                                           ParamType.String,
                                         ),
                                         'followupDebtTab': serializeParam(
-                                          7,
+                                          16,
                                           ParamType.int,
                                         ),
                                       }.withoutNulls,
