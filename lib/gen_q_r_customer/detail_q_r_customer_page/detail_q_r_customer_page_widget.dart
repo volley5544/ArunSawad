@@ -158,6 +158,8 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
         context.safePop();
         return;
       }
+
+      Navigator.pop(context);
     });
 
     _model.textController ??= TextEditingController();
@@ -2335,6 +2337,47 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                     },
                                                                   );
 
+                                                                  await showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.DBNAME''',
+                                                                          ).toString()} ${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.COMCODE''',
+                                                                          ).toString()} ${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.CONTNO''',
+                                                                          ).toString()} ${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.CUSCOD''',
+                                                                          ).toString()}${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.NAME1''',
+                                                                          ).toString()} ${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.NAME2''',
+                                                                          ).toString()} ${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.SUM_CURRENTDUEAMT''',
+                                                                          ).toString()}'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                              child: Text('Ok'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  );
                                                                   _model.qrCodeAPIOutput =
                                                                       await PaymentQrGenCall
                                                                           .call(
