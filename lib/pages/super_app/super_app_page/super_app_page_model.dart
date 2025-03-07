@@ -156,6 +156,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginImpoundCar;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginQrPayment;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStoragePIPKPIQueryKpi;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

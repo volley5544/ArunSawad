@@ -2280,20 +2280,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         unawaited(
                                                                           () async {}(),
                                                                         );
-
-                                                                        context
-                                                                            .pushNamed(
-                                                                          SearchQRCustomerPageWidget
-                                                                              .routeName,
-                                                                          queryParameters:
-                                                                              {
-                                                                            'followUpDebtTab':
-                                                                                serializeParam(
-                                                                              16,
-                                                                              ParamType.int,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
                                                                       },
                                                                       child:
                                                                           Text(
@@ -2751,7 +2737,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ลูกค้ารถยึด', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้ารถยึด')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้ารถยึด')?.toList(), FFAppState().profilePositionName)!)
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'QR Payment', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'QR Payment')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'QR Payment')?.toList(), FFAppState().profilePositionName)!)
                                                                                 InkWell(
                                                                                   splashColor: Colors.transparent,
                                                                                   focusColor: Colors.transparent,
@@ -2814,6 +2800,229 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             return WebViewAware(
                                                                                               child: AlertDialog(
                                                                                                 content: Text('พบข้อผิดพลาด (${(_model.checkLoginImpoundCar?.statusCode ?? 200).toString()})'),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                    child: Text('Ok'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        );
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return WebViewAware(
+                                                                                            child: AlertDialog(
+                                                                                              content: Text('Session Loginหมดอายุ'),
+                                                                                              actions: [
+                                                                                                TextButton(
+                                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                  child: Text('Ok'),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                      FFAppState().deleteAccessToken();
+                                                                                      FFAppState().accessToken = 'access_token';
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteEmployeeID();
+                                                                                      FFAppState().employeeID = 'employee_id';
+
+                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteApiURLLocalState();
+                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                                      FFAppState().deleteBranchCode();
+                                                                                      FFAppState().branchCode = 'branch_code';
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().isFromSetPinPage = false;
+                                                                                      FFAppState().leadChannelColor = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelList = [];
+                                                                                      FFAppState().isFromLoginPage = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deletePinCodeAuthen();
+                                                                                      FFAppState().pinCodeAuthen = '013972';
+
+                                                                                      FFAppState().isFromAuthenPage = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteDateDoNotShowAgain();
+                                                                                      FFAppState().dateDoNotShowAgain = null;
+
+                                                                                      FFAppState().deleteDoNotShowAgain();
+                                                                                      FFAppState().doNotShowAgain = false;
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().inAppViaNotification = true;
+                                                                                      FFAppState().isInApp = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().fcmToken = 'fcm_token';
+                                                                                      FFAppState().isPassLoginSection = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      Navigator.pop(context);
+                                                                                      await actions.a22();
+
+                                                                                      context.goNamed(LoginPageWidget.routeName);
+
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.pushNamed(
+                                                                                      SearchQRCustomerPageWidget.routeName,
+                                                                                      queryParameters: {
+                                                                                        'followUpDebtTab': serializeParam(
+                                                                                          16,
+                                                                                          ParamType.int,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                    );
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    height: 100.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: Colors.white,
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                          child: Container(
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                            decoration: BoxDecoration(
+                                                                                              shape: BoxShape.circle,
+                                                                                            ),
+                                                                                            child: Image.asset(
+                                                                                              'assets/images/payment-terms-header-image-us-en.png',
+                                                                                              fit: BoxFit.contain,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          'QR Payment',
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ลูกค้ารถยึด', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้ารถยึด')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้ารถยึด')?.toList(), FFAppState().profilePositionName)!)
+                                                                                InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    var _shouldSetState = false;
+                                                                                    HapticFeedback.mediumImpact();
+                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                      Navigator.pop(context);
+
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    showModalBottomSheet(
+                                                                                      isScrollControlled: true,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      barrierColor: Color(0x00000000),
+                                                                                      enableDrag: false,
+                                                                                      context: context,
+                                                                                      builder: (context) {
+                                                                                        return WebViewAware(
+                                                                                          child: GestureDetector(
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: Container(
+                                                                                                height: double.infinity,
+                                                                                                child: LoadingSceneWidget(),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    ).then((value) => safeSetState(() {}));
+
+                                                                                    _model.checkLoginQrPayment = await ActionUserAPICall.call(
+                                                                                      token: FFAppState().accessToken,
+                                                                                      apiUrl: FFAppState().apiURLLocalState,
+                                                                                    );
+
+                                                                                    _shouldSetState = true;
+                                                                                    if ((_model.checkLoginQrPayment?.statusCode ?? 200) != 200) {
+                                                                                      if (!((ActionUserAPICall.message(
+                                                                                                (_model.checkLoginQrPayment?.jsonBody ?? ''),
+                                                                                              ) ==
+                                                                                              'The token has been blacklisted') ||
+                                                                                          (ActionUserAPICall.message(
+                                                                                                (_model.checkLoginQrPayment?.jsonBody ?? ''),
+                                                                                              ) ==
+                                                                                              'Token Signature could not be verified.'))) {
+                                                                                        await showDialog(
+                                                                                          context: context,
+                                                                                          builder: (alertDialogContext) {
+                                                                                            return WebViewAware(
+                                                                                              child: AlertDialog(
+                                                                                                content: Text('พบข้อผิดพลาด (${(_model.checkLoginQrPayment?.statusCode ?? 200).toString()})'),
                                                                                                 actions: [
                                                                                                   TextButton(
                                                                                                     onPressed: () => Navigator.pop(alertDialogContext),
