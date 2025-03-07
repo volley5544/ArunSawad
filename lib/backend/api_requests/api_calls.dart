@@ -10862,6 +10862,15 @@ class CollectionApiGetDataPersonCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? comcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].COMCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SaveCallCollectionCall {
@@ -12380,6 +12389,63 @@ class ApiVloanCheckContractTypeDCall {
   static String? lastname(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.results.data.profiles.LASTNAME''',
+      ));
+}
+
+class PaymentQrGenCall {
+  static Future<ApiCallResponse> call({
+    String? dbname = '',
+    String? comcode = '',
+    String? contno = '',
+    String? cuscod = '',
+    String? name1 = '',
+    String? name2 = '',
+    String? sumCurrentdueamt = '',
+    String? token = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "DBNAME": "${escapeStringForJson(dbname)}",
+  "COMCODE": "${escapeStringForJson(comcode)}",
+  "CONTNO": "${escapeStringForJson(contno)}",
+  "CUSCOD": "${escapeStringForJson(cuscod)}",
+  "NAME1": "${escapeStringForJson(name1)}",
+  "NAME2": "${escapeStringForJson(name2)}",
+  "SUM_CURRENTDUEAMT": "${escapeStringForJson(sumCurrentdueamt)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'paymentQrGen',
+      apiUrl: '${apiUrl}/api/vloan/qr-bill-payment/qr-gen',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static DataPaymentQrCodeStruct? results(dynamic response) =>
+      DataPaymentQrCodeStruct.maybeFromMap(getJsonField(
+        response,
+        r'''$.results''',
+      ));
+  static String? code(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
       ));
 }
 

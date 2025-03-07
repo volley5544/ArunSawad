@@ -4,9 +4,9 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
+import '/components/data_not_found_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -40,16 +40,14 @@ class DetailQRCustomerPageModel
   bool? open3CXActionOutput1;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
-  // Stores action output result for [Custom Action - sha256Encoder] action in IconButton widget.
-  String? getHashThaiId;
-  // Stores action output result for [Custom Action - open3CXAction] action in IconButton widget.
-  bool? open3CXActionOutput;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   UrlLinkStorageRecord? getVloanRemarkApiUrl;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (paymentQrGen)] action in Button widget.
+  ApiCallResponse? qrCodeAPIOutput;
   // State field(s) for Checkbox widget.
   Map<dynamic, bool> checkboxValueMap = {};
   List<dynamic> get checkboxCheckedItems =>

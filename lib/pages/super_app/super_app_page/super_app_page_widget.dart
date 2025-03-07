@@ -2280,6 +2280,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         unawaited(
                                                                           () async {}(),
                                                                         );
+
+                                                                        context
+                                                                            .pushNamed(
+                                                                          SearchQRCustomerPageWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'followUpDebtTab':
+                                                                                serializeParam(
+                                                                              7,
+                                                                              ParamType.int,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
                                                                       },
                                                                       child:
                                                                           Text(

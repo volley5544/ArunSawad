@@ -2536,7 +2536,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: PaymentQRcodeWidget.routeName,
               path: PaymentQRcodeWidget.routePath,
-              builder: (context, params) => PaymentQRcodeWidget(),
+              builder: (context, params) => PaymentQRcodeWidget(
+                firstName: params.getParam(
+                  'firstName',
+                  ParamType.String,
+                ),
+                lastName: params.getParam(
+                  'lastName',
+                  ParamType.String,
+                ),
+                dataPayment: params.getParam(
+                  'dataPayment',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: DataPaymentQrCodeStruct.fromSerializableMap,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

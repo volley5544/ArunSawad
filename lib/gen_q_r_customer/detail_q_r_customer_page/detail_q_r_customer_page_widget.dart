@@ -4,9 +4,9 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
+import '/components/data_not_found_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -219,19 +219,6 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
           ),
         ],
       ),
-      'iconButtonOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 240.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(1.0, 1.0),
-            end: Offset(1.2, 1.2),
-          ),
-        ],
-      ),
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -305,12 +292,6 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -353,144 +334,6 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                           updateCallback: () => safeSetState(() {}),
                           child: AppbarFollowUpDebtWidget(),
                         ),
-                        if (((_model.getListDataPerson?.statusCode ?? 200) ==
-                                200) &&
-                            (CollectionApiGetDataPersonCall.statuscode(
-                                  (_model.getListDataPerson?.jsonBody ?? ''),
-                                ) ==
-                                200))
-                          Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 15.0, 15.0),
-                              child: FlutterFlowIconButton(
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 35.0,
-                                fillColor: Color(0xFF4BB718),
-                                icon: Icon(
-                                  Icons.call,
-                                  color: Colors.white,
-                                  size: 19.0,
-                                ),
-                                onPressed: () async {
-                                  currentUserLocationValue =
-                                      await getCurrentUserLocation(
-                                          defaultLocation: LatLng(0.0, 0.0));
-                                  var _shouldSetState = false;
-                                  var confirmDialogResponse =
-                                      await showDialog<bool>(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(
-                                                      'คุณต้องการจะโทรออกหรือไม่?'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext,
-                                                              false),
-                                                      child: Text('ยกเลิก'),
-                                                    ),
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext,
-                                                              true),
-                                                      child: Text('โทร'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          ) ??
-                                          false;
-                                  if (!confirmDialogResponse) {
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return WebViewAware(
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(context).unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: double.infinity,
-                                              child: LoadingSceneWidget(),
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
-
-                                  if (!functions.checkPhoneNumberChar(
-                                      CollectionApiGetDataPersonCall
-                                          .mobilenumber(
-                                    (_model.getListDataPerson?.jsonBody ?? ''),
-                                  )?.firstOrNull)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text('เบอร์โทรไม่ถูกต้อง'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  _model.getHashThaiId =
-                                      await actions.sha256Encoder(
-                                    widget!.cusCod,
-                                  );
-                                  _shouldSetState = true;
-                                  await actions.addUserLogDocument(
-                                    'BranchView_Collection_Call',
-                                    FFAppState().employeeID,
-                                    currentUserLocationValue,
-                                    _model.getHashThaiId,
-                                  );
-                                  Navigator.pop(context);
-                                  _model.open3CXActionOutput =
-                                      await actions.open3CXAction(
-                                    CollectionApiGetDataPersonCall.mobilenumber(
-                                      (_model.getListDataPerson?.jsonBody ??
-                                          ''),
-                                    )?.firstOrNull,
-                                  );
-                                  _shouldSetState = true;
-                                  if (_shouldSetState) safeSetState(() {});
-                                },
-                              ).animateOnActionTrigger(
-                                animationsMap[
-                                    'iconButtonOnActionTriggerAnimation']!,
-                              ),
-                            ),
-                          ),
                         Text(
                           'สัญญาลูกค้า',
                           style:
@@ -622,536 +465,571 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 10.0, 12.0, 10.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        FFButtonWidget(
-                          onPressed: () async {
-                            var _shouldSetState = false;
-                            if (functions.countTrueInBoolList(
-                                    FFAppState().selectCardList.toList())! <=
-                                0) {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text(
-                                          'กรุณาเลือกการ์ดที่ต้องการทำรายการ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
+                  if (false)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 10.0, 12.0, 10.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () async {
+                              var _shouldSetState = false;
+                              if (functions.countTrueInBoolList(
+                                      FFAppState().selectCardList.toList())! <=
+                                  0) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'กรุณาเลือกการ์ดที่ต้องการทำรายการ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                if (_shouldSetState) safeSetState(() {});
+                                return;
+                              }
+                              if (functions.countTrueInBoolList(
+                                      FFAppState().selectCardList.toList())! >
+                                  1) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'การบันทึกลงพื้นที่ สามารถทำได้ครั้งละ 1 สัญญา'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                if (_shouldSetState) safeSetState(() {});
+                                return;
+                              }
+                              _model.getVloanRemarkApiUrl =
+                                  await queryUrlLinkStorageRecordOnce(
+                                queryBuilder: (urlLinkStorageRecord) =>
+                                    urlLinkStorageRecord.where(
+                                  'url_name',
+                                  isEqualTo: 'vloan_remark',
+                                ),
+                                singleRecord: true,
+                              ).then((s) => s.firstOrNull);
+                              _shouldSetState = true;
+                              FFAppState().apiUrlVloanRemark =
+                                  _model.getVloanRemarkApiUrl!.urlLink;
+                              FFAppState().tokenVloanRemark =
+                                  _model.getVloanRemarkApiUrl!.urlToken;
+                              safeSetState(() {});
+
+                              context.pushNamed(
+                                SaveOnSiteFollowUpDebtWidget.routeName,
+                                queryParameters: {
+                                  'firstname': serializeParam(
+                                    widget!.name,
+                                    ParamType.String,
+                                  ),
+                                  'lastname': serializeParam(
+                                    widget!.lastName,
+                                    ParamType.String,
+                                  ),
+                                  'contNo': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .contno(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'dateOfExp': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .dateofexp(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'tragetStat': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .targetstat(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'contStat': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .contstat(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'expAmt': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .expamt(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'cusCode': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .cuscod(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'database': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .database(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'expFrm': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .expFrm(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'dateOfDue': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .dateofdue(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'followupDebtTab': serializeParam(
+                                    widget!.followupDebtTab,
+                                    ParamType.int,
+                                  ),
+                                  'dateOfData': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .dateOfData(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'sumCurrentDueAmt': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .sumCurrentDueAmt(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'lastPayDate': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .lastPayDate(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                  'historyCount': serializeParam(
+                                    functions
+                                        .returnMappedListFromBoolList(
+                                            CollectionApiGetDataPersonCall
+                                                .historyCount(
+                                              (_model.getListDataPerson
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(),
+                                            FFAppState()
+                                                .selectCardList
+                                                .toList(),
+                                            true)
+                                        ?.firstOrNull,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
                               );
+
                               if (_shouldSetState) safeSetState(() {});
-                              return;
-                            }
-                            if (functions.countTrueInBoolList(
-                                    FFAppState().selectCardList.toList())! >
-                                1) {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text(
-                                          'การบันทึกลงพื้นที่ สามารถทำได้ครั้งละ 1 สัญญา'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                              if (_shouldSetState) safeSetState(() {});
-                              return;
-                            }
-                            _model.getVloanRemarkApiUrl =
-                                await queryUrlLinkStorageRecordOnce(
-                              queryBuilder: (urlLinkStorageRecord) =>
-                                  urlLinkStorageRecord.where(
-                                'url_name',
-                                isEqualTo: 'vloan_remark',
+                            },
+                            text: 'ลงพื้นที่',
+                            options: FFButtonOptions(
+                              width: 160.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF004984),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 2.0,
                               ),
-                              singleRecord: true,
-                            ).then((s) => s.firstOrNull);
-                            _shouldSetState = true;
-                            FFAppState().apiUrlVloanRemark =
-                                _model.getVloanRemarkApiUrl!.urlLink;
-                            FFAppState().tokenVloanRemark =
-                                _model.getVloanRemarkApiUrl!.urlToken;
-                            safeSetState(() {});
-
-                            context.pushNamed(
-                              SaveOnSiteFollowUpDebtWidget.routeName,
-                              queryParameters: {
-                                'firstname': serializeParam(
-                                  widget!.name,
-                                  ParamType.String,
-                                ),
-                                'lastname': serializeParam(
-                                  widget!.lastName,
-                                  ParamType.String,
-                                ),
-                                'contNo': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall.contno(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'dateOfExp': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .dateofexp(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'tragetStat': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .targetstat(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'contStat': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .contstat(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'expAmt': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall.expamt(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'cusCode': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall.cuscod(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'database': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .database(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'expFrm': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall.expFrm(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'dateOfDue': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .dateofdue(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'followupDebtTab': serializeParam(
-                                  widget!.followupDebtTab,
-                                  ParamType.int,
-                                ),
-                                'dateOfData': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .dateOfData(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'sumCurrentDueAmt': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .sumCurrentDueAmt(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'lastPayDate': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .lastPayDate(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                                'historyCount': serializeParam(
-                                  functions
-                                      .returnMappedListFromBoolList(
-                                          CollectionApiGetDataPersonCall
-                                              .historyCount(
-                                            (_model.getListDataPerson
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toList(),
-                                          FFAppState().selectCardList.toList(),
-                                          true)
-                                      ?.firstOrNull,
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                            );
-
-                            if (_shouldSetState) safeSetState(() {});
-                          },
-                          text: 'ลงพื้นที่',
-                          options: FFButtonOptions(
-                            width: 160.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF004984),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 2.0,
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['buttonOnPageLoadAnimation1']!),
-                        FFButtonWidget(
-                          onPressed: () async {
-                            if (functions.countTrueInBoolList(
-                                    FFAppState().selectCardList.toList())! <=
-                                0) {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text(
-                                          'กรุณาเลือกการ์ดที่ต้องการทำรายการ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation1']!),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              if (functions.countTrueInBoolList(
+                                      FFAppState().selectCardList.toList())! <=
+                                  0) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'กรุณาเลือกการ์ดที่ต้องการทำรายการ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                return;
+                              }
+                              FFAppState().saveCalled =
+                                  SaveCallStruct.fromSerializableMap(jsonDecode(
+                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                              safeSetState(() {});
+
+                              context.pushNamed(
+                                SaveCallFollowUpDebtWidget.routeName,
+                                queryParameters: {
+                                  'countNo': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.contno(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'dateOfExp': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .dateofexp(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'targetStat': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .targetstat(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'contStat': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.contstat(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'expAmt': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.expamt(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'name1': serializeParam(
+                                    widget!.name,
+                                    ParamType.String,
+                                  ),
+                                  'name2': serializeParam(
+                                    widget!.lastName,
+                                    ParamType.String,
+                                  ),
+                                  'id': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.id(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'expFrm': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.expFrm(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'dateOfDue': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .dateofdue(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'followupDebtTab': serializeParam(
+                                    widget!.followupDebtTab,
+                                    ParamType.int,
+                                  ),
+                                  'dateOfData': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .dateOfData(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'sumCurrentDueAmt': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .sumCurrentDueAmt(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'lastPayDate': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .lastPayDate(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'historyCount': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .historyCount(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'arnow': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.arnow(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'dbName': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.database(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                }.withoutNulls,
                               );
-                              return;
-                            }
-                            FFAppState().saveCalled =
-                                SaveCallStruct.fromSerializableMap(jsonDecode(
-                                    '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                            safeSetState(() {});
-
-                            context.pushNamed(
-                              SaveCallFollowUpDebtWidget.routeName,
-                              queryParameters: {
-                                'countNo': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.contno(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'dateOfExp': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.dateofexp(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'targetStat': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.targetstat(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'contStat': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.contstat(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'expAmt': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.expamt(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'name1': serializeParam(
-                                  widget!.name,
-                                  ParamType.String,
-                                ),
-                                'name2': serializeParam(
-                                  widget!.lastName,
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.id(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'expFrm': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.expFrm(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'dateOfDue': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.dateofdue(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'followupDebtTab': serializeParam(
-                                  widget!.followupDebtTab,
-                                  ParamType.int,
-                                ),
-                                'dateOfData': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.dateOfData(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'sumCurrentDueAmt': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall
-                                          .sumCurrentDueAmt(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'lastPayDate': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall
-                                          .lastPayDate(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'historyCount': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall
-                                          .historyCount(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'arnow': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.arnow(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'dbName': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.database(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                              }.withoutNulls,
-                            );
-                          },
-                          text: 'บันทึกผลการโทร',
-                          options: FFButtonOptions(
-                            width: 160.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF4BB718),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 2.0,
+                            },
+                            text: 'บันทึกผลการโทร',
+                            options: FFButtonOptions(
+                              width: 160.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF4BB718),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['buttonOnPageLoadAnimation2']!),
-                      ],
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation2']!),
+                        ],
+                      ),
                     ),
-                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 10.0),
@@ -1287,6 +1165,9 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                               (_model.getListDataPerson?.jsonBody ?? ''),
                               r'''$.data''',
                             ).toList();
+                            if (listCard.isEmpty) {
+                              return DataNotFoundComponentWidget();
+                            }
 
                             return ListView.builder(
                               padding: EdgeInsets.fromLTRB(
@@ -1313,8 +1194,12 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                 getJsonField(
                                                   listCardItem,
                                                   r'''$.CONTNO''',
-                                                ).toString())) ??
-                                        true)
+                                                ).toString())!) &&
+                                        ('0' !=
+                                            getJsonField(
+                                              listCardItem,
+                                              r'''$.EXP_DAY''',
+                                            ).toString()))
                                       Expanded(
                                         child: Padding(
                                           padding:
@@ -2255,7 +2140,7 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                           ),
                                                         ],
                                                       ),
-                                                      if (true)
+                                                      if (false)
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
@@ -2445,36 +2330,225 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                       animationsMap[
                                                                           'buttonOnPageLoadAnimation3']!),
                                                             ),
-                                                          FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              context.pushNamed(
-                                                                  PaymentQRcodeWidget
-                                                                      .routeName);
-                                                            },
-                                                            text: 'QR ชำระเงิน',
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: 160.0,
-                                                              height: 40.0,
+                                                          Builder(
+                                                            builder:
+                                                                (context) =>
+                                                                    Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FFButtonWidget(
+                                                                onPressed:
+                                                                    () async {
+                                                                  var _shouldSetState =
+                                                                      false;
+                                                                  showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (dialogContext) {
+                                                                      return Dialog(
+                                                                        elevation:
+                                                                            0,
+                                                                        insetPadding:
+                                                                            EdgeInsets.zero,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        alignment:
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                        child:
+                                                                            WebViewAware(
+                                                                          child:
+                                                                              GestureDetector(
+                                                                            onTap:
+                                                                                () {
+                                                                              FocusScope.of(dialogContext).unfocus();
+                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                            },
+                                                                            child:
+                                                                                LoadingSceneWidget(),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  );
+
+                                                                  _model.qrCodeAPIOutput =
+                                                                      await PaymentQrGenCall
+                                                                          .call(
+                                                                    dbname:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.DBNAME''',
+                                                                    ).toString(),
+                                                                    comcode:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.COMCODE''',
+                                                                    ).toString(),
+                                                                    contno:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.CONTNO''',
+                                                                    ).toString(),
+                                                                    cuscod:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.CUSCOD''',
+                                                                    ).toString(),
+                                                                    name1:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.NAME1''',
+                                                                    ).toString(),
+                                                                    name2:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.NAME2''',
+                                                                    ).toString(),
+                                                                    sumCurrentdueamt:
+                                                                        getJsonField(
+                                                                      listCardItem,
+                                                                      r'''$.SUM_CURRENTDUEAMT''',
+                                                                    ).toString(),
+                                                                    token: FFAppState()
+                                                                        .accessToken,
+                                                                    apiUrl:
+                                                                        'https://dev.swpfin.com:8179',
+                                                                  );
+
+                                                                  _shouldSetState =
+                                                                      true;
+                                                                  if ((_model.qrCodeAPIOutput
+                                                                              ?.statusCode ??
+                                                                          200) !=
+                                                                      200) {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('พบข้อผิดพลาด Connection (${(_model.qrCodeAPIOutput?.statusCode ?? 200).toString()})'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+                                                                  if (PaymentQrGenCall
+                                                                          .code(
+                                                                        (_model.qrCodeAPIOutput?.jsonBody ??
+                                                                            ''),
+                                                                      ) !=
+                                                                      '200') {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('${PaymentQrGenCall.message(
+                                                                              (_model.qrCodeAPIOutput?.jsonBody ?? ''),
+                                                                            )}'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+
+                                                                  context
+                                                                      .pushNamed(
+                                                                    PaymentQRcodeWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'firstName':
+                                                                          serializeParam(
+                                                                        widget!
+                                                                            .name,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'lastName':
+                                                                          serializeParam(
+                                                                        widget!
+                                                                            .lastName,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'dataPayment':
+                                                                          serializeParam(
+                                                                        PaymentQrGenCall
+                                                                            .results(
+                                                                          (_model.qrCodeAPIOutput?.jsonBody ??
+                                                                              ''),
+                                                                        ),
+                                                                        ParamType
+                                                                            .DataStruct,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                },
+                                                                text:
+                                                                    'QR ชำระเงิน',
+                                                                options:
+                                                                    FFButtonOptions(
+                                                                  width: 160.0,
+                                                                  height: 40.0,
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                              iconPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  iconPadding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                              color: Color(
-                                                                  0xFF4BB718),
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
+                                                                  color: Color(
+                                                                      0xFF4BB718),
+                                                                  textStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
@@ -2487,17 +2561,20 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
-                                                              elevation: 3.0,
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 2.0,
+                                                                  elevation:
+                                                                      3.0,
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    width: 2.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
                                                               ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
                                                             ),
                                                           ),
                                                         ],
@@ -2505,11 +2582,7 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                     ].addToEnd(
                                                         SizedBox(height: 12.0)),
                                                   ),
-                                                  if (FFAppState()
-                                                          .selectCardList
-                                                          .elementAtOrNull(
-                                                              listCardIndex) ==
-                                                      false)
+                                                  if (false)
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
@@ -2618,11 +2691,7 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                  if (FFAppState()
-                                                          .selectCardList
-                                                          .elementAtOrNull(
-                                                              listCardIndex) ==
-                                                      true)
+                                                  if (false)
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(

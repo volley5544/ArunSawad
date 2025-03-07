@@ -781,7 +781,12 @@ final parametersBuilderMap =
           'fromIconCall': getParameter<bool>(data, 'fromIconCall'),
         },
       ),
-  'paymentQRcode': ParameterData.none(),
+  'paymentQRcode': (data) async => ParameterData(
+        allParams: {
+          'firstName': getParameter<String>(data, 'firstName'),
+          'lastName': getParameter<String>(data, 'lastName'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
