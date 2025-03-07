@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +78,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.goNamed(DashboardWidget.routeName);
+                  context.safePop();
                 },
                 child: Icon(
                   Icons.arrow_back,
@@ -143,58 +142,6 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Container(
-                                          width: 300.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                AutoSizeText(
-                                                  ' *ใช้สำหรับชำระประกันครั้งแรกเท่านั้น',
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 1,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFFCC0000),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                ),
-                                                AutoSizeText(
-                                                  '**ห้ามนำ QR นี้ไปชำระค่างวดผ่อนชำระ',
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 1,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFFCC0000),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
                                         Stack(
                                           children: [
                                             Row(
@@ -390,7 +337,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Text(
-                                                    '฿ ${widget!.dataPayment?.amount?.toString()}',
+                                                    '฿ ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount?.toString())}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
