@@ -739,7 +739,7 @@ class _SearchQRCustomerPageWidgetState
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      DetailListFollowUpDebtWidget.routeName,
+                                      DetailQRCustomerPageWidget.routeName,
                                       queryParameters: {
                                         'cusCod': serializeParam(
                                           getJsonField(
@@ -747,50 +747,6 @@ class _SearchQRCustomerPageWidgetState
                                             r'''$.CUSCOD''',
                                           ).toString(),
                                           ParamType.String,
-                                        ),
-                                        'followupDebtTab': serializeParam(
-                                          () {
-                                            if ('${getJsonField(
-                                                  listNameItem,
-                                                  r'''$.dataTab''',
-                                                ).toString()}' ==
-                                                'เตือนก่อนดิว') {
-                                              return 1;
-                                            } else if ('${getJsonField(
-                                                  listNameItem,
-                                                  r'''$.dataTab''',
-                                                ).toString()}' ==
-                                                'ค้าง 1-3 งวด') {
-                                              return 2;
-                                            } else if ('${getJsonField(
-                                                  listNameItem,
-                                                  r'''$.dataTab''',
-                                                ).toString()}' ==
-                                                'ค้าง 4-5 งวด') {
-                                              return 3;
-                                            } else if ('${getJsonField(
-                                                  listNameItem,
-                                                  r'''$.dataTab''',
-                                                ).toString()}' ==
-                                                'ค้าง 6 งวดเป็นต้นไป') {
-                                              return 4;
-                                            } else if ('${getJsonField(
-                                                  listNameItem,
-                                                  r'''$.dataTab''',
-                                                ).toString()}' ==
-                                                'ค้างด้วยยอดน้อยกว่า 250 บาท') {
-                                              return 5;
-                                            } else if ('${getJsonField(
-                                                  listNameItem,
-                                                  r'''$.dataTab''',
-                                                ).toString()}' ==
-                                                'โทรชวนปิดปรับ') {
-                                              return 6;
-                                            } else {
-                                              return 99;
-                                            }
-                                          }(),
-                                          ParamType.int,
                                         ),
                                         'name': serializeParam(
                                           getJsonField(
@@ -806,9 +762,9 @@ class _SearchQRCustomerPageWidgetState
                                           ).toString(),
                                           ParamType.String,
                                         ),
-                                        'fromIconCall': serializeParam(
-                                          false,
-                                          ParamType.bool,
+                                        'followupDebtTab': serializeParam(
+                                          7,
+                                          ParamType.int,
                                         ),
                                       }.withoutNulls,
                                     );
