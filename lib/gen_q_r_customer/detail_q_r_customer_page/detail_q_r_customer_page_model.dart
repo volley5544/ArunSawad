@@ -13,7 +13,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'detail_q_r_customer_page_widget.dart' show DetailQRCustomerPageWidget;
@@ -34,10 +33,6 @@ class DetailQRCustomerPageModel
 
   // Stores action output result for [Backend Call - API (collectionApiGetDataPerson)] action in detailQRCustomerPage widget.
   ApiCallResponse? getListDataPerson;
-  // Stores action output result for [Custom Action - sha256Encoder] action in detailQRCustomerPage widget.
-  String? getHashThaiId1;
-  // Stores action output result for [Custom Action - open3CXAction] action in detailQRCustomerPage widget.
-  bool? open3CXActionOutput1;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.

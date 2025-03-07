@@ -13,7 +13,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -158,48 +157,6 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
         );
         context.safePop();
         return;
-      }
-
-      if (widget!.fromIconCall!) {
-        if (!functions
-            .checkPhoneNumberChar(CollectionApiGetDataPersonCall.mobilenumber(
-          (_model.getListDataPerson?.jsonBody ?? ''),
-        )?.firstOrNull)) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text('เบอร์โทรไม่ถูกต้อง'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-          return;
-        }
-        _model.getHashThaiId1 = await actions.sha256Encoder(
-          widget!.cusCod,
-        );
-        await actions.addUserLogDocument(
-          'BranchView_Collection_Call',
-          FFAppState().employeeID,
-          currentUserLocationValue,
-          _model.getHashThaiId1,
-        );
-        Navigator.pop(context);
-        _model.open3CXActionOutput1 = await actions.open3CXAction(
-          CollectionApiGetDataPersonCall.mobilenumber(
-            (_model.getListDataPerson?.jsonBody ?? ''),
-          )?.firstOrNull,
-        );
-      } else {
-        Navigator.pop(context);
       }
     });
 
@@ -2490,6 +2447,8 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           () {});
                                                                     return;
                                                                   }
+                                                                  Navigator.pop(
+                                                                      context);
 
                                                                   context
                                                                       .pushNamed(
