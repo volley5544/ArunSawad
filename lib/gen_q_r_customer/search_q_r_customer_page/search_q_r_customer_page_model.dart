@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
@@ -12,6 +14,8 @@ import '/index.dart';
 import 'dart:async';
 import 'search_q_r_customer_page_widget.dart' show SearchQRCustomerPageWidget;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +28,8 @@ class SearchQRCustomerPageModel
     extends FlutterFlowModel<SearchQRCustomerPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in searchQRCustomerPage widget.
+  UrlLinkStorageRecord? getCollectionApiUrl;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // State field(s) for DropDown widget.

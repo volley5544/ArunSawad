@@ -2289,7 +2289,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               {
                                                                             'followUpDebtTab':
                                                                                 serializeParam(
-                                                                              7,
+                                                                              16,
                                                                               ParamType.int,
                                                                             ),
                                                                           }.withoutNulls,
