@@ -7525,10 +7525,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_House[1]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(1)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
