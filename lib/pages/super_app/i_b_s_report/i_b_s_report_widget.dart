@@ -1528,10 +1528,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetPremium(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetPremium[0]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(0)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -1671,10 +1670,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetUnitPolicy(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetUnitPolicy[0]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(0)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -2094,10 +2092,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.countPolicyNoAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_Appman[0]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(0)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -2219,10 +2216,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_Appman[0]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(0)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -2636,10 +2632,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.countPolicyNoMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..CountPolicyNo_Motor_Appman[0]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(0)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -2755,10 +2750,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.totalPremiumMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..Total_Premium_Motor_Appman[0]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(0)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -3798,10 +3792,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '${getJsonField(
+                                                                            '${GetKPIAllCall.countPolicyNoHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_House[0]''',
-                                                                            ).toString()}',
+                                                                            )?.elementAtOrNull(0)}',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -3923,10 +3916,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_House[0]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(0)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -5076,10 +5068,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetPremium(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetPremium[1]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(1)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -5219,10 +5210,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetUnitPolicy(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetUnitPolicy[1]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(1)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -5625,10 +5615,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.countPolicyNoAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_Appman[1]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(1)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -5750,10 +5739,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_Appman[1]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(1)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -6155,10 +6143,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.countPolicyNoMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..CountPolicyNo_Motor_Appman[1]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(1)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -6274,10 +6261,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.totalPremiumMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..Total_Premium_Motor_Appman[1]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(1)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -6560,7 +6546,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumCMI(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
                                                                             )?.elementAtOrNull(1)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -7415,10 +7401,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '${getJsonField(
+                                                                            '${GetKPIAllCall.countPolicyNoHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_House[1]''',
-                                                                            ).toString()}',
+                                                                            )?.elementAtOrNull(1)}',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -8693,10 +8678,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetPremium(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetPremium[0]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(2)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -8836,10 +8820,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetUnitPolicy(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetUnitPolicy[2]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(2)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -9242,10 +9225,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.countPolicyNoAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_Appman[2]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(2)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -9367,10 +9349,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_Appman[2]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(2)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -9772,10 +9753,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.countPolicyNoMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..CountPolicyNo_Motor_Appman[2]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(2)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -9891,10 +9871,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.totalPremiumMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..Total_Premium_Motor_Appman[2]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(2)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -10177,7 +10156,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumCMI(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
                                                                             )?.elementAtOrNull(2)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -11030,10 +11009,12 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '${getJsonField(
-                                                                              (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_House[2]''',
-                                                                            ).toString()}',
+                                                                            '${valueOrDefault<String>(
+                                                                              GetKPIAllCall.countPolicyNoHouse(
+                                                                                (_model.kPIAllOutput?.jsonBody ?? ''),
+                                                                              )?.elementAtOrNull(2),
+                                                                              '-',
+                                                                            )}',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -12308,10 +12289,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetPremium(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetPremium[3]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(3)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -12451,10 +12431,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetUnitPolicy(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetUnitPolicy[3]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(3)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -12857,10 +12836,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.countPolicyNoAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_Appman[3]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(3)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -12982,10 +12960,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_Appman[3]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(3)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -13390,10 +13367,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.countPolicyNoMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..CountPolicyNo_Motor_Appman[3]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(3)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -13509,10 +13485,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.totalPremiumMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..Total_Premium_Motor_Appman[3]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(3)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -14651,10 +14626,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '${getJsonField(
+                                                                            '${GetKPIAllCall.countPolicyNoHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_House[3]''',
-                                                                            ).toString()}',
+                                                                            )?.elementAtOrNull(3)}',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -14776,10 +14750,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_House[3]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(3)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -15931,10 +15904,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetPremium(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetPremium[4]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(4)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -16074,10 +16046,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetUnitPolicy(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetUnitPolicy[4]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(4)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -16486,10 +16457,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.countPolicyNoAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_Appman[4]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(4)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -16611,10 +16581,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_Appman[4]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(4)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -17022,10 +16991,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.countPolicyNoMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..CountPolicyNo_Motor_Appman[4]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(4)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -17141,10 +17109,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.totalPremiumMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..Total_Premium_Motor_Appman[4]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(4)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -18298,10 +18265,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '${getJsonField(
+                                                                            '${GetKPIAllCall.countPolicyNoHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_House[4]''',
-                                                                            ).toString()}',
+                                                                            )?.elementAtOrNull(4)}',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -18423,10 +18389,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma('${getJsonField(
+                                                                            functions.showNumberWithComma('${GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_House[4]''',
-                                                                            ).toString()}'),
+                                                                            )?.elementAtOrNull(4)}'),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -19584,10 +19549,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetPremium(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetPremium[5]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(5)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -19727,10 +19691,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 4.0),
                                                                             child:
                                                                                 Text(
-                                                                              functions.showNumberWithComma(getJsonField(
+                                                                              functions.showNumberWithComma(GetKPIAllCall.targetUnitPolicy(
                                                                                 (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                r'''$.results.data[*]..TargetUnitPolicy[5]''',
-                                                                              ).toString()),
+                                                                              )?.elementAtOrNull(5)),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFDB771A),
@@ -20139,10 +20102,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.countPolicyNoAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_Appman[5]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(5)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -20264,10 +20226,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma(getJsonField(
+                                                                            functions.showNumberWithComma(GetKPIAllCall.totalPremiumAppman(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_Appman[5]''',
-                                                                            ).toString()),
+                                                                            )?.elementAtOrNull(5)),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -20675,10 +20636,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.countPolicyNoMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..CountPolicyNo_Motor_Appman[5]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(5)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -20794,10 +20754,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                               child: Text(
-                                                                                functions.showNumberWithComma(getJsonField(
+                                                                                functions.showNumberWithComma(GetKPIAllCall.totalPremiumMotorAppman(
                                                                                   (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                                  r'''$.results.data[*]..Total_Premium_Motor_Appman[5]''',
-                                                                                ).toString()),
+                                                                                )?.elementAtOrNull(5)),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Color(0xFFDB771A),
@@ -21951,10 +21910,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '${getJsonField(
+                                                                            '${GetKPIAllCall.countPolicyNoHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..CountPolicyNo_House[5]''',
-                                                                            ).toString()}',
+                                                                            )?.elementAtOrNull(5)}',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
@@ -22076,10 +22034,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            functions.showNumberWithComma('${getJsonField(
+                                                                            functions.showNumberWithComma('${GetKPIAllCall.totalPremiumHouse(
                                                                               (_model.kPIAllOutput?.jsonBody ?? ''),
-                                                                              r'''$.results.data[*]..Total_Premium_House[5]''',
-                                                                            ).toString()}'),
+                                                                            )?.elementAtOrNull(5)}'),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),

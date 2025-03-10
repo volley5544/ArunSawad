@@ -8494,10 +8494,80 @@ class GetKPIAllCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static dynamic totalPerPersonTPB(dynamic response) => getJsonField(
+  static List<String>? targetPremium(dynamic response) => (getJsonField(
         response,
-        r'''$.results.data[*]..TotalPerPersonTPB''',
-      );
+        r'''$.results.data[*]..TargetPremium''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetUnitPolicy(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..TargetUnitPolicy''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countPolicyNoAppman(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..CountPolicyNo_Appman''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalPremiumAppman(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..Total_Premium_Appman''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countPolicyNoMotorAppman(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data[*]..CountPolicyNo_Motor_Appman''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalPremiumMotorAppman(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data[*]..Total_Premium_Motor_Appman''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countPolicyNoHouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..CountPolicyNo_House''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalPremiumHouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..Total_Premium_House''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledStatusDropdownAPICall {
