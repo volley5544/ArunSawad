@@ -146,7 +146,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       FFAppState().isOpenAndroidTableauBrowser =
           _model.getHideContentTableauDoc!.isShowContent;
       safeSetState(() {});
-      logFirebaseEvent('super_app_page_view_5544');
       _model.getDeviceVersion = await actions.getBuildVersion();
       FFAppState().isFromTimesheetPage = false;
       FFAppState().leadChannelAmountList =

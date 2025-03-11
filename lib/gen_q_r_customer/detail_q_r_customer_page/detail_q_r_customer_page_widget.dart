@@ -2386,8 +2386,8 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                       ).toString(),
                                                                       token: FFAppState()
                                                                           .accessToken,
-                                                                      apiUrl:
-                                                                          'https://dev.swpfin.com:8179',
+                                                                      apiUrl: FFAppState()
+                                                                          .apiURLLocalState,
                                                                     );
 
                                                                     _shouldSetState =
