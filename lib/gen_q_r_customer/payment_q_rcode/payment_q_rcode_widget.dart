@@ -287,11 +287,8 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.7,
-                                                  height: 200.0,
+                                                  width: 350.0,
+                                                  height: 250.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -346,10 +343,10 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          fontSize: 16.0,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.bold,
                                                         ),
                                                   ),
                                                 ),
@@ -357,8 +354,31 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'R1: ${widget!.dataPayment?.ref1}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'R1: ${widget!.dataPayment?.ref1}',
+                                                  'R2: ${widget!.dataPayment?.ref2}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -371,31 +391,23 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                              Text(
-                                                'R2: ${widget!.dataPayment?.ref2}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                              ),
-                                              Text(
-                                                'คุณ ${widget!.firstName} ${widget!.lastName}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'คุณ ${widget!.firstName} ${widget!.lastName}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
                                               ),
                                               Container(
                                                 decoration: BoxDecoration(),
@@ -413,7 +425,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: AutoSizeText(
-                                                          'คุณสามารถสแกนชำระค่าเบี้ยประกันผ่านโมบายแบงค์กิ้งของทุกธนาคาร',
+                                                          'คุณสามารถสแกนชำระค่าเบี้ยประกัน\nผ่านโมบายแบงค์กิ้งของทุกธนาคาร',
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
@@ -454,7 +466,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: AutoSizeText(
-                                                          'การชําระค่างวด ต้องขอหลักฐานการชําระจากผู้รับชําระ และเก็บไว้เป็นหลักฐานทุกครั้ง',
+                                                          'การชําระค่างวด ต้องขอหลักฐานการชําระ\nจากผู้รับชําระ และเก็บไว้เป็นหลักฐานทุกครั้ง',
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
@@ -465,12 +477,12 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                                     'Poppins',
                                                                 color: Color(
                                                                     0xFFCC0000),
-                                                                fontSize: 16.0,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .normal,
+                                                                        .bold,
                                                               ),
                                                         ),
                                                       ),
