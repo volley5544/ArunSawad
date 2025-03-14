@@ -401,7 +401,7 @@ class _NotificationDetailPageWidgetState
                                                           functions.stringToJson(
                                                               listViewNotificationRecord
                                                                   .notiData),
-                                                          'contract_number')
+                                                          'contract_no')
                                                       ?.toString(),
                                                   ParamType.String,
                                                 ),
