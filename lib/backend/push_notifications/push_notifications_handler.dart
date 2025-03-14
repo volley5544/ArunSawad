@@ -670,7 +670,12 @@ final parametersBuilderMap =
   'TypePicStep1': ParameterData.none(),
   'CustomerBikeDetailsStep1': ParameterData.none(),
   'CustomerBikeDeailsStep4': ParameterData.none(),
-  'CarSeizedSelectDashboard': ParameterData.none(),
+  'CarSeizedSelectDashboard': (data) async => ParameterData(
+        allParams: {
+          'isFromNotiPage': getParameter<String>(data, 'isFromNotiPage'),
+          'contNoNoti': getParameter<String>(data, 'contNoNoti'),
+        },
+      ),
   'searchCustomersGD': (data) async => ParameterData(
         allParams: {
           'fromPage': getParameter<String>(data, 'fromPage'),
@@ -681,6 +686,7 @@ final parametersBuilderMap =
           'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
           'contractNumber': getParameter<String>(data, 'contractNumber'),
           'userRolePrice': getParameter<String>(data, 'userRolePrice'),
+          'contNoFromNoti': getParameter<String>(data, 'contNoFromNoti'),
         },
       ),
   'customerCarDeailsPictureStep1': (data) async => ParameterData(

@@ -379,21 +379,34 @@ class _NotificationDetailPageWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
-                                          if (listViewNotificationRecord
-                                                  .notiType ==
-                                              'impoundStep1') {
-                                            context.goNamed(
-                                                MyProfilePageWidget.routeName);
-
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                          if (listViewNotificationRecord
-                                                  .notiType ==
-                                              'impoundStep3') {
-                                            context.goNamed(
-                                                MyProfilePageWidget.routeName);
+                                          if ((listViewNotificationRecord
+                                                      .notiType ==
+                                                  'impoundStep1') ||
+                                              (listViewNotificationRecord
+                                                      .notiType ==
+                                                  'impoundStep3')) {
+                                            context.pushNamed(
+                                              CarSeizedSelectDashboardWidget
+                                                  .routeName,
+                                              queryParameters: {
+                                                'isFromNotiPage':
+                                                    serializeParam(
+                                                  listViewNotificationRecord
+                                                      .notiType,
+                                                  ParamType.String,
+                                                ),
+                                                'contNoNoti': serializeParam(
+                                                  functions
+                                                      .getDataFromMapJson(
+                                                          functions.stringToJson(
+                                                              listViewNotificationRecord
+                                                                  .notiData),
+                                                          'contract_number')
+                                                      ?.toString(),
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
 
                                             if (_shouldSetState)
                                               safeSetState(() {});

@@ -41,6 +41,7 @@ class SearchCustomersGDWidget extends StatefulWidget {
     String? contractNumber,
     required this.priceAccessRoleData,
     required this.userRolePrice,
+    this.contNoFromNoti,
   }) : this.contractNumber = contractNumber ?? 'contractNumber';
 
   final String? fromPage;
@@ -57,6 +58,7 @@ class SearchCustomersGDWidget extends StatefulWidget {
   final String contractNumber;
   final dynamic priceAccessRoleData;
   final String? userRolePrice;
+  final String? contNoFromNoti;
 
   static String routeName = 'searchCustomersGD';
   static String routePath = 'searchCustomersGD';
@@ -111,7 +113,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
       safeSetState(() {});
     });
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??= TextEditingController(
+        text: widget!.contNoFromNoti != null && widget!.contNoFromNoti != ''
+            ? widget!.contNoFromNoti
+            : '');
     _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -216,7 +221,11 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                           child: FlutterFlowDropDown<String>(
                             controller: _model.dropDownValueController ??=
                                 FormFieldController<String>(
-                              _model.dropDownValue ??= '',
+                              _model.dropDownValue ??=
+                                  widget!.contNoFromNoti != null &&
+                                          widget!.contNoFromNoti != ''
+                                      ? 'เลขที่สัญญา'
+                                      : '',
                             ),
                             options: List<String>.from([
                               'cont_no',

@@ -2114,7 +2114,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: CarSeizedSelectDashboardWidget.routeName,
               path: CarSeizedSelectDashboardWidget.routePath,
-              builder: (context, params) => CarSeizedSelectDashboardWidget(),
+              builder: (context, params) => CarSeizedSelectDashboardWidget(
+                isFromNotiPage: params.getParam(
+                  'isFromNotiPage',
+                  ParamType.String,
+                ),
+                contNoNoti: params.getParam(
+                  'contNoNoti',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: SearchCustomersGDWidget.routeName,
@@ -2176,6 +2185,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 userRolePrice: params.getParam(
                   'userRolePrice',
+                  ParamType.String,
+                ),
+                contNoFromNoti: params.getParam(
+                  'contNoFromNoti',
                   ParamType.String,
                 ),
               ),

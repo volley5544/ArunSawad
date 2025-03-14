@@ -21,7 +21,14 @@ import 'car_seized_select_dashboard_model.dart';
 export 'car_seized_select_dashboard_model.dart';
 
 class CarSeizedSelectDashboardWidget extends StatefulWidget {
-  const CarSeizedSelectDashboardWidget({super.key});
+  const CarSeizedSelectDashboardWidget({
+    super.key,
+    this.isFromNotiPage,
+    this.contNoNoti,
+  });
+
+  final String? isFromNotiPage;
+  final String? contNoNoti;
 
   static String routeName = 'CarSeizedSelectDashboard';
   static String routePath = 'carSeizedSelectDashboard';
@@ -128,6 +135,148 @@ class _CarSeizedSelectDashboardWidgetState
           .cast<String>();
       safeSetState(() {});
       Navigator.pop(context);
+      if (widget!.isFromNotiPage == 'impoundStep1') {
+        context.pushNamed(
+          SearchCustomersGDWidget.routeName,
+          queryParameters: {
+            'fromPage': serializeParam(
+              'price',
+              ParamType.String,
+            ),
+            'step': serializeParam(
+              'step1',
+              ParamType.String,
+            ),
+            'textShow': serializeParam(
+              'ตั้งราคา',
+              ParamType.String,
+            ),
+            'readAccessRoleData': serializeParam(
+              _model.readAccessRoleData,
+              ParamType.JSON,
+            ),
+            'saveAccessRoleData': serializeParam(
+              _model.writeAccessRoleData,
+              ParamType.JSON,
+            ),
+            'userRoleRead': serializeParam(
+              _model.userRoleRead,
+              ParamType.String,
+            ),
+            'userRoleSave': serializeParam(
+              _model.userRoleSave,
+              ParamType.String,
+            ),
+            'carConfig': serializeParam(
+              _model.carConfig,
+              ParamType.String,
+              isList: true,
+            ),
+            'motocycleConfig': serializeParam(
+              _model.motocycleConfig,
+              ParamType.String,
+              isList: true,
+            ),
+            'editAccessRoleData': serializeParam(
+              _model.editAccessRoleData,
+              ParamType.JSON,
+            ),
+            'userRoleEdit': serializeParam(
+              _model.userRoleEdit,
+              ParamType.String,
+            ),
+            'contractNumber': serializeParam(
+              '',
+              ParamType.String,
+            ),
+            'priceAccessRoleData': serializeParam(
+              _model.priceAccessRoleData,
+              ParamType.JSON,
+            ),
+            'userRolePrice': serializeParam(
+              _model.userRolePrice,
+              ParamType.String,
+            ),
+            'contNoFromNoti': serializeParam(
+              widget!.contNoNoti,
+              ParamType.String,
+            ),
+          }.withoutNulls,
+        );
+
+        return;
+      }
+      if (widget!.isFromNotiPage == 'impoundStep3') {
+        context.pushNamed(
+          SearchCustomersGDWidget.routeName,
+          queryParameters: {
+            'fromPage': serializeParam(
+              'takeImages',
+              ParamType.String,
+            ),
+            'step': serializeParam(
+              'step3',
+              ParamType.String,
+            ),
+            'textShow': serializeParam(
+              'ตั้งราคา',
+              ParamType.String,
+            ),
+            'readAccessRoleData': serializeParam(
+              _model.readAccessRoleData,
+              ParamType.JSON,
+            ),
+            'saveAccessRoleData': serializeParam(
+              _model.writeAccessRoleData,
+              ParamType.JSON,
+            ),
+            'userRoleRead': serializeParam(
+              _model.userRoleRead,
+              ParamType.String,
+            ),
+            'userRoleSave': serializeParam(
+              _model.userRoleSave,
+              ParamType.String,
+            ),
+            'carConfig': serializeParam(
+              _model.carConfig,
+              ParamType.String,
+              isList: true,
+            ),
+            'motocycleConfig': serializeParam(
+              _model.motocycleConfig,
+              ParamType.String,
+              isList: true,
+            ),
+            'editAccessRoleData': serializeParam(
+              _model.editAccessRoleData,
+              ParamType.JSON,
+            ),
+            'userRoleEdit': serializeParam(
+              _model.userRoleEdit,
+              ParamType.String,
+            ),
+            'contractNumber': serializeParam(
+              '',
+              ParamType.String,
+            ),
+            'priceAccessRoleData': serializeParam(
+              _model.priceAccessRoleData,
+              ParamType.JSON,
+            ),
+            'userRolePrice': serializeParam(
+              _model.userRolePrice,
+              ParamType.String,
+            ),
+            'contNoFromNoti': serializeParam(
+              widget!.contNoNoti,
+              ParamType.String,
+            ),
+          }.withoutNulls,
+        );
+
+        return;
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

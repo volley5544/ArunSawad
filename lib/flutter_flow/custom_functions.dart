@@ -4942,3 +4942,8 @@ $amount100
 ''';
   return data;
 }
+
+dynamic stringToJson(String? jsonString) {
+  Map<String, dynamic> jsonData = jsonDecode(jsonString!);
+  return jsonData;
+}

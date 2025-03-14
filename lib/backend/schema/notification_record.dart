@@ -61,6 +61,11 @@ class NotificationRecord extends FirestoreRecord {
   List<DateTime> get insuExpDate => _insuExpDate ?? const [];
   bool hasInsuExpDate() => _insuExpDate != null;
 
+  // "noti_data" field.
+  String? _notiData;
+  String get notiData => _notiData ?? '';
+  bool hasNotiData() => _notiData != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -73,6 +78,7 @@ class NotificationRecord extends FirestoreRecord {
     _licenseType = getDataList(snapshotData['license_type']);
     _notiIsSent = getDataList(snapshotData['noti_is_sent']);
     _insuExpDate = getDataList(snapshotData['insu_exp_date']);
+    _notiData = snapshotData['noti_data'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -121,6 +127,7 @@ Map<String, dynamic> createNotificationRecordData({
   bool? notiIsRead,
   bool? thisNotiIsRead,
   String? notiType,
+  String? notiData,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -130,6 +137,7 @@ Map<String, dynamic> createNotificationRecordData({
       'noti_is_read': notiIsRead,
       'this_noti_is_read': thisNotiIsRead,
       'noti_type': notiType,
+      'noti_data': notiData,
     }.withoutNulls,
   );
 
@@ -151,7 +159,8 @@ class NotificationRecordDocumentEquality
         e1?.notiType == e2?.notiType &&
         listEquality.equals(e1?.licenseType, e2?.licenseType) &&
         listEquality.equals(e1?.notiIsSent, e2?.notiIsSent) &&
-        listEquality.equals(e1?.insuExpDate, e2?.insuExpDate);
+        listEquality.equals(e1?.insuExpDate, e2?.insuExpDate) &&
+        e1?.notiData == e2?.notiData;
   }
 
   @override
@@ -164,7 +173,8 @@ class NotificationRecordDocumentEquality
         e?.notiType,
         e?.licenseType,
         e?.notiIsSent,
-        e?.insuExpDate
+        e?.insuExpDate,
+        e?.notiData
       ]);
 
   @override
