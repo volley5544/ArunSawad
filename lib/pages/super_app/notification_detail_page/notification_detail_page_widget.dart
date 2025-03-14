@@ -396,13 +396,10 @@ class _NotificationDetailPageWidgetState
                                                   ParamType.String,
                                                 ),
                                                 'contNoNoti': serializeParam(
-                                                  functions
-                                                      .getDataFromMapJson(
-                                                          functions.stringToJson(
-                                                              listViewNotificationRecord
-                                                                  .notiData),
-                                                          'contract_no')
-                                                      ?.toString(),
+                                                  functions.getStringFromJsonString(
+                                                      listViewNotificationRecord
+                                                          .notiData,
+                                                      'contract_no'),
                                                   ParamType.String,
                                                 ),
                                               }.withoutNulls,

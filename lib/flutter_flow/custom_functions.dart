@@ -4947,3 +4947,13 @@ dynamic stringToJson(String? jsonString) {
   dynamic jsonData = jsonDecode(jsonString!);
   return jsonData;
 }
+
+String? getStringFromJsonString(
+  String? jsonString,
+  String? fieldName,
+) {
+  // Convert JSON string to Map
+  Map<String, dynamic> data = jsonDecode(jsonString!);
+
+  return (data[fieldName!]);
+}
