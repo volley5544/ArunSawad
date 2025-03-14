@@ -55,6 +55,10 @@ class CarSeizedSelectDashboardModel
 
   String userRoleEdit = 'no_role';
 
+  dynamic priceAccessRoleData;
+
+  String userRolePrice = 'no_role';
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.

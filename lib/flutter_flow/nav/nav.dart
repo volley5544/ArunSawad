@@ -1944,6 +1944,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleEdit',
                   ParamType.String,
                 ),
+                priceAccessRoleData: params.getParam(
+                  'priceAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRolePrice: params.getParam(
+                  'userRolePrice',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2160,6 +2168,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 contractNumber: params.getParam(
                   'contractNumber',
+                  ParamType.String,
+                ),
+                priceAccessRoleData: params.getParam(
+                  'priceAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRolePrice: params.getParam(
+                  'userRolePrice',
                   ParamType.String,
                 ),
               ),

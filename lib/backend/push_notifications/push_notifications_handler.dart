@@ -641,6 +641,7 @@ final parametersBuilderMap =
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
           'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
+          'userRolePrice': getParameter<String>(data, 'userRolePrice'),
         },
       ),
   'CustomerCarDeailsStep1': (data) async => ParameterData(
@@ -679,6 +680,7 @@ final parametersBuilderMap =
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
           'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
           'contractNumber': getParameter<String>(data, 'contractNumber'),
+          'userRolePrice': getParameter<String>(data, 'userRolePrice'),
         },
       ),
   'customerCarDeailsPictureStep1': (data) async => ParameterData(

@@ -23,6 +23,8 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
     required this.motocycleConfig,
     required this.editAccessRoleData,
     required this.userRoleEdit,
+    required this.priceAccessRoleData,
+    required this.userRolePrice,
   })  : this.userRoleRead = userRoleRead ?? 'no_role',
         this.userRoleSave = userRoleSave ?? 'no_role';
 
@@ -35,6 +37,8 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
   final List<String>? motocycleConfig;
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
+  final dynamic priceAccessRoleData;
+  final String? userRolePrice;
 
   static String routeName = 'CarSeizedDashboardPage';
   static String routePath = 'carSeizedDashboardPage';
@@ -239,6 +243,14 @@ class _CarSeizedDashboardPageWidgetState
                           ),
                           'userRoleEdit': serializeParam(
                             widget!.userRoleEdit,
+                            ParamType.String,
+                          ),
+                          'priceAccessRoleData': serializeParam(
+                            widget!.priceAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRolePrice': serializeParam(
+                            widget!.userRolePrice,
                             ParamType.String,
                           ),
                         }.withoutNulls,
@@ -524,6 +536,14 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.userRoleEdit,
                             ParamType.String,
                           ),
+                          'priceAccessRoleData': serializeParam(
+                            widget!.priceAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRolePrice': serializeParam(
+                            widget!.userRolePrice,
+                            ParamType.String,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -794,6 +814,14 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.userRoleEdit,
                             ParamType.String,
                           ),
+                          'priceAccessRoleData': serializeParam(
+                            widget!.priceAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRolePrice': serializeParam(
+                            widget!.userRolePrice,
+                            ParamType.String,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -1062,6 +1090,14 @@ class _CarSeizedDashboardPageWidgetState
                           ),
                           'userRoleEdit': serializeParam(
                             widget!.userRoleEdit,
+                            ParamType.String,
+                          ),
+                          'priceAccessRoleData': serializeParam(
+                            widget!.priceAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRolePrice': serializeParam(
+                            widget!.userRolePrice,
                             ParamType.String,
                           ),
                         }.withoutNulls,

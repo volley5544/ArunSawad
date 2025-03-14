@@ -9974,6 +9974,36 @@ class FFAppState extends ChangeNotifier {
   set savingLeadStatusCallOut(String value) {
     _savingLeadStatusCallOut = value;
   }
+
+  List<String> _impoundCarRegionCodeList = [];
+  List<String> get impoundCarRegionCodeList => _impoundCarRegionCodeList;
+  set impoundCarRegionCodeList(List<String> value) {
+    _impoundCarRegionCodeList = value;
+  }
+
+  void addToImpoundCarRegionCodeList(String value) {
+    impoundCarRegionCodeList.add(value);
+  }
+
+  void removeFromImpoundCarRegionCodeList(String value) {
+    impoundCarRegionCodeList.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarRegionCodeList(int index) {
+    impoundCarRegionCodeList.removeAt(index);
+  }
+
+  void updateImpoundCarRegionCodeListAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundCarRegionCodeList[index] =
+        updateFn(_impoundCarRegionCodeList[index]);
+  }
+
+  void insertAtIndexInImpoundCarRegionCodeList(int index, String value) {
+    impoundCarRegionCodeList.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
