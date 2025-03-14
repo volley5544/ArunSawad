@@ -829,6 +829,15 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? ownerRegionEmpCodeList(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].regionCode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {

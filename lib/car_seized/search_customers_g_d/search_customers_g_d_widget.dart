@@ -455,8 +455,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                       },
                                     ).then((value) => safeSetState(() {}));
 
-                                    if ((widget!.fromPage == 'takeImages') &&
-                                        (widget!.fromPage == 'price')) {
+                                    if (widget!.fromPage == 'takeImages') {
                                       _model.vloanContractAPIOutput =
                                           await SswSurveyAPIVloanGetContractCall
                                               .call(
@@ -1391,6 +1390,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                             UploadImagesGoogleDriveGroup
                                                 .searchContractNumberCall
                                                 .logisticsCompany(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundCarRegionCodeList =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .ownerRegionEmpCodeList(
                                                   (_model.searchAPIOutput
                                                           ?.jsonBody ??
                                                       ''),

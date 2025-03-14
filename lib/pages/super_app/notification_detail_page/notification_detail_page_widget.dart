@@ -379,6 +379,26 @@ class _NotificationDetailPageWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
+                                          if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'impoundStep1') {
+                                            context.goNamed(
+                                                MyProfilePageWidget.routeName);
+
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if (listViewNotificationRecord
+                                                  .notiType ==
+                                              'impoundStep3') {
+                                            context.goNamed(
+                                                MyProfilePageWidget.routeName);
+
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
                                         }
 
                                         if (_shouldSetState)
