@@ -224,7 +224,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                               _model.dropDownValue ??=
                                   widget!.contNoFromNoti != null &&
                                           widget!.contNoFromNoti != ''
-                                      ? 'เลขที่สัญญา'
+                                      ? 'cont_no'
                                       : '',
                             ),
                             options: List<String>.from([

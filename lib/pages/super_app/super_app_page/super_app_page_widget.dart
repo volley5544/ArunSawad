@@ -1150,579 +1150,415 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                 height: double.infinity,
                 child: Stack(
                   children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FutureBuilder<UserCustomRecord>(
-                            future: UserCustomRecord.getDocumentOnce(
-                                FFAppState().userRef!),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).tertiary,
+                    Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FutureBuilder<UserCustomRecord>(
+                              future: UserCustomRecord.getDocumentOnce(
+                                  FFAppState().userRef!),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).tertiary,
+                                        ),
                                       ),
                                     ),
+                                  );
+                                }
+
+                                final containerUserCustomRecord =
+                                    snapshot.data!;
+
+                                return Container(
+                                  width: double.infinity,
+                                  height: 120.0,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
                                   ),
-                                );
-                              }
-
-                              final containerUserCustomRecord = snapshot.data!;
-
-                              return Container(
-                                width: double.infinity,
-                                height: 120.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                child: Stack(
-                                  children: [
-                                    if (!FFAppState()
-                                        .expInsuLessthen30
-                                        .contains(true))
+                                  child: Stack(
+                                    children: [
+                                      if (!FFAppState()
+                                          .expInsuLessthen30
+                                          .contains(true))
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, -0.2),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.6,
+                                            height: 80.0,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.fill,
+                                                image: Image.asset(
+                                                  'assets/images/8czKzxdqi-2.png',
+                                                ).image,
+                                              ),
+                                            ),
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  functions
+                                                      .greetingTextSuperApp(
+                                                          FFAppState()
+                                                              .userNickname),
+                                                  '[greeting_text]',
+                                                ),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -0.2),
+                                            AlignmentDirectional(-0.95, 0.8),
                                         child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.6,
-                                          height: 80.0,
+                                          width: 64.0,
+                                          height: 64.0,
                                           decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image: Image.asset(
-                                                'assets/images/8czKzxdqi-2.png',
-                                              ).image,
-                                            ),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                functions.greetingTextSuperApp(
-                                                    FFAppState().userNickname),
-                                                '[greeting_text]',
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-0.95, 0.8),
-                                      child: Container(
-                                        width: 64.0,
-                                        height: 64.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Container(
-                                          width: 120.0,
-                                          height: 120.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                             shape: BoxShape.circle,
                                           ),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl: valueOrDefault<String>(
-                                              containerUserCustomRecord
-                                                  .imgProfile,
-                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/imageUrlExpired.png?alt=media&token=5a9e3847-91d4-40d4-9a76-97a77d108060',
+                                          child: Container(
+                                            width: 120.0,
+                                            height: 120.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
                                             ),
-                                            fit: BoxFit.cover,
-                                            errorWidget:
-                                                (context, error, stackTrace) =>
-                                                    Image.asset(
-                                              'assets/images/error_image.png',
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
+                                              imageUrl: valueOrDefault<String>(
+                                                containerUserCustomRecord
+                                                    .imgProfile,
+                                                'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/imageUrlExpired.png?alt=media&token=5a9e3847-91d4-40d4-9a76-97a77d108060',
+                                              ),
                                               fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 0.0, 20.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              scaffoldKey.currentState!
-                                                  .openDrawer();
-                                            },
-                                            child: Icon(
-                                              Icons.dehaze,
-                                              color: Color(0xFFFF8700),
-                                              size: 30.0,
-                                            ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'iconOnPageLoadAnimation']!),
-                                          StreamBuilder<
-                                              List<NotificationRecord>>(
-                                            stream: queryNotificationRecord(
-                                              parent: containerUserCustomRecord
-                                                  .reference,
-                                              queryBuilder:
-                                                  (notificationRecord) =>
-                                                      notificationRecord.where(
-                                                'noti_is_read',
-                                                isEqualTo: false,
+                                              errorWidget: (context, error,
+                                                      stackTrace) =>
+                                                  Image.asset(
+                                                'assets/images/error_image.png',
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .tertiary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              List<NotificationRecord>
-                                                  badgeNotificationRecordList =
-                                                  snapshot.data!;
-
-                                              return badges.Badge(
-                                                badgeContent: Text(
-                                                  badgeNotificationRecordList
-                                                      .length
-                                                      .toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                                showBadge:
-                                                    badgeNotificationRecordList
-                                                            .length >
-                                                        0,
-                                                shape: badges.BadgeShape.circle,
-                                                badgeColor: Color(0xFFFF0005),
-                                                elevation: 4.0,
-                                                padding: EdgeInsets.all(8.0),
-                                                position: badges.BadgePosition
-                                                    .topEnd(),
-                                                animationType: badges
-                                                    .BadgeAnimationType.scale,
-                                                toAnimate: true,
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 50.0,
-                                                  icon: Icon(
-                                                    Icons.notifications,
-                                                    color: Color(0xFFFF8700),
-                                                    size: 40.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    HapticFeedback
-                                                        .mediumImpact();
-                                                    if (!(FFAppState()
-                                                            .isFromAuthenPage ||
-                                                        FFAppState()
-                                                            .isFromSetPinPage)) {
-                                                      Navigator.pop(context);
-
-                                                      context.goNamed(
-                                                          PinCodePageWidget
-                                                              .routeName);
-
-                                                      return;
-                                                    }
-                                                    if (badgeNotificationRecordList
-                                                            .length >
-                                                        0) {
-                                                      await actions.batchUpdate(
-                                                        containerUserCustomRecord
-                                                            .reference,
-                                                      );
-                                                    }
-
-                                                    context.goNamed(
-                                                        NotificationDetailPageWidget
-                                                            .routeName);
-                                                  },
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'iconButtonOnPageLoadAnimation']!),
-                                              );
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    if (FFAppState()
-                                        .expInsuLessthen30
-                                        .contains(true))
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, -0.2),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.6,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              if (FFAppState()
-                                                      .expInsuLessthen30
-                                                      .elementAtOrNull(0) ??
-                                                  true)
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    'บัตรนายหน้าประกันชีวิตจะหมดอายุใน 30 วัน',
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .expInsuLessthen30
-                                                      .elementAtOrNull(1) ??
-                                                  true)
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    'บัตรนายหน้าประกันวินาศภัยจะหมดอายุใน 30 วัน',
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                            ],
                                           ),
                                         ),
                                       ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                          if (responsiveVisibility(
-                            context: context,
-                            tablet: false,
-                            tabletLandscape: false,
-                            desktop: false,
-                          ))
-                            Container(
-                              width: double.infinity,
-                              height: 255.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child:
-                                  FutureBuilder<List<ArunSawadImgBannerRecord>>(
-                                future: queryArunSawadImgBannerRecordOnce(
-                                  singleRecord: true,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<ArunSawadImgBannerRecord>
-                                      pageViewBannerArunSawadImgBannerRecordList =
-                                      snapshot.data!;
-                                  // Return an empty Container when the item does not exist.
-                                  if (snapshot.data!.isEmpty) {
-                                    return Container();
-                                  }
-                                  final pageViewBannerArunSawadImgBannerRecord =
-                                      pageViewBannerArunSawadImgBannerRecordList
-                                              .isNotEmpty
-                                          ? pageViewBannerArunSawadImgBannerRecordList
-                                              .first
-                                          : null;
-
-                                  return Builder(
-                                    builder: (context) {
-                                      final bannerImgList =
-                                          pageViewBannerArunSawadImgBannerRecord
-                                                  ?.imgUrl
-                                                  ?.toList() ??
-                                              [];
-
-                                      return Container(
-                                        width: double.infinity,
-                                        height: 300.0,
-                                        child: Stack(
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 20.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 40.0),
-                                              child: PageView.builder(
-                                                controller: _model
-                                                        .pageViewBannerController ??=
-                                                    PageController(
-                                                        initialPage: max(
-                                                            0,
-                                                            min(
-                                                                0,
-                                                                bannerImgList
-                                                                        .length -
-                                                                    1))),
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount: bannerImgList.length,
-                                                itemBuilder: (context,
-                                                    bannerImgListIndex) {
-                                                  final bannerImgListItem =
-                                                      bannerImgList[
-                                                          bannerImgListIndex];
-                                                  return InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      if ((functions
-                                                              .sortingListByOrder(
-                                                                  pageViewBannerArunSawadImgBannerRecord
-                                                                      ?.linkUrl
-                                                                      ?.toList(),
-                                                                  pageViewBannerArunSawadImgBannerRecord
-                                                                      ?.index
-                                                                      ?.toList())
-                                                              ?.elementAtOrNull(
-                                                                  bannerImgListIndex)) !=
-                                                          'Hello World') {
-                                                        if ((functions
-                                                                .sortingBoolListByOrder(
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.isHaveLink
-                                                                        ?.toList(),
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.index
-                                                                        ?.toList())
-                                                                ?.elementAtOrNull(
-                                                                    bannerImgListIndex)) !=
-                                                            true) {
-                                                          await launchURL((functions
-                                                              .sortingListByOrder(
-                                                                  pageViewBannerArunSawadImgBannerRecord
-                                                                      ?.linkUrl
-                                                                      ?.toList(),
-                                                                  pageViewBannerArunSawadImgBannerRecord
-                                                                      ?.index
-                                                                      ?.toList())!
-                                                              .elementAtOrNull(
-                                                                  bannerImgListIndex))!);
-                                                        } else {
-                                                          if ((functions
-                                                                  .sortingListByOrder(
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.linkUrl
-                                                                          ?.toList(),
-                                                                      pageViewBannerArunSawadImgBannerRecord
-                                                                          ?.index
-                                                                          ?.toList())
-                                                                  ?.elementAtOrNull(
-                                                                      bannerImgListIndex)) ==
-                                                              'Bottom Sheet') {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
-                                                                        child:
-                                                                            TiktokSplashPageWidget(),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-
-                                                            return;
-                                                          }
-                                                          await actions
-                                                              .openTableauBrowser(
-                                                            FFAppState()
-                                                                .accessToken,
-                                                            functions
-                                                                .sortingListByOrder(
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.linkUrl
-                                                                        ?.toList(),
-                                                                    pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.index
-                                                                        ?.toList())
-                                                                ?.elementAtOrNull(
-                                                                    bannerImgListIndex),
-                                                            FFAppState()
-                                                                .isOpenAndroidTableauBrowser,
-                                                          );
-                                                        }
-                                                      }
-                                                    },
-                                                    child: OctoImage(
-                                                      placeholderBuilder: (_) =>
-                                                          SizedBox.expand(
-                                                        child: Image(
-                                                          image: BlurHashImage((functions
-                                                              .sortingListByOrder(
-                                                                  pageViewBannerArunSawadImgBannerRecord
-                                                                      ?.blurHash
-                                                                      ?.toList(),
-                                                                  pageViewBannerArunSawadImgBannerRecord
-                                                                      ?.index
-                                                                      ?.toList())!
-                                                              .elementAtOrNull(
-                                                                  bannerImgListIndex))!),
-                                                          fit: BoxFit.cover,
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                scaffoldKey.currentState!
+                                                    .openDrawer();
+                                              },
+                                              child: Icon(
+                                                Icons.dehaze,
+                                                color: Color(0xFFFF8700),
+                                                size: 30.0,
+                                              ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'iconOnPageLoadAnimation']!),
+                                            StreamBuilder<
+                                                List<NotificationRecord>>(
+                                              stream: queryNotificationRecord(
+                                                parent:
+                                                    containerUserCustomRecord
+                                                        .reference,
+                                                queryBuilder:
+                                                    (notificationRecord) =>
+                                                        notificationRecord
+                                                            .where(
+                                                  'noti_is_read',
+                                                  isEqualTo: false,
+                                                ),
+                                              ),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
                                                         ),
                                                       ),
-                                                      image:
-                                                          CachedNetworkImageProvider(
-                                                        functions.stringToImgPath(functions
-                                                            .sortingListByOrder(
-                                                                functions
-                                                                    .imgPathListToStringList(pageViewBannerArunSawadImgBannerRecord
-                                                                        ?.imgUrl
-                                                                        ?.toList())
-                                                                    ?.toList(),
-                                                                pageViewBannerArunSawadImgBannerRecord
-                                                                    ?.index
-                                                                    ?.toList())
-                                                            ?.elementAtOrNull(
-                                                                bannerImgListIndex))!,
-                                                      ),
-                                                      width: 100.0,
-                                                      height: 100.0,
-                                                      fit: BoxFit.fitWidth,
                                                     ),
                                                   );
-                                                },
-                                              ),
+                                                }
+                                                List<NotificationRecord>
+                                                    badgeNotificationRecordList =
+                                                    snapshot.data!;
+
+                                                return badges.Badge(
+                                                  badgeContent: Text(
+                                                    badgeNotificationRecordList
+                                                        .length
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  showBadge:
+                                                      badgeNotificationRecordList
+                                                              .length >
+                                                          0,
+                                                  shape:
+                                                      badges.BadgeShape.circle,
+                                                  badgeColor: Color(0xFFFF0005),
+                                                  elevation: 4.0,
+                                                  padding: EdgeInsets.all(8.0),
+                                                  position: badges.BadgePosition
+                                                      .topEnd(),
+                                                  animationType: badges
+                                                      .BadgeAnimationType.scale,
+                                                  toAnimate: true,
+                                                  child: FlutterFlowIconButton(
+                                                    borderColor:
+                                                        Colors.transparent,
+                                                    borderRadius: 30.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 50.0,
+                                                    icon: Icon(
+                                                      Icons.notifications,
+                                                      color: Color(0xFFFF8700),
+                                                      size: 40.0,
+                                                    ),
+                                                    onPressed: () async {
+                                                      HapticFeedback
+                                                          .mediumImpact();
+                                                      if (!(FFAppState()
+                                                              .isFromAuthenPage ||
+                                                          FFAppState()
+                                                              .isFromSetPinPage)) {
+                                                        Navigator.pop(context);
+
+                                                        context.goNamed(
+                                                            PinCodePageWidget
+                                                                .routeName);
+
+                                                        return;
+                                                      }
+                                                      if (badgeNotificationRecordList
+                                                              .length >
+                                                          0) {
+                                                        await actions
+                                                            .batchUpdate(
+                                                          containerUserCustomRecord
+                                                              .reference,
+                                                        );
+                                                      }
+
+                                                      context.goNamed(
+                                                          NotificationDetailPageWidget
+                                                              .routeName);
+                                                    },
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'iconButtonOnPageLoadAnimation']!),
+                                                );
+                                              },
                                             ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 1.0),
-                                              child: Padding(
+                                          ],
+                                        ),
+                                      ),
+                                      if (FFAppState()
+                                          .expInsuLessthen30
+                                          .contains(true))
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, -0.2),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.6,
+                                            height: 100.0,
+                                            decoration: BoxDecoration(),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                if (FFAppState()
+                                                        .expInsuLessthen30
+                                                        .elementAtOrNull(0) ??
+                                                    true)
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Text(
+                                                      'บัตรนายหน้าประกันชีวิตจะหมดอายุใน 30 วัน',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .expInsuLessthen30
+                                                        .elementAtOrNull(1) ??
+                                                    true)
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Text(
+                                                      'บัตรนายหน้าประกันวินาศภัยจะหมดอายุใน 30 วัน',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                            if (responsiveVisibility(
+                              context: context,
+                              tablet: false,
+                              tabletLandscape: false,
+                              desktop: false,
+                            ))
+                              Container(
+                                width: double.infinity,
+                                height: 255.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: FutureBuilder<
+                                    List<ArunSawadImgBannerRecord>>(
+                                  future: queryArunSawadImgBannerRecordOnce(
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<ArunSawadImgBannerRecord>
+                                        pageViewBannerArunSawadImgBannerRecordList =
+                                        snapshot.data!;
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final pageViewBannerArunSawadImgBannerRecord =
+                                        pageViewBannerArunSawadImgBannerRecordList
+                                                .isNotEmpty
+                                            ? pageViewBannerArunSawadImgBannerRecordList
+                                                .first
+                                            : null;
+
+                                    return Builder(
+                                      builder: (context) {
+                                        final bannerImgList =
+                                            pageViewBannerArunSawadImgBannerRecord
+                                                    ?.imgUrl
+                                                    ?.toList() ??
+                                                [];
+
+                                        return Container(
+                                          width: double.infinity,
+                                          height: 300.0,
+                                          child: Stack(
+                                            children: [
+                                              Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 0.0, 0.0, 10.0),
-                                                child: smooth_page_indicator
-                                                    .SmoothPageIndicator(
+                                                        0.0, 0.0, 0.0, 40.0),
+                                                child: PageView.builder(
                                                   controller: _model
                                                           .pageViewBannerController ??=
                                                       PageController(
@@ -1733,216 +1569,299 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   bannerImgList
                                                                           .length -
                                                                       1))),
-                                                  count: bannerImgList.length,
-                                                  axisDirection:
+                                                  scrollDirection:
                                                       Axis.horizontal,
-                                                  onDotClicked: (i) async {
-                                                    await _model
-                                                        .pageViewBannerController!
-                                                        .animateToPage(
-                                                      i,
-                                                      duration: Duration(
-                                                          milliseconds: 500),
-                                                      curve: Curves.ease,
+                                                  itemCount:
+                                                      bannerImgList.length,
+                                                  itemBuilder: (context,
+                                                      bannerImgListIndex) {
+                                                    final bannerImgListItem =
+                                                        bannerImgList[
+                                                            bannerImgListIndex];
+                                                    return InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        if ((functions
+                                                                .sortingListByOrder(
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.linkUrl
+                                                                        ?.toList(),
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())
+                                                                ?.elementAtOrNull(
+                                                                    bannerImgListIndex)) !=
+                                                            'Hello World') {
+                                                          if ((functions
+                                                                  .sortingBoolListByOrder(
+                                                                      pageViewBannerArunSawadImgBannerRecord
+                                                                          ?.isHaveLink
+                                                                          ?.toList(),
+                                                                      pageViewBannerArunSawadImgBannerRecord
+                                                                          ?.index
+                                                                          ?.toList())
+                                                                  ?.elementAtOrNull(
+                                                                      bannerImgListIndex)) !=
+                                                              true) {
+                                                            await launchURL((functions
+                                                                .sortingListByOrder(
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.linkUrl
+                                                                        ?.toList(),
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())!
+                                                                .elementAtOrNull(
+                                                                    bannerImgListIndex))!);
+                                                          } else {
+                                                            if ((functions
+                                                                    .sortingListByOrder(
+                                                                        pageViewBannerArunSawadImgBannerRecord
+                                                                            ?.linkUrl
+                                                                            ?.toList(),
+                                                                        pageViewBannerArunSawadImgBannerRecord
+                                                                            ?.index
+                                                                            ?.toList())
+                                                                    ?.elementAtOrNull(
+                                                                        bannerImgListIndex)) ==
+                                                                'Bottom Sheet') {
+                                                              await showModalBottomSheet(
+                                                                isScrollControlled:
+                                                                    true,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                enableDrag:
+                                                                    false,
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (context) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        GestureDetector(
+                                                                      onTap:
+                                                                          () {
+                                                                        FocusScope.of(context)
+                                                                            .unfocus();
+                                                                        FocusManager
+                                                                            .instance
+                                                                            .primaryFocus
+                                                                            ?.unfocus();
+                                                                      },
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              TiktokSplashPageWidget(),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              ).then((value) =>
+                                                                  safeSetState(
+                                                                      () {}));
+
+                                                              return;
+                                                            }
+                                                            await actions
+                                                                .openTableauBrowser(
+                                                              FFAppState()
+                                                                  .accessToken,
+                                                              functions
+                                                                  .sortingListByOrder(
+                                                                      pageViewBannerArunSawadImgBannerRecord
+                                                                          ?.linkUrl
+                                                                          ?.toList(),
+                                                                      pageViewBannerArunSawadImgBannerRecord
+                                                                          ?.index
+                                                                          ?.toList())
+                                                                  ?.elementAtOrNull(
+                                                                      bannerImgListIndex),
+                                                              FFAppState()
+                                                                  .isOpenAndroidTableauBrowser,
+                                                            );
+                                                          }
+                                                        }
+                                                      },
+                                                      child: OctoImage(
+                                                        placeholderBuilder:
+                                                            (_) =>
+                                                                SizedBox.expand(
+                                                          child: Image(
+                                                            image: BlurHashImage((functions
+                                                                .sortingListByOrder(
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.blurHash
+                                                                        ?.toList(),
+                                                                    pageViewBannerArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())!
+                                                                .elementAtOrNull(
+                                                                    bannerImgListIndex))!),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                        image:
+                                                            CachedNetworkImageProvider(
+                                                          functions.stringToImgPath(functions
+                                                              .sortingListByOrder(
+                                                                  functions
+                                                                      .imgPathListToStringList(pageViewBannerArunSawadImgBannerRecord
+                                                                          ?.imgUrl
+                                                                          ?.toList())
+                                                                      ?.toList(),
+                                                                  pageViewBannerArunSawadImgBannerRecord
+                                                                      ?.index
+                                                                      ?.toList())
+                                                              ?.elementAtOrNull(
+                                                                  bannerImgListIndex))!,
+                                                        ),
+                                                        width: 100.0,
+                                                        height: 100.0,
+                                                        fit: BoxFit.fitWidth,
+                                                      ),
                                                     );
-                                                    safeSetState(() {});
                                                   },
-                                                  effect: smooth_page_indicator
-                                                      .ExpandingDotsEffect(
-                                                    expansionFactor: 2.0,
-                                                    spacing: 8.0,
-                                                    radius: 16.0,
-                                                    dotWidth: 16.0,
-                                                    dotHeight: 16.0,
-                                                    dotColor: Color(0xFF9E9E9E),
-                                                    activeDotColor:
-                                                        Color(0xFF3F51B5),
-                                                    paintStyle:
-                                                        PaintingStyle.fill,
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 1.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: smooth_page_indicator
+                                                      .SmoothPageIndicator(
+                                                    controller: _model
+                                                            .pageViewBannerController ??=
+                                                        PageController(
+                                                            initialPage: max(
+                                                                0,
+                                                                min(
+                                                                    0,
+                                                                    bannerImgList
+                                                                            .length -
+                                                                        1))),
+                                                    count: bannerImgList.length,
+                                                    axisDirection:
+                                                        Axis.horizontal,
+                                                    onDotClicked: (i) async {
+                                                      await _model
+                                                          .pageViewBannerController!
+                                                          .animateToPage(
+                                                        i,
+                                                        duration: Duration(
+                                                            milliseconds: 500),
+                                                        curve: Curves.ease,
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    effect: smooth_page_indicator
+                                                        .ExpandingDotsEffect(
+                                                      expansionFactor: 2.0,
+                                                      spacing: 8.0,
+                                                      radius: 16.0,
+                                                      dotWidth: 16.0,
+                                                      dotHeight: 16.0,
+                                                      dotColor:
+                                                          Color(0xFF9E9E9E),
+                                                      activeDotColor:
+                                                          Color(0xFF3F51B5),
+                                                      paintStyle:
+                                                          PaintingStyle.fill,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                          if (responsiveVisibility(
-                            context: context,
-                            phone: false,
-                          ))
-                            Container(
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.36,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child:
-                                  FutureBuilder<List<ArunSawadImgBannerRecord>>(
-                                future: queryArunSawadImgBannerRecordOnce(
-                                  singleRecord: true,
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
                                 ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
+                              ),
+                            if (responsiveVisibility(
+                              context: context,
+                              phone: false,
+                            ))
+                              Container(
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.36,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: FutureBuilder<
+                                    List<ArunSawadImgBannerRecord>>(
+                                  future: queryArunSawadImgBannerRecordOnce(
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiary,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                  List<ArunSawadImgBannerRecord>
-                                      pageViewArunSawadImgBannerRecordList =
-                                      snapshot.data!;
-                                  // Return an empty Container when the item does not exist.
-                                  if (snapshot.data!.isEmpty) {
-                                    return Container();
-                                  }
-                                  final pageViewArunSawadImgBannerRecord =
-                                      pageViewArunSawadImgBannerRecordList
-                                              .isNotEmpty
-                                          ? pageViewArunSawadImgBannerRecordList
-                                              .first
-                                          : null;
+                                      );
+                                    }
+                                    List<ArunSawadImgBannerRecord>
+                                        pageViewArunSawadImgBannerRecordList =
+                                        snapshot.data!;
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final pageViewArunSawadImgBannerRecord =
+                                        pageViewArunSawadImgBannerRecordList
+                                                .isNotEmpty
+                                            ? pageViewArunSawadImgBannerRecordList
+                                                .first
+                                            : null;
 
-                                  return Builder(
-                                    builder: (context) {
-                                      final bannerImgList =
-                                          pageViewArunSawadImgBannerRecord
-                                                  ?.imgUrl
-                                                  ?.toList() ??
-                                              [];
+                                    return Builder(
+                                      builder: (context) {
+                                        final bannerImgList =
+                                            pageViewArunSawadImgBannerRecord
+                                                    ?.imgUrl
+                                                    ?.toList() ??
+                                                [];
 
-                                      return Container(
-                                        width: double.infinity,
-                                        height: 300.0,
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 40.0),
-                                              child: PageView.builder(
-                                                controller: _model
-                                                        .pageViewController ??=
-                                                    PageController(
-                                                        initialPage: max(
-                                                            0,
-                                                            min(
-                                                                0,
-                                                                bannerImgList
-                                                                        .length -
-                                                                    1))),
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount: bannerImgList.length,
-                                                itemBuilder: (context,
-                                                    bannerImgListIndex) {
-                                                  final bannerImgListItem =
-                                                      bannerImgList[
-                                                          bannerImgListIndex];
-                                                  return InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      if ((pageViewArunSawadImgBannerRecord
-                                                              ?.linkUrl
-                                                              ?.elementAtOrNull(
-                                                                  bannerImgListIndex)) !=
-                                                          'Hello World') {
-                                                        if ((pageViewArunSawadImgBannerRecord
-                                                                ?.isHaveLink
-                                                                ?.elementAtOrNull(
-                                                                    bannerImgListIndex)) !=
-                                                            true) {
-                                                          await launchURL(
-                                                              pageViewArunSawadImgBannerRecord!
-                                                                  .linkUrl
-                                                                  .elementAtOrNull(
-                                                                      bannerImgListIndex)!);
-                                                        } else {
-                                                          await actions
-                                                              .openTableauBrowser(
-                                                            FFAppState()
-                                                                .accessToken,
-                                                            pageViewArunSawadImgBannerRecord
-                                                                ?.linkUrl
-                                                                ?.elementAtOrNull(
-                                                                    bannerImgListIndex),
-                                                            FFAppState()
-                                                                .isOpenAndroidTableauBrowser,
-                                                          );
-                                                        }
-                                                      }
-                                                    },
-                                                    child: OctoImage(
-                                                      placeholderBuilder: (_) =>
-                                                          SizedBox.expand(
-                                                        child: Image(
-                                                          image: BlurHashImage((functions
-                                                              .sortingListByOrder(
-                                                                  pageViewArunSawadImgBannerRecord
-                                                                      ?.blurHash
-                                                                      ?.toList(),
-                                                                  pageViewArunSawadImgBannerRecord
-                                                                      ?.index
-                                                                      ?.toList())!
-                                                              .elementAtOrNull(
-                                                                  bannerImgListIndex))!),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                      image:
-                                                          CachedNetworkImageProvider(
-                                                        functions.stringToImgPath(functions
-                                                            .sortingListByOrder(
-                                                                functions
-                                                                    .imgPathListToStringList(pageViewArunSawadImgBannerRecord
-                                                                        ?.imgUrl
-                                                                        ?.toList())
-                                                                    ?.toList(),
-                                                                pageViewArunSawadImgBannerRecord
-                                                                    ?.index
-                                                                    ?.toList())
-                                                            ?.elementAtOrNull(
-                                                                bannerImgListIndex))!,
-                                                      ),
-                                                      width: 100.0,
-                                                      height: 100.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 1.0),
-                                              child: Padding(
+                                        return Container(
+                                          width: double.infinity,
+                                          height: 300.0,
+                                          child: Stack(
+                                            children: [
+                                              Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 0.0, 0.0, 10.0),
-                                                child: smooth_page_indicator
-                                                    .SmoothPageIndicator(
+                                                        0.0, 0.0, 0.0, 40.0),
+                                                child: PageView.builder(
                                                   controller: _model
                                                           .pageViewController ??=
                                                       PageController(
@@ -1953,46 +1872,155 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   bannerImgList
                                                                           .length -
                                                                       1))),
-                                                  count: bannerImgList.length,
-                                                  axisDirection:
+                                                  scrollDirection:
                                                       Axis.horizontal,
-                                                  onDotClicked: (i) async {
-                                                    await _model
-                                                        .pageViewController!
-                                                        .animateToPage(
-                                                      i,
-                                                      duration: Duration(
-                                                          milliseconds: 500),
-                                                      curve: Curves.ease,
+                                                  itemCount:
+                                                      bannerImgList.length,
+                                                  itemBuilder: (context,
+                                                      bannerImgListIndex) {
+                                                    final bannerImgListItem =
+                                                        bannerImgList[
+                                                            bannerImgListIndex];
+                                                    return InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        if ((pageViewArunSawadImgBannerRecord
+                                                                ?.linkUrl
+                                                                ?.elementAtOrNull(
+                                                                    bannerImgListIndex)) !=
+                                                            'Hello World') {
+                                                          if ((pageViewArunSawadImgBannerRecord
+                                                                  ?.isHaveLink
+                                                                  ?.elementAtOrNull(
+                                                                      bannerImgListIndex)) !=
+                                                              true) {
+                                                            await launchURL(
+                                                                pageViewArunSawadImgBannerRecord!
+                                                                    .linkUrl
+                                                                    .elementAtOrNull(
+                                                                        bannerImgListIndex)!);
+                                                          } else {
+                                                            await actions
+                                                                .openTableauBrowser(
+                                                              FFAppState()
+                                                                  .accessToken,
+                                                              pageViewArunSawadImgBannerRecord
+                                                                  ?.linkUrl
+                                                                  ?.elementAtOrNull(
+                                                                      bannerImgListIndex),
+                                                              FFAppState()
+                                                                  .isOpenAndroidTableauBrowser,
+                                                            );
+                                                          }
+                                                        }
+                                                      },
+                                                      child: OctoImage(
+                                                        placeholderBuilder:
+                                                            (_) =>
+                                                                SizedBox.expand(
+                                                          child: Image(
+                                                            image: BlurHashImage((functions
+                                                                .sortingListByOrder(
+                                                                    pageViewArunSawadImgBannerRecord
+                                                                        ?.blurHash
+                                                                        ?.toList(),
+                                                                    pageViewArunSawadImgBannerRecord
+                                                                        ?.index
+                                                                        ?.toList())!
+                                                                .elementAtOrNull(
+                                                                    bannerImgListIndex))!),
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                        image:
+                                                            CachedNetworkImageProvider(
+                                                          functions.stringToImgPath(functions
+                                                              .sortingListByOrder(
+                                                                  functions
+                                                                      .imgPathListToStringList(pageViewArunSawadImgBannerRecord
+                                                                          ?.imgUrl
+                                                                          ?.toList())
+                                                                      ?.toList(),
+                                                                  pageViewArunSawadImgBannerRecord
+                                                                      ?.index
+                                                                      ?.toList())
+                                                              ?.elementAtOrNull(
+                                                                  bannerImgListIndex))!,
+                                                        ),
+                                                        width: 100.0,
+                                                        height: 100.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
                                                     );
-                                                    safeSetState(() {});
                                                   },
-                                                  effect: smooth_page_indicator
-                                                      .ExpandingDotsEffect(
-                                                    expansionFactor: 2.0,
-                                                    spacing: 8.0,
-                                                    radius: 16.0,
-                                                    dotWidth: 16.0,
-                                                    dotHeight: 16.0,
-                                                    dotColor: Color(0xFF9E9E9E),
-                                                    activeDotColor:
-                                                        Color(0xFF3F51B5),
-                                                    paintStyle:
-                                                        PaintingStyle.fill,
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 1.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: smooth_page_indicator
+                                                      .SmoothPageIndicator(
+                                                    controller: _model
+                                                            .pageViewController ??=
+                                                        PageController(
+                                                            initialPage: max(
+                                                                0,
+                                                                min(
+                                                                    0,
+                                                                    bannerImgList
+                                                                            .length -
+                                                                        1))),
+                                                    count: bannerImgList.length,
+                                                    axisDirection:
+                                                        Axis.horizontal,
+                                                    onDotClicked: (i) async {
+                                                      await _model
+                                                          .pageViewController!
+                                                          .animateToPage(
+                                                        i,
+                                                        duration: Duration(
+                                                            milliseconds: 500),
+                                                        curve: Curves.ease,
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    effect: smooth_page_indicator
+                                                        .ExpandingDotsEffect(
+                                                      expansionFactor: 2.0,
+                                                      spacing: 8.0,
+                                                      radius: 16.0,
+                                                      dotWidth: 16.0,
+                                                      dotHeight: 16.0,
+                                                      dotColor:
+                                                          Color(0xFF9E9E9E),
+                                                      activeDotColor:
+                                                          Color(0xFF3F51B5),
+                                                      paintStyle:
+                                                          PaintingStyle.fill,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                          Expanded(
-                            child: Padding(
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: FutureBuilder<List<AuthorizationRecord>>(
@@ -18237,8 +18265,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                 },
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     if (false)
