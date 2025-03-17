@@ -9517,59 +9517,77 @@ class _CustomerCarDeailsStep1WidgetState
                                           widget!.saveAccessRoleData,
                                           widget!.step),
                                       'price_is_required'))!) {
-                                if (!((_model.priceTextFieldTextController
-                                            .text !=
-                                        '') &&
-                                    functions.validatePriceImpound(
-                                        functions.removeCommaFromNumText(_model
-                                            .priceTextFieldTextController
-                                            .text))!)) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text(
-                                              'กรุณากรอกราคาประมูลและกรุณากรอกราคาไม่เกิน 8 หลัก'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
-                                if (!(double.parse(
-                                        functions.removeCommaFromNumText(_model
-                                            .priceTextFieldTextController
-                                            .text)) >
-                                    0.0)) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text(
-                                              'กรุณากรอกราคาประมูลมากกว่า 0 บาท'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
+                                if ((FFAppState().profileLevel == 'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                widget!.step),
+                                            'price_edit_level'),
+                                        FFAppState().profileLevel)!
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                widget!.step),
+                                            'price_edit_role'),
+                                        widget!.userRoleSave)!) {
+                                  if (!((_model.priceTextFieldTextController
+                                              .text !=
+                                          '') &&
+                                      functions.validatePriceImpound(functions
+                                          .removeCommaFromNumText(_model
+                                              .priceTextFieldTextController
+                                              .text))!)) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณากรอกราคาประมูลและกรุณากรอกราคาไม่เกิน 8 หลัก'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
+                                  if (!(double.parse(functions
+                                          .removeCommaFromNumText(_model
+                                              .priceTextFieldTextController
+                                              .text)) >
+                                      0.0)) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณากรอกราคาประมูลมากกว่า 0 บาท'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
                                 }
                               } else {
                                 if ((_model.priceTextFieldTextController.text !=
