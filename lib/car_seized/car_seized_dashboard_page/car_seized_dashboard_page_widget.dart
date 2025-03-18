@@ -959,7 +959,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'ที่ลานประมูล(ภาคตั้ง)';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'รูปตั้งราคา';
+                                          return 'ที่ลานประมูล(ภาคตั้ง)';
                                         } else {
                                           return 'ที่ลานประมูล(ภาคตั้ง)';
                                         }
