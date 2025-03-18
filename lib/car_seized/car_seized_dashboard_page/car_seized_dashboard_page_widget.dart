@@ -364,7 +364,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'ถ่ายรูป';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'แก้ไขข้อมูล';
+                                          return 'แก้ไขข้อมูลรูป';
                                         } else {
                                           return 'ดูรูป';
                                         }
@@ -650,12 +650,12 @@ class _CarSeizedDashboardPageWidgetState
                                   Text(
                                     () {
                                       if (widget!.fromPage == 'takeImages') {
-                                        return 'ถ่ายรูปส่งมอบรถ';
+                                        return 'ถ่ายรูป';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
-                                        return 'แก้ไขข้อมูล';
+                                        return 'แก้ไขข้อมูลรูป';
                                       } else {
-                                        return 'ดูรูปส่งมอบรถ';
+                                        return 'ดูรูป';
                                       }
                                     }(),
                                     textAlign: TextAlign.center,
@@ -668,16 +668,19 @@ class _CarSeizedDashboardPageWidgetState
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  if (widget!.fromPage == 'changeCarLocation')
+                                  if ((widget!.fromPage ==
+                                          'changeCarLocation') ||
+                                      (widget!.fromPage == 'takeImages') ||
+                                      (widget!.fromPage == 'seeImages'))
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
-                                          return 'รูปส่งมอบรถ';
+                                          return 'ส่งรถให้ลานประมูล';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'รูปส่งมอบรถ';
+                                          return 'ส่งรถให้ลานประมูล';
                                         } else {
-                                          return ' ';
+                                          return 'ส่งรถให้ลานประมูล';
                                         }
                                       }(),
                                       textAlign: TextAlign.center,
@@ -946,16 +949,19 @@ class _CarSeizedDashboardPageWidgetState
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  if (widget!.fromPage == 'changeCarLocation')
+                                  if ((widget!.fromPage ==
+                                          'changeCarLocation') ||
+                                      (widget!.fromPage == 'takeImages') ||
+                                      (widget!.fromPage == 'seeImages'))
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
-                                          return 'ถ่ายรูปตั้งราคา';
+                                          return 'ที่ลานประมูล(ภาคตั้ง)';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
                                           return 'รูปตั้งราคา';
                                         } else {
-                                          return ' ';
+                                          return 'ที่ลานประมูล(ภาคตั้ง)';
                                         }
                                       }(),
                                       textAlign: TextAlign.center,
@@ -1206,12 +1212,12 @@ class _CarSeizedDashboardPageWidgetState
                                   Text(
                                     () {
                                       if (widget!.fromPage == 'takeImages') {
-                                        return 'อัพโหลดรูปเข้าประมูล';
+                                        return 'อัพโหลด';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
                                         return 'แก้ไขข้อมูล';
                                       } else {
-                                        return 'ดูรูปเข้าประมูล';
+                                        return 'ดูรูป';
                                       }
                                     }(),
                                     textAlign: TextAlign.center,
@@ -1224,16 +1230,19 @@ class _CarSeizedDashboardPageWidgetState
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  if (widget!.fromPage == 'changeCarLocation')
+                                  if ((widget!.fromPage ==
+                                          'changeCarLocation') ||
+                                      (widget!.fromPage == 'takeImages') ||
+                                      (widget!.fromPage == 'seeImages'))
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
-                                          return 'อัพโหลดรูปเข้าประมูล';
+                                          return 'รูปรถวันที่ประมูล';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'รูปเข้าประมูล';
+                                          return 'รูปรถวันที่ประมูล';
                                         } else {
-                                          return ' ';
+                                          return 'รถวันที่ประมูล';
                                         }
                                       }(),
                                       textAlign: TextAlign.center,
