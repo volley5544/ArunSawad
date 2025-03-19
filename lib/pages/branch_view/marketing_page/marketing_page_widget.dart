@@ -1178,45 +1178,78 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: FlutterFlowDropDown<String>(
-                                        controller: _model
-                                                .dropDownValueController ??=
-                                            FormFieldController<String>(null),
-                                        options: [
-                                          'เดินตามหมู่บ้าน-ชุมชน',
-                                          'เดินตลาดนัด-ตลาดสด',
-                                          'ติดต่อ ตรอ.-อู่ซ่อมรถ',
-                                          'ประชุมกำนัน-ผู้ใหญ่บ้าน',
-                                          'ร้านอาหารอร่อย-รถเร่',
-                                          'ร้านเสริมสวย',
-                                          'จัดบูธ',
-                                          'สปอตโฆษณา-รถแห่',
-                                          'ทำตลาดในสาขา'
-                                        ],
-                                        onChanged: (val) => safeSetState(
-                                            () => _model.dropDownValue = val),
-                                        width: 180.0,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
+                                      child: FutureBuilder<
+                                          List<BranchviewDropdownRecord>>(
+                                        future:
+                                            queryBranchviewDropdownRecordOnce(
+                                          singleRecord: true,
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<BranchviewDropdownRecord>
+                                              dropDownBranchviewDropdownRecordList =
+                                              snapshot.data!;
+                                          final dropDownBranchviewDropdownRecord =
+                                              dropDownBranchviewDropdownRecordList
+                                                      .isNotEmpty
+                                                  ? dropDownBranchviewDropdownRecordList
+                                                      .first
+                                                  : null;
+
+                                          return FlutterFlowDropDown<String>(
+                                            controller: _model
+                                                    .dropDownValueController ??=
+                                                FormFieldController<String>(
+                                                    null),
+                                            options:
+                                                dropDownBranchviewDropdownRecord!
+                                                    .marketingDropdownValue,
+                                            onChanged: (val) => safeSetState(
+                                                () =>
+                                                    _model.dropDownValue = val),
+                                            width: 180.0,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
                                                 0.06,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF455A64),
-                                              letterSpacing: 0.0,
-                                            ),
-                                        hintText: 'กิจกรรมการตลาด',
-                                        fillColor: Colors.white,
-                                        elevation: 2.0,
-                                        borderColor: Colors.transparent,
-                                        borderWidth: 0.0,
-                                        borderRadius: 0.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 12.0, 4.0),
-                                        hidesUnderline: true,
-                                        isSearchable: false,
-                                        isMultiSelect: false,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Color(0xFF455A64),
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            hintText: 'กิจกรรมการตลาด',
+                                            fillColor: Colors.white,
+                                            elevation: 2.0,
+                                            borderColor: Colors.transparent,
+                                            borderWidth: 0.0,
+                                            borderRadius: 0.0,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 12.0, 4.0),
+                                            hidesUnderline: true,
+                                            isSearchable: false,
+                                            isMultiSelect: false,
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],

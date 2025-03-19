@@ -26,9 +26,17 @@ class BranchviewDropdownRecord extends FirestoreRecord {
   List<String> get dropdownValue => _dropdownValue ?? const [];
   bool hasDropdownValue() => _dropdownValue != null;
 
+  // "marketing_dropdown_value" field.
+  List<String>? _marketingDropdownValue;
+  List<String> get marketingDropdownValue =>
+      _marketingDropdownValue ?? const [];
+  bool hasMarketingDropdownValue() => _marketingDropdownValue != null;
+
   void _initializeFields() {
     _dropdownName = getDataList(snapshotData['dropdown_name']);
     _dropdownValue = getDataList(snapshotData['dropdown_value']);
+    _marketingDropdownValue =
+        getDataList(snapshotData['marketing_dropdown_value']);
   }
 
   static CollectionReference get collection =>
@@ -82,12 +90,14 @@ class BranchviewDropdownRecordDocumentEquality
   bool equals(BranchviewDropdownRecord? e1, BranchviewDropdownRecord? e2) {
     const listEquality = ListEquality();
     return listEquality.equals(e1?.dropdownName, e2?.dropdownName) &&
-        listEquality.equals(e1?.dropdownValue, e2?.dropdownValue);
+        listEquality.equals(e1?.dropdownValue, e2?.dropdownValue) &&
+        listEquality.equals(
+            e1?.marketingDropdownValue, e2?.marketingDropdownValue);
   }
 
   @override
-  int hash(BranchviewDropdownRecord? e) =>
-      const ListEquality().hash([e?.dropdownName, e?.dropdownValue]);
+  int hash(BranchviewDropdownRecord? e) => const ListEquality()
+      .hash([e?.dropdownName, e?.dropdownValue, e?.marketingDropdownValue]);
 
   @override
   bool isValidKey(Object? o) => o is BranchviewDropdownRecord;

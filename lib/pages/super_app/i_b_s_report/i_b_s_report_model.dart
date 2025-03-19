@@ -2,6 +2,7 @@ import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/ibs_page_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -33,11 +34,17 @@ class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  // Model for ibsPageComponent component.
+  late IbsPageComponentModel ibsPageComponentModel;
+
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    ibsPageComponentModel = createModel(context, () => IbsPageComponentModel());
+  }
 
   @override
   void dispose() {
     tabBarController?.dispose();
+    ibsPageComponentModel.dispose();
   }
 }
