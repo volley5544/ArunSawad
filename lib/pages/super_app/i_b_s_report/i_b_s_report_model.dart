@@ -35,16 +35,22 @@ class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
       tabBarController != null ? tabBarController!.index : 0;
 
   // Model for ibsPageComponent component.
-  late IbsPageComponentModel ibsPageComponentModel;
+  late IbsPageComponentModel ibsPageComponentModel1;
+  // Model for ibsPageComponent component.
+  late IbsPageComponentModel ibsPageComponentModel2;
 
   @override
   void initState(BuildContext context) {
-    ibsPageComponentModel = createModel(context, () => IbsPageComponentModel());
+    ibsPageComponentModel1 =
+        createModel(context, () => IbsPageComponentModel());
+    ibsPageComponentModel2 =
+        createModel(context, () => IbsPageComponentModel());
   }
 
   @override
   void dispose() {
     tabBarController?.dispose();
-    ibsPageComponentModel.dispose();
+    ibsPageComponentModel1.dispose();
+    ibsPageComponentModel2.dispose();
   }
 }
