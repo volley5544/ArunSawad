@@ -358,7 +358,7 @@ class _CustomerCarDeailsStep1WidgetState
                               widget!.carConfig!.contains(widget!
                                       .impoundCarParamSet?.improundCONTNOTYPE)
                                   ? 'บังคับถ่ายรูปให้ครบ 10 รูป'
-                                  : 'บังคับถ่ายรูปให้ครบ 8 รูป',
+                                  : 'บังคับถ่ายรูปให้ครบ 9 รูป',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

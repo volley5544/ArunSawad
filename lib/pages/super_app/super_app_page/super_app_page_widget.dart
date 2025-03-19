@@ -9766,7 +9766,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           width:
                                                                               double.infinity,
                                                                           height:
-                                                                              165.0,
+                                                                              200.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -9812,6 +9812,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   ],
                                                                                 ),
                                                                               ),
+                                                                              Divider(
+                                                                                color: FlutterFlowTheme.of(context).grayIcon,
+                                                                              ),
                                                                               Expanded(
                                                                                 child: Builder(
                                                                                   builder: (context) {
@@ -9823,635 +9826,639 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       itemCount: serviceMenuListItem.length,
                                                                                       itemBuilder: (context, serviceMenuListItemIndex) {
                                                                                         final serviceMenuListItemItem = serviceMenuListItem[serviceMenuListItemIndex];
-                                                                                        return InkWell(
-                                                                                          splashColor: Colors.transparent,
-                                                                                          focusColor: Colors.transparent,
-                                                                                          hoverColor: Colors.transparent,
-                                                                                          highlightColor: Colors.transparent,
-                                                                                          onTap: () async {
-                                                                                            var _shouldSetState = false;
-                                                                                            HapticFeedback.mediumImpact();
-                                                                                            if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                              Navigator.pop(context);
+                                                                                        return Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                          child: InkWell(
+                                                                                            splashColor: Colors.transparent,
+                                                                                            focusColor: Colors.transparent,
+                                                                                            hoverColor: Colors.transparent,
+                                                                                            highlightColor: Colors.transparent,
+                                                                                            onTap: () async {
+                                                                                              var _shouldSetState = false;
+                                                                                              HapticFeedback.mediumImpact();
+                                                                                              if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                                Navigator.pop(context);
 
-                                                                                              context.goNamed(PinCodePageWidget.routeName);
+                                                                                                context.goNamed(PinCodePageWidget.routeName);
 
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'เช็คอิน') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'เช็คอิน') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
 
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'ประกันนอกเรท') {
-                                                                                              if (!FFAppState().insuranceRequestIsLoadedData) {
-                                                                                                showModalBottomSheet(
-                                                                                                  isScrollControlled: true,
-                                                                                                  backgroundColor: Colors.transparent,
-                                                                                                  barrierColor: Color(0x00000000),
-                                                                                                  enableDrag: false,
-                                                                                                  context: context,
-                                                                                                  builder: (context) {
-                                                                                                    return WebViewAware(
-                                                                                                      child: GestureDetector(
-                                                                                                        onTap: () {
-                                                                                                          FocusScope.of(context).unfocus();
-                                                                                                          FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                        },
-                                                                                                        child: Padding(
-                                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                                          child: Container(
-                                                                                                            height: double.infinity,
-                                                                                                            child: LoadingSceneWidget(),
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'ประกันนอกเรท') {
+                                                                                                if (!FFAppState().insuranceRequestIsLoadedData) {
+                                                                                                  showModalBottomSheet(
+                                                                                                    isScrollControlled: true,
+                                                                                                    backgroundColor: Colors.transparent,
+                                                                                                    barrierColor: Color(0x00000000),
+                                                                                                    enableDrag: false,
+                                                                                                    context: context,
+                                                                                                    builder: (context) {
+                                                                                                      return WebViewAware(
+                                                                                                        child: GestureDetector(
+                                                                                                          onTap: () {
+                                                                                                            FocusScope.of(context).unfocus();
+                                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                          },
+                                                                                                          child: Padding(
+                                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                                            child: Container(
+                                                                                                              height: double.infinity,
+                                                                                                              child: LoadingSceneWidget(),
+                                                                                                            ),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ),
+                                                                                                      );
+                                                                                                    },
+                                                                                                  ).then((value) => safeSetState(() {}));
+
+                                                                                                  _model.gerBrandService = await TeleGetBrandAPICall.call(
+                                                                                                    apiUrl: FFAppState().apiURLLocalState,
+                                                                                                  );
+
+                                                                                                  _shouldSetState = true;
+                                                                                                  if ((_model.gerBrand?.statusCode ?? 200) != 200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${(_model.gerBrand?.statusCode ?? 200).toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
                                                                                                     );
-                                                                                                  },
-                                                                                                ).then((value) => safeSetState(() {}));
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  if (TeleGetBrandAPICall.statusLevel1(
+                                                                                                        (_model.gerBrand?.jsonBody ?? ''),
+                                                                                                      ) !=
+                                                                                                      200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
+                                                                                                              (_model.gerBrand?.jsonBody ?? ''),
+                                                                                                            )?.toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
+                                                                                                    (_model.gerBrand?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicBrandNameList = TeleGetBrandAPICall.brandName(
+                                                                                                    (_model.gerBrand?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().update(() {});
+                                                                                                  _model.getModelService = await TeleGetModelAPICall.call(
+                                                                                                    apiUrl: FFAppState().apiURLLocalState,
+                                                                                                  );
 
-                                                                                                _model.gerBrandService = await TeleGetBrandAPICall.call(
-                                                                                                  apiUrl: FFAppState().apiURLLocalState,
-                                                                                                );
+                                                                                                  _shouldSetState = true;
+                                                                                                  if ((_model.getModel?.statusCode ?? 200) != 200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${(_model.getModel?.statusCode ?? 200).toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  if (TeleGetModelAPICall.statusLevel1(
+                                                                                                        (_model.getModel?.jsonBody ?? ''),
+                                                                                                      ) !=
+                                                                                                      200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
+                                                                                                              (_model.getModel?.jsonBody ?? ''),
+                                                                                                            )?.toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  FFAppState().insuranceBasicModelIdListOriginal = TeleGetModelAPICall.modelCode(
+                                                                                                    (_model.getModel?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicModelNameListOriginal = TeleGetModelAPICall.modelName(
+                                                                                                    (_model.getModel?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().update(() {});
+                                                                                                  FFAppState().insuranceBasicModelBrandIdListOriginal = TeleGetModelAPICall.brandID(
+                                                                                                    (_model.getModel?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().update(() {});
+                                                                                                  _model.getProvinceService = await TeleGetProvinceAPICall.call(
+                                                                                                    apiUrl: FFAppState().apiURLLocalState,
+                                                                                                  );
 
-                                                                                                _shouldSetState = true;
-                                                                                                if ((_model.gerBrand?.statusCode ?? 200) != 200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.gerBrand?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
+                                                                                                  _shouldSetState = true;
+                                                                                                  if ((_model.getProvince?.statusCode ?? 200) != 200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  if (TeleGetProvinceAPICall.statusLevel1(
+                                                                                                        (_model.getProvince?.jsonBody ?? ''),
+                                                                                                      ) !=
+                                                                                                      200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
+                                                                                                              (_model.getProvince?.jsonBody ?? ''),
+                                                                                                            )?.toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  FFAppState().insuranceBasicProvinceIdList = TeleGetProvinceAPICall.provinceID(
+                                                                                                    (_model.getProvince?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicProvinceNameList = TeleGetProvinceAPICall.provinceNameTH(
+                                                                                                    (_model.getProvince?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().update(() {});
+                                                                                                  _model.getVehicleService = await InsuranceRequestGetVehicleAPICall.call(
+                                                                                                    apiUrl: FFAppState().apiURLLocalState,
                                                                                                   );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                if (TeleGetBrandAPICall.statusLevel1(
-                                                                                                      (_model.gerBrand?.jsonBody ?? ''),
-                                                                                                    ) !=
-                                                                                                    200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
-                                                                                                            (_model.gerBrand?.jsonBody ?? ''),
-                                                                                                          )?.toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
-                                                                                                  (_model.gerBrand?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicBrandNameList = TeleGetBrandAPICall.brandName(
-                                                                                                  (_model.gerBrand?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().update(() {});
-                                                                                                _model.getModelService = await TeleGetModelAPICall.call(
-                                                                                                  apiUrl: FFAppState().apiURLLocalState,
-                                                                                                );
 
-                                                                                                _shouldSetState = true;
-                                                                                                if ((_model.getModel?.statusCode ?? 200) != 200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getModel?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
+                                                                                                  _shouldSetState = true;
+                                                                                                  if ((_model.getVehicle?.statusCode ?? 200) != 200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${(_model.getVehicle?.statusCode ?? 200).toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+                                                                                                        (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                      ) !=
+                                                                                                      200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
+                                                                                                              (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                            )?.toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  FFAppState().insuranceBasicVehicleUsedTypeIdList = InsuranceRequestGetVehicleAPICall.vehicleId(
+                                                                                                    (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicVehicleUsedTypeNameList = InsuranceRequestGetVehicleAPICall.vehicleName(
+                                                                                                    (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicVehicleUsedTypeTypeList = InsuranceRequestGetVehicleAPICall.vehicletype(
+                                                                                                    (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicVehicleUsedTypeCodeList = InsuranceRequestGetVehicleAPICall.vehicleCode(
+                                                                                                    (_model.getVehicle?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  safeSetState(() {});
+                                                                                                  _model.getInsurerService = await InsuranceRequestGetInsurerAPICall.call(
+                                                                                                    apiUrl: FFAppState().apiURLLocalState,
                                                                                                   );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                if (TeleGetModelAPICall.statusLevel1(
-                                                                                                      (_model.getModel?.jsonBody ?? ''),
-                                                                                                    ) !=
-                                                                                                    200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
-                                                                                                            (_model.getModel?.jsonBody ?? ''),
-                                                                                                          )?.toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                FFAppState().insuranceBasicModelIdListOriginal = TeleGetModelAPICall.modelCode(
-                                                                                                  (_model.getModel?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicModelNameListOriginal = TeleGetModelAPICall.modelName(
-                                                                                                  (_model.getModel?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().update(() {});
-                                                                                                FFAppState().insuranceBasicModelBrandIdListOriginal = TeleGetModelAPICall.brandID(
-                                                                                                  (_model.getModel?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().update(() {});
-                                                                                                _model.getProvinceService = await TeleGetProvinceAPICall.call(
-                                                                                                  apiUrl: FFAppState().apiURLLocalState,
-                                                                                                );
 
-                                                                                                _shouldSetState = true;
-                                                                                                if ((_model.getProvince?.statusCode ?? 200) != 200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
+                                                                                                  _shouldSetState = true;
+                                                                                                  if ((_model.getInsurer?.statusCode ?? 200) != 200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  if (InsuranceRequestGetInsurerAPICall.statusLayer1(
+                                                                                                        (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                      ) !=
+                                                                                                      200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
+                                                                                                              (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                            )?.toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  FFAppState().insuranceBasicInsurerIdList = InsuranceRequestGetInsurerAPICall.companyId(
+                                                                                                    (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicInsurerCodeList = InsuranceRequestGetInsurerAPICall.companyCode(
+                                                                                                    (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicInsurerShortNameList = InsuranceRequestGetInsurerAPICall.companyShortName(
+                                                                                                    (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicInsurerFullNameList = InsuranceRequestGetInsurerAPICall.companyFullName(
+                                                                                                    (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicInsurerListNameList = InsuranceRequestGetInsurerAPICall.companyListName(
+                                                                                                    (_model.getInsurer?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .map((e) => e.toString())
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  safeSetState(() {});
+                                                                                                  _model.getCoverTypeService = await TeleGetCoverTypeAPICall.call(
+                                                                                                    apiUrl: FFAppState().apiURLLocalState,
                                                                                                   );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                if (TeleGetProvinceAPICall.statusLevel1(
-                                                                                                      (_model.getProvince?.jsonBody ?? ''),
-                                                                                                    ) !=
-                                                                                                    200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
-                                                                                                            (_model.getProvince?.jsonBody ?? ''),
-                                                                                                          )?.toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                FFAppState().insuranceBasicProvinceIdList = TeleGetProvinceAPICall.provinceID(
-                                                                                                  (_model.getProvince?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicProvinceNameList = TeleGetProvinceAPICall.provinceNameTH(
-                                                                                                  (_model.getProvince?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().update(() {});
-                                                                                                _model.getVehicleService = await InsuranceRequestGetVehicleAPICall.call(
-                                                                                                  apiUrl: FFAppState().apiURLLocalState,
-                                                                                                );
 
-                                                                                                _shouldSetState = true;
-                                                                                                if ((_model.getVehicle?.statusCode ?? 200) != 200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getVehicle?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
+                                                                                                  _shouldSetState = true;
+                                                                                                  if ((_model.getCoverType?.statusCode ?? 200) != 200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${(_model.getCoverType?.statusCode ?? 200).toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  if (TeleGetCoverTypeAPICall.statusLevel1(
+                                                                                                        (_model.getCoverType?.jsonBody ?? ''),
+                                                                                                      ) !=
+                                                                                                      200) {
+                                                                                                    await showDialog(
+                                                                                                      context: context,
+                                                                                                      builder: (alertDialogContext) {
+                                                                                                        return WebViewAware(
+                                                                                                          child: AlertDialog(
+                                                                                                            content: Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
+                                                                                                              (_model.getCoverType?.jsonBody ?? ''),
+                                                                                                            )?.toString()})'),
+                                                                                                            actions: [
+                                                                                                              TextButton(
+                                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                child: Text('Ok'),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      },
+                                                                                                    );
+                                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                                    return;
+                                                                                                  }
+                                                                                                  FFAppState().insuranceBasicCoverTypeIdList = TeleGetCoverTypeAPICall.coverTypeId(
+                                                                                                    (_model.getCoverType?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicCoverTypeCodeList = TeleGetCoverTypeAPICall.coverTypeCode(
+                                                                                                    (_model.getCoverType?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  FFAppState().insuranceBasicCoverTypeNameList = TeleGetCoverTypeAPICall.coverTypeName(
+                                                                                                    (_model.getCoverType?.jsonBody ?? ''),
+                                                                                                  )!
+                                                                                                      .toList()
+                                                                                                      .cast<String>();
+                                                                                                  safeSetState(() {});
+                                                                                                  FFAppState().insuranceRequestIsLoadedData = true;
+                                                                                                  safeSetState(() {});
+                                                                                                  Navigator.pop(context);
                                                                                                 }
-                                                                                                if (InsuranceRequestGetVehicleAPICall.statusLayer1(
-                                                                                                      (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                    ) !=
-                                                                                                    200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
-                                                                                                            (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                          )?.toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                FFAppState().insuranceBasicVehicleUsedTypeIdList = InsuranceRequestGetVehicleAPICall.vehicleId(
-                                                                                                  (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicVehicleUsedTypeNameList = InsuranceRequestGetVehicleAPICall.vehicleName(
-                                                                                                  (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicVehicleUsedTypeTypeList = InsuranceRequestGetVehicleAPICall.vehicletype(
-                                                                                                  (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicVehicleUsedTypeCodeList = InsuranceRequestGetVehicleAPICall.vehicleCode(
-                                                                                                  (_model.getVehicle?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                safeSetState(() {});
-                                                                                                _model.getInsurerService = await InsuranceRequestGetInsurerAPICall.call(
-                                                                                                  apiUrl: FFAppState().apiURLLocalState,
-                                                                                                );
 
-                                                                                                _shouldSetState = true;
-                                                                                                if ((_model.getInsurer?.statusCode ?? 200) != 200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                if (InsuranceRequestGetInsurerAPICall.statusLayer1(
-                                                                                                      (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                    ) !=
-                                                                                                    200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
-                                                                                                            (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                          )?.toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                FFAppState().insuranceBasicInsurerIdList = InsuranceRequestGetInsurerAPICall.companyId(
-                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicInsurerCodeList = InsuranceRequestGetInsurerAPICall.companyCode(
-                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicInsurerShortNameList = InsuranceRequestGetInsurerAPICall.companyShortName(
-                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicInsurerFullNameList = InsuranceRequestGetInsurerAPICall.companyFullName(
-                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicInsurerListNameList = InsuranceRequestGetInsurerAPICall.companyListName(
-                                                                                                  (_model.getInsurer?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .map((e) => e.toString())
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                safeSetState(() {});
-                                                                                                _model.getCoverTypeService = await TeleGetCoverTypeAPICall.call(
-                                                                                                  apiUrl: FFAppState().apiURLLocalState,
-                                                                                                );
+                                                                                                context.goNamed(InsuranceRequestDashboardPageWidget.routeName);
 
-                                                                                                _shouldSetState = true;
-                                                                                                if ((_model.getCoverType?.statusCode ?? 200) != 200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getCoverType?.statusCode ?? 200).toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                if (TeleGetCoverTypeAPICall.statusLevel1(
-                                                                                                      (_model.getCoverType?.jsonBody ?? ''),
-                                                                                                    ) !=
-                                                                                                    200) {
-                                                                                                  await showDialog(
-                                                                                                    context: context,
-                                                                                                    builder: (alertDialogContext) {
-                                                                                                      return WebViewAware(
-                                                                                                        child: AlertDialog(
-                                                                                                          content: Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
-                                                                                                            (_model.getCoverType?.jsonBody ?? ''),
-                                                                                                          )?.toString()})'),
-                                                                                                          actions: [
-                                                                                                            TextButton(
-                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                              child: Text('Ok'),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    },
-                                                                                                  );
-                                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                                  return;
-                                                                                                }
-                                                                                                FFAppState().insuranceBasicCoverTypeIdList = TeleGetCoverTypeAPICall.coverTypeId(
-                                                                                                  (_model.getCoverType?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicCoverTypeCodeList = TeleGetCoverTypeAPICall.coverTypeCode(
-                                                                                                  (_model.getCoverType?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                FFAppState().insuranceBasicCoverTypeNameList = TeleGetCoverTypeAPICall.coverTypeName(
-                                                                                                  (_model.getCoverType?.jsonBody ?? ''),
-                                                                                                )!
-                                                                                                    .toList()
-                                                                                                    .cast<String>();
-                                                                                                safeSetState(() {});
-                                                                                                FFAppState().insuranceRequestIsLoadedData = true;
-                                                                                                safeSetState(() {});
-                                                                                                Navigator.pop(context);
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
                                                                                               }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'ขออนุมัติลา') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
 
-                                                                                              context.goNamed(InsuranceRequestDashboardPageWidget.routeName);
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'รายชื่อลีด') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
 
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'เช็คเบี้ยประกัน') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'ยอดจัดสาขา') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'โปรโมชั่น') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'KPI') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'Branch View') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
+                                                                                              if (valueOrDefault<String>(
+                                                                                                    _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                      return orderList.indexOf('${currentIndex + 1}');
+                                                                                                    }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                    'menu_name',
+                                                                                                  ) ==
+                                                                                                  'QR พนักงาน') {
+                                                                                                context.goNamed(DashboardCheckinWidget.routeName);
+
+                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                return;
+                                                                                              }
                                                                                               if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'ขออนุมัติลา') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'รายชื่อลีด') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'เช็คเบี้ยประกัน') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'ยอดจัดสาขา') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'โปรโมชั่น') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'KPI') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'Branch View') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (valueOrDefault<String>(
-                                                                                                  _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                    return orderList.indexOf('${currentIndex + 1}');
-                                                                                                  }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                  'menu_name',
-                                                                                                ) ==
-                                                                                                'QR พนักงาน') {
-                                                                                              context.goNamed(DashboardCheckinWidget.routeName);
-
-                                                                                              if (_shouldSetState) safeSetState(() {});
-                                                                                              return;
-                                                                                            }
-                                                                                            if (_shouldSetState) safeSetState(() {});
-                                                                                          },
-                                                                                          child: Container(
-                                                                                            width: 100.0,
-                                                                                            height: 100.0,
-                                                                                            decoration: BoxDecoration(),
-                                                                                            child: Column(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              children: [
-                                                                                                Container(
-                                                                                                  width: 50.0,
-                                                                                                  height: 50.0,
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                    shape: BoxShape.circle,
-                                                                                                  ),
-                                                                                                  child: ClipRRect(
-                                                                                                    borderRadius: BorderRadius.circular(100.0),
-                                                                                                    child: OctoImage(
-                                                                                                      placeholderBuilder: (_) => SizedBox.expand(
-                                                                                                        child: Image(
-                                                                                                          image: BlurHashImage('LnPW1|bcrFXS}rbcxGbbBSX9OYX9'),
-                                                                                                          fit: BoxFit.cover,
+                                                                                            },
+                                                                                            child: Container(
+                                                                                              width: 100.0,
+                                                                                              height: 100.0,
+                                                                                              decoration: BoxDecoration(),
+                                                                                              child: Column(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                children: [
+                                                                                                  Container(
+                                                                                                    width: 50.0,
+                                                                                                    height: 50.0,
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                      shape: BoxShape.circle,
+                                                                                                    ),
+                                                                                                    child: ClipRRect(
+                                                                                                      borderRadius: BorderRadius.circular(100.0),
+                                                                                                      child: OctoImage(
+                                                                                                        placeholderBuilder: (_) => SizedBox.expand(
+                                                                                                          child: Image(
+                                                                                                            image: BlurHashImage('LnPW1|bcrFXS}rbcxGbbBSX9OYX9'),
+                                                                                                            fit: BoxFit.cover,
+                                                                                                          ),
                                                                                                         ),
+                                                                                                        image: NetworkImage(
+                                                                                                          functions.stringToImgPath(valueOrDefault<String>(
+                                                                                                            _model.serviceMenuIconUrl.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                              return orderList.indexOf('${currentIndex + 1}');
+                                                                                                            }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                            'icon_url',
+                                                                                                          ))!,
+                                                                                                        ),
+                                                                                                        width: double.infinity,
+                                                                                                        height: double.infinity,
+                                                                                                        fit: BoxFit.cover,
                                                                                                       ),
-                                                                                                      image: NetworkImage(
-                                                                                                        functions.stringToImgPath(valueOrDefault<String>(
-                                                                                                          _model.serviceMenuIconUrl.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                            return orderList.indexOf('${currentIndex + 1}');
-                                                                                                          }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                          'icon_url',
-                                                                                                        ))!,
-                                                                                                      ),
-                                                                                                      width: double.infinity,
-                                                                                                      height: double.infinity,
-                                                                                                      fit: BoxFit.cover,
                                                                                                     ),
                                                                                                   ),
-                                                                                                ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
-                                                                                                        return orderList.indexOf('${currentIndex + 1}');
-                                                                                                      }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
-                                                                                                      'menu_name',
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                    child: Text(
+                                                                                                      valueOrDefault<String>(
+                                                                                                        _model.serviceMenuName.elementAtOrNull((int currentIndex, List<String> orderList) {
+                                                                                                          return orderList.indexOf('${currentIndex + 1}');
+                                                                                                        }(serviceMenuListItemIndex, _model.serviceMenuOrder.toList())),
+                                                                                                        'menu_name',
+                                                                                                      ),
+                                                                                                      textAlign: TextAlign.center,
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            fontFamily: 'Poppins',
+                                                                                                            color: Color(0xFF3C4059),
+                                                                                                            fontSize: 12.0,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                          ),
                                                                                                     ),
-                                                                                                    textAlign: TextAlign.center,
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Poppins',
-                                                                                                          color: Color(0xFF3C4059),
-                                                                                                          fontSize: 12.0,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                        ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              ],
+                                                                                                ],
+                                                                                              ),
                                                                                             ),
                                                                                           ),
                                                                                         );
@@ -10486,7 +10493,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             width:
                                                                                 double.infinity,
                                                                             height:
-                                                                                165.0,
+                                                                                180.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -10528,6 +10535,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ],
                                                                                   ),
+                                                                                ),
+                                                                                Divider(
+                                                                                  color: FlutterFlowTheme.of(context).grayIcon,
                                                                                 ),
                                                                                 Expanded(
                                                                                   child: Builder(
@@ -10610,7 +10620,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             width:
                                                                                 double.infinity,
                                                                             height:
-                                                                                165.0,
+                                                                                180.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: Colors.white,
@@ -10652,6 +10662,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ),
                                                                                     ],
                                                                                   ),
+                                                                                ),
+                                                                                Divider(
+                                                                                  color: FlutterFlowTheme.of(context).grayIcon,
                                                                                 ),
                                                                                 Expanded(
                                                                                   child: Builder(
