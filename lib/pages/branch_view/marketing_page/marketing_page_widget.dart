@@ -1244,7 +1244,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             borderRadius: 0.0,
                                             margin:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 4.0, 0.0, 4.0),
+                                                    12.0, 4.0, 0.0, 4.0),
                                             hidesUnderline: true,
                                             isOverButton: false,
                                             isSearchable: false,
