@@ -38,12 +38,28 @@ class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
   late IbsPageComponentModel ibsPageComponentModel1;
   // Model for ibsPageComponent component.
   late IbsPageComponentModel ibsPageComponentModel2;
+  // Model for ibsPageComponent component.
+  late IbsPageComponentModel ibsPageComponentModel3;
+  // Model for ibsPageComponent component.
+  late IbsPageComponentModel ibsPageComponentModel4;
+  // Model for ibsPageComponent component.
+  late IbsPageComponentModel ibsPageComponentModel5;
+  // Model for ibsPageComponent component.
+  late IbsPageComponentModel ibsPageComponentModel6;
 
   @override
   void initState(BuildContext context) {
     ibsPageComponentModel1 =
         createModel(context, () => IbsPageComponentModel());
     ibsPageComponentModel2 =
+        createModel(context, () => IbsPageComponentModel());
+    ibsPageComponentModel3 =
+        createModel(context, () => IbsPageComponentModel());
+    ibsPageComponentModel4 =
+        createModel(context, () => IbsPageComponentModel());
+    ibsPageComponentModel5 =
+        createModel(context, () => IbsPageComponentModel());
+    ibsPageComponentModel6 =
         createModel(context, () => IbsPageComponentModel());
   }
 
@@ -52,5 +68,9 @@ class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
     tabBarController?.dispose();
     ibsPageComponentModel1.dispose();
     ibsPageComponentModel2.dispose();
+    ibsPageComponentModel3.dispose();
+    ibsPageComponentModel4.dispose();
+    ibsPageComponentModel5.dispose();
+    ibsPageComponentModel6.dispose();
   }
 }
