@@ -1279,19 +1279,24 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if (((columnBranchviewDropdownRecord
-                                                                  ?.marketingFormLink
-                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      columnBranchviewDropdownRecord
-                                                                          ?.marketingDropdownValue
-                                                                          ?.toList(),
-                                                                      _model
-                                                                          .dropDownValue))) !=
-                                                              'Hello World') &&
-                                                          (_model.dropDownValue !=
+                                                      if (_model.dropDownValue !=
                                                                   null &&
                                                               _model.dropDownValue !=
-                                                                  ''))
+                                                                  ''
+                                                          ? (((columnBranchviewDropdownRecord
+                                                                      ?.marketingFormLink
+                                                                      ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                          columnBranchviewDropdownRecord
+                                                                              ?.marketingDropdownValue
+                                                                              ?.toList(),
+                                                                          _model
+                                                                              .dropDownValue))) !=
+                                                                  'Hello World') &&
+                                                              (_model.dropDownValue !=
+                                                                      null &&
+                                                                  _model.dropDownValue !=
+                                                                      ''))
+                                                          : false)
                                                         Expanded(
                                                           child: FFButtonWidget(
                                                             onPressed:
