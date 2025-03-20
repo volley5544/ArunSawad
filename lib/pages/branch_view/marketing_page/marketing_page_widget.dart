@@ -1193,53 +1193,51 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          FutureBuilder<
-                                              List<BranchviewDropdownRecord>>(
-                                            future:
-                                                queryBranchviewDropdownRecordOnce(
-                                              singleRecord: true,
-                                            ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .tertiary,
-                                                      ),
-                                                    ),
+                                      child: FutureBuilder<
+                                          List<BranchviewDropdownRecord>>(
+                                        future:
+                                            queryBranchviewDropdownRecordOnce(
+                                          singleRecord: true,
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
                                                   ),
-                                                );
-                                              }
-                                              List<BranchviewDropdownRecord>
-                                                  dropDownBranchviewDropdownRecordList =
-                                                  snapshot.data!;
-                                              final dropDownBranchviewDropdownRecord =
-                                                  dropDownBranchviewDropdownRecordList
-                                                          .isNotEmpty
-                                                      ? dropDownBranchviewDropdownRecordList
-                                                          .first
-                                                      : null;
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<BranchviewDropdownRecord>
+                                              columnBranchviewDropdownRecordList =
+                                              snapshot.data!;
+                                          final columnBranchviewDropdownRecord =
+                                              columnBranchviewDropdownRecordList
+                                                      .isNotEmpty
+                                                  ? columnBranchviewDropdownRecordList
+                                                      .first
+                                                  : null;
 
-                                              return FlutterFlowDropDown<
-                                                  String>(
+                                          return Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              FlutterFlowDropDown<String>(
                                                 controller: _model
                                                         .dropDownValueController ??=
                                                     FormFieldController<String>(
                                                         null),
                                                 options:
-                                                    dropDownBranchviewDropdownRecord!
+                                                    columnBranchviewDropdownRecord!
                                                         .marketingDropdownValue,
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
@@ -1271,67 +1269,85 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                 isOverButton: false,
                                                 isSearchable: false,
                                                 isMultiSelect: false,
-                                              );
-                                            },
-                                          ),
-                                          if (true)
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Expanded(
-                                                    child: FFButtonWidget(
-                                                      onPressed: () {
-                                                        print(
-                                                            'Button pressed ...');
-                                                      },
-                                                      text: 'เปิดฟอร์ม',
-                                                      options: FFButtonOptions(
-                                                        height: 40.0,
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: Colors
-                                                                      .white,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                        elevation: 0.0,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
                                               ),
-                                            ),
-                                        ],
+                                              if (true)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 12.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if ((columnBranchviewDropdownRecord
+                                                              ?.marketingFormLink
+                                                              ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                  columnBranchviewDropdownRecord
+                                                                      ?.marketingDropdownValue
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .dropDownValue))) !=
+                                                          'Hello World')
+                                                        Expanded(
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              await launchURL(columnBranchviewDropdownRecord!
+                                                                  .marketingFormLink
+                                                                  .elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                      columnBranchviewDropdownRecord
+                                                                          ?.marketingDropdownValue
+                                                                          ?.toList(),
+                                                                      _model
+                                                                          .dropDownValue))!);
+                                                            },
+                                                            text: 'เปิดฟอร์ม',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              height: 40.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 0.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
+                                            ],
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
