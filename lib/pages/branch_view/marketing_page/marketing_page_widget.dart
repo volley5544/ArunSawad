@@ -1143,12 +1143,6 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                             ),
                             Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
-                                minHeight:
-                                    MediaQuery.sizeOf(context).height * 0.06,
-                                maxHeight:
-                                    MediaQuery.sizeOf(context).height * 0.12,
-                              ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -1162,201 +1156,211 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   children: [
                                     Expanded(
                                       flex: 5,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.list_alt,
-                                              color: Colors.black,
-                                              size: 29.0,
-                                            ),
-                                            Expanded(
-                                              flex: 4,
-                                              child: Text(
-                                                'กิจกรรม:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                      child: Container(
+                                        decoration: BoxDecoration(),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Icon(
+                                                Icons.list_alt,
+                                                color: Colors.black,
+                                                size: 29.0,
                                               ),
-                                            ),
-                                          ],
+                                              Expanded(
+                                                flex: 4,
+                                                child: Text(
+                                                  'กิจกรรม:',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: FutureBuilder<
-                                          List<BranchviewDropdownRecord>>(
-                                        future:
-                                            queryBranchviewDropdownRecordOnce(
-                                          singleRecord: true,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation<
-                                                          Color>(
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
+                                      child: Container(
+                                        decoration: BoxDecoration(),
+                                        child: FutureBuilder<
+                                            List<BranchviewDropdownRecord>>(
+                                          future:
+                                              queryBranchviewDropdownRecordOnce(
+                                            singleRecord: true,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .tertiary,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            );
-                                          }
-                                          List<BranchviewDropdownRecord>
-                                              columnBranchviewDropdownRecordList =
-                                              snapshot.data!;
-                                          final columnBranchviewDropdownRecord =
-                                              columnBranchviewDropdownRecordList
-                                                      .isNotEmpty
-                                                  ? columnBranchviewDropdownRecordList
-                                                      .first
-                                                  : null;
+                                              );
+                                            }
+                                            List<BranchviewDropdownRecord>
+                                                columnBranchviewDropdownRecordList =
+                                                snapshot.data!;
+                                            final columnBranchviewDropdownRecord =
+                                                columnBranchviewDropdownRecordList
+                                                        .isNotEmpty
+                                                    ? columnBranchviewDropdownRecordList
+                                                        .first
+                                                    : null;
 
-                                          return Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              FlutterFlowDropDown<String>(
-                                                controller: _model
-                                                        .dropDownValueController ??=
-                                                    FormFieldController<String>(
-                                                        null),
-                                                options:
-                                                    columnBranchviewDropdownRecord!
-                                                        .marketingDropdownValue,
-                                                onChanged: (val) =>
-                                                    safeSetState(() => _model
-                                                        .dropDownValue = val),
-                                                width: 180.0,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.06,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF455A64),
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                hintText: 'กิจกรรมการตลาด',
-                                                fillColor: Colors.white,
-                                                elevation: 2.0,
-                                                borderColor: Colors.transparent,
-                                                borderWidth: 0.0,
-                                                borderRadius: 0.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 4.0, 0.0, 4.0),
-                                                hidesUnderline: true,
-                                                isOverButton: false,
-                                                isSearchable: false,
-                                                isMultiSelect: false,
-                                              ),
-                                              if (true)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
+                                            return Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                FlutterFlowDropDown<String>(
+                                                  controller: _model
+                                                          .dropDownValueController ??=
+                                                      FormFieldController<
+                                                          String>(null),
+                                                  options:
+                                                      columnBranchviewDropdownRecord!
+                                                          .marketingDropdownValue,
+                                                  onChanged: (val) =>
+                                                      safeSetState(() => _model
+                                                          .dropDownValue = val),
+                                                  width: 180.0,
+                                                  height: 60.0,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF455A64),
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  hintText: 'กิจกรรมการตลาด',
+                                                  fillColor: Colors.white,
+                                                  elevation: 2.0,
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderWidth: 0.0,
+                                                  borderRadius: 0.0,
+                                                  margin: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          12.0, 0.0, 12.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      if (_model.dropDownValue !=
-                                                                  null &&
-                                                              _model.dropDownValue !=
-                                                                  ''
-                                                          ? (((columnBranchviewDropdownRecord
-                                                                      ?.marketingFormLink
-                                                                      ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                          columnBranchviewDropdownRecord
-                                                                              ?.marketingDropdownValue
-                                                                              ?.toList(),
-                                                                          _model
-                                                                              .dropDownValue))) !=
-                                                                  'Hello World') &&
-                                                              (_model.dropDownValue !=
-                                                                      null &&
-                                                                  _model.dropDownValue !=
-                                                                      ''))
-                                                          : false)
-                                                        Expanded(
-                                                          child: FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              await launchURL(columnBranchviewDropdownRecord!
-                                                                  .marketingFormLink
-                                                                  .elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      columnBranchviewDropdownRecord
-                                                                          ?.marketingDropdownValue
-                                                                          ?.toList(),
-                                                                      _model
-                                                                          .dropDownValue))!);
-                                                            },
-                                                            text: 'เปิดฟอร์ม',
-                                                            options:
-                                                                FFButtonOptions(
-                                                              height: 40.0,
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        letterSpacing:
+                                                          12.0, 4.0, 0.0, 4.0),
+                                                  hidesUnderline: true,
+                                                  isOverButton: true,
+                                                  isSearchable: false,
+                                                  isMultiSelect: false,
+                                                ),
+                                                if (_model.dropDownValue !=
+                                                            null &&
+                                                        _model.dropDownValue !=
+                                                            ''
+                                                    ? (((columnBranchviewDropdownRecord
+                                                                ?.marketingFormLink
+                                                                ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                    columnBranchviewDropdownRecord
+                                                                        ?.marketingDropdownValue
+                                                                        ?.toList(),
+                                                                    _model
+                                                                        .dropDownValue))) !=
+                                                            'Hello World') &&
+                                                        (_model.dropDownValue !=
+                                                                null &&
+                                                            _model.dropDownValue !=
+                                                                ''))
+                                                    : false)
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            child:
+                                                                FFButtonWidget(
+                                                              onPressed:
+                                                                  () async {
+                                                                await launchURL(columnBranchviewDropdownRecord!
+                                                                    .marketingFormLink
+                                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        columnBranchviewDropdownRecord
+                                                                            ?.marketingDropdownValue
+                                                                            ?.toList(),
+                                                                        _model
+                                                                            .dropDownValue))!);
+                                                              },
+                                                              text: 'เปิดฟอร์ม',
+                                                              options:
+                                                                  FFButtonOptions(
+                                                                height: 40.0,
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                                iconPadding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
-                                                                      ),
-                                                              elevation: 0.0,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                    ],
+                                                        ],
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                            ],
-                                          );
-                                        },
+                                              ],
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   ],

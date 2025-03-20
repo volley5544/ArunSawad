@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/call_history/call_history_widget.dart';
+import '/components/filter_lead_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/saved_lead_called_status/saved_lead_called_status_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -370,682 +371,1323 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                   ),
                                 ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 0.0, 0.0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.45,
-                                        height: 140.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(4.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Expanded(
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        HapticFeedback
-                                                            .mediumImpact();
-                                                        _model.currentShowingDataJson =
-                                                            _model
-                                                                .leadSurveyDataJson
-                                                                .toList()
-                                                                .cast<
-                                                                    dynamic>();
-                                                        _model.selectedTab =
-                                                            'Survey';
-                                                        safeSetState(() {});
-                                                        safeSetState(() {
-                                                          _model
-                                                              .textFieldSearchTextController
-                                                              ?.clear();
-                                                        });
-                                                        await _model
-                                                            .listViewController
-                                                            ?.animateTo(
-                                                          0,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  100),
-                                                          curve: Curves.ease,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 69.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: _model
-                                                                      .selectedTab ==
-                                                                  'Survey'
-                                                              ? (leadNotiNewPageLeadChannelColorRecord
-                                                                  ?.color
-                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      leadNotiNewPageLeadChannelColorRecord
-                                                                          ?.leadChannel
-                                                                          ?.toList(),
-                                                                      'Lead Survey')))
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x33000000),
-                                                              offset: Offset(
-                                                                0.0,
-                                                                2.0,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    24.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                          ),
-                                                        ),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0),
-                                                              child: Text(
-                                                                'Survey',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                functions.showNumberWithComma(_model
-                                                                    .leadSurveyDataJson
-                                                                    .length
-                                                                    .toString()),
-                                                                '0',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        HapticFeedback
-                                                            .mediumImpact();
-                                                        _model.currentShowingDataJson =
-                                                            _model
-                                                                .leadTeleDataJson
-                                                                .toList()
-                                                                .cast<
-                                                                    dynamic>();
-                                                        _model.selectedTab =
-                                                            'Telesale';
-                                                        safeSetState(() {});
-                                                        safeSetState(() {
-                                                          _model
-                                                              .textFieldSearchTextController
-                                                              ?.clear();
-                                                        });
-                                                        await _model
-                                                            .listViewController
-                                                            ?.animateTo(
-                                                          0,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  100),
-                                                          curve: Curves.ease,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 69.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: _model
-                                                                      .selectedTab ==
-                                                                  'Telesale'
-                                                              ? (leadNotiNewPageLeadChannelColorRecord
-                                                                  ?.color
-                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      leadNotiNewPageLeadChannelColorRecord
-                                                                          ?.leadChannel
-                                                                          ?.toList(),
-                                                                      'Lead Telesale')))
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x33000000),
-                                                              offset: Offset(
-                                                                0.0,
-                                                                2.0,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    24.0),
-                                                          ),
-                                                        ),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0),
-                                                              child: Text(
-                                                                'Telesale',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                functions.showNumberWithComma(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  _model
-                                                                      .leadTeleDataJson
-                                                                      .length
-                                                                      .toString(),
-                                                                  '0',
-                                                                )),
-                                                                '0',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Expanded(
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        HapticFeedback
-                                                            .mediumImpact();
-                                                        _model.currentShowingDataJson =
-                                                            _model
-                                                                .leadAgentDataJson
-                                                                .toList()
-                                                                .cast<
-                                                                    dynamic>();
-                                                        _model.selectedTab =
-                                                            'Agent';
-                                                        safeSetState(() {});
-                                                        safeSetState(() {
-                                                          _model
-                                                              .textFieldSearchTextController
-                                                              ?.clear();
-                                                        });
-                                                        await _model
-                                                            .listViewController
-                                                            ?.animateTo(
-                                                          0,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  100),
-                                                          curve: Curves.ease,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 69.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: _model
-                                                                      .selectedTab ==
-                                                                  'Agent'
-                                                              ? (leadNotiNewPageLeadChannelColorRecord
-                                                                  ?.color
-                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      leadNotiNewPageLeadChannelColorRecord
-                                                                          ?.leadChannel
-                                                                          ?.toList(),
-                                                                      'Lead Agent')))
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x33000000),
-                                                              offset: Offset(
-                                                                0.0,
-                                                                2.0,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    24.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                          ),
-                                                        ),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0),
-                                                              child: Text(
-                                                                'Agent',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                functions.showNumberWithComma(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  _model
-                                                                      .leadAgentDataJson
-                                                                      .length
-                                                                      .toString(),
-                                                                  '0',
-                                                                )),
-                                                                '0',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        HapticFeedback
-                                                            .mediumImpact();
-                                                        _model.currentShowingDataJson =
-                                                            _model
-                                                                .leadTruckDataJson
-                                                                .toList()
-                                                                .cast<
-                                                                    dynamic>();
-                                                        _model.selectedTab =
-                                                            'Truck';
-                                                        safeSetState(() {});
-                                                        safeSetState(() {
-                                                          _model
-                                                              .textFieldSearchTextController
-                                                              ?.clear();
-                                                        });
-                                                        await _model
-                                                            .listViewController
-                                                            ?.animateTo(
-                                                          0,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  100),
-                                                          curve: Curves.ease,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 69.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: _model
-                                                                      .selectedTab ==
-                                                                  'Truck'
-                                                              ? (leadNotiNewPageLeadChannelColorRecord
-                                                                  ?.color
-                                                                  ?.elementAtOrNull(functions.getIndexOfSomethingList(
-                                                                      leadNotiNewPageLeadChannelColorRecord
-                                                                          ?.leadChannel
-                                                                          ?.toList(),
-                                                                      'Lead Truck')))
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x33000000),
-                                                              offset: Offset(
-                                                                0.0,
-                                                                2.0,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    24.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                          ),
-                                                        ),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0),
-                                                              child: Text(
-                                                                'Truck',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      color: _model.selectedTab ==
-                                                                              'Truck'
-                                                                          ? Colors
-                                                                              .white
-                                                                          : FlutterFlowTheme.of(context)
-                                                                              .primaryText,
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                functions.showNumberWithComma(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  _model
-                                                                      .leadTruckDataJson
-                                                                      .length
-                                                                      .toString(),
-                                                                  '0',
-                                                                )),
-                                                                '0',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: _model.selectedTab ==
-                                                                            'Truck'
-                                                                        ? Colors
-                                                                            .white
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
+                              Expanded(
+                                child: Container(
+                                  height: 69.0,
+                                  child: ListView(
+                                    padding: EdgeInsets.fromLTRB(
+                                      8.0,
+                                      0,
+                                      8.0,
+                                      0,
                                     ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          3.0, 0.0, 8.0, 0.0),
-                                      child: InkWell(
+                                    scrollDirection: Axis.horizontal,
+                                    children: [
+                                      InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           HapticFeedback.mediumImpact();
-                                          FFAppState().leadChannelSelected =
-                                              'All';
-                                          FFAppState().update(() {});
+                                          _model.currentShowingDataJson = _model
+                                              .leadSurveyDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          _model.selectedTab = 'Survey';
+                                          safeSetState(() {});
+                                          _model.filterAssetType = 'ทั้งหมด';
+                                          _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.textFieldSearchTextController
+                                                ?.clear();
+                                          });
+                                          await _model.listViewController3
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
                                         },
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.45,
-                                          height: 140.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(24.0),
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(24.0),
+                                              topRight: Radius.circular(0.0),
+                                            ),
                                           ),
                                           child: Container(
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            child: Stack(
+                                            width: 90.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedTab ==
+                                                      'Survey'
+                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                      ?.color
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.leadChannel
+                                                                  ?.toList(),
+                                                              'Lead Survey')))
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(24.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
                                               children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Padding(
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    'Survey',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions.showNumberWithComma(
+                                                        _model
+                                                            .leadSurveyDataJson
+                                                            .length
+                                                            .toString()),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ].addToStart(
+                                                  SizedBox(height: 4.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.currentShowingDataJson = _model
+                                              .leadTeleDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          _model.selectedTab = 'Telesale';
+                                          safeSetState(() {});
+                                          _model.filterAssetType = 'ทั้งหมด';
+                                          _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.textFieldSearchTextController
+                                                ?.clear();
+                                          });
+                                          await _model.listViewController3
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 90.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedTab ==
+                                                      'Telesale'
+                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                      ?.color
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.leadChannel
+                                                                  ?.toList(),
+                                                              'Lead Telesale')))
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    'Telesale',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .showNumberWithComma(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      _model.leadTeleDataJson
+                                                          .length
+                                                          .toString(),
+                                                      '0',
+                                                    )),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ].addToStart(
+                                                  SizedBox(height: 4.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.currentShowingDataJson = _model
+                                              .leadAgentDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          _model.selectedTab = 'Agent';
+                                          safeSetState(() {});
+                                          _model.filterAssetType = 'ทั้งหมด';
+                                          _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.textFieldSearchTextController
+                                                ?.clear();
+                                          });
+                                          await _model.listViewController3
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 90.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedTab ==
+                                                      'Agent'
+                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                      ?.color
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.leadChannel
+                                                                  ?.toList(),
+                                                              'Lead Agent')))
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    'Agent',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .showNumberWithComma(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      _model.leadAgentDataJson
+                                                          .length
+                                                          .toString(),
+                                                      '0',
+                                                    )),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ].addToStart(
+                                                  SizedBox(height: 4.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.currentShowingDataJson = _model
+                                              .leadTruckDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          _model.selectedTab = 'Truck';
+                                          safeSetState(() {});
+                                          _model.filterAssetType = 'ทั้งหมด';
+                                          _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.textFieldSearchTextController
+                                                ?.clear();
+                                          });
+                                          await _model.listViewController3
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(24.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 90.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedTab ==
+                                                      'Truck'
+                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                      ?.color
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.leadChannel
+                                                                  ?.toList(),
+                                                              'Lead Truck')))
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    'Truck',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: _model
+                                                                      .selectedTab ==
+                                                                  'Truck'
+                                                              ? Colors.white
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .showNumberWithComma(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      _model.leadTruckDataJson
+                                                          .length
+                                                          .toString(),
+                                                      '0',
+                                                    )),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: _model
+                                                                    .selectedTab ==
+                                                                'Truck'
+                                                            ? Colors.white
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ].addToStart(
+                                                  SizedBox(height: 4.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ].divide(SizedBox(width: 2.0)),
+                                    controller: _model.listViewController1,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 0.0),
+                                  child: Container(
+                                    height: 69.0,
+                                    decoration: BoxDecoration(),
+                                    child: ListView(
+                                      padding: EdgeInsets.fromLTRB(
+                                        8.0,
+                                        0,
+                                        8.0,
+                                        0,
+                                      ),
+                                      scrollDirection: Axis.horizontal,
+                                      children: [
+                                        Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(24.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 90.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(24.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                              border: Border.all(
+                                                color: _model.selectedTab ==
+                                                        'Owner'
+                                                    ? Color(0xFFFF6500)
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                width: _model.selectedTab ==
+                                                        'Owner'
+                                                    ? 1.5
+                                                    : 0.0,
+                                              ),
+                                            ),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                HapticFeedback.mediumImpact();
+                                                _model.currentShowingDataJson =
+                                                    _model.leadOwnerDataJson
+                                                        .toList()
+                                                        .cast<dynamic>();
+                                                _model.selectedTab = 'Owner';
+                                                safeSetState(() {});
+                                                _model.filterAssetType =
+                                                    'ทั้งหมด';
+                                                _model.filterSubChennel =
+                                                    'ทั้งหมด';
+                                                safeSetState(() {});
+                                                await _model.listViewController3
+                                                    ?.animateTo(
+                                                  0,
+                                                  duration: Duration(
+                                                      milliseconds: 100),
+                                                  curve: Curves.ease,
+                                                );
+                                              },
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0),
+                                                      child: Text(
+                                                        'ลีดส่วนตัว',
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      functions
+                                                          .showNumberWithComma(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                        _model.leadOwnerDataJson
+                                                            .length
+                                                            .toString(),
+                                                        '0',
+                                                      )),
+                                                      '0',
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .displaySmall
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color:
+                                                              Color(0xFF101213),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                ].addToStart(
+                                                    SizedBox(height: 4.0)),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight:
+                                                  Radius.circular(24.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(0.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 90.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                              border: Border.all(
+                                                color: _model.selectedTab ==
+                                                        'All'
+                                                    ? Color(0xFFFF6500)
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                width:
+                                                    _model.selectedTab == 'All'
+                                                        ? 1.5
+                                                        : 0.0,
+                                              ),
+                                            ),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                HapticFeedback.mediumImpact();
+                                                _model.currentShowingDataJson =
+                                                    _model.leadNotiModifyJson
+                                                        .toList()
+                                                        .cast<dynamic>();
+                                                _model.selectedTab = 'All';
+                                                safeSetState(() {});
+                                                _model.filterAssetType =
+                                                    'ทั้งหมด';
+                                                _model.filterSubChennel =
+                                                    'ทั้งหมด';
+                                                safeSetState(() {});
+                                                await _model.listViewController3
+                                                    ?.animateTo(
+                                                  0,
+                                                  duration: Duration(
+                                                      milliseconds: 100),
+                                                  curve: Curves.ease,
+                                                );
+                                              },
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 10.0),
+                                                    child: Text(
+                                                      'ลีดทั้งหมด',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      functions
+                                                          .showNumberWithComma(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                        '${valueOrDefault<String>(
+                                                          GetLeadDetailAPICall
+                                                              .leadDataJson(
+                                                            (_model.getLeadDetail
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.length?.toString(),
+                                                          '0',
+                                                        )}',
+                                                        '0',
+                                                      )),
+                                                      '0',
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .displaySmall
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color:
+                                                              Color(0xFF101213),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                ].addToStart(
+                                                    SizedBox(height: 4.0)),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) => InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              var _shouldSetState = false;
+                                              await showDialog(
+                                                barrierColor: Color(0xC0000000),
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Container(
+                                                          height: 250.0,
+                                                          child:
+                                                              FilterLeadComponentWidget(
+                                                            filterNameList: _model
+                                                                .subChannelFilterList,
+                                                            filterValueList: _model
+                                                                .subChannelFilterList,
+                                                            filterTitle:
+                                                                'กรุณาเลือกLead Channel ที่จะแสดง',
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) => safeSetState(() =>
+                                                  _model.subChannelFilterOutput =
+                                                      value));
+
+                                              _shouldSetState = true;
+                                              if (!(('${_model.subChannelFilterOutput}' !=
+                                                      'null') &&
+                                                  ('${_model.subChannelFilterOutput}' !=
+                                                      ''))) {
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                              _model.filterSubChennel = _model
+                                                  .subChannelFilterOutput!;
+                                              _model.filterAssetType =
+                                                  'ทั้งหมด';
+                                              _model.selectedTab =
+                                                  'SubChannelFilter';
+                                              safeSetState(() {});
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 2.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(24.0),
+                                                  bottomRight:
+                                                      Radius.circular(0.0),
+                                                  topLeft: Radius.circular(0.0),
+                                                  topRight:
+                                                      Radius.circular(0.0),
+                                                ),
+                                              ),
+                                              child: Container(
+                                                width: 90.0,
+                                                height: 69.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(24.0),
+                                                    bottomRight:
+                                                        Radius.circular(0.0),
+                                                    topLeft:
+                                                        Radius.circular(0.0),
+                                                    topRight:
+                                                        Radius.circular(0.0),
+                                                  ),
+                                                  border: Border.all(
+                                                    color: _model.selectedTab ==
+                                                            'SubChannelFilter'
+                                                        ? Color(0xFFFF6500)
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    width: _model.selectedTab ==
+                                                            'SubChannelFilter'
+                                                        ? 1.5
+                                                        : 0.0,
+                                                  ),
+                                                ),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    HapticFeedback
+                                                        .mediumImpact();
+                                                    _model.currentShowingDataJson =
+                                                        _model.leadOwnerDataJson
+                                                            .toList()
+                                                            .cast<dynamic>();
+                                                    _model.selectedTab =
+                                                        'Owner';
+                                                    safeSetState(() {});
+                                                    await _model
+                                                        .listViewController3
+                                                        ?.animateTo(
+                                                      0,
+                                                      duration: Duration(
+                                                          milliseconds: 100),
+                                                      curve: Curves.ease,
+                                                    );
+                                                  },
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      10.0),
+                                                          child: Text(
+                                                            'Sub-Channel',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        _model.filterSubChennel,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .displaySmall
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ].addToStart(
+                                                        SizedBox(height: 4.0)),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) => InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              var _shouldSetState = false;
+                                              await showDialog(
+                                                barrierColor: Color(0xC0000000),
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Container(
+                                                          height: 250.0,
+                                                          child:
+                                                              FilterLeadComponentWidget(
+                                                            filterNameList: _model
+                                                                .assetTypeFilterList,
+                                                            filterValueList: _model
+                                                                .assetTypeFilterList,
+                                                            filterTitle:
+                                                                'กรุณาเลือกประเภทสินทรัพย์ที่จะแสดง',
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) => safeSetState(() =>
+                                                  _model.assetTypeFilterOutput =
+                                                      value));
+
+                                              _shouldSetState = true;
+                                              if (!(('${_model.assetTypeFilterOutput}' !=
+                                                      'null') &&
+                                                  ('${_model.assetTypeFilterOutput}' !=
+                                                      ''))) {
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                              _model.filterSubChennel =
+                                                  'ทั้งหมด';
+                                              _model.filterAssetType =
+                                                  _model.assetTypeFilterOutput!;
+                                              _model.selectedTab =
+                                                  'AssetTypeFilter';
+                                              safeSetState(() {});
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 2.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(0.0),
+                                                  bottomRight:
+                                                      Radius.circular(24.0),
+                                                  topLeft: Radius.circular(0.0),
+                                                  topRight:
+                                                      Radius.circular(0.0),
+                                                ),
+                                              ),
+                                              child: Container(
+                                                width: 90.0,
+                                                height: 69.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(0.0),
+                                                    bottomRight:
+                                                        Radius.circular(24.0),
+                                                    topLeft:
+                                                        Radius.circular(0.0),
+                                                    topRight:
+                                                        Radius.circular(0.0),
+                                                  ),
+                                                  border: Border.all(
+                                                    color: _model.selectedTab ==
+                                                            'AssetTypeFilter'
+                                                        ? Color(0xFFFF6500)
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    width: _model.selectedTab ==
+                                                            'AssetTypeFilter'
+                                                        ? 1.5
+                                                        : 0.0,
+                                                  ),
+                                                ),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    HapticFeedback
+                                                        .mediumImpact();
+                                                    _model.currentShowingDataJson =
+                                                        _model
+                                                            .leadNotiModifyJson
+                                                            .toList()
+                                                            .cast<dynamic>();
+                                                    _model.selectedTab = 'All';
+                                                    safeSetState(() {});
+                                                    await _model
+                                                        .listViewController3
+                                                        ?.animateTo(
+                                                      0,
+                                                      duration: Duration(
+                                                          milliseconds: 100),
+                                                      curve: Curves.ease,
+                                                    );
+                                                  },
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
                                                                     0.0,
-                                                                    4.0),
+                                                                    10.0),
+                                                        child: Text(
+                                                          'ประเภทสินทรัพย์',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        _model.filterAssetType,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .displaySmall
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              color: Color(
+                                                                  0xFF101213),
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ].addToStart(
+                                                        SizedBox(height: 4.0)),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(width: 2.0)),
+                                      controller: _model.listViewController2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (false)
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.45,
+                                          height: 140.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(24.0),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(4.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Flexible(
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          HapticFeedback
+                                                              .mediumImpact();
+                                                          _model.currentShowingDataJson =
+                                                              _model
+                                                                  .leadSurveyDataJson
+                                                                  .toList()
+                                                                  .cast<
+                                                                      dynamic>();
+                                                          _model.selectedTab =
+                                                              'Survey';
+                                                          safeSetState(() {});
+                                                          safeSetState(() {
+                                                            _model
+                                                                .textFieldSearchTextController
+                                                                ?.clear();
+                                                          });
+                                                          await _model
+                                                              .listViewController3
+                                                              ?.animateTo(
+                                                            0,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            curve: Curves.ease,
+                                                          );
+                                                        },
                                                         child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 69.0,
                                                           decoration:
                                                               BoxDecoration(
+                                                            color: _model
+                                                                        .selectedTab ==
+                                                                    'Survey'
+                                                                ? (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Survey')))
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 4.0,
+                                                                color: Color(
+                                                                    0x33000000),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                              )
+                                                            ],
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .only(
@@ -1061,83 +1703,837 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       24.0),
                                                               topRight: Radius
                                                                   .circular(
-                                                                      24.0),
-                                                            ),
-                                                            border: Border.all(
-                                                              color: _model
-                                                                          .selectedTab ==
-                                                                      'Owner'
-                                                                  ? Color(
-                                                                      0xFFFF6500)
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                              width:
-                                                                  _model.selectedTab ==
-                                                                          'Owner'
-                                                                      ? 3.0
-                                                                      : 0.0,
+                                                                      0.0),
                                                             ),
                                                           ),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              HapticFeedback
-                                                                  .mediumImpact();
-                                                              _model.currentShowingDataJson = _model
-                                                                  .leadOwnerDataJson
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                child: Text(
+                                                                  'Survey',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  functions.showNumberWithComma(_model
+                                                                      .leadSurveyDataJson
+                                                                      .length
+                                                                      .toString()),
+                                                                  '0',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          HapticFeedback
+                                                              .mediumImpact();
+                                                          _model.currentShowingDataJson =
+                                                              _model
+                                                                  .leadTeleDataJson
                                                                   .toList()
                                                                   .cast<
                                                                       dynamic>();
-                                                              _model.selectedTab =
-                                                                  'Owner';
-                                                              safeSetState(
-                                                                  () {});
-                                                              await _model
-                                                                  .listViewController
-                                                                  ?.animateTo(
-                                                                0,
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        100),
-                                                                curve:
-                                                                    Curves.ease,
-                                                              );
-                                                            },
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .stretch,
-                                                              children: [
-                                                                Expanded(
-                                                                  child:
-                                                                      Padding(
+                                                          _model.selectedTab =
+                                                              'Telesale';
+                                                          safeSetState(() {});
+                                                          safeSetState(() {
+                                                            _model
+                                                                .textFieldSearchTextController
+                                                                ?.clear();
+                                                          });
+                                                          await _model
+                                                              .listViewController3
+                                                              ?.animateTo(
+                                                            0,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            curve: Curves.ease,
+                                                          );
+                                                        },
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 69.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: _model
+                                                                        .selectedTab ==
+                                                                    'Telesale'
+                                                                ? (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Telesale')))
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 4.0,
+                                                                color: Color(
+                                                                    0x33000000),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      24.0),
+                                                            ),
+                                                          ),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                child: Text(
+                                                                  'Telesale',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  functions.showNumberWithComma(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    _model
+                                                                        .leadTeleDataJson
+                                                                        .length
+                                                                        .toString(),
+                                                                    '0',
+                                                                  )),
+                                                                  '0',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Flexible(
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          HapticFeedback
+                                                              .mediumImpact();
+                                                          _model.currentShowingDataJson =
+                                                              _model
+                                                                  .leadAgentDataJson
+                                                                  .toList()
+                                                                  .cast<
+                                                                      dynamic>();
+                                                          _model.selectedTab =
+                                                              'Agent';
+                                                          safeSetState(() {});
+                                                          safeSetState(() {
+                                                            _model
+                                                                .textFieldSearchTextController
+                                                                ?.clear();
+                                                          });
+                                                          await _model
+                                                              .listViewController3
+                                                              ?.animateTo(
+                                                            0,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            curve: Curves.ease,
+                                                          );
+                                                        },
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 69.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: _model
+                                                                        .selectedTab ==
+                                                                    'Agent'
+                                                                ? (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Agent')))
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 4.0,
+                                                                color: Color(
+                                                                    0x33000000),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      24.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                            ),
+                                                          ),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                child: Text(
+                                                                  'Agent',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  functions.showNumberWithComma(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    _model
+                                                                        .leadAgentDataJson
+                                                                        .length
+                                                                        .toString(),
+                                                                    '0',
+                                                                  )),
+                                                                  '0',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          HapticFeedback
+                                                              .mediumImpact();
+                                                          _model.currentShowingDataJson =
+                                                              _model
+                                                                  .leadTruckDataJson
+                                                                  .toList()
+                                                                  .cast<
+                                                                      dynamic>();
+                                                          _model.selectedTab =
+                                                              'Truck';
+                                                          safeSetState(() {});
+                                                          safeSetState(() {
+                                                            _model
+                                                                .textFieldSearchTextController
+                                                                ?.clear();
+                                                          });
+                                                          await _model
+                                                              .listViewController3
+                                                              ?.animateTo(
+                                                            0,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            curve: Curves.ease,
+                                                          );
+                                                        },
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 69.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: _model
+                                                                        .selectedTab ==
+                                                                    'Truck'
+                                                                ? (leadNotiNewPageLeadChannelColorRecord
+                                                                    ?.color
+                                                                    ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                        leadNotiNewPageLeadChannelColorRecord
+                                                                            ?.leadChannel
+                                                                            ?.toList(),
+                                                                        'Lead Truck')))
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 4.0,
+                                                                color: Color(
+                                                                    0x33000000),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          24.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                            ),
+                                                          ),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0),
+                                                                child: Text(
+                                                                  'Truck',
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: _model.selectedTab ==
+                                                                                'Truck'
+                                                                            ? Colors.white
+                                                                            : FlutterFlowTheme.of(context).primaryText,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  functions.showNumberWithComma(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    _model
+                                                                        .leadTruckDataJson
+                                                                        .length
+                                                                        .toString(),
+                                                                    '0',
+                                                                  )),
+                                                                  '0',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: _model.selectedTab ==
+                                                                              'Truck'
+                                                                          ? Colors
+                                                                              .white
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .primaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            3.0, 0.0, 8.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            HapticFeedback.mediumImpact();
+                                            FFAppState().leadChannelSelected =
+                                                'All';
+                                            FFAppState().update(() {});
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.45,
+                                            height: 140.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              child: Stack(
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Flexible(
+                                                        flex: 1,
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      4.0),
+                                                          child: Container(
+                                                            height: 69.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        24.0),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        24.0),
+                                                              ),
+                                                              border:
+                                                                  Border.all(
+                                                                color: _model
+                                                                            .selectedTab ==
+                                                                        'Owner'
+                                                                    ? Color(
+                                                                        0xFFFF6500)
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                width: _model
+                                                                            .selectedTab ==
+                                                                        'Owner'
+                                                                    ? 3.0
+                                                                    : 0.0,
+                                                              ),
+                                                            ),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                HapticFeedback
+                                                                    .mediumImpact();
+                                                                _model.currentShowingDataJson = _model
+                                                                    .leadOwnerDataJson
+                                                                    .toList()
+                                                                    .cast<
+                                                                        dynamic>();
+                                                                _model.selectedTab =
+                                                                    'Owner';
+                                                                safeSetState(
+                                                                    () {});
+                                                                await _model
+                                                                    .listViewController3
+                                                                    ?.animateTo(
+                                                                  0,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          100),
+                                                                  curve: Curves
+                                                                      .ease,
+                                                                );
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .stretch,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          12.0,
+                                                                          8.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          functions
+                                                                              .showNumberWithComma(valueOrDefault<String>(
+                                                                            _model.leadOwnerDataJson.length.toString(),
+                                                                            '0',
+                                                                          )),
+                                                                          '0',
+                                                                        ),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .override(
+                                                                              fontFamily: 'Outfit',
+                                                                              color: Color(0xFF101213),
+                                                                              fontSize: 20.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            12.0,
+                                                                            0.0,
+                                                                            12.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          'จำนวนลีดส่วนตัว',
+                                                                          textAlign:
+                                                                              TextAlign.center,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: 'Outfit',
+                                                                                color: Color(0xFF57636C),
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Flexible(
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            height: 69.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        24.0),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        24.0),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                              ),
+                                                              border:
+                                                                  Border.all(
+                                                                color: _model
+                                                                            .selectedTab ==
+                                                                        'All'
+                                                                    ? Color(
+                                                                        0xFFFF6500)
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                width:
+                                                                    _model.selectedTab ==
+                                                                            'All'
+                                                                        ? 3.0
+                                                                        : 0.0,
+                                                              ),
+                                                            ),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                HapticFeedback
+                                                                    .mediumImpact();
+                                                                _model.currentShowingDataJson = _model
+                                                                    .leadNotiModifyJson
+                                                                    .toList()
+                                                                    .cast<
+                                                                        dynamic>();
+                                                                _model.selectedTab =
+                                                                    'All';
+                                                                safeSetState(
+                                                                    () {});
+                                                                await _model
+                                                                    .listViewController3
+                                                                    ?.animateTo(
+                                                                  0,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          100),
+                                                                  curve: Curves
+                                                                      .ease,
+                                                                );
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .stretch,
+                                                                children: [
+                                                                  Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
-                                                                            8.0,
+                                                                            4.0,
                                                                             12.0,
-                                                                            0.0),
+                                                                            4.0),
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
                                                                         functions
                                                                             .showNumberWithComma(valueOrDefault<String>(
-                                                                          _model
-                                                                              .leadOwnerDataJson
-                                                                              .length
-                                                                              .toString(),
+                                                                          '${valueOrDefault<String>(
+                                                                            GetLeadDetailAPICall.leadDataJson(
+                                                                              (_model.getLeadDetail?.jsonBody ?? ''),
+                                                                            )?.length?.toString(),
+                                                                            '0',
+                                                                          )}',
                                                                           '0',
                                                                         )),
                                                                         '0',
@@ -1162,242 +2558,74 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                                Expanded(
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            12.0,
                                                                             0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          12.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        'จำนวนลีดส่วนตัว',
-                                                                        textAlign:
-                                                                            TextAlign.center,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall
-                                                                            .override(
-                                                                              fontFamily: 'Outfit',
-                                                                              color: Color(0xFF57636C),
-                                                                              fontSize: 14.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
+                                                                            12.0,
+                                                                            4.0),
+                                                                    child: Text(
+                                                                      'จำนวนลีดทั้งหมด',
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Outfit',
+                                                                            color:
+                                                                                Color(0xFF57636C),
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      24.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          24.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                            ),
-                                                            border: Border.all(
-                                                              color: _model
-                                                                          .selectedTab ==
-                                                                      'All'
-                                                                  ? Color(
-                                                                      0xFFFF6500)
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                              width:
-                                                                  _model.selectedTab ==
-                                                                          'All'
-                                                                      ? 3.0
-                                                                      : 0.0,
-                                                            ),
-                                                          ),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              HapticFeedback
-                                                                  .mediumImpact();
-                                                              _model.currentShowingDataJson = _model
-                                                                  .leadNotiModifyJson
-                                                                  .toList()
-                                                                  .cast<
-                                                                      dynamic>();
-                                                              _model.selectedTab =
-                                                                  'All';
-                                                              safeSetState(
-                                                                  () {});
-                                                              await _model
-                                                                  .listViewController
-                                                                  ?.animateTo(
-                                                                0,
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        100),
-                                                                curve:
-                                                                    Curves.ease,
-                                                              );
-                                                            },
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .stretch,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          4.0,
-                                                                          12.0,
-                                                                          4.0),
-                                                                  child: Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      functions.showNumberWithComma(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                        '${valueOrDefault<String>(
-                                                                          GetLeadDetailAPICall
-                                                                              .leadDataJson(
-                                                                            (_model.getLeadDetail?.jsonBody ??
-                                                                                ''),
-                                                                          )?.length?.toString(),
-                                                                          '0',
-                                                                        )}',
-                                                                        '0',
-                                                                      )),
-                                                                      '0',
-                                                                    ),
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Outfit',
-                                                                          color:
-                                                                              Color(0xFF101213),
-                                                                          fontSize:
-                                                                              20.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          12.0,
-                                                                          4.0),
-                                                                  child: Text(
-                                                                    'จำนวนลีดทั้งหมด',
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodySmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Outfit',
-                                                                          color:
-                                                                              Color(0xFF57636C),
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          4.0, 0.0, 4.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .stretch,
-                                                    children: [
-                                                      Divider(
-                                                        thickness: 1.0,
                                                       ),
                                                     ],
                                                   ),
-                                                ),
-                                              ],
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                4.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .stretch,
+                                                      children: [
+                                                        Divider(
+                                                          thickness: 1.0,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'containerOnPageLoadAnimation']!),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation']!),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
+                                  ],
+                                ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
@@ -1536,7 +2764,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .cast<dynamic>();
                                               _model.selectedTab = 'search';
                                               safeSetState(() {});
-                                              await _model.listViewController
+                                              await _model.listViewController3
                                                   ?.animateTo(
                                                 0,
                                                 duration:
@@ -1597,7 +2825,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .cast<dynamic>();
                                               _model.selectedTab = 'All';
                                               safeSetState(() {});
-                                              await _model.listViewController
+                                              await _model.listViewController3
                                                   ?.animateTo(
                                                 0,
                                                 duration:
@@ -3183,7 +4411,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           );
                                         },
-                                        controller: _model.listViewController,
+                                        controller: _model.listViewController3,
                                       );
                                     },
                                   ),

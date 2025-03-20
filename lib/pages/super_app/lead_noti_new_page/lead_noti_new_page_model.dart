@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/call_history/call_history_widget.dart';
+import '/components/filter_lead_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/saved_lead_called_status/saved_lead_called_status_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -133,17 +134,52 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
   void updateLeadNotiModifyJsonAtIndex(int index, Function(dynamic) updateFn) =>
       leadNotiModifyJson[index] = updateFn(leadNotiModifyJson[index]);
 
+  String filterAssetType = 'ทั้งหมด';
+
+  String filterSubChennel = 'ทั้งหมด';
+
+  List<String> assetTypeFilterList = [];
+  void addToAssetTypeFilterList(String item) => assetTypeFilterList.add(item);
+  void removeFromAssetTypeFilterList(String item) =>
+      assetTypeFilterList.remove(item);
+  void removeAtIndexFromAssetTypeFilterList(int index) =>
+      assetTypeFilterList.removeAt(index);
+  void insertAtIndexInAssetTypeFilterList(int index, String item) =>
+      assetTypeFilterList.insert(index, item);
+  void updateAssetTypeFilterListAtIndex(int index, Function(String) updateFn) =>
+      assetTypeFilterList[index] = updateFn(assetTypeFilterList[index]);
+
+  List<String> subChannelFilterList = [];
+  void addToSubChannelFilterList(String item) => subChannelFilterList.add(item);
+  void removeFromSubChannelFilterList(String item) =>
+      subChannelFilterList.remove(item);
+  void removeAtIndexFromSubChannelFilterList(int index) =>
+      subChannelFilterList.removeAt(index);
+  void insertAtIndexInSubChannelFilterList(int index, String item) =>
+      subChannelFilterList.insert(index, item);
+  void updateSubChannelFilterListAtIndex(
+          int index, Function(String) updateFn) =>
+      subChannelFilterList[index] = updateFn(subChannelFilterList[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiNewPage widget.
   ApiCallResponse? getLeadDetail;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController1;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController2;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  String? subChannelFilterOutput;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  String? assetTypeFilterOutput;
   // State field(s) for TextFieldSearch widget.
   FocusNode? textFieldSearchFocusNode;
   TextEditingController? textFieldSearchTextController;
   String? Function(BuildContext, String?)?
       textFieldSearchTextControllerValidator;
   // State field(s) for ListView widget.
-  ScrollController? listViewController;
+  ScrollController? listViewController3;
   // Stores action output result for [Backend Call - API (addPhoneCalledLeadAPI)] action in Image widget.
   ApiCallResponse? addCalledLead;
   // Stores action output result for [Backend Call - API (getLeadCalledStatusDropdownAPI)] action in Button widget.
@@ -155,14 +191,18 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
 
   @override
   void initState(BuildContext context) {
-    listViewController = ScrollController();
+    listViewController1 = ScrollController();
+    listViewController2 = ScrollController();
+    listViewController3 = ScrollController();
   }
 
   @override
   void dispose() {
+    listViewController1?.dispose();
+    listViewController2?.dispose();
     textFieldSearchFocusNode?.dispose();
     textFieldSearchTextController?.dispose();
 
-    listViewController?.dispose();
+    listViewController3?.dispose();
   }
 }

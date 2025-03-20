@@ -4794,7 +4794,9 @@ dynamic returnLeadListByChannel(
     'LeadTelesale': [],
     'LeadAgent': [],
     'LeadTruck': [],
-    'OwnerLead': []
+    'OwnerLead': [],
+    'AssetTypeFilter': [],
+    'SubChannelFilter': []
   };
   //Map<String, dynamic> mapInputData = leadJsonList![0];
   // print(mapInputData);
@@ -4809,6 +4811,14 @@ dynamic returnLeadListByChannel(
     output['${mapInputData['channel'].replaceAll(' ', '')}'].add(mapInputData);
     if ('${mapInputData['employee_id']}' == ownerEmployeeId!) {
       output['OwnerLead'].add(mapInputData);
+    }
+    if (!(output['SubChannelFilter']
+        .contains('${mapInputData['sub_channel']}'))) {
+      output['SubChannelFilter'].add('${mapInputData['sub_channel']}');
+    }
+    if (!(output['AssetTypeFilter']
+        .contains('${mapInputData['car_vehicle_name']}'))) {
+      output['AssetTypeFilter'].add('${mapInputData['car_vehicle_name']}');
     }
   }
 
