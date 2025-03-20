@@ -1177,79 +1177,93 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               var _shouldSetState = false;
-                                              await showDialog(
-                                                barrierColor: Color(0xC0000000),
-                                                context: context,
-                                                builder: (dialogContext) {
-                                                  return Dialog(
-                                                    elevation: 0,
-                                                    insetPadding:
-                                                        EdgeInsets.zero,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    child: WebViewAware(
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          FocusScope.of(
-                                                                  dialogContext)
-                                                              .unfocus();
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              ?.unfocus();
-                                                        },
-                                                        child: Container(
-                                                          height: 250.0,
-                                                          child:
-                                                              FilterLeadComponentWidget(
-                                                            filterNameList: _model
-                                                                .subChannelFilterList,
-                                                            filterValueList: _model
-                                                                .subChannelFilterList,
-                                                            filterTitle:
-                                                                'กรุณาเลือกLead Channel ที่จะแสดง',
+                                              if (_model
+                                                      .allLeadDataJson.length >
+                                                  0) {
+                                                await showDialog(
+                                                  barrierColor:
+                                                      Color(0xC0000000),
+                                                  context: context,
+                                                  builder: (dialogContext) {
+                                                    return Dialog(
+                                                      elevation: 0,
+                                                      insetPadding:
+                                                          EdgeInsets.zero,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      child: WebViewAware(
+                                                        child: GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    dialogContext)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child: Container(
+                                                            height: 250.0,
+                                                            child:
+                                                                FilterLeadComponentWidget(
+                                                              filterNameList: _model
+                                                                  .subChannelFilterList,
+                                                              filterValueList:
+                                                                  _model
+                                                                      .subChannelFilterList,
+                                                              filterTitle:
+                                                                  'กรุณาเลือกLead Channel ที่จะแสดง',
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) => safeSetState(() =>
-                                                  _model.subChannelFilterOutput =
-                                                      value));
+                                                    );
+                                                  },
+                                                ).then((value) => safeSetState(
+                                                    () => _model
+                                                            .subChannelFilterOutput =
+                                                        value));
 
-                                              _shouldSetState = true;
-                                              if (!(('${_model.subChannelFilterOutput}' !=
-                                                      'null') &&
-                                                  ('${_model.subChannelFilterOutput}' !=
-                                                      ''))) {
+                                                _shouldSetState = true;
+                                                if (!(('${_model.subChannelFilterOutput}' !=
+                                                        'null') &&
+                                                    ('${_model.subChannelFilterOutput}' !=
+                                                        ''))) {
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                _model.filterSubChennel = _model
+                                                    .subChannelFilterOutput!;
+                                                _model.filterAssetType =
+                                                    'ทั้งหมด';
+                                                _model.selectedTab =
+                                                    'SubChannelFilter';
+                                                safeSetState(() {});
+                                                _model.currentShowingDataJson =
+                                                    functions
+                                                        .returnLeadByField(
+                                                            _model
+                                                                .allLeadDataJson
+                                                                .toList(),
+                                                            'SubChannelFilter',
+                                                            _model
+                                                                .filterSubChennel)!
+                                                        .toList()
+                                                        .cast<dynamic>();
+                                                safeSetState(() {});
+                                              } else {
                                                 if (_shouldSetState)
                                                   safeSetState(() {});
                                                 return;
                                               }
-                                              _model.filterSubChennel = _model
-                                                  .subChannelFilterOutput!;
-                                              _model.filterAssetType =
-                                                  'ทั้งหมด';
-                                              _model.selectedTab =
-                                                  'SubChannelFilter';
-                                              safeSetState(() {});
-                                              _model.currentShowingDataJson =
-                                                  functions
-                                                      .returnLeadByField(
-                                                          _model.allLeadDataJson
-                                                              .toList(),
-                                                          'SubChannelFilter',
-                                                          _model
-                                                              .filterSubChennel)!
-                                                      .toList()
-                                                      .cast<dynamic>();
-                                              safeSetState(() {});
+
                                               if (_shouldSetState)
                                                 safeSetState(() {});
                                             },
@@ -1374,79 +1388,88 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               var _shouldSetState = false;
-                                              await showDialog(
-                                                barrierColor: Color(0xC0000000),
-                                                context: context,
-                                                builder: (dialogContext) {
-                                                  return Dialog(
-                                                    elevation: 0,
-                                                    insetPadding:
-                                                        EdgeInsets.zero,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    child: WebViewAware(
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          FocusScope.of(
-                                                                  dialogContext)
-                                                              .unfocus();
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              ?.unfocus();
-                                                        },
-                                                        child: Container(
-                                                          height: 250.0,
-                                                          child:
-                                                              FilterLeadComponentWidget(
-                                                            filterNameList: _model
-                                                                .assetTypeFilterList,
-                                                            filterValueList: _model
-                                                                .assetTypeFilterList,
-                                                            filterTitle:
-                                                                'กรุณาเลือกประเภทสินทรัพย์ที่จะแสดง',
+                                              if (_model
+                                                      .allLeadDataJson.length >
+                                                  0) {
+                                                await showDialog(
+                                                  barrierColor:
+                                                      Color(0xC0000000),
+                                                  context: context,
+                                                  builder: (dialogContext) {
+                                                    return Dialog(
+                                                      elevation: 0,
+                                                      insetPadding:
+                                                          EdgeInsets.zero,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      child: WebViewAware(
+                                                        child: GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    dialogContext)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child: Container(
+                                                            height: 250.0,
+                                                            child:
+                                                                FilterLeadComponentWidget(
+                                                              filterNameList: _model
+                                                                  .assetTypeFilterList,
+                                                              filterValueList:
+                                                                  _model
+                                                                      .assetTypeFilterList,
+                                                              filterTitle:
+                                                                  'กรุณาเลือกประเภทสินทรัพย์ที่จะแสดง',
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) => safeSetState(() =>
-                                                  _model.assetTypeFilterOutput =
-                                                      value));
+                                                    );
+                                                  },
+                                                ).then((value) => safeSetState(
+                                                    () => _model
+                                                            .assetTypeFilterOutput =
+                                                        value));
 
-                                              _shouldSetState = true;
-                                              if (!(('${_model.assetTypeFilterOutput}' !=
-                                                      'null') &&
-                                                  ('${_model.assetTypeFilterOutput}' !=
-                                                      ''))) {
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
+                                                _shouldSetState = true;
+                                                if (!(('${_model.assetTypeFilterOutput}' !=
+                                                        'null') &&
+                                                    ('${_model.assetTypeFilterOutput}' !=
+                                                        ''))) {
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                _model.filterSubChennel =
+                                                    'ทั้งหมด';
+                                                _model.filterAssetType = _model
+                                                    .assetTypeFilterOutput!;
+                                                _model.selectedTab =
+                                                    'AssetTypeFilter';
+                                                safeSetState(() {});
+                                                _model.currentShowingDataJson =
+                                                    functions
+                                                        .returnLeadByField(
+                                                            _model
+                                                                .allLeadDataJson
+                                                                .toList(),
+                                                            'AssetTypeFilter',
+                                                            _model
+                                                                .filterAssetType)!
+                                                        .toList()
+                                                        .cast<dynamic>();
+                                                safeSetState(() {});
                                               }
-                                              _model.filterSubChennel =
-                                                  'ทั้งหมด';
-                                              _model.filterAssetType =
-                                                  _model.assetTypeFilterOutput!;
-                                              _model.selectedTab =
-                                                  'AssetTypeFilter';
-                                              safeSetState(() {});
-                                              _model.currentShowingDataJson =
-                                                  functions
-                                                      .returnLeadByField(
-                                                          _model.allLeadDataJson
-                                                              .toList(),
-                                                          'AssetTypeFilter',
-                                                          _model
-                                                              .filterAssetType)!
-                                                      .toList()
-                                                      .cast<dynamic>();
-                                              safeSetState(() {});
                                               if (_shouldSetState)
                                                 safeSetState(() {});
                                             },
