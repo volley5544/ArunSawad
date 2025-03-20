@@ -4967,3 +4967,28 @@ String? getStringFromJsonString(
 
   return (data[fieldName!]);
 }
+
+dynamic returnLeadByField(
+  List<dynamic>? leadJsonInput,
+  String? fieldName,
+  String? fieldValue,
+) {
+  dynamic output = [];
+
+  if (fieldName! == 'SubChannelFilter') {
+    for (int i = 0; i < leadJsonInput!.length; i++) {
+      Map<String, dynamic> mapInputData = leadJsonInput![i];
+      if ('${mapInputData['sub_channel']}' == '${fieldValue!}') {
+        output.add(mapInputData);
+      }
+    }
+  } else if (fieldName! == 'AssetTypeFilter') {
+    for (int i = 0; i < leadJsonInput!.length; i++) {
+      Map<String, dynamic> mapInputData = leadJsonInput![i];
+      if ('${mapInputData['car_vehicle_name']}' == '${fieldValue!}') {
+        output.add(mapInputData);
+      }
+    }
+  }
+  return output;
+}

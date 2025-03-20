@@ -1221,6 +1221,17 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               _model.selectedTab =
                                                   'SubChannelFilter';
                                               safeSetState(() {});
+                                              _model.currentShowingDataJson =
+                                                  functions
+                                                      .returnLeadByField(
+                                                          _model.allLeadDataJson
+                                                              .toList(),
+                                                          'SubChannelFilter',
+                                                          _model
+                                                              .filterSubChennel)!
+                                                      .toList()
+                                                      .cast<dynamic>();
+                                              safeSetState(() {});
                                               if (_shouldSetState)
                                                 safeSetState(() {});
                                             },
@@ -1439,6 +1450,17 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                   _model.assetTypeFilterOutput!;
                                               _model.selectedTab =
                                                   'AssetTypeFilter';
+                                              safeSetState(() {});
+                                              _model.currentShowingDataJson =
+                                                  functions
+                                                      .returnLeadByField(
+                                                          _model.allLeadDataJson
+                                                              .toList(),
+                                                          'AssetTypeFilter',
+                                                          _model
+                                                              .filterAssetType)!
+                                                      .toList()
+                                                      .cast<dynamic>();
                                               safeSetState(() {});
                                               if (_shouldSetState)
                                                 safeSetState(() {});
