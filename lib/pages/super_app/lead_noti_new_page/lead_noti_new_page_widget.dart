@@ -192,6 +192,24 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
           _model.leadNotiModifyJson.toList().cast<dynamic>();
       _model.allLeadDataJson =
           _model.leadNotiModifyJson.toList().cast<dynamic>();
+      _model.subChannelFilterList = (getJsonField(
+        _model.leadDataByCategory,
+        r'''$.SubChannelFilter''',
+        true,
+      ) as List)
+          .map<String>((s) => s.toString())
+          .toList()!
+          .toList()
+          .cast<String>();
+      _model.assetTypeFilterList = (getJsonField(
+        _model.leadDataByCategory,
+        r'''$.AssetTypeFilter''',
+        true,
+      ) as List)
+          .map<String>((s) => s.toString())
+          .toList()!
+          .toList()
+          .cast<String>();
       safeSetState(() {});
       Navigator.pop(context);
     });
@@ -1477,96 +1495,66 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         : 0.0,
                                                   ),
                                                 ),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    HapticFeedback
-                                                        .mediumImpact();
-                                                    _model.currentShowingDataJson =
-                                                        _model
-                                                            .leadNotiModifyJson
-                                                            .toList()
-                                                            .cast<dynamic>();
-                                                    _model.selectedTab = 'All';
-                                                    safeSetState(() {});
-                                                    await _model
-                                                        .listViewController3
-                                                        ?.animateTo(
-                                                      0,
-                                                      duration: Duration(
-                                                          milliseconds: 100),
-                                                      curve: Curves.ease,
-                                                    );
-                                                  },
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0),
-                                                        child: Text(
-                                                          'ประเภทสินทรัพย์',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        _model.filterAssetType,
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0),
+                                                      child: Text(
+                                                        'ประเภทสินทรัพย์',
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .displaySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
-                                                    ].addToStart(
-                                                        SizedBox(height: 4.0)),
-                                                  ),
+                                                    ),
+                                                    Text(
+                                                      _model.filterAssetType,
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .displaySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            color: Color(
+                                                                0xFF101213),
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ].addToStart(
+                                                      SizedBox(height: 4.0)),
                                                 ),
                                               ),
                                             ),
