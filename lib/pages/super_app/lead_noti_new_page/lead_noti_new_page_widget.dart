@@ -441,7 +441,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           ),
                                           child: Container(
-                                            width: 90.0,
+                                            width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
@@ -482,7 +482,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -501,7 +501,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -551,7 +551,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           ),
                                           child: Container(
-                                            width: 90.0,
+                                            width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
@@ -592,7 +592,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -615,7 +615,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -665,7 +665,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           ),
                                           child: Container(
-                                            width: 90.0,
+                                            width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
@@ -706,7 +706,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -729,7 +729,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -779,7 +779,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           ),
                                           child: Container(
-                                            width: 90.0,
+                                            width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color: _model.selectedTab ==
@@ -827,7 +827,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               : FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -857,7 +857,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             : FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -900,7 +900,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           ),
                                           child: Container(
-                                            width: 90.0,
+                                            width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color:
@@ -988,7 +988,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           context)
                                                                       .primaryText,
                                                                   fontSize:
-                                                                      12.0,
+                                                                      11.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1019,7 +1019,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           fontFamily: 'Outfit',
                                                           color:
                                                               Color(0xFF101213),
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1044,7 +1044,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             ),
                                           ),
                                           child: Container(
-                                            width: 90.0,
+                                            width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
                                               color:
@@ -1123,7 +1123,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            fontSize: 12.0,
+                                                            fontSize: 11.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1157,7 +1157,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           fontFamily: 'Outfit',
                                                           color:
                                                               Color(0xFF101213),
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1282,7 +1282,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 ),
                                               ),
                                               child: Container(
-                                                width: 90.0,
+                                                width: 95.0,
                                                 height: 69.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
@@ -1345,7 +1345,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 12.0,
+                                                                fontSize: 11.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1367,7 +1367,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 'Outfit',
                                                             color: Color(
                                                                 0xFF101213),
-                                                            fontSize: 12.0,
+                                                            fontSize: 11.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1488,7 +1488,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 ),
                                               ),
                                               child: Container(
-                                                width: 90.0,
+                                                width: 95.0,
                                                 height: 69.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
@@ -1549,7 +1549,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           context)
                                                                       .primaryText,
                                                                   fontSize:
-                                                                      12.0,
+                                                                      11.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1570,7 +1570,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 'Outfit',
                                                             color: Color(
                                                                 0xFF101213),
-                                                            fontSize: 12.0,
+                                                            fontSize: 11.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
