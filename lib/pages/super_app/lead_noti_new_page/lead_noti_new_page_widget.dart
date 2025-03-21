@@ -1415,7 +1415,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                 ?.unfocus();
                                                           },
                                                           child: Container(
-                                                            height: 250.0,
+                                                            height: 350.0,
                                                             child:
                                                                 FilterLeadComponentNewWidget(
                                                               filterNameList1:
