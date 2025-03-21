@@ -3219,7 +3219,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       return;
                                                                                     }
 
-                                                                                    context.goNamed(SearchEmployeePage2Widget.routeName);
+                                                                                    context.goNamed(
+                                                                                      SearchCollectionPageWidget.routeName,
+                                                                                      queryParameters: {
+                                                                                        'followUpDebtTab': serializeParam(
+                                                                                          0,
+                                                                                          ParamType.int,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                    );
                                                                                   },
                                                                                   child: Container(
                                                                                     width: 100.0,
