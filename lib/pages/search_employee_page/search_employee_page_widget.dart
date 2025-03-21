@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -1253,6 +1254,51 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
+                                    FFAppState()
+                                        .updateEmpProfileLocationSelectedStruct(
+                                      (e) => e
+                                        ..nameTh =
+                                            '${GetAllEmployeeAPICall.fullname(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList(), _model.dropDownValue))}'
+                                        ..employeeId = '${_model.dropDownValue}'
+                                        ..branchCode =
+                                            '${GetAllEmployeeAPICall.branchCode(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList(), _model.dropDownValue))}'
+                                        ..position =
+                                            '${GetAllEmployeeAPICall.workPosition(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toList(), _model.dropDownValue))}'
+                                        ..level = '${GetAllEmployeeAPICall.fullname(
+                                          (_model.getEmployeeSearched
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )?.elementAtOrNull(functions.getIndexOfSomethingList(GetAllEmployeeAPICall.employeeId(
+                                              (_model.getEmployeeSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toList(), _model.dropDownValue))}',
+                                    );
+                                    safeSetState(() {});
 
                                     context.pushNamed(
                                       TrackingEmpPageWidget.routeName,
@@ -1311,6 +1357,17 @@ class _SearchEmployeePageWidgetState extends State<SearchEmployeePageWidget>
                                           ),
                                           ParamType.DataStruct,
                                           isList: true,
+                                        ),
+                                        'index': serializeParam(
+                                          APIUserLocationTrackerCall
+                                                      .dataLayerDate(
+                                                (_model.getUserLocations
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                  .length -
+                                              1,
+                                          ParamType.int,
                                         ),
                                       }.withoutNulls,
                                     );

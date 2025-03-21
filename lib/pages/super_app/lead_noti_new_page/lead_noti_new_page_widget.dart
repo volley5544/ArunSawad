@@ -1243,8 +1243,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                     .subChannelFilterOutput!;
                                                 _model.filterAssetType =
                                                     'ทั้งหมด';
-                                                _model.selectedTab =
-                                                    'SubChannelFilter';
                                                 safeSetState(() {});
                                                 _model.currentShowingDataJson =
                                                     functions
