@@ -1438,8 +1438,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   'ประเภททรัพย์',
                                                               currentFilter1: _model
                                                                   .filterSubChennel,
-                                                              currentFilter2:
-                                                                  '',
+                                                              currentFilter2: _model
+                                                                  .filterAssetType,
                                                             ),
                                                           ),
                                                         ),
