@@ -759,9 +759,9 @@ class _CarSeizedSelectDashboardWidgetState
                           ? functions.containsValueInJsonList(
                               functions.getDataFromMapJson(
                                   _model.priceAccessRoleData, 'profile_level'),
-                              FFAppState().profileLevel)!
-                          : (_model.userRolePrice != 'no_role')) &&
-                      false)
+                              FFAppState().profileLevel)
+                          : (_model.userRolePrice != 'no_role')) ??
+                      true)
                     InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
