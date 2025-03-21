@@ -3218,8 +3218,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
                                                                                       return;
                                                                                     }
-
-                                                                                    context.goNamed(SearchEmployeePageWidget.routeName);
+                                                                                    if (FFAppState().profileLevel == 'HO') {
+                                                                                      context.goNamed(SearchEmployeePageWidget.routeName);
+                                                                                    } else {
+                                                                                      context.goNamed(SearchEmployeePage2Widget.routeName);
+                                                                                    }
                                                                                   },
                                                                                   child: Container(
                                                                                     width: 100.0,
