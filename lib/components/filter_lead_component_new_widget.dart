@@ -12,14 +12,22 @@ export 'filter_lead_component_new_model.dart';
 class FilterLeadComponentNewWidget extends StatefulWidget {
   const FilterLeadComponentNewWidget({
     super.key,
-    required this.filterNameList,
-    required this.filterValueList,
+    required this.filterNameList1,
+    required this.filterValueList1,
     required this.filterTitle,
+    required this.filterNameList2,
+    required this.filterValueList2,
+    required this.filter1Name,
+    required this.filter2Name,
   });
 
-  final List<String>? filterNameList;
-  final List<String>? filterValueList;
+  final List<String>? filterNameList1;
+  final List<String>? filterValueList1;
   final String? filterTitle;
+  final List<String>? filterNameList2;
+  final List<String>? filterValueList2;
+  final String? filter1Name;
+  final String? filter2Name;
 
   @override
   State<FilterLeadComponentNewWidget> createState() =>
@@ -61,8 +69,8 @@ class _FilterLeadComponentNewWidgetState
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
+            bottomLeft: Radius.circular(16.0),
+            bottomRight: Radius.circular(16.0),
             topLeft: Radius.circular(16.0),
             topRight: Radius.circular(16.0),
           ),
@@ -85,7 +93,7 @@ class _FilterLeadComponentNewWidgetState
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
-                            fontSize: 16.0,
+                            fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -100,6 +108,107 @@ class _FilterLeadComponentNewWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Container(
                 width: double.infinity,
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        valueOrDefault<String>(
+                          widget!.filter1Name,
+                          'filter1',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 60.0,
+              decoration: BoxDecoration(),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: FlutterFlowDropDown<String>(
+                        controller: _model.filterDropdown1ValueController ??=
+                            FormFieldController<String>(
+                          _model.filterDropdown1Value ??= 'ทั้งหมด',
+                        ),
+                        options: List<String>.from(widget!.filterValueList1!),
+                        optionLabels: widget!.filterNameList1!,
+                        onChanged: (val) async {
+                          safeSetState(() => _model.filterDropdown1Value = val);
+                          Navigator.pop(context, _model.filterDropdown1Value);
+                        },
+                        width: 200.0,
+                        height: 60.0,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
+                        hintText: '${widget!.filter1Name}...',
+                        icon: Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                        fillColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        elevation: 2.0,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0.0,
+                        borderRadius: 8.0,
+                        margin: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 0.0),
+                        isOverButton: false,
+                        isSearchable: false,
+                        isMultiSelect: false,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        valueOrDefault<String>(
+                          widget!.filter2Name,
+                          'filter2',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              child: Container(
+                width: double.infinity,
                 height: 60.0,
                 decoration: BoxDecoration(),
                 child: Padding(
@@ -109,14 +218,16 @@ class _FilterLeadComponentNewWidgetState
                     children: [
                       Expanded(
                         child: FlutterFlowDropDown<String>(
-                          controller: _model.filterDropdown1ValueController ??=
-                              FormFieldController<String>(null),
-                          options: List<String>.from(widget!.filterValueList!),
-                          optionLabels: widget!.filterNameList!,
+                          controller: _model.filterDropdown2ValueController ??=
+                              FormFieldController<String>(
+                            _model.filterDropdown2Value ??= 'ทั้งหมด',
+                          ),
+                          options: List<String>.from(widget!.filterValueList2!),
+                          optionLabels: widget!.filterNameList2!,
                           onChanged: (val) async {
                             safeSetState(
-                                () => _model.filterDropdown1Value = val);
-                            Navigator.pop(context, _model.filterDropdown1Value);
+                                () => _model.filterDropdown2Value = val);
+                            Navigator.pop(context, _model.filterDropdown2Value);
                           },
                           width: 200.0,
                           height: 60.0,
@@ -125,7 +236,7 @@ class _FilterLeadComponentNewWidgetState
                                     fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
-                          hintText: 'ฟิลเตอร์...',
+                          hintText: '${widget!.filter2Name}...',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).secondaryText,

@@ -288,8 +288,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<List<KeyStorageRecord>>(
-      future: queryKeyStorageRecordOnce(
+    return FutureBuilder<List<KeyStorage2Record>>(
+      future: queryKeyStorage2RecordOnce(
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -310,14 +310,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             ),
           );
         }
-        List<KeyStorageRecord> loginPageKeyStorageRecordList = snapshot.data!;
+        List<KeyStorage2Record> loginPageKeyStorage2RecordList = snapshot.data!;
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
         }
-        final loginPageKeyStorageRecord =
-            loginPageKeyStorageRecordList.isNotEmpty
-                ? loginPageKeyStorageRecordList.first
+        final loginPageKeyStorage2Record =
+            loginPageKeyStorage2RecordList.isNotEmpty
+                ? loginPageKeyStorage2RecordList.first
                 : null;
 
         return GestureDetector(
@@ -1199,8 +1199,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       }
                                                                       FFAppState()
                                                                               .apiURLLocalState =
-                                                                          loginPageKeyStorageRecord!
-                                                                              .apiURL;
+                                                                          loginPageKeyStorage2Record!
+                                                                              .uatApiUrl;
                                                                       FFAppState()
                                                                           .update(
                                                                               () {});

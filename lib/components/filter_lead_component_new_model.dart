@@ -16,6 +16,9 @@ class FilterLeadComponentNewModel
   // State field(s) for FilterDropdown1 widget.
   String? filterDropdown1Value;
   FormFieldController<String>? filterDropdown1ValueController;
+  // State field(s) for FilterDropdown2 widget.
+  String? filterDropdown2Value;
+  FormFieldController<String>? filterDropdown2ValueController;
 
   @override
   void initState(BuildContext context) {}
