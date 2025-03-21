@@ -3,7 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/call_history/call_history_widget.dart';
-import '/components/filter_lead_component_widget.dart';
+import '/components/filter_lead_component_new_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/saved_lead_called_status/saved_lead_called_status_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -417,6 +417,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           _model.filterAssetType = 'ทั้งหมด';
                                           _model.filterSubChennel = 'ทั้งหมด';
                                           safeSetState(() {});
+                                          _model.filterList =
+                                              functions.returnLeadFilterList(
+                                                  _model.leadSurveyDataJson
+                                                      .toList());
+                                          safeSetState(() {});
+                                          _model.subChannelFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.SubChannelFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          _model.assetTypeFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.AssetTypeFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          safeSetState(() {});
                                           safeSetState(() {
                                             _model.textFieldSearchTextController
                                                 ?.clear();
@@ -526,6 +554,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           safeSetState(() {});
                                           _model.filterAssetType = 'ทั้งหมด';
                                           _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          _model.filterList =
+                                              functions.returnLeadFilterList(
+                                                  _model.leadTeleDataJson
+                                                      .toList());
+                                          safeSetState(() {});
+                                          _model.subChannelFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.SubChannelFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          _model.assetTypeFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.AssetTypeFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
                                           safeSetState(() {});
                                           safeSetState(() {
                                             _model.textFieldSearchTextController
@@ -641,6 +697,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           _model.filterAssetType = 'ทั้งหมด';
                                           _model.filterSubChennel = 'ทั้งหมด';
                                           safeSetState(() {});
+                                          _model.filterList =
+                                              functions.returnLeadFilterList(
+                                                  _model.leadAgentDataJson
+                                                      .toList());
+                                          safeSetState(() {});
+                                          _model.subChannelFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.SubChannelFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          _model.assetTypeFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.AssetTypeFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          safeSetState(() {});
                                           safeSetState(() {
                                             _model.textFieldSearchTextController
                                                 ?.clear();
@@ -754,6 +838,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                           safeSetState(() {});
                                           _model.filterAssetType = 'ทั้งหมด';
                                           _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          _model.filterList =
+                                              functions.returnLeadFilterList(
+                                                  _model.leadTruckDataJson
+                                                      .toList());
+                                          safeSetState(() {});
+                                          _model.subChannelFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.SubChannelFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          _model.assetTypeFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.AssetTypeFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
                                           safeSetState(() {});
                                           safeSetState(() {
                                             _model.textFieldSearchTextController
@@ -946,6 +1058,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 _model.filterSubChennel =
                                                     'ทั้งหมด';
                                                 safeSetState(() {});
+                                                _model.filterList = functions
+                                                    .returnLeadFilterList(_model
+                                                        .leadOwnerDataJson
+                                                        .toList());
+                                                safeSetState(() {});
+                                                _model.subChannelFilterList =
+                                                    (getJsonField(
+                                                  _model.filterList,
+                                                  r'''$.SubChannelFilter''',
+                                                  true,
+                                                ) as List)
+                                                        .map<String>(
+                                                            (s) => s.toString())
+                                                        .toList()!
+                                                        .toList()
+                                                        .cast<String>();
+                                                _model.assetTypeFilterList =
+                                                    (getJsonField(
+                                                  _model.filterList,
+                                                  r'''$.AssetTypeFilter''',
+                                                  true,
+                                                ) as List)
+                                                        .map<String>(
+                                                            (s) => s.toString())
+                                                        .toList()!
+                                                        .toList()
+                                                        .cast<String>();
+                                                safeSetState(() {});
                                                 await _model.listViewController3
                                                     ?.animateTo(
                                                   0,
@@ -1090,6 +1230,34 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 _model.filterSubChennel =
                                                     'ทั้งหมด';
                                                 safeSetState(() {});
+                                                _model.filterList = functions
+                                                    .returnLeadFilterList(_model
+                                                        .leadNotiModifyJson
+                                                        .toList());
+                                                safeSetState(() {});
+                                                _model.subChannelFilterList =
+                                                    (getJsonField(
+                                                  _model.filterList,
+                                                  r'''$.SubChannelFilter''',
+                                                  true,
+                                                ) as List)
+                                                        .map<String>(
+                                                            (s) => s.toString())
+                                                        .toList()!
+                                                        .toList()
+                                                        .cast<String>();
+                                                _model.assetTypeFilterList =
+                                                    (getJsonField(
+                                                  _model.filterList,
+                                                  r'''$.AssetTypeFilter''',
+                                                  true,
+                                                ) as List)
+                                                        .map<String>(
+                                                            (s) => s.toString())
+                                                        .toList()!
+                                                        .toList()
+                                                        .cast<String>();
+                                                safeSetState(() {});
                                                 await _model.listViewController3
                                                     ?.animateTo(
                                                   0,
@@ -1177,9 +1345,47 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               var _shouldSetState = false;
-                                              if (_model
-                                                      .allLeadDataJson.length >
-                                                  0) {
+                                              if (() {
+                                                if (_model.selectedTab ==
+                                                    'Survey') {
+                                                  return (_model
+                                                          .leadSurveyDataJson
+                                                          .length >
+                                                      0);
+                                                } else if (_model.selectedTab ==
+                                                    'Telesale') {
+                                                  return (_model
+                                                          .leadTeleDataJson
+                                                          .length >
+                                                      0);
+                                                } else if (_model.selectedTab ==
+                                                    'Agent') {
+                                                  return (_model
+                                                          .leadAgentDataJson
+                                                          .length >
+                                                      0);
+                                                } else if (_model.selectedTab ==
+                                                    'Truck') {
+                                                  return (_model
+                                                          .leadTruckDataJson
+                                                          .length >
+                                                      0);
+                                                } else if (_model.selectedTab ==
+                                                    'All') {
+                                                  return (_model
+                                                          .leadNotiModifyJson
+                                                          .length >
+                                                      0);
+                                                } else if (_model.selectedTab ==
+                                                    'search') {
+                                                  return false;
+                                                } else {
+                                                  return (_model
+                                                          .leadOwnerDataJson
+                                                          .length >
+                                                      0);
+                                                }
+                                              }()) {
                                                 await showDialog(
                                                   barrierColor:
                                                       Color(0xC0000000),
@@ -1211,14 +1417,29 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                           child: Container(
                                                             height: 250.0,
                                                             child:
-                                                                FilterLeadComponentWidget(
-                                                              filterNameList: _model
-                                                                  .subChannelFilterList,
-                                                              filterValueList:
+                                                                FilterLeadComponentNewWidget(
+                                                              filterNameList1:
+                                                                  _model
+                                                                      .subChannelFilterList,
+                                                              filterValueList1:
                                                                   _model
                                                                       .subChannelFilterList,
                                                               filterTitle:
-                                                                  'กรุณาเลือกLead Channel ที่จะแสดง',
+                                                                  'เลือกฟิลเตอร์',
+                                                              filterNameList2:
+                                                                  _model
+                                                                      .assetTypeFilterList,
+                                                              filterValueList2:
+                                                                  _model
+                                                                      .assetTypeFilterList,
+                                                              filter1Name:
+                                                                  'Sub Channel',
+                                                              filter2Name:
+                                                                  'ประเภททรัพย์',
+                                                              currentFilter1: _model
+                                                                  .filterSubChennel,
+                                                              currentFilter2:
+                                                                  '',
                                                             ),
                                                           ),
                                                         ),
@@ -1226,33 +1447,68 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                     );
                                                   },
                                                 ).then((value) => safeSetState(
-                                                    () => _model
-                                                            .subChannelFilterOutput =
+                                                    () => _model.filterOutput =
                                                         value));
 
                                                 _shouldSetState = true;
-                                                if (!(('${_model.subChannelFilterOutput}' !=
+                                                if (!(('${_model.filterOutput?.toString()}' !=
                                                         'null') &&
-                                                    ('${_model.subChannelFilterOutput}' !=
+                                                    ('${_model.filterOutput?.toString()}' !=
                                                         ''))) {
                                                   if (_shouldSetState)
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                _model.filterSubChennel = _model
-                                                    .subChannelFilterOutput!;
+                                                _model.filterSubChennel =
+                                                    getJsonField(
+                                                  _model.filterOutput,
+                                                  r'''$.filter1Value''',
+                                                ).toString();
                                                 _model.filterAssetType =
-                                                    'ทั้งหมด';
+                                                    getJsonField(
+                                                  _model.filterOutput,
+                                                  r'''$.filter2Value''',
+                                                ).toString();
                                                 safeSetState(() {});
                                                 _model.currentShowingDataJson =
                                                     functions
                                                         .returnLeadByField(
-                                                            _model
-                                                                .allLeadDataJson
+                                                            () {
+                                                              if (_model
+                                                                      .selectedTab ==
+                                                                  'Survey') {
+                                                                return _model
+                                                                    .leadSurveyDataJson;
+                                                              } else if (_model
+                                                                      .selectedTab ==
+                                                                  'Telesale') {
+                                                                return _model
+                                                                    .leadTeleDataJson;
+                                                              } else if (_model
+                                                                      .selectedTab ==
+                                                                  'Agent') {
+                                                                return _model
+                                                                    .leadAgentDataJson;
+                                                              } else if (_model
+                                                                      .selectedTab ==
+                                                                  'Truck') {
+                                                                return _model
+                                                                    .leadTruckDataJson;
+                                                              } else if (_model
+                                                                      .selectedTab ==
+                                                                  'All') {
+                                                                return _model
+                                                                    .allLeadDataJson;
+                                                              } else {
+                                                                return _model
+                                                                    .leadOwnerDataJson;
+                                                              }
+                                                            }()
                                                                 .toList(),
-                                                            'SubChannelFilter',
                                                             _model
-                                                                .filterSubChennel)!
+                                                                .filterSubChennel,
+                                                            _model
+                                                                .filterAssetType)!
                                                         .toList()
                                                         .cast<dynamic>();
                                                 safeSetState(() {});
@@ -1265,84 +1521,122 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               if (_shouldSetState)
                                                 safeSetState(() {});
                                             },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 2.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(24.0),
-                                                  bottomRight:
-                                                      Radius.circular(0.0),
-                                                  topLeft: Radius.circular(0.0),
-                                                  topRight:
-                                                      Radius.circular(0.0),
-                                                ),
-                                              ),
-                                              child: Container(
-                                                width: 95.0,
-                                                height: 69.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(24.0),
-                                                    bottomRight:
-                                                        Radius.circular(0.0),
-                                                    topLeft:
-                                                        Radius.circular(0.0),
-                                                    topRight:
-                                                        Radius.circular(0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Material(
+                                                  color: Colors.transparent,
+                                                  elevation: 2.0,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(24.0),
+                                                      bottomRight:
+                                                          Radius.circular(0.0),
+                                                      topLeft:
+                                                          Radius.circular(0.0),
+                                                      topRight:
+                                                          Radius.circular(0.0),
+                                                    ),
                                                   ),
-                                                  border: Border.all(
-                                                    color: _model.selectedTab ==
-                                                            'SubChannelFilter'
-                                                        ? Color(0xFFFF6500)
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                    width: _model.selectedTab ==
-                                                            'SubChannelFilter'
-                                                        ? 1.5
-                                                        : 0.0,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0),
-                                                        child: Text(
-                                                          'Sub-Channel',
+                                                  child: Container(
+                                                    width: 95.0,
+                                                    height: 69.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                24.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                      ),
+                                                      border: Border.all(
+                                                        color: _model
+                                                                    .selectedTab ==
+                                                                'SubChannelFilter'
+                                                            ? Color(0xFFFF6500)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        width: _model
+                                                                    .selectedTab ==
+                                                                'SubChannelFilter'
+                                                            ? 1.5
+                                                            : 0.0,
+                                                      ),
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        10.0),
+                                                            child: Text(
+                                                              'Sub-Channel',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          _model
+                                                              .filterSubChennel,
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodySmall
+                                                              .displaySmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
+                                                                color: Color(
+                                                                    0xFF101213),
                                                                 fontSize: 11.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -1351,194 +1645,88 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         .w600,
                                                               ),
                                                         ),
-                                                      ),
+                                                      ].addToStart(SizedBox(
+                                                          height: 4.0)),
                                                     ),
-                                                    Text(
-                                                      _model.filterSubChennel,
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
+                                                  ),
+                                                ),
+                                                Material(
+                                                  color: Colors.transparent,
+                                                  elevation: 2.0,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(0.0),
+                                                      bottomRight:
+                                                          Radius.circular(24.0),
+                                                      topLeft:
+                                                          Radius.circular(0.0),
+                                                      topRight:
+                                                          Radius.circular(0.0),
+                                                    ),
+                                                  ),
+                                                  child: Container(
+                                                    width: 95.0,
+                                                    height: 69.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
                                                               .of(context)
-                                                          .displaySmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Outfit',
-                                                            color: Color(
-                                                                0xFF101213),
-                                                            fontSize: 11.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                  ].addToStart(
-                                                      SizedBox(height: 4.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Builder(
-                                          builder: (context) => InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              var _shouldSetState = false;
-                                              if (_model
-                                                      .allLeadDataJson.length >
-                                                  0) {
-                                                await showDialog(
-                                                  barrierColor:
-                                                      Color(0xC0000000),
-                                                  context: context,
-                                                  builder: (dialogContext) {
-                                                    return Dialog(
-                                                      elevation: 0,
-                                                      insetPadding:
-                                                          EdgeInsets.zero,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      child: WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    dialogContext)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child: Container(
-                                                            height: 250.0,
-                                                            child:
-                                                                FilterLeadComponentWidget(
-                                                              filterNameList: _model
-                                                                  .assetTypeFilterList,
-                                                              filterValueList:
-                                                                  _model
-                                                                      .assetTypeFilterList,
-                                                              filterTitle:
-                                                                  'กรุณาเลือกประเภทสินทรัพย์ที่จะแสดง',
-                                                            ),
-                                                          ),
-                                                        ),
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                24.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                0.0),
                                                       ),
-                                                    );
-                                                  },
-                                                ).then((value) => safeSetState(
-                                                    () => _model
-                                                            .assetTypeFilterOutput =
-                                                        value));
-
-                                                _shouldSetState = true;
-                                                if (!(('${_model.assetTypeFilterOutput}' !=
-                                                        'null') &&
-                                                    ('${_model.assetTypeFilterOutput}' !=
-                                                        ''))) {
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
-                                                }
-                                                _model.filterSubChennel =
-                                                    'ทั้งหมด';
-                                                _model.filterAssetType = _model
-                                                    .assetTypeFilterOutput!;
-                                                _model.selectedTab =
-                                                    'AssetTypeFilter';
-                                                safeSetState(() {});
-                                                _model.currentShowingDataJson =
-                                                    functions
-                                                        .returnLeadByField(
-                                                            _model
-                                                                .allLeadDataJson
-                                                                .toList(),
-                                                            'AssetTypeFilter',
-                                                            _model
-                                                                .filterAssetType)!
-                                                        .toList()
-                                                        .cast<dynamic>();
-                                                safeSetState(() {});
-                                              }
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                            },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 2.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(0.0),
-                                                  bottomRight:
-                                                      Radius.circular(24.0),
-                                                  topLeft: Radius.circular(0.0),
-                                                  topRight:
-                                                      Radius.circular(0.0),
-                                                ),
-                                              ),
-                                              child: Container(
-                                                width: 95.0,
-                                                height: 69.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(0.0),
-                                                    bottomRight:
-                                                        Radius.circular(24.0),
-                                                    topLeft:
-                                                        Radius.circular(0.0),
-                                                    topRight:
-                                                        Radius.circular(0.0),
-                                                  ),
-                                                  border: Border.all(
-                                                    color: _model.selectedTab ==
-                                                            'AssetTypeFilter'
-                                                        ? Color(0xFFFF6500)
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                    width: _model.selectedTab ==
-                                                            'AssetTypeFilter'
-                                                        ? 1.5
-                                                        : 0.0,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  10.0),
-                                                      child: Text(
-                                                        'ประเภทสินทรัพย์',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                      border: Border.all(
+                                                        color: _model
+                                                                    .selectedTab ==
+                                                                'AssetTypeFilter'
+                                                            ? Color(0xFFFF6500)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        width: _model
+                                                                    .selectedTab ==
+                                                                'AssetTypeFilter'
+                                                            ? 1.5
+                                                            : 0.0,
+                                                      ),
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      10.0),
+                                                          child: Text(
+                                                            'ประเภทสินทรัพย์',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodySmall
                                                                 .override(
                                                                   fontFamily:
@@ -1554,30 +1742,35 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      _model.filterAssetType,
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .displaySmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Outfit',
-                                                            color: Color(
-                                                                0xFF101213),
-                                                            fontSize: 11.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
                                                           ),
+                                                        ),
+                                                        Text(
+                                                          _model
+                                                              .filterAssetType,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .displaySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                color: Color(
+                                                                    0xFF101213),
+                                                                fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ].addToStart(SizedBox(
+                                                          height: 4.0)),
                                                     ),
-                                                  ].addToStart(
-                                                      SizedBox(height: 4.0)),
+                                                  ),
                                                 ),
-                                              ),
+                                              ].divide(SizedBox(width: 2.0)),
                                             ),
                                           ),
                                         ),
@@ -2761,6 +2954,10 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .toList()
                                                       .cast<dynamic>();
                                               _model.selectedTab = 'search';
+                                              _model.filterSubChennel =
+                                                  'ทั้งหมด';
+                                              _model.filterAssetType =
+                                                  'ทั้งหมด';
                                               safeSetState(() {});
                                               await _model.listViewController3
                                                   ?.animateTo(

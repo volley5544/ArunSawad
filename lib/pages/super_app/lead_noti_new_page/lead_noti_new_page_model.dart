@@ -3,7 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/call_history/call_history_widget.dart';
-import '/components/filter_lead_component_widget.dart';
+import '/components/filter_lead_component_new_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/saved_lead_called_status/saved_lead_called_status_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -161,6 +161,8 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
           int index, Function(String) updateFn) =>
       subChannelFilterList[index] = updateFn(subChannelFilterList[index]);
 
+  dynamic filterList;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiNewPage widget.
@@ -169,10 +171,8 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
   ScrollController? listViewController1;
   // State field(s) for ListView widget.
   ScrollController? listViewController2;
-  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
-  String? subChannelFilterOutput;
-  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
-  String? assetTypeFilterOutput;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Row widget.
+  dynamic? filterOutput;
   // State field(s) for TextFieldSearch widget.
   FocusNode? textFieldSearchFocusNode;
   TextEditingController? textFieldSearchTextController;

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
@@ -19,6 +20,8 @@ class FilterLeadComponentNewWidget extends StatefulWidget {
     required this.filterValueList2,
     required this.filter1Name,
     required this.filter2Name,
+    required this.currentFilter1,
+    required this.currentFilter2,
   });
 
   final List<String>? filterNameList1;
@@ -28,6 +31,8 @@ class FilterLeadComponentNewWidget extends StatefulWidget {
   final List<String>? filterValueList2;
   final String? filter1Name;
   final String? filter2Name;
+  final String? currentFilter1;
+  final String? currentFilter2;
 
   @override
   State<FilterLeadComponentNewWidget> createState() =>
@@ -142,14 +147,13 @@ class _FilterLeadComponentNewWidgetState
                       child: FlutterFlowDropDown<String>(
                         controller: _model.filterDropdown1ValueController ??=
                             FormFieldController<String>(
-                          _model.filterDropdown1Value ??= 'ทั้งหมด',
+                          _model.filterDropdown1Value ??=
+                              widget!.currentFilter1,
                         ),
                         options: List<String>.from(widget!.filterValueList1!),
                         optionLabels: widget!.filterNameList1!,
-                        onChanged: (val) async {
-                          safeSetState(() => _model.filterDropdown1Value = val);
-                          Navigator.pop(context, _model.filterDropdown1Value);
-                        },
+                        onChanged: (val) => safeSetState(
+                            () => _model.filterDropdown1Value = val),
                         width: 200.0,
                         height: 60.0,
                         textStyle:
@@ -220,15 +224,13 @@ class _FilterLeadComponentNewWidgetState
                         child: FlutterFlowDropDown<String>(
                           controller: _model.filterDropdown2ValueController ??=
                               FormFieldController<String>(
-                            _model.filterDropdown2Value ??= 'ทั้งหมด',
+                            _model.filterDropdown2Value ??=
+                                widget!.currentFilter2,
                           ),
                           options: List<String>.from(widget!.filterValueList2!),
                           optionLabels: widget!.filterNameList2!,
-                          onChanged: (val) async {
-                            safeSetState(
-                                () => _model.filterDropdown2Value = val);
-                            Navigator.pop(context, _model.filterDropdown2Value);
-                          },
+                          onChanged: (val) => safeSetState(
+                              () => _model.filterDropdown2Value = val),
                           width: 200.0,
                           height: 60.0,
                           textStyle:
@@ -258,6 +260,41 @@ class _FilterLeadComponentNewWidgetState
                     ],
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FFButtonWidget(
+                    onPressed: () async {
+                      Navigator.pop(context, <String, String?>{
+                        'filter1Value': _model.filterDropdown1Value,
+                        'filter2Value': _model.filterDropdown2Value,
+                      });
+                    },
+                    text: 'ฟิลเตอร์',
+                    options: FFButtonOptions(
+                      width: 200.0,
+                      height: 50.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFFF46503),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
