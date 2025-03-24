@@ -10004,6 +10004,18 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundCarRegionCodeList(int index, String value) {
     impoundCarRegionCodeList.insert(index, value);
   }
+
+  String _collectionBranchCode = '';
+  String get collectionBranchCode => _collectionBranchCode;
+  set collectionBranchCode(String value) {
+    _collectionBranchCode = value;
+  }
+
+  String _collectionProfileLevel = '';
+  String get collectionProfileLevel => _collectionProfileLevel;
+  set collectionProfileLevel(String value) {
+    _collectionProfileLevel = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

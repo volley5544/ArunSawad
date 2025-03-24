@@ -1774,7 +1774,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: TabCollectionWidget.routeName,
               path: TabCollectionWidget.routePath,
-              builder: (context, params) => TabCollectionWidget(),
+              builder: (context, params) => TabCollectionWidget(
+                branchCode: params.getParam(
+                  'branchCode',
+                  ParamType.String,
+                ),
+                profileLevel: params.getParam(
+                  'profileLevel',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: SearchCollectionPageWidget.routeName,

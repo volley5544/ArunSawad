@@ -581,7 +581,12 @@ final parametersBuilderMap =
         },
       ),
   'successPageCollecction': ParameterData.none(),
-  'tabCollection': ParameterData.none(),
+  'tabCollection': (data) async => ParameterData(
+        allParams: {
+          'branchCode': getParameter<String>(data, 'branchCode'),
+          'profileLevel': getParameter<String>(data, 'profileLevel'),
+        },
+      ),
   'SearchCollectionPage': (data) async => ParameterData(
         allParams: {
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),

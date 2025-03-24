@@ -23,7 +23,14 @@ import 'tab_collection_model.dart';
 export 'tab_collection_model.dart';
 
 class TabCollectionWidget extends StatefulWidget {
-  const TabCollectionWidget({super.key});
+  const TabCollectionWidget({
+    super.key,
+    this.branchCode,
+    this.profileLevel,
+  });
+
+  final String? branchCode;
+  final String? profileLevel;
 
   static String routeName = 'tabCollection';
   static String routePath = 'tabCollection';
@@ -77,20 +84,23 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      FFAppState().collectionBranchCode = widget!.branchCode!;
+      FFAppState().collectionProfileLevel = widget!.profileLevel!;
+      safeSetState(() {});
       _model.collectionApiGetdataCount =
           await CollectionApiGetDataCountCall.call(
-        branchCode: (FFAppState().branchCode == 'HO') ||
+        branchCode: (widget!.branchCode == 'HO') ||
                 (FFAppState().profileRoleName == 'SME') ||
-                (FFAppState().profileLevel != 'สาขา')
+                (widget!.profileLevel != 'สาขา')
             ? ''
-            : FFAppState().branchCode,
-        codeKate: (FFAppState().profileLevel == 'เขต') &&
+            : widget!.branchCode,
+        codeKate: (widget!.profileLevel == 'เขต') &&
                 (FFAppState().profileRoleName != 'SME')
-            ? FFAppState().profileBranch
+            ? widget!.branchCode
             : '',
-        codeRegion: (FFAppState().profileLevel == 'ภาค') &&
+        codeRegion: (widget!.profileLevel == 'ภาค') &&
                 (FFAppState().profileRoleName != 'SME')
-            ? FFAppState().profileBranch
+            ? widget!.branchCode
             : '',
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
@@ -143,18 +153,18 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         return;
       }
       _model.apiOutputCountPP = await CollectionApiGetDataCountPPCall.call(
-        branchCode: (FFAppState().branchCode == 'HO') ||
+        branchCode: (widget!.branchCode == 'HO') ||
                 (FFAppState().profileRoleName == 'SME') ||
-                (FFAppState().profileLevel != 'สาขา')
+                (widget!.profileLevel != 'สาขา')
             ? ''
-            : FFAppState().branchCode,
-        codeKate: (FFAppState().profileLevel == 'เขต') &&
+            : widget!.branchCode,
+        codeKate: (widget!.profileLevel == 'เขต') &&
                 (FFAppState().profileRoleName != 'SME')
-            ? FFAppState().profileBranch
+            ? widget!.branchCode
             : '',
-        codeRegion: (FFAppState().profileLevel == 'ภาค') &&
+        codeRegion: (widget!.profileLevel == 'ภาค') &&
                 (FFAppState().profileRoleName != 'SME')
-            ? FFAppState().profileBranch
+            ? widget!.branchCode
             : '',
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,

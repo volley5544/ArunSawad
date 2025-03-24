@@ -1079,8 +1079,21 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                 safeSetState(() {});
 
                                                 context.pushNamed(
-                                                    TabCollectionWidget
-                                                        .routeName);
+                                                  TabCollectionWidget.routeName,
+                                                  queryParameters: {
+                                                    'branchCode':
+                                                        serializeParam(
+                                                      _model
+                                                          .branchDropDownValue,
+                                                      ParamType.String,
+                                                    ),
+                                                    'profileLevel':
+                                                        serializeParam(
+                                                      'สาขา',
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
 
                                                 if (_shouldSetState)
                                                   safeSetState(() {});

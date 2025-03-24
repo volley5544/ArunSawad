@@ -1728,6 +1728,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         )}';
                                                                         FFAppState()
                                                                             .update(() {});
+                                                                        FFAppState().branchCode =
+                                                                            '${GetUserProfileAPICall.branchCode(
+                                                                          (_model.getUserProfile?.jsonBody ??
+                                                                              ''),
+                                                                        )}';
+                                                                        FFAppState()
+                                                                            .update(() {});
                                                                         FFAppState().profileBirthDate =
                                                                             '${GetUserProfileAPICall.profileBirthDate(
                                                                           (_model.getUserProfile?.jsonBody ??

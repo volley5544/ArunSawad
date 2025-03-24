@@ -156,12 +156,23 @@ class _FilterLeadComponentNewWidgetState
                             () => _model.filterDropdown1Value = val),
                         width: 200.0,
                         height: 60.0,
+                        searchHintTextStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
+                        searchTextStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Poppins',
                                   letterSpacing: 0.0,
                                 ),
                         hintText: '${widget!.filter1Name}...',
+                        searchHintText: '${widget!.filter1Name}...',
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -176,7 +187,7 @@ class _FilterLeadComponentNewWidgetState
                         margin: EdgeInsetsDirectional.fromSTEB(
                             12.0, 0.0, 12.0, 0.0),
                         isOverButton: false,
-                        isSearchable: false,
+                        isSearchable: true,
                         isMultiSelect: false,
                       ),
                     ),
@@ -233,12 +244,23 @@ class _FilterLeadComponentNewWidgetState
                               () => _model.filterDropdown2Value = val),
                           width: 200.0,
                           height: 60.0,
+                          searchHintTextStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
+                          searchTextStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: '${widget!.filter2Name}...',
+                          searchHintText: '${widget!.filter2Name}...',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -253,7 +275,7 @@ class _FilterLeadComponentNewWidgetState
                           margin: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 12.0, 0.0),
                           isOverButton: false,
-                          isSearchable: false,
+                          isSearchable: true,
                           isMultiSelect: false,
                         ),
                       ),

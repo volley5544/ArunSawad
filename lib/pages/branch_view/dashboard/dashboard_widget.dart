@@ -1301,7 +1301,18 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       }
 
                                       context.pushNamed(
-                                          TabCollectionWidget.routeName);
+                                        TabCollectionWidget.routeName,
+                                        queryParameters: {
+                                          'branchCode': serializeParam(
+                                            FFAppState().branchCode,
+                                            ParamType.String,
+                                          ),
+                                          'profileLevel': serializeParam(
+                                            FFAppState().profileLevel,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },

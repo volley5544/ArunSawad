@@ -697,25 +697,29 @@ class _ListNameTabFollowUpDebtWidgetState
                         child: PagedListView<ApiPagingParams, dynamic>(
                           pagingController: _model.setListViewController(
                             (nextPageMarker) => CollectionFollowupDebtCall.call(
-                              branchCode: (FFAppState().branchCode == 'HO') ||
+                              branchCode: (FFAppState().collectionBranchCode ==
+                                          'HO') ||
                                       (FFAppState().profileRoleName == 'SME') ||
-                                      (FFAppState().profileLevel != 'สาขา')
+                                      (FFAppState().collectionProfileLevel !=
+                                          'สาขา')
                                   ? ''
-                                  : FFAppState().branchCode,
+                                  : FFAppState().collectionBranchCode,
                               dataPage: nextPageMarker.nextPageNumber + 1,
                               pageSize: 30,
                               dataFilter: widget!.followUpDebtTab?.toString(),
                               searchBy: FFAppState().collectionSearchBy,
                               search: FFAppState().collectionSearch,
                               sortBy: FFAppState().collectionSortBy,
-                              areaCode: (FFAppState().profileLevel == 'เขต') &&
+                              areaCode: (FFAppState().collectionProfileLevel ==
+                                          'เขต') &&
                                       (FFAppState().profileRoleName != 'SME')
-                                  ? FFAppState().profileBranch
+                                  ? FFAppState().collectionBranchCode
                                   : '',
-                              regionCode: (FFAppState().profileLevel ==
+                              regionCode: (FFAppState()
+                                              .collectionProfileLevel ==
                                           'ภาค') &&
                                       (FFAppState().profileRoleName != 'SME')
-                                  ? FFAppState().profileBranch
+                                  ? FFAppState().collectionBranchCode
                                   : '',
                               role: FFAppState().profileRoleName,
                               apiUrl: FFAppState().apiUrlBranchViewCollection,
