@@ -418,43 +418,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 FFAppState().firstLoginLocation =
                                     currentUserLocationValue;
                                 safeSetState(() {});
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(FFAppState().employeeID),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 if (functions.checkIntFromString(
                                     FFAppState().employeeID)!) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text('true'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-
                                   var userLogRecordReference1 =
                                       UserLogRecord.collection.doc();
                                   await userLogRecordReference1
@@ -494,24 +459,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                           userLogRecordReference1);
                                   _shouldSetState = true;
                                 } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content: Text('false'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-
                                   var userLogRecordReference2 =
                                       UserLogRecord.collection.doc();
                                   await userLogRecordReference2

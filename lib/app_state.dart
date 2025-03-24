@@ -128,6 +128,10 @@ class FFAppState extends ChangeNotifier {
       _secretEmployee =
           await secureStorage.getString('ff_secretEmployee') ?? _secretEmployee;
     });
+    await _safeInitAsync(() async {
+      _hideNotiLeave =
+          await secureStorage.getBool('ff_hideNotiLeave') ?? _hideNotiLeave;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -10015,6 +10019,17 @@ class FFAppState extends ChangeNotifier {
   String get collectionProfileLevel => _collectionProfileLevel;
   set collectionProfileLevel(String value) {
     _collectionProfileLevel = value;
+  }
+
+  bool _hideNotiLeave = true;
+  bool get hideNotiLeave => _hideNotiLeave;
+  set hideNotiLeave(bool value) {
+    _hideNotiLeave = value;
+    secureStorage.setBool('ff_hideNotiLeave', value);
+  }
+
+  void deleteHideNotiLeave() {
+    secureStorage.delete(key: 'ff_hideNotiLeave');
   }
 }
 
