@@ -129,8 +129,26 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getString('ff_secretEmployee') ?? _secretEmployee;
     });
     await _safeInitAsync(() async {
-      _hideNotiLeave =
-          await secureStorage.getBool('ff_hideNotiLeave') ?? _hideNotiLeave;
+      _filterNotiLeave =
+          await secureStorage.getBool('ff_filterNotiLeave') ?? _filterNotiLeave;
+    });
+    await _safeInitAsync(() async {
+      _filterNotiLead =
+          await secureStorage.getBool('ff_filterNotiLead') ?? _filterNotiLead;
+    });
+    await _safeInitAsync(() async {
+      _filterNotiLeadLH = await secureStorage.getBool('ff_filterNotiLeadLH') ??
+          _filterNotiLeadLH;
+    });
+    await _safeInitAsync(() async {
+      _filterNotiImpoundCar =
+          await secureStorage.getBool('ff_filterNotiImpoundCar') ??
+              _filterNotiImpoundCar;
+    });
+    await _safeInitAsync(() async {
+      _filterNotiInsurance =
+          await secureStorage.getBool('ff_filterNotiInsurance') ??
+              _filterNotiInsurance;
     });
   }
 
@@ -10021,15 +10039,59 @@ class FFAppState extends ChangeNotifier {
     _collectionProfileLevel = value;
   }
 
-  bool _hideNotiLeave = true;
-  bool get hideNotiLeave => _hideNotiLeave;
-  set hideNotiLeave(bool value) {
-    _hideNotiLeave = value;
-    secureStorage.setBool('ff_hideNotiLeave', value);
+  bool _filterNotiLeave = true;
+  bool get filterNotiLeave => _filterNotiLeave;
+  set filterNotiLeave(bool value) {
+    _filterNotiLeave = value;
+    secureStorage.setBool('ff_filterNotiLeave', value);
   }
 
-  void deleteHideNotiLeave() {
-    secureStorage.delete(key: 'ff_hideNotiLeave');
+  void deleteFilterNotiLeave() {
+    secureStorage.delete(key: 'ff_filterNotiLeave');
+  }
+
+  bool _filterNotiLead = true;
+  bool get filterNotiLead => _filterNotiLead;
+  set filterNotiLead(bool value) {
+    _filterNotiLead = value;
+    secureStorage.setBool('ff_filterNotiLead', value);
+  }
+
+  void deleteFilterNotiLead() {
+    secureStorage.delete(key: 'ff_filterNotiLead');
+  }
+
+  bool _filterNotiLeadLH = true;
+  bool get filterNotiLeadLH => _filterNotiLeadLH;
+  set filterNotiLeadLH(bool value) {
+    _filterNotiLeadLH = value;
+    secureStorage.setBool('ff_filterNotiLeadLH', value);
+  }
+
+  void deleteFilterNotiLeadLH() {
+    secureStorage.delete(key: 'ff_filterNotiLeadLH');
+  }
+
+  bool _filterNotiImpoundCar = true;
+  bool get filterNotiImpoundCar => _filterNotiImpoundCar;
+  set filterNotiImpoundCar(bool value) {
+    _filterNotiImpoundCar = value;
+    secureStorage.setBool('ff_filterNotiImpoundCar', value);
+  }
+
+  void deleteFilterNotiImpoundCar() {
+    secureStorage.delete(key: 'ff_filterNotiImpoundCar');
+  }
+
+  bool _filterNotiInsurance = true;
+  bool get filterNotiInsurance => _filterNotiInsurance;
+  set filterNotiInsurance(bool value) {
+    _filterNotiInsurance = value;
+    secureStorage.setBool('ff_filterNotiInsurance', value);
+  }
+
+  void deleteFilterNotiInsurance() {
+    secureStorage.delete(key: 'ff_filterNotiInsurance');
   }
 }
 

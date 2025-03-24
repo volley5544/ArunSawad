@@ -11,8 +11,16 @@ class NotiSettingComponentModel
     extends FlutterFlowModel<NotiSettingComponentWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
+  // State field(s) for CheckboxLeave widget.
+  bool? checkboxLeaveValue;
+  // State field(s) for CheckboxLead widget.
+  bool? checkboxLeadValue;
+  // State field(s) for CheckboxLeadLH widget.
+  bool? checkboxLeadLHValue;
+  // State field(s) for CheckboxImpoundCar widget.
+  bool? checkboxImpoundCarValue;
+  // State field(s) for CheckboxInsurance widget.
+  bool? checkboxInsuranceValue;
 
   @override
   void initState(BuildContext context) {}

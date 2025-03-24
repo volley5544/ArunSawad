@@ -270,11 +270,34 @@ class _NotificationDetailPageWidgetState
                                       listViewNotificationRecordList[
                                           listViewIndex];
                                   return Visibility(
-                                    visible:
-                                        listViewNotificationRecord.notiType ==
-                                                'Leave_Request'
-                                            ? FFAppState().hideNotiLeave
-                                            : true,
+                                    visible: () {
+                                      if (listViewNotificationRecord.notiType ==
+                                          'Leave_Request') {
+                                        return FFAppState().filterNotiLeave;
+                                      } else if (listViewNotificationRecord
+                                              .notiType ==
+                                          'lead') {
+                                        return FFAppState().filterNotiLead;
+                                      } else if (listViewNotificationRecord
+                                              .notiType ==
+                                          'insurance') {
+                                        return FFAppState().filterNotiInsurance;
+                                      } else if (listViewNotificationRecord
+                                              .notiType ==
+                                          'land_and_house_assign') {
+                                        return FFAppState().filterNotiLeadLH;
+                                      } else if ((listViewNotificationRecord
+                                                  .notiType ==
+                                              'impoundStep1') ||
+                                          (listViewNotificationRecord
+                                                  .notiType ==
+                                              'impoundStep3')) {
+                                        return FFAppState()
+                                            .filterNotiImpoundCar;
+                                      } else {
+                                        return true;
+                                      }
+                                    }(),
                                     child: Builder(
                                       builder: (context) => InkWell(
                                         splashColor: Colors.transparent,
