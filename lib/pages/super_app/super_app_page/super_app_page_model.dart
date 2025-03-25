@@ -170,6 +170,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? queryGroceryAssignUrlTester;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryGroceryAssignUrl;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseArunsawadUrl;
   // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
   dynamic? searchProfileLevelOutput;
   // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Container widget.
@@ -182,8 +184,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? queryLandAndHouseUrlTester;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryLandAndHouseUrl;
-  // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  UrlLinkStorageRecord? queryLandAndHouseArunsawadUrl;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStoragePIPKPIQueryKpi;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

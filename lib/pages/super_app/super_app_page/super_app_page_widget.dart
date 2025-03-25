@@ -3652,6 +3652,138 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     ),
                                                                                   ),
                                                                                 ),
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ประเมินราคาที่ดิน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ประเมินราคาที่ดิน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประเมินราคาที่ดิน')?.toList(), FFAppState().profilePositionName)!)
+                                                                                InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    var _shouldSetState = false;
+                                                                                    HapticFeedback.mediumImpact();
+                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                      Navigator.pop(context);
+
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    showModalBottomSheet(
+                                                                                      isScrollControlled: true,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      enableDrag: false,
+                                                                                      context: context,
+                                                                                      builder: (context) {
+                                                                                        return WebViewAware(
+                                                                                          child: GestureDetector(
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: Container(
+                                                                                                height: double.infinity,
+                                                                                                child: LoadingSceneWidget(),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    ).then((value) => safeSetState(() {}));
+
+                                                                                    _model.queryLandAndHouseArunsawadUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseArunsawadDocRef!);
+                                                                                    _shouldSetState = true;
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.goNamed(
+                                                                                      WebviewNewPageWidget.routeName,
+                                                                                      queryParameters: {
+                                                                                        'webUrl': serializeParam(
+                                                                                          _model.queryLandAndHouseArunsawadUrl?.urlLink,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'branchCodeSearch': serializeParam(
+                                                                                          _model.branchCodeLandAndHouse,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'levelSearch': serializeParam(
+                                                                                          _model.levelLandAndHouse,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                    );
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    height: 100.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    ),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                          child: Container(
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                            decoration: BoxDecoration(
+                                                                                              shape: BoxShape.circle,
+                                                                                            ),
+                                                                                            child: Image.asset(
+                                                                                              'assets/images/P3CpgFBXDlccz132cxIX1111.jpg',
+                                                                                              fit: BoxFit.fitHeight,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          'ประเมินราคาที่ดิน',
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
                                                                               if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดิน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดิน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดิน')?.toList(), FFAppState().profilePositionName)!)
                                                                                 InkWell(
                                                                                   splashColor: Colors.transparent,
@@ -3992,138 +4124,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                         ),
                                                                                         Text(
                                                                                           'ลูกค้าสนใจสินเชื่อ\nบ้าน-ที่ดิน',
-                                                                                          textAlign: TextAlign.center,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                fontSize: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 12.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return 20.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return 20.0;
-                                                                                                  } else {
-                                                                                                    return 20.0;
-                                                                                                  }
-                                                                                                }(),
-                                                                                                letterSpacing: 0.0,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ประเมินราคาที่ดิน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ประเมินราคาที่ดิน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประเมินราคาที่ดิน')?.toList(), FFAppState().profilePositionName)!)
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    var _shouldSetState = false;
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                      if (_shouldSetState) safeSetState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                    showModalBottomSheet(
-                                                                                      isScrollControlled: true,
-                                                                                      backgroundColor: Colors.transparent,
-                                                                                      enableDrag: false,
-                                                                                      context: context,
-                                                                                      builder: (context) {
-                                                                                        return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                            onTap: () {
-                                                                                              FocusScope.of(context).unfocus();
-                                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                                            },
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: Container(
-                                                                                                height: double.infinity,
-                                                                                                child: LoadingSceneWidget(),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    ).then((value) => safeSetState(() {}));
-
-                                                                                    _model.queryLandAndHouseArunsawadUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseArunsawadDocRef!);
-                                                                                    _shouldSetState = true;
-                                                                                    Navigator.pop(context);
-
-                                                                                    context.goNamed(
-                                                                                      WebviewNewPageWidget.routeName,
-                                                                                      queryParameters: {
-                                                                                        'webUrl': serializeParam(
-                                                                                          _model.queryLandAndHouseArunsawadUrl?.urlLink,
-                                                                                          ParamType.String,
-                                                                                        ),
-                                                                                        'branchCodeSearch': serializeParam(
-                                                                                          _model.branchCodeLandAndHouse,
-                                                                                          ParamType.String,
-                                                                                        ),
-                                                                                        'levelSearch': serializeParam(
-                                                                                          _model.levelLandAndHouse,
-                                                                                          ParamType.String,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                    );
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                  },
-                                                                                  child: Container(
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                    ),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                          child: Container(
-                                                                                            width: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            height: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            clipBehavior: Clip.antiAlias,
-                                                                                            decoration: BoxDecoration(
-                                                                                              shape: BoxShape.circle,
-                                                                                            ),
-                                                                                            child: Image.asset(
-                                                                                              'assets/images/P3CpgFBXDlccz132cxIX1111.jpg',
-                                                                                              fit: BoxFit.fitHeight,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Text(
-                                                                                          'ประเมินราคาที่ดิน',
                                                                                           textAlign: TextAlign.center,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Poppins',
