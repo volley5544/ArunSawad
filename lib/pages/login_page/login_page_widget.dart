@@ -2264,7 +2264,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await launchURL('newibsapp://newibsapp.com');
+                                await actions.urlLauncher(
+                                  'newibsapp://newibsapp.com',
+                                );
                               },
                               child: Text(
                                 'Copyright ©2022.  Srisawad Corporation Plc.',
