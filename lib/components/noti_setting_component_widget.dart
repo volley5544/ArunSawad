@@ -3,8 +3,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'noti_setting_component_model.dart';
 export 'noti_setting_component_model.dart';
 
@@ -30,6 +32,90 @@ class _NotiSettingComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => NotiSettingComponentModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().filterNotiLeave.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().filterNotiLead.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().filterNotiLeadLH.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().filterNotiImpoundCar.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().filterNotiLead.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -115,6 +201,8 @@ class _NotiSettingComponentWidgetState
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                   ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxLeaveValue ??=
@@ -125,7 +213,8 @@ class _NotiSettingComponentWidgetState
                                   },
                                   side: BorderSide(
                                     width: 2,
-                                    color: Color(0x00000000),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
