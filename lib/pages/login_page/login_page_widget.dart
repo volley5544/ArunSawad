@@ -2086,6 +2086,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       FFAppState()
                                                                           .update(
                                                                               () {});
+                                                                      FFAppState()
+                                                                              .filterNotiLeave =
+                                                                          true;
+                                                                      FFAppState()
+                                                                              .filterNotiLead =
+                                                                          true;
+                                                                      FFAppState()
+                                                                              .filterNotiLeadLH =
+                                                                          true;
+                                                                      FFAppState()
+                                                                              .filterNotiImpoundCar =
+                                                                          true;
+                                                                      FFAppState()
+                                                                              .filterNotiInsurance =
+                                                                          true;
+                                                                      safeSetState(
+                                                                          () {});
                                                                       if (isAndroid) {
                                                                         var fCMTokenRecordReference1 = FCMTokenRecord
                                                                             .collection

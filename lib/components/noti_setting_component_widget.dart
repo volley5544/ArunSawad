@@ -104,7 +104,7 @@ class _NotiSettingComponentWidgetState
         builder: (alertDialogContext) {
           return WebViewAware(
             child: AlertDialog(
-              content: Text(FFAppState().filterNotiLead.toString()),
+              content: Text(FFAppState().filterNotiInsurance.toString()),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
@@ -267,6 +267,8 @@ class _NotiSettingComponentWidgetState
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                   ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxLeadValue ??=
@@ -277,7 +279,8 @@ class _NotiSettingComponentWidgetState
                                   },
                                   side: BorderSide(
                                     width: 2,
-                                    color: Color(0x00000000),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
@@ -330,6 +333,8 @@ class _NotiSettingComponentWidgetState
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                   ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxLeadLHValue ??=
@@ -340,7 +345,8 @@ class _NotiSettingComponentWidgetState
                                   },
                                   side: BorderSide(
                                     width: 2,
-                                    color: Color(0x00000000),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
@@ -393,6 +399,8 @@ class _NotiSettingComponentWidgetState
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                   ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxImpoundCarValue ??=
@@ -403,7 +411,8 @@ class _NotiSettingComponentWidgetState
                                   },
                                   side: BorderSide(
                                     width: 2,
-                                    color: Color(0x00000000),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,
@@ -456,6 +465,8 @@ class _NotiSettingComponentWidgetState
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                   ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxInsuranceValue ??=
@@ -466,7 +477,8 @@ class _NotiSettingComponentWidgetState
                                   },
                                   side: BorderSide(
                                     width: 2,
-                                    color: Color(0x00000000),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
                                   activeColor:
                                       FlutterFlowTheme.of(context).tertiary,

@@ -171,7 +171,7 @@ class _NotificationDetailPageWidgetState
                                     child: Container(
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              1.0,
+                                              0.8,
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       child: NotiSettingComponentWidget(),

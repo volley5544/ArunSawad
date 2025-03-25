@@ -158,12 +158,18 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginImpoundCar;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginQrPayment;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  ReportStorageRecord? reportStoragePIPKPIQueryKpi;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  ReportStorageRecord? reportStoragePIPKPIQueryPip;
+  // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
+  dynamic? groceryAssignSearchProfileLevelOutput;
+  // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Container widget.
+  String? groceryAssignEmployeeInputOutput5544;
+  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in Container widget.
+  ApiCallResponse? groceryAssignGetEmployeeTokenOutput;
+  // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in Container widget.
+  ApiCallResponse? groceryAssignGetRegionProfile;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  UrlLinkStorageRecord? queryLandAndHouseArunsawadUrl;
+  UrlLinkStorageRecord? queryGroceryAssignUrlTester;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryGroceryAssignUrl;
   // Stores action output result for [Bottom Sheet - searchProfileLevelComponent] action in Container widget.
   dynamic? searchProfileLevelOutput;
   // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Container widget.
@@ -176,6 +182,12 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   UrlLinkStorageRecord? queryLandAndHouseUrlTester;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryLandAndHouseUrl;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryLandAndHouseArunsawadUrl;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStoragePIPKPIQueryKpi;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStoragePIPKPIQueryPip;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   UrlLinkStorageRecord? queryAuctionAppointmentUrl;
   // Stores action output result for [Custom Action - scanQrCode] action in Container widget.

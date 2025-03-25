@@ -2765,6 +2765,94 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     ),
                                                                                   ),
                                                                                 ),
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'Location พนักงาน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'Location พนักงาน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'Location พนักงาน')?.toList(), FFAppState().profilePositionName)!)
+                                                                                InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    HapticFeedback.mediumImpact();
+                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                      Navigator.pop(context);
+
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                      return;
+                                                                                    }
+                                                                                    if (FFAppState().profileLevel == 'HO') {
+                                                                                      context.goNamed(SearchEmployeePageWidget.routeName);
+                                                                                    } else {
+                                                                                      context.goNamed(SearchEmployeePage2Widget.routeName);
+                                                                                    }
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    height: 100.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    ),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                          child: Container(
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                            decoration: BoxDecoration(
+                                                                                              shape: BoxShape.circle,
+                                                                                            ),
+                                                                                            child: Image.asset(
+                                                                                              'assets/images/Marketing_Tracking-Links_Site_0409.png',
+                                                                                              fit: BoxFit.contain,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          'Location\n พนักงาน',
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
                                                                               if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'QR Payment', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'QR Payment')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'QR Payment')?.toList(), FFAppState().profilePositionName)!)
                                                                                 InkWell(
                                                                                   splashColor: Colors.transparent,
@@ -3203,310 +3291,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'Location พนักงาน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'Location พนักงาน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'Location พนักงาน')?.toList(), FFAppState().profilePositionName)!)
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.mediumImpact();
-                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                      Navigator.pop(context);
-
-                                                                                      context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                      return;
-                                                                                    }
-                                                                                    if (FFAppState().profileLevel == 'HO') {
-                                                                                      context.goNamed(SearchEmployeePageWidget.routeName);
-                                                                                    } else {
-                                                                                      context.goNamed(SearchEmployeePage2Widget.routeName);
-                                                                                    }
-                                                                                  },
-                                                                                  child: Container(
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                    ),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                          child: Container(
-                                                                                            width: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            height: () {
-                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                return 50.0;
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              } else {
-                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                              }
-                                                                                            }(),
-                                                                                            clipBehavior: Clip.antiAlias,
-                                                                                            decoration: BoxDecoration(
-                                                                                              shape: BoxShape.circle,
-                                                                                            ),
-                                                                                            child: Image.asset(
-                                                                                              'assets/images/Marketing_Tracking-Links_Site_0409.png',
-                                                                                              fit: BoxFit.contain,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Text(
-                                                                                          'Location\n พนักงาน',
-                                                                                          textAlign: TextAlign.center,
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                fontSize: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 12.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return 20.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return 20.0;
-                                                                                                  } else {
-                                                                                                    return 20.0;
-                                                                                                  }
-                                                                                                }(),
-                                                                                                letterSpacing: 0.0,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'PIP/KPI', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'PIP/KPI')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'PIP/KPI')?.toList(), FFAppState().profilePositionName)!)
-                                                                                FutureBuilder<List<UrlLinkStorageRecord>>(
-                                                                                  future: queryUrlLinkStorageRecordOnce(
-                                                                                    queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
-                                                                                      'url_name',
-                                                                                      isEqualTo: 'tableau_report_base_url',
-                                                                                    ),
-                                                                                    singleRecord: true,
-                                                                                  ),
-                                                                                  builder: (context, snapshot) {
-                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                    if (!snapshot.hasData) {
-                                                                                      return Center(
-                                                                                        child: SizedBox(
-                                                                                          width: 50.0,
-                                                                                          height: 50.0,
-                                                                                          child: CircularProgressIndicator(
-                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      );
-                                                                                    }
-                                                                                    List<UrlLinkStorageRecord> containerUrlLinkStorageRecordList = snapshot.data!;
-                                                                                    final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty ? containerUrlLinkStorageRecordList.first : null;
-
-                                                                                    return InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        var _shouldSetState = false;
-                                                                                        HapticFeedback.mediumImpact();
-                                                                                        if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
-                                                                                          Navigator.pop(context);
-
-                                                                                          context.goNamed(PinCodePageWidget.routeName);
-
-                                                                                          if (_shouldSetState) safeSetState(() {});
-                                                                                          return;
-                                                                                        }
-                                                                                        var confirmDialogResponse = await showDialog<bool>(
-                                                                                              context: context,
-                                                                                              builder: (alertDialogContext) {
-                                                                                                return WebViewAware(
-                                                                                                  child: AlertDialog(
-                                                                                                    content: Text('เลือกรายงานที่ต้องการจะดู'),
-                                                                                                    actions: [
-                                                                                                      TextButton(
-                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                        child: Text('PIP'),
-                                                                                                      ),
-                                                                                                      TextButton(
-                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                        child: Text('KPI'),
-                                                                                                      ),
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ) ??
-                                                                                            false;
-                                                                                        if (confirmDialogResponse) {
-                                                                                          showModalBottomSheet(
-                                                                                            isScrollControlled: true,
-                                                                                            backgroundColor: Colors.transparent,
-                                                                                            enableDrag: false,
-                                                                                            context: context,
-                                                                                            builder: (context) {
-                                                                                              return WebViewAware(
-                                                                                                child: GestureDetector(
-                                                                                                  onTap: () {
-                                                                                                    FocusScope.of(context).unfocus();
-                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                  },
-                                                                                                  child: Padding(
-                                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                                    child: Container(
-                                                                                                      height: double.infinity,
-                                                                                                      child: LoadingSceneWidget(),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          ).then((value) => safeSetState(() {}));
-
-                                                                                          _model.reportStoragePIPKPIQueryKpi = await queryReportStorageRecordOnce(
-                                                                                            queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
-                                                                                              'report_name',
-                                                                                              isEqualTo: 'PIP/KPI',
-                                                                                            ),
-                                                                                            singleRecord: true,
-                                                                                          ).then((s) => s.firstOrNull);
-                                                                                          _shouldSetState = true;
-                                                                                          Navigator.pop(context);
-                                                                                          await actions.openTableauBrowser(
-                                                                                            FFAppState().accessToken,
-                                                                                            '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQueryKpi?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryKpi?.reportUrlName?.toList(), 'kpi'))}',
-                                                                                            FFAppState().isOpenAndroidTableauBrowser,
-                                                                                          );
-                                                                                        } else {
-                                                                                          showModalBottomSheet(
-                                                                                            isScrollControlled: true,
-                                                                                            backgroundColor: Colors.transparent,
-                                                                                            enableDrag: false,
-                                                                                            context: context,
-                                                                                            builder: (context) {
-                                                                                              return WebViewAware(
-                                                                                                child: GestureDetector(
-                                                                                                  onTap: () {
-                                                                                                    FocusScope.of(context).unfocus();
-                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                  },
-                                                                                                  child: Padding(
-                                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                                    child: Container(
-                                                                                                      height: double.infinity,
-                                                                                                      child: LoadingSceneWidget(),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          ).then((value) => safeSetState(() {}));
-
-                                                                                          _model.reportStoragePIPKPIQueryPip = await queryReportStorageRecordOnce(
-                                                                                            queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
-                                                                                              'report_name',
-                                                                                              isEqualTo: 'PIP/KPI',
-                                                                                            ),
-                                                                                            singleRecord: true,
-                                                                                          ).then((s) => s.firstOrNull);
-                                                                                          _shouldSetState = true;
-                                                                                          Navigator.pop(context);
-                                                                                          await actions.openTableauBrowser(
-                                                                                            FFAppState().accessToken,
-                                                                                            '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQueryPip?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryPip?.reportUrlName?.toList(), 'pip'))}',
-                                                                                            FFAppState().isOpenAndroidTableauBrowser,
-                                                                                          );
-                                                                                        }
-
-                                                                                        if (_shouldSetState) safeSetState(() {});
-                                                                                      },
-                                                                                      child: Container(
-                                                                                        width: 100.0,
-                                                                                        height: 100.0,
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: Colors.white,
-                                                                                          shape: BoxShape.circle,
-                                                                                        ),
-                                                                                        child: Column(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                                              child: Container(
-                                                                                                width: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 50.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  }
-                                                                                                }(),
-                                                                                                height: () {
-                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                    return 50.0;
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  } else {
-                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
-                                                                                                  }
-                                                                                                }(),
-                                                                                                clipBehavior: Clip.antiAlias,
-                                                                                                decoration: BoxDecoration(
-                                                                                                  shape: BoxShape.circle,
-                                                                                                ),
-                                                                                                child: Image.asset(
-                                                                                                  'assets/images/1006640.png',
-                                                                                                  fit: BoxFit.contain,
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              'PIP/KPI',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    fontSize: () {
-                                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                                        return 12.0;
-                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                                        return 20.0;
-                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                                        return 20.0;
-                                                                                                      } else {
-                                                                                                        return 20.0;
-                                                                                                      }
-                                                                                                    }(),
-                                                                                                    letterSpacing: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                    );
-                                                                                  },
-                                                                                ),
-                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ประเมินราคาที่ดิน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ประเมินราคาที่ดิน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประเมินราคาที่ดิน')?.toList(), FFAppState().profilePositionName)!)
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ลูกค้าโชว์ห่วย', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าโชว์ห่วย')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้าโชว์ห่วย')?.toList(), FFAppState().profilePositionName)!)
                                                                                 InkWell(
                                                                                   splashColor: Colors.transparent,
                                                                                   focusColor: Colors.transparent,
@@ -3523,6 +3308,235 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
+                                                                                    if (functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าโชว์ห่วยAdmin')!) {
+                                                                                      _model.branchCodeLandAndHouse = null;
+                                                                                      _model.levelLandAndHouse = null;
+                                                                                      safeSetState(() {});
+                                                                                      await showModalBottomSheet(
+                                                                                        isScrollControlled: true,
+                                                                                        backgroundColor: Colors.transparent,
+                                                                                        barrierColor: Color(0xBC000000),
+                                                                                        enableDrag: false,
+                                                                                        context: context,
+                                                                                        builder: (context) {
+                                                                                          return WebViewAware(
+                                                                                            child: GestureDetector(
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(context).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
+                                                                                              child: Padding(
+                                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                                child: Container(
+                                                                                                  height: MediaQuery.sizeOf(context).height * 0.5,
+                                                                                                  child: SearchProfileLevelComponentWidget(),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      ).then((value) => safeSetState(() => _model.groceryAssignSearchProfileLevelOutput = value));
+
+                                                                                      _shouldSetState = true;
+                                                                                      if (!(_model.groceryAssignSearchProfileLevelOutput != null)) {
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                      _model.branchCodeLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
+                                                                                          ? getJsonField(
+                                                                                              _model.groceryAssignSearchProfileLevelOutput,
+                                                                                              r'''$.branchCode''',
+                                                                                            ).toString()
+                                                                                          : '';
+                                                                                      _model.levelLandAndHouse = functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าสนใจสินเชื่อบ้าน-ที่ดินAdmin')!
+                                                                                          ? getJsonField(
+                                                                                              _model.groceryAssignSearchProfileLevelOutput,
+                                                                                              r'''$.level''',
+                                                                                            ).toString()
+                                                                                          : '';
+                                                                                      safeSetState(() {});
+                                                                                    } else {
+                                                                                      if (functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้าโชว์ห่วยTester')!) {
+                                                                                        showModalBottomSheet(
+                                                                                          isScrollControlled: true,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          enableDrag: false,
+                                                                                          context: context,
+                                                                                          builder: (context) {
+                                                                                            return WebViewAware(
+                                                                                              child: GestureDetector(
+                                                                                                onTap: () {
+                                                                                                  FocusScope.of(context).unfocus();
+                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                },
+                                                                                                child: Padding(
+                                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                                  child: Container(
+                                                                                                    height: double.infinity,
+                                                                                                    child: LoadingSceneWidget(),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        ).then((value) => safeSetState(() {}));
+
+                                                                                        await showModalBottomSheet(
+                                                                                          isScrollControlled: true,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          isDismissible: false,
+                                                                                          enableDrag: false,
+                                                                                          context: context,
+                                                                                          builder: (context) {
+                                                                                            return WebViewAware(
+                                                                                              child: GestureDetector(
+                                                                                                onTap: () {
+                                                                                                  FocusScope.of(context).unfocus();
+                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                },
+                                                                                                child: Padding(
+                                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                                  child: Container(
+                                                                                                    height: MediaQuery.sizeOf(context).height * 0.35,
+                                                                                                    child: EmployeeInputForCEOComponentWidget(),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        ).then((value) => safeSetState(() => _model.groceryAssignEmployeeInputOutput5544 = value));
+
+                                                                                        _shouldSetState = true;
+                                                                                        if ((_model.groceryAssignEmployeeInputOutput5544 != '') && (_model.groceryAssignEmployeeInputOutput5544 != null && _model.groceryAssignEmployeeInputOutput5544 != '')) {
+                                                                                          if (_model.groceryAssignEmployeeInputOutput5544 == 'cancel') {
+                                                                                            Navigator.pop(context);
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+                                                                                          _model.groceryAssignGetEmployeeTokenOutput = await GetTokenEmployeeCall.call(
+                                                                                            username: _model.groceryAssignEmployeeInputOutput5544,
+                                                                                            apiUrl: FFAppState().apiURLLocalState,
+                                                                                          );
+
+                                                                                          _shouldSetState = true;
+                                                                                          if ((_model.groceryAssignGetEmployeeTokenOutput?.statusCode ?? 200) != 200) {
+                                                                                            Navigator.pop(context);
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('พบข้อผิดพลาดGet Token Connection(${(_model.groceryAssignGetEmployeeTokenOutput?.statusCode ?? 200).toString()})'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+                                                                                          if ('${getJsonField(
+                                                                                                (_model.groceryAssignGetEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                                                r'''$.status''',
+                                                                                              ).toString()}' !=
+                                                                                              '200') {
+                                                                                            Navigator.pop(context);
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('พบข้อผิดพลาดGet Token(${getJsonField(
+                                                                                                      (_model.groceryAssignGetEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                                                      r'''$.status''',
+                                                                                                    ).toString()})'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                        child: Text('Ok'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                            if (_shouldSetState) safeSetState(() {});
+                                                                                            return;
+                                                                                          }
+                                                                                          _model.groceryAssignGetRegionProfile = await GetUserProfileAPICall.call(
+                                                                                            token: GetTokenEmployeeCall.accessToken(
+                                                                                              (_model.groceryAssignGetEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                                            ),
+                                                                                            apiUrl: FFAppState().apiURLLocalState,
+                                                                                            projectName: 'SSW_ARUNSAWAD_API',
+                                                                                          );
+
+                                                                                          _shouldSetState = true;
+                                                                                          _model.queryGroceryAssignUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().groceryAssignUrlDocRef!);
+                                                                                          _shouldSetState = true;
+                                                                                          Navigator.pop(context);
+
+                                                                                          context.goNamed(
+                                                                                            WebviewNewPageWidget.routeName,
+                                                                                            queryParameters: {
+                                                                                              'webUrl': serializeParam(
+                                                                                                _model.queryGroceryAssignUrlTester?.urlLink,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'branchCodeSearch': serializeParam(
+                                                                                                GetUserProfileAPICall.profileBranch(
+                                                                                                  (_model.groceryAssignGetRegionProfile?.jsonBody ?? ''),
+                                                                                                ),
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'levelSearch': serializeParam(
+                                                                                                'ภาค',
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'regionAccessToken': serializeParam(
+                                                                                                GetTokenEmployeeCall.accessToken(
+                                                                                                  (_model.groceryAssignGetEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                                                ),
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'regionEmployeeId': serializeParam(
+                                                                                                _model.groceryAssignEmployeeInputOutput5544,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                            }.withoutNulls,
+                                                                                          );
+
+                                                                                          if (_shouldSetState) safeSetState(() {});
+                                                                                          return;
+                                                                                        } else {
+                                                                                          Navigator.pop(context);
+                                                                                          await showDialog(
+                                                                                            context: context,
+                                                                                            builder: (alertDialogContext) {
+                                                                                              return WebViewAware(
+                                                                                                child: AlertDialog(
+                                                                                                  content: Text('กรุณาใส่รหัสพนักงานของภาคที่ต้องการ'),
+                                                                                                  actions: [
+                                                                                                    TextButton(
+                                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                      child: Text('Ok'),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          );
+                                                                                          if (_shouldSetState) safeSetState(() {});
+                                                                                          return;
+                                                                                        }
+                                                                                      }
+                                                                                    }
+
                                                                                     showModalBottomSheet(
                                                                                       isScrollControlled: true,
                                                                                       backgroundColor: Colors.transparent,
@@ -3547,7 +3561,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
 
-                                                                                    _model.queryLandAndHouseArunsawadUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseArunsawadDocRef!);
+                                                                                    _model.queryGroceryAssignUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().groceryAssignUrlDocRef!);
                                                                                     _shouldSetState = true;
                                                                                     Navigator.pop(context);
 
@@ -3555,7 +3569,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       WebviewNewPageWidget.routeName,
                                                                                       queryParameters: {
                                                                                         'webUrl': serializeParam(
-                                                                                          _model.queryLandAndHouseArunsawadUrl?.urlLink,
+                                                                                          _model.queryGroceryAssignUrl?.urlLink,
                                                                                           ParamType.String,
                                                                                         ),
                                                                                         'branchCodeSearch': serializeParam(
@@ -3610,13 +3624,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               shape: BoxShape.circle,
                                                                                             ),
                                                                                             child: Image.asset(
-                                                                                              'assets/images/P3CpgFBXDlccz132cxIX1111.jpg',
-                                                                                              fit: BoxFit.fitHeight,
+                                                                                              'assets/images/imagesGroceryStore.png',
+                                                                                              fit: BoxFit.contain,
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                         Text(
-                                                                                          'ประเมินราคาที่ดิน',
+                                                                                          'ลูกค้าโชว์ห่วย',
                                                                                           textAlign: TextAlign.center,
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Poppins',
@@ -3998,6 +4012,353 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       ],
                                                                                     ),
                                                                                   ),
+                                                                                ),
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ประเมินราคาที่ดิน', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ประเมินราคาที่ดิน')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประเมินราคาที่ดิน')?.toList(), FFAppState().profilePositionName)!)
+                                                                                InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    var _shouldSetState = false;
+                                                                                    HapticFeedback.mediumImpact();
+                                                                                    if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                      Navigator.pop(context);
+
+                                                                                      context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                      if (_shouldSetState) safeSetState(() {});
+                                                                                      return;
+                                                                                    }
+                                                                                    showModalBottomSheet(
+                                                                                      isScrollControlled: true,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      enableDrag: false,
+                                                                                      context: context,
+                                                                                      builder: (context) {
+                                                                                        return WebViewAware(
+                                                                                          child: GestureDetector(
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: Container(
+                                                                                                height: double.infinity,
+                                                                                                child: LoadingSceneWidget(),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    ).then((value) => safeSetState(() {}));
+
+                                                                                    _model.queryLandAndHouseArunsawadUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseArunsawadDocRef!);
+                                                                                    _shouldSetState = true;
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.goNamed(
+                                                                                      WebviewNewPageWidget.routeName,
+                                                                                      queryParameters: {
+                                                                                        'webUrl': serializeParam(
+                                                                                          _model.queryLandAndHouseArunsawadUrl?.urlLink,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'branchCodeSearch': serializeParam(
+                                                                                          _model.branchCodeLandAndHouse,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                        'levelSearch': serializeParam(
+                                                                                          _model.levelLandAndHouse,
+                                                                                          ParamType.String,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                    );
+
+                                                                                    if (_shouldSetState) safeSetState(() {});
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    height: 100.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    ),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                          child: Container(
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            clipBehavior: Clip.antiAlias,
+                                                                                            decoration: BoxDecoration(
+                                                                                              shape: BoxShape.circle,
+                                                                                            ),
+                                                                                            child: Image.asset(
+                                                                                              'assets/images/P3CpgFBXDlccz132cxIX1111.jpg',
+                                                                                              fit: BoxFit.fitHeight,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          'ประเมินราคาที่ดิน',
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'PIP/KPI', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'PIP/KPI')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'PIP/KPI')?.toList(), FFAppState().profilePositionName)!)
+                                                                                FutureBuilder<List<UrlLinkStorageRecord>>(
+                                                                                  future: queryUrlLinkStorageRecordOnce(
+                                                                                    queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
+                                                                                      'url_name',
+                                                                                      isEqualTo: 'tableau_report_base_url',
+                                                                                    ),
+                                                                                    singleRecord: true,
+                                                                                  ),
+                                                                                  builder: (context, snapshot) {
+                                                                                    // Customize what your widget looks like when it's loading.
+                                                                                    if (!snapshot.hasData) {
+                                                                                      return Center(
+                                                                                        child: SizedBox(
+                                                                                          width: 50.0,
+                                                                                          height: 50.0,
+                                                                                          child: CircularProgressIndicator(
+                                                                                            valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                              FlutterFlowTheme.of(context).tertiary,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    }
+                                                                                    List<UrlLinkStorageRecord> containerUrlLinkStorageRecordList = snapshot.data!;
+                                                                                    final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty ? containerUrlLinkStorageRecordList.first : null;
+
+                                                                                    return InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        var _shouldSetState = false;
+                                                                                        HapticFeedback.mediumImpact();
+                                                                                        if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                          Navigator.pop(context);
+
+                                                                                          context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                          if (_shouldSetState) safeSetState(() {});
+                                                                                          return;
+                                                                                        }
+                                                                                        var confirmDialogResponse = await showDialog<bool>(
+                                                                                              context: context,
+                                                                                              builder: (alertDialogContext) {
+                                                                                                return WebViewAware(
+                                                                                                  child: AlertDialog(
+                                                                                                    content: Text('เลือกรายงานที่ต้องการจะดู'),
+                                                                                                    actions: [
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                        child: Text('PIP'),
+                                                                                                      ),
+                                                                                                      TextButton(
+                                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                        child: Text('KPI'),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            ) ??
+                                                                                            false;
+                                                                                        if (confirmDialogResponse) {
+                                                                                          showModalBottomSheet(
+                                                                                            isScrollControlled: true,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            enableDrag: false,
+                                                                                            context: context,
+                                                                                            builder: (context) {
+                                                                                              return WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: double.infinity,
+                                                                                                      child: LoadingSceneWidget(),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          ).then((value) => safeSetState(() {}));
+
+                                                                                          _model.reportStoragePIPKPIQueryKpi = await queryReportStorageRecordOnce(
+                                                                                            queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                              'report_name',
+                                                                                              isEqualTo: 'PIP/KPI',
+                                                                                            ),
+                                                                                            singleRecord: true,
+                                                                                          ).then((s) => s.firstOrNull);
+                                                                                          _shouldSetState = true;
+                                                                                          Navigator.pop(context);
+                                                                                          await actions.openTableauBrowser(
+                                                                                            FFAppState().accessToken,
+                                                                                            '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQueryKpi?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryKpi?.reportUrlName?.toList(), 'kpi'))}',
+                                                                                            FFAppState().isOpenAndroidTableauBrowser,
+                                                                                          );
+                                                                                        } else {
+                                                                                          showModalBottomSheet(
+                                                                                            isScrollControlled: true,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            enableDrag: false,
+                                                                                            context: context,
+                                                                                            builder: (context) {
+                                                                                              return WebViewAware(
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(context).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: Padding(
+                                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                                    child: Container(
+                                                                                                      height: double.infinity,
+                                                                                                      child: LoadingSceneWidget(),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          ).then((value) => safeSetState(() {}));
+
+                                                                                          _model.reportStoragePIPKPIQueryPip = await queryReportStorageRecordOnce(
+                                                                                            queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                              'report_name',
+                                                                                              isEqualTo: 'PIP/KPI',
+                                                                                            ),
+                                                                                            singleRecord: true,
+                                                                                          ).then((s) => s.firstOrNull);
+                                                                                          _shouldSetState = true;
+                                                                                          Navigator.pop(context);
+                                                                                          await actions.openTableauBrowser(
+                                                                                            FFAppState().accessToken,
+                                                                                            '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStoragePIPKPIQueryPip?.reportUrl?.elementAtOrNull(functions.getIndexOfSomethingList(_model.reportStoragePIPKPIQueryPip?.reportUrlName?.toList(), 'pip'))}',
+                                                                                            FFAppState().isOpenAndroidTableauBrowser,
+                                                                                          );
+                                                                                        }
+
+                                                                                        if (_shouldSetState) safeSetState(() {});
+                                                                                      },
+                                                                                      child: Container(
+                                                                                        width: 100.0,
+                                                                                        height: 100.0,
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: Colors.white,
+                                                                                          shape: BoxShape.circle,
+                                                                                        ),
+                                                                                        child: Column(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                              child: Container(
+                                                                                                width: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 50.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  }
+                                                                                                }(),
+                                                                                                height: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 50.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  } else {
+                                                                                                    return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                                  }
+                                                                                                }(),
+                                                                                                clipBehavior: Clip.antiAlias,
+                                                                                                decoration: BoxDecoration(
+                                                                                                  shape: BoxShape.circle,
+                                                                                                ),
+                                                                                                child: Image.asset(
+                                                                                                  'assets/images/1006640.png',
+                                                                                                  fit: BoxFit.contain,
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                            Text(
+                                                                                              'PIP/KPI',
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Poppins',
+                                                                                                    fontSize: () {
+                                                                                                      if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                        return 12.0;
+                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                        return 20.0;
+                                                                                                      } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                        return 20.0;
+                                                                                                      } else {
+                                                                                                        return 20.0;
+                                                                                                      }
+                                                                                                    }(),
+                                                                                                    letterSpacing: 0.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    );
+                                                                                  },
                                                                                 ),
                                                                               if (functions.getSpecificIndexFromJson(FFAppState().roleMenuJson, 'ปฏิทินประมูล', FFAppState().profileLevel)! || functions.containStringInListString(functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(), FFAppState().employeeID)! || functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ปฏิทินประมูล')! || functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ปฏิทินประมูล')?.toList(), FFAppState().profilePositionName)!)
                                                                                 InkWell(

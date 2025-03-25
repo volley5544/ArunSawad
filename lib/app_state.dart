@@ -10093,6 +10093,13 @@ class FFAppState extends ChangeNotifier {
   void deleteFilterNotiInsurance() {
     secureStorage.delete(key: 'ff_filterNotiInsurance');
   }
+
+  DocumentReference? _groceryAssignUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/CJojJAzo4YfXKKyrFLXv');
+  DocumentReference? get groceryAssignUrlDocRef => _groceryAssignUrlDocRef;
+  set groceryAssignUrlDocRef(DocumentReference? value) {
+    _groceryAssignUrlDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
