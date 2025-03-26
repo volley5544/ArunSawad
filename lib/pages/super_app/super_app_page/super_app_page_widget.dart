@@ -119,6 +119,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
         barrierColor: Color(0x00000000),
+        isDismissible: false,
         enableDrag: false,
         context: context,
         builder: (context) {
