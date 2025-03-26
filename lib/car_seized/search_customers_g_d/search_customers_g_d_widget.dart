@@ -2362,10 +2362,13 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                     children: [
                                                       if (widget!.fromPage ==
                                                               'price'
-                                                          ? FFAppState()
-                                                              .impoundCarRegionCodeList
-                                                              .contains(FFAppState()
-                                                                  .profileRegion)
+                                                          ? (FFAppState()
+                                                                  .impoundCarRegionCodeList
+                                                                  .contains(
+                                                                      FFAppState()
+                                                                          .profileRegion) ||
+                                                              (widget!.userRolePrice !=
+                                                                  'no_role'))
                                                           : true)
                                                         Padding(
                                                           padding:
@@ -3352,10 +3355,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                         ),
                                                       if (widget!.fromPage ==
                                                               'price'
-                                                          ? FFAppState()
-                                                              .impoundCarRegionCodeList
-                                                              .contains(FFAppState()
-                                                                  .profileRegion)
+                                                          ? (FFAppState()
+                                                                  .impoundCarRegionCodeList
+                                                                  .contains(
+                                                                      FFAppState()
+                                                                          .profileRegion) ||
+                                                              FFAppState()
+                                                                  .impoundCarRegionCodeList
+                                                                  .contains(
+                                                                      FFAppState()
+                                                                          .profileRegion))
                                                           : false)
                                                         Padding(
                                                           padding:
