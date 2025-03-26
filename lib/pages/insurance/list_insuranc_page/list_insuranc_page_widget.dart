@@ -294,7 +294,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                               FFAppState()
                                                   .searchGrossTotal
                                                   .toList(),
-                                              teleListIndex)),
+                                              teleListIndex))!,
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

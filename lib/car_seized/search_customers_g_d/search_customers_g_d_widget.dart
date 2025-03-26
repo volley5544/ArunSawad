@@ -3350,6 +3350,370 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                             ),
                                                           ),
                                                         ),
+                                                      if (widget!.fromPage ==
+                                                              'price'
+                                                          ? FFAppState()
+                                                              .impoundCarRegionCodeList
+                                                              .contains(FFAppState()
+                                                                  .profileRegion)
+                                                          : false)
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                CustomerCarDeailsPictureStep1Widget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'step':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .step,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'readAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .readAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'saveAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'userRoleRead':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleRead,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'userRoleSave':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleSave,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'impoundCarParamSet':
+                                                                      serializeParam(
+                                                                    ImpoundCarParamSetStruct(
+                                                                      improundCONTNO: FFAppState()
+                                                                          .improundCONTNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundLOCAT: FFAppState()
+                                                                          .improundLOCAT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundTITLE: FFAppState()
+                                                                          .improundTITLE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundFNAME: FFAppState()
+                                                                          .improundFNAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundSNAME: FFAppState()
+                                                                          .improundSNAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundREGNO: FFAppState()
+                                                                          .improundREGNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundREGPROV: FFAppState()
+                                                                          .improundREGPROV
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTNOTYPE: FFAppState()
+                                                                          .improundCONTNOTYPE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTNOTYPENAME: FFAppState()
+                                                                          .improundCONTNOTYPENAME
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundGCODE: FFAppState()
+                                                                          .improundGCODE
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundGDESC: FFAppState()
+                                                                          .improundGDESC
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundNumbody: FFAppState()
+                                                                          .improundNumbody
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCUSCOD: FFAppState()
+                                                                          .improundCUSCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundARNOW: FFAppState()
+                                                                          .improundARNOW
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundCONTSTAT: FFAppState()
+                                                                          .improundCONTSTAT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundTYPECOD: FFAppState()
+                                                                          .improundTYPECOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMANUYR: FFAppState()
+                                                                          .improundMANUYR
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMODELCOD: FFAppState()
+                                                                          .improundMODELCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improudCOLORCOD: FFAppState()
+                                                                          .improundCOLORCOD
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundENGNO: FFAppState()
+                                                                          .improundENGNO
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundKEYINCSHPRC: FFAppState()
+                                                                          .improundKEYINCSHPRC
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      improundMANUYRCONVERT: FFAppState()
+                                                                          .improundMANUYRCONVERT
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundDbName: FFAppState()
+                                                                          .impoundVloanDbName
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundDbCode: FFAppState()
+                                                                          .impoundVloanDbCode
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      impoundPrice: FFAppState()
+                                                                          .impoundPriceCurrentStep
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                    ),
+                                                                    ParamType
+                                                                        .DataStruct,
+                                                                  ),
+                                                                  'fromPage':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .fromPage,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'impoundCarLocateParamSet':
+                                                                      serializeParam(
+                                                                    ImpoundCarLocateParamSetStruct(
+                                                                      locatName: FFAppState()
+                                                                          .impoundCarMainBranch
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      branchNameLocat: FFAppState()
+                                                                          .impoundCarBranchName
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      branchCodeLocat: FFAppState()
+                                                                          .ImpoundCarBranchCode
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      deliverLocateName: FFAppState()
+                                                                          .impoundDeliverLocateNameList
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      deliverLocateCode: FFAppState()
+                                                                          .impoundDeliverLocateCodeList
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      logisticsCompany: FFAppState()
+                                                                          .impoundLogisticsCompany
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                      receiver: FFAppState()
+                                                                          .impoundReceiver
+                                                                          .elementAtOrNull(
+                                                                              listImproundIndex),
+                                                                    ),
+                                                                    ParamType
+                                                                        .DataStruct,
+                                                                  ),
+                                                                  'impoundCarStatusName':
+                                                                      serializeParam(
+                                                                    FFAppState()
+                                                                        .impoundCarStatusName
+                                                                        .elementAtOrNull(
+                                                                            listImproundIndex),
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'carConfig':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .carConfig,
+                                                                    ParamType
+                                                                        .String,
+                                                                    isList:
+                                                                        true,
+                                                                  ),
+                                                                  'motocycleConfig':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .motocycleConfig,
+                                                                    ParamType
+                                                                        .String,
+                                                                    isList:
+                                                                        true,
+                                                                  ),
+                                                                  'editAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .editAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'userRoleEdit':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleEdit,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'fromPage2':
+                                                                      serializeParam(
+                                                                    'seeImageButton',
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Container(
+                                                              width: 150.0,
+                                                              height: 130.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    blurRadius:
+                                                                        4.0,
+                                                                    color: Color(
+                                                                        0x33000000),
+                                                                    offset:
+                                                                        Offset(
+                                                                      0.0,
+                                                                      2.0,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            16.0),
+                                                              ),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 2,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            50.0,
+                                                                        height:
+                                                                            50.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(60.0),
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                        ),
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.image_search,
+                                                                            color:
+                                                                                Color(0xFF354052),
+                                                                            size:
+                                                                                28.0,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child: Text(
+                                                                      'ดูรูป',
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Noto Sans Thai',
+                                                                            color:
+                                                                                Color(0xFF204A77),
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
                                                     ],
                                                   ),
                                                 ),

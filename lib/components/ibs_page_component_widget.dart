@@ -240,7 +240,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                         8.0, 4.0, 8.0, 4.0),
                                     child: Text(
                                       functions.showNumberWithComma(
-                                          widget!.targetbranch),
+                                          widget!.targetbranch)!,
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
@@ -600,7 +600,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                                   8.0, 4.0, 8.0, 4.0),
                                           child: Text(
                                             functions.showNumberWithComma(
-                                                widget!.sumKEYINCSHPRCLead),
+                                                widget!.sumKEYINCSHPRCLead)!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -679,7 +679,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                                   8.0, 4.0, 8.0, 4.0),
                                           child: Text(
                                             functions.showNumberWithComma(
-                                                widget!.tAGETKEYINCSHPRC),
+                                                widget!.tAGETKEYINCSHPRC)!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -892,7 +892,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                                   8.0, 4.0, 8.0, 4.0),
                                           child: Text(
                                             functions.showNumberWithComma(
-                                                widget!.targetPremium),
+                                                widget!.targetPremium)!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -989,7 +989,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                                   8.0, 4.0, 8.0, 4.0),
                                           child: Text(
                                             functions.showNumberWithComma(
-                                                widget!.targetUnitPolicy),
+                                                widget!.targetUnitPolicy)!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -1180,7 +1180,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.ibssumPremium),
+                                              widget!.ibssumPremium)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1261,7 +1261,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.countPolicyNoAppman),
+                                              widget!.countPolicyNoAppman)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1342,7 +1342,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.totalPremiumAppman),
+                                              widget!.totalPremiumAppman)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1448,7 +1448,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.countPolicyNoMOTOR),
+                                              widget!.countPolicyNoMOTOR)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1529,7 +1529,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.totalPremiumMOTOR),
+                                              widget!.totalPremiumMOTOR)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1618,7 +1618,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             child: Text(
                                               functions.showNumberWithComma(
                                                   widget!
-                                                      .countPolicyNoMotorAppman),
+                                                      .countPolicyNoMotorAppman)!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
@@ -1706,7 +1706,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             child: Text(
                                               functions.showNumberWithComma(
                                                   widget!
-                                                      .totalPremiumMotorAppman),
+                                                      .totalPremiumMotorAppman)!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
@@ -1895,8 +1895,11 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
-                                          functions.showNumberWithComma(
-                                              widget!.totalPremiumCMI),
+                                          valueOrDefault<String>(
+                                            functions.showNumberWithComma(
+                                                widget!.totalPremiumCMI),
+                                            '-',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -2071,8 +2074,8 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
-                                          functions.showNumberWithComma(
-                                              widget!.insureSumTotalPremiumTPB),
+                                          functions.showNumberWithComma(widget!
+                                              .insureSumTotalPremiumTPB)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -2258,7 +2261,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.totalpremiumepa),
+                                              widget!.totalpremiumepa)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -2444,7 +2447,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
                                           functions.showNumberWithComma(
-                                              widget!.totalPremiumHouse),
+                                              widget!.totalPremiumHouse)!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(

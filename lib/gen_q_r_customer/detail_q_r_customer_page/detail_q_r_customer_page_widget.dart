@@ -1844,7 +1844,7 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                 Expanded(
                                                                   flex: 1,
                                                                   child: Text(
-                                                                    'ยอดหนี้ค้างชำระ',
+                                                                    'ยอดหนี้ค้างชำระ (ไม่รวมค่าติดตาม)',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium

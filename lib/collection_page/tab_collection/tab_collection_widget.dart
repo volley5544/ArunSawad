@@ -792,7 +792,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     )?.toList(),
                                                                     'การชำระปกติ'),
                                                                 '0',
-                                                              ))
+                                                              ))!
                                                             : '0',
                                                         textAlign:
                                                             TextAlign.center,
@@ -1006,7 +1006,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'OD1'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -1219,7 +1219,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'OD2'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -1432,7 +1432,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'OD3'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -1677,7 +1677,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'OD4 - OD5'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -1922,7 +1922,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'OD6 เป็นต้นไป'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -2141,7 +2141,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'ค้าง 1-3 งวด'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -2354,7 +2354,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'ค้าง 4-5 งวด'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -2567,7 +2567,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                           )?.toList(),
                                                                           'ค้าง 6 งวดขึ้นไป'),
                                                                       '0',
-                                                                    ))
+                                                                    ))!
                                                                   : '0',
                                                               textAlign:
                                                                   TextAlign
@@ -2814,7 +2814,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     )?.toList(),
                                                                     'ค้างด้วยยอดน้อยกว่า 250 บาท'),
                                                                 '0',
-                                                              ))
+                                                              ))!
                                                             : '0',
                                                         textAlign:
                                                             TextAlign.center,
@@ -3005,7 +3005,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     )?.toList(),
                                                                     'ปิดปรับ'),
                                                                 '0',
-                                                              ))
+                                                              ))!
                                                             : '0',
                                                         textAlign:
                                                             TextAlign.center,
