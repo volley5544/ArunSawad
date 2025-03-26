@@ -3360,11 +3360,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .contains(
                                                                       FFAppState()
                                                                           .profileRegion) ||
-                                                              FFAppState()
-                                                                  .impoundCarRegionCodeList
-                                                                  .contains(
-                                                                      FFAppState()
-                                                                          .profileRegion))
+                                                              (widget!.userRolePrice !=
+                                                                  'no_role'))
                                                           : false)
                                                         Padding(
                                                           padding:
