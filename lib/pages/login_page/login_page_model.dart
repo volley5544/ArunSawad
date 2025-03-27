@@ -53,6 +53,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   TextEditingController? passwordInputTextController;
   late bool passwordInputVisibility;
   String? Function(BuildContext, String?)? passwordInputTextControllerValidator;
+  // Stores action output result for [Backend Call - Read Document] action in Button widget.
+  KeyStorage2Record? keyStorage2ApiUrl;
   // Stores action output result for [Custom Action - a21] action in Button widget.
   String? userUIDguest;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.

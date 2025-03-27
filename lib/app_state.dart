@@ -10100,6 +10100,19 @@ class FFAppState extends ChangeNotifier {
   set groceryAssignUrlDocRef(DocumentReference? value) {
     _groceryAssignUrlDocRef = value;
   }
+
+  bool _isProductionNew = true;
+  bool get isProductionNew => _isProductionNew;
+  set isProductionNew(bool value) {
+    _isProductionNew = value;
+  }
+
+  DocumentReference? _keyStorage2DocRef =
+      FirebaseFirestore.instance.doc('/Key_Storage2/k0gm1VTfFnKQgocSDICS');
+  DocumentReference? get keyStorage2DocRef => _keyStorage2DocRef;
+  set keyStorage2DocRef(DocumentReference? value) {
+    _keyStorage2DocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

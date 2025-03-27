@@ -288,8 +288,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<List<KeyStorage2Record>>(
-      future: queryKeyStorage2RecordOnce(
+    return FutureBuilder<List<KeyStorageRecord>>(
+      future: queryKeyStorageRecordOnce(
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -310,14 +310,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             ),
           );
         }
-        List<KeyStorage2Record> loginPageKeyStorage2RecordList = snapshot.data!;
+        List<KeyStorageRecord> loginPageKeyStorageRecordList = snapshot.data!;
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
         }
-        final loginPageKeyStorage2Record =
-            loginPageKeyStorage2RecordList.isNotEmpty
-                ? loginPageKeyStorage2RecordList.first
+        final loginPageKeyStorageRecord =
+            loginPageKeyStorageRecordList.isNotEmpty
+                ? loginPageKeyStorageRecordList.first
                 : null;
 
         return GestureDetector(
@@ -1197,13 +1197,24 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           }
                                                                         }
                                                                       }
-                                                                      FFAppState()
-                                                                              .apiURLLocalState =
-                                                                          loginPageKeyStorage2Record!
-                                                                              .uatApiUrl;
-                                                                      FFAppState()
-                                                                          .update(
-                                                                              () {});
+                                                                      if (FFAppState()
+                                                                          .isProductionNew) {
+                                                                        FFAppState().apiURLLocalState =
+                                                                            loginPageKeyStorageRecord!.apiURL;
+                                                                        FFAppState()
+                                                                            .update(() {});
+                                                                      } else {
+                                                                        _model.keyStorage2ApiUrl =
+                                                                            await KeyStorage2Record.getDocumentOnce(FFAppState().keyStorage2DocRef!);
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        FFAppState().apiURLLocalState = _model
+                                                                            .keyStorage2ApiUrl!
+                                                                            .uatApiUrl;
+                                                                        FFAppState()
+                                                                            .update(() {});
+                                                                      }
+
                                                                       FFAppState()
                                                                               .firstLogin =
                                                                           false;
@@ -2263,7 +2274,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
-                              onTap: () async {},
+                              onTap: () async {
+                                await actions.urlLauncher(
+                                  'newibsapp://newibsapp.com',
+                                );
+                              },
                               child: Text(
                                 'Copyright ©2022.  Srisawad Corporation Plc.',
                                 style: FlutterFlowTheme.of(context)
