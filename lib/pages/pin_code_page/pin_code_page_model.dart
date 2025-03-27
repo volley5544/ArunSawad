@@ -56,6 +56,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   TextEditingController? pinCodeController;
   FocusNode? pinCodeFocusNode;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
+  // Stores action output result for [Backend Call - Read Document] action in PinCode widget.
+  KeyStorage2Record? keyStorage2ApiUrlPin;
   // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in PinCode widget.
   ApiCallResponse? getUserProfilePin;
   // Stores action output result for [Backend Call - API (getUserInsuranceLicense)] action in PinCode widget.
@@ -69,6 +71,8 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in PinCode widget.
   NotificationRecord? createInsuPageNotification;
   bool bioAuthCheck = false;
+  // Stores action output result for [Backend Call - Read Document] action in IconButton widget.
+  KeyStorage2Record? keyStorage2ApiUrlBio;
   // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in IconButton widget.
   ApiCallResponse? getUserProfileBio;
   // Stores action output result for [Backend Call - API (getUserInsuranceLicense)] action in IconButton widget.

@@ -1337,8 +1337,16 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             safeSetState(() {});
                                                                                                             FFAppState().adminEMP = columnAuthorizationRecord!.employeeIdList.toList().cast<String>();
                                                                                                             safeSetState(() {});
-                                                                                                            FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
-                                                                                                            FFAppState().update(() {});
+                                                                                                            if (FFAppState().isProductionNew) {
+                                                                                                              FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
+                                                                                                              FFAppState().update(() {});
+                                                                                                            } else {
+                                                                                                              _model.keyStorage2ApiUrlPin = await KeyStorage2Record.getDocumentOnce(FFAppState().keyStorage2DocRef!);
+                                                                                                              _shouldSetState = true;
+                                                                                                              FFAppState().apiURLLocalState = _model.keyStorage2ApiUrlPin!.uatApiUrl;
+                                                                                                              FFAppState().update(() {});
+                                                                                                            }
+
                                                                                                             if (FFAppState().isGetDataViaFirebase) {
                                                                                                               FFAppState().userNickname = columnUserProfileRecord!.nickname;
                                                                                                               FFAppState().profileFullName = columnUserProfileRecord!.fullname;
@@ -1987,8 +1995,16 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           safeSetState(() {});
                                                                                                           FFAppState().adminEMP = columnAuthorizationRecord!.employeeIdList.toList().cast<String>();
                                                                                                           safeSetState(() {});
-                                                                                                          FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
-                                                                                                          FFAppState().update(() {});
+                                                                                                          if (FFAppState().isProductionNew) {
+                                                                                                            FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
+                                                                                                            FFAppState().update(() {});
+                                                                                                          } else {
+                                                                                                            _model.keyStorage2ApiUrlBio = await KeyStorage2Record.getDocumentOnce(FFAppState().keyStorage2DocRef!);
+                                                                                                            _shouldSetState = true;
+                                                                                                            FFAppState().apiURLLocalState = _model.keyStorage2ApiUrlBio!.uatApiUrl;
+                                                                                                            FFAppState().update(() {});
+                                                                                                          }
+
                                                                                                           if (FFAppState().isGetDataViaFirebase) {
                                                                                                             FFAppState().userNickname = columnUserProfileRecord!.nickname;
                                                                                                             FFAppState().profileFullName = columnUserProfileRecord!.fullname;
