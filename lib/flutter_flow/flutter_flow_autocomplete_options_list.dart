@@ -36,7 +36,9 @@ class AutocompleteOptionsList extends StatelessWidget {
         textFieldKey.currentContext!.findRenderObject() as RenderBox;
     final textFieldWidth = textFieldBox.size.width;
     return Align(
-      alignment: Alignment.topLeft,
+      alignment: Directionality.of(context) == TextDirection.rtl
+          ? Alignment.topRight
+          : Alignment.topLeft,
       child: Material(
         elevation: elevation,
         child: ConstrainedBox(

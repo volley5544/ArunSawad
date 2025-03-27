@@ -215,6 +215,29 @@ class _ImpoundCarPriceInputComponentWidgetState
                     child: FFButtonWidget(
                       onPressed: () async {
                         var _shouldSetState = false;
+                        if (!(_model.priceTextfieldTextController.text !=
+                                null &&
+                            _model.priceTextfieldTextController.text != '')) {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                child: AlertDialog(
+                                  content: Text('กรุณากรอกราคา'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                          if (_shouldSetState) safeSetState(() {});
+                          return;
+                        }
                         _model.updatePriceApiOutput =
                             await UploadImagesGoogleDriveGroup
                                 .updateImproundCarCall

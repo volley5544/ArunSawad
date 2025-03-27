@@ -156,7 +156,7 @@ final parametersBuilderMap =
   'NotificationDetailPage': ParameterData.none(),
   'MyProfilePage': ParameterData.none(),
   'LeadNotiPage': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'CollectionPage': (data) async => ParameterData(
         allParams: {
@@ -754,7 +754,7 @@ final parametersBuilderMap =
   'SearchEmployeePage': ParameterData.none(),
   'SearchEmployeePage2': ParameterData.none(),
   'searchableemp': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'RemarkTypeDPage': (data) async => ParameterData(
         allParams: {
@@ -769,7 +769,7 @@ final parametersBuilderMap =
         },
       ),
   'LeadNotiNewPage': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'WebviewNewPageCopy': (data) async => ParameterData(
         allParams: {

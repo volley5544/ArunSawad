@@ -1260,8 +1260,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
-                                          functions.showNumberWithComma(
-                                              widget!.countPolicyNoAppman)!,
+                                          '${widget!.countPolicyNoAppman}',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1447,8 +1446,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Text(
-                                          functions.showNumberWithComma(
-                                              widget!.countPolicyNoMOTOR)!,
+                                          '${widget!.countPolicyNoMOTOR}',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -1616,9 +1614,7 @@ class _IbsPageComponentWidgetState extends State<IbsPageComponentWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 4.0, 8.0, 4.0),
                                             child: Text(
-                                              functions.showNumberWithComma(
-                                                  widget!
-                                                      .countPolicyNoMotorAppman)!,
+                                              '${widget!.countPolicyNoMotorAppman}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
