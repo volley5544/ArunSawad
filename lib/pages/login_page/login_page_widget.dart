@@ -2276,7 +2276,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 await actions.urlLauncher(
-                                  'newibsapp://newibsapp.com',
+                                  'https://prd-proxy.swpfin.com:8098/srisawad-app/downloads',
                                 );
                               },
                               child: Text(
