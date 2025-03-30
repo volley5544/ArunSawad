@@ -2274,10 +2274,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
-                              onTap: () async {
-                                await launchURL(
-                                    'https://prd-proxy.swpfin.com:8098/srisawad-app/downloads');
-                              },
+                              onTap: () async {},
                               child: Text(
                                 'Copyright ©2022.  Srisawad Corporation Plc.',
                                 style: FlutterFlowTheme.of(context)
