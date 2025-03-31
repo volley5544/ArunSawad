@@ -1895,49 +1895,12 @@ String showCoverTypeThai(String? coverTypeEng) {
 }
 
 String? showNumberWithComma(String? number) {
-  List<String> numberSplit = number!.split('.');
-  // Check if the input is null or empty
-  if (number == null || number.isEmpty) {
-    return '';
-  }
-  if (double.tryParse(number!) == null) {
-    return number!;
-  }
+  RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+  String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
-  double? parsedNumber = 0.00;
-  if (number.contains('.')) {
-    if (numberSplit[1].length > 1) {
-      parsedNumber = double.tryParse(
-          '${numberSplit[0]}.${numberSplit[1][0]}${numberSplit[1][1]}');
-    } else {
-      parsedNumber = double.tryParse('${numberSplit[0]}.${numberSplit[1]}0');
-    }
-  } else {
-    parsedNumber = double.tryParse(number + '.00');
-  }
+  String result = '$number'.replaceAllMapped(reg, mathFunc);
 
-  // Parse the input string to a double
-
-  // Check if parsing was successful
-  if (parsedNumber == null) {
-    return '';
-  }
-
-  // Format the double as a string with two decimal places
-  if (parsedNumber != null) {
-    // Format the number with two decimal places
-    String formattedNumber = parsedNumber.toStringAsFixed(2);
-
-    // Use regular expression to add commas
-    RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
-    String Function(Match) mathFunc = (Match match) => '${match[1]},';
-
-    // Format the number with commas and print
-    String result = formattedNumber.replaceAllMapped(reg, mathFunc);
-    return result;
-  } else {
-    print("Failed to parse number.");
-  }
+  return result;
 }
 
 String checkNullVariable(List<String>? checkInStatusList) {
