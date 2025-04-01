@@ -2351,17 +2351,19 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                   ),
                                                 Builder(
                                                   builder: (context) {
-                                                    if (functions.containsValueInJsonList(
-                                                            functions.getDataFromMapJson(
-                                                                functions.getDataFromMapJson(
+                                                    if (!functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions
+                                                                .getDataFromMapJson(
                                                                     widget!
                                                                         .saveAccessRoleData,
                                                                     widget!
                                                                         .step),
-                                                                'cannot_save_pic_status'),
-                                                            FFAppState()
-                                                                .profileLevel) ??
-                                                        false) {
+                                                            'cannot_save_pic_status'),
+                                                        FFAppState()
+                                                            .impoundCarStatusName
+                                                            .elementAtOrNull(
+                                                                listImproundIndex))!) {
                                                       return Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
