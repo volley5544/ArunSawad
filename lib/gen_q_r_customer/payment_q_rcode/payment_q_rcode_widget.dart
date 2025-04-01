@@ -355,7 +355,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  'ค่าติดตาม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount?.toString())}',
+                                                  'ค่าติดตาม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.sum624)}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
