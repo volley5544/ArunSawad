@@ -304,8 +304,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                             widget!.dataPayment
                                                                 ?.ref2,
                                                             widget!.dataPayment
-                                                                ?.amount
-                                                                ?.toString(),
+                                                                ?.amount,
                                                             widget!.dataPayment
                                                                 ?.taxid)!,
                                                     barcode: Barcode.qrCode(),
@@ -334,7 +333,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'ค่างวดค้าง: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amountBefore?.toString())}',
+                                                    'ค่างวดค้าง: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amountBefore)}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -376,7 +375,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  'รวม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount?.toString())}',
+                                                  'รวม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount)}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium

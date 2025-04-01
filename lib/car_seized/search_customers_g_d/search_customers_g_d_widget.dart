@@ -3324,7 +3324,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       color: Color(
                                                                           0xFFFF0000),
                                                                       fontSize:
-                                                                          150.0,
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
