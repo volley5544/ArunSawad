@@ -2379,15 +2379,15 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                         listCardItem,
                                                                         r'''$.NAME2''',
                                                                       ).toString(),
-                                                                      sumCurrentdueamt:
-                                                                          getJsonField(
-                                                                        listCardItem,
-                                                                        r'''$.SUM_CURRENTDUEAMT''',
-                                                                      ).toString(),
                                                                       token: FFAppState()
                                                                           .accessToken,
                                                                       apiUrl: FFAppState()
                                                                           .apiURLLocalState,
+                                                                      expAmt:
+                                                                          getJsonField(
+                                                                        listCardItem,
+                                                                        r'''$.EXP_AMT''',
+                                                                      ).toString(),
                                                                     );
 
                                                                     _shouldSetState =

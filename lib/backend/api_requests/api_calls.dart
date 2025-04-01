@@ -12482,9 +12482,11 @@ class PaymentQrGenCall {
     String? sumCurrentdueamt = '',
     String? token = '',
     String? apiUrl = '',
+    String? expAmt = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"EXP_AMT":"${escapeStringForJson(expAmt)}",
   "DBNAME": "${escapeStringForJson(dbname)}",
   "COMCODE": "${escapeStringForJson(comcode)}",
   "CONTNO": "${escapeStringForJson(contno)}",
