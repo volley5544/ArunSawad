@@ -16,6 +16,9 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
     int? amount,
     String? ref1,
     String? ref2,
+    int? amountBefore,
+    String? sum624,
+    String? pay624,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _prefix = prefix,
         _suffix = suffix,
@@ -23,6 +26,9 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
         _amount = amount,
         _ref1 = ref1,
         _ref2 = ref2,
+        _amountBefore = amountBefore,
+        _sum624 = sum624,
+        _pay624 = pay624,
         super(firestoreUtilData);
 
   // "prefix" field.
@@ -69,6 +75,30 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
 
   bool hasRef2() => _ref2 != null;
 
+  // "amount_before" field.
+  int? _amountBefore;
+  int get amountBefore => _amountBefore ?? 0;
+  set amountBefore(int? val) => _amountBefore = val;
+
+  void incrementAmountBefore(int amount) =>
+      amountBefore = amountBefore + amount;
+
+  bool hasAmountBefore() => _amountBefore != null;
+
+  // "sum_624" field.
+  String? _sum624;
+  String get sum624 => _sum624 ?? '';
+  set sum624(String? val) => _sum624 = val;
+
+  bool hasSum624() => _sum624 != null;
+
+  // "pay_624" field.
+  String? _pay624;
+  String get pay624 => _pay624 ?? '';
+  set pay624(String? val) => _pay624 = val;
+
+  bool hasPay624() => _pay624 != null;
+
   static DataPaymentQrCodeStruct fromMap(Map<String, dynamic> data) =>
       DataPaymentQrCodeStruct(
         prefix: data['prefix'] as String?,
@@ -77,6 +107,9 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
         amount: castToType<int>(data['amount']),
         ref1: data['ref1'] as String?,
         ref2: data['ref2'] as String?,
+        amountBefore: castToType<int>(data['amount_before']),
+        sum624: data['sum_624'] as String?,
+        pay624: data['pay_624'] as String?,
       );
 
   static DataPaymentQrCodeStruct? maybeFromMap(dynamic data) => data is Map
@@ -90,6 +123,9 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
         'amount': _amount,
         'ref1': _ref1,
         'ref2': _ref2,
+        'amount_before': _amountBefore,
+        'sum_624': _sum624,
+        'pay_624': _pay624,
       }.withoutNulls;
 
   @override
@@ -116,6 +152,18 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
         ),
         'ref2': serializeParam(
           _ref2,
+          ParamType.String,
+        ),
+        'amount_before': serializeParam(
+          _amountBefore,
+          ParamType.int,
+        ),
+        'sum_624': serializeParam(
+          _sum624,
+          ParamType.String,
+        ),
+        'pay_624': serializeParam(
+          _pay624,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -153,6 +201,21 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        amountBefore: deserializeParam(
+          data['amount_before'],
+          ParamType.int,
+          false,
+        ),
+        sum624: deserializeParam(
+          data['sum_624'],
+          ParamType.String,
+          false,
+        ),
+        pay624: deserializeParam(
+          data['pay_624'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -166,12 +229,24 @@ class DataPaymentQrCodeStruct extends FFFirebaseStruct {
         taxid == other.taxid &&
         amount == other.amount &&
         ref1 == other.ref1 &&
-        ref2 == other.ref2;
+        ref2 == other.ref2 &&
+        amountBefore == other.amountBefore &&
+        sum624 == other.sum624 &&
+        pay624 == other.pay624;
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([prefix, suffix, taxid, amount, ref1, ref2]);
+  int get hashCode => const ListEquality().hash([
+        prefix,
+        suffix,
+        taxid,
+        amount,
+        ref1,
+        ref2,
+        amountBefore,
+        sum624,
+        pay624
+      ]);
 }
 
 DataPaymentQrCodeStruct createDataPaymentQrCodeStruct({
@@ -181,6 +256,9 @@ DataPaymentQrCodeStruct createDataPaymentQrCodeStruct({
   int? amount,
   String? ref1,
   String? ref2,
+  int? amountBefore,
+  String? sum624,
+  String? pay624,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -193,6 +271,9 @@ DataPaymentQrCodeStruct createDataPaymentQrCodeStruct({
       amount: amount,
       ref1: ref1,
       ref2: ref2,
+      amountBefore: amountBefore,
+      sum624: sum624,
+      pay624: pay624,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

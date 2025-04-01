@@ -334,7 +334,7 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Text(
-                                                    '฿ ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount?.toString())}',
+                                                    'ค่างวดค้าง: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amountBefore?.toString())}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -343,12 +343,54 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          fontSize: 18.0,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
                                                   ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  'ค่าติดตาม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount?.toString())}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  'รวม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount?.toString())}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
                                                 ),
                                               ),
                                               Align(
