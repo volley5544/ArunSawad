@@ -502,7 +502,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Text(
-                                                    'Survey',
+                                                    'เดินตลาด',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1424,7 +1424,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   _model
                                                                       .subChannelFilterList,
                                                               filterTitle:
-                                                                  'เลือกฟิลเตอร์',
+                                                                  'กรองข้อมูล',
                                                               filterNameList2:
                                                                   _model
                                                                       .assetTypeFilterList,
@@ -1432,7 +1432,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                   _model
                                                                       .assetTypeFilterList,
                                                               filter1Name:
-                                                                  'Sub Channel',
+                                                                  'ที่มาของลูกค้า',
                                                               filter2Name:
                                                                   'ประเภททรัพย์',
                                                               currentFilter1: _model
@@ -1599,7 +1599,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         0.0,
                                                                         10.0),
                                                             child: Text(
-                                                              'Sub-Channel',
+                                                              'ที่มาของลูกค้า',
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,

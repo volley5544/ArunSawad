@@ -2236,6 +2236,607 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             context)
                                                                         .width <
                                                                     kBreakpointSmall) {
+                                                                  return 180.0;
+                                                                } else if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointMedium) {
+                                                                  return 300.0;
+                                                                } else if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointLarge) {
+                                                                  return 300.0;
+                                                                } else {
+                                                                  return 300.0;
+                                                                }
+                                                              }(),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                boxShadow: [
+                                                                  BoxShadow(
+                                                                    blurRadius:
+                                                                        4.0,
+                                                                    color: Color(
+                                                                        0x33000000),
+                                                                    offset:
+                                                                        Offset(
+                                                                      0.0,
+                                                                      2.0,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            24.0,
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        unawaited(
+                                                                          () async {}(),
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        'ทางลัดสำหรับคนขี้เกียจ',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: () {
+                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                  return 20.0;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                  return 32.0;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                  return 32.0;
+                                                                                } else {
+                                                                                  return 32.0;
+                                                                                }
+                                                                              }(),
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Divider(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .grayIcon,
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          12.0,
+                                                                          18.0,
+                                                                          12.0,
+                                                                          10.0),
+                                                                      child: FutureBuilder<
+                                                                          List<
+                                                                              RoleMenuRecord>>(
+                                                                        future:
+                                                                            queryRoleMenuRecordOnce(
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                child: CircularProgressIndicator(
+                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                    FlutterFlowTheme.of(context).tertiary,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          List<RoleMenuRecord>
+                                                                              gridViewRoleMenuRecordList =
+                                                                              snapshot.data!;
+                                                                          // Return an empty Container when the item does not exist.
+                                                                          if (snapshot
+                                                                              .data!
+                                                                              .isEmpty) {
+                                                                            return Container();
+                                                                          }
+                                                                          final gridViewRoleMenuRecord = gridViewRoleMenuRecordList.isNotEmpty
+                                                                              ? gridViewRoleMenuRecordList.first
+                                                                              : null;
+
+                                                                          return GridView(
+                                                                            padding:
+                                                                                EdgeInsets.zero,
+                                                                            gridDelegate:
+                                                                                SliverGridDelegateWithFixedCrossAxisCount(
+                                                                              crossAxisCount: 1,
+                                                                              mainAxisSpacing: 5.0,
+                                                                              childAspectRatio: () {
+                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                  return 1.0;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                  return 1.2;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                  return 1.2;
+                                                                                } else {
+                                                                                  return 1.2;
+                                                                                }
+                                                                              }(),
+                                                                            ),
+                                                                            shrinkWrap:
+                                                                                true,
+                                                                            scrollDirection:
+                                                                                Axis.horizontal,
+                                                                            children: [
+                                                                              InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                    return;
+                                                                                  }
+                                                                                  await launchURL('newibsapp://newibsapp.com');
+                                                                                },
+                                                                                child: Container(
+                                                                                  width: 100.0,
+                                                                                  height: 100.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(8.0),
+                                                                                        child: Image.asset(
+                                                                                          'assets/images/PrakunTunjai-icon_(12).jpg',
+                                                                                          width: () {
+                                                                                            if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                              return 50.0;
+                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                              return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                              return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                            } else {
+                                                                                              return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                            }
+                                                                                          }(),
+                                                                                          height: () {
+                                                                                            if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                              return 50.0;
+                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                              return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                            } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                              return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                            } else {
+                                                                                              return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                            }
+                                                                                          }(),
+                                                                                          fit: BoxFit.cover,
+                                                                                        ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                            0.0,
+                                                                                            valueOrDefault<double>(
+                                                                                              () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 4.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return 10.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return 10.0;
+                                                                                                } else {
+                                                                                                  return 10.0;
+                                                                                                }
+                                                                                              }(),
+                                                                                              0.0,
+                                                                                            ),
+                                                                                            0.0,
+                                                                                            0.0),
+                                                                                        child: Text(
+                                                                                          'ประกันทันใจ',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                    return;
+                                                                                  }
+                                                                                  await launchURL('newibsapp://newibsapp.com');
+                                                                                },
+                                                                                child: Container(
+                                                                                  width: 100.0,
+                                                                                  height: 100.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: () {
+                                                                                          if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                            return 50.0;
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          }
+                                                                                        }(),
+                                                                                        height: () {
+                                                                                          if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                            return 50.0;
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          }
+                                                                                        }(),
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                        ),
+                                                                                        child: ClipRRect(
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                          child: Image.asset(
+                                                                                            'assets/images/ArunSawad.png',
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            fit: BoxFit.cover,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                            0.0,
+                                                                                            valueOrDefault<double>(
+                                                                                              () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 4.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return 10.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return 10.0;
+                                                                                                } else {
+                                                                                                  return 10.0;
+                                                                                                }
+                                                                                              }(),
+                                                                                              0.0,
+                                                                                            ),
+                                                                                            0.0,
+                                                                                            0.0),
+                                                                                        child: Text(
+                                                                                          'Morning TH',
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
+                                                                                    Navigator.pop(context);
+
+                                                                                    context.goNamed(PinCodePageWidget.routeName);
+
+                                                                                    return;
+                                                                                  }
+                                                                                  await launchURL('newibsapp://newibsapp.com');
+                                                                                },
+                                                                                child: Container(
+                                                                                  width: 100.0,
+                                                                                  height: 100.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: () {
+                                                                                          if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                            return 50.0;
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          }
+                                                                                        }(),
+                                                                                        height: () {
+                                                                                          if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                            return 50.0;
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          } else {
+                                                                                            return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                          }
+                                                                                        }(),
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                        ),
+                                                                                        child: ClipRRect(
+                                                                                          borderRadius: BorderRadius.circular(8.0),
+                                                                                          child: Image.asset(
+                                                                                            'assets/images/Icon-App-1024x1024@1x.png',
+                                                                                            width: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            height: () {
+                                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                return 50.0;
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              } else {
+                                                                                                return (MediaQuery.sizeOf(context).width * 0.1);
+                                                                                              }
+                                                                                            }(),
+                                                                                            fit: BoxFit.cover,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                            0.0,
+                                                                                            valueOrDefault<double>(
+                                                                                              () {
+                                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                  return 4.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                  return 10.0;
+                                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                  return 10.0;
+                                                                                                } else {
+                                                                                                  return 10.0;
+                                                                                                }
+                                                                                              }(),
+                                                                                              0.0,
+                                                                                            ),
+                                                                                            0.0,
+                                                                                            0.0),
+                                                                                        child: Text(
+                                                                                          'ศรีสวัสดิ์\nเงินสดทันใจ',
+                                                                                          textAlign: TextAlign.center,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                fontSize: () {
+                                                                                                  if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                                    return 12.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                                    return 20.0;
+                                                                                                  } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                                    return 20.0;
+                                                                                                  } else {
+                                                                                                    return 20.0;
+                                                                                                  }
+                                                                                                }(),
+                                                                                                letterSpacing: 0.0,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    12.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: FutureBuilder<
+                                                            List<
+                                                                UserCustomRecord>>(
+                                                          future:
+                                                              queryUserCustomRecordOnce(
+                                                            queryBuilder:
+                                                                (userCustomRecord) =>
+                                                                    userCustomRecord
+                                                                        .where(
+                                                              'employee_id',
+                                                              isEqualTo: FFAppState()
+                                                                          .employeeID !=
+                                                                      ''
+                                                                  ? FFAppState()
+                                                                      .employeeID
+                                                                  : null,
+                                                            ),
+                                                            singleRecord: true,
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 50.0,
+                                                                  height: 50.0,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    valueColor:
+                                                                        AlwaysStoppedAnimation<
+                                                                            Color>(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }
+                                                            List<UserCustomRecord>
+                                                                containerUserCustomRecordList =
+                                                                snapshot.data!;
+                                                            // Return an empty Container when the item does not exist.
+                                                            if (snapshot.data!
+                                                                .isEmpty) {
+                                                              return Container();
+                                                            }
+                                                            final containerUserCustomRecord =
+                                                                containerUserCustomRecordList
+                                                                        .isNotEmpty
+                                                                    ? containerUserCustomRecordList
+                                                                        .first
+                                                                    : null;
+
+                                                            return Container(
+                                                              width: double
+                                                                  .infinity,
+                                                              height: () {
+                                                                if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointSmall) {
                                                                   return 300.0;
                                                                 } else if (MediaQuery.sizeOf(
                                                                             context)

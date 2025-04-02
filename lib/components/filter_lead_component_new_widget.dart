@@ -297,7 +297,7 @@ class _FilterLeadComponentNewWidgetState
                         'filter2Value': _model.filterDropdown2Value,
                       });
                     },
-                    text: 'ฟิลเตอร์',
+                    text: 'ตกลง',
                     options: FFButtonOptions(
                       width: 200.0,
                       height: 50.0,

@@ -495,6 +495,18 @@ class _NotificationDetailPageWidgetState
                                                 safeSetState(() {});
                                               return;
                                             }
+                                            if (listViewNotificationRecord
+                                                    .notiType ==
+                                                'open_app') {
+                                              await launchURL(functions
+                                                  .getStringFromJsonString(
+                                                      listViewNotificationRecord
+                                                          .notiData,
+                                                      'app_url')!);
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
                                           }
 
                                           if (_shouldSetState)
