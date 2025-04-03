@@ -792,19 +792,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 .toList()
                                                 .cast<String>();
                                         FFAppState().impoundCarStatusCode =
-                                            functions
-                                                .generateEmptyListByLength(
-                                                    FFAppState()
-                                                        .improundCONTNO
-                                                        .length)!
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .statuscode(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
                                                 .toList()
                                                 .cast<String>();
                                         FFAppState().impoundCarStatusName =
-                                            functions
-                                                .generateEmptyListByLength(
-                                                    FFAppState()
-                                                        .improundCONTNO
-                                                        .length)!
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .statusname(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
                                                 .toList()
                                                 .cast<String>();
                                         FFAppState().ImpoundCarBranchCode =
