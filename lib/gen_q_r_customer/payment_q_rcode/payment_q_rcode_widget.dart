@@ -331,9 +331,9 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 12.0, 0.0, 0.0),
+                                                          0.0, 10.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'ค่างวดค้าง: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amountBefore)}',
+                                                    'ยอดที่ต้องชำระ: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount)}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -348,48 +348,6 @@ class _PaymentQRcodeWidgetState extends State<PaymentQRcodeWidget> {
                                                               FontWeight.bold,
                                                         ),
                                                   ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  'ค่าติดตาม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.sum624)}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  'รวม: ${functions.showNumberWithCommaWithDot(widget!.dataPayment?.amount)}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
                                                 ),
                                               ),
                                               Align(
