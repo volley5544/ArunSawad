@@ -174,6 +174,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'SuperAppPage': SuperAppPageWidget(),
+      'ChatHomePage': ChatHomePageWidget(),
       'MyProfilePage': MyProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -203,6 +204,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 30.0,
             ),
             label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.chat_outlined,
+              size: 24.0,
+            ),
+            activeIcon: Icon(
+              Icons.chat,
+              size: 24.0,
+            ),
+            label: 'Chat',
             tooltip: '',
           ),
           BottomNavigationBarItem(
