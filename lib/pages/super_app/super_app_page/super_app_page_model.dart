@@ -149,6 +149,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryOpenMorningthUrl;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryOpenSrisawadMobileUrl;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginLeavePage;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.

@@ -83,7 +83,7 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().improundUrl = false
+      FFAppState().improundUrl = !FFAppState().isProductionNew
           ? 'https://dev.swpfin.com:7077'
           : _model.urlLinkStorage!.urlLink;
       safeSetState(() {});
@@ -94,10 +94,10 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().impoundUrlVloan = false
+      FFAppState().impoundUrlVloan = !FFAppState().isProductionNew
           ? 'https://is-dev.swpfin.com/ssw_survey'
           : _model.urlLinkStorageVloan!.urlLink;
-      FFAppState().impoundUrlVloanToken = false
+      FFAppState().impoundUrlVloanToken = !FFAppState().isProductionNew
           ? 'xhJfdKPYnhicbDsC8YpPiOSyoA3ugBGqVXE1Bf9Ufnk=%'
           : _model.urlLinkStorageVloan!.urlToken;
       safeSetState(() {});

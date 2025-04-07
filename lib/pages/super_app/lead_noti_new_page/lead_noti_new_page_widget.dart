@@ -640,7 +640,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Text(
-                                                    'Telesale',
+                                                    'เทเล',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -782,7 +782,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Text(
-                                                    'Agent',
+                                                    'ตัวแทน',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -924,7 +924,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Text(
-                                                    'Truck',
+                                                    'รถบรรทุก',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)

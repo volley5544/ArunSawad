@@ -2311,7 +2311,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       },
                                                                       child:
                                                                           Text(
-                                                                        'ทางลัดสำหรับคนขี้เกียจ',
+                                                                        'ทางลัด',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -2510,15 +2510,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
+                                                                                  var _shouldSetState = false;
                                                                                   HapticFeedback.mediumImpact();
                                                                                   if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                     Navigator.pop(context);
 
                                                                                     context.goNamed(PinCodePageWidget.routeName);
 
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  await launchURL('newibsapp://newibsapp.com');
+                                                                                  _model.queryOpenMorningthUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().launchMorningthUrlDocRef!);
+                                                                                  _shouldSetState = true;
+                                                                                  await launchURL(_model.queryOpenMorningthUrl!.urlLink);
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 100.0,
@@ -2634,15 +2639,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
+                                                                                  var _shouldSetState = false;
                                                                                   HapticFeedback.mediumImpact();
                                                                                   if (!(FFAppState().isFromAuthenPage || FFAppState().isFromSetPinPage)) {
                                                                                     Navigator.pop(context);
 
                                                                                     context.goNamed(PinCodePageWidget.routeName);
 
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  await launchURL('newibsapp://newibsapp.com');
+                                                                                  _model.queryOpenSrisawadMobileUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().launchSrisawadMobileUrlDocRef!);
+                                                                                  _shouldSetState = true;
+                                                                                  await launchURL(_model.queryOpenSrisawadMobileUrl!.urlLink);
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 child: Container(
                                                                                   width: 100.0,
@@ -4078,7 +4088,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           );
 
                                                                                           _shouldSetState = true;
-                                                                                          _model.queryGroceryAssignUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().groceryAssignUrlDocRef!);
+                                                                                          _model.queryGroceryAssignUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().groceryAssignUrlDocRef! : FFAppState().groceryAssignUatDocRef!);
                                                                                           _shouldSetState = true;
                                                                                           Navigator.pop(context);
 
@@ -4162,7 +4172,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
 
-                                                                                    _model.queryGroceryAssignUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().groceryAssignUrlDocRef!);
+                                                                                    _model.queryGroceryAssignUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().groceryAssignUrlDocRef! : FFAppState().groceryAssignUatDocRef!);
                                                                                     _shouldSetState = true;
                                                                                     Navigator.pop(context);
 
@@ -4294,7 +4304,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
 
-                                                                                    _model.queryLandAndHouseArunsawadUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseArunsawadDocRef!);
+                                                                                    _model.queryLandAndHouseArunsawadUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().landAndHouseArunsawadDocRef! : FFAppState().landAndHouseArunsawadUatDocRef!);
                                                                                     _shouldSetState = true;
                                                                                     Navigator.pop(context);
 
@@ -4571,7 +4581,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                           );
 
                                                                                           _shouldSetState = true;
-                                                                                          _model.queryLandAndHouseUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseUrlDocRef!);
+                                                                                          _model.queryLandAndHouseUrlTester = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().landAndHouseUrlDocRef! : FFAppState().landAndHouseAssignUatDocRef!);
                                                                                           _shouldSetState = true;
                                                                                           Navigator.pop(context);
 
@@ -4655,7 +4665,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
 
-                                                                                    _model.queryLandAndHouseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().landAndHouseUrlDocRef!);
+                                                                                    _model.queryLandAndHouseUrl = await UrlLinkStorageRecord.getDocumentOnce(FFAppState().isProductionNew ? FFAppState().landAndHouseUrlDocRef! : FFAppState().landAndHouseAssignUatDocRef!);
                                                                                     _shouldSetState = true;
                                                                                     Navigator.pop(context);
 
@@ -6308,11 +6318,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                               FFAppState().isOpenAndroidTableauBrowser,
                                                                                             );
                                                                                           } else {
-                                                                                            await actions.openTableauBrowser(
-                                                                                              FFAppState().accessToken,
-                                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.lastOrNull}',
-                                                                                              FFAppState().isOpenAndroidTableauBrowser,
-                                                                                            );
+                                                                                            if (functions.containsValueInSpecificDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'HR-Hub')!) {
+                                                                                              await actions.openTableauBrowser(
+                                                                                                FFAppState().accessToken,
+                                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.elementAtOrNull(2)}',
+                                                                                                FFAppState().isOpenAndroidTableauBrowser,
+                                                                                              );
+                                                                                            } else {
+                                                                                              await actions.openTableauBrowser(
+                                                                                                FFAppState().accessToken,
+                                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageZUVQuery?.reportUrl?.lastOrNull}',
+                                                                                                FFAppState().isOpenAndroidTableauBrowser,
+                                                                                              );
+                                                                                            }
                                                                                           }
                                                                                         }
 

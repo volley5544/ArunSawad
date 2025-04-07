@@ -10113,6 +10113,52 @@ class FFAppState extends ChangeNotifier {
   set keyStorage2DocRef(DocumentReference? value) {
     _keyStorage2DocRef = value;
   }
+
+  DocumentReference? _launchMorningthUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/BNjHHNCLdDIvChV9UvvG');
+  DocumentReference? get launchMorningthUrlDocRef => _launchMorningthUrlDocRef;
+  set launchMorningthUrlDocRef(DocumentReference? value) {
+    _launchMorningthUrlDocRef = value;
+  }
+
+  DocumentReference? _launchSrisawadMobileUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/GGbio4ugv3YPE6ksCAsM');
+  DocumentReference? get launchSrisawadMobileUrlDocRef =>
+      _launchSrisawadMobileUrlDocRef;
+  set launchSrisawadMobileUrlDocRef(DocumentReference? value) {
+    _launchSrisawadMobileUrlDocRef = value;
+  }
+
+  DocumentReference? _groceryAssignUatDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/CrlNjXWOSO8sWGBqxOiU');
+  DocumentReference? get groceryAssignUatDocRef => _groceryAssignUatDocRef;
+  set groceryAssignUatDocRef(DocumentReference? value) {
+    _groceryAssignUatDocRef = value;
+  }
+
+  DocumentReference? _landAndHouseArunsawadUatDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/aM34glNZixQJkogGm2cz');
+  DocumentReference? get landAndHouseArunsawadUatDocRef =>
+      _landAndHouseArunsawadUatDocRef;
+  set landAndHouseArunsawadUatDocRef(DocumentReference? value) {
+    _landAndHouseArunsawadUatDocRef = value;
+  }
+
+  DocumentReference? _landAndHouseAssignUatDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/PXHFwfzyUXnGT4ofSS2Z');
+  DocumentReference? get landAndHouseAssignUatDocRef =>
+      _landAndHouseAssignUatDocRef;
+  set landAndHouseAssignUatDocRef(DocumentReference? value) {
+    _landAndHouseAssignUatDocRef = value;
+  }
+
+  DocumentReference? _branchViewCollectionApiUrlUatDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/dkX3Qp0K7tDOrwkt1EBq');
+  DocumentReference? get branchViewCollectionApiUrlUatDocRef =>
+      _branchViewCollectionApiUrlUatDocRef;
+  set branchViewCollectionApiUrlUatDocRef(DocumentReference? value) {
+    _branchViewCollectionApiUrlUatDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

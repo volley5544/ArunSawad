@@ -1005,6 +1005,22 @@ String profileServiceDuration(
   return text;
 }
 
+bool? containsValueInSpecificDataTypeList(
+  List<AdminRoleGroupStruct>? dataTypeList,
+  String? value,
+  String? roleName,
+) {
+  for (int i = 0; i < dataTypeList!.length; i++) {
+    if (roleName! == dataTypeList![i].groupName) {
+      if (dataTypeList![i].employeeId.contains(value!)) {
+        return true;
+      }
+      return false;
+    }
+  }
+  return false;
+}
+
 String profileShowNickName(String? nickname) {
   // Add your function code here!
 

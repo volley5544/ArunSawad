@@ -1,5 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -13,6 +15,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'tab_collection_widget.dart' show TabCollectionWidget;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -24,6 +27,8 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Read Document] action in tabCollection widget.
+  UrlLinkStorageRecord? queryBranchViewApiUrlUat;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCount)] action in tabCollection widget.
   ApiCallResponse? collectionApiGetdataCount;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCountPP)] action in tabCollection widget.

@@ -10206,8 +10206,9 @@ class _CustomerCarDeailsStep4WidgetState
                               await UploadImagesGoogleDriveGroup
                                   .uploadGoogleDriveAPICall
                                   .call(
-                            projectName:
-                                false ? 'impound_car_dev_test' : 'impound_car',
+                            projectName: !FFAppState().isProductionNew
+                                ? 'impound_car_dev_test'
+                                : 'impound_car',
                             contractNumber:
                                 '${widget!.impoundCarParamSet?.improundCONTNO}',
                             step: widget!.step,
