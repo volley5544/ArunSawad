@@ -18,6 +18,12 @@ String getUserLocation(LatLng? userLocation) {
   return userLatLng;
 }
 
+List<DocumentReference>? generateUserRefList(DocumentReference? myUserDocRef) {
+  List<DocumentReference> userDocRefListOutput = [myUserDocRef!];
+
+  return userDocRefListOutput;
+}
+
 List<dynamic>? updateActionSave(
   List<dynamic>? jsonList,
   String? leadId,
@@ -5031,4 +5037,41 @@ dynamic returnLeadByField(
     }
   }
   return output;
+}
+
+int? getIndexOfUserCustomDocRef(
+  List<DocumentReference>? userDocRefList,
+  DocumentReference? userDocRef,
+) {
+  return userDocRefList!.indexOf(userDocRef!);
+}
+
+bool? checkListStringIsEquivalent(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+) {
+  return ListEquality().equals(somethingList1!, somethingList2!);
+}
+
+List<DocumentReference>? generateUserRefChatRoom(
+  DocumentReference? myUserDocRef,
+  DocumentReference? targetUserDocRef,
+) {
+  List<DocumentReference> userDocRefListOutput = [
+    myUserDocRef!,
+    targetUserDocRef!
+  ];
+
+  return userDocRefListOutput;
+}
+
+List<String>? listStringToImgPathList(List<String>? somethingList) {
+  return somethingList!;
+}
+
+List<DocumentReference>? generateChatRoomDocRefList(
+    DocumentReference? chatRoomDocRef) {
+  List<DocumentReference> chatRoomDocRefList = [chatRoomDocRef!];
+
+  return chatRoomDocRefList;
 }

@@ -41,12 +41,24 @@ class UserCustomRecord extends FirestoreRecord {
   String get employeeId => _employeeId ?? '';
   bool hasEmployeeId() => _employeeId != null;
 
+  // "fcm_token" field.
+  String? _fcmToken;
+  String get fcmToken => _fcmToken ?? '';
+  bool hasFcmToken() => _fcmToken != null;
+
+  // "sawad_chat_room_ref" field.
+  List<DocumentReference>? _sawadChatRoomRef;
+  List<DocumentReference> get sawadChatRoomRef => _sawadChatRoomRef ?? const [];
+  bool hasSawadChatRoomRef() => _sawadChatRoomRef != null;
+
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _email = snapshotData['email'] as String?;
     _uid = snapshotData['uid'] as String?;
     _imgProfile = snapshotData['img_profile'] as String?;
     _employeeId = snapshotData['employee_id'] as String?;
+    _fcmToken = snapshotData['fcm_token'] as String?;
+    _sawadChatRoomRef = getDataList(snapshotData['sawad_chat_room_ref']);
   }
 
   static CollectionReference get collection =>
@@ -89,6 +101,7 @@ Map<String, dynamic> createUserCustomRecordData({
   String? uid,
   String? imgProfile,
   String? employeeId,
+  String? fcmToken,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -97,6 +110,7 @@ Map<String, dynamic> createUserCustomRecordData({
       'uid': uid,
       'img_profile': imgProfile,
       'employee_id': employeeId,
+      'fcm_token': fcmToken,
     }.withoutNulls,
   );
 
@@ -108,16 +122,26 @@ class UserCustomRecordDocumentEquality implements Equality<UserCustomRecord> {
 
   @override
   bool equals(UserCustomRecord? e1, UserCustomRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.createdTime == e2?.createdTime &&
         e1?.email == e2?.email &&
         e1?.uid == e2?.uid &&
         e1?.imgProfile == e2?.imgProfile &&
-        e1?.employeeId == e2?.employeeId;
+        e1?.employeeId == e2?.employeeId &&
+        e1?.fcmToken == e2?.fcmToken &&
+        listEquality.equals(e1?.sawadChatRoomRef, e2?.sawadChatRoomRef);
   }
 
   @override
-  int hash(UserCustomRecord? e) => const ListEquality()
-      .hash([e?.createdTime, e?.email, e?.uid, e?.imgProfile, e?.employeeId]);
+  int hash(UserCustomRecord? e) => const ListEquality().hash([
+        e?.createdTime,
+        e?.email,
+        e?.uid,
+        e?.imgProfile,
+        e?.employeeId,
+        e?.fcmToken,
+        e?.sawadChatRoomRef
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UserCustomRecord;

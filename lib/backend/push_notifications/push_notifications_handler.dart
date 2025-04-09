@@ -430,11 +430,9 @@ final parametersBuilderMap =
   'ChatHomePage': ParameterData.none(),
   'ChattingPage': (data) async => ParameterData(
         allParams: {
-          'userBProfileImage': getParameter<String>(data, 'userBProfileImage'),
-          'userBDocRef': getParameter<DocumentReference>(data, 'userBDocRef'),
-          'userBName': getParameter<String>(data, 'userBName'),
-          'userBNickname': getParameter<String>(data, 'userBNickname'),
-          'userBEmployeeId': getParameter<String>(data, 'userBEmployeeId'),
+          'chatRoomDocRef':
+              getParameter<DocumentReference>(data, 'chatRoomDocRef'),
+          'myDisplayImageUrl': getParameter<String>(data, 'myDisplayImageUrl'),
         },
       ),
   'InsuranceRequestInsurerPage': ParameterData.none(),

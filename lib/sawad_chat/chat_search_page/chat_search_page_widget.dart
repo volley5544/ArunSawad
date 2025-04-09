@@ -9,10 +9,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -126,10 +126,6 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
               }
               List<UserCustomRecord> columnUserCustomRecordList =
                   snapshot.data!;
-              // Return an empty Container when the item does not exist.
-              if (snapshot.data!.isEmpty) {
-                return Container();
-              }
               final columnUserCustomRecord =
                   columnUserCustomRecordList.isNotEmpty
                       ? columnUserCustomRecordList.first
@@ -391,498 +387,625 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   employeeListItemIndex)
                                               ?.hasEmployeeId() ??
                                           true,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 2.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            var _shouldSetState = false;
-                                            HapticFeedback.mediumImpact();
-                                            if (!containerUserCustomRecordList
-                                                .elementAtOrNull(
-                                                    employeeListItemIndex)!
-                                                .hasEmployeeId()) {
-                                              await showDialog(
+                                      child: Builder(
+                                        builder: (context) => Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 2.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              var _shouldSetState = false;
+                                              HapticFeedback.mediumImpact();
+                                              showDialog(
                                                 context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text(
-                                                          'ไม่พบบุคคลนี้ในระบบอรุณสวัสดิ์ ไม่สามารถเริ่มแชทได้'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child:
+                                                            LoadingSceneWidget(),
+                                                      ),
                                                     ),
                                                   );
                                                 },
                                               );
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
-                                              return;
-                                            }
-                                            _model.queryChatsUserA =
-                                                await queryChatsRecordOnce(
-                                              queryBuilder: (chatsRecord) =>
-                                                  chatsRecord
-                                                      .where(
-                                                        'user_a',
-                                                        isEqualTo: FFAppState()
-                                                            .userRef,
-                                                      )
-                                                      .where(
-                                                        'user_b',
-                                                        isEqualTo:
+
+                                              _model.loopCountTemp = 0;
+                                              safeSetState(() {});
+                                              if (!containerUserCustomRecordList
+                                                  .elementAtOrNull(
+                                                      employeeListItemIndex)!
+                                                  .hasEmployeeId()) {
+                                                Navigator.pop(context);
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'ไม่พบบุคคลนี้ในระบบอรุณสวัสดิ์ ไม่สามารถเริ่มแชทได้'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                              if (columnUserCustomRecord!
+                                                  .hasSawadChatRoomRef()) {
+                                                while (_model.loopCountTemp! <
+                                                    columnUserCustomRecord!
+                                                        .sawadChatRoomRef
+                                                        .length) {
+                                                  _model.qurryChatRoomDoc =
+                                                      await SawadChatRoomRecord
+                                                          .getDocumentOnce(
+                                                              columnUserCustomRecord!
+                                                                  .sawadChatRoomRef
+                                                                  .elementAtOrNull(
+                                                                      _model
+                                                                          .loopCountTemp!)!);
+                                                  _shouldSetState = true;
+                                                  if (functions
+                                                          .checkListStringIsEquivalent(
+                                                              _model
+                                                                  .qurryChatRoomDoc
+                                                                  ?.usersEmplayeeId
+                                                                  ?.toList(),
+                                                              ((String myEmployeeId,
+                                                                          String
+                                                                              targetEmployeeId) {
+                                                                return [
+                                                                  myEmployeeId,
+                                                                  targetEmployeeId
+                                                                ];
+                                                              }(
+                                                                      FFAppState()
+                                                                          .employeeID,
+                                                                      (GetAllEmployeeAPICall
+                                                                              .employeeId(
+                                                                        (_model.getEmployee?.jsonBody ??
+                                                                            ''),
+                                                                      )!
+                                                                          .elementAtOrNull(
+                                                                              employeeListItemIndex))!))
+                                                                  .toList())! ||
+                                                      functions
+                                                          .checkListStringIsEquivalent(
+                                                              _model
+                                                                  .qurryChatRoomDoc
+                                                                  ?.usersEmplayeeId
+                                                                  ?.toList(),
+                                                              ((String myEmployeeId,
+                                                                          String
+                                                                              targetEmployeeId) {
+                                                                return [
+                                                                  targetEmployeeId,
+                                                                  myEmployeeId
+                                                                ];
+                                                              }(
+                                                                      FFAppState()
+                                                                          .employeeID,
+                                                                      (GetAllEmployeeAPICall
+                                                                              .employeeId(
+                                                                        (_model.getEmployee?.jsonBody ??
+                                                                            ''),
+                                                                      )!
+                                                                          .elementAtOrNull(
+                                                                              employeeListItemIndex))!))
+                                                                  .toList())!) {
+                                                    Navigator.pop(context);
+
+                                                    context.pushNamed(
+                                                      ChattingPageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'chatRoomDocRef':
+                                                            serializeParam(
+                                                          columnUserCustomRecord
+                                                              ?.sawadChatRoomRef
+                                                              ?.elementAtOrNull(
+                                                                  employeeListItemIndex),
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                        'myDisplayImageUrl':
+                                                            serializeParam(
+                                                          columnUserCustomRecord
+                                                              ?.imgProfile,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+
+                                                    break;
+                                                  } else {
+                                                    _model.loopCountTemp =
+                                                        _model.loopCountTemp! +
+                                                            1;
+                                                    safeSetState(() {});
+                                                  }
+                                                }
+                                              }
+                                              _model.loopCountTemp = 0;
+                                              safeSetState(() {});
+
+                                              var sawadChatRoomRecordReference2 =
+                                                  SawadChatRoomRecord.collection
+                                                      .doc();
+                                              await sawadChatRoomRecordReference2
+                                                  .set({
+                                                ...createSawadChatRoomRecordData(
+                                                  lastMessageText:
+                                                      'เริ่มแชทเลย!',
+                                                  lastMessageTime:
+                                                      getCurrentTimestamp,
+                                                  lastMessageBy:
+                                                      FFAppState().userRef,
+                                                  lastMessageByEmployeeId:
+                                                      FFAppState().employeeID,
+                                                  lastMessageType: 'text',
+                                                  chatRoomType: 'single',
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'users_ref': functions
+                                                        .generateUserRefChatRoom(
+                                                            FFAppState()
+                                                                .userRef,
                                                             containerUserCustomRecordList
                                                                 .elementAtOrNull(
                                                                     employeeListItemIndex)
-                                                                ?.reference,
-                                                      ),
-                                              singleRecord: true,
-                                            ).then((s) => s.firstOrNull);
-                                            _shouldSetState = true;
-                                            _model.queryChatsUserB =
-                                                await queryChatsRecordOnce(
-                                              queryBuilder: (chatsRecord) =>
-                                                  chatsRecord
-                                                      .where(
-                                                        'user_a',
-                                                        isEqualTo:
-                                                            columnUserCustomRecord
-                                                                ?.reference,
-                                                      )
-                                                      .where(
-                                                        'user_b',
-                                                        isEqualTo: FFAppState()
-                                                            .userRef,
-                                                      ),
-                                              singleRecord: true,
-                                            ).then((s) => s.firstOrNull);
-                                            _shouldSetState = true;
-                                            if (!(_model.queryChatsUserA !=
-                                                null)) {
-                                              showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(context)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: Container(
-                                                          height:
-                                                              double.infinity,
-                                                          child:
-                                                              LoadingSceneWidget(),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-
-                                              var chatsRecordReference1 =
-                                                  ChatsRecord.collection.doc();
-                                              await chatsRecordReference1
-                                                  .set(createChatsRecordData(
-                                                userA: FFAppState().userRef,
-                                                userB:
-                                                    containerUserCustomRecordList
-                                                        .elementAtOrNull(
-                                                            employeeListItemIndex)
-                                                        ?.reference,
-                                                userAName: FFAppState()
-                                                    .profileFullName,
-                                                userANickname:
-                                                    FFAppState().userNickname,
-                                                userAProfileImage:
-                                                    FFAppState().profileImage,
-                                                userAEmployeeId:
-                                                    FFAppState().employeeID,
-                                                userBName: GetAllEmployeeAPICall
-                                                    .fullname(
-                                                  (_model.getEmployee
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?.elementAtOrNull(
-                                                    employeeListItemIndex),
-                                                userBNickname: 'ชื่อเล่น',
-                                                userBEmployeeId:
-                                                    GetAllEmployeeAPICall
-                                                        .employeeId(
-                                                  (_model.getEmployee
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?.elementAtOrNull(
-                                                        employeeListItemIndex),
-                                                userBProfileImage:
-                                                    containerUserCustomRecordList
-                                                        .elementAtOrNull(
-                                                            employeeListItemIndex)
-                                                        ?.imgProfile,
-                                              ));
-                                              _model.createChatsUserA =
-                                                  ChatsRecord
-                                                      .getDocumentFromData(
-                                                          createChatsRecordData(
-                                                            userA: FFAppState()
-                                                                .userRef,
-                                                            userB: containerUserCustomRecordList
-                                                                .elementAtOrNull(
-                                                                    employeeListItemIndex)
-                                                                ?.reference,
-                                                            userAName: FFAppState()
-                                                                .profileFullName,
-                                                            userANickname:
-                                                                FFAppState()
-                                                                    .userNickname,
-                                                            userAProfileImage:
-                                                                FFAppState()
-                                                                    .profileImage,
-                                                            userAEmployeeId:
+                                                                ?.reference),
+                                                    'users_emplayee_id': (String
+                                                                myVar,
+                                                            String targetVar) {
+                                                      return [myVar, targetVar];
+                                                    }(
+                                                        FFAppState().employeeID,
+                                                        (GetAllEmployeeAPICall
+                                                                .employeeId(
+                                                          (_model.getEmployee
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                            .elementAtOrNull(
+                                                                employeeListItemIndex))!),
+                                                    'users_name': (String myVar,
+                                                            String targetVar) {
+                                                      return [myVar, targetVar];
+                                                    }(
+                                                        FFAppState().employeeID,
+                                                        (GetAllEmployeeAPICall
+                                                                .employeeId(
+                                                          (_model.getEmployee
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                            .elementAtOrNull(
+                                                                employeeListItemIndex))!),
+                                                    'users_display_image': functions
+                                                        .listStringToImgPathList(((String
+                                                                        myVar,
+                                                                    String
+                                                                        targetVar) {
+                                                      return [myVar, targetVar];
+                                                    }(
                                                                 FFAppState()
                                                                     .employeeID,
-                                                            userBName:
-                                                                GetAllEmployeeAPICall
-                                                                    .fullname(
-                                                              (_model.getEmployee
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.elementAtOrNull(
-                                                                    employeeListItemIndex),
-                                                            userBNickname:
-                                                                'ชื่อเล่น',
-                                                            userBEmployeeId:
-                                                                GetAllEmployeeAPICall
-                                                                    .employeeId(
-                                                              (_model.getEmployee
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.elementAtOrNull(
-                                                                    employeeListItemIndex),
-                                                            userBProfileImage:
-                                                                containerUserCustomRecordList
+                                                                (GetAllEmployeeAPICall
+                                                                        .employeeId(
+                                                                  (_model.getEmployee
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!
                                                                     .elementAtOrNull(
-                                                                        employeeListItemIndex)
-                                                                    ?.imgProfile,
-                                                          ),
-                                                          chatsRecordReference1);
-                                              _shouldSetState = true;
-                                              if (!(_model.queryChatsUserB !=
-                                                  null)) {
-                                                var chatsRecordReference2 =
-                                                    ChatsRecord.collection
-                                                        .doc();
-                                                await chatsRecordReference2
-                                                    .set(createChatsRecordData(
-                                                  userA: columnUserCustomRecord
-                                                      ?.reference,
-                                                  userB: FFAppState().userRef,
-                                                  userAName:
-                                                      GetAllEmployeeAPICall
-                                                          .fullname(
-                                                    (_model.getEmployee
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.elementAtOrNull(
-                                                          employeeListItemIndex),
-                                                  userANickname: 'ชื่อเล่น',
-                                                  userAProfileImage:
-                                                      columnUserCustomRecord
-                                                          ?.imgProfile,
-                                                  userAEmployeeId:
-                                                      GetAllEmployeeAPICall
-                                                          .employeeId(
-                                                    (_model.getEmployee
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.elementAtOrNull(
-                                                          employeeListItemIndex),
-                                                  userBName: FFAppState()
-                                                      .profileFullName,
-                                                  userBNickname:
-                                                      FFAppState().userNickname,
-                                                  userBEmployeeId:
+                                                                        employeeListItemIndex))!))
+                                                            .toList()),
+                                                  },
+                                                ),
+                                              });
+                                              _model.createNewChatRoom =
+                                                  SawadChatRoomRecord
+                                                      .getDocumentFromData({
+                                                ...createSawadChatRoomRecordData(
+                                                  lastMessageText:
+                                                      'เริ่มแชทเลย!',
+                                                  lastMessageTime:
+                                                      getCurrentTimestamp,
+                                                  lastMessageBy:
+                                                      FFAppState().userRef,
+                                                  lastMessageByEmployeeId:
                                                       FFAppState().employeeID,
-                                                  userBProfileImage:
-                                                      FFAppState().profileImage,
-                                                ));
-                                                _model.createChatsUserB =
-                                                    ChatsRecord.getDocumentFromData(
-                                                        createChatsRecordData(
-                                                          userA:
-                                                              columnUserCustomRecord
-                                                                  ?.reference,
-                                                          userB: FFAppState()
-                                                              .userRef,
-                                                          userAName:
-                                                              GetAllEmployeeAPICall
-                                                                  .fullname(
-                                                            (_model.getEmployee
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.elementAtOrNull(
-                                                                  employeeListItemIndex),
-                                                          userANickname:
-                                                              'ชื่อเล่น',
-                                                          userAProfileImage:
-                                                              columnUserCustomRecord
-                                                                  ?.imgProfile,
-                                                          userAEmployeeId:
-                                                              GetAllEmployeeAPICall
-                                                                  .employeeId(
-                                                            (_model.getEmployee
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.elementAtOrNull(
-                                                                  employeeListItemIndex),
-                                                          userBName: FFAppState()
-                                                              .profileFullName,
-                                                          userBNickname:
-                                                              FFAppState()
-                                                                  .userNickname,
-                                                          userBEmployeeId:
-                                                              FFAppState()
-                                                                  .employeeID,
-                                                          userBProfileImage:
-                                                              FFAppState()
-                                                                  .profileImage,
-                                                        ),
-                                                        chatsRecordReference2);
-                                                _shouldSetState = true;
-                                              }
-                                              Navigator.pop(context);
-                                            }
+                                                  lastMessageType: 'text',
+                                                  chatRoomType: 'single',
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'users_ref': functions
+                                                        .generateUserRefChatRoom(
+                                                            FFAppState()
+                                                                .userRef,
+                                                            containerUserCustomRecordList
+                                                                .elementAtOrNull(
+                                                                    employeeListItemIndex)
+                                                                ?.reference),
+                                                    'users_emplayee_id': (String
+                                                                myVar,
+                                                            String targetVar) {
+                                                      return [myVar, targetVar];
+                                                    }(
+                                                        FFAppState().employeeID,
+                                                        (GetAllEmployeeAPICall
+                                                                .employeeId(
+                                                          (_model.getEmployee
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                            .elementAtOrNull(
+                                                                employeeListItemIndex))!),
+                                                    'users_name': (String myVar,
+                                                            String targetVar) {
+                                                      return [myVar, targetVar];
+                                                    }(
+                                                        FFAppState().employeeID,
+                                                        (GetAllEmployeeAPICall
+                                                                .employeeId(
+                                                          (_model.getEmployee
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                            .elementAtOrNull(
+                                                                employeeListItemIndex))!),
+                                                    'users_display_image': functions
+                                                        .listStringToImgPathList(((String
+                                                                        myVar,
+                                                                    String
+                                                                        targetVar) {
+                                                      return [myVar, targetVar];
+                                                    }(
+                                                                FFAppState()
+                                                                    .employeeID,
+                                                                (GetAllEmployeeAPICall
+                                                                        .employeeId(
+                                                                  (_model.getEmployee
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!
+                                                                    .elementAtOrNull(
+                                                                        employeeListItemIndex))!))
+                                                            .toList()),
+                                                  },
+                                                ),
+                                              }, sawadChatRoomRecordReference2);
+                                              _shouldSetState = true;
+                                              _model.queryMyProfile =
+                                                  await UserCustomRecord
+                                                      .getDocumentOnce(
+                                                          FFAppState()
+                                                              .userRef!);
+                                              _shouldSetState = true;
+                                              if (_model.queryMyProfile!
+                                                  .hasSawadChatRoomRef()) {
+                                                // update my account chat room joined
 
-                                            context.pushNamed(
-                                              ChattingPageWidget.routeName,
-                                              queryParameters: {
-                                                'userBProfileImage':
-                                                    serializeParam(
-                                                  containerUserCustomRecordList
-                                                      .elementAtOrNull(
-                                                          employeeListItemIndex)
-                                                      ?.imgProfile,
-                                                  ParamType.String,
-                                                ),
-                                                'userBDocRef': serializeParam(
-                                                  containerUserCustomRecordList
-                                                      .elementAtOrNull(
-                                                          employeeListItemIndex)
-                                                      ?.reference,
-                                                  ParamType.DocumentReference,
-                                                ),
-                                                'userBName': serializeParam(
-                                                  GetAllEmployeeAPICall
-                                                      .fullname(
-                                                    (_model.getEmployee
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.elementAtOrNull(
-                                                      employeeListItemIndex),
-                                                  ParamType.String,
-                                                ),
-                                                'userBNickname': serializeParam(
-                                                  'ชื่อเล่น',
-                                                  ParamType.String,
-                                                ),
-                                                'userBEmployeeId':
-                                                    serializeParam(
-                                                  GetAllEmployeeAPICall
-                                                      .employeeId(
-                                                    (_model.getEmployee
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.elementAtOrNull(
-                                                      employeeListItemIndex),
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType
-                                                          .rightToLeft,
-                                                ),
-                                              },
-                                            );
-
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                          },
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 80.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 0.0,
-                                                  color: Color(0xFFDBE2E7),
-                                                  offset: Offset(
-                                                    0.0,
-                                                    2.0,
+                                                await FFAppState()
+                                                    .userRef!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'sawad_chat_room_ref':
+                                                          FieldValue
+                                                              .arrayUnion([
+                                                        _model.createNewChatRoom
+                                                            ?.reference
+                                                      ]),
+                                                    },
                                                   ),
-                                                )
-                                              ],
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                12.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 70.0,
-                                                            height: 70.0,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                CachedNetworkImage(
-                                                              fadeInDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              fadeOutDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              imageUrl: containerUserCustomRecordList
-                                                                  .elementAtOrNull(
-                                                                      employeeListItemIndex)!
-                                                                  .imgProfile,
-                                                              fit: BoxFit.cover,
+                                                });
+                                              } else {
+                                                // created my account chat room joined
+
+                                                await FFAppState()
+                                                    .userRef!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'sawad_chat_room_ref': functions
+                                                          .generateChatRoomDocRefList(
+                                                              _model
+                                                                  .createNewChatRoom
+                                                                  ?.reference),
+                                                    },
+                                                  ),
+                                                });
+                                              }
+
+                                              _model.queryTargetProfile =
+                                                  await UserCustomRecord
+                                                      .getDocumentOnce(
+                                                          FFAppState()
+                                                              .userRef!);
+                                              _shouldSetState = true;
+                                              if (_model.queryTargetProfile!
+                                                  .hasSawadChatRoomRef()) {
+                                                // update target account chat room joined
+
+                                                await containerUserCustomRecordList
+                                                    .elementAtOrNull(
+                                                        employeeListItemIndex)!
+                                                    .reference
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'sawad_chat_room_ref':
+                                                          FieldValue
+                                                              .arrayUnion([
+                                                        _model.createNewChatRoom
+                                                            ?.reference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              } else {
+                                                // create target account chat room joined
+
+                                                await containerUserCustomRecordList
+                                                    .elementAtOrNull(
+                                                        employeeListItemIndex)!
+                                                    .reference
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'sawad_chat_room_ref': functions
+                                                          .generateChatRoomDocRefList(
+                                                              _model
+                                                                  .createNewChatRoom
+                                                                  ?.reference),
+                                                    },
+                                                  ),
+                                                });
+                                              }
+
+                                              Navigator.pop(context);
+
+                                              context.goNamed(
+                                                ChattingPageWidget.routeName,
+                                                queryParameters: {
+                                                  'chatRoomDocRef':
+                                                      serializeParam(
+                                                    _model.createNewChatRoom
+                                                        ?.reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                  'myDisplayImageUrl':
+                                                      serializeParam(
+                                                    columnUserCustomRecord
+                                                        ?.imgProfile,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                            },
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 80.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 0.0,
+                                                    color: Color(0xFFDBE2E7),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Container(
+                                                              width: 70.0,
+                                                              height: 70.0,
+                                                              clipBehavior: Clip
+                                                                  .antiAlias,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child:
+                                                                  CachedNetworkImage(
+                                                                fadeInDuration:
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                fadeOutDuration:
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                imageUrl:
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  containerUserCustomRecordList
+                                                                      .elementAtOrNull(
+                                                                          employeeListItemIndex)
+                                                                      ?.imgProfile,
+                                                                  'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
+                                                                ),
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                        Expanded(
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
+                                                          Expanded(
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
+                                                                  child:
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            16.0,
                                                                             0.0,
-                                                                            4.0,
                                                                             0.0,
                                                                             0.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Text(
-                                                                              '${GetAllEmployeeAPICall.fullname(
-                                                                                (_model.getEmployee?.jsonBody ?? ''),
-                                                                              )?.elementAtOrNull(employeeListItemIndex)} (${GetAllEmployeeAPICall.branchCode(
-                                                                                (_model.getEmployee?.jsonBody ?? ''),
-                                                                              )?.elementAtOrNull(employeeListItemIndex)})',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                  ),
-                                                                            ),
-                                                                          ],
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .start,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                '${GetAllEmployeeAPICall.fullname(
+                                                                                  (_model.getEmployee?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(employeeListItemIndex)} (${GetAllEmployeeAPICall.branchCode(
+                                                                                  (_model.getEmployee?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(employeeListItemIndex)})',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Row(
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              4.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                'รหัสพนักงาน : ${GetAllEmployeeAPICall.employeeId(
+                                                                                  (_model.getEmployee?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(employeeListItemIndex)}',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      fontSize: 12.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
                                                                           children: [
                                                                             Text(
-                                                                              'รหัสพนักงาน : ${GetAllEmployeeAPICall.employeeId(
+                                                                              (GetAllEmployeeAPICall.workPosition(
                                                                                 (_model.getEmployee?.jsonBody ?? ''),
-                                                                              )?.elementAtOrNull(employeeListItemIndex)}',
+                                                                              )!
+                                                                                      .elementAtOrNull(employeeListItemIndex))!
+                                                                                  .maybeHandleOverflow(
+                                                                                maxChars: 50,
+                                                                              ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
@@ -892,65 +1015,43 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                             ),
                                                                           ],
                                                                         ),
-                                                                      ),
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            (GetAllEmployeeAPICall.workPosition(
-                                                                              (_model.getEmployee?.jsonBody ?? ''),
-                                                                            )!
-                                                                                    .elementAtOrNull(employeeListItemIndex))!
-                                                                                .maybeHandleOverflow(
-                                                                              maxChars: 50,
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  fontSize: 12.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                ),
-                                                                          ),
-                                                                        ],
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      Icon(
+                                                                        Icons
+                                                                            .arrow_forward_ios_rounded,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        size:
+                                                                            24.0,
                                                                       ),
                                                                     ],
                                                                   ),
                                                                 ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    Icon(
-                                                                      Icons
-                                                                          .arrow_forward_ios_rounded,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      size:
-                                                                          24.0,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),

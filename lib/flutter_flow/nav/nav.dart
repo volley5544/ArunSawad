@@ -1108,26 +1108,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: ChattingPageWidget.routeName,
               path: ChattingPageWidget.routePath,
               builder: (context, params) => ChattingPageWidget(
-                userBProfileImage: params.getParam(
-                  'userBProfileImage',
-                  ParamType.String,
-                ),
-                userBDocRef: params.getParam(
-                  'userBDocRef',
+                chatRoomDocRef: params.getParam(
+                  'chatRoomDocRef',
                   ParamType.DocumentReference,
                   isList: false,
-                  collectionNamePath: ['user_custom'],
+                  collectionNamePath: ['SawadChatRoom'],
                 ),
-                userBName: params.getParam(
-                  'userBName',
-                  ParamType.String,
-                ),
-                userBNickname: params.getParam(
-                  'userBNickname',
-                  ParamType.String,
-                ),
-                userBEmployeeId: params.getParam(
-                  'userBEmployeeId',
+                myDisplayImageUrl: params.getParam(
+                  'myDisplayImageUrl',
                   ParamType.String,
                 ),
               ),
