@@ -1152,6 +1152,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                           FFAppState().isSendMessageSuccess =
                                               false;
                                           safeSetState(() {});
+                                          _model.imageUploadTemp =
+                                              _model.uploadedLocalFile;
+                                          safeSetState(() {});
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -1187,8 +1190,11 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 widget!.myDisplayImageUrl,
                                             messageByName:
                                                 FFAppState().profileFullName,
-                                            messageImageBlurHash: _model
-                                                .imageUploadTemp?.blurHash,
+                                            messageImageBlurHash:
+                                                valueOrDefault<String>(
+                                              _model.imageUploadTemp?.blurHash,
+                                              'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
+                                            ),
                                           ));
                                           _model.createImageMessageDoc =
                                               ChatMessagesRecord.getDocumentFromData(
@@ -1204,15 +1210,15 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                         .myDisplayImageUrl,
                                                     messageByName: FFAppState()
                                                         .profileFullName,
-                                                    messageImageBlurHash: _model
-                                                        .imageUploadTemp
-                                                        ?.blurHash,
+                                                    messageImageBlurHash:
+                                                        valueOrDefault<String>(
+                                                      _model.imageUploadTemp
+                                                          ?.blurHash,
+                                                      'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
+                                                    ),
                                                   ),
                                                   chatMessagesRecordReference);
                                           _shouldSetState = true;
-                                          _model.imageUploadTemp =
-                                              _model.uploadedLocalFile;
-                                          safeSetState(() {});
                                           safeSetState(() {
                                             _model.isDataUploading = false;
                                             _model.uploadedLocalFile =
