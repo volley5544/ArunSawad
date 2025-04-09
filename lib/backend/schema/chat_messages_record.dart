@@ -66,6 +66,11 @@ class ChatMessagesRecord extends FirestoreRecord {
   String get messageByName => _messageByName ?? '';
   bool hasMessageByName() => _messageByName != null;
 
+  // "message_image_blur_hash" field.
+  String? _messageImageBlurHash;
+  String get messageImageBlurHash => _messageImageBlurHash ?? '';
+  bool hasMessageImageBlurHash() => _messageImageBlurHash != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -79,6 +84,7 @@ class ChatMessagesRecord extends FirestoreRecord {
     _messageVideoUrl = snapshotData['message_video_url'] as String?;
     _messageByDisplayUrl = snapshotData['message_by_display_url'] as String?;
     _messageByName = snapshotData['message_by_name'] as String?;
+    _messageImageBlurHash = snapshotData['message_image_blur_hash'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -131,6 +137,7 @@ Map<String, dynamic> createChatMessagesRecordData({
   String? messageVideoUrl,
   String? messageByDisplayUrl,
   String? messageByName,
+  String? messageImageBlurHash,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -144,6 +151,7 @@ Map<String, dynamic> createChatMessagesRecordData({
       'message_video_url': messageVideoUrl,
       'message_by_display_url': messageByDisplayUrl,
       'message_by_name': messageByName,
+      'message_image_blur_hash': messageImageBlurHash,
     }.withoutNulls,
   );
 
@@ -165,7 +173,8 @@ class ChatMessagesRecordDocumentEquality
         e1?.messageAudioUrl == e2?.messageAudioUrl &&
         e1?.messageVideoUrl == e2?.messageVideoUrl &&
         e1?.messageByDisplayUrl == e2?.messageByDisplayUrl &&
-        e1?.messageByName == e2?.messageByName;
+        e1?.messageByName == e2?.messageByName &&
+        e1?.messageImageBlurHash == e2?.messageImageBlurHash;
   }
 
   @override
@@ -179,7 +188,8 @@ class ChatMessagesRecordDocumentEquality
         e?.messageAudioUrl,
         e?.messageVideoUrl,
         e?.messageByDisplayUrl,
-        e?.messageByName
+        e?.messageByName,
+        e?.messageImageBlurHash
       ]);
 
   @override
