@@ -16,18 +16,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
   ///  State fields for stateful widgets in this page.
-
-  // State field(s) for ListView widget.
-
-  PagingController<DocumentSnapshot?, ChatMessagesRecord>?
-      listViewPagingController;
-  Query? listViewPagingQuery;
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
@@ -41,42 +34,7 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
 
   @override
   void dispose() {
-    listViewPagingController?.dispose();
-
     textFieldFocusNode?.dispose();
     textController?.dispose();
-  }
-
-  /// Additional helper methods.
-  PagingController<DocumentSnapshot?, ChatMessagesRecord> setListViewController(
-    Query query, {
-    DocumentReference<Object?>? parent,
-  }) {
-    listViewPagingController ??= _createListViewController(query, parent);
-    if (listViewPagingQuery != query) {
-      listViewPagingQuery = query;
-      listViewPagingController?.refresh();
-    }
-    return listViewPagingController!;
-  }
-
-  PagingController<DocumentSnapshot?, ChatMessagesRecord>
-      _createListViewController(
-    Query query,
-    DocumentReference<Object?>? parent,
-  ) {
-    final controller = PagingController<DocumentSnapshot?, ChatMessagesRecord>(
-        firstPageKey: null);
-    return controller
-      ..addPageRequestListener(
-        (nextPageMarker) => queryChatMessagesRecordPage(
-          parent: parent,
-          queryBuilder: (_) => listViewPagingQuery ??= query,
-          nextPageMarker: nextPageMarker,
-          controller: controller,
-          pageSize: 30,
-          isStream: false,
-        ),
-      );
   }
 }
