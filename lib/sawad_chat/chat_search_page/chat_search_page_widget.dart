@@ -608,33 +608,30 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                             String targetVar) {
                                                       return [myVar, targetVar];
                                                     }(
-                                                        FFAppState().employeeID,
+                                                        FFAppState()
+                                                            .profileFullName,
                                                         (GetAllEmployeeAPICall
-                                                                .employeeId(
+                                                                .fullname(
                                                           (_model.getEmployee
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )!
                                                             .elementAtOrNull(
                                                                 employeeListItemIndex))!),
-                                                    'users_display_image': functions
-                                                        .listStringToImgPathList(((String
-                                                                        myVar,
-                                                                    String
-                                                                        targetVar) {
+                                                    'users_display_image': functions.listStringToImgPathList(((String
+                                                                    myVar,
+                                                                String targetVar) {
                                                       return [myVar, targetVar];
                                                     }(
-                                                                FFAppState()
-                                                                    .employeeID,
-                                                                (GetAllEmployeeAPICall
-                                                                        .employeeId(
-                                                                  (_model.getEmployee
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!
+                                                            functions.imgPathtoString(
+                                                                columnUserCustomRecord
+                                                                    ?.imgProfile),
+                                                            functions.imgPathtoString(
+                                                                containerUserCustomRecordList
                                                                     .elementAtOrNull(
-                                                                        employeeListItemIndex))!))
-                                                            .toList()),
+                                                                        employeeListItemIndex)
+                                                                    ?.imgProfile)))
+                                                        .toList()),
                                                   },
                                                 ),
                                               });
@@ -681,33 +678,30 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                             String targetVar) {
                                                       return [myVar, targetVar];
                                                     }(
-                                                        FFAppState().employeeID,
+                                                        FFAppState()
+                                                            .profileFullName,
                                                         (GetAllEmployeeAPICall
-                                                                .employeeId(
+                                                                .fullname(
                                                           (_model.getEmployee
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )!
                                                             .elementAtOrNull(
                                                                 employeeListItemIndex))!),
-                                                    'users_display_image': functions
-                                                        .listStringToImgPathList(((String
-                                                                        myVar,
-                                                                    String
-                                                                        targetVar) {
+                                                    'users_display_image': functions.listStringToImgPathList(((String
+                                                                    myVar,
+                                                                String targetVar) {
                                                       return [myVar, targetVar];
                                                     }(
-                                                                FFAppState()
-                                                                    .employeeID,
-                                                                (GetAllEmployeeAPICall
-                                                                        .employeeId(
-                                                                  (_model.getEmployee
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!
+                                                            functions.imgPathtoString(
+                                                                columnUserCustomRecord
+                                                                    ?.imgProfile),
+                                                            functions.imgPathtoString(
+                                                                containerUserCustomRecordList
                                                                     .elementAtOrNull(
-                                                                        employeeListItemIndex))!))
-                                                            .toList()),
+                                                                        employeeListItemIndex)
+                                                                    ?.imgProfile)))
+                                                        .toList()),
                                                   },
                                                 ),
                                               }, sawadChatRoomRecordReference2);
