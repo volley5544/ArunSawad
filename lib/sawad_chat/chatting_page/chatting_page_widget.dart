@@ -762,7 +762,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             messageByEmployeeId:
                                                 FFAppState().employeeID,
                                             messageText:
-                                                _model.textController.text,
+                                                FFAppState().chatMessagesTemp,
                                             messageType: 'text',
                                             messageTime: getCurrentTimestamp,
                                             messageByDisplayUrl:
@@ -777,8 +777,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                         FFAppState().userRef,
                                                     messageByEmployeeId:
                                                         FFAppState().employeeID,
-                                                    messageText: _model
-                                                        .textController.text,
+                                                    messageText: FFAppState()
+                                                        .chatMessagesTemp,
                                                     messageType: 'text',
                                                     messageTime:
                                                         getCurrentTimestamp,

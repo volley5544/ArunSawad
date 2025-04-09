@@ -28,7 +28,6 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
   PagingController<DocumentSnapshot?, ChatMessagesRecord>?
       listViewPagingController;
   Query? listViewPagingQuery;
-  List<StreamSubscription?> listViewStreamSubscriptions = [];
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
@@ -42,7 +41,6 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
 
   @override
   void dispose() {
-    listViewStreamSubscriptions.forEach((s) => s?.cancel());
     listViewPagingController?.dispose();
 
     textFieldFocusNode?.dispose();
@@ -75,10 +73,9 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
           parent: parent,
           queryBuilder: (_) => listViewPagingQuery ??= query,
           nextPageMarker: nextPageMarker,
-          streamSubscriptions: listViewStreamSubscriptions,
           controller: controller,
           pageSize: 30,
-          isStream: true,
+          isStream: false,
         ),
       );
   }
