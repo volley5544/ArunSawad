@@ -498,23 +498,15 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                           ),
                                                                           image:
                                                                               NetworkImage(
-                                                                            valueOrDefault<String>(
-                                                                              listViewChatMessagesRecord.messageImageUrl,
-                                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                                            ),
+                                                                            listViewChatMessagesRecord.messageImageUrl,
                                                                           ),
                                                                           fit: BoxFit
                                                                               .contain,
                                                                         ),
                                                                         allowRotation:
                                                                             false,
-                                                                        tag: valueOrDefault<
-                                                                            String>(
-                                                                          listViewChatMessagesRecord
-                                                                              .messageImageUrl,
-                                                                          'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37' +
-                                                                              '$listViewIndex',
-                                                                        ),
+                                                                        tag: listViewChatMessagesRecord
+                                                                            .messageImageUrl,
                                                                         useHeroAnimation:
                                                                             true,
                                                                       ),
@@ -522,13 +514,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                   );
                                                                 },
                                                                 child: Hero(
-                                                                  tag: valueOrDefault<
-                                                                      String>(
-                                                                    listViewChatMessagesRecord
-                                                                        .messageImageUrl,
-                                                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37' +
-                                                                        '$listViewIndex',
-                                                                  ),
+                                                                  tag: listViewChatMessagesRecord
+                                                                      .messageImageUrl,
                                                                   transitionOnUserGestures:
                                                                       true,
                                                                   child:
@@ -551,12 +538,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                       ),
                                                                       image:
                                                                           NetworkImage(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          listViewChatMessagesRecord
-                                                                              .messageImageUrl,
-                                                                          'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                                        ),
+                                                                        listViewChatMessagesRecord
+                                                                            .messageImageUrl,
                                                                       ),
                                                                       width: double
                                                                           .infinity,
@@ -825,23 +808,15 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                           ),
                                                                           image:
                                                                               NetworkImage(
-                                                                            valueOrDefault<String>(
-                                                                              listViewChatMessagesRecord.messageImageUrl,
-                                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                                            ),
+                                                                            listViewChatMessagesRecord.messageImageUrl,
                                                                           ),
                                                                           fit: BoxFit
                                                                               .contain,
                                                                         ),
                                                                         allowRotation:
                                                                             false,
-                                                                        tag: valueOrDefault<
-                                                                            String>(
-                                                                          listViewChatMessagesRecord
-                                                                              .messageImageUrl,
-                                                                          'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37' +
-                                                                              '$listViewIndex',
-                                                                        ),
+                                                                        tag: listViewChatMessagesRecord
+                                                                            .messageImageUrl,
                                                                         useHeroAnimation:
                                                                             true,
                                                                       ),
@@ -849,13 +824,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                   );
                                                                 },
                                                                 child: Hero(
-                                                                  tag: valueOrDefault<
-                                                                      String>(
-                                                                    listViewChatMessagesRecord
-                                                                        .messageImageUrl,
-                                                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37' +
-                                                                        '$listViewIndex',
-                                                                  ),
+                                                                  tag: listViewChatMessagesRecord
+                                                                      .messageImageUrl,
                                                                   transitionOnUserGestures:
                                                                       true,
                                                                   child:
@@ -878,12 +848,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                       ),
                                                                       image:
                                                                           NetworkImage(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          listViewChatMessagesRecord
-                                                                              .messageImageUrl,
-                                                                          'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                                        ),
+                                                                        listViewChatMessagesRecord
+                                                                            .messageImageUrl,
                                                                       ),
                                                                       width: double
                                                                           .infinity,
@@ -1155,26 +1121,6 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                           _model.imageUploadTemp =
                                               _model.uploadedLocalFile;
                                           safeSetState(() {});
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content: Text(_model
-                                                      .imageUploadTemp!
-                                                      .blurHash!),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
 
                                           var chatMessagesRecordReference =
                                               ChatMessagesRecord.createDoc(
