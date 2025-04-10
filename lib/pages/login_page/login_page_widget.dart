@@ -568,6 +568,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     TextFormField(
+                                      key: ValueKey('usernameInput_c9o7'),
                                       controller:
                                           _model.usernameInputTextController,
                                       focusNode: _model.usernameInputFocusNode,
@@ -673,6 +674,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ).animateOnPageLoad(animationsMap[
                                         'textFieldOnPageLoadAnimation1']!),
                                     TextFormField(
+                                      key: ValueKey('passwordInput_kx15'),
                                       controller:
                                           _model.passwordInputTextController,
                                       focusNode: _model.passwordInputFocusNode,

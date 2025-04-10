@@ -36,19 +36,24 @@ void main() async {
 
   testWidgets('test1', (WidgetTester tester) async {
     _overrideOnError();
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: '33511', password: '1111');
+
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
       child: const MyApp(),
     ));
     await GoogleFonts.pendingFonts();
 
+    await tester.enterText(
+        find.byKey(const ValueKey('usernameInput_c9o7')), '33511');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.enterText(
+        find.byKey(const ValueKey('passwordInput_kx15')), '1111');
+    FocusManager.instance.primaryFocus?.unfocus();
     await tester.tap(find.byKey(const ValueKey('Button_8rfv')));
     await tester.pumpAndSettle(
-      const Duration(milliseconds: 5000),
+      const Duration(milliseconds: 1000),
       EnginePhase.sendSemanticsUpdate,
-      const Duration(milliseconds: 10000),
+      const Duration(milliseconds: 2000),
     );
   });
 }
