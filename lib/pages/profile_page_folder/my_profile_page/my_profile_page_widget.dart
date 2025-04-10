@@ -574,6 +574,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   context: context,
                                                   imageQuality: 30,
                                                   allowPhoto: true,
+                                                  includeBlurHash: true,
                                                   backgroundColor: Colors.black,
                                                   textColor: Colors.white,
                                                 );
@@ -675,11 +676,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (!functions.containWordinStringUrl(
-                                                    'blank-profile-picture-gc19a78ed8_1280.png',
-                                                    functions.imgPathtoString(
+                                                if (functions.imgPathtoString(
                                                         stackUserCustomRecord
-                                                            .imgProfile))!) {
+                                                            .imgProfile) !=
+                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7') {
                                                   _model.checkProfileImgIsAvailable =
                                                       await actions
                                                           .checkImageIsAvailable(
@@ -706,6 +706,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   imgProfile: functions
                                                       .stringToImgPath(_model
                                                           .uploadFirebaseStorageAction),
+                                                  imgProfileBlurHash: _model
+                                                      .uploadedLocalFile1
+                                                      .blurHash,
                                                 ));
                                                 safeSetState(() {
                                                   _model.isDataUploading1 =
@@ -1108,6 +1111,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   context: context,
                                                   imageQuality: 30,
                                                   allowPhoto: true,
+                                                  includeBlurHash: true,
                                                   backgroundColor: Colors.black,
                                                   textColor: Colors.white,
                                                 );
@@ -1209,11 +1213,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (!functions.containWordinStringUrl(
-                                                    'blank-profile-picture-gc19a78ed8_1280.png',
-                                                    functions.imgPathtoString(
+                                                if (functions.imgPathtoString(
                                                         stackUserCustomRecord
-                                                            ?.imgProfile))!) {
+                                                            ?.imgProfile) !=
+                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7') {
                                                   _model.checkProfileImgIsAvailableTab =
                                                       await actions
                                                           .checkImageIsAvailable(
@@ -1240,6 +1243,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   imgProfile: functions
                                                       .stringToImgPath(_model
                                                           .uploadFirebaseStorageActionTablet),
+                                                  imgProfileBlurHash: _model
+                                                      .uploadedLocalFile2
+                                                      .blurHash,
                                                 ));
                                                 safeSetState(() {
                                                   _model.isDataUploading2 =

@@ -4157,6 +4157,16 @@ class GetAllEmployeeAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<EmployeeSearchDataModelStruct>? dataJson(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.info''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => EmployeeSearchDataModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class CheckinAPICall {

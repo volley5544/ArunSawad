@@ -2580,6 +2580,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   structBuilder: DataPaymentQrCodeStruct.fromSerializableMap,
                 ),
               ),
+            ),
+            FFRoute(
+              name: GroupChatAddPageWidget.routeName,
+              path: GroupChatAddPageWidget.routePath,
+              builder: (context, params) => GroupChatAddPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -95,7 +95,20 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: [
+            FlutterFlowIconButton(
+              borderRadius: 8.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.group_add,
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                size: 30.0,
+              ),
+              onPressed: () {
+                print('IconButton pressed ...');
+              },
+            ),
+          ],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -562,6 +575,47 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                               }
                                               _model.loopCountTemp = 0;
                                               safeSetState(() {});
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการจะสร้างห้องสนทนากับ คุณ${GetAllEmployeeAPICall.fullname(
+                                                                (_model.getEmployee
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.elementAtOrNull(employeeListItemIndex)} หรือไม่?'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'Cancel'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'Confirm'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
+                                              if (!confirmDialogResponse) {
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
 
                                               var sawadChatRoomRecordReference2 =
                                                   SawadChatRoomRecord.collection

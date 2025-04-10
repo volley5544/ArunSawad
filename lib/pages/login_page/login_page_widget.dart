@@ -2020,9 +2020,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           employeeId:
                                                                               FFAppState().employeeID,
                                                                           imgProfile:
-                                                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389',
+                                                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
                                                                           fcmToken:
                                                                               FFAppState().fcmToken,
+                                                                          imgProfileBlurHash:
+                                                                              'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
                                                                         ));
                                                                         _model.createdUserCustom = UserCustomRecord.getDocumentFromData(
                                                                             createUserCustomRecordData(
@@ -2030,8 +2032,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               email: functions.generateStuffFirebaseEmail(FFAppState().employeeID),
                                                                               uid: _model.userUID,
                                                                               employeeId: FFAppState().employeeID,
-                                                                              imgProfile: 'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389',
+                                                                              imgProfile: 'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
                                                                               fcmToken: FFAppState().fcmToken,
+                                                                              imgProfileBlurHash: 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
                                                                             ),
                                                                             userCustomRecordReference2);
                                                                         _shouldSetState =

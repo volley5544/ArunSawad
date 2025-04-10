@@ -269,3 +269,5 @@ export '/gen_q_r_customer/detail_q_r_customer_page/detail_q_r_customer_page_widg
     show DetailQRCustomerPageWidget;
 export '/gen_q_r_customer/payment_q_rcode/payment_q_rcode_widget.dart'
     show PaymentQRcodeWidget;
+export '/sawad_chat/group_chat_add_page/group_chat_add_page_widget.dart'
+    show GroupChatAddPageWidget;

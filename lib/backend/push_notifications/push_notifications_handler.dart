@@ -798,6 +798,7 @@ final parametersBuilderMap =
           'lastName': getParameter<String>(data, 'lastName'),
         },
       ),
+  'GroupChatAddPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
