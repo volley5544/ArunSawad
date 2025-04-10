@@ -43,6 +43,9 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
+    await tester.tap(find.byKey(const ValueKey('Button_l16l')));
+    await tester.tap(find.byKey(const ValueKey('Button_l16l')));
+    await tester.tap(find.byKey(const ValueKey('Button_l16l')));
     await tester.enterText(
         find.byKey(const ValueKey('usernameInput_c9o7')), '33511');
     FocusManager.instance.primaryFocus?.unfocus();
@@ -50,6 +53,11 @@ void main() async {
         find.byKey(const ValueKey('passwordInput_kx15')), '1111');
     FocusManager.instance.primaryFocus?.unfocus();
     await tester.tap(find.byKey(const ValueKey('Button_8rfv')));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 1000),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 2000),
+    );
     await tester.pumpAndSettle(
       const Duration(milliseconds: 1000),
       EnginePhase.sendSemanticsUpdate,
