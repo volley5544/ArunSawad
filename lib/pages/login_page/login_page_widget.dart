@@ -1131,6 +1131,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       : null;
 
                                                                   return FFButtonWidget(
+                                                                    key: ValueKey(
+                                                                        'Button_8rfv'),
                                                                     onPressed:
                                                                         () async {
                                                                       currentUserLocationValue = await getCurrentUserLocation(
