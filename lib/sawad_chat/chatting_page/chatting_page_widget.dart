@@ -12,7 +12,6 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -134,6 +133,25 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, -15.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -199,24 +217,117 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                     size: 30.0,
                   ),
                 ),
-                title: Text(
-                  valueOrDefault<String>(
-                    chattingPageSawadChatRoomRecord.chatRoomType == 'single'
-                        ? chattingPageSawadChatRoomRecord.usersName
-                            .elementAtOrNull(chattingPageSawadChatRoomRecord
-                                        .usersRef.firstOrNull ==
-                                    FFAppState().userRef
-                                ? 1
-                                : 0)
-                        : chattingPageSawadChatRoomRecord.chatRoomName,
-                    'room_name',
-                  ),
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        letterSpacing: 0.0,
+                title: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    if (chattingPageSawadChatRoomRecord.chatRoomType == 'group')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        child: Container(
+                          width: 50.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  child: FlutterFlowExpandedImageView(
+                                    image: OctoImage(
+                                      placeholderBuilder: (_) =>
+                                          SizedBox.expand(
+                                        child: Image(
+                                          image: BlurHashImage(
+                                              chattingPageSawadChatRoomRecord
+                                                  .chatRoomDisplayImageBlurHash),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      image: NetworkImage(
+                                        valueOrDefault<String>(
+                                          chattingPageSawadChatRoomRecord
+                                              .chatRoomDisplayImageUrl,
+                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fgroup-chat.png?alt=media&token=ec0e798c-11e6-4bc9-8b0a-7253e3960af0',
+                                        ),
+                                      ),
+                                      fit: BoxFit.contain,
+                                    ),
+                                    allowRotation: false,
+                                    tag: valueOrDefault<String>(
+                                      chattingPageSawadChatRoomRecord
+                                          .chatRoomDisplayImageUrl,
+                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fgroup-chat.png?alt=media&token=ec0e798c-11e6-4bc9-8b0a-7253e3960af0',
+                                    ),
+                                    useHeroAnimation: true,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Hero(
+                              tag: valueOrDefault<String>(
+                                chattingPageSawadChatRoomRecord
+                                    .chatRoomDisplayImageUrl,
+                                'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fgroup-chat.png?alt=media&token=ec0e798c-11e6-4bc9-8b0a-7253e3960af0',
+                              ),
+                              transitionOnUserGestures: true,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(50.0),
+                                child: OctoImage(
+                                  placeholderBuilder: (_) => SizedBox.expand(
+                                    child: Image(
+                                      image: BlurHashImage(
+                                          chattingPageSawadChatRoomRecord
+                                              .chatRoomDisplayImageBlurHash),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  image: NetworkImage(
+                                    valueOrDefault<String>(
+                                      chattingPageSawadChatRoomRecord
+                                          .chatRoomDisplayImageUrl,
+                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fgroup-chat.png?alt=media&token=ec0e798c-11e6-4bc9-8b0a-7253e3960af0',
+                                    ),
+                                  ),
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
+                    Text(
+                      valueOrDefault<String>(
+                        chattingPageSawadChatRoomRecord.chatRoomType == 'single'
+                            ? chattingPageSawadChatRoomRecord.usersName
+                                .elementAtOrNull(chattingPageSawadChatRoomRecord
+                                            .usersRef.firstOrNull ==
+                                        FFAppState().userRef
+                                    ? 1
+                                    : 0)
+                            : '${chattingPageSawadChatRoomRecord.chatRoomName} (${chattingPageSawadChatRoomRecord.usersRef.length.toString()})',
+                        'room_name',
+                      ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                letterSpacing: 0.0,
+                              ),
+                    ),
+                  ],
                 ),
                 actions: [],
                 centerTitle: false,
@@ -290,34 +401,235 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.end,
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Container(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: CachedNetworkImage(
-                                                  fadeInDuration: Duration(
-                                                      milliseconds: 500),
-                                                  fadeOutDuration: Duration(
-                                                      milliseconds: 500),
-                                                  imageUrl:
-                                                      valueOrDefault<String>(
-                                                    listViewChatMessagesRecord
-                                                        .messageByDisplayUrl,
-                                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
-                                                  ),
-                                                  fit: BoxFit.cover,
-                                                ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (listViewChatMessagesRecord
+                                                          .messageByName !=
+                                                      'system') {
+                                                    return Container(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await Navigator.push(
+                                                            context,
+                                                            PageTransition(
+                                                              type:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              child:
+                                                                  FlutterFlowExpandedImageView(
+                                                                image:
+                                                                    OctoImage(
+                                                                  placeholderBuilder:
+                                                                      (_) => SizedBox
+                                                                          .expand(
+                                                                    child:
+                                                                        Image(
+                                                                      image: BlurHashImage(listViewChatMessagesRecord
+                                                                              .hasMessageByDisplayBlurHash()
+                                                                          ? listViewChatMessagesRecord
+                                                                              .messageByDisplayBlurHash
+                                                                          : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
+                                                                  image:
+                                                                      NetworkImage(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      listViewChatMessagesRecord
+                                                                          .messageByDisplayUrl,
+                                                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
+                                                                    ),
+                                                                  ),
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                                allowRotation:
+                                                                    false,
+                                                                tag:
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  listViewChatMessagesRecord
+                                                                      .messageByDisplayUrl,
+                                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7' +
+                                                                      '$listViewIndex',
+                                                                ),
+                                                                useHeroAnimation:
+                                                                    true,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                        child: Hero(
+                                                          tag: valueOrDefault<
+                                                              String>(
+                                                            listViewChatMessagesRecord
+                                                                .messageByDisplayUrl,
+                                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7' +
+                                                                '$listViewIndex',
+                                                          ),
+                                                          transitionOnUserGestures:
+                                                              true,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        50.0),
+                                                            child: OctoImage(
+                                                              placeholderBuilder:
+                                                                  (_) => SizedBox
+                                                                      .expand(
+                                                                child: Image(
+                                                                  image: BlurHashImage(listViewChatMessagesRecord
+                                                                          .hasMessageByDisplayBlurHash()
+                                                                      ? listViewChatMessagesRecord
+                                                                          .messageByDisplayBlurHash
+                                                                      : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                              image:
+                                                                  NetworkImage(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  listViewChatMessagesRecord
+                                                                      .messageByDisplayUrl,
+                                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
+                                                                ),
+                                                              ),
+                                                              width: double
+                                                                  .infinity,
+                                                              height: double
+                                                                  .infinity,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return Container(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await Navigator.push(
+                                                            context,
+                                                            PageTransition(
+                                                              type:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              child:
+                                                                  FlutterFlowExpandedImageView(
+                                                                image:
+                                                                    Image.asset(
+                                                                  'assets/images/untitled1112.png',
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                                allowRotation:
+                                                                    false,
+                                                                tag:
+                                                                    'imageTag2',
+                                                                useHeroAnimation:
+                                                                    true,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                        child: Hero(
+                                                          tag: 'imageTag2',
+                                                          transitionOnUserGestures:
+                                                              true,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        50.0),
+                                                            child: Image.asset(
+                                                              'assets/images/untitled1112.png',
+                                                              width: double
+                                                                  .infinity,
+                                                              height: double
+                                                                  .infinity,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                },
                                               ),
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                0.0, 4.0),
+                                                    child: Text(
+                                                      listViewChatMessagesRecord
+                                                                  .messageByName !=
+                                                              'system'
+                                                          ? listViewChatMessagesRecord
+                                                              .messageByName
+                                                          : 'น้องอรุณ',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation1']!),
+                                                  ),
                                                   Builder(
                                                     builder: (context) {
                                                       if (listViewChatMessagesRecord
@@ -588,7 +900,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                               ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
-                                                            'textOnPageLoadAnimation1']!),
+                                                            'textOnPageLoadAnimation2']!),
                                                   ),
                                                 ],
                                               ),
@@ -898,7 +1210,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                               ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
-                                                            'textOnPageLoadAnimation2']!),
+                                                            'textOnPageLoadAnimation3']!),
                                                   ),
                                                 ],
                                               ),

@@ -87,6 +87,13 @@ class SawadChatRoomRecord extends FirestoreRecord {
       _usersDisplayImageBlurHash ?? const [];
   bool hasUsersDisplayImageBlurHash() => _usersDisplayImageBlurHash != null;
 
+  // "chat_room_display_image_blur_hash" field.
+  String? _chatRoomDisplayImageBlurHash;
+  String get chatRoomDisplayImageBlurHash =>
+      _chatRoomDisplayImageBlurHash ?? '';
+  bool hasChatRoomDisplayImageBlurHash() =>
+      _chatRoomDisplayImageBlurHash != null;
+
   void _initializeFields() {
     _usersRef = getDataList(snapshotData['users_ref']);
     _usersEmplayeeId = getDataList(snapshotData['users_emplayee_id']);
@@ -105,6 +112,8 @@ class SawadChatRoomRecord extends FirestoreRecord {
     _usersDisplayImage = getDataList(snapshotData['users_display_image']);
     _usersDisplayImageBlurHash =
         getDataList(snapshotData['users_display_image_blur_hash']);
+    _chatRoomDisplayImageBlurHash =
+        snapshotData['chat_room_display_image_blur_hash'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -150,6 +159,7 @@ Map<String, dynamic> createSawadChatRoomRecordData({
   String? chatRoomName,
   String? chatRoomType,
   String? chatRoomDisplayImageUrl,
+  String? chatRoomDisplayImageBlurHash,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -161,6 +171,7 @@ Map<String, dynamic> createSawadChatRoomRecordData({
       'chat_room_name': chatRoomName,
       'chat_room_type': chatRoomType,
       'chat_room_display_image_url': chatRoomDisplayImageUrl,
+      'chat_room_display_image_blur_hash': chatRoomDisplayImageBlurHash,
     }.withoutNulls,
   );
 
@@ -188,7 +199,8 @@ class SawadChatRoomRecordDocumentEquality
         listEquality.equals(e1?.usersName, e2?.usersName) &&
         listEquality.equals(e1?.usersDisplayImage, e2?.usersDisplayImage) &&
         listEquality.equals(
-            e1?.usersDisplayImageBlurHash, e2?.usersDisplayImageBlurHash);
+            e1?.usersDisplayImageBlurHash, e2?.usersDisplayImageBlurHash) &&
+        e1?.chatRoomDisplayImageBlurHash == e2?.chatRoomDisplayImageBlurHash;
   }
 
   @override
@@ -206,7 +218,8 @@ class SawadChatRoomRecordDocumentEquality
         e?.chatRoomDisplayImageUrl,
         e?.usersName,
         e?.usersDisplayImage,
-        e?.usersDisplayImageBlurHash
+        e?.usersDisplayImageBlurHash,
+        e?.chatRoomDisplayImageBlurHash
       ]);
 
   @override

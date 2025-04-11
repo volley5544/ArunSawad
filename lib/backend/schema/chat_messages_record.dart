@@ -71,6 +71,11 @@ class ChatMessagesRecord extends FirestoreRecord {
   String get messageImageBlurHash => _messageImageBlurHash ?? '';
   bool hasMessageImageBlurHash() => _messageImageBlurHash != null;
 
+  // "message_by_display_blur_hash" field.
+  String? _messageByDisplayBlurHash;
+  String get messageByDisplayBlurHash => _messageByDisplayBlurHash ?? '';
+  bool hasMessageByDisplayBlurHash() => _messageByDisplayBlurHash != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -85,6 +90,8 @@ class ChatMessagesRecord extends FirestoreRecord {
     _messageByDisplayUrl = snapshotData['message_by_display_url'] as String?;
     _messageByName = snapshotData['message_by_name'] as String?;
     _messageImageBlurHash = snapshotData['message_image_blur_hash'] as String?;
+    _messageByDisplayBlurHash =
+        snapshotData['message_by_display_blur_hash'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -138,6 +145,7 @@ Map<String, dynamic> createChatMessagesRecordData({
   String? messageByDisplayUrl,
   String? messageByName,
   String? messageImageBlurHash,
+  String? messageByDisplayBlurHash,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -152,6 +160,7 @@ Map<String, dynamic> createChatMessagesRecordData({
       'message_by_display_url': messageByDisplayUrl,
       'message_by_name': messageByName,
       'message_image_blur_hash': messageImageBlurHash,
+      'message_by_display_blur_hash': messageByDisplayBlurHash,
     }.withoutNulls,
   );
 
@@ -174,7 +183,8 @@ class ChatMessagesRecordDocumentEquality
         e1?.messageVideoUrl == e2?.messageVideoUrl &&
         e1?.messageByDisplayUrl == e2?.messageByDisplayUrl &&
         e1?.messageByName == e2?.messageByName &&
-        e1?.messageImageBlurHash == e2?.messageImageBlurHash;
+        e1?.messageImageBlurHash == e2?.messageImageBlurHash &&
+        e1?.messageByDisplayBlurHash == e2?.messageByDisplayBlurHash;
   }
 
   @override
@@ -189,7 +199,8 @@ class ChatMessagesRecordDocumentEquality
         e?.messageVideoUrl,
         e?.messageByDisplayUrl,
         e?.messageByName,
-        e?.messageImageBlurHash
+        e?.messageImageBlurHash,
+        e?.messageByDisplayBlurHash
       ]);
 
   @override
