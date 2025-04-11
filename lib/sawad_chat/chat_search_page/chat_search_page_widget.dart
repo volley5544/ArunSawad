@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -61,90 +62,115 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: Color(0xFFFF6500),
-          automaticallyImplyLeading: false,
-          leading: InkWell(
-            splashColor: Colors.transparent,
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onTap: () async {
-              context.safePop();
-            },
-            child: Icon(
-              Icons.arrow_back_ios_new_sharp,
-              color: Colors.white,
-              size: 30.0,
-            ),
-          ),
-          title: Text(
-            'ค้นหาคู่แชท',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
-          ),
-          actions: [
-            FlutterFlowIconButton(
-              borderRadius: 8.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.group_add,
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                context.pushNamed(GroupChatAddPageWidget.routeName);
-              },
-            ),
-          ],
-          centerTitle: true,
-          elevation: 2.0,
+    return StreamBuilder<List<UserCustomRecord>>(
+      stream: queryUserCustomRecord(
+        queryBuilder: (userCustomRecord) => userCustomRecord.where(
+          'employee_id',
+          isEqualTo: FFAppState().employeeID,
         ),
-        body: SafeArea(
-          top: true,
-          child: StreamBuilder<List<UserCustomRecord>>(
-            stream: queryUserCustomRecord(
-              queryBuilder: (userCustomRecord) => userCustomRecord.where(
-                'employee_id',
-                isEqualTo: FFAppState().employeeID,
-              ),
-              singleRecord: true,
-            ),
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).tertiary,
-                      ),
-                    ),
+        singleRecord: true,
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).tertiary,
                   ),
-                );
-              }
-              List<UserCustomRecord> columnUserCustomRecordList =
-                  snapshot.data!;
-              final columnUserCustomRecord =
-                  columnUserCustomRecordList.isNotEmpty
-                      ? columnUserCustomRecordList.first
-                      : null;
+                ),
+              ),
+            ),
+          );
+        }
+        List<UserCustomRecord> chatSearchPageUserCustomRecordList =
+            snapshot.data!;
+        final chatSearchPageUserCustomRecord =
+            chatSearchPageUserCustomRecordList.isNotEmpty
+                ? chatSearchPageUserCustomRecordList.first
+                : null;
 
-              return Column(
+        return GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: AppBar(
+              backgroundColor: Color(0xFFFF6500),
+              automaticallyImplyLeading: false,
+              leading: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.safePop();
+                },
+                child: Icon(
+                  Icons.arrow_back_ios_new_sharp,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+              ),
+              title: Text(
+                'ค้นหาคู่แชท',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Poppins',
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      letterSpacing: 0.0,
+                    ),
+              ),
+              actions: [
+                FlutterFlowIconButton(
+                  borderRadius: 8.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.group_add,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    context.pushNamed(
+                      GroupChatAddPageWidget.routeName,
+                      queryParameters: {
+                        'userProfileData': serializeParam(
+                          EmployeeSearchDataModelStruct(
+                            fullName: FFAppState().profileFullName,
+                            employeeCode: FFAppState().employeeID,
+                            position: FFAppState().profilePositionName,
+                            branchCode: FFAppState().profileBranch,
+                            userDocRef: FFAppState().userRef,
+                            userDisplayImage:
+                                chatSearchPageUserCustomRecord?.imgProfile,
+                            userDisplayImageBlurHash:
+                                chatSearchPageUserCustomRecord!
+                                        .hasImgProfileBlurHash()
+                                    ? chatSearchPageUserCustomRecord
+                                        ?.imgProfileBlurHash
+                                    : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
+                          ),
+                          ParamType.DataStruct,
+                        ),
+                      }.withoutNulls,
+                    );
+                  },
+                ),
+              ],
+              centerTitle: true,
+              elevation: 2.0,
+            ),
+            body: SafeArea(
+              top: true,
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
@@ -477,16 +503,16 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   safeSetState(() {});
                                                 return;
                                               }
-                                              if (columnUserCustomRecord!
+                                              if (chatSearchPageUserCustomRecord!
                                                   .hasSawadChatRoomRef()) {
                                                 while (_model.loopCountTemp! <
-                                                    columnUserCustomRecord!
+                                                    chatSearchPageUserCustomRecord!
                                                         .sawadChatRoomRef
                                                         .length) {
                                                   _model.qurryChatRoomDoc =
                                                       await SawadChatRoomRecord
                                                           .getDocumentOnce(
-                                                              columnUserCustomRecord!
+                                                              chatSearchPageUserCustomRecord!
                                                                   .sawadChatRoomRef
                                                                   .elementAtOrNull(
                                                                       _model
@@ -548,7 +574,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                       queryParameters: {
                                                         'chatRoomDocRef':
                                                             serializeParam(
-                                                          columnUserCustomRecord
+                                                          chatSearchPageUserCustomRecord
                                                               ?.sawadChatRoomRef
                                                               ?.elementAtOrNull(
                                                                   employeeListItemIndex),
@@ -557,7 +583,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                         ),
                                                         'myDisplayImageUrl':
                                                             serializeParam(
-                                                          columnUserCustomRecord
+                                                          chatSearchPageUserCustomRecord
                                                               ?.imgProfile,
                                                           ParamType.String,
                                                         ),
@@ -678,7 +704,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                       return [myVar, targetVar];
                                                     }(
                                                             functions.imgPathtoString(
-                                                                columnUserCustomRecord
+                                                                chatSearchPageUserCustomRecord
                                                                     ?.imgProfile),
                                                             functions.imgPathtoString(
                                                                 containerUserCustomRecordList
@@ -748,7 +774,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                       return [myVar, targetVar];
                                                     }(
                                                             functions.imgPathtoString(
-                                                                columnUserCustomRecord
+                                                                chatSearchPageUserCustomRecord
                                                                     ?.imgProfile),
                                                             functions.imgPathtoString(
                                                                 containerUserCustomRecordList
@@ -861,7 +887,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   ),
                                                   'myDisplayImageUrl':
                                                       serializeParam(
-                                                    columnUserCustomRecord
+                                                    chatSearchPageUserCustomRecord
                                                         ?.imgProfile,
                                                     ParamType.String,
                                                   ),
@@ -1114,11 +1140,11 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                       ),
                     ),
                 ],
-              );
-            },
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

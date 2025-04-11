@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,7 +27,12 @@ import 'group_chat_add_page_model.dart';
 export 'group_chat_add_page_model.dart';
 
 class GroupChatAddPageWidget extends StatefulWidget {
-  const GroupChatAddPageWidget({super.key});
+  const GroupChatAddPageWidget({
+    super.key,
+    required this.userProfileData,
+  });
+
+  final EmployeeSearchDataModelStruct? userProfileData;
 
   static String routeName = 'GroupChatAddPage';
   static String routePath = 'groupChatAddPage';
@@ -47,6 +53,12 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'GroupChatAddPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.addToSelectedEmployeeList(widget!.userProfileData!);
+      safeSetState(() {});
+    });
+
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -142,12 +154,13 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 200.0,
+                    height: 210.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           width: double.infinity,
@@ -810,7 +823,8 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
-                                                          image: NetworkImage(
+                                                          image:
+                                                              CachedNetworkImageProvider(
                                                             selectedEmployeeListItemItem
                                                                 .userDisplayImage,
                                                           ),
@@ -853,61 +867,66 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                 ),
                                               ),
                                             ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  1.0, -1.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  var confirmDialogResponse =
-                                                      await showDialog<bool>(
-                                                            context: context,
-                                                            builder:
-                                                                (alertDialogContext) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                                  content: Text(
-                                                                      'ต้องการนำ คุณ${selectedEmployeeListItemItem.fullName} ออกจากการสร้างกลุ่มสนทนาหรือไม่?'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ยกเลิก'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ตกลง'),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
-                                                          ) ??
-                                                          false;
-                                                  if (!confirmDialogResponse) {
-                                                    return;
-                                                  }
-                                                  _model.removeAtIndexFromSelectedEmployeeList(
-                                                      selectedEmployeeListItemIndex);
-                                                  safeSetState(() {});
-                                                },
-                                                child: Icon(
-                                                  Icons.close_rounded,
-                                                  color: Color(0xFFFF0000),
-                                                  size: 24.0,
+                                            if (selectedEmployeeListItemIndex !=
+                                                0)
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.0, -1.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    var confirmDialogResponse =
+                                                        await showDialog<bool>(
+                                                              context: context,
+                                                              builder:
+                                                                  (alertDialogContext) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'ต้องการนำ คุณ${selectedEmployeeListItemItem.fullName} ออกจากการสร้างกลุ่มสนทนาหรือไม่?'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ยกเลิก'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ตกลง'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ) ??
+                                                            false;
+                                                    if (!confirmDialogResponse) {
+                                                      return;
+                                                    }
+                                                    _model.removeAtIndexFromSelectedEmployeeList(
+                                                        selectedEmployeeListItemIndex);
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Icon(
+                                                    Icons.close_rounded,
+                                                    color: Color(0xFFFF0000),
+                                                    size: 24.0,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
                                           ],
                                         ),
                                       );
@@ -920,6 +939,9 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  Divider(
+                    thickness: 2.0,
                   ),
                   Padding(
                     padding:
@@ -1289,11 +1311,11 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                               fadeInDuration:
                                                                   Duration(
                                                                       milliseconds:
-                                                                          500),
+                                                                          100),
                                                               fadeOutDuration:
                                                                   Duration(
                                                                       milliseconds:
-                                                                          500),
+                                                                          100),
                                                               imageUrl:
                                                                   valueOrDefault<
                                                                       String>(
@@ -1508,35 +1530,6 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
-                    child: Container(
-                      width: 60.0,
-                      height: 30.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xB2101213),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(8.0),
-                          bottomRight: Radius.circular(0.0),
-                          topLeft: Radius.circular(0.0),
-                          topRight: Radius.circular(0.0),
-                        ),
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Text(
-                          _model.selectedEmployeeList.length.toString(),
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).warning,
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
                       ),
                     ),
                   ),

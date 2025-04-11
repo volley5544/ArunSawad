@@ -798,7 +798,9 @@ final parametersBuilderMap =
           'lastName': getParameter<String>(data, 'lastName'),
         },
       ),
-  'GroupChatAddPage': ParameterData.none(),
+  'GroupChatAddPage': (data) async => ParameterData(
+        allParams: <String, dynamic>{},
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -198,7 +198,6 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(0.0, 0.9),
                               child: FFButtonWidget(
-                                key: ValueKey('Button_l16l'),
                                 onPressed: () async {
                                   if (FFAppState().introPageIndex != 3) {
                                     FFAppState().introPageIndex =
