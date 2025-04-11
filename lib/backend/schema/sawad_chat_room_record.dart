@@ -81,6 +81,12 @@ class SawadChatRoomRecord extends FirestoreRecord {
   List<String> get usersDisplayImage => _usersDisplayImage ?? const [];
   bool hasUsersDisplayImage() => _usersDisplayImage != null;
 
+  // "users_display_image_blur_hash" field.
+  List<String>? _usersDisplayImageBlurHash;
+  List<String> get usersDisplayImageBlurHash =>
+      _usersDisplayImageBlurHash ?? const [];
+  bool hasUsersDisplayImageBlurHash() => _usersDisplayImageBlurHash != null;
+
   void _initializeFields() {
     _usersRef = getDataList(snapshotData['users_ref']);
     _usersEmplayeeId = getDataList(snapshotData['users_emplayee_id']);
@@ -97,6 +103,8 @@ class SawadChatRoomRecord extends FirestoreRecord {
         snapshotData['chat_room_display_image_url'] as String?;
     _usersName = getDataList(snapshotData['users_name']);
     _usersDisplayImage = getDataList(snapshotData['users_display_image']);
+    _usersDisplayImageBlurHash =
+        getDataList(snapshotData['users_display_image_blur_hash']);
   }
 
   static CollectionReference get collection =>
@@ -178,7 +186,9 @@ class SawadChatRoomRecordDocumentEquality
         e1?.chatRoomType == e2?.chatRoomType &&
         e1?.chatRoomDisplayImageUrl == e2?.chatRoomDisplayImageUrl &&
         listEquality.equals(e1?.usersName, e2?.usersName) &&
-        listEquality.equals(e1?.usersDisplayImage, e2?.usersDisplayImage);
+        listEquality.equals(e1?.usersDisplayImage, e2?.usersDisplayImage) &&
+        listEquality.equals(
+            e1?.usersDisplayImageBlurHash, e2?.usersDisplayImageBlurHash);
   }
 
   @override
@@ -195,7 +205,8 @@ class SawadChatRoomRecordDocumentEquality
         e?.chatRoomType,
         e?.chatRoomDisplayImageUrl,
         e?.usersName,
-        e?.usersDisplayImage
+        e?.usersDisplayImage,
+        e?.usersDisplayImageBlurHash
       ]);
 
   @override

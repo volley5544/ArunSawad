@@ -1,6 +1,8 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -9,10 +11,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
-import 'package:cached_network_image/cached_network_image.dart';
+import '/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -188,9 +190,9 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                   0.0, 0.0),
                                               child: Builder(
                                                 builder: (context) {
-                                                  if (_model.uploadedLocalFile ==
+                                                  if (_model.uploadedLocalFile1 ==
                                                           null ||
-                                                      (_model.uploadedLocalFile
+                                                      (_model.uploadedLocalFile1
                                                               .bytes?.isEmpty ??
                                                           true)) {
                                                     return Container(
@@ -319,7 +321,7 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                   FlutterFlowExpandedImageView(
                                                                 image: Image
                                                                     .memory(
-                                                                  _model.uploadedLocalFile
+                                                                  _model.uploadedLocalFile1
                                                                           .bytes ??
                                                                       Uint8List
                                                                           .fromList(
@@ -347,7 +349,7 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                     .circular(
                                                                         50.0),
                                                             child: Image.memory(
-                                                              _model.uploadedLocalFile
+                                                              _model.uploadedLocalFile1
                                                                       .bytes ??
                                                                   Uint8List
                                                                       .fromList(
@@ -422,9 +424,9 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    safeSetState(() =>
-                                                        _model.isDataUploading =
-                                                            true);
+                                                    safeSetState(() => _model
+                                                            .isDataUploading1 =
+                                                        true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
 
@@ -451,14 +453,14 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                   ))
                                                               .toList();
                                                     } finally {
-                                                      _model.isDataUploading =
+                                                      _model.isDataUploading1 =
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
                                                       safeSetState(() {
-                                                        _model.uploadedLocalFile =
+                                                        _model.uploadedLocalFile1 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
@@ -808,29 +810,88 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                         shape:
                                                             BoxShape.rectangle,
                                                       ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child: OctoImage(
-                                                          placeholderBuilder:
-                                                              (_) => SizedBox
-                                                                  .expand(
-                                                            child: Image(
-                                                              image: BlurHashImage(
-                                                                  selectedEmployeeListItemItem
-                                                                      .userDisplayImageBlurHash),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await Navigator.push(
+                                                            context,
+                                                            PageTransition(
+                                                              type:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              child:
+                                                                  FlutterFlowExpandedImageView(
+                                                                image:
+                                                                    OctoImage(
+                                                                  placeholderBuilder:
+                                                                      (_) => SizedBox
+                                                                          .expand(
+                                                                    child:
+                                                                        Image(
+                                                                      image: BlurHashImage(
+                                                                          selectedEmployeeListItemItem
+                                                                              .userDisplayImageBlurHash),
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
+                                                                  image:
+                                                                      NetworkImage(
+                                                                    selectedEmployeeListItemItem
+                                                                        .userDisplayImage,
+                                                                  ),
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                                allowRotation:
+                                                                    false,
+                                                                tag: selectedEmployeeListItemItem
+                                                                    .userDisplayImage,
+                                                                useHeroAnimation:
+                                                                    true,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                        child: Hero(
+                                                          tag: selectedEmployeeListItemItem
+                                                              .userDisplayImage,
+                                                          transitionOnUserGestures:
+                                                              true,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child: OctoImage(
+                                                              placeholderBuilder:
+                                                                  (_) => SizedBox
+                                                                      .expand(
+                                                                child: Image(
+                                                                  image: BlurHashImage(
+                                                                      selectedEmployeeListItemItem
+                                                                          .userDisplayImageBlurHash),
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                              image:
+                                                                  NetworkImage(
+                                                                selectedEmployeeListItemItem
+                                                                    .userDisplayImage,
+                                                              ),
+                                                              width: 200.0,
+                                                              height: 200.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
-                                                          image:
-                                                              CachedNetworkImageProvider(
-                                                            selectedEmployeeListItemItem
-                                                                .userDisplayImage,
-                                                          ),
-                                                          width: 200.0,
-                                                          height: 200.0,
-                                                          fit: BoxFit.cover,
                                                         ),
                                                       ),
                                                     ),
@@ -1292,39 +1353,55 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 70.0,
-                                                            height: 70.0,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                CachedNetworkImage(
-                                                              fadeInDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          100),
-                                                              fadeOutDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          100),
-                                                              imageUrl:
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                containerUserCustomRecordList
-                                                                    .elementAtOrNull(
-                                                                        employeeListItemIndex)
-                                                                    ?.imgProfile,
-                                                                'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
+                                                        Container(
+                                                          width: 70.0,
+                                                          height: 70.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        50.0),
+                                                            child: OctoImage(
+                                                              placeholderBuilder:
+                                                                  (_) => SizedBox
+                                                                      .expand(
+                                                                child: Image(
+                                                                  image: BlurHashImage(containerUserCustomRecordList
+                                                                          .elementAtOrNull(
+                                                                              employeeListItemIndex)!
+                                                                          .hasImgProfileBlurHash()
+                                                                      ? containerUserCustomRecordList
+                                                                          .elementAtOrNull(
+                                                                              employeeListItemIndex)!
+                                                                          .imgProfileBlurHash
+                                                                      : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
                                                               ),
+                                                              image:
+                                                                  NetworkImage(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  containerUserCustomRecordList
+                                                                      .elementAtOrNull(
+                                                                          employeeListItemIndex)
+                                                                      ?.imgProfile,
+                                                                  'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
+                                                                ),
+                                                              ),
+                                                              width: double
+                                                                  .infinity,
+                                                              height: double
+                                                                  .infinity,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -1503,29 +1580,299 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                unawaited(
-                                  () async {}(),
-                                );
-                              },
-                              text: 'สร้างกลุ่มสนทนา',
-                              options: FFButtonOptions(
-                                height: 60.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(8.0),
+                            child: Builder(
+                              builder: (context) => FFButtonWidget(
+                                onPressed: () async {
+                                  var _shouldSetState = false;
+                                  if (_model.selectedEmployeeList.length > 2) {
+                                    if (!(_model.textController1.text != null &&
+                                        _model.textController1.text != '')) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากรอกชื่อกลุ่มสนทนา'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    showDialog(
+                                      context: context,
+                                      builder: (dialogContext) {
+                                        return Dialog(
+                                          elevation: 0,
+                                          insetPadding: EdgeInsets.zero,
+                                          backgroundColor: Colors.transparent,
+                                          alignment: AlignmentDirectional(
+                                                  0.0, 0.0)
+                                              .resolve(
+                                                  Directionality.of(context)),
+                                          child: WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(dialogContext)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Container(
+                                                height: double.infinity,
+                                                child: LoadingSceneWidget(),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+
+                                    _model.loopCountTemp = 0;
+                                    safeSetState(() {});
+                                    if (!(_model.uploadedLocalFile1 == null ||
+                                        (_model.uploadedLocalFile1.bytes
+                                                ?.isEmpty ??
+                                            true))) {
+                                      {
+                                        safeSetState(() =>
+                                            _model.isDataUploading2 = true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+                                        var selectedMedia = <SelectedFile>[];
+                                        var downloadUrls = <String>[];
+                                        try {
+                                          selectedUploadedFiles = _model
+                                                  .uploadedLocalFile1
+                                                  .bytes!
+                                                  .isNotEmpty
+                                              ? [_model.uploadedLocalFile1]
+                                              : <FFUploadedFile>[];
+                                          selectedMedia =
+                                              selectedFilesFromUploadedFiles(
+                                            selectedUploadedFiles,
+                                          );
+                                          downloadUrls = (await Future.wait(
+                                            selectedMedia.map(
+                                              (m) async => await uploadData(
+                                                  m.storagePath, m.bytes),
+                                            ),
+                                          ))
+                                              .where((u) => u != null)
+                                              .map((u) => u!)
+                                              .toList();
+                                        } finally {
+                                          _model.isDataUploading2 = false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                                selectedMedia.length &&
+                                            downloadUrls.length ==
+                                                selectedMedia.length) {
+                                          safeSetState(() {
+                                            _model.uploadedLocalFile2 =
+                                                selectedUploadedFiles.first;
+                                            _model.uploadedFileUrl2 =
+                                                downloadUrls.first;
+                                          });
+                                        } else {
+                                          safeSetState(() {});
+                                          return;
+                                        }
+                                      }
+
+                                      if (('${_model.uploadedFileUrl2}' !=
+                                              '') &&
+                                          ('${_model.uploadedFileUrl2}' !=
+                                              'null')) {
+                                        _model.defaultGroupDisplayImage =
+                                            _model.uploadedFileUrl2;
+                                        safeSetState(() {});
+                                      }
+                                    }
+
+                                    var sawadChatRoomRecordReference =
+                                        SawadChatRoomRecord.collection.doc();
+                                    await sawadChatRoomRecordReference.set({
+                                      ...createSawadChatRoomRecordData(
+                                        lastMessageText:
+                                            'สร้างกลุ่มสนทนา ${_model.textController1.text} แล้ว เริ่มแชทเลย!',
+                                        lastMessageTime: getCurrentTimestamp,
+                                        lastMessageBy: FFAppState().userRef,
+                                        lastMessageByEmployeeId:
+                                            FFAppState().employeeID,
+                                        lastMessageType: 'text',
+                                        chatRoomType: 'group',
+                                        chatRoomName:
+                                            _model.textController1.text,
+                                        chatRoomDisplayImageUrl:
+                                            _model.defaultGroupDisplayImage,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'users_ref': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.userDocRef)
+                                              .withoutNulls
+                                              .toList(),
+                                          'users_emplayee_id': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.employeeCode)
+                                              .toList(),
+                                          'users_name': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.fullName)
+                                              .toList(),
+                                          'users_display_image': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.userDisplayImage)
+                                              .toList(),
+                                          'users_display_image_blur_hash':
+                                              _model.selectedEmployeeList
+                                                  .map((e) => e
+                                                      .userDisplayImageBlurHash)
+                                                  .toList(),
+                                        },
+                                      ),
+                                    });
+                                    _model.createNewGroupChatRoom =
+                                        SawadChatRoomRecord
+                                            .getDocumentFromData({
+                                      ...createSawadChatRoomRecordData(
+                                        lastMessageText:
+                                            'สร้างกลุ่มสนทนา ${_model.textController1.text} แล้ว เริ่มแชทเลย!',
+                                        lastMessageTime: getCurrentTimestamp,
+                                        lastMessageBy: FFAppState().userRef,
+                                        lastMessageByEmployeeId:
+                                            FFAppState().employeeID,
+                                        lastMessageType: 'text',
+                                        chatRoomType: 'group',
+                                        chatRoomName:
+                                            _model.textController1.text,
+                                        chatRoomDisplayImageUrl:
+                                            _model.defaultGroupDisplayImage,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'users_ref': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.userDocRef)
+                                              .withoutNulls
+                                              .toList(),
+                                          'users_emplayee_id': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.employeeCode)
+                                              .toList(),
+                                          'users_name': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.fullName)
+                                              .toList(),
+                                          'users_display_image': _model
+                                              .selectedEmployeeList
+                                              .map((e) => e.userDisplayImage)
+                                              .toList(),
+                                          'users_display_image_blur_hash':
+                                              _model.selectedEmployeeList
+                                                  .map((e) => e
+                                                      .userDisplayImageBlurHash)
+                                                  .toList(),
+                                        },
+                                      ),
+                                    }, sawadChatRoomRecordReference);
+                                    _shouldSetState = true;
+                                    while (_model.selectedEmployeeList.length >
+                                        _model.loopCountTemp!) {
+                                      await _model.selectedEmployeeList
+                                          .elementAtOrNull(
+                                              _model.loopCountTemp!)!
+                                          .userDocRef!
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'sawad_chat_room_ref':
+                                                FieldValue.arrayUnion([
+                                              _model.createNewGroupChatRoom
+                                                  ?.reference
+                                            ]),
+                                          },
+                                        ),
+                                      });
+                                      _model.loopCountTemp =
+                                          _model.loopCountTemp! + 1;
+                                      safeSetState(() {});
+                                    }
+                                    _model.loopCountTemp = 0;
+                                    safeSetState(() {});
+                                    Navigator.pop(context);
+
+                                    context.goNamed(
+                                      ChattingPageWidget.routeName,
+                                      queryParameters: {
+                                        'chatRoomDocRef': serializeParam(
+                                          _model.createNewGroupChatRoom
+                                              ?.reference,
+                                          ParamType.DocumentReference,
+                                        ),
+                                        'myDisplayImageUrl': serializeParam(
+                                          _model.selectedEmployeeList
+                                              .firstOrNull?.userDisplayImage,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'เลือกพนักงานในการสร้างกลุ่มสนทนาอย่างน้อย 3 คน'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  }
+
+                                  if (_shouldSetState) safeSetState(() {});
+                                },
+                                text: 'สร้างกลุ่มสนทนา',
+                                options: FFButtonOptions(
+                                  height: 60.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: _model.selectedEmployeeList.length > 2
+                                      ? FlutterFlowTheme.of(context).primary
+                                      : FlutterFlowTheme.of(context).grayIcon,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               ),
                             ),
                           ),

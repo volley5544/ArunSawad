@@ -1,6 +1,8 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -9,11 +11,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
+import '/index.dart';
 import 'group_chat_add_page_widget.dart' show GroupChatAddPageWidget;
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -44,10 +46,13 @@ class GroupChatAddPageModel extends FlutterFlowModel<GroupChatAddPageWidget> {
           int index, Function(EmployeeSearchDataModelStruct) updateFn) =>
       selectedEmployeeList[index] = updateFn(selectedEmployeeList[index]);
 
+  String defaultGroupDisplayImage =
+      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fgroup-chat.png?alt=media&token=ec0e798c-11e6-4bc9-8b0a-7253e3960af0';
+
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for TextField widget.
@@ -60,6 +65,13 @@ class GroupChatAddPageModel extends FlutterFlowModel<GroupChatAddPageWidget> {
   String? Function(BuildContext, String?)? searchBoxTextControllerValidator;
   // Stores action output result for [Backend Call - API (getAllEmployeeAPI)] action in IconButton widget.
   ApiCallResponse? getEmployee;
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl2 = '';
+
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  SawadChatRoomRecord? createNewGroupChatRoom;
 
   @override
   void initState(BuildContext context) {}
