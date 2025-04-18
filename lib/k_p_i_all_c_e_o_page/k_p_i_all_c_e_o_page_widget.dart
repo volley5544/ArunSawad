@@ -133,6 +133,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     _model.expandableExpandableController1 =
         ExpandableController(initialExpanded: true);
     _model.branchInputTextController ??= TextEditingController();

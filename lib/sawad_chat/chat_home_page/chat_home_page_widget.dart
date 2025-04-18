@@ -4,9 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/index.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'chat_home_page_model.dart';
 export 'chat_home_page_model.dart';
@@ -133,11 +134,35 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                   children: [
                     if (chatHomePageUserCustomRecord.hasSawadChatRoomRef())
                       Expanded(
-                        child: Builder(
-                          builder: (context) {
-                            final chatRoomListItem =
-                                chatHomePageUserCustomRecord.sawadChatRoomRef
-                                    .toList();
+                        child: StreamBuilder<List<SawadChatRoomRecord>>(
+                          stream: querySawadChatRoomRecord(
+                            queryBuilder: (sawadChatRoomRecord) =>
+                                sawadChatRoomRecord
+                                    .where(
+                                      'users_ref',
+                                      arrayContains: FFAppState().userRef,
+                                    )
+                                    .orderBy('last_message_time',
+                                        descending: true),
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).tertiary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            List<SawadChatRoomRecord>
+                                listViewSawadChatRoomRecordList =
+                                snapshot.data!;
 
                             return ListView.builder(
                               padding: EdgeInsets.fromLTRB(
@@ -148,329 +173,343 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                               ),
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
-                              itemCount: chatRoomListItem.length,
-                              itemBuilder: (context, chatRoomListItemIndex) {
-                                final chatRoomListItemItem =
-                                    chatRoomListItem[chatRoomListItemIndex];
+                              itemCount: listViewSawadChatRoomRecordList.length,
+                              itemBuilder: (context, listViewIndex) {
+                                final listViewSawadChatRoomRecord =
+                                    listViewSawadChatRoomRecordList[
+                                        listViewIndex];
                                 return Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 2.0),
-                                  child: StreamBuilder<SawadChatRoomRecord>(
-                                    stream: SawadChatRoomRecord.getDocument(
-                                        chatHomePageUserCustomRecord
-                                            .sawadChatRoomRef
-                                            .elementAtOrNull(
-                                                chatRoomListItemIndex)!),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiary,
-                                              ),
-                                            ),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        ChattingPageWidget.routeName,
+                                        queryParameters: {
+                                          'chatRoomDocRef': serializeParam(
+                                            listViewSawadChatRoomRecord
+                                                .reference,
+                                            ParamType.DocumentReference,
                                           ),
-                                        );
-                                      }
-
-                                      final containerSawadChatRoomRecord =
-                                          snapshot.data!;
-
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed(
-                                            ChattingPageWidget.routeName,
-                                            queryParameters: {
-                                              'chatRoomDocRef': serializeParam(
-                                                containerSawadChatRoomRecord
-                                                    .reference,
-                                                ParamType.DocumentReference,
-                                              ),
-                                              'myDisplayImageUrl':
-                                                  serializeParam(
-                                                chatHomePageUserCustomRecord
-                                                    .imgProfile,
-                                                ParamType.String,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType
-                                                        .rightToLeft,
-                                              ),
-                                            },
-                                          );
+                                          'myDisplayImageUrl': serializeParam(
+                                            chatHomePageUserCustomRecord
+                                                .imgProfile,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.rightToLeft,
+                                          ),
                                         },
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 80.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 0.0,
-                                                color: Color(0xFFDBE2E7),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 12.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Container(
-                                                          width: 70.0,
-                                                          height: 70.0,
-                                                          clipBehavior:
-                                                              Clip.antiAlias,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              containerSawadChatRoomRecord
-                                                                          .chatRoomType ==
-                                                                      'single'
-                                                                  ? containerSawadChatRoomRecord
-                                                                      .usersDisplayImage
-                                                                      .elementAtOrNull(
-                                                                          containerSawadChatRoomRecord.usersRef.firstOrNull == FFAppState().userRef
-                                                                              ? 1
-                                                                              : 0)
-                                                                  : containerSawadChatRoomRecord
-                                                                      .chatRoomDisplayImageUrl,
-                                                              'room_name',
-                                                            ),
+                                      );
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 80.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 0.0,
+                                            color: Color(0xFFDBE2E7),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 70.0,
+                                                    height: 70.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50.0),
+                                                      child: OctoImage(
+                                                        placeholderBuilder:
+                                                            (_) =>
+                                                                SizedBox.expand(
+                                                          child: Image(
+                                                            image: BlurHashImage(listViewSawadChatRoomRecord
+                                                                        .chatRoomType ==
+                                                                    'single'
+                                                                ? (listViewSawadChatRoomRecord
+                                                                        .hasUsersDisplayImageBlurHash()
+                                                                    ? listViewSawadChatRoomRecord
+                                                                        .usersDisplayImageBlurHash
+                                                                        .elementAtOrNull(listViewSawadChatRoomRecord.usersRef.firstOrNull != FFAppState().userRef
+                                                                            ? 0
+                                                                            : 1)!
+                                                                    : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ')
+                                                                : (listViewSawadChatRoomRecord
+                                                                        .hasChatRoomDisplayImageBlurHash()
+                                                                    ? listViewSawadChatRoomRecord
+                                                                        .chatRoomDisplayImageBlurHash
+                                                                    : 'LAPG5SQ^=Sve}itOD=MzYhMx%fTf')),
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
+                                                        image: NetworkImage(
+                                                          listViewSawadChatRoomRecord
+                                                                      .chatRoomType ==
+                                                                  'single'
+                                                              ? listViewSawadChatRoomRecord
+                                                                  .usersDisplayImage
+                                                                  .elementAtOrNull(listViewSawadChatRoomRecord
+                                                                              .usersRef
+                                                                              .firstOrNull !=
+                                                                          FFAppState()
+                                                                              .userRef
+                                                                      ? 0
+                                                                      : 1)!
+                                                              : listViewSawadChatRoomRecord
+                                                                  .chatRoomDisplayImageUrl,
+                                                        ),
+                                                        width: double.infinity,
+                                                        height: double.infinity,
+                                                        fit: BoxFit.cover,
                                                       ),
-                                                      Expanded(
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.start,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Text(
-                                                                              valueOrDefault<String>(
-                                                                                containerSawadChatRoomRecord.chatRoomType == 'single' ? containerSawadChatRoomRecord.usersName.elementAtOrNull(containerSawadChatRoomRecord.usersRef.firstOrNull == FFAppState().userRef ? 1 : 0) : containerSawadChatRoomRecord.chatRoomName,
-                                                                                'room_name',
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 13.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
-                                                                            ),
-                                                                            if (containerSawadChatRoomRecord.chatRoomType !=
-                                                                                'single')
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  '(${containerSawadChatRoomRecord.usersRef.length.toString()})',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        fontSize: 12.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            30.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Text(
-                                                                              containerSawadChatRoomRecord.lastMessageText.maybeHandleOverflow(
-                                                                                maxChars: 100,
-                                                                              ),
-                                                                              maxLines: 2,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    color: Color(0xFF818C95),
-                                                                                    fontSize: 12.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
-                                                                        .center,
+                                                                        .start,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
                                                                 children: [
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      "Hm",
-                                                                      containerSawadChatRoomRecord
-                                                                          .lastMessageTime!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              13.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w300,
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .start,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            listViewSawadChatRoomRecord.chatRoomType == 'single'
+                                                                                ? listViewSawadChatRoomRecord.usersName.elementAtOrNull(listViewSawadChatRoomRecord.usersRef.firstOrNull != FFAppState().userRef ? 0 : 1)
+                                                                                : listViewSawadChatRoomRecord.chatRoomName,
+                                                                            'chat_name',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w600,
+                                                                              ),
                                                                         ),
-                                                                  ),
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      "d/M/y",
-                                                                      containerSawadChatRoomRecord
-                                                                          .lastMessageTime!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
+                                                                        if (listViewSawadChatRoomRecord.chatRoomType !=
+                                                                            'single')
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              '(${listViewSawadChatRoomRecord.usersRef.length.toString()})',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                      ],
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              13.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w300,
-                                                                        ),
                                                                   ),
-                                                                  Icon(
-                                                                    Icons
-                                                                        .arrow_forward_ios_rounded,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryText,
-                                                                    size: 24.0,
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            30.0,
+                                                                            0.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Text(
+                                                                          listViewSawadChatRoomRecord
+                                                                              .lastMessageText
+                                                                              .maybeHandleOverflow(
+                                                                            maxChars:
+                                                                                100,
+                                                                          ),
+                                                                          maxLines:
+                                                                              2,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: Color(0xFF818C95),
+                                                                                fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ],
                                                               ),
                                                             ),
-                                                          ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Text(
+                                                                dateTimeFormat(
+                                                                  "Hm",
+                                                                  listViewSawadChatRoomRecord
+                                                                      .lastMessageTime!,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          13.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w300,
+                                                                    ),
+                                                              ),
+                                                              Text(
+                                                                dateTimeFormat(
+                                                                  "d/M/y",
+                                                                  listViewSawadChatRoomRecord
+                                                                      .lastMessageTime!,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          11.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w300,
+                                                                    ),
+                                                              ),
+                                                              Icon(
+                                                                Icons
+                                                                    .arrow_forward_ios_rounded,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 24.0,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    },
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 );
                               },

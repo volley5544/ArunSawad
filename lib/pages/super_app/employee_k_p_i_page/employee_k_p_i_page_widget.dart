@@ -538,6 +538,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 

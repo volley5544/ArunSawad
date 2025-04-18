@@ -30,15 +30,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "379132035355-636vslnkla9h4hgcsjsm0jlknjmttbhs.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.srisawad.showcheckininfomation"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
@@ -57,15 +49,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "379132035355-636vslnkla9h4hgcsjsm0jlknjmttbhs.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.srisawad.showcheckininfomation"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
@@ -84,15 +68,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "379132035355-636vslnkla9h4hgcsjsm0jlknjmttbhs.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.srisawad.showcheckininfomation"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
@@ -120,15 +96,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "379132035355-636vslnkla9h4hgcsjsm0jlknjmttbhs.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.srisawad.showcheckininfomation"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
@@ -156,15 +124,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "379132035355-636vslnkla9h4hgcsjsm0jlknjmttbhs.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.srisawad.showcheckininfomation"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

@@ -5075,3 +5075,23 @@ List<DocumentReference>? generateChatRoomDocRefList(
 
   return chatRoomDocRefList;
 }
+
+bool? checkContainsChatRoom(
+  List<SawadChatRoomRecord>? inputChatRoomDocList,
+  List<String>? employeeIdList,
+  List<String>? employeeIdReverseList,
+) {
+  List<dynamic> usersEmployeeIdList = [];
+  final listEquality = const ListEquality();
+
+  bool containsList2 = usersEmployeeIdList
+      .any((element) => listEquality.equals(element, employeeIdList!));
+  bool containsList3 = usersEmployeeIdList
+      .any((element) => listEquality.equals(element, employeeIdReverseList!));
+
+  if (containsList2 || containsList3) {
+    return true;
+  } else {
+    return false;
+  }
+}

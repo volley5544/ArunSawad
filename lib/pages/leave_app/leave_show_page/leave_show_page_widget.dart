@@ -232,6 +232,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
       length: 1,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 

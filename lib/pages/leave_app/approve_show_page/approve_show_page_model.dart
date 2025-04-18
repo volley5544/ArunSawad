@@ -43,6 +43,8 @@ class ApproveShowPageModel extends FlutterFlowModel<ApproveShowPageWidget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
 
   @override
   void initState(BuildContext context) {}

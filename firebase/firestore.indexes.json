@@ -15,6 +15,20 @@
       ]
     },
     {
+      "collectionGroup": "SawadChatRoom",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "users_ref",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "last_message_time",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "user_log",
       "queryScope": "COLLECTION",
       "fields": [
@@ -25,6 +39,20 @@
         {
           "fieldPath": "action_time",
           "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "SawadChatRoom",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chat_room_type",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "users_ref",
+          "arrayConfig": "CONTAINS"
         }
       ]
     }

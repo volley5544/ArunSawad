@@ -32,6 +32,8 @@ class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
 
   // Model for ibsPageComponent component.
   late IbsPageComponentModel ibsPageComponentModel1;

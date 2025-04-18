@@ -12,12 +12,14 @@ import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'chat_search_page_model.dart';
@@ -503,104 +505,96 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                   safeSetState(() {});
                                                 return;
                                               }
-                                              if (chatSearchPageUserCustomRecord!
-                                                  .hasSawadChatRoomRef()) {
-                                                while (_model.loopCountTemp! <
-                                                    chatSearchPageUserCustomRecord!
-                                                        .sawadChatRoomRef
-                                                        .length) {
-                                                  _model.qurryChatRoomDoc =
-                                                      await SawadChatRoomRecord
-                                                          .getDocumentOnce(
-                                                              chatSearchPageUserCustomRecord!
-                                                                  .sawadChatRoomRef
+                                              _model.queryMyChatRoom =
+                                                  await querySawadChatRoomRecordOnce(
+                                                queryBuilder:
+                                                    (sawadChatRoomRecord) =>
+                                                        sawadChatRoomRecord
+                                                            .where(
+                                                              'users_ref',
+                                                              arrayContains:
+                                                                  FFAppState()
+                                                                      .userRef,
+                                                            )
+                                                            .where(
+                                                              'chat_room_type',
+                                                              isEqualTo:
+                                                                  'single',
+                                                            ),
+                                              );
+                                              _shouldSetState = true;
+                                              if (functions
+                                                  .checkContainsChatRoom(
+                                                      _model.queryMyChatRoom
+                                                          ?.toList(),
+                                                      ((String myEmployeeId,
+                                                                  String
+                                                                      targetEmployeeId) {
+                                                        return [
+                                                          myEmployeeId,
+                                                          targetEmployeeId
+                                                        ];
+                                                      }(
+                                                              FFAppState()
+                                                                  .employeeID,
+                                                              (GetAllEmployeeAPICall
+                                                                      .employeeId(
+                                                                (_model.getEmployee
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )!
                                                                   .elementAtOrNull(
-                                                                      _model
-                                                                          .loopCountTemp!)!);
-                                                  _shouldSetState = true;
-                                                  if (functions
-                                                          .checkListStringIsEquivalent(
-                                                              _model
-                                                                  .qurryChatRoomDoc
-                                                                  ?.usersEmplayeeId
-                                                                  ?.toList(),
-                                                              ((String myEmployeeId,
-                                                                          String
-                                                                              targetEmployeeId) {
-                                                                return [
-                                                                  myEmployeeId,
-                                                                  targetEmployeeId
-                                                                ];
-                                                              }(
-                                                                      FFAppState()
-                                                                          .employeeID,
-                                                                      (GetAllEmployeeAPICall
-                                                                              .employeeId(
-                                                                        (_model.getEmployee?.jsonBody ??
-                                                                            ''),
-                                                                      )!
-                                                                          .elementAtOrNull(
-                                                                              employeeListItemIndex))!))
-                                                                  .toList())! ||
+                                                                      employeeListItemIndex))!))
+                                                          .toList(),
                                                       functions
-                                                          .checkListStringIsEquivalent(
-                                                              _model
-                                                                  .qurryChatRoomDoc
-                                                                  ?.usersEmplayeeId
-                                                                  ?.toList(),
-                                                              ((String myEmployeeId,
-                                                                          String
-                                                                              targetEmployeeId) {
-                                                                return [
-                                                                  targetEmployeeId,
-                                                                  myEmployeeId
-                                                                ];
-                                                              }(
-                                                                      FFAppState()
-                                                                          .employeeID,
-                                                                      (GetAllEmployeeAPICall
-                                                                              .employeeId(
-                                                                        (_model.getEmployee?.jsonBody ??
-                                                                            ''),
-                                                                      )!
-                                                                          .elementAtOrNull(
-                                                                              employeeListItemIndex))!))
-                                                                  .toList())!) {
-                                                    Navigator.pop(context);
+                                                          .reverseList(((String
+                                                                          myEmployeeId,
+                                                                      String
+                                                                          targetEmployeeId) {
+                                                            return [
+                                                              myEmployeeId,
+                                                              targetEmployeeId
+                                                            ];
+                                                          }(
+                                                                  FFAppState()
+                                                                      .employeeID,
+                                                                  (GetAllEmployeeAPICall
+                                                                          .employeeId(
+                                                                    (_model.getEmployee
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!
+                                                                      .elementAtOrNull(
+                                                                          employeeListItemIndex))!))
+                                                              .toList())
+                                                          .toList())!) {
+                                                Navigator.pop(context);
 
-                                                    context.pushNamed(
-                                                      ChattingPageWidget
-                                                          .routeName,
-                                                      queryParameters: {
-                                                        'chatRoomDocRef':
-                                                            serializeParam(
-                                                          chatSearchPageUserCustomRecord
-                                                              ?.sawadChatRoomRef
-                                                              ?.elementAtOrNull(
-                                                                  employeeListItemIndex),
-                                                          ParamType
-                                                              .DocumentReference,
-                                                        ),
-                                                        'myDisplayImageUrl':
-                                                            serializeParam(
-                                                          chatSearchPageUserCustomRecord
-                                                              ?.imgProfile,
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
+                                                context.pushNamed(
+                                                  ChattingPageWidget.routeName,
+                                                  queryParameters: {
+                                                    'chatRoomDocRef':
+                                                        serializeParam(
+                                                      chatSearchPageUserCustomRecord
+                                                          ?.sawadChatRoomRef
+                                                          ?.elementAtOrNull(
+                                                              employeeListItemIndex),
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                    'myDisplayImageUrl':
+                                                        serializeParam(
+                                                      chatSearchPageUserCustomRecord
+                                                          ?.imgProfile,
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
 
-                                                    break;
-                                                  } else {
-                                                    _model.loopCountTemp =
-                                                        _model.loopCountTemp! +
-                                                            1;
-                                                    safeSetState(() {});
-                                                  }
-                                                }
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
                                               }
-                                              _model.loopCountTemp = 0;
-                                              safeSetState(() {});
                                               var confirmDialogResponse =
                                                   await showDialog<bool>(
                                                         context: context,
@@ -643,10 +637,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                 return;
                                               }
 
-                                              var sawadChatRoomRecordReference2 =
+                                              var sawadChatRoomRecordReference =
                                                   SawadChatRoomRecord.collection
                                                       .doc();
-                                              await sawadChatRoomRecordReference2
+                                              await sawadChatRoomRecordReference
                                                   .set({
                                                 ...createSawadChatRoomRecordData(
                                                   lastMessageText:
@@ -784,96 +778,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                         .toList()),
                                                   },
                                                 ),
-                                              }, sawadChatRoomRecordReference2);
+                                              }, sawadChatRoomRecordReference);
                                               _shouldSetState = true;
-                                              _model.queryMyProfile =
-                                                  await UserCustomRecord
-                                                      .getDocumentOnce(
-                                                          FFAppState()
-                                                              .userRef!);
-                                              _shouldSetState = true;
-                                              if (_model.queryMyProfile!
-                                                  .hasSawadChatRoomRef()) {
-                                                // update my account chat room joined
-
-                                                await FFAppState()
-                                                    .userRef!
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'sawad_chat_room_ref':
-                                                          FieldValue
-                                                              .arrayUnion([
-                                                        _model.createNewChatRoom
-                                                            ?.reference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
-                                              } else {
-                                                // created my account chat room joined
-
-                                                await FFAppState()
-                                                    .userRef!
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'sawad_chat_room_ref': functions
-                                                          .generateChatRoomDocRefList(
-                                                              _model
-                                                                  .createNewChatRoom
-                                                                  ?.reference),
-                                                    },
-                                                  ),
-                                                });
-                                              }
-
-                                              _model.queryTargetProfile =
-                                                  await UserCustomRecord
-                                                      .getDocumentOnce(
-                                                          FFAppState()
-                                                              .userRef!);
-                                              _shouldSetState = true;
-                                              if (_model.queryTargetProfile!
-                                                  .hasSawadChatRoomRef()) {
-                                                // update target account chat room joined
-
-                                                await containerUserCustomRecordList
-                                                    .elementAtOrNull(
-                                                        employeeListItemIndex)!
-                                                    .reference
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'sawad_chat_room_ref':
-                                                          FieldValue
-                                                              .arrayUnion([
-                                                        _model.createNewChatRoom
-                                                            ?.reference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
-                                              } else {
-                                                // create target account chat room joined
-
-                                                await containerUserCustomRecordList
-                                                    .elementAtOrNull(
-                                                        employeeListItemIndex)!
-                                                    .reference
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'sawad_chat_room_ref': functions
-                                                          .generateChatRoomDocRefList(
-                                                              _model
-                                                                  .createNewChatRoom
-                                                                  ?.reference),
-                                                    },
-                                                  ),
-                                                });
-                                              }
-
                                               Navigator.pop(context);
 
                                               context.goNamed(
@@ -936,39 +842,54 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                             CrossAxisAlignment
                                                                 .start,
                                                         children: [
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Container(
-                                                              width: 70.0,
-                                                              height: 70.0,
-                                                              clipBehavior: Clip
-                                                                  .antiAlias,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child:
-                                                                  CachedNetworkImage(
-                                                                fadeInDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            500),
-                                                                fadeOutDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            500),
-                                                                imageUrl:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  containerUserCustomRecordList
-                                                                      .elementAtOrNull(
-                                                                          employeeListItemIndex)
-                                                                      ?.imgProfile,
-                                                                  'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
+                                                          Container(
+                                                            width: 70.0,
+                                                            height: 70.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          50.0),
+                                                              child: OctoImage(
+                                                                placeholderBuilder:
+                                                                    (_) => SizedBox
+                                                                        .expand(
+                                                                  child: Image(
+                                                                    image: BlurHashImage(containerUserCustomRecordList
+                                                                            .elementAtOrNull(
+                                                                                employeeListItemIndex)!
+                                                                            .hasImgProfileBlurHash()
+                                                                        ? containerUserCustomRecordList
+                                                                            .elementAtOrNull(employeeListItemIndex)!
+                                                                            .imgProfileBlurHash
+                                                                        : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
                                                                 ),
+                                                                image:
+                                                                    NetworkImage(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    containerUserCustomRecordList
+                                                                        .elementAtOrNull(
+                                                                            employeeListItemIndex)
+                                                                        ?.imgProfile,
+                                                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
+                                                                  ),
+                                                                ),
+                                                                width: double
+                                                                    .infinity,
+                                                                height: double
+                                                                    .infinity,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),

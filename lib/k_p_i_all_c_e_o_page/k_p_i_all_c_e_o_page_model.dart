@@ -45,6 +45,8 @@ class KPIAllCEOPageModel extends FlutterFlowModel<KPIAllCEOPageWidget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
 
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController1;

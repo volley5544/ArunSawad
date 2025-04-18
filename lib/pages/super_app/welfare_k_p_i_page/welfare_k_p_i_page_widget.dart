@@ -119,6 +119,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 

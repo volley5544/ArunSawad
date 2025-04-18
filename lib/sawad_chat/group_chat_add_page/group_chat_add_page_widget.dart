@@ -15,6 +15,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -939,6 +940,11 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                             child: TextFormField(
                               controller: _model.searchBoxTextController,
                               focusNode: _model.searchBoxFocusNode,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.searchBoxTextController',
+                                Duration(milliseconds: 2000),
+                                () => safeSetState(() {}),
+                              ),
                               autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -963,6 +969,20 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                 focusedErrorBorder: InputBorder.none,
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
+                                suffixIcon: _model.searchBoxTextController!.text
+                                        .isNotEmpty
+                                    ? InkWell(
+                                        onTap: () async {
+                                          _model.searchBoxTextController
+                                              ?.clear();
+                                          safeSetState(() {});
+                                        },
+                                        child: Icon(
+                                          Icons.clear,
+                                          size: 22,
+                                        ),
+                                      )
+                                    : null,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -1136,6 +1156,7 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                   (_model.getEmployee?.jsonBody ?? ''),
                                 )?.elementAtOrNull(employeeListItemIndex),
                               ),
+                              singleRecord: true,
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
@@ -1155,15 +1176,17 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                               List<UserCustomRecord>
                                   containerUserCustomRecordList =
                                   snapshot.data!;
+                              final containerUserCustomRecord =
+                                  containerUserCustomRecordList.isNotEmpty
+                                      ? containerUserCustomRecordList.first
+                                      : null;
 
                               return Container(
                                 width: double.infinity,
                                 height: 80.0,
                                 decoration: BoxDecoration(),
                                 child: Visibility(
-                                  visible: containerUserCustomRecordList
-                                          .elementAtOrNull(
-                                              employeeListItemIndex)
+                                  visible: containerUserCustomRecord
                                           ?.hasEmployeeId() ??
                                       true,
                                   child: Padding(
@@ -1201,23 +1224,19 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                               1,
                                           (e) => e
                                             ..userDocRef =
-                                                containerUserCustomRecordList
-                                                    .elementAtOrNull(
-                                                        employeeListItemIndex)
+                                                containerUserCustomRecord
                                                     ?.reference
                                             ..userDisplayImage =
-                                                containerUserCustomRecordList
-                                                    .elementAtOrNull(
-                                                        employeeListItemIndex)
+                                                containerUserCustomRecord
                                                     ?.imgProfile
                                             ..userDisplayImageBlurHash =
-                                                containerUserCustomRecordList
-                                                        .elementAtOrNull(
-                                                            employeeListItemIndex)!
-                                                        .hasImgProfileBlurHash()
-                                                    ? containerUserCustomRecordList
-                                                        .elementAtOrNull(
-                                                            employeeListItemIndex)
+                                                containerUserCustomRecord
+                                                                ?.imgProfileBlurHash !=
+                                                            null &&
+                                                        containerUserCustomRecord
+                                                                ?.imgProfileBlurHash !=
+                                                            ''
+                                                    ? containerUserCustomRecord
                                                         ?.imgProfileBlurHash
                                                     : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
                                         );
@@ -1265,42 +1284,95 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                             .secondaryBackground,
                                                         shape: BoxShape.circle,
                                                       ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                        child: OctoImage(
-                                                          placeholderBuilder:
-                                                              (_) => SizedBox
-                                                                  .expand(
-                                                            child: Image(
-                                                              image: BlurHashImage(containerUserCustomRecordList
-                                                                      .elementAtOrNull(
-                                                                          employeeListItemIndex)!
-                                                                      .hasImgProfileBlurHash()
-                                                                  ? containerUserCustomRecordList
-                                                                      .elementAtOrNull(
-                                                                          employeeListItemIndex)!
-                                                                      .imgProfileBlurHash
-                                                                  : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await Navigator.push(
+                                                            context,
+                                                            PageTransition(
+                                                              type:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              child:
+                                                                  FlutterFlowExpandedImageView(
+                                                                image:
+                                                                    OctoImage(
+                                                                  placeholderBuilder:
+                                                                      (_) => SizedBox
+                                                                          .expand(
+                                                                    child:
+                                                                        Image(
+                                                                      image: BlurHashImage(containerUserCustomRecord!
+                                                                              .hasImgProfileBlurHash()
+                                                                          ? containerUserCustomRecord!
+                                                                              .imgProfileBlurHash
+                                                                          : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
+                                                                  image:
+                                                                      NetworkImage(
+                                                                    containerUserCustomRecord!
+                                                                        .imgProfile,
+                                                                  ),
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                                allowRotation:
+                                                                    false,
+                                                                tag: containerUserCustomRecord!
+                                                                    .imgProfile,
+                                                                useHeroAnimation:
+                                                                    true,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                        child: Hero(
+                                                          tag:
+                                                              containerUserCustomRecord!
+                                                                  .imgProfile,
+                                                          transitionOnUserGestures:
+                                                              true,
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        50.0),
+                                                            child: OctoImage(
+                                                              placeholderBuilder:
+                                                                  (_) => SizedBox
+                                                                      .expand(
+                                                                child: Image(
+                                                                  image: BlurHashImage(containerUserCustomRecord!
+                                                                          .hasImgProfileBlurHash()
+                                                                      ? containerUserCustomRecord!
+                                                                          .imgProfileBlurHash
+                                                                      : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                              image:
+                                                                  NetworkImage(
+                                                                containerUserCustomRecord!
+                                                                    .imgProfile,
+                                                              ),
+                                                              width: double
+                                                                  .infinity,
+                                                              height: double
+                                                                  .infinity,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
-                                                          image: NetworkImage(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              containerUserCustomRecordList
-                                                                  .elementAtOrNull(
-                                                                      employeeListItemIndex)
-                                                                  ?.imgProfile,
-                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=a4b9142c-c774-492a-a5a4-caa39f16ec3c',
-                                                            ),
-                                                          ),
-                                                          width:
-                                                              double.infinity,
-                                                          height:
-                                                              double.infinity,
-                                                          fit: BoxFit.cover,
                                                         ),
                                                       ),
                                                     ),
@@ -1689,28 +1761,6 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                   ),
                                 }, sawadChatRoomRecordReference);
                                 _shouldSetState = true;
-                                while (_model.selectedEmployeeList.length >
-                                    _model.loopCountTemp!) {
-                                  await _model.selectedEmployeeList
-                                      .elementAtOrNull(_model.loopCountTemp!)!
-                                      .userDocRef!
-                                      .update({
-                                    ...mapToFirestore(
-                                      {
-                                        'sawad_chat_room_ref':
-                                            FieldValue.arrayUnion([
-                                          _model
-                                              .createNewGroupChatRoom?.reference
-                                        ]),
-                                      },
-                                    ),
-                                  });
-                                  _model.loopCountTemp =
-                                      _model.loopCountTemp! + 1;
-                                  safeSetState(() {});
-                                }
-                                _model.loopCountTemp = 0;
-                                safeSetState(() {});
                                 Navigator.pop(context);
 
                                 context.goNamed(

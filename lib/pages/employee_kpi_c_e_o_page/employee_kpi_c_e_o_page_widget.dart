@@ -134,6 +134,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     _model.expandableExpandableController1 =
         ExpandableController(initialExpanded: true);
     _model.branchInputTextController ??= TextEditingController();

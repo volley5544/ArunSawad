@@ -479,6 +479,13 @@ void setAppLanguage(BuildContext context, String language) =>
 void setDarkModeSetting(BuildContext context, ThemeMode themeMode) =>
     MyApp.of(context).setThemeMode(themeMode);
 
+void setTextScaleFactorSetting(BuildContext context, double textScaleFactor) =>
+    MyApp.of(context).setTextScaleFactor(textScaleFactor);
+
+void incrementTextScaleFactorSetting(
+        BuildContext context, double incrementValue) =>
+    MyApp.of(context).incrementTextScaleFactor(incrementValue);
+
 void showSnackbar(
   BuildContext context,
   String message, {
