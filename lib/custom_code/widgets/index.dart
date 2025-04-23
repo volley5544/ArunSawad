@@ -14,3 +14,4 @@ export 'show_text_url.dart' show ShowTextUrl;
 export 'image_widget5544.dart' show ImageWidget5544;
 export 'polyline_example.dart' show PolylineExample;
 export 'flutter_inappwebview_widget.dart' show FlutterInappwebviewWidget;
+export 'pdf_viewer_custom_widget.dart' show PdfViewerCustomWidget;

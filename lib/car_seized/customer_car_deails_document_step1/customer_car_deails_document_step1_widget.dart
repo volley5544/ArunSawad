@@ -640,22 +640,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }),
       ]);
       Navigator.pop(context);
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(_model.file01Type),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     _model.textController ??= TextEditingController(

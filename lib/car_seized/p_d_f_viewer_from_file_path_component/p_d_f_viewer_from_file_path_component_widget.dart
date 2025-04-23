@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,11 +69,14 @@ class _PDFViewerFromFilePathComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return FlutterFlowPdfViewer(
-      networkPath: widget!.filePath!,
+    return Container(
       width: double.infinity,
-      height: 300.0,
-      horizontalScroll: false,
+      height: double.infinity,
+      child: custom_widgets.PdfViewerCustomWidget(
+        width: double.infinity,
+        height: double.infinity,
+        horizontalScroll: false,
+      ),
     );
   }
 }
