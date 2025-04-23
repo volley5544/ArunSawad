@@ -161,30 +161,336 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         Navigator.pop(context);
         return;
       }
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file01Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images2(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file02Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images2(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images2(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images3(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file03Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images3(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images3(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file04Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images5(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file05Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images5(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images5(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images6(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file06Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images6(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images6(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images7(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file07Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images7(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images7(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images8(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file08Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images8(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images8(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images9(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file09Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images9(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images9(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images10(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file10Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images10(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images10(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images11(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file11Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images11(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images11(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
+      if (UploadImagesGoogleDriveGroup.searchImagesCall.images12(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          ) !=
+          '') {
+        _model.file12Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images12(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images12(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
+        safeSetState(() {});
+      } else {
+        _model.file01Type = 'image';
+        safeSetState(() {});
+      }
+
       await Future.wait([
         Future(() async {
           if (UploadImagesGoogleDriveGroup.searchImagesCall.images1(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file01Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image1File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images1(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -192,9 +498,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '01',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -202,24 +505,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file02Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images2(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images2(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image2File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images2(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -227,9 +512,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '02',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -237,24 +519,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file03Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images3(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images3(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image3File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images3(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -262,9 +526,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '03',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -272,24 +533,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file04Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image4File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images4(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -297,9 +540,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '04',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -307,24 +547,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file05Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images5(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images5(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image5File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images5(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -332,9 +554,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '05',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -342,24 +561,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file06Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images6(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images6(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image6File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images6(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -367,9 +568,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '06',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -377,24 +575,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file07Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images7(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images7(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image7File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images7(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -402,9 +582,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '07',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -412,24 +589,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file08Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images8(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images8(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image8File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images8(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -437,9 +596,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '08',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -447,24 +603,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file09Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images9(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images9(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image9File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images9(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -472,9 +610,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '09',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -482,24 +617,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file10Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images10(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images10(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image10File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images10(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -507,9 +624,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '10',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -517,24 +631,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file11Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images11(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images11(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image11File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images11(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -542,9 +638,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '11',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
         Future(() async {
@@ -552,24 +645,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
               ) !=
               '') {
-            _model.file12Type = () {
-              if ((String base64Input) {
-                return base64Input.split(',')[0].contains('image');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images12(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'image';
-              } else if ((String base64Input) {
-                return base64Input.split(',')[0].contains('pdf');
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images12(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)) {
-                return 'pdf';
-              } else {
-                return 'other';
-              }
-            }();
-            safeSetState(() {});
             _model.image12File = await actions.convertBase64ToFFFiles(
               UploadImagesGoogleDriveGroup.searchImagesCall.images12(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
@@ -577,9 +652,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               '12',
               true,
             );
-          } else {
-            _model.file01Type = 'image';
-            safeSetState(() {});
           }
         }),
       ]);
