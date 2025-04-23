@@ -185,10 +185,11 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         builder: (alertDialogContext) {
           return WebViewAware(
             child: AlertDialog(
-              content:
-                  Text(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+              content: Text((String base64Input) {
+                return base64Input.split(',')[0];
+              }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
                 (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!),
+              )!)),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
@@ -231,10 +232,47 @@ class _CustomerCarDeailsDocumentStep1WidgetState
           );
         },
       );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content:
+                  Text((UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                            (_model.imagesAPIOutput?.jsonBody ?? ''),
+                          ) !=
+                          '')
+                      .toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       if (UploadImagesGoogleDriveGroup.searchImagesCall.images1(
             (_model.imagesAPIOutput?.jsonBody ?? ''),
           ) !=
           '') {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('in true'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
         _model.file01Type = () {
           if ((String base64Input) {
             return base64Input.split(',')[0].contains('image');
