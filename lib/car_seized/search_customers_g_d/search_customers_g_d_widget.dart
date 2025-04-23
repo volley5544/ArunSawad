@@ -3436,180 +3436,244 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
-                                                                    context
-                                                                        .pushNamed(
-                                                                      CustomerCarDeailsPictureStep1Widget
-                                                                          .routeName,
-                                                                      queryParameters:
-                                                                          {
-                                                                        'step':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .step,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'readAccessRoleData':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .readAccessRoleData,
-                                                                          ParamType
-                                                                              .JSON,
-                                                                        ),
-                                                                        'saveAccessRoleData':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .saveAccessRoleData,
-                                                                          ParamType
-                                                                              .JSON,
-                                                                        ),
-                                                                        'userRoleRead':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .userRoleRead,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'userRoleSave':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .userRoleSave,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'impoundCarParamSet':
-                                                                            serializeParam(
-                                                                          ImpoundCarParamSetStruct(
-                                                                            improundCONTNO:
-                                                                                FFAppState().improundCONTNO.elementAtOrNull(listImproundIndex),
-                                                                            improundLOCAT:
-                                                                                FFAppState().improundLOCAT.elementAtOrNull(listImproundIndex),
-                                                                            improundTITLE:
-                                                                                FFAppState().improundTITLE.elementAtOrNull(listImproundIndex),
-                                                                            improundFNAME:
-                                                                                FFAppState().improundFNAME.elementAtOrNull(listImproundIndex),
-                                                                            improundSNAME:
-                                                                                FFAppState().improundSNAME.elementAtOrNull(listImproundIndex),
-                                                                            improundREGNO:
-                                                                                FFAppState().improundREGNO.elementAtOrNull(listImproundIndex),
-                                                                            improundREGPROV:
-                                                                                FFAppState().improundREGPROV.elementAtOrNull(listImproundIndex),
-                                                                            improundCONTNOTYPE:
-                                                                                FFAppState().improundCONTNOTYPE.elementAtOrNull(listImproundIndex),
-                                                                            improundCONTNOTYPENAME:
-                                                                                FFAppState().improundCONTNOTYPENAME.elementAtOrNull(listImproundIndex),
-                                                                            improundGCODE:
-                                                                                FFAppState().improundGCODE.elementAtOrNull(listImproundIndex),
-                                                                            improundGDESC:
-                                                                                FFAppState().improundGDESC.elementAtOrNull(listImproundIndex),
-                                                                            improundNumbody:
-                                                                                FFAppState().improundNumbody.elementAtOrNull(listImproundIndex),
-                                                                            improundCUSCOD:
-                                                                                FFAppState().improundCUSCOD.elementAtOrNull(listImproundIndex),
-                                                                            improundARNOW:
-                                                                                FFAppState().improundARNOW.elementAtOrNull(listImproundIndex),
-                                                                            improundCONTSTAT:
-                                                                                FFAppState().improundCONTSTAT.elementAtOrNull(listImproundIndex),
-                                                                            improundTYPECOD:
-                                                                                FFAppState().improundTYPECOD.elementAtOrNull(listImproundIndex),
-                                                                            improundMANUYR:
-                                                                                FFAppState().improundMANUYR.elementAtOrNull(listImproundIndex),
-                                                                            improundMODELCOD:
-                                                                                FFAppState().improundMODELCOD.elementAtOrNull(listImproundIndex),
-                                                                            improudCOLORCOD:
-                                                                                FFAppState().improundCOLORCOD.elementAtOrNull(listImproundIndex),
-                                                                            improundENGNO:
-                                                                                FFAppState().improundENGNO.elementAtOrNull(listImproundIndex),
-                                                                            improundKEYINCSHPRC:
-                                                                                FFAppState().improundKEYINCSHPRC.elementAtOrNull(listImproundIndex),
-                                                                            improundMANUYRCONVERT:
-                                                                                FFAppState().improundMANUYRCONVERT.elementAtOrNull(listImproundIndex),
-                                                                            impoundDbName:
-                                                                                FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
-                                                                            impoundDbCode:
-                                                                                FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
-                                                                            impoundPrice:
-                                                                                FFAppState().impoundPriceCurrentStep.elementAtOrNull(listImproundIndex),
+                                                                    if ((widget!.fromPage ==
+                                                                            'seeImages') &&
+                                                                        (widget!.step ==
+                                                                            'step1')) {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        CustomerCarDeailsDocumentStep1Widget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'step':
+                                                                              serializeParam(
+                                                                            'document',
+                                                                            ParamType.String,
                                                                           ),
-                                                                          ParamType
-                                                                              .DataStruct,
-                                                                        ),
-                                                                        'fromPage':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .fromPage,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'impoundCarLocateParamSet':
-                                                                            serializeParam(
-                                                                          ImpoundCarLocateParamSetStruct(
-                                                                            locatName:
-                                                                                FFAppState().impoundCarMainBranch.elementAtOrNull(listImproundIndex),
-                                                                            branchNameLocat:
-                                                                                FFAppState().impoundCarBranchName.elementAtOrNull(listImproundIndex),
-                                                                            branchCodeLocat:
-                                                                                FFAppState().ImpoundCarBranchCode.elementAtOrNull(listImproundIndex),
-                                                                            deliverLocateName:
-                                                                                FFAppState().impoundDeliverLocateNameList.elementAtOrNull(listImproundIndex),
-                                                                            deliverLocateCode:
-                                                                                FFAppState().impoundDeliverLocateCodeList.elementAtOrNull(listImproundIndex),
-                                                                            logisticsCompany:
-                                                                                FFAppState().impoundLogisticsCompany.elementAtOrNull(listImproundIndex),
-                                                                            receiver:
-                                                                                FFAppState().impoundReceiver.elementAtOrNull(listImproundIndex),
+                                                                          'readAccessRoleData':
+                                                                              serializeParam(
+                                                                            widget!.readAccessRoleData,
+                                                                            ParamType.JSON,
                                                                           ),
-                                                                          ParamType
-                                                                              .DataStruct,
-                                                                        ),
-                                                                        'impoundCarStatusName':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .impoundCarStatusName
-                                                                              .elementAtOrNull(listImproundIndex),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'carConfig':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .carConfig,
-                                                                          ParamType
-                                                                              .String,
-                                                                          isList:
-                                                                              true,
-                                                                        ),
-                                                                        'motocycleConfig':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .motocycleConfig,
-                                                                          ParamType
-                                                                              .String,
-                                                                          isList:
-                                                                              true,
-                                                                        ),
-                                                                        'editAccessRoleData':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .editAccessRoleData,
-                                                                          ParamType
-                                                                              .JSON,
-                                                                        ),
-                                                                        'userRoleEdit':
-                                                                            serializeParam(
-                                                                          widget!
-                                                                              .userRoleEdit,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'fromPage2':
-                                                                            serializeParam(
-                                                                          'seeImageButton',
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                      }.withoutNulls,
-                                                                    );
+                                                                          'saveAccessRoleData':
+                                                                              serializeParam(
+                                                                            widget!.saveAccessRoleData,
+                                                                            ParamType.JSON,
+                                                                          ),
+                                                                          'userRoleRead':
+                                                                              serializeParam(
+                                                                            widget!.userRoleRead,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'userRoleSave':
+                                                                              serializeParam(
+                                                                            widget!.userRoleSave,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'impoundCarParamSet':
+                                                                              serializeParam(
+                                                                            ImpoundCarParamSetStruct(
+                                                                              improundCONTNO: FFAppState().improundCONTNO.elementAtOrNull(listImproundIndex),
+                                                                              improundLOCAT: FFAppState().improundLOCAT.elementAtOrNull(listImproundIndex),
+                                                                              improundTITLE: FFAppState().improundTITLE.elementAtOrNull(listImproundIndex),
+                                                                              improundFNAME: FFAppState().improundFNAME.elementAtOrNull(listImproundIndex),
+                                                                              improundSNAME: FFAppState().improundSNAME.elementAtOrNull(listImproundIndex),
+                                                                              improundREGNO: FFAppState().improundREGNO.elementAtOrNull(listImproundIndex),
+                                                                              improundREGPROV: FFAppState().improundREGPROV.elementAtOrNull(listImproundIndex),
+                                                                              improundCONTNOTYPE: FFAppState().improundCONTNOTYPE.elementAtOrNull(listImproundIndex),
+                                                                              improundCONTNOTYPENAME: FFAppState().improundCONTNOTYPENAME.elementAtOrNull(listImproundIndex),
+                                                                              improundGCODE: FFAppState().improundGCODE.elementAtOrNull(listImproundIndex),
+                                                                              improundGDESC: FFAppState().improundGDESC.elementAtOrNull(listImproundIndex),
+                                                                              improundNumbody: FFAppState().improundNumbody.elementAtOrNull(listImproundIndex),
+                                                                              improundCUSCOD: FFAppState().improundCUSCOD.elementAtOrNull(listImproundIndex),
+                                                                              improundARNOW: FFAppState().improundARNOW.elementAtOrNull(listImproundIndex),
+                                                                              improundCONTSTAT: FFAppState().improundCONTSTAT.elementAtOrNull(listImproundIndex),
+                                                                              improundTYPECOD: FFAppState().improundTYPECOD.elementAtOrNull(listImproundIndex),
+                                                                              improundMANUYR: FFAppState().improundMANUYR.elementAtOrNull(listImproundIndex),
+                                                                              improundMODELCOD: FFAppState().improundMODELCOD.elementAtOrNull(listImproundIndex),
+                                                                              improudCOLORCOD: FFAppState().improundCOLORCOD.elementAtOrNull(listImproundIndex),
+                                                                              improundENGNO: FFAppState().improundENGNO.elementAtOrNull(listImproundIndex),
+                                                                              improundKEYINCSHPRC: FFAppState().improundKEYINCSHPRC.elementAtOrNull(listImproundIndex),
+                                                                              improundMANUYRCONVERT: FFAppState().improundMANUYRCONVERT.elementAtOrNull(listImproundIndex),
+                                                                              impoundDbName: FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
+                                                                              impoundDbCode: FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
+                                                                              impoundPrice: FFAppState().impoundPriceCurrentStep.elementAtOrNull(listImproundIndex),
+                                                                            ),
+                                                                            ParamType.DataStruct,
+                                                                          ),
+                                                                          'impoundCarLocateParamSet':
+                                                                              serializeParam(
+                                                                            ImpoundCarLocateParamSetStruct(
+                                                                              locatName: FFAppState().impoundCarMainBranch.elementAtOrNull(listImproundIndex),
+                                                                              branchNameLocat: FFAppState().impoundCarBranchName.elementAtOrNull(listImproundIndex),
+                                                                              branchCodeLocat: FFAppState().ImpoundCarBranchCode.elementAtOrNull(listImproundIndex),
+                                                                              deliverLocateName: FFAppState().impoundDeliverLocateNameList.elementAtOrNull(listImproundIndex),
+                                                                              deliverLocateCode: FFAppState().impoundDeliverLocateCodeList.elementAtOrNull(listImproundIndex),
+                                                                              logisticsCompany: FFAppState().impoundLogisticsCompany.elementAtOrNull(listImproundIndex),
+                                                                              receiver: FFAppState().impoundReceiver.elementAtOrNull(listImproundIndex),
+                                                                            ),
+                                                                            ParamType.DataStruct,
+                                                                          ),
+                                                                          'impoundCarStatusName':
+                                                                              serializeParam(
+                                                                            FFAppState().impoundCarStatusName.elementAtOrNull(listImproundIndex),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'carConfig':
+                                                                              serializeParam(
+                                                                            widget!.carConfig,
+                                                                            ParamType.String,
+                                                                            isList:
+                                                                                true,
+                                                                          ),
+                                                                          'motocycleConfig':
+                                                                              serializeParam(
+                                                                            widget!.motocycleConfig,
+                                                                            ParamType.String,
+                                                                            isList:
+                                                                                true,
+                                                                          ),
+                                                                          'editAccessRoleData':
+                                                                              serializeParam(
+                                                                            widget!.editAccessRoleData,
+                                                                            ParamType.JSON,
+                                                                          ),
+                                                                          'userRoleEdit':
+                                                                              serializeParam(
+                                                                            widget!.userRoleEdit,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'fromPage':
+                                                                              serializeParam(
+                                                                            widget!.fromPage,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'fromPage2':
+                                                                              serializeParam(
+                                                                            'seeImageButton',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    } else {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        CustomerCarDeailsPictureStep1Widget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'step':
+                                                                              serializeParam(
+                                                                            widget!.step,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'readAccessRoleData':
+                                                                              serializeParam(
+                                                                            widget!.readAccessRoleData,
+                                                                            ParamType.JSON,
+                                                                          ),
+                                                                          'saveAccessRoleData':
+                                                                              serializeParam(
+                                                                            widget!.saveAccessRoleData,
+                                                                            ParamType.JSON,
+                                                                          ),
+                                                                          'userRoleRead':
+                                                                              serializeParam(
+                                                                            widget!.userRoleRead,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'userRoleSave':
+                                                                              serializeParam(
+                                                                            widget!.userRoleSave,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'impoundCarParamSet':
+                                                                              serializeParam(
+                                                                            ImpoundCarParamSetStruct(
+                                                                              improundCONTNO: FFAppState().improundCONTNO.elementAtOrNull(listImproundIndex),
+                                                                              improundLOCAT: FFAppState().improundLOCAT.elementAtOrNull(listImproundIndex),
+                                                                              improundTITLE: FFAppState().improundTITLE.elementAtOrNull(listImproundIndex),
+                                                                              improundFNAME: FFAppState().improundFNAME.elementAtOrNull(listImproundIndex),
+                                                                              improundSNAME: FFAppState().improundSNAME.elementAtOrNull(listImproundIndex),
+                                                                              improundREGNO: FFAppState().improundREGNO.elementAtOrNull(listImproundIndex),
+                                                                              improundREGPROV: FFAppState().improundREGPROV.elementAtOrNull(listImproundIndex),
+                                                                              improundCONTNOTYPE: FFAppState().improundCONTNOTYPE.elementAtOrNull(listImproundIndex),
+                                                                              improundCONTNOTYPENAME: FFAppState().improundCONTNOTYPENAME.elementAtOrNull(listImproundIndex),
+                                                                              improundGCODE: FFAppState().improundGCODE.elementAtOrNull(listImproundIndex),
+                                                                              improundGDESC: FFAppState().improundGDESC.elementAtOrNull(listImproundIndex),
+                                                                              improundNumbody: FFAppState().improundNumbody.elementAtOrNull(listImproundIndex),
+                                                                              improundCUSCOD: FFAppState().improundCUSCOD.elementAtOrNull(listImproundIndex),
+                                                                              improundARNOW: FFAppState().improundARNOW.elementAtOrNull(listImproundIndex),
+                                                                              improundCONTSTAT: FFAppState().improundCONTSTAT.elementAtOrNull(listImproundIndex),
+                                                                              improundTYPECOD: FFAppState().improundTYPECOD.elementAtOrNull(listImproundIndex),
+                                                                              improundMANUYR: FFAppState().improundMANUYR.elementAtOrNull(listImproundIndex),
+                                                                              improundMODELCOD: FFAppState().improundMODELCOD.elementAtOrNull(listImproundIndex),
+                                                                              improudCOLORCOD: FFAppState().improundCOLORCOD.elementAtOrNull(listImproundIndex),
+                                                                              improundENGNO: FFAppState().improundENGNO.elementAtOrNull(listImproundIndex),
+                                                                              improundKEYINCSHPRC: FFAppState().improundKEYINCSHPRC.elementAtOrNull(listImproundIndex),
+                                                                              improundMANUYRCONVERT: FFAppState().improundMANUYRCONVERT.elementAtOrNull(listImproundIndex),
+                                                                              impoundDbName: FFAppState().impoundVloanDbName.elementAtOrNull(listImproundIndex),
+                                                                              impoundDbCode: FFAppState().impoundVloanDbCode.elementAtOrNull(listImproundIndex),
+                                                                              impoundPrice: FFAppState().impoundPriceCurrentStep.elementAtOrNull(listImproundIndex),
+                                                                            ),
+                                                                            ParamType.DataStruct,
+                                                                          ),
+                                                                          'fromPage':
+                                                                              serializeParam(
+                                                                            widget!.fromPage,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'impoundCarLocateParamSet':
+                                                                              serializeParam(
+                                                                            ImpoundCarLocateParamSetStruct(
+                                                                              locatName: FFAppState().impoundCarMainBranch.elementAtOrNull(listImproundIndex),
+                                                                              branchNameLocat: FFAppState().impoundCarBranchName.elementAtOrNull(listImproundIndex),
+                                                                              branchCodeLocat: FFAppState().ImpoundCarBranchCode.elementAtOrNull(listImproundIndex),
+                                                                              deliverLocateName: FFAppState().impoundDeliverLocateNameList.elementAtOrNull(listImproundIndex),
+                                                                              deliverLocateCode: FFAppState().impoundDeliverLocateCodeList.elementAtOrNull(listImproundIndex),
+                                                                              logisticsCompany: FFAppState().impoundLogisticsCompany.elementAtOrNull(listImproundIndex),
+                                                                              receiver: FFAppState().impoundReceiver.elementAtOrNull(listImproundIndex),
+                                                                            ),
+                                                                            ParamType.DataStruct,
+                                                                          ),
+                                                                          'impoundCarStatusName':
+                                                                              serializeParam(
+                                                                            FFAppState().impoundCarStatusName.elementAtOrNull(listImproundIndex),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'carConfig':
+                                                                              serializeParam(
+                                                                            widget!.carConfig,
+                                                                            ParamType.String,
+                                                                            isList:
+                                                                                true,
+                                                                          ),
+                                                                          'motocycleConfig':
+                                                                              serializeParam(
+                                                                            widget!.motocycleConfig,
+                                                                            ParamType.String,
+                                                                            isList:
+                                                                                true,
+                                                                          ),
+                                                                          'editAccessRoleData':
+                                                                              serializeParam(
+                                                                            widget!.editAccessRoleData,
+                                                                            ParamType.JSON,
+                                                                          ),
+                                                                          'userRoleEdit':
+                                                                              serializeParam(
+                                                                            widget!.userRoleEdit,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'fromPage2':
+                                                                              serializeParam(
+                                                                            'seeImageButton',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    }
                                                                   },
                                                                   child:
                                                                       Container(
