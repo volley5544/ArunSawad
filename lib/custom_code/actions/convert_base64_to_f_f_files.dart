@@ -48,7 +48,7 @@ Future<String?> convertBase64ToFFFiles(
       return filePath;
     } else {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath = '${directory.path}/file${index!}${fileExtension}';
+      final filePath = '${directory.path}/file${index!}.${fileExtension}';
 
       final file = File(filePath);
       await file.writeAsBytes(imageBytes);

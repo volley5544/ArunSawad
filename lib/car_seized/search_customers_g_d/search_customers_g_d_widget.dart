@@ -3551,7 +3551,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           ),
                                                                           'fromPage2':
                                                                               serializeParam(
-                                                                            'seeImageButton',
+                                                                            'seeDocumentButton',
                                                                             ParamType.String,
                                                                           ),
                                                                         }.withoutNulls,

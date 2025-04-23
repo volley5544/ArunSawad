@@ -2194,31 +2194,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images2(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images2(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image2File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -2509,31 +2485,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images3(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images3(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image3File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -2824,31 +2776,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images4(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images4(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image4File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -3139,31 +3067,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images5(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images5(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image5File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -3459,34 +3363,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 200.0,
-                              height: 200.0,
-                              child: custom_widgets.ImageWidget5544(
-                                width: 200.0,
-                                height: 200.0,
-                                imageFilePath1:
-                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images6(
-                                                  (_model.imagesAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )}' !=
-                                                '') &&
-                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images6(
-                                                  (_model.imagesAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )}' !=
-                                                'null')
-                                        ? _model.image6File
-                                        : _model.noImageAvailableFile,
-                              ),
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -3781,34 +3658,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 200.0,
-                              height: 200.0,
-                              child: custom_widgets.ImageWidget5544(
-                                width: 200.0,
-                                height: 200.0,
-                                imageFilePath1:
-                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images7(
-                                                  (_model.imagesAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )}' !=
-                                                '') &&
-                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images7(
-                                                  (_model.imagesAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )}' !=
-                                                'null')
-                                        ? _model.image7File
-                                        : _model.noImageAvailableFile,
-                              ),
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -4116,31 +3966,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images8(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images8(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image8File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -4448,31 +4274,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images9(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images9(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image9File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -4782,31 +4584,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images10(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images10(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image10File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -5116,31 +4894,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [
-                          Container(
-                            width: 200.0,
-                            height: 200.0,
-                            child: custom_widgets.ImageWidget5544(
-                              width: 200.0,
-                              height: 200.0,
-                              imageFilePath1:
-                                  ('${UploadImagesGoogleDriveGroup.searchImagesCall.images11(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              '') &&
-                                          ('${UploadImagesGoogleDriveGroup.searchImagesCall.images11(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )}' !=
-                                              'null')
-                                      ? _model.image11File
-                                      : _model.noImageAvailableFile,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),
@@ -5462,31 +5216,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                           height: 200.0,
                           decoration: BoxDecoration(),
                           child: Stack(
-                            children: [
-                              Container(
-                                width: 200.0,
-                                height: 200.0,
-                                child: custom_widgets.ImageWidget5544(
-                                  width: 200.0,
-                                  height: 200.0,
-                                  imageFilePath1:
-                                      ('${UploadImagesGoogleDriveGroup.searchImagesCall.images12(
-                                                    (_model.imagesAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}' !=
-                                                  '') &&
-                                              ('${UploadImagesGoogleDriveGroup.searchImagesCall.images12(
-                                                    (_model.imagesAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}' !=
-                                                  'null')
-                                          ? _model.image12File
-                                          : _model.noImageAvailableFile,
-                                ),
-                              ),
-                            ],
+                            children: [],
                           ),
                         ),
                       ),
