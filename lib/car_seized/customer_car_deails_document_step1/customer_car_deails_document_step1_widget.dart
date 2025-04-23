@@ -161,118 +161,10 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         Navigator.pop(context);
         return;
       }
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content:
-                  Text(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text((String base64Input) {
-                return base64Input.split(',')[0];
-              }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                (_model.imagesAPIOutput?.jsonBody ?? ''),
-              )!)),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(() {
-                if ((String base64Input) {
-                  return base64Input.split(',')[0].contains('image');
-                }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                  (_model.imagesAPIOutput?.jsonBody ?? ''),
-                )!)) {
-                  return 'image';
-                } else if ((String base64Input) {
-                  return base64Input.split(',')[0].contains('pdf');
-                }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                  (_model.imagesAPIOutput?.jsonBody ?? ''),
-                )!)) {
-                  return 'pdf';
-                } else {
-                  return 'other';
-                }
-              }()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content:
-                  Text((UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                            (_model.imagesAPIOutput?.jsonBody ?? ''),
-                          ) !=
-                          '')
-                      .toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       if (UploadImagesGoogleDriveGroup.searchImagesCall.images1(
             (_model.imagesAPIOutput?.jsonBody ?? ''),
           ) !=
           '') {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text('in true'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
         _model.file01Type = () {
           if ((String base64Input) {
             return base64Input.split(',')[0].contains('image');
@@ -319,7 +211,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file02Type = 'image';
         safeSetState(() {});
       }
 
@@ -346,7 +238,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file03Type = 'image';
         safeSetState(() {});
       }
 
@@ -354,23 +246,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
             (_model.imagesAPIOutput?.jsonBody ?? ''),
           ) !=
           '') {
-        _model.file04Type = () {
-          if ((String base64Input) {
-            return base64Input.split(',')[0].contains('image');
-          }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
-            (_model.imagesAPIOutput?.jsonBody ?? ''),
-          )!)) {
-            return 'image';
-          } else if ((String base64Input) {
-            return base64Input.split(',')[0].contains('pdf');
-          }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
-            (_model.imagesAPIOutput?.jsonBody ?? ''),
-          )!)) {
-            return 'pdf';
-          } else {
-            return 'other';
-          }
-        }();
+        _model.file04Type = 'image';
         safeSetState(() {});
       } else {
         _model.file01Type = 'image';
@@ -400,7 +276,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file05Type = 'image';
         safeSetState(() {});
       }
 
@@ -427,7 +303,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file06Type = 'image';
         safeSetState(() {});
       }
 
@@ -454,7 +330,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file07Type = 'image';
         safeSetState(() {});
       }
 
@@ -481,7 +357,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file08Type = 'image';
         safeSetState(() {});
       }
 
@@ -508,7 +384,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file09Type = 'image';
         safeSetState(() {});
       }
 
@@ -535,7 +411,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file10Type = 'image';
         safeSetState(() {});
       }
 
@@ -562,7 +438,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file11Type = 'image';
         safeSetState(() {});
       }
 
@@ -589,7 +465,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file12Type = 'image';
         safeSetState(() {});
       }
 
