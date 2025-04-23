@@ -366,10 +366,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           title: Text(
             'Branch View',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [
@@ -445,9 +454,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -468,9 +494,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 36.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -513,8 +556,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -561,10 +621,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Noto Serif',
+                                        font: GoogleFonts.notoSerif(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
                                       ),
                                   validator: _model.textController1Validator
                                       .asValidator(context),
@@ -736,8 +811,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
@@ -784,10 +874,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
                                     ),
                                 validator: _model.textController2Validator
                                     .asValidator(context),
@@ -822,9 +925,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -845,13 +965,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                 currentUserLocationValue),
                                             'Latitude,Longitude',
                                           ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -901,8 +1040,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         validator: _model
                                             .coordinateInputTextControllerValidator
@@ -942,9 +1098,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -958,13 +1131,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'รหัสสาขา',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1014,8 +1206,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -1056,9 +1265,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -1072,13 +1298,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'ชื่อชุมชนที่ทำตลาด',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1128,8 +1373,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -1178,9 +1440,31 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -1249,10 +1533,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                           .of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             Color(0xFF455A64),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText: 'กิจกรรมการตลาด',
                                                   fillColor: Colors.white,
@@ -1338,12 +1644,27 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: Colors
                                                                           .white,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
                                                                     ),
                                                                 elevation: 0.0,
                                                                 borderRadius:
@@ -1396,9 +1717,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -1412,13 +1750,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'ชื่อผู้ทำตลาด',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1468,8 +1825,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -1513,8 +1887,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
@@ -1561,10 +1950,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
                                     ),
                                 validator: _model.textController7Validator
                                     .asValidator(context),
@@ -1599,9 +2001,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -1618,13 +2037,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         decoration: InputDecoration(
                                           isDense: false,
                                           hintText: widget!.coordinate,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1674,8 +2112,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         validator: _model
                                             .coordinateTimesheetTextControllerValidator
@@ -1715,9 +2170,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -1733,13 +2205,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget!.branchCode,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1789,8 +2280,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -1831,9 +2339,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -1849,13 +2374,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget!.area,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1905,8 +2449,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -1947,9 +2508,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -1965,13 +2543,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget!.detail,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -2021,8 +2618,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -2063,9 +2677,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -2081,13 +2712,32 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget!.remark,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -2137,8 +2787,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         textAlign: TextAlign.start,
                                         validator: _model
@@ -2181,8 +2848,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
@@ -2229,10 +2911,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
                                     ),
                                 validator: _model.textController13Validator
                                     .asValidator(context),
@@ -2321,14 +3016,33 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                               .materialNameList
                                                               .toList(),
                                                           materialDetailIndex)!,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                     ),
                                                   ),
                                                   Container(
@@ -2487,12 +3201,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   fontSize:
                                                                       16.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2603,8 +3334,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
@@ -2651,10 +3397,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Noto Serif',
+                                      font: GoogleFonts.notoSerif(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .fontStyle,
                                     ),
                                 validator: _model.textController14Validator
                                     .asValidator(context),
@@ -2776,10 +3535,27 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                     ),
@@ -2833,12 +3609,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   fontSize:
                                                                       16.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                           FlutterFlowIconButton(
@@ -2961,8 +3754,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -3009,10 +3819,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'Noto Serif',
+                                        font: GoogleFonts.notoSerif(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .fontStyle,
                                       ),
                                   validator: _model.textController15Validator
                                       .asValidator(context),
@@ -3236,9 +4061,22 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(
@@ -3596,9 +4434,24 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.white,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

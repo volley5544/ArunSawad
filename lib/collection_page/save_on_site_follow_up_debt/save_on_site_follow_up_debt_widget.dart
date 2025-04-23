@@ -295,10 +295,23 @@ class _SaveOnSiteFollowUpDebtWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -360,10 +373,23 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: Colors.black,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -412,16 +438,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             children: [
                                               Text(
                                                 'เลขที่สัญญา',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -433,11 +472,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -470,10 +523,21 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -492,11 +556,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                             Padding(
@@ -504,16 +582,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   .fromSTEB(5.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 '${functions.dateToBEDate(widget!.lastPayDate)}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -543,10 +634,23 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -561,16 +665,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             children: [
                                               Text(
                                                 ':',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -586,11 +703,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -625,11 +756,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -648,11 +793,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                                 Padding(
@@ -665,11 +824,26 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -701,10 +875,23 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -719,16 +906,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             children: [
                                               Text(
                                                 ':',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -740,11 +940,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -776,10 +990,23 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -794,16 +1021,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             children: [
                                               Text(
                                                 ':',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -815,11 +1055,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -851,10 +1105,23 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -869,16 +1136,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             children: [
                                               Text(
                                                 ':',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -893,11 +1173,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -931,16 +1225,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'ค่างวดที่ต้องชำระ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -958,11 +1265,26 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Padding(
@@ -972,18 +1294,32 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       '${functions.showNumberWithComma(widget!.sumCurrentDueAmt)} บาท',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -1012,16 +1348,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'ข้อมูล ณ วันที่',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -1039,11 +1388,26 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Padding(
@@ -1061,18 +1425,32 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         )),
                                                         'date_of_data',
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -1102,16 +1480,29 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'จำนวนครั้งที่บันทึกการโทร',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -1129,11 +1520,26 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Padding(
@@ -1146,18 +1552,32 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         widget!.historyCount,
                                                         '-',
                                                       )} ครั้ง',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -1183,10 +1603,18 @@ class _SaveOnSiteFollowUpDebtWidgetState
                     child: Text(
                       'ผลการลงพื้นที่',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
+                            font: GoogleFonts.poppins(
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.normal,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                             decoration: TextDecoration.underline,
                           ),
                     ).animateOnPageLoad(
@@ -1213,10 +1641,19 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -1270,9 +1707,19 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
                                         ),
                                     hintText: 'กรุณาเลือก',
                                     icon: Icon(
@@ -1316,10 +1763,20 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -1344,22 +1801,48 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             hintText: FFAppState().locationTemp,
                                             hintStyle: FlutterFlowTheme.of(
                                                     context)
                                                 .labelMedium
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -1406,10 +1889,21 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                           textAlign: TextAlign.start,
                                           maxLines: null,
@@ -1529,10 +2023,20 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -1549,15 +2053,42 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1593,10 +2124,19 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   textAlign: TextAlign.start,
                                   minLines: 1,
@@ -1643,10 +2183,20 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                               decoration:
                                                   TextDecoration.underline,
                                             ),
@@ -2292,9 +2842,24 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.white,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(

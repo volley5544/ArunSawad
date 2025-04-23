@@ -86,10 +86,18 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           title: Text(
             'สมัครสมาชิก',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                  ),
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   fontSize: 32.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 ),
           ),
           actions: [],
@@ -139,13 +147,32 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Email',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           hintText: 'กรุณากรอก email',
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -196,8 +223,25 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         keyboardType:
                                             TextInputType.emailAddress,
@@ -221,13 +265,32 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         obscureText: !_model.passwordVisibility,
                                         decoration: InputDecoration(
                                           labelText: 'Password',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           hintText: 'กรุณากรอก password',
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -296,8 +359,25 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         validator: _model
                                             .passwordTextControllerValidator
@@ -321,13 +401,32 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                             !_model.passwordConfirmVisibility,
                                         decoration: InputDecoration(
                                           labelText: 'Confirm Password',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           hintText: 'ยืนยัน password',
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -398,8 +497,25 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         minLines: 1,
                                         validator: _model
@@ -579,9 +695,26 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
                                               color: Colors.white,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(

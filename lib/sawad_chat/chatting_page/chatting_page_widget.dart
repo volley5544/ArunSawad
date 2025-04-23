@@ -4,6 +4,7 @@ import '/components/empty_chat_component/empty_chat_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -321,15 +322,41 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
                               ),
                     ),
                   ],
                 ),
-                actions: [],
+                actions: [
+                  FlutterFlowIconButton(
+                    borderRadius: 8.0,
+                    buttonSize: 60.0,
+                    icon: Icon(
+                      Icons.settings_sharp,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      size: 30.0,
+                    ),
+                    onPressed: () {
+                      print('IconButton pressed ...');
+                    },
+                  ),
+                ],
                 centerTitle: false,
                 elevation: 2.0,
               ),
@@ -403,506 +430,548 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Builder(
-                                                builder: (context) {
-                                                  if (listViewChatMessagesRecord
-                                                          .messageByName !=
-                                                      'system') {
-                                                    return Container(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await Navigator.push(
-                                                            context,
-                                                            PageTransition(
-                                                              type:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              child:
-                                                                  FlutterFlowExpandedImageView(
-                                                                image:
-                                                                    OctoImage(
-                                                                  placeholderBuilder:
-                                                                      (_) => SizedBox
-                                                                          .expand(
-                                                                    child:
-                                                                        Image(
-                                                                      image: BlurHashImage(listViewChatMessagesRecord
-                                                                              .hasMessageByDisplayBlurHash()
-                                                                          ? listViewChatMessagesRecord
-                                                                              .messageByDisplayBlurHash
-                                                                          : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
-                                                                  image:
-                                                                      NetworkImage(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewChatMessagesRecord
-                                                                          .messageByDisplayUrl,
-                                                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
-                                                                    ),
-                                                                  ),
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                                allowRotation:
-                                                                    false,
-                                                                tag:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  listViewChatMessagesRecord
-                                                                      .messageByDisplayUrl,
-                                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7' +
-                                                                      '$listViewIndex',
-                                                                ),
-                                                                useHeroAnimation:
-                                                                    true,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                        child: Hero(
-                                                          tag: valueOrDefault<
-                                                              String>(
-                                                            listViewChatMessagesRecord
-                                                                .messageByDisplayUrl,
-                                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7' +
-                                                                '$listViewIndex',
-                                                          ),
-                                                          transitionOnUserGestures:
-                                                              true,
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        50.0),
-                                                            child: OctoImage(
-                                                              placeholderBuilder:
-                                                                  (_) => SizedBox
-                                                                      .expand(
-                                                                child: Image(
-                                                                  image: BlurHashImage(listViewChatMessagesRecord
-                                                                          .hasMessageByDisplayBlurHash()
-                                                                      ? listViewChatMessagesRecord
-                                                                          .messageByDisplayBlurHash
-                                                                      : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                              image:
-                                                                  NetworkImage(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  listViewChatMessagesRecord
-                                                                      .messageByDisplayUrl,
-                                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
-                                                                ),
-                                                              ),
-                                                              width: double
-                                                                  .infinity,
-                                                              height: double
-                                                                  .infinity,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  } else {
-                                                    return Container(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await Navigator.push(
-                                                            context,
-                                                            PageTransition(
-                                                              type:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              child:
-                                                                  FlutterFlowExpandedImageView(
-                                                                image:
-                                                                    Image.asset(
-                                                                  'assets/images/untitled1112.png',
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                                allowRotation:
-                                                                    false,
-                                                                tag:
-                                                                    'imageTag2',
-                                                                useHeroAnimation:
-                                                                    true,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                        child: Hero(
-                                                          tag: 'imageTag2',
-                                                          transitionOnUserGestures:
-                                                              true,
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        50.0),
-                                                            child: Image.asset(
-                                                              'assets/images/untitled1112.png',
-                                                              width: double
-                                                                  .infinity,
-                                                              height: double
-                                                                  .infinity,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                },
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                0.0, 4.0),
-                                                    child: Text(
-                                                      listViewChatMessagesRecord
-                                                                  .messageByName !=
-                                                              'system'
-                                                          ? listViewChatMessagesRecord
-                                                              .messageByName
-                                                          : 'น้องอรุณ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'textOnPageLoadAnimation1']!),
-                                                  ),
-                                                  Builder(
-                                                    builder: (context) {
-                                                      if (listViewChatMessagesRecord
-                                                              .messageType ==
-                                                          'text') {
-                                                        return Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              if (FFAppState()
-                                                                  .timeChatIsVisibleList
-                                                                  .elementAtOrNull(
-                                                                      0)!) {
-                                                                FFAppState()
-                                                                    .updateTimeChatIsVisibleListAtIndex(
-                                                                  0,
-                                                                  (_) => false,
-                                                                );
-                                                                safeSetState(
-                                                                    () {});
-                                                              } else {
-                                                                FFAppState()
-                                                                    .updateTimeChatIsVisibleListAtIndex(
-                                                                  0,
-                                                                  (_) => true,
-                                                                );
-                                                                safeSetState(
-                                                                    () {});
-                                                              }
-                                                            },
-                                                            child: Container(
-                                                              constraints:
-                                                                  BoxConstraints(
-                                                                minHeight: 40.0,
-                                                                maxWidth: MediaQuery.sizeOf(
+                                              Expanded(
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    if (listViewChatMessagesRecord
+                                                            .messageType !=
+                                                        'setting') {
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Builder(
+                                                            builder: (context) {
+                                                              if (listViewChatMessagesRecord
+                                                                      .messageByName !=
+                                                                  'system') {
+                                                                return Container(
+                                                                  width: 50.0,
+                                                                  height: 50.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .width *
-                                                                    0.65,
-                                                              ),
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Color(
-                                                                    0xFF3F37FF),
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        4.0,
-                                                                    color: Color(
-                                                                        0x33000000),
-                                                                    offset:
-                                                                        Offset(
-                                                                      0.0,
-                                                                      2.0,
-                                                                    ),
-                                                                  )
-                                                                ],
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                              ),
-                                                              child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        8.0,
-                                                                        12.0,
-                                                                        8.0),
-                                                                child: Text(
-                                                                  listViewChatMessagesRecord
-                                                                      .messageText,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      } else {
-                                                        return Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            width: 180.0,
-                                                            height: 180.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.white,
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  blurRadius:
-                                                                      4.0,
-                                                                  color: Color(
-                                                                      0x33000000),
-                                                                  offset:
-                                                                      Offset(
-                                                                    0.0,
-                                                                    2.0,
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
                                                                   ),
-                                                                )
-                                                              ],
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16.0),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0,
-                                                                          4.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await Navigator
-                                                                      .push(
-                                                                    context,
-                                                                    PageTransition(
-                                                                      type: PageTransitionType
-                                                                          .fade,
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await Navigator
+                                                                          .push(
+                                                                        context,
+                                                                        PageTransition(
+                                                                          type:
+                                                                              PageTransitionType.fade,
+                                                                          child:
+                                                                              FlutterFlowExpandedImageView(
+                                                                            image:
+                                                                                OctoImage(
+                                                                              placeholderBuilder: (_) => SizedBox.expand(
+                                                                                child: Image(
+                                                                                  image: BlurHashImage(listViewChatMessagesRecord.hasMessageByDisplayBlurHash() ? listViewChatMessagesRecord.messageByDisplayBlurHash : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                              image: NetworkImage(
+                                                                                valueOrDefault<String>(
+                                                                                  listViewChatMessagesRecord.messageByDisplayUrl,
+                                                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
+                                                                                ),
+                                                                              ),
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                            allowRotation:
+                                                                                false,
+                                                                            tag:
+                                                                                valueOrDefault<String>(
+                                                                              listViewChatMessagesRecord.messageByDisplayUrl,
+                                                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7' + '$listViewIndex',
+                                                                            ),
+                                                                            useHeroAnimation:
+                                                                                true,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                    child: Hero(
+                                                                      tag: valueOrDefault<
+                                                                          String>(
+                                                                        listViewChatMessagesRecord
+                                                                            .messageByDisplayUrl,
+                                                                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7' +
+                                                                            '$listViewIndex',
+                                                                      ),
+                                                                      transitionOnUserGestures:
+                                                                          true,
                                                                       child:
-                                                                          FlutterFlowExpandedImageView(
-                                                                        image:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(50.0),
+                                                                        child:
                                                                             OctoImage(
                                                                           placeholderBuilder: (_) =>
                                                                               SizedBox.expand(
                                                                             child:
                                                                                 Image(
-                                                                              image: BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
+                                                                              image: BlurHashImage(listViewChatMessagesRecord.hasMessageByDisplayBlurHash() ? listViewChatMessagesRecord.messageByDisplayBlurHash : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ'),
                                                                               fit: BoxFit.cover,
                                                                             ),
                                                                           ),
                                                                           image:
                                                                               NetworkImage(
-                                                                            listViewChatMessagesRecord.messageImageUrl,
+                                                                            valueOrDefault<String>(
+                                                                              listViewChatMessagesRecord.messageByDisplayUrl,
+                                                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/UsersProfileImage%2Fdefault-profile-display-image.png?alt=media&token=ac87cd0c-8ed9-47e1-8492-2ca19dd45bc7',
+                                                                            ),
                                                                           ),
-                                                                          fit: BoxFit
-                                                                              .contain,
-                                                                        ),
-                                                                        allowRotation:
-                                                                            false,
-                                                                        tag: listViewChatMessagesRecord
-                                                                            .messageImageUrl,
-                                                                        useHeroAnimation:
-                                                                            true,
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                                child: Hero(
-                                                                  tag: listViewChatMessagesRecord
-                                                                      .messageImageUrl,
-                                                                  transitionOnUserGestures:
-                                                                      true,
-                                                                  child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            16.0),
-                                                                    child:
-                                                                        OctoImage(
-                                                                      placeholderBuilder:
-                                                                          (_) =>
-                                                                              SizedBox.expand(
-                                                                        child:
-                                                                            Image(
-                                                                          image:
-                                                                              BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
+                                                                          width:
+                                                                              double.infinity,
+                                                                          height:
+                                                                              double.infinity,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                         ),
                                                                       ),
-                                                                      image:
-                                                                          NetworkImage(
-                                                                        listViewChatMessagesRecord
-                                                                            .messageImageUrl,
-                                                                      ),
-                                                                      width: double
-                                                                          .infinity,
-                                                                      height: double
-                                                                          .infinity,
-                                                                      fit: BoxFit
-                                                                          .cover,
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ),
-                                                            ),
+                                                                );
+                                                              } else {
+                                                                return Container(
+                                                                  width: 50.0,
+                                                                  height: 50.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await Navigator
+                                                                          .push(
+                                                                        context,
+                                                                        PageTransition(
+                                                                          type:
+                                                                              PageTransitionType.fade,
+                                                                          child:
+                                                                              FlutterFlowExpandedImageView(
+                                                                            image:
+                                                                                Image.asset(
+                                                                              'assets/images/untitled1112.png',
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                            allowRotation:
+                                                                                false,
+                                                                            tag:
+                                                                                'imageTag2',
+                                                                            useHeroAnimation:
+                                                                                true,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                    child: Hero(
+                                                                      tag:
+                                                                          'imageTag2',
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(50.0),
+                                                                        child: Image
+                                                                            .asset(
+                                                                          'assets/images/untitled1112.png',
+                                                                          width:
+                                                                              double.infinity,
+                                                                          height:
+                                                                              double.infinity,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                            },
                                                           ),
-                                                        );
-                                                      }
-                                                    },
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      dateTimeFormat(
-                                                        "Hm",
-                                                        listViewChatMessagesRecord
-                                                            .messageTime!,
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .grayIcon,
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                child: Text(
+                                                                  listViewChatMessagesRecord
+                                                                              .messageByName !=
+                                                                          'system'
+                                                                      ? listViewChatMessagesRecord
+                                                                          .messageByName
+                                                                      : 'น้องอรุณ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                ).animateOnPageLoad(
+                                                                    animationsMap[
+                                                                        'textOnPageLoadAnimation1']!),
                                                               ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'textOnPageLoadAnimation2']!),
-                                                  ),
-                                                ],
+                                                              Builder(
+                                                                builder:
+                                                                    (context) {
+                                                                  if (listViewChatMessagesRecord
+                                                                          .messageType ==
+                                                                      'text') {
+                                                                    return Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          if (FFAppState()
+                                                                              .timeChatIsVisibleList
+                                                                              .elementAtOrNull(0)!) {
+                                                                            FFAppState().updateTimeChatIsVisibleListAtIndex(
+                                                                              0,
+                                                                              (_) => false,
+                                                                            );
+                                                                            safeSetState(() {});
+                                                                          } else {
+                                                                            FFAppState().updateTimeChatIsVisibleListAtIndex(
+                                                                              0,
+                                                                              (_) => true,
+                                                                            );
+                                                                            safeSetState(() {});
+                                                                          }
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          constraints:
+                                                                              BoxConstraints(
+                                                                            minHeight:
+                                                                                40.0,
+                                                                            maxWidth:
+                                                                                MediaQuery.sizeOf(context).width * 0.65,
+                                                                          ),
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Color(0xFF3F37FF),
+                                                                            boxShadow: [
+                                                                              BoxShadow(
+                                                                                blurRadius: 4.0,
+                                                                                color: Color(0x33000000),
+                                                                                offset: Offset(
+                                                                                  0.0,
+                                                                                  2.0,
+                                                                                ),
+                                                                              )
+                                                                            ],
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(16.0),
+                                                                          ),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                12.0,
+                                                                                8.0,
+                                                                                12.0,
+                                                                                8.0),
+                                                                            child:
+                                                                                Text(
+                                                                              listViewChatMessagesRecord.messageText,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
+                                                                                    color: Colors.white,
+                                                                                    fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  } else {
+                                                                    return Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            180.0,
+                                                                        height:
+                                                                            180.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          boxShadow: [
+                                                                            BoxShadow(
+                                                                              blurRadius: 4.0,
+                                                                              color: Color(0x33000000),
+                                                                              offset: Offset(
+                                                                                0.0,
+                                                                                2.0,
+                                                                              ),
+                                                                            )
+                                                                          ],
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(16.0),
+                                                                        ),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              4.0,
+                                                                              4.0,
+                                                                              4.0,
+                                                                              4.0),
+                                                                          child:
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              await Navigator.push(
+                                                                                context,
+                                                                                PageTransition(
+                                                                                  type: PageTransitionType.fade,
+                                                                                  child: FlutterFlowExpandedImageView(
+                                                                                    image: OctoImage(
+                                                                                      placeholderBuilder: (_) => SizedBox.expand(
+                                                                                        child: Image(
+                                                                                          image: BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
+                                                                                          fit: BoxFit.cover,
+                                                                                        ),
+                                                                                      ),
+                                                                                      image: NetworkImage(
+                                                                                        listViewChatMessagesRecord.messageImageUrl,
+                                                                                      ),
+                                                                                      fit: BoxFit.contain,
+                                                                                    ),
+                                                                                    allowRotation: false,
+                                                                                    tag: listViewChatMessagesRecord.messageImageUrl,
+                                                                                    useHeroAnimation: true,
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                            child:
+                                                                                Hero(
+                                                                              tag: listViewChatMessagesRecord.messageImageUrl,
+                                                                              transitionOnUserGestures: true,
+                                                                              child: ClipRRect(
+                                                                                borderRadius: BorderRadius.circular(16.0),
+                                                                                child: OctoImage(
+                                                                                  placeholderBuilder: (_) => SizedBox.expand(
+                                                                                    child: Image(
+                                                                                      image: BlurHashImage(listViewChatMessagesRecord.messageImageBlurHash),
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                  image: NetworkImage(
+                                                                                    listViewChatMessagesRecord.messageImageUrl,
+                                                                                  ),
+                                                                                  width: double.infinity,
+                                                                                  height: double.infinity,
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  }
+                                                                },
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                    "Hm",
+                                                                    listViewChatMessagesRecord
+                                                                        .messageTime!,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .grayIcon,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                ).animateOnPageLoad(
+                                                                    animationsMap[
+                                                                        'textOnPageLoadAnimation2']!),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      );
+                                                    } else {
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            listViewChatMessagesRecord
+                                                                .messageText,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .grayIcon,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    }
+                                                  },
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -1010,8 +1079,14 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .black600,
@@ -1022,6 +1097,10 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -1199,14 +1278,31 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
@@ -1320,22 +1416,64 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
                                                       fontSize: 12.0,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             hintText: 'พิมพ์ข้อความที่นี่',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .grayIcon,
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
                                                     ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
@@ -1346,9 +1484,28 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                           validator: _model
                                               .textControllerValidator

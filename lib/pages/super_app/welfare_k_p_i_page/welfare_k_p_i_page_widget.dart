@@ -167,10 +167,20 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
             title: Text(
               'ยอดจัดสาขา',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -213,8 +223,21 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                         labelColor: FlutterFlowTheme.of(context).primary,
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                         unselectedLabelStyle: TextStyle(),
                         indicatorColor: FlutterFlowTheme.of(context).secondary,
@@ -272,8 +295,27 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ],
@@ -298,8 +340,25 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -412,10 +471,27 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               color: tabBarTextContentRecord
                                                   ?.kpiTextcolor,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -444,8 +520,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -484,9 +582,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ],
@@ -506,8 +625,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -542,9 +683,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ],
@@ -564,8 +726,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -636,7 +820,18 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
+                                                      ),
                                                       color:
                                                           valueOrDefault<Color>(
                                                         functions
@@ -680,6 +875,16 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                       ),
                                                       fontSize: 22.0,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .fontStyle,
                                                     ),
                                           ),
                                         ],
@@ -730,8 +935,27 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ],
@@ -756,8 +980,25 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -870,10 +1111,27 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               color: tabBarTextContentRecord
                                                   ?.kpiTextcolor,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ),
@@ -902,8 +1160,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -942,9 +1222,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ],
@@ -964,8 +1265,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -1000,9 +1323,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ],
@@ -1022,8 +1366,30 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ),
@@ -1094,7 +1460,18 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Poppins',
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
+                                                      ),
                                                       color:
                                                           valueOrDefault<Color>(
                                                         functions
@@ -1139,6 +1516,16 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                                                       ),
                                                       fontSize: 22.0,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .fontStyle,
                                                     ),
                                           ),
                                         ],

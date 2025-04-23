@@ -187,10 +187,19 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
           title: Text(
             'เช็คเบี้ยประกัน',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [],
@@ -230,9 +239,22 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               )),
                             ),
@@ -256,10 +278,18 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                           checkboxBorderColor: Color(0xFF95A1AC),
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           initialized: _model.coverTypeNameChooseValues != null,
                         ),
@@ -280,9 +310,22 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               )),
                             ),
@@ -326,11 +369,20 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.black,
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   hintText: 'กรุณาเลือก...',
                                   fillColor: Colors.white,
@@ -364,9 +416,22 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               )),
                             ),
@@ -451,8 +516,25 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -477,9 +559,22 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               )),
                             ),
@@ -503,10 +598,18 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                           checkboxBorderColor: Color(0xFF95A1AC),
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           initialized: _model.insurerNameChooseValues != null,
                         ),
@@ -916,11 +1019,19 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

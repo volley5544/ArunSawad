@@ -72,10 +72,19 @@ class _LoadingSceneCopyWidgetState extends State<LoadingSceneCopyWidget> {
               'กำลังบันทึกรูปลง Gallery เครื่อง\nกรุณารอซักครู่',
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   ),
             )),
           ),

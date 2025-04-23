@@ -170,10 +170,20 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
             title: Text(
               'ยอดจัดสาขา',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -213,9 +223,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -234,9 +257,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Colors.black,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                             hintText: 'สังกัด...',
                             fillColor: Colors.white,
@@ -285,9 +321,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ),
@@ -341,8 +390,23 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   textHighlightStyle: TextStyle(),
                                   elevation: 4.0,
@@ -381,16 +445,50 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     hintText: 'กรอกรหัสสาขา/ชื่อสาขา',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -439,9 +537,24 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   textAlign: TextAlign.start,
                                   validator: _model
@@ -822,9 +935,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ),
@@ -889,9 +1015,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Colors.black,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                               hintText: 'สาขา...',
                               fillColor: Colors.white,
@@ -939,9 +1078,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                                 iconColor: Colors.white,
                                 iconSize: 18.0,
@@ -952,9 +1104,22 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
+                                      ),
                                       color: Color(0xFFE3E7ED),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .fontStyle,
                                     ),
                                 iconColor: Color(0xFFE3E7ED),
                                 iconSize: 18.0,
@@ -999,8 +1164,21 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
                               .override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontStyle,
                               ),
                         ),
                       ],
@@ -1024,8 +1202,21 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
                               .override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .fontStyle,
                               ),
                         ),
                       ],
@@ -1096,8 +1287,25 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ],
@@ -1194,8 +1402,27 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1215,9 +1442,26 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -1235,8 +1479,27 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1256,9 +1519,26 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -1276,8 +1556,27 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1315,7 +1614,16 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               color: functions
                                                   .getKpiWelfareStatusTextColor(
                                                       _model.dropDownValue1 ==
@@ -1352,6 +1660,14 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                                             ))),
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -1429,8 +1745,25 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ],
@@ -1527,8 +1860,27 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1548,9 +1900,26 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -1568,8 +1937,27 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1589,9 +1977,26 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -1609,8 +2014,27 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1648,7 +2072,16 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
+                                              ),
                                               color: functions
                                                   .getKpiWelfareStatusTextColor(
                                                       _model.dropDownValue1 ==
@@ -1685,6 +2118,14 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                                             ))),
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .displaySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -1733,10 +2174,23 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 color: FlutterFlowTheme.of(context).grayIcon,
                                 fontSize: 20.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
                         ),
                       ],

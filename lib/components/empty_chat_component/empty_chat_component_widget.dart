@@ -131,11 +131,19 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                       child: Text(
                         'โฮ่ง, โฮ่ง!',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               color: Colors.white,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                       ),
                     ),
@@ -179,11 +187,19 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                     child: Text(
                       'เมี้ยว, เมี้ยว, เมี้ยว...',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
+                            font: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: FlutterFlowTheme.of(context).black600,
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                   ),
@@ -209,9 +225,17 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           child: Text(
             'ไม่พบการแชท',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                  ),
                   fontSize: 20.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 ),
           ),
         ),
@@ -219,22 +243,30 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           'เหมือนว่าคุณจะยังไม่เคยแชทกับเพื่อนคนนี้มาก่อน',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Poppins',
+                font: GoogleFonts.poppins(
+                  fontWeight: FontWeight.normal,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: FlutterFlowTheme.of(context).grayIcon,
                 fontSize: 16.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
               ),
         ),
         Text(
           'เริ่มแชทด้านล่างเลย!',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Poppins',
+                font: GoogleFonts.poppins(
+                  fontWeight: FontWeight.normal,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: FlutterFlowTheme.of(context).grayIcon,
                 fontSize: 16.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
               ),
         ),
       ],

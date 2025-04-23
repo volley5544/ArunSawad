@@ -81,20 +81,32 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
               Text(
                 widget!.textBody!,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       fontSize: 12.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
               ),
               Text(
                 '*',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).error,
                       fontSize: 16.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
               ),
             ],
@@ -117,15 +129,37 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                 obscureText: false,
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
                         color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       ),
                   hintText: 'จำนวนเงินที่นัดจ่าย',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
                         color: Color(0xFF9D9DA2),
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -159,11 +193,17 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                       EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 5.0, 5.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).secondaryText,
                       fontSize: 12.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
                 maxLines: null,
                 minLines: 1,

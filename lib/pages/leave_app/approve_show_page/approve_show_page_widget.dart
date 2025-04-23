@@ -391,10 +391,20 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
             title: Text(
               'รายการ',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -434,9 +444,21 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                     width: double.infinity,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: Colors.black,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                     hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
                     icon: FaIcon(
@@ -463,9 +485,22 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                           labelColor: FlutterFlowTheme.of(context).black600,
                           labelStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           unselectedLabelStyle: TextStyle(),
                           indicatorColor:
@@ -629,14 +664,27 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       )),
                                                     ),
@@ -678,14 +726,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -720,8 +777,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -729,6 +792,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -774,14 +841,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -816,8 +892,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -825,6 +907,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -870,14 +956,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -912,8 +1007,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -921,6 +1022,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -966,14 +1071,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1011,8 +1125,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1020,6 +1140,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -1065,14 +1189,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1110,8 +1243,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1119,6 +1258,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -1177,14 +1320,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1244,8 +1396,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1253,6 +1411,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -1412,8 +1574,13 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
@@ -1422,6 +1589,9 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontStyle,
                                                                         ),
                                                                     elevation:
                                                                         2.0,
@@ -1587,14 +1757,27 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       )),
                                                     ),
@@ -1636,14 +1819,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1678,8 +1870,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1687,6 +1885,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -1732,14 +1934,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1774,8 +1985,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1783,6 +2000,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -1828,14 +2049,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1870,8 +2100,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1879,6 +2115,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -1924,14 +2164,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -1969,8 +2218,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -1978,6 +2233,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2023,14 +2282,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2068,8 +2336,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2077,6 +2351,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2135,14 +2413,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2202,8 +2489,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2211,6 +2504,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2365,14 +2662,27 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Poppins',
+                                                              font: GoogleFonts
+                                                                  .poppins(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               fontSize: 16.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       )),
                                                     ),
@@ -2414,14 +2724,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2456,8 +2775,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2465,6 +2790,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2510,14 +2839,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2552,8 +2890,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2561,6 +2905,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2606,14 +2954,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2648,8 +3005,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2657,6 +3020,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2702,14 +3069,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2747,8 +3123,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2756,6 +3138,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2801,14 +3187,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2846,8 +3241,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2855,6 +3256,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -2913,14 +3318,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -2980,8 +3394,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -2989,6 +3409,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],
@@ -3034,14 +3458,23 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 )),
                                                               ],
@@ -3079,8 +3512,14 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           12.0,
                                                                       letterSpacing:
@@ -3088,6 +3527,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               )),
                                                             ],

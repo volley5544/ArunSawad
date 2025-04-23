@@ -80,11 +80,19 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                 Text(
                   'สำเร็จ!',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
+                        font: GoogleFonts.outfit(
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
+                        ),
                         color: Colors.white,
                         fontSize: 32.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
                       ),
                 ),
                 Padding(
@@ -92,11 +100,18 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                   child: Text(
                     'บันทึกข้อมูลเสร็จสิ้น',
                     style: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Outfit',
+                          font: GoogleFonts.outfit(
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
                   ),
                 ),
@@ -125,11 +140,19 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Outfit',
+                                  font: GoogleFonts.outfit(
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFF39D2C0),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(
@@ -161,11 +184,19 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Outfit',
+                                  font: GoogleFonts.outfit(
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFFF0CE00),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(

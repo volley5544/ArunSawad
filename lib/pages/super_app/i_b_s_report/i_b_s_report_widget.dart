@@ -160,10 +160,20 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
               'เป้าและผลงานรายเดือน\n(ของแต่ละคน)',
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 20.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -180,9 +190,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                   child: Text(
                     'รหัสพนักงาน ${widget!.employeeId}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                   ),
                 ),
@@ -193,8 +215,21 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                     Text(
                       'วันที่อัพเดทข้อมูล',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
+                            font: GoogleFonts.poppins(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                     Align(
@@ -215,9 +250,22 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .fontStyle,
+                                ),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontStyle,
                               ),
                         ),
                       ),
@@ -242,9 +290,22 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(
-                                fontFamily: 'Poppins',
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .fontStyle,
+                                ),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontStyle,
                               ),
                         ),
                       ),
@@ -301,9 +362,26 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium
+                                                      .fontStyle,
+                                            ),
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
                                           ),
                                       unselectedLabelStyle: TextStyle(),
                                       indicatorColor:

@@ -5082,6 +5082,11 @@ bool? checkContainsChatRoom(
   List<String>? employeeIdReverseList,
 ) {
   List<dynamic> usersEmployeeIdList = [];
+
+  for (int i = 0; i < inputChatRoomDocList!.length; i++) {
+    usersEmployeeIdList.add(inputChatRoomDocList![i].usersEmplayeeId);
+  }
+
   final listEquality = const ListEquality();
 
   bool containsList2 = usersEmployeeIdList

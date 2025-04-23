@@ -73,10 +73,19 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
           title: Text(
             'ข้อมูลเขตกลุ่มภาค โทรศัทพ์ใช้งาน',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [],
@@ -107,8 +116,21 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
                   },
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineSmall
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineSmall
+                            .fontStyle,
                       ),
                 ),
               ),

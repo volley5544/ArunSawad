@@ -161,10 +161,19 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
           title: Text(
             'ยื่นเรื่องขออนุมัติลา',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [],
@@ -318,9 +327,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 )),
                                               ),
@@ -348,8 +379,30 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -377,9 +430,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 )),
                                               ),
@@ -647,8 +722,16 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 fontSize: 15.0,
@@ -657,6 +740,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
                                                               ),
                                                       elevation: 2.0,
                                                       borderSide: BorderSide(
@@ -695,9 +782,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 )),
                                               ),
@@ -746,12 +855,27 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.black,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                     hintText: 'กรุณาเลือก...',
                                                     fillColor: Colors.white,
@@ -795,9 +919,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   )),
                                                 ),
@@ -1002,10 +1148,27 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
                                                                 ),
                                                         enabledBorder:
                                                             UnderlineInputBorder(
@@ -1071,16 +1234,35 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                     24.0,
                                                                     24.0),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            lineHeight: 1.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                                lineHeight: 1.0,
+                                                              ),
                                                       keyboardType:
                                                           TextInputType.number,
                                                       validator: _model
@@ -1113,9 +1295,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 )),
                                               ),
@@ -1185,10 +1389,27 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
@@ -1255,13 +1476,28 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                     keyboardType:
                                                         TextInputType.phone,
@@ -1295,9 +1531,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 )),
                                               ),
@@ -1329,13 +1587,25 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                       hintText: 'กรุณากรอก...',
                                                       hintStyle:
@@ -1343,12 +1613,29 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   context)
                                                               .bodySmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
@@ -1409,11 +1696,26 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                     textAlign: TextAlign.start,
                                                     maxLines: 4,
@@ -1447,9 +1749,31 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 )),
                                               ),
@@ -1596,8 +1920,16 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 fontSize: 15.0,
@@ -1606,6 +1938,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
                                                               ),
                                                       elevation: 2.0,
                                                       borderSide: BorderSide(
@@ -3117,17 +3453,28 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             color: Color(0xFF00968A),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
+                                            textStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .titleSmall
+                                                .override(
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Colors.white,
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
                                             elevation: 2.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,

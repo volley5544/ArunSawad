@@ -122,10 +122,23 @@ class _WebviewNewPageWidgetState extends State<WebviewNewPageWidget> {
                     child: Text(
                       'กลับหน้า Home',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
+                            font: GoogleFonts.poppins(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: Color(0xFFFF6500),
                             fontSize: 16.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                   ),

@@ -244,10 +244,20 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
             title: Text(
               'เป้า/ผลงานพนักงาน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -262,11 +272,24 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                   alignment: Alignment(0.0, 0),
                   child: TabBar(
                     labelColor: FlutterFlowTheme.of(context).primary,
-                    labelStyle:
-                        FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.0,
-                            ),
+                    labelStyle: FlutterFlowTheme.of(context)
+                        .bodyMedium
+                        .override(
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
                     unselectedLabelStyle: TextStyle(),
                     indicatorColor: FlutterFlowTheme.of(context).secondary,
                     tabs: [
@@ -308,9 +331,26 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -322,10 +362,27 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -359,14 +416,35 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               flex: 3,
                                               child: Text(
                                                 'ค้นหาสาขา:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                             Expanded(
@@ -383,8 +461,30 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText:
                                                       'กรอกรหัสสาขา/ชื่อสาขา',
@@ -392,9 +492,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
@@ -458,14 +580,35 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                               context)
                                                           .primaryBtnText,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
                                                     .branchInputTextControllerValidator
@@ -744,9 +887,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -873,9 +1038,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText: 'สาขา...',
                                                   fillColor: Colors.white,
@@ -930,14 +1117,35 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               flex: 3,
                                               child: Text(
                                                 'เลือกคน:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                             Expanded(
@@ -1053,14 +1261,35 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.black,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                 hintText: 'สาขา...',
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
@@ -1128,9 +1357,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                                 ListView(
@@ -1188,12 +1439,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1236,9 +1500,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '120',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1295,12 +1564,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1341,9 +1623,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1400,12 +1687,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1446,9 +1746,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '357,000',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1505,12 +1810,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1551,9 +1869,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '600,000',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1610,12 +1933,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1656,9 +1992,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '59.52%',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1715,12 +2056,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1761,9 +2115,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '2',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1820,12 +2179,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1866,9 +2238,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '540',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1925,12 +2302,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1971,9 +2361,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2030,12 +2425,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2076,9 +2484,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2165,9 +2578,26 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -2179,10 +2609,27 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -2216,14 +2663,35 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               flex: 3,
                                               child: Text(
                                                 'ค้นหาพนักงาน:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                             Expanded(
@@ -2240,8 +2708,30 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText:
                                                       'ชื่อเล่น/สังกัด/รหัสพนักงาน',
@@ -2249,8 +2739,30 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
@@ -2309,13 +2821,34 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
                                                     .employeeKeywordInputTextControllerValidator
@@ -2600,9 +3133,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -2737,9 +3292,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                   hintText: 'พนักงาน...',
                                                   fillColor: Colors.white,
@@ -2813,9 +3390,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                                 ListView(
@@ -2873,12 +3472,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2921,9 +3533,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '120',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2980,12 +3597,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3026,9 +3656,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3085,12 +3720,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3131,9 +3779,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '357,000',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3190,12 +3843,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3236,9 +3902,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '600,000',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3295,12 +3966,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3341,9 +4025,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '59.52%',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3400,12 +4089,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3446,9 +4148,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '2',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3505,12 +4212,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3551,9 +4271,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '540',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3610,12 +4335,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3656,9 +4394,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3715,12 +4458,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3761,9 +4517,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3864,9 +4625,26 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),
@@ -3891,9 +4669,26 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             color: Colors.black,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                       hintText: 'สังกัด...',
                                       fillColor: Colors.white,
@@ -3946,9 +4741,28 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Poppins',
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -3989,28 +4803,79 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                         onChanged: (val) => safeSetState(() =>
                                             _model.areaRegionSelectedDropDownValue =
                                                 val),
-                                        searchHintTextStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .bodyLarge
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
+                                        searchHintTextStyle: FlutterFlowTheme
+                                                .of(context)
+                                            .bodyLarge
+                                            .override(
+                                              font: GoogleFonts.roboto(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontStyle,
+                                              ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                        searchTextStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  letterSpacing: 0.0,
-                                                ),
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .fontStyle,
+                                            ),
+                                        searchTextStyle: FlutterFlowTheme.of(
+                                                context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         hintText: 'เลือกเขต/ภาค...',
                                         searchHintText: 'ค้นหา...',
@@ -4096,8 +4961,30 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                               textHighlightStyle: TextStyle(),
                                               elevation: 4.0,
@@ -4136,23 +5023,65 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                 hintText:
                                                     'กรอกรหัสสาขา/ชื่อสาขา',
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodySmall
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmall
+                                                              .fontStyle,
+                                                    ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -4218,9 +5147,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                               textAlign: TextAlign.start,
                                               validator: _model
@@ -4270,9 +5221,31 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                                 ListView(
@@ -4330,12 +5303,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4378,9 +5364,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '120',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4437,12 +5428,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4483,9 +5487,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4542,12 +5551,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4588,9 +5610,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '357,000',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4647,12 +5674,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4693,9 +5733,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '600,000',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4752,12 +5797,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4798,9 +5856,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '59.52%',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4857,12 +5920,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4903,9 +5979,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '2',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4962,12 +6043,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5008,9 +6102,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '540',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5067,12 +6166,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5113,9 +6225,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5172,12 +6289,25 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF3C4041),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5218,9 +6348,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                               Text(
                                                                             '0',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFFDB771A),
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),

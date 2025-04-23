@@ -2593,6 +2593,93 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                       EmployeeSearchDataModelStruct.fromSerializableMap,
                 ),
               ),
+            ),
+            FFRoute(
+              name: ChatRoomSettingPageWidget.routeName,
+              path: ChatRoomSettingPageWidget.routePath,
+              builder: (context, params) => ChatRoomSettingPageWidget(
+                chatRoomDocRef: params.getParam(
+                  'chatRoomDocRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['SawadChatRoom'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: SelfieMaskPageWidget.routeName,
+              path: SelfieMaskPageWidget.routePath,
+              builder: (context, params) => SelfieMaskPageWidget(),
+            ),
+            FFRoute(
+              name: CustomerCarDeailsDocumentStep1Widget.routeName,
+              path: CustomerCarDeailsDocumentStep1Widget.routePath,
+              builder: (context, params) =>
+                  CustomerCarDeailsDocumentStep1Widget(
+                step: params.getParam(
+                  'step',
+                  ParamType.String,
+                ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
+                  ParamType.String,
+                ),
+                impoundCarParamSet: params.getParam(
+                  'impoundCarParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                impoundCarLocateParamSet: params.getParam(
+                  'impoundCarLocateParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder:
+                      ImpoundCarLocateParamSetStruct.fromSerializableMap,
+                ),
+                impoundCarStatusName: params.getParam(
+                  'impoundCarStatusName',
+                  ParamType.String,
+                ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
+                ),
+                fromPage2: params.getParam(
+                  'fromPage2',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -188,12 +188,21 @@ class _PointInfomationContainerWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Lexend Deca',
+                                        font: GoogleFonts.lexendDeca(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -205,12 +214,21 @@ class _PointInfomationContainerWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Lexend Deca',
+                                        font: GoogleFonts.lexendDeca(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -231,12 +249,21 @@ class _PointInfomationContainerWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Lexend Deca',
+                                        font: GoogleFonts.lexendDeca(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -248,12 +275,21 @@ class _PointInfomationContainerWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Lexend Deca',
+                                        font: GoogleFonts.lexendDeca(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -273,12 +309,21 @@ class _PointInfomationContainerWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Lexend Deca',
+                                        font: GoogleFonts.lexendDeca(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -290,12 +335,21 @@ class _PointInfomationContainerWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Lexend Deca',
+                                        font: GoogleFonts.lexendDeca(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -313,9 +367,17 @@ class _PointInfomationContainerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -327,9 +389,17 @@ class _PointInfomationContainerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -346,9 +416,17 @@ class _PointInfomationContainerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -360,9 +438,17 @@ class _PointInfomationContainerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -384,9 +470,17 @@ class _PointInfomationContainerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -400,9 +494,17 @@ class _PointInfomationContainerWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -443,8 +545,7 @@ class _PointInfomationContainerWidgetState
                                   ),
                                   countBuilder: (count) => Text(
                                     count.toString(),
-                                    style: GoogleFonts.getFont(
-                                      'Roboto',
+                                    style: GoogleFonts.roboto(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16.0,
@@ -478,9 +579,22 @@ class _PointInfomationContainerWidgetState
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

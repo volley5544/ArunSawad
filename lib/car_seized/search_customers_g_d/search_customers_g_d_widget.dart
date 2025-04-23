@@ -161,11 +161,17 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
           title: AutoSizeText(
             'ค้นหาลูกค้า',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Color(0xFF003063),
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [
@@ -246,8 +252,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                             hintText: 'ค้นหาโดย....',
                             icon: Icon(
@@ -330,21 +349,63 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'ระบุคำค้นหา',
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
                                                 errorBorder: InputBorder.none,
@@ -371,8 +432,30 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                               validator: _model
                                                   .textControllerValidator
@@ -1469,9 +1552,26 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
                                           color: Colors.white,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
@@ -1575,8 +1675,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1584,6 +1692,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1602,8 +1714,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1611,6 +1731,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -1632,8 +1756,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1641,6 +1773,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1673,8 +1809,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1682,6 +1826,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1700,8 +1848,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1709,6 +1865,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -1727,8 +1887,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1736,6 +1904,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1768,8 +1940,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1777,6 +1957,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1795,8 +1979,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1804,6 +1996,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -1825,8 +2021,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1834,6 +2038,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1866,8 +2074,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1875,6 +2091,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1893,8 +2113,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -1902,6 +2130,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -1923,8 +2155,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1932,6 +2172,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1964,8 +2208,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -1973,6 +2225,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -1991,8 +2247,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Poppins',
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF090F13),
                                                                 letterSpacing:
@@ -2000,6 +2264,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -2021,8 +2289,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2030,6 +2306,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2069,8 +2349,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2078,6 +2366,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -2096,8 +2388,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2105,6 +2405,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2123,8 +2427,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2132,6 +2444,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -2176,8 +2492,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2185,6 +2509,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -2203,8 +2531,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2212,6 +2548,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2230,8 +2570,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2239,6 +2587,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -2278,8 +2630,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2287,6 +2647,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -2305,8 +2669,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF090F13),
                                                                   letterSpacing:
@@ -2314,6 +2686,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2335,8 +2711,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Color(
                                                                         0xFF090F13),
                                                                     letterSpacing:
@@ -2344,6 +2728,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -2993,11 +3381,15 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             textAlign:
                                                                                 TextAlign.center,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFF204A77),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3006,15 +3398,26 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   ),
                                                                 ),
                                                               ),
-                                                            if (widget!.fromPage ==
-                                                                    'price'
-                                                                ? (FFAppState()
+                                                            if (() {
+                                                              if (widget!
+                                                                      .fromPage ==
+                                                                  'price') {
+                                                                return (FFAppState()
                                                                         .impoundCarRegionCodeList
                                                                         .contains(FFAppState()
                                                                             .profileRegion) ||
                                                                     (widget!.userRolePrice !=
-                                                                        'no_role'))
-                                                                : false)
+                                                                        'no_role'));
+                                                              } else if ((widget!
+                                                                          .fromPage ==
+                                                                      'seeImages') &&
+                                                                  (widget!.step ==
+                                                                      'step1')) {
+                                                                return true;
+                                                              } else {
+                                                                return false;
+                                                              }
+                                                            }())
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsets
@@ -3250,24 +3653,53 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             alignment:
                                                                                 AlignmentDirectional(0.0, 0.0),
                                                                             child:
-                                                                                Container(
-                                                                              width: 50.0,
-                                                                              height: 50.0,
-                                                                              decoration: BoxDecoration(
-                                                                                borderRadius: BorderRadius.circular(60.0),
-                                                                                border: Border.all(
-                                                                                  color: Colors.black,
-                                                                                  width: 1.0,
-                                                                                ),
-                                                                              ),
-                                                                              child: Align(
-                                                                                alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                child: Icon(
-                                                                                  Icons.image_search,
-                                                                                  color: Color(0xFF354052),
-                                                                                  size: 28.0,
-                                                                                ),
-                                                                              ),
+                                                                                Builder(
+                                                                              builder: (context) {
+                                                                                if (widget!.fromPage == 'price') {
+                                                                                  return Container(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      borderRadius: BorderRadius.circular(60.0),
+                                                                                      border: Border.all(
+                                                                                        color: Colors.black,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                    child: Align(
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                      child: Icon(
+                                                                                        Icons.image_search,
+                                                                                        color: Color(0xFF354052),
+                                                                                        size: 28.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                } else {
+                                                                                  return Align(
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                    child: Container(
+                                                                                      width: 50.0,
+                                                                                      height: 50.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        borderRadius: BorderRadius.circular(60.0),
+                                                                                        border: Border.all(
+                                                                                          color: Colors.black,
+                                                                                          width: 1.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                      child: Align(
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                        child: Icon(
+                                                                                          Icons.find_in_page_rounded,
+                                                                                          color: Color(0xFF354052),
+                                                                                          size: 28.0,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                }
+                                                                              },
                                                                             ),
                                                                           ),
                                                                         ),
@@ -3276,15 +3708,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               1,
                                                                           child:
                                                                               Text(
-                                                                            'ดูรูป',
+                                                                            widget!.fromPage == 'price'
+                                                                                ? 'ดูรูป'
+                                                                                : 'ดูเอกสาร',
                                                                             textAlign:
                                                                                 TextAlign.center,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: Color(0xFF204A77),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3335,14 +3773,25 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Color(0xFFFF0000),
                                                                           fontSize:
                                                                               15.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),

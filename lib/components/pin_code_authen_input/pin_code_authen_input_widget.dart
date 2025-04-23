@@ -48,9 +48,14 @@ class _PinCodeAuthenInputWidgetState extends State<PinCodeAuthenInputWidget> {
       appContext: context,
       length: 4,
       textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-            fontFamily: 'Poppins',
+            font: GoogleFonts.poppins(
+              fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+              fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+            ),
             color: FlutterFlowTheme.of(context).secondary,
             letterSpacing: 0.0,
+            fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+            fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
           ),
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       enableActiveFill: false,

@@ -73,8 +73,17 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
                 labelText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                      fontFamily: 'Poppins',
+                      font: GoogleFonts.poppins(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                      ),
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodySmall.fontStyle,
                     ),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -131,8 +140,17 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
                     : null,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   ),
               keyboardType: TextInputType.number,
               validator: _model.textControllerValidator.asValidator(context),
@@ -153,9 +171,18 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
               color: Color(0xFF00CB10),
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                    ),
                     color: Colors.white,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).titleSmall.fontStyle,
                   ),
               elevation: 2.0,
               borderSide: BorderSide(

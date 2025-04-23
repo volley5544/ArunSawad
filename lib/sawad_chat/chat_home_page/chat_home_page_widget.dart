@@ -87,10 +87,23 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                 title: Text(
                   'SAWAD Chat',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
+                        ),
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
                       ),
                 ),
                 actions: [
@@ -362,10 +375,14 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 13.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         if (listViewSawadChatRoomRecord.chatRoomType !=
@@ -380,10 +397,14 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                                 Text(
                                                                               '(${listViewSawadChatRoomRecord.usersRef.length.toString()})',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -414,11 +435,15 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 color: Color(0xFF818C95),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ],
@@ -454,8 +479,14 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.w300,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           13.0,
                                                                       letterSpacing:
@@ -463,6 +494,10 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w300,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                               Text(
@@ -478,8 +513,14 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight:
+                                                                            FontWeight.w300,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       fontSize:
                                                                           11.0,
                                                                       letterSpacing:
@@ -487,6 +528,10 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w300,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                               Icon(

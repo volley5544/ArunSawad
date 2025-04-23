@@ -586,10 +586,20 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
             title: Text(
               'PIP และเกรดโบนัส',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
+                    font: GoogleFonts.poppins(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -622,9 +632,22 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                           Expanded(
@@ -667,9 +690,22 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -716,9 +752,22 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                       color: Colors.white,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -742,8 +791,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                             labelStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                             unselectedLabelStyle: TextStyle(),
                             indicatorColor:
@@ -794,8 +856,29 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           Text(
@@ -807,10 +890,22 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ],
@@ -921,15 +1016,36 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             ?.jsonBody ??
                                                         ''),
                                                   )})'}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.black,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -968,10 +1084,32 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ],
@@ -1012,10 +1150,32 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ],
@@ -1058,10 +1218,32 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                             FFButtonWidget(
@@ -1117,15 +1299,36 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color: Color(0xFFFF0000),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.white,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
                                                 elevation: 2.0,
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,
@@ -1177,8 +1380,30 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -1188,9 +1413,31 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ],
@@ -1210,8 +1457,30 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -1221,9 +1490,31 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ],
@@ -1243,8 +1534,30 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -1262,13 +1575,35 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ],
@@ -1442,10 +1777,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1464,10 +1810,23 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ],
@@ -1493,10 +1852,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1515,10 +1885,23 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ],
@@ -1544,10 +1927,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1567,12 +1961,25 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ],
@@ -1623,8 +2030,29 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           Text(
@@ -1636,10 +2064,22 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
-                                                  fontFamily: 'Poppins',
+                                                  font: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ],
@@ -1753,15 +2193,36 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             ?.jsonBody ??
                                                         ''),
                                                   )})'}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.black,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -1800,10 +2261,32 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ],
@@ -1844,10 +2327,32 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ],
@@ -1890,10 +2395,32 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color: Colors.black,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                             FFButtonWidget(
@@ -1949,15 +2476,36 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color: Color(0xFFFF0000),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.white,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
                                                 elevation: 2.0,
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,
@@ -2009,8 +2557,30 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -2021,9 +2591,31 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ],
@@ -2043,8 +2635,30 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -2055,9 +2669,31 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ],
@@ -2077,8 +2713,30 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -2096,13 +2754,35 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           context)
                                                       .displaySmall
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displaySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ],
@@ -2285,10 +2965,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -2307,10 +2998,23 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ],
@@ -2336,10 +3040,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -2358,10 +3073,23 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ],
@@ -2387,10 +3115,21 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -2410,12 +3149,25 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                           context)
                                                                       .displaySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ],

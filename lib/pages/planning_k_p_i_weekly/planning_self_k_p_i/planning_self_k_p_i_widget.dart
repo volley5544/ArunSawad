@@ -55,8 +55,16 @@ class _PlanningSelfKPIWidgetState extends State<PlanningSelfKPIWidget> {
           'วางแผน KPI รายอาทิต',
           textAlign: TextAlign.start,
           style: FlutterFlowTheme.of(context).displaySmall.override(
-                fontFamily: 'Poppins',
+                font: GoogleFonts.poppins(
+                  fontWeight:
+                      FlutterFlowTheme.of(context).displaySmall.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                ),
                 letterSpacing: 0.0,
+                fontWeight:
+                    FlutterFlowTheme.of(context).displaySmall.fontWeight,
+                fontStyle: FlutterFlowTheme.of(context).displaySmall.fontStyle,
               ),
         ),
         actions: [],
@@ -76,9 +84,20 @@ class _PlanningSelfKPIWidgetState extends State<PlanningSelfKPIWidget> {
                   child: Text(
                     'วางแผน KPI ในแต่ละวัน',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
+                          ),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodySmall.fontStyle,
                         ),
                   ),
                 ),

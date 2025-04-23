@@ -852,9 +852,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     child: Text(
                                                                                   'ออกจากระบบ',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
+                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 )),
                                                                               ],
@@ -927,9 +932,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                       child: Text(
                                                                                     'ล้างข้อมูลแอพ',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
+                                                                                          font: GoogleFonts.poppins(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   )),
                                                                                 ),
@@ -989,10 +999,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 color: Colors.black,
                                                                                 fontSize: 28.0,
                                                                                 letterSpacing: 0.0,
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1100,9 +1115,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     Text(
                                                                                       'โปรดใส่พินเพื่อเข้าใช้งาน',
                                                                                       style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                            fontFamily: 'Poppins',
+                                                                                            font: GoogleFonts.poppins(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                                            ),
                                                                                             color: Colors.black,
                                                                                             letterSpacing: 0.0,
+                                                                                            fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                                                                                           ),
                                                                                     ),
                                                                                     FutureBuilder<List<NotificationRecord>>(
@@ -1185,9 +1205,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           appContext: context,
                                                                                                           length: 6,
                                                                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                                fontFamily: 'Poppins',
+                                                                                                                font: GoogleFonts.poppins(
+                                                                                                                  fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                                                  fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                                                ),
                                                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                                                                 letterSpacing: 0.0,
+                                                                                                                fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                                               ),
                                                                                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                                           enableActiveFill: true,
@@ -2475,10 +2500,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     child: Text(
                                                                                                       'กดเพื่อเข้าใช้งาน Face id หรือ สแกนนิ้ว',
                                                                                                       style: FlutterFlowTheme.of(context).headlineSmall.override(
-                                                                                                            fontFamily: 'Poppins',
+                                                                                                            font: GoogleFonts.poppins(
+                                                                                                              fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                                                            ),
                                                                                                             color: Colors.black,
                                                                                                             fontSize: 16.0,
                                                                                                             letterSpacing: 0.0,
+                                                                                                            fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                                            fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                                                                                                           ),
                                                                                                     ),
                                                                                                   ),

@@ -61,8 +61,21 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   child: Text(
                     'สถานะทั้งหมด',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .fontStyle,
                         ),
                   ),
                 ),
@@ -71,9 +84,20 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   child: Text(
                     'แลกโทรศัพท์มือถือ 1 เครื่อง *มูลค่าไม่เกิน 30,000 บาท',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
+                          ),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodySmall.fontStyle,
                         ),
                   ),
                 ),
@@ -82,9 +106,21 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   child: Text(
                     '500 point',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                   ),
                 ),
@@ -117,9 +153,22 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(
@@ -151,9 +200,22 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

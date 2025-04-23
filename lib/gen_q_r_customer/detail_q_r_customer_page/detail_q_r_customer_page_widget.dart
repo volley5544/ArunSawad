@@ -305,10 +305,23 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                           'สัญญาลูกค้า',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ],
@@ -357,10 +370,25 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.black,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -418,11 +446,26 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -747,9 +790,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(
@@ -981,9 +1037,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(
@@ -1040,18 +1109,38 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
+                                            ),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
                                           ),
                                       hintText: 'ค้นหาเลขที่สัญญา',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
+                                            ),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -1106,10 +1195,20 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     textAlign: TextAlign.start,
                                     cursorColor: FlutterFlowTheme.of(context)
@@ -1306,10 +1405,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                 child: Text(
                                                                                   'เลขที่สัญญา',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1321,10 +1424,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                     r'''$.CONTNO''',
                                                                                   ).toString(),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(
+                                                                                          fontWeight: FontWeight.normal,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1374,14 +1481,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1403,10 +1518,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1422,10 +1541,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               r'''$.DATEOFDUE''',
                                                                             ).toString())}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1473,14 +1596,19 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1500,10 +1628,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           Text(
                                                                             ':',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                           Padding(
@@ -1522,10 +1654,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                 r'''$.EXP_FRM''',
                                                                               ).toString()})',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1568,14 +1704,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1597,10 +1741,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1616,10 +1764,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               r'''$.TARGETSTAT''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1662,14 +1814,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1691,10 +1851,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1710,10 +1874,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               r'''$.CONTSTAT''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1756,14 +1924,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1785,10 +1961,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1803,10 +1983,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               (_model.getListDataPerson?.jsonBody ?? ''),
                                                                             )?.elementAtOrNull(listCardIndex))}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1849,14 +2033,22 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1878,10 +2070,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1908,10 +2104,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                     r'''$.EXP_AMT''',
                                                                                   ).toString())} บาท',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1970,10 +2170,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1993,10 +2197,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               Text(
                                                                                 ':',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
                                                                                       fontSize: 12.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
                                                                               Padding(
@@ -2006,10 +2214,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                     (_model.getListDataPerson?.jsonBody ?? ''),
                                                                                   )?.elementAtOrNull(listCardIndex))} บาท',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(
+                                                                                          fontWeight: FontWeight.normal,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -2051,10 +2263,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2074,10 +2290,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             Text(
                                                                               ':',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -2093,10 +2313,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                   'date_of_data',
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -2142,14 +2366,19 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2169,10 +2398,14 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                           Text(
                                                                             ':',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                           Padding(
@@ -2188,7 +2421,10 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                 r'''$.historyCount''',
                                                                               ).toString()}'} ครั้ง',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     color: int.parse(getJsonField(
                                                                                               listCardItem,
                                                                                               r'''$.historyCount''',
@@ -2199,6 +2435,7 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -2274,14 +2511,25 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
                                                                               15.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontStyle,
                                                                         ),
                                                                     elevation:
                                                                         3.0,
@@ -2521,14 +2769,25 @@ class _DetailQRCustomerPageWidgetState extends State<DetailQRCustomerPageWidget>
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
                                                                               15.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontStyle,
                                                                         ),
                                                                     elevation:
                                                                         3.0,

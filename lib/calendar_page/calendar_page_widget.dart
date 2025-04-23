@@ -57,10 +57,19 @@ class _CalendarPageWidgetState extends State<CalendarPageWidget> {
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
+                  font: GoogleFonts.poppins(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
           actions: [],
@@ -90,30 +99,80 @@ class _CalendarPageWidgetState extends State<CalendarPageWidget> {
                       safeSetState(
                           () => _model.calendarSelectedDay = newSelectedDate);
                     },
-                    titleStyle:
-                        FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.0,
-                            ),
+                    titleStyle: FlutterFlowTheme.of(context)
+                        .titleLarge
+                        .override(
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleLarge
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleLarge.fontStyle,
+                        ),
                     dayOfWeekStyle:
                         FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              font: FlutterFlowTheme.of(context).bodyLarge,
                               letterSpacing: 0.0,
                             ),
                     dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
-                    selectedDateStyle:
-                        FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.0,
-                            ),
+                    selectedDateStyle: FlutterFlowTheme.of(context)
+                        .titleSmall
+                        .override(
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
                     inactiveDateStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Poppins',
+                              font: GoogleFonts.poppins(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
                             ),
                     locale: FFLocalizations.of(context).languageCode,
                   ),

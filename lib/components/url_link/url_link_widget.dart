@@ -117,14 +117,12 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                       child: FlutterFlowButtonTabBar(
                         useToggleButtonStyle: false,
                         isScrollable: true,
-                        labelStyle: FlutterFlowTheme.of(context)
-                            .bodyLarge
-                            .override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
-                              fontSize: 18.0,
-                              letterSpacing: 0.0,
-                            ),
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyLarge.override(
+                                  font: FlutterFlowTheme.of(context).bodyLarge,
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                ),
                         unselectedLabelStyle: TextStyle(),
                         labelColor: FlutterFlowTheme.of(context).primaryText,
                         unselectedLabelColor:
@@ -306,9 +304,31 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                             context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Poppins',
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Padding(

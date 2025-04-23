@@ -168,9 +168,21 @@ class _PageControllerComponentWidgetState
                   selectedChipStyle: ChipStyle(
                     backgroundColor: Color(0xFF0039E3),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                     iconColor: FlutterFlowTheme.of(context).primaryText,
                     iconSize: 8.0,
@@ -180,9 +192,21 @@ class _PageControllerComponentWidgetState
                   unselectedChipStyle: ChipStyle(
                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
+                          font: GoogleFonts.poppins(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                     iconColor: FlutterFlowTheme.of(context).secondaryText,
                     iconSize: 18.0,

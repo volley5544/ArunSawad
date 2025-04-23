@@ -439,10 +439,23 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                 title: Text(
                   'รายชื่อลีด',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Poppins',
+                        font: GoogleFonts.poppins(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
+                        ),
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
                       ),
                 ),
                 actions: [
@@ -696,12 +709,29 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -721,10 +751,27 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ],
@@ -812,12 +859,29 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -837,10 +901,27 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ],
@@ -933,12 +1014,29 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -958,10 +1056,27 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ],
@@ -1049,12 +1164,29 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -1074,10 +1206,27 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ],
@@ -1181,21 +1330,35 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .displaySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 20.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF101213),
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .displaySmall
+                                                                      .fontStyle,
+                                                                ),
                                                       ),
                                                     ),
                                                     Padding(
@@ -1214,8 +1377,16 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 .of(context)
                                                             .bodySmall
                                                             .override(
-                                                              fontFamily:
-                                                                  'Outfit',
+                                                              font: GoogleFonts
+                                                                  .outfit(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                              ),
                                                               color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
@@ -1224,6 +1395,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
                                                             ),
                                                       ),
                                                     ),
@@ -1276,21 +1452,35 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             .toString(),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .displaySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xFF101213),
-                                                              fontSize: 20.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF101213),
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .displaySmall
+                                                                      .fontStyle,
+                                                                ),
                                                       ),
                                                     ),
                                                     Padding(
@@ -1309,8 +1499,16 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 .of(context)
                                                             .bodySmall
                                                             .override(
-                                                              fontFamily:
-                                                                  'Outfit',
+                                                              font: GoogleFonts
+                                                                  .outfit(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                              ),
                                                               color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
@@ -1319,6 +1517,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
                                                             ),
                                                       ),
                                                     ),
@@ -1480,8 +1683,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               context)
                                                                           .bodySmall
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Outfit',
+                                                                            font:
+                                                                                GoogleFonts.outfit(
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 Colors.white,
                                                                             fontSize:
@@ -1490,6 +1696,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1534,7 +1742,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               Text(
                                                                             '${functions.showLeadTimeRemain(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)))}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Outfit',
+                                                                                  font: GoogleFonts.outfit(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: valueOrDefault<Color>(
                                                                                     functions.leadTimeRemainTextColor(functions.leadTimeRemain(FFAppState().leadCreatedTimeList.toList(), getCurrentTimestamp, leadListIndex, leadNotiPageLeadChannelColorRecord?.leadAge?.elementAtOrNull(functions.getLeadAgeIndex(leadNotiPageLeadChannelColorRecord?.leadChannel?.toList(), FFAppState().leadChannelList.elementAtOrNull(leadListIndex))!)), Colors.black, Color(0xFFFF0000)),
                                                                                     Colors.black,
@@ -1542,6 +1753,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1572,14 +1784,19 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(
+                                                                              fontWeight: FontWeight.w500,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
                                                                             fontSize:
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1600,8 +1817,14 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
+                                                                      font: GoogleFonts
+                                                                          .outfit(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodySmall
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
@@ -1611,6 +1834,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -1628,8 +1855,14 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
+                                                                      font: GoogleFonts
+                                                                          .outfit(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodySmall
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
@@ -1639,6 +1872,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -1656,8 +1893,14 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         context)
                                                                     .bodySmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
+                                                                      font: GoogleFonts
+                                                                          .outfit(
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodySmall
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: Color(
                                                                           0xFF57636C),
                                                                       fontSize:
@@ -1667,6 +1910,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -1886,8 +2133,16 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: functions.showMatNameInList(FFAppState().leadCountCalled.toList(), leadListIndex) ==
                                                                             '0'
                                                                         ? Color(
@@ -1899,6 +2154,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
                                                             ),
                                                           ),
@@ -1939,8 +2198,17 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                   .of(context)
                                                               .bodySmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Outfit',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .outfit(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFFFF0000),
                                                                 fontSize: 14.0,
@@ -1949,6 +2217,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                       ),
@@ -1981,8 +2253,16 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF101213),
                                                                   fontSize:
@@ -1992,6 +2272,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2019,8 +2303,16 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
+                                                                  font: GoogleFonts
+                                                                      .outfit(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Color(
                                                                       0xFF101213),
                                                                   fontSize:
@@ -2030,6 +2322,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -2255,12 +2551,29 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                     context)
                                                                 .titleSmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: Colors
                                                                       .white,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
                                                                 ),
                                                         elevation: 2.0,
                                                         borderSide: BorderSide(
@@ -2540,12 +2853,29 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       context)
                                                                   .titleSmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
+                                                                    ),
                                                                     color: Colors
                                                                         .white,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontStyle,
                                                                   ),
                                                           elevation: 2.0,
                                                           borderSide:

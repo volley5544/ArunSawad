@@ -271,3 +271,9 @@ export '/gen_q_r_customer/payment_q_rcode/payment_q_rcode_widget.dart'
     show PaymentQRcodeWidget;
 export '/sawad_chat/group_chat_add_page/group_chat_add_page_widget.dart'
     show GroupChatAddPageWidget;
+export '/sawad_chat/chat_room_setting_page/chat_room_setting_page_widget.dart'
+    show ChatRoomSettingPageWidget;
+export '/selfie_mask_page/selfie_mask_page_widget.dart'
+    show SelfieMaskPageWidget;
+export '/car_seized/customer_car_deails_document_step1/customer_car_deails_document_step1_widget.dart'
+    show CustomerCarDeailsDocumentStep1Widget;

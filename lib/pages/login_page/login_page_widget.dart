@@ -583,18 +583,52 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .grayIcon,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         hintText: 'Username',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
@@ -663,9 +697,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             color: Colors.black,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                       validator: _model
                                           .usernameInputTextControllerValidator
@@ -689,18 +740,52 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .grayIcon,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         hintText: 'Password',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Poppins',
+                                              font: GoogleFonts.poppins(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
                                             ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
@@ -767,9 +852,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            font: GoogleFonts.poppins(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             color: Colors.black,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                       validator: _model
                                           .passwordInputTextControllerValidator
@@ -844,17 +946,39 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               },
                                               child: Text(
                                                 'sign up account',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primary,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -1350,9 +1474,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               content: Text(
                                                                                 'กรุณาใส่ Password',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(
+                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
                                                                                       color: Colors.white,
                                                                                       letterSpacing: 0.0,
+                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
                                                                               duration: Duration(milliseconds: 3000),
@@ -1484,9 +1613,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     'fail',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
+                                                                                        font: GoogleFonts.poppins(
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                        ),
                                                                                         color: Colors.white,
                                                                                         letterSpacing: 0.0,
+                                                                                        fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                       ),
                                                                                 ),
                                                                                 duration: Duration(milliseconds: 4000),
@@ -1707,26 +1841,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             safeSetState(() {});
                                                                           return;
                                                                         }
-                                                                        if ((_model.usernameInputTextController.text == 'euai') ||
-                                                                            (_model.usernameInputTextController.text ==
-                                                                                '33511') ||
-                                                                            (_model.usernameInputTextController.text ==
-                                                                                '31622')) {
-                                                                          FFAppState().employeeID =
-                                                                              '${functions.toUpperCase(GetUserProfileAPICall.profileEmployeeID(
-                                                                            (_model.getUserProfile?.jsonBody ??
-                                                                                ''),
-                                                                          ))}';
-                                                                          FFAppState()
-                                                                              .update(() {});
-                                                                          FFAppState().branchCode =
-                                                                              '${GetUserProfileAPICall.branchCode(
-                                                                            (_model.getUserProfile?.jsonBody ??
-                                                                                ''),
-                                                                          )}';
-                                                                          FFAppState()
-                                                                              .update(() {});
-                                                                        }
+                                                                        FFAppState().employeeID =
+                                                                            '${functions.toUpperCase(GetUserProfileAPICall.profileEmployeeID(
+                                                                          (_model.getUserProfile?.jsonBody ??
+                                                                              ''),
+                                                                        ))}';
+                                                                        FFAppState()
+                                                                            .update(() {});
+                                                                        FFAppState().branchCode =
+                                                                            '${GetUserProfileAPICall.branchCode(
+                                                                          (_model.getUserProfile?.jsonBody ??
+                                                                              ''),
+                                                                        )}';
+                                                                        FFAppState()
+                                                                            .update(() {});
                                                                         FFAppState().userNickname =
                                                                             '${GetUserProfileAPICall.profileNickName(
                                                                           (_model.getUserProfile?.jsonBody ??
@@ -1734,13 +1862,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         )}';
                                                                         FFAppState().profileFullName =
                                                                             '${GetUserProfileAPICall.profileFullName(
-                                                                          (_model.getUserProfile?.jsonBody ??
-                                                                              ''),
-                                                                        )}';
-                                                                        FFAppState()
-                                                                            .update(() {});
-                                                                        FFAppState().branchCode =
-                                                                            '${GetUserProfileAPICall.branchCode(
                                                                           (_model.getUserProfile?.jsonBody ??
                                                                               ''),
                                                                         )}';
@@ -1972,9 +2093,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 Text(
                                                                               'กรุณาใส่ Username',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     color: Colors.white,
                                                                                     letterSpacing: 0.0,
+                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                             duration:
@@ -2229,12 +2355,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               context)
                                                                           .titleSmall
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(
+                                                                              fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                              fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 Colors.white,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                           ),
                                                                       elevation:
                                                                           2.0,
@@ -2288,11 +2421,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: Color(0xFF607D8B),
                                       fontSize: 13.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ).animateOnPageLoad(

@@ -495,10 +495,23 @@ class _DetailListFollowUpDebtWidgetState
                           'สัญญาลูกค้า',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ],
@@ -547,10 +560,25 @@ class _DetailListFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.black,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -608,11 +636,26 @@ class _DetailListFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -627,7 +670,7 @@ class _DetailListFollowUpDebtWidgetState
                         EdgeInsetsDirectional.fromSTEB(12.0, 10.0, 12.0, 10.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
@@ -906,9 +949,22 @@ class _DetailListFollowUpDebtWidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Poppins',
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(
@@ -919,237 +975,273 @@ class _DetailListFollowUpDebtWidgetState
                           ),
                         ).animateOnPageLoad(
                             animationsMap['buttonOnPageLoadAnimation1']!),
-                        FFButtonWidget(
-                          onPressed: () async {
-                            if (functions.countTrueInBoolList(
-                                    FFAppState().selectCardList.toList())! <=
-                                0) {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text(
-                                          'กรุณาเลือกการ์ดที่ต้องการทำรายการ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                              return;
-                            }
-                            FFAppState().saveCalled =
-                                SaveCallStruct.fromSerializableMap(jsonDecode(
-                                    '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                            safeSetState(() {});
+                        if (false
+                            ? (functions.countTrueInBoolList(
+                                        FFAppState().selectCardList.toList())! >
+                                    0
+                                ? !functions
+                                    .returnMapListFromBoolList(
+                                        (getJsonField(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                          r'''$.data[:].NextWork''',
+                                          true,
+                                        ) as List)
+                                            .map<String>((s) => s.toString())
+                                            .toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true)
+                                    .contains('ลงพื้นที่')
+                                : true)
+                            : true)
+                          FFButtonWidget(
+                            onPressed: () async {
+                              if (functions.countTrueInBoolList(
+                                      FFAppState().selectCardList.toList())! <=
+                                  0) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'กรุณาเลือกการ์ดที่ต้องการทำรายการ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                return;
+                              }
+                              FFAppState().saveCalled =
+                                  SaveCallStruct.fromSerializableMap(jsonDecode(
+                                      '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                              safeSetState(() {});
 
-                            context.pushNamed(
-                              SaveCallFollowUpDebtWidget.routeName,
-                              queryParameters: {
-                                'countNo': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.contno(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'dateOfExp': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.dateofexp(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'targetStat': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.targetstat(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'contStat': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.contstat(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'expAmt': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.expamt(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'name1': serializeParam(
-                                  widget!.name,
-                                  ParamType.String,
-                                ),
-                                'name2': serializeParam(
-                                  widget!.lastName,
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.id(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'expFrm': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.expFrm(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'dateOfDue': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.dateofdue(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'followupDebtTab': serializeParam(
-                                  widget!.followupDebtTab,
-                                  ParamType.int,
-                                ),
-                                'dateOfData': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.dateOfData(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'sumCurrentDueAmt': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall
-                                          .sumCurrentDueAmt(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'lastPayDate': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall
-                                          .lastPayDate(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'historyCount': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall
-                                          .historyCount(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'arnow': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.arnow(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                                'dbName': serializeParam(
-                                  functions.returnMapListFromBoolList(
-                                      CollectionApiGetDataPersonCall.database(
-                                        (_model.getListDataPerson?.jsonBody ??
-                                            ''),
-                                      )?.toList(),
-                                      FFAppState().selectCardList.toList(),
-                                      true),
-                                  ParamType.String,
-                                  isList: true,
-                                ),
-                              }.withoutNulls,
-                            );
-                          },
-                          text: 'บันทึกผลการโทร',
-                          options: FFButtonOptions(
-                            width: 160.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF4BB718),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 2.0,
+                              context.pushNamed(
+                                SaveCallFollowUpDebtWidget.routeName,
+                                queryParameters: {
+                                  'countNo': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.contno(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'dateOfExp': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .dateofexp(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'targetStat': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .targetstat(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'contStat': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.contstat(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'expAmt': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.expamt(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'name1': serializeParam(
+                                    widget!.name,
+                                    ParamType.String,
+                                  ),
+                                  'name2': serializeParam(
+                                    widget!.lastName,
+                                    ParamType.String,
+                                  ),
+                                  'id': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.id(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'expFrm': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.expFrm(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'dateOfDue': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .dateofdue(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'followupDebtTab': serializeParam(
+                                    widget!.followupDebtTab,
+                                    ParamType.int,
+                                  ),
+                                  'dateOfData': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .dateOfData(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'sumCurrentDueAmt': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .sumCurrentDueAmt(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'lastPayDate': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .lastPayDate(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'historyCount': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .historyCount(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'arnow': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.arnow(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'dbName': serializeParam(
+                                    functions.returnMapListFromBoolList(
+                                        CollectionApiGetDataPersonCall.database(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true),
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                }.withoutNulls,
+                              );
+                            },
+                            text: 'บันทึกผลการโทร',
+                            options: FFButtonOptions(
+                              width: 160.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF4BB718),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['buttonOnPageLoadAnimation2']!),
-                      ],
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation2']!),
+                      ].divide(SizedBox(width: 16.0)),
                     ),
                   ),
                   Padding(
@@ -1190,18 +1282,38 @@ class _DetailListFollowUpDebtWidgetState
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
                                         ),
                                     hintText: 'ค้นหาเลขที่สัญญา',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          font: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.normal,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -1252,10 +1364,19 @@ class _DetailListFollowUpDebtWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Poppins',
+                                        font: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   textAlign: TextAlign.start,
                                   cursorColor:
@@ -1433,10 +1554,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                               child: Text(
                                                                                 'เลขที่สัญญา',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1448,10 +1573,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                                   r'''$.CONTNO''',
                                                                                 ).toString(),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1501,14 +1630,23 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1529,10 +1667,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Padding(
@@ -1550,10 +1692,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1601,14 +1747,22 @@ class _DetailListFollowUpDebtWidgetState
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1630,10 +1784,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -1652,10 +1810,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                               r'''$.EXP_FRM''',
                                                                             ).toString()})',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1698,14 +1860,23 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1726,10 +1897,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Padding(
@@ -1747,10 +1922,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1793,14 +1972,23 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1821,10 +2009,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Padding(
@@ -1842,10 +2034,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1888,14 +2084,23 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1916,10 +2121,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Padding(
@@ -1937,10 +2146,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1983,14 +2196,23 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2011,10 +2233,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                       Padding(
@@ -2043,10 +2269,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -2105,10 +2335,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Poppins',
+                                                                              font: GoogleFonts.poppins(
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2128,10 +2362,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                             Text(
                                                                               ':',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -2141,10 +2379,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                                   (_model.getListDataPerson?.jsonBody ?? ''),
                                                                                 )?.elementAtOrNull(listCardIndex))} บาท',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
+                                                                                      font: GoogleFonts.poppins(
+                                                                                        fontWeight: FontWeight.normal,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                      ),
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -2187,14 +2429,19 @@ class _DetailListFollowUpDebtWidgetState
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
+                                                                            font:
+                                                                                GoogleFonts.poppins(
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2214,10 +2461,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           Text(
                                                                             ':',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                           Padding(
@@ -2238,10 +2489,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'date_of_data',
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
+                                                                                    font: GoogleFonts.poppins(
+                                                                                      fontWeight: FontWeight.normal,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -2287,14 +2542,22 @@ class _DetailListFollowUpDebtWidgetState
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -2316,10 +2579,14 @@ class _DetailListFollowUpDebtWidgetState
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
                                                                                 fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
                                                                         Padding(
@@ -2335,7 +2602,10 @@ class _DetailListFollowUpDebtWidgetState
                                                                               r'''$.historyCount''',
                                                                             ).toString()}'} ครั้ง',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Poppins',
+                                                                                  font: GoogleFonts.poppins(
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
                                                                                   color: int.parse(getJsonField(
                                                                                             listCardItem,
                                                                                             r'''$.historyCount''',
@@ -2346,6 +2616,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2419,14 +2690,29 @@ class _DetailListFollowUpDebtWidgetState
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontStyle,
+                                                                      ),
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
                                                                           15.0,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
@@ -2499,14 +2785,27 @@ class _DetailListFollowUpDebtWidgetState
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
                                                                             15.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontStyle,
                                                                       ),
                                                               elevation: 3.0,
                                                               borderSide:

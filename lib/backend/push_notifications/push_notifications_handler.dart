@@ -801,6 +801,25 @@ final parametersBuilderMap =
   'GroupChatAddPage': (data) async => ParameterData(
         allParams: <String, dynamic>{},
       ),
+  'ChatRoomSettingPage': (data) async => ParameterData(
+        allParams: {
+          'chatRoomDocRef':
+              getParameter<DocumentReference>(data, 'chatRoomDocRef'),
+        },
+      ),
+  'SelfieMaskPage': ParameterData.none(),
+  'customerCarDeailsDocumentStep1': (data) async => ParameterData(
+        allParams: {
+          'step': getParameter<String>(data, 'step'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'impoundCarStatusName':
+              getParameter<String>(data, 'impoundCarStatusName'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
+          'fromPage2': getParameter<String>(data, 'fromPage2'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
