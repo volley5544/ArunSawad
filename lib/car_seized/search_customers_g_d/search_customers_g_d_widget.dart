@@ -3448,7 +3448,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             {
                                                                           'step':
                                                                               serializeParam(
-                                                                            'document',
+                                                                            widget!.step,
                                                                             ParamType.String,
                                                                           ),
                                                                           'readAccessRoleData':

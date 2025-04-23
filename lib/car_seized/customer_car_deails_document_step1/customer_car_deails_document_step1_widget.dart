@@ -107,7 +107,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
       _model.imagesAPIOutput =
           await UploadImagesGoogleDriveGroup.searchImagesCall.call(
         contNo: widget!.impoundCarParamSet?.improundCONTNO,
-        step: widget!.step,
+        step: '',
         url: FFAppState().improundUrl,
       );
 
@@ -957,7 +957,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      if (widget!.impoundCarLocateParamSet?.branchNameLocat !=
+                      if ('${widget!.impoundCarLocateParamSet?.branchNameLocat}' !=
                           '')
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -1199,7 +1199,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                             ],
                           ),
                         ),
-                      if (widget!.impoundCarLocateParamSet?.branchNameLocat !=
+                      if ('${widget!.impoundCarLocateParamSet?.branchNameLocat}' !=
                           '')
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
