@@ -161,6 +161,76 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         Navigator.pop(context);
         return;
       }
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content:
+                  Text(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                (_model.imagesAPIOutput?.jsonBody ?? ''),
+              )!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content:
+                  Text(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                (_model.imagesAPIOutput?.jsonBody ?? ''),
+              )!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(() {
+                if ((String base64Input) {
+                  return base64Input.split(',')[0].contains('image');
+                }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                  (_model.imagesAPIOutput?.jsonBody ?? ''),
+                )!)) {
+                  return 'image';
+                } else if ((String base64Input) {
+                  return base64Input.split(',')[0].contains('pdf');
+                }(UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                  (_model.imagesAPIOutput?.jsonBody ?? ''),
+                )!)) {
+                  return 'pdf';
+                } else {
+                  return 'other';
+                }
+              }()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       if (UploadImagesGoogleDriveGroup.searchImagesCall.images1(
             (_model.imagesAPIOutput?.jsonBody ?? ''),
           ) !=
