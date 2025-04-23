@@ -24,11 +24,11 @@ Future<String?> convertBase64ToFFFiles(
   if (isByFileType!) {
     Uint8List imageBytes = await compute(base64Decode, base64Output);
 
-    final mimeType = lookupMimeType('', headerBytes: imageBytes);
-    final fileExtension = extensionFromMime(mimeType!);
-
-    print('MIME type: $mimeType');
-    print('File extension: $fileExtension');
+    // final mimeType = lookupMimeType('', headerBytes: imageBytes);
+    // final fileExtension = extensionFromMime(mimeType!);
+    //
+    // print('MIME type: $mimeType');
+    // print('File extension: $fileExtension');
 
     if (imageBase64!.split(',')[0].contains('image')) {
       final directory = await getApplicationDocumentsDirectory();
@@ -48,12 +48,38 @@ Future<String?> convertBase64ToFFFiles(
       return filePath;
     } else {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath = '${directory.path}/file${index!}.${fileExtension}';
 
-      final file = File(filePath);
-      await file.writeAsBytes(imageBytes);
+      if (imageBase64!.split(',')[0].contains('.document')) {
+        final filePath = '${directory.path}/file${index!}.docx';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
 
-      return filePath;
+        return filePath;
+      } else if (imageBase64!.split(',')[0].contains('msword')) {
+        final filePath = '${directory.path}/file${index!}.doc';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        return filePath;
+      } else if (imageBase64!.split(',')[0].contains('.spreadsheetml.sheet')) {
+        final filePath = '${directory.path}/file${index!}.xlsx';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        return filePath;
+      } else if (imageBase64!.split(',')[0].contains('.ms-excel')) {
+        final filePath = '${directory.path}/file${index!}.xls';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        return filePath;
+      } else {
+        final filePath = '${directory.path}/file${index!}.txt';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        return filePath;
+      }
     }
 
     // Save the image file

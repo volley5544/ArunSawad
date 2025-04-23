@@ -92,7 +92,10 @@ class _CustomerCarDeailsDocumentStep1WidgetState
               },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: LoadingSceneWidget(),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
           );
@@ -107,7 +110,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
       _model.imagesAPIOutput =
           await UploadImagesGoogleDriveGroup.searchImagesCall.call(
         contNo: widget!.impoundCarParamSet?.improundCONTNO,
-        step: '',
+        step: 'document',
         url: FFAppState().improundUrl,
       );
 
@@ -581,6 +584,22 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         }),
       ]);
       Navigator.pop(context);
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(_model.file01Type),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
     });
 
     _model.textController ??= TextEditingController(
