@@ -246,10 +246,26 @@ class _CustomerCarDeailsDocumentStep1WidgetState
             (_model.imagesAPIOutput?.jsonBody ?? ''),
           ) !=
           '') {
-        _model.file04Type = 'image';
+        _model.file04Type = () {
+          if ((String base64Input) {
+            return base64Input.split(',')[0].contains('image');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'image';
+          } else if ((String base64Input) {
+            return base64Input.split(',')[0].contains('pdf');
+          }(UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+            (_model.imagesAPIOutput?.jsonBody ?? ''),
+          )!)) {
+            return 'pdf';
+          } else {
+            return 'other';
+          }
+        }();
         safeSetState(() {});
       } else {
-        _model.file01Type = 'image';
+        _model.file04Type = 'image';
         safeSetState(() {});
       }
 
@@ -1896,10 +1912,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                         await actions.downloadFileFromFilePath(
                                           functions.imgPathtoString(
                                               _model.image1File),
-                                        );
-                                        await downloadFile(
-                                          filename: 'wejfpweokfj',
-                                          url: 'owejfio',
                                         );
                                       },
                                       child: Container(
