@@ -2253,7 +2253,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file02Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images2(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images2(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image2File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file02Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image2File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image2File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -2544,7 +2733,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file03Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images3(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images3(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image3File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file03Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image3File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image3File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -2835,7 +3213,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file04Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images4(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image4File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file04Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image4File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image4File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -3126,7 +3693,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file05Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images5(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images5(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image5File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file05Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image5File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image5File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -3422,7 +4178,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file06Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images6(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images6(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image6File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file06Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image6File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image6File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -3717,7 +4662,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file01Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file01Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image1File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image1File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -4025,7 +5159,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file01Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file01Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image1File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image1File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -4333,7 +5656,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file01Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file01Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image1File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image1File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -4643,7 +6155,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file01Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file01Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image1File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image1File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -4953,7 +6654,196 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                       height: 200.0,
                       decoration: BoxDecoration(),
                       child: Stack(
-                        children: [],
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.file01Type == 'image') {
+                                return Container(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  child: custom_widgets.ImageWidget5544(
+                                    width: 200.0,
+                                    height: 200.0,
+                                    imageFilePath1:
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    '') &&
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                      (_model.imagesAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}' !=
+                                                    'null')
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile,
+                                  ),
+                                );
+                              } else if (_model.file01Type == 'pdf') {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Color(0xBB000000),
+                                      barrierColor: Color(0xBB000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.9,
+                                                child:
+                                                    PDFViewerFromFilePathComponentWidget(
+                                                  filePath:
+                                                      functions.imgPathtoString(
+                                                          _model.image1File),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/pdf_4726010.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.search_sharp,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadFileFromFilePath(
+                                      functions
+                                          .imgPathtoString(_model.image1File),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: Stack(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 12.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/file.png',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(1.0, 1.0),
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons
+                                                  .download_for_offline_rounded,
+                                              color: Color(0xFF19B0FF),
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -5275,7 +7165,200 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                           height: 200.0,
                           decoration: BoxDecoration(),
                           child: Stack(
-                            children: [],
+                            children: [
+                              Builder(
+                                builder: (context) {
+                                  if (_model.file01Type == 'image') {
+                                    return Container(
+                                      width: 200.0,
+                                      height: 200.0,
+                                      child: custom_widgets.ImageWidget5544(
+                                        width: 200.0,
+                                        height: 200.0,
+                                        imageFilePath1:
+                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                          (_model.imagesAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}' !=
+                                                        '') &&
+                                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                          (_model.imagesAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}' !=
+                                                        'null')
+                                                ? _model.image1File
+                                                : _model.noImageAvailableFile,
+                                      ),
+                                    );
+                                  } else if (_model.file01Type == 'pdf') {
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Color(0xBB000000),
+                                          barrierColor: Color(0xBB000000),
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.9,
+                                                    child:
+                                                        PDFViewerFromFilePathComponentWidget(
+                                                      filePath: functions
+                                                          .imgPathtoString(
+                                                              _model
+                                                                  .image1File),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(),
+                                        child: Stack(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 12.0, 12.0, 12.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  'assets/images/pdf_4726010.png',
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 1.0),
+                                              child: Container(
+                                                width: 60.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 4.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
+                                                      ),
+                                                    )
+                                                  ],
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Icon(
+                                                  Icons.search_sharp,
+                                                  color: Color(0xFF19B0FF),
+                                                  size: 50.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await actions.downloadFileFromFilePath(
+                                          functions.imgPathtoString(
+                                              _model.image1File),
+                                        );
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(),
+                                        child: Stack(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 12.0, 12.0, 12.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  'assets/images/file.png',
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 1.0),
+                                              child: Container(
+                                                width: 60.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 4.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
+                                                      ),
+                                                    )
+                                                  ],
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Icon(
+                                                  Icons
+                                                      .download_for_offline_rounded,
+                                                  color: Color(0xFF19B0FF),
+                                                  size: 50.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
+                            ],
                           ),
                         ),
                       ),

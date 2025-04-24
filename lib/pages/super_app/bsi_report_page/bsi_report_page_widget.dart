@@ -1314,8 +1314,12 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                   queryParameters: {
                                                     'branchCode':
                                                         serializeParam(
-                                                      _model
-                                                          .branchDropDownValue,
+                                                      FFAppState().profileLevel ==
+                                                              'สาขา'
+                                                          ? FFAppState()
+                                                              .branchCode
+                                                          : _model
+                                                              .branchDropDownValue,
                                                       ParamType.String,
                                                     ),
                                                     'profileLevel':
