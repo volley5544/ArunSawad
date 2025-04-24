@@ -4681,7 +4681,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                         children: [
                           Builder(
                             builder: (context) {
-                              if (_model.file01Type == 'image') {
+                              if (_model.file07Type == 'image') {
                                 return Container(
                                   width: 200.0,
                                   height: 200.0,
@@ -4689,23 +4689,23 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                     width: 200.0,
                                     height: 200.0,
                                     imageFilePath1:
-                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images7(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     '') &&
-                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images7(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     'null')
-                                            ? _model.image1File
+                                            ? _model.image7File
                                             : _model.noImageAvailableFile,
                                   ),
                                 );
-                              } else if (_model.file01Type == 'pdf') {
+                              } else if (_model.file07Type == 'pdf') {
                                 return InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -4738,7 +4738,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                                     PDFViewerFromFilePathComponentWidget(
                                                   filePath:
                                                       functions.imgPathtoString(
-                                                          _model.image1File),
+                                                          _model.image7File),
                                                 ),
                                               ),
                                             ),
@@ -4808,7 +4808,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   onTap: () async {
                                     await actions.downloadFileFromFilePath(
                                       functions
-                                          .imgPathtoString(_model.image1File),
+                                          .imgPathtoString(_model.image7File),
                                     );
                                   },
                                   child: Container(
@@ -5178,7 +5178,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                         children: [
                           Builder(
                             builder: (context) {
-                              if (_model.file01Type == 'image') {
+                              if (_model.file08Type == 'image') {
                                 return Container(
                                   width: 200.0,
                                   height: 200.0,
@@ -5186,23 +5186,23 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                     width: 200.0,
                                     height: 200.0,
                                     imageFilePath1:
-                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images8(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     '') &&
-                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images8(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     'null')
-                                            ? _model.image1File
+                                            ? _model.image8File
                                             : _model.noImageAvailableFile,
                                   ),
                                 );
-                              } else if (_model.file01Type == 'pdf') {
+                              } else if (_model.file08Type == 'pdf') {
                                 return InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -5235,7 +5235,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                                     PDFViewerFromFilePathComponentWidget(
                                                   filePath:
                                                       functions.imgPathtoString(
-                                                          _model.image1File),
+                                                          _model.image8File),
                                                 ),
                                               ),
                                             ),
@@ -5305,7 +5305,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   onTap: () async {
                                     await actions.downloadFileFromFilePath(
                                       functions
-                                          .imgPathtoString(_model.image1File),
+                                          .imgPathtoString(_model.image8File),
                                     );
                                   },
                                   child: Container(
@@ -5675,7 +5675,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                         children: [
                           Builder(
                             builder: (context) {
-                              if (_model.file01Type == 'image') {
+                              if (_model.file09Type == 'image') {
                                 return Container(
                                   width: 200.0,
                                   height: 200.0,
@@ -5683,23 +5683,23 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                     width: 200.0,
                                     height: 200.0,
                                     imageFilePath1:
-                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images9(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     '') &&
-                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images9(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     'null')
-                                            ? _model.image1File
+                                            ? _model.image9File
                                             : _model.noImageAvailableFile,
                                   ),
                                 );
-                              } else if (_model.file01Type == 'pdf') {
+                              } else if (_model.file09Type == 'pdf') {
                                 return InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -5732,7 +5732,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                                     PDFViewerFromFilePathComponentWidget(
                                                   filePath:
                                                       functions.imgPathtoString(
-                                                          _model.image1File),
+                                                          _model.image9File),
                                                 ),
                                               ),
                                             ),
@@ -5802,7 +5802,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   onTap: () async {
                                     await actions.downloadFileFromFilePath(
                                       functions
-                                          .imgPathtoString(_model.image1File),
+                                          .imgPathtoString(_model.image9File),
                                     );
                                   },
                                   child: Container(
@@ -6174,7 +6174,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                         children: [
                           Builder(
                             builder: (context) {
-                              if (_model.file01Type == 'image') {
+                              if (_model.file10Type == 'image') {
                                 return Container(
                                   width: 200.0,
                                   height: 200.0,
@@ -6182,23 +6182,23 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                     width: 200.0,
                                     height: 200.0,
                                     imageFilePath1:
-                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images10(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     '') &&
-                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images10(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     'null')
-                                            ? _model.image1File
+                                            ? _model.image10File
                                             : _model.noImageAvailableFile,
                                   ),
                                 );
-                              } else if (_model.file01Type == 'pdf') {
+                              } else if (_model.file10Type == 'pdf') {
                                 return InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -6231,7 +6231,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                                     PDFViewerFromFilePathComponentWidget(
                                                   filePath:
                                                       functions.imgPathtoString(
-                                                          _model.image1File),
+                                                          _model.image10File),
                                                 ),
                                               ),
                                             ),
@@ -6301,7 +6301,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   onTap: () async {
                                     await actions.downloadFileFromFilePath(
                                       functions
-                                          .imgPathtoString(_model.image1File),
+                                          .imgPathtoString(_model.image10File),
                                     );
                                   },
                                   child: Container(
@@ -6673,7 +6673,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                         children: [
                           Builder(
                             builder: (context) {
-                              if (_model.file01Type == 'image') {
+                              if (_model.file11Type == 'image') {
                                 return Container(
                                   width: 200.0,
                                   height: 200.0,
@@ -6681,23 +6681,23 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                     width: 200.0,
                                     height: 200.0,
                                     imageFilePath1:
-                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                        ('${UploadImagesGoogleDriveGroup.searchImagesCall.images11(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     '') &&
-                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                ('${UploadImagesGoogleDriveGroup.searchImagesCall.images11(
                                                       (_model.imagesAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}' !=
                                                     'null')
-                                            ? _model.image1File
+                                            ? _model.image11File
                                             : _model.noImageAvailableFile,
                                   ),
                                 );
-                              } else if (_model.file01Type == 'pdf') {
+                              } else if (_model.file11Type == 'pdf') {
                                 return InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -6730,7 +6730,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                                     PDFViewerFromFilePathComponentWidget(
                                                   filePath:
                                                       functions.imgPathtoString(
-                                                          _model.image1File),
+                                                          _model.image11File),
                                                 ),
                                               ),
                                             ),
@@ -6800,7 +6800,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   onTap: () async {
                                     await actions.downloadFileFromFilePath(
                                       functions
-                                          .imgPathtoString(_model.image1File),
+                                          .imgPathtoString(_model.image11File),
                                     );
                                   },
                                   child: Container(
@@ -7184,7 +7184,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                             children: [
                               Builder(
                                 builder: (context) {
-                                  if (_model.file01Type == 'image') {
+                                  if (_model.file12Type == 'image') {
                                     return Container(
                                       width: 200.0,
                                       height: 200.0,
@@ -7192,23 +7192,23 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                         width: 200.0,
                                         height: 200.0,
                                         imageFilePath1:
-                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                            ('${UploadImagesGoogleDriveGroup.searchImagesCall.images12(
                                                           (_model.imagesAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )}' !=
                                                         '') &&
-                                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images1(
+                                                    ('${UploadImagesGoogleDriveGroup.searchImagesCall.images12(
                                                           (_model.imagesAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
                                                         )}' !=
                                                         'null')
-                                                ? _model.image1File
+                                                ? _model.image12File
                                                 : _model.noImageAvailableFile,
                                       ),
                                     );
-                                  } else if (_model.file01Type == 'pdf') {
+                                  } else if (_model.file12Type == 'pdf') {
                                     return InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -7245,7 +7245,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                                       filePath: functions
                                                           .imgPathtoString(
                                                               _model
-                                                                  .image1File),
+                                                                  .image12File),
                                                     ),
                                                   ),
                                                 ),
@@ -7315,7 +7315,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                       onTap: () async {
                                         await actions.downloadFileFromFilePath(
                                           functions.imgPathtoString(
-                                              _model.image1File),
+                                              _model.image12File),
                                         );
                                       },
                                       child: Container(
