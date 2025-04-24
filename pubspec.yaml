@@ -61,6 +61,7 @@ dependencies:
   fetch_api: 2.2.0
   fetch_client: 1.1.2
   file_picker: 8.1.2
+  file_saver: 0.2.14
   firebase_analytics: 11.3.5
   firebase_analytics_platform_interface: 4.2.7
   firebase_analytics_web: 0.5.10+4
@@ -154,6 +155,7 @@ dependencies:
   local_auth_windows: 1.0.10
   location: ^5.0.0-dev.8
   lottie: 2.7.0
+  mime: 1.0.4
   mime_type: 1.0.0
   native_video_player: 1.3.0
   octo_image: 2.1.0

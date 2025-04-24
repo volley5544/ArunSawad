@@ -1897,6 +1897,10 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                           functions.imgPathtoString(
                                               _model.image1File),
                                         );
+                                        await downloadFile(
+                                          filename: 'wejfpweokfj',
+                                          url: 'owejfio',
+                                        );
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(),
