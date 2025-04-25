@@ -107,6 +107,11 @@ class _CustomerCarDeailsDocumentStep1WidgetState
         '00',
         false,
       );
+      _model.genFileFFUpload = await actions.getFFUploadFileFromFilePathCopy(
+        functions.imgPathtoString(_model.noImageAvailableFile),
+      );
+      _model.tempByteFile = _model.tempByteFile;
+      safeSetState(() {});
       _model.imagesAPIOutput =
           await UploadImagesGoogleDriveGroup.searchImagesCall.call(
         contNo: widget!.impoundCarParamSet?.improundCONTNO,
@@ -1909,10 +1914,41 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        await actions.downloadFileFromFilePath(
+                                        var _shouldSetState = false;
+                                        _model.downloadFileOutput01 =
+                                            await actions
+                                                .downloadFileFromFilePath(
                                           functions.imgPathtoString(
                                               _model.image1File),
                                         );
+                                        _shouldSetState = true;
+                                        if ('${_model.downloadFileOutput01}' ==
+                                            'null') {
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput01}'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(),
@@ -2397,10 +2433,45 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    await downloadFile(
+                                      filename: 'file3579',
+                                      uploadedFile: _model.tempByteFile!,
+                                    );
+                                    if (!false) {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    _model.downloadFileOutput02 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image2File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput02}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput02}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -2877,10 +2948,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput03 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image3File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput03}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput03}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -3357,10 +3455,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput04 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image4File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput04}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput04}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -3837,10 +3962,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput05 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image5File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput05}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput05}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -4322,10 +4474,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput06 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image6File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput06}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput06}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -4806,10 +4985,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput07 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image7File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput07}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput07}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -5303,10 +5509,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput08 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image8File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput08}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput08}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -5800,10 +6033,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput09 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image9File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput09}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput09}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -6299,10 +6559,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput10 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image10File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput10}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput10}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -6798,10 +7085,37 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await actions.downloadFileFromFilePath(
+                                    var _shouldSetState = false;
+                                    _model.downloadFileOutput11 =
+                                        await actions.downloadFileFromFilePath(
                                       functions
                                           .imgPathtoString(_model.image11File),
                                     );
+                                    _shouldSetState = true;
+                                    if ('${_model.downloadFileOutput11}' ==
+                                        'null') {
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput11}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(),
@@ -7313,10 +7627,41 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        await actions.downloadFileFromFilePath(
+                                        var _shouldSetState = false;
+                                        _model.downloadFileOutput12 =
+                                            await actions
+                                                .downloadFileFromFilePath(
                                           functions.imgPathtoString(
                                               _model.image12File),
                                         );
+                                        _shouldSetState = true;
+                                        if ('${_model.downloadFileOutput12}' ==
+                                            'null') {
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ดาวน์โหลดไฟล์สำเร็จที่ ${_model.downloadFileOutput12}'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(),

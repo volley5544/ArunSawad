@@ -12,17 +12,20 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:file_saver/file_saver.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path/path.dart' as p;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
-Future downloadFileFromFilePath(String? filePath) async {
+Future<String> downloadFileFromFilePath(String? filePath) async {
   // Add your function code here!
-  //final result = await OpenFile.open(filePath!);
-  //print(result.message);
 
-  final file = File(filePath!);
-  final Uint8List bytes5544 = await file.readAsBytes();
-  final String name = file.uri.pathSegments.last.split('.')[0];
-  final String extension5544 = file.uri.pathSegments.last.split('.')[1];
+  // final file = File(filePath!);
+  // final Uint8List bytes5544 = await file.readAsBytes();
+  final String name = filePath!.split('/').last.split('.')[0];
+  final String extension5544 = filePath!.split('/').last.split('.')[1];
   MimeType mimeTyp = MimeType.text;
+  print(extension5544);
   if (extension5544 == 'docx' || extension5544 == 'doc') {
     mimeTyp = MimeType.microsoftWord;
   } else if (extension5544 == 'xlsx' || extension5544 == 'xls') {
@@ -30,6 +33,33 @@ Future downloadFileFromFilePath(String? filePath) async {
   }
 
   print('file NaMe : ${name}');
-  await FileSaver.instance.saveAs(
-      bytes: bytes5544, name: name, ext: extension5544, mimeType: mimeTyp);
+  final res = await FileSaver.instance.saveAs(
+    filePath: filePath!,
+    name: name,
+    ext: extension5544,
+    mimeType: mimeTyp,
+  );
+
+  print('fileSaverOutput L ${res}');
+  if ('${res}' != 'null') {
+    if (Platform.isAndroid) {
+      print('Running on Android');
+      String savedFileFolderPath = p.dirname(res!);
+      //final result = await OpenFile.open(savedFileFolderPath);
+      //print(result.message);
+
+      final uri = Uri.parse("file://$savedFileFolderPath");
+
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri);
+      } else {
+        print("Could not open the Downloads folder");
+      }
+    } else if (Platform.isIOS) {
+      print('Running on iOS');
+      await Share.shareXFiles([XFile(res!)], text: 'ไฟล์ดาวน์โหลดของคุณ');
+    }
+  }
+
+  return '${res}';
 }

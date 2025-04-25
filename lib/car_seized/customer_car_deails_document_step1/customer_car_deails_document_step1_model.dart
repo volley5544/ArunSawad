@@ -49,10 +49,14 @@ class CustomerCarDeailsDocumentStep1Model
 
   String file12Type = 'image';
 
+  FFUploadedFile? tempByteFile;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsDocumentStep1 widget.
   String? noImageAvailableFile;
+  // Stores action output result for [Custom Action - getFFUploadFileFromFilePathCopy] action in customerCarDeailsDocumentStep1 widget.
+  FFUploadedFile? genFileFFUpload;
   // Stores action output result for [Backend Call - API (searchImages)] action in customerCarDeailsDocumentStep1 widget.
   ApiCallResponse? imagesAPIOutput;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsDocumentStep1 widget.
@@ -79,6 +83,30 @@ class CustomerCarDeailsDocumentStep1Model
   String? image11File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsDocumentStep1 widget.
   String? image12File;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput01;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput02;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput03;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput04;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput05;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput06;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput07;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput08;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput09;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput10;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput11;
+  // Stores action output result for [Custom Action - downloadFileFromFilePath] action in Container widget.
+  String? downloadFileOutput12;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

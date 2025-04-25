@@ -51,6 +51,8 @@ export 'get_contract_web.dart' show getContractWeb;
 export 'delete_file_by_url_batch.dart' show deleteFileByUrlBatch;
 export 'query_firebase_collection_string.dart'
     show queryFirebaseCollectionString;
+export 'get_f_f_upload_file_from_file_path_copy.dart'
+    show getFFUploadFileFromFilePathCopy;
 export 'get_device_current_location.dart' show getDeviceCurrentLocation;
 export 'add_watermark.dart' show addWatermark;
 export 'enough_email.dart' show enoughEmail;

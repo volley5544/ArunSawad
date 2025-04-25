@@ -64,18 +64,21 @@ class _PDFViewerFromFilePathComponentWidgetState
           ),
           Align(
             alignment: AlignmentDirectional(1.0, -1.0),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                Navigator.pop(context);
-              },
-              child: Icon(
-                Icons.close_outlined,
-                color: FlutterFlowTheme.of(context).error,
-                size: 40.0,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.close_outlined,
+                  color: FlutterFlowTheme.of(context).error,
+                  size: 40.0,
+                ),
               ),
             ),
           ),
