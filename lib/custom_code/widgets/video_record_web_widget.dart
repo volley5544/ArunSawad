@@ -35,23 +35,20 @@ class _VideoRecordWebWidgetState extends State<VideoRecordWebWidget> {
         child: Container(
           child: InAppWebView(
               initialUrlRequest: URLRequest(
-                url: Uri.parse(
+                url: WebUri(
                     widget.webUrl!), // https://vcall.swpfin.com:8888/self-room
               ),
-              initialOptions: InAppWebViewGroupOptions(
-                crossPlatform: InAppWebViewOptions(
-                  mediaPlaybackRequiresUserGesture: false,
-                  //debuggingEnabled: true,
-                ),
+              initialSettings: InAppWebViewSettings(
+                mediaPlaybackRequiresUserGesture: false,
+                //debuggingEnabled: true,
               ),
               onWebViewCreated: (InAppWebViewController controller) {
                 _webViewController = controller;
               },
-              androidOnPermissionRequest: (InAppWebViewController controller,
-                  String origin, List<String> resources) async {
-                return PermissionRequestResponse(
-                    resources: resources,
-                    action: PermissionRequestResponseAction.GRANT);
+              onPermissionRequest: (controller, request) async {
+                return await PermissionResponse(
+                    resources: request.resources,
+                    action: PermissionResponseAction.GRANT);
               }),
         ),
       ),

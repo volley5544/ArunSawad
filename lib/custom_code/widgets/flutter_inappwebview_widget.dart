@@ -42,7 +42,7 @@ class FlutterInappwebviewWidgetState extends State<FlutterInappwebviewWidget> {
           child: Container(
             child: InAppWebView(
                 initialUrlRequest: URLRequest(
-                  url: Uri.parse(widget
+                  url: WebUri(widget
                       .webUrl!), // https://vcall.swpfin.com:8888/self-room
                 ),
                 shouldOverrideUrlLoading: (controller, navigationAction) async {
@@ -62,16 +62,14 @@ class FlutterInappwebviewWidgetState extends State<FlutterInappwebviewWidget> {
                   }
                   return NavigationActionPolicy.ALLOW;
                 },
-                initialOptions: InAppWebViewGroupOptions(
-                  crossPlatform: InAppWebViewOptions(
-                      mediaPlaybackRequiresUserGesture: false,
-                      useShouldOverrideUrlLoading: true,
-                      clearCache: true,
-                      javaScriptEnabled: true,
-                      javaScriptCanOpenWindowsAutomatically: true
-                      //debuggingEnabled: true,
-                      ),
-                ),
+                initialSettings: InAppWebViewSettings(
+                    mediaPlaybackRequiresUserGesture: false,
+                    useShouldOverrideUrlLoading: true,
+                    clearCache: true,
+                    javaScriptEnabled: true,
+                    javaScriptCanOpenWindowsAutomatically: true
+                    //debuggingEnabled: true,
+                    ),
                 onWebViewCreated: (InAppWebViewController controller) {
                   _webViewController = controller;
                 },
@@ -80,11 +78,10 @@ class FlutterInappwebviewWidgetState extends State<FlutterInappwebviewWidget> {
                   print('onDownloadWebview : ${url}');
                   await launchURL(await launchURL('${url}'));
                 },
-                androidOnPermissionRequest: (InAppWebViewController controller,
-                    String origin, List<String> resources) async {
-                  return PermissionRequestResponse(
-                      resources: resources,
-                      action: PermissionRequestResponseAction.GRANT);
+                onPermissionRequest: (controller, request) async {
+                  return await PermissionResponse(
+                      resources: request.resources,
+                      action: PermissionResponseAction.GRANT);
                 }),
           ),
         ),

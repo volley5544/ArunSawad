@@ -42,22 +42,16 @@ Future<String> downloadFileFromFilePath(String? filePath) async {
 
   print('fileSaverOutput L ${res}');
   if ('${res}' != 'null') {
-    if (Platform.isAndroid) {
-      print('Running on Android');
-      String savedFileFolderPath = p.dirname(res!);
-      //final result = await OpenFile.open(savedFileFolderPath);
-      //print(result.message);
+    String savedFileFolderPath = p.dirname(res!);
+    final params = ShareParams(
+      text: 'ไฟล์ดาวน์โหลดของคุณ',
+      files: [XFile('${filePath!}')],
+    );
 
-      final uri = Uri.parse("file://$savedFileFolderPath");
+    final result = await SharePlus.instance.share(params);
 
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri);
-      } else {
-        print("Could not open the Downloads folder");
-      }
-    } else if (Platform.isIOS) {
-      print('Running on iOS');
-      await Share.shareXFiles([XFile(res!)], text: 'ไฟล์ดาวน์โหลดของคุณ');
+    if (result.status == ShareResultStatus.success) {
+      print('Thank you for sharing the picture!');
     }
   }
 

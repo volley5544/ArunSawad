@@ -2386,6 +2386,28 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           defaultLocation: LatLng(0.0, 0.0));
                                   var _shouldSetState = false;
                                   HapticFeedback.mediumImpact();
+                                  if (FFAppState().imgURL.length <= 0) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาอัพโหลดรูปลงพื้นที่ RP8 อย่างน้อย 1รูป'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
                                   if (!(_model.dropDownFollowupValue != null &&
                                       _model.dropDownFollowupValue != '')) {
                                     await showDialog(

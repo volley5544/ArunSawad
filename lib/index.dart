@@ -9,7 +9,7 @@ export '/pages/branch_view/check_in_page/check_in_page_widget.dart'
     show CheckInPageWidget;
 export '/pages/branch_view/survey_page/survey_page_widget.dart'
     show SurveyPageWidget;
-export '/pages/super_app/super_app_page/super_app_page_widget.dart'
+export '/pages/super_app_page/super_app_page_widget.dart'
     show SuperAppPageWidget;
 export '/pages/super_app/notification_detail_page/notification_detail_page_widget.dart'
     show NotificationDetailPageWidget;

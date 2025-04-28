@@ -30,27 +30,28 @@ Future openTableauBrowser(
     WidgetsFlutterBinding.ensureInitialized();
 
     final MyInAppBrowser browser = new MyInAppBrowser();
-    await inappWebview.AndroidInAppWebViewController
-        .setWebContentsDebuggingEnabled(true);
+    // await inappWebview.AndroidInAppWebViewController
+    //     .setWebContentsDebuggingEnabled(true);
 
-    var options = inappWebview.InAppBrowserClassOptions(
-        crossPlatform: inappWebview.InAppBrowserOptions(
+    var options = inappWebview.InAppBrowserClassSettings(
+        browserSettings: inappWebview.InAppBrowserSettings(
           hideUrlBar: true,
           hideToolbarTop: true,
         ),
-        inAppWebViewGroupOptions: inappWebview.InAppWebViewGroupOptions(
-            crossPlatform: inappWebview.InAppWebViewOptions(
+        webViewSettings: inappWebview.InAppWebViewSettings(
           javaScriptEnabled: true,
           allowFileAccessFromFileURLs: true,
           allowUniversalAccessFromFileURLs: true,
           javaScriptCanOpenWindowsAutomatically: true,
           useOnDownloadStart: true,
-        )));
+        ));
 
     await browser.openUrlRequest(
         urlRequest: inappWebview.URLRequest(
-            url: Uri.parse(encodedUrl), method: 'GET', headers: headers),
-        options: options);
+            url: inappWebview.WebUri(encodedUrl),
+            method: 'GET',
+            headers: headers),
+        settings: options);
 
     // use here
     // final ChromeSafariBrowser browser = ChromeSafariBrowser();

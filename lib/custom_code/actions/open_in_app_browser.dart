@@ -36,74 +36,61 @@ Future openInAppBrowser(
   var options;
 
   if (Platform.isAndroid) {
-    options = inappWebview.InAppBrowserClassOptions(
-        crossPlatform: inappWebview.InAppBrowserOptions(
-          hideUrlBar: true,
-          hideToolbarTop: true,
-          toolbarTopBackgroundColor: Colors.black,
-        ),
-        ios: inappWebview.IOSInAppBrowserOptions(
-          toolbarBottomBackgroundColor: Colors.white,
-          hideToolbarBottom: true,
-          closeButtonCaption: 'ปิด',
-        ),
-        inAppWebViewGroupOptions: inappWebview.InAppWebViewGroupOptions(
-            crossPlatform: inappWebview.InAppWebViewOptions(
-              cacheEnabled: false,
-              javaScriptEnabled: true,
-              allowFileAccessFromFileURLs: true,
-              allowUniversalAccessFromFileURLs: true,
-              javaScriptCanOpenWindowsAutomatically: true,
-              useOnDownloadStart: true,
-              useShouldOverrideUrlLoading: true,
-              mediaPlaybackRequiresUserGesture: false,
-              clearCache: true,
-            ),
-            android: inappWebview.AndroidInAppWebViewOptions(
-              useHybridComposition: true,
-              clearSessionCache: true,
-              cacheMode: inappWebview.AndroidCacheMode.LOAD_NO_CACHE,
-            ),
-            ios: inappWebview.IOSInAppWebViewOptions(
-              allowsInlineMediaPlayback: true,
-            )));
+    options = inappWebview.InAppBrowserClassSettings(
+      browserSettings: inappWebview.InAppBrowserSettings(
+        hideUrlBar: true,
+        hideToolbarTop: true,
+        toolbarTopBackgroundColor: Colors.black,
+      ),
+      webViewSettings: inappWebview.InAppWebViewSettings(
+        cacheEnabled: false,
+        javaScriptEnabled: true,
+        allowFileAccessFromFileURLs: true,
+        allowUniversalAccessFromFileURLs: true,
+        javaScriptCanOpenWindowsAutomatically: true,
+        useOnDownloadStart: true,
+        useShouldOverrideUrlLoading: true,
+        mediaPlaybackRequiresUserGesture: false,
+        clearCache: true,
+        useHybridComposition: true,
+        clearSessionCache: true,
+        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        allowsInlineMediaPlayback: true,
+      ),
+    );
   } else {
-    options = inappWebview.InAppBrowserClassOptions(
-        crossPlatform: inappWebview.InAppBrowserOptions(
-          hideUrlBar: true,
-          hideToolbarTop: false,
-          toolbarTopBackgroundColor: Colors.black,
-        ),
-        ios: inappWebview.IOSInAppBrowserOptions(
-          toolbarBottomBackgroundColor: Colors.white,
-          hideToolbarBottom: true,
-          closeButtonCaption: 'ปิด',
-        ),
-        inAppWebViewGroupOptions: inappWebview.InAppWebViewGroupOptions(
-            crossPlatform: inappWebview.InAppWebViewOptions(
-              cacheEnabled: false,
-              javaScriptEnabled: true,
-              allowFileAccessFromFileURLs: true,
-              allowUniversalAccessFromFileURLs: true,
-              javaScriptCanOpenWindowsAutomatically: true,
-              useOnDownloadStart: true,
-              useShouldOverrideUrlLoading: true,
-              mediaPlaybackRequiresUserGesture: false,
-              clearCache: true,
-            ),
-            android: inappWebview.AndroidInAppWebViewOptions(
-              useHybridComposition: true,
-              clearSessionCache: true,
-              cacheMode: inappWebview.AndroidCacheMode.LOAD_NO_CACHE,
-            ),
-            ios: inappWebview.IOSInAppWebViewOptions(
-              allowsInlineMediaPlayback: true,
-            )));
+    options = inappWebview.InAppBrowserClassSettings(
+      browserSettings: inappWebview.InAppBrowserSettings(
+        hideUrlBar: true,
+        hideToolbarTop: false,
+        toolbarTopBackgroundColor: Colors.black,
+        toolbarBottomBackgroundColor: Colors.white,
+        hideToolbarBottom: true,
+        closeButtonCaption: 'ปิด',
+      ),
+      webViewSettings: inappWebview.InAppWebViewSettings(
+        cacheEnabled: false,
+        javaScriptEnabled: true,
+        allowFileAccessFromFileURLs: true,
+        allowUniversalAccessFromFileURLs: true,
+        javaScriptCanOpenWindowsAutomatically: true,
+        useOnDownloadStart: true,
+        useShouldOverrideUrlLoading: true,
+        mediaPlaybackRequiresUserGesture: false,
+        clearCache: true,
+        useHybridComposition: true,
+        clearSessionCache: true,
+        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        allowsInlineMediaPlayback: true,
+      ),
+    );
   }
   await browser.openUrlRequest(
       urlRequest: inappWebview.URLRequest(
-          url: Uri.parse(encodedUrl), method: 'GET', headers: headers),
-      options: options);
+          url: inappWebview.WebUri(encodedUrl),
+          method: 'GET',
+          headers: headers),
+      settings: options);
 
   // use here
   // final ChromeSafariBrowser browser = ChromeSafariBrowser();

@@ -110,7 +110,7 @@ class _CustomerCarDeailsDocumentStep1WidgetState
       _model.genFileFFUpload = await actions.getFFUploadFileFromFilePathCopy(
         functions.imgPathtoString(_model.noImageAvailableFile),
       );
-      _model.tempByteFile = _model.tempByteFile;
+      _model.tempByteFile = _model.genFileFFUpload;
       safeSetState(() {});
       _model.imagesAPIOutput =
           await UploadImagesGoogleDriveGroup.searchImagesCall.call(
@@ -2434,14 +2434,6 @@ class _CustomerCarDeailsDocumentStep1WidgetState
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     var _shouldSetState = false;
-                                    await downloadFile(
-                                      filename: 'file3579',
-                                      uploadedFile: _model.tempByteFile!,
-                                    );
-                                    if (!false) {
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
                                     _model.downloadFileOutput02 =
                                         await actions.downloadFileFromFilePath(
                                       functions

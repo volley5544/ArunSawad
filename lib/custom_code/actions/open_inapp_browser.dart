@@ -29,23 +29,21 @@ Future openInappBrowser(String? url) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     final MyInAppBrowser browser = new MyInAppBrowser();
-    await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
+    // await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
 
-    var options = InAppBrowserClassOptions(
-        crossPlatform: InAppBrowserOptions(
-          hideUrlBar: true,
-          hideToolbarTop: true,
-        ),
-        inAppWebViewGroupOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-              javaScriptEnabled: true,
-              javaScriptCanOpenWindowsAutomatically: true),
-        ));
+    var options = InAppBrowserClassSettings(
+      browserSettings: InAppBrowserSettings(
+        hideUrlBar: true,
+        hideToolbarTop: true,
+      ),
+      webViewSettings: InAppWebViewSettings(
+          javaScriptEnabled: true, javaScriptCanOpenWindowsAutomatically: true),
+    );
 
     await browser.openUrlRequest(
         urlRequest: URLRequest(
-            url: Uri.parse(encodedUrl)), // method: 'GET', headers: headers),
-        options: options);
+            url: WebUri(encodedUrl)), // method: 'GET', headers: headers),
+        settings: options);
 
     // use here
     // final ChromeSafariBrowser browser = ChromeSafariBrowser();
