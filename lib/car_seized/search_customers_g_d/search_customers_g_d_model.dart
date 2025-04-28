@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/schema/structs/index.dart';
 import '/car_seized/impound_car_price_input_component/impound_car_price_input_component_widget.dart';
+import '/car_seized/impound_car_select_type_component/impound_car_select_type_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -37,6 +38,8 @@ class SearchCustomersGDModel extends FlutterFlowModel<SearchCustomersGDWidget> {
   ApiCallResponse? vloanContractAPIOutput;
   // Stores action output result for [Backend Call - API (searchContractNumber)] action in Button widget.
   ApiCallResponse? searchAPIOutput;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  String? selectedSeeTypeOutput;
 
   @override
   void initState(BuildContext context) {}
