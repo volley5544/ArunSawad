@@ -22,7 +22,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'empolyee_check_in_widget.dart' show EmpolyeeCheckInWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';

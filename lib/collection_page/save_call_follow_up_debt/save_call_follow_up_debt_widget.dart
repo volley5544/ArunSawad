@@ -3237,12 +3237,16 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 'PP') {
                                               if (_model.datePicked != null) {
                                                 if (_model.checkboxValue!) {
-                                                  if (_model.textController1
-                                                              .text !=
-                                                          null &&
-                                                      _model.textController1
-                                                              .text !=
-                                                          '') {
+                                                  if ((_model.textController1
+                                                                  .text !=
+                                                              null &&
+                                                          _model.textController1
+                                                                  .text !=
+                                                              '') &&
+                                                      (double.parse(_model
+                                                              .textController1
+                                                              .text) >
+                                                          0.0)) {
                                                     while (FFAppState()
                                                             .loopCountNumber <
                                                         widget!
@@ -3278,7 +3282,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         return WebViewAware(
                                                           child: AlertDialog(
                                                             content: Text(
-                                                                'กรุณาใส่ จำนวนเงินที่นัดจ่าย'),
+                                                                'กรุณาใส่ จำนวนเงินที่นัดจ่าย มากกว่า 0 บาท'),
                                                             actions: [
                                                               TextButton(
                                                                 onPressed: () =>
@@ -3300,7 +3304,28 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                   while (FFAppState()
                                                           .loopCountNumber <
                                                       widget!.countNo!.length) {
-                                                    if (!(_model.inputComponentModels
+                                                    if (!((_model.inputComponentModels
+                                                                    .getValueForKey(
+                                                                  FFAppState()
+                                                                      .loopCountNumber
+                                                                      .toString(),
+                                                                  (m) => m
+                                                                      .textController
+                                                                      .text,
+                                                                ) !=
+                                                                null &&
+                                                            _model.inputComponentModels
+                                                                    .getValueForKey(
+                                                                  FFAppState()
+                                                                      .loopCountNumber
+                                                                      .toString(),
+                                                                  (m) => m
+                                                                      .textController
+                                                                      .text,
+                                                                ) !=
+                                                                '') &&
+                                                        (double.parse((_model
+                                                                .inputComponentModels
                                                                 .getValueForKey(
                                                               FFAppState()
                                                                   .loopCountNumber
@@ -3308,18 +3333,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                               (m) => m
                                                                   .textController
                                                                   .text,
-                                                            ) !=
-                                                            null &&
-                                                        _model.inputComponentModels
-                                                                .getValueForKey(
-                                                              FFAppState()
-                                                                  .loopCountNumber
-                                                                  .toString(),
-                                                              (m) => m
-                                                                  .textController
-                                                                  .text,
-                                                            ) !=
-                                                            '')) {
+                                                            )!)) >
+                                                            0))) {
                                                       FFAppState()
                                                               .loopStatusTemp =
                                                           'validate';
@@ -3396,7 +3411,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       return WebViewAware(
                                                         child: AlertDialog(
                                                           content: Text(
-                                                              'กรุณากรอกยอดที่จะจ่ายให้ครบทุกสัญญา'),
+                                                              'กรุณากรอกยอดที่จะจ่าย มากกว่า 0 ให้ครบทุกสัญญา'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
@@ -3409,6 +3424,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       );
                                                     },
                                                   );
+                                                  Navigator.pop(context);
                                                   if (_shouldSetState)
                                                     safeSetState(() {});
                                                   return;

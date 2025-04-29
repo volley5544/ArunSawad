@@ -13,6 +13,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -352,8 +353,16 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      context.pushNamed(
+                        ChatRoomSettingPageWidget.routeName,
+                        queryParameters: {
+                          'chatRoomDocRef': serializeParam(
+                            widget!.chatRoomDocRef,
+                            ParamType.DocumentReference,
+                          ),
+                        }.withoutNulls,
+                      );
                     },
                   ),
                 ],

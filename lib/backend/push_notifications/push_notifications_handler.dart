@@ -820,6 +820,12 @@ final parametersBuilderMap =
           'fromPage2': getParameter<String>(data, 'fromPage2'),
         },
       ),
+  'AddPeoplePage': (data) async => ParameterData(
+        allParams: {
+          'chatRoomDocRef':
+              getParameter<DocumentReference>(data, 'chatRoomDocRef'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -2678,6 +2678,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: AddPeoplePageWidget.routeName,
+              path: AddPeoplePageWidget.routePath,
+              builder: (context, params) => AddPeoplePageWidget(
+                chatRoomDocRef: params.getParam(
+                  'chatRoomDocRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['SawadChatRoom'],
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

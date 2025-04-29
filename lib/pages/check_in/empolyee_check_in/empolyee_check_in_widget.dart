@@ -21,7 +21,6 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -812,13 +811,6 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                if (FFAppState().imgURLTemp !=
-                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74') {
-                  await FirebaseStorage.instance
-                      .refFromURL(FFAppState().imgURLTemp)
-                      .delete();
-                }
-
                 context.goNamed(DashboardCheckinWidget.routeName);
               },
               child: Icon(
@@ -2706,13 +2698,18 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           safeSetState(() {});
                                         return;
                                       }
-                                      if ((FFAppState().imgURLTemp !=
-                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74') &&
+                                      if (!functions.containWordinStringUrl(
+                                              'default-profile-display-image.png',
+                                              functions.imgPathtoString(
+                                                  FFAppState().imgURLTemp))! &&
                                           (FFAppState().imgURLTemp != null &&
                                               FFAppState().imgURLTemp != '') &&
                                           (FFAppState().imgURLTemp != '')) {
-                                        if ((FFAppState().imgURLTemp !=
-                                                'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74') &&
+                                        if (!functions.containWordinStringUrl(
+                                                'default-profile-display-image.png',
+                                                functions.imgPathtoString(
+                                                    FFAppState()
+                                                        .imgURLTemp))! &&
                                             (FFAppState().imgURLTemp != null &&
                                                 FFAppState().imgURLTemp !=
                                                     '') &&

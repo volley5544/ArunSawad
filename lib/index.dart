@@ -9,7 +9,7 @@ export '/pages/branch_view/check_in_page/check_in_page_widget.dart'
     show CheckInPageWidget;
 export '/pages/branch_view/survey_page/survey_page_widget.dart'
     show SurveyPageWidget;
-export '/pages/super_app_page/super_app_page_widget.dart'
+export '/pages/super_app/super_app_page/super_app_page_widget.dart'
     show SuperAppPageWidget;
 export '/pages/super_app/notification_detail_page/notification_detail_page_widget.dart'
     show NotificationDetailPageWidget;
@@ -277,3 +277,5 @@ export '/selfie_mask_page/selfie_mask_page_widget.dart'
     show SelfieMaskPageWidget;
 export '/car_seized/customer_car_deails_document_step1/customer_car_deails_document_step1_widget.dart'
     show CustomerCarDeailsDocumentStep1Widget;
+export '/sawad_chat/add_people_page/add_people_page_widget.dart'
+    show AddPeoplePageWidget;

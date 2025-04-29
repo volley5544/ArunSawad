@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,6 +7,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,7 +50,7 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChatRoomSettingPage'});
-    _model.textController ??= TextEditingController();
+
     _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -61,6 +65,8 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<SawadChatRoomRecord>(
       stream: SawadChatRoomRecord.getDocument(widget!.chatRoomDocRef!),
       builder: (context, snapshot) {
@@ -139,8 +145,141 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
-                  onPressed: () {
-                    print('IconButton pressed ...');
+                  onPressed: () async {
+                    var _shouldSetState = false;
+                    var confirmDialogResponse = await showDialog<bool>(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return WebViewAware(
+                              child: AlertDialog(
+                                content: Text(
+                                    'คุณต้องการจะออกจากกลุ่มสนทนา \"${chatRoomSettingPageSawadChatRoomRecord.chatRoomName}\" หรือไม่?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(
+                                        alertDialogContext, false),
+                                    child: Text('ยกเลิก'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext, true),
+                                    child: Text('ออกกลุ่ม'),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ) ??
+                        false;
+                    if (!confirmDialogResponse) {
+                      if (_shouldSetState) safeSetState(() {});
+                      return;
+                    }
+                    _model.myUserIndex = functions.getIndexOfUserCustomDocRef(
+                        chatRoomSettingPageSawadChatRoomRecord.usersRef
+                            .toList(),
+                        FFAppState().userRef);
+                    safeSetState(() {});
+                    _model.usersEmployeeList =
+                        chatRoomSettingPageSawadChatRoomRecord.usersEmplayeeId
+                            .toList()
+                            .cast<String>();
+                    _model.usersRefList = chatRoomSettingPageSawadChatRoomRecord
+                        .usersRef
+                        .toList()
+                        .cast<DocumentReference>();
+                    _model.usersNameList =
+                        chatRoomSettingPageSawadChatRoomRecord.usersName
+                            .toList()
+                            .cast<String>();
+                    _model.usersDisplayImgList =
+                        chatRoomSettingPageSawadChatRoomRecord.usersDisplayImage
+                            .toList()
+                            .cast<String>();
+                    _model.usersDisplayImgBlurHashList =
+                        chatRoomSettingPageSawadChatRoomRecord
+                            .usersDisplayImageBlurHash
+                            .toList()
+                            .cast<String>();
+                    safeSetState(() {});
+                    _model.removeAtIndexFromUsersEmployeeList(
+                        _model.myUserIndex!);
+                    _model.removeAtIndexFromUsersRefList(_model.myUserIndex!);
+                    _model.removeAtIndexFromUsersNameList(_model.myUserIndex!);
+                    _model.removeAtIndexFromUsersDisplayImgList(
+                        _model.myUserIndex!);
+                    _model.removeAtIndexFromUsersDisplayImgBlurHashList(
+                        _model.myUserIndex!);
+                    safeSetState(() {});
+
+                    var chatMessagesRecordReference =
+                        ChatMessagesRecord.createDoc(widget!.chatRoomDocRef!);
+                    await chatMessagesRecordReference
+                        .set(createChatMessagesRecordData(
+                      messageByEmployeeId: FFAppState().employeeID,
+                      messageText:
+                          '${FFAppState().profileFullName} ออกจากกลุ่มสนทนา',
+                      messageType: 'setting',
+                      messageTime: getCurrentTimestamp,
+                      messageByName: FFAppState().profileFullName,
+                    ));
+                    _model.createLeaveGroupMessageDoc =
+                        ChatMessagesRecord.getDocumentFromData(
+                            createChatMessagesRecordData(
+                              messageByEmployeeId: FFAppState().employeeID,
+                              messageText:
+                                  '${FFAppState().profileFullName} ออกจากกลุ่มสนทนา',
+                              messageType: 'setting',
+                              messageTime: getCurrentTimestamp,
+                              messageByName: FFAppState().profileFullName,
+                            ),
+                            chatMessagesRecordReference);
+                    _shouldSetState = true;
+
+                    await widget!.chatRoomDocRef!.update({
+                      ...createSawadChatRoomRecordData(
+                        lastMessageText:
+                            '${FFAppState().profileFullName} ออกจากกลุ่มสนทนา',
+                        lastMessageTime: getCurrentTimestamp,
+                        lastMessageBy: FFAppState().userRef,
+                        lastMessageByEmployeeId: FFAppState().employeeID,
+                        lastMessageType: 'setting',
+                      ),
+                      ...mapToFirestore(
+                        {
+                          'last_seen_users_ref': functions
+                              .generateUserRefList(FFAppState().userRef),
+                          'users_ref': _model.usersRefList,
+                          'users_emplayee_id': _model.usersEmployeeList,
+                          'users_name': _model.usersNameList,
+                          'users_display_image': _model.usersDisplayImgList,
+                          'users_display_image_blur_hash':
+                              _model.usersDisplayImgBlurHashList,
+                        },
+                      ),
+                    });
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return WebViewAware(
+                          child: AlertDialog(
+                            content: Text(
+                                'คุณออกจากกลุ่มสนทนา \"${chatRoomSettingPageSawadChatRoomRecord.chatRoomName}\" แล้ว'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+
+                    context.goNamed(ChatHomePageWidget.routeName);
+
+                    if (_shouldSetState) safeSetState(() {});
                   },
                 ),
               ],
@@ -574,7 +713,12 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                               decoration: BoxDecoration(),
                                               child: TextFormField(
                                                 controller:
-                                                    _model.textController,
+                                                    _model.textController ??=
+                                                        TextEditingController(
+                                                  text:
+                                                      chatRoomSettingPageSawadChatRoomRecord
+                                                          .chatRoomName,
+                                                ),
                                                 focusNode:
                                                     _model.textFieldFocusNode,
                                                 autofocus: false,
@@ -720,6 +864,11 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                                 maxLengthEnforcement:
                                                     MaxLengthEnforcement
                                                         .enforced,
+                                                buildCounter: (context,
+                                                        {required currentLength,
+                                                        required isFocused,
+                                                        maxLength}) =>
+                                                    null,
                                                 cursorColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
@@ -757,8 +906,280 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                       0.0, 0.0, 24.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      var _shouldSetState = false;
+                                      if (!((_model.uploadedLocalFile != null &&
+                                              (_model.uploadedLocalFile.bytes
+                                                      ?.isNotEmpty ??
+                                                  false)) ||
+                                          ((chatRoomSettingPageSawadChatRoomRecord
+                                                      .chatRoomName !=
+                                                  _model.textController.text) &&
+                                              (_model.textController.text !=
+                                                  '')))) {
+                                        var confirmDialogResponse =
+                                            await showDialog<bool>(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'กรุณาอัพโหลดรูปกลุ่ม หรือเปลี่ยนชื่อกลุ่มสนทนาเพื่อบันทึก'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    false),
+                                                            child:
+                                                                Text('Cancel'),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    true),
+                                                            child:
+                                                                Text('Confirm'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                ) ??
+                                                false;
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      var confirmDialogResponse =
+                                          await showDialog<bool>(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'คุณต้องการบันทึกการแก้ไขข้อมูลห้องสนทนาหรือไม่?'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext,
+                                                                  false),
+                                                          child: Text('ยกเลิก'),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext,
+                                                                  true),
+                                                          child: Text('บันทึก'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              ) ??
+                                              false;
+                                      if (!confirmDialogResponse) {
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (_model.uploadedLocalFile != null &&
+                                          (_model.uploadedLocalFile.bytes
+                                                  ?.isNotEmpty ??
+                                              false)) {
+                                        _model.uploadStorageDisplayAction =
+                                            await actions
+                                                .uploadFileFirebaseStorage(
+                                          'ChatRoomDisplayImage',
+                                          _model.uploadedLocalFile,
+                                        );
+                                        _shouldSetState = true;
+
+                                        var chatMessagesRecordReference1 =
+                                            ChatMessagesRecord.createDoc(
+                                                widget!.chatRoomDocRef!);
+                                        await chatMessagesRecordReference1
+                                            .set(createChatMessagesRecordData(
+                                          messageByEmployeeId:
+                                              FFAppState().employeeID,
+                                          messageText:
+                                              '${FFAppState().profileFullName} ทำการแก้ไขข้อมูลกลุ่มสนทนา',
+                                          messageType: 'setting',
+                                          messageTime: getCurrentTimestamp,
+                                          messageByName:
+                                              FFAppState().profileFullName,
+                                        ));
+                                        _model.createSettingMessageDoc1 =
+                                            ChatMessagesRecord.getDocumentFromData(
+                                                createChatMessagesRecordData(
+                                                  messageByEmployeeId:
+                                                      FFAppState().employeeID,
+                                                  messageText:
+                                                      '${FFAppState().profileFullName} ทำการแก้ไขข้อมูลกลุ่มสนทนา',
+                                                  messageType: 'setting',
+                                                  messageTime:
+                                                      getCurrentTimestamp,
+                                                  messageByName: FFAppState()
+                                                      .profileFullName,
+                                                ),
+                                                chatMessagesRecordReference1);
+                                        _shouldSetState = true;
+
+                                        await widget!.chatRoomDocRef!.update({
+                                          ...createSawadChatRoomRecordData(
+                                            chatRoomName:
+                                                chatRoomSettingPageSawadChatRoomRecord
+                                                            .chatRoomName !=
+                                                        _model
+                                                            .textController.text
+                                                    ? _model.textController.text
+                                                    : chatRoomSettingPageSawadChatRoomRecord
+                                                        .chatRoomName,
+                                            chatRoomDisplayImageUrl: _model
+                                                            .uploadedLocalFile !=
+                                                        null &&
+                                                    (_model
+                                                            .uploadedLocalFile
+                                                            .bytes
+                                                            ?.isNotEmpty ??
+                                                        false)
+                                                ? functions.stringToImgPath(_model
+                                                    .uploadStorageDisplayAction)
+                                                : chatRoomSettingPageSawadChatRoomRecord
+                                                    .chatRoomDisplayImageUrl,
+                                            chatRoomDisplayImageBlurHash: _model
+                                                            .uploadedLocalFile !=
+                                                        null &&
+                                                    (_model
+                                                            .uploadedLocalFile
+                                                            .bytes
+                                                            ?.isNotEmpty ??
+                                                        false)
+                                                ? _model
+                                                    .uploadedLocalFile.blurHash
+                                                : chatRoomSettingPageSawadChatRoomRecord
+                                                    .chatRoomDisplayImageBlurHash,
+                                            lastMessageText:
+                                                '${FFAppState().profileFullName} ทำการแก้ไขข้อมูลกลุ่มสนทนา',
+                                            lastMessageTime:
+                                                getCurrentTimestamp,
+                                            lastMessageBy: FFAppState().userRef,
+                                            lastMessageByEmployeeId:
+                                                FFAppState().employeeID,
+                                            lastMessageType: 'setting',
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'last_seen_users_ref':
+                                                  functions.generateUserRefList(
+                                                      FFAppState().userRef),
+                                            },
+                                          ),
+                                        });
+                                      } else {
+                                        var chatMessagesRecordReference2 =
+                                            ChatMessagesRecord.createDoc(
+                                                widget!.chatRoomDocRef!);
+                                        await chatMessagesRecordReference2
+                                            .set(createChatMessagesRecordData(
+                                          messageByEmployeeId:
+                                              FFAppState().employeeID,
+                                          messageText:
+                                              '${FFAppState().profileFullName} ทำการแก้ไขข้อมูลกลุ่มสนทนา',
+                                          messageType: 'setting',
+                                          messageTime: getCurrentTimestamp,
+                                          messageByName:
+                                              FFAppState().profileFullName,
+                                        ));
+                                        _model.createSettingMessageDoc2 =
+                                            ChatMessagesRecord.getDocumentFromData(
+                                                createChatMessagesRecordData(
+                                                  messageByEmployeeId:
+                                                      FFAppState().employeeID,
+                                                  messageText:
+                                                      '${FFAppState().profileFullName} ทำการแก้ไขข้อมูลกลุ่มสนทนา',
+                                                  messageType: 'setting',
+                                                  messageTime:
+                                                      getCurrentTimestamp,
+                                                  messageByName: FFAppState()
+                                                      .profileFullName,
+                                                ),
+                                                chatMessagesRecordReference2);
+                                        _shouldSetState = true;
+
+                                        await widget!.chatRoomDocRef!.update({
+                                          ...createSawadChatRoomRecordData(
+                                            chatRoomName:
+                                                chatRoomSettingPageSawadChatRoomRecord
+                                                            .chatRoomName !=
+                                                        _model
+                                                            .textController.text
+                                                    ? _model.textController.text
+                                                    : chatRoomSettingPageSawadChatRoomRecord
+                                                        .chatRoomName,
+                                            chatRoomDisplayImageUrl:
+                                                chatRoomSettingPageSawadChatRoomRecord
+                                                    .chatRoomDisplayImageUrl,
+                                            chatRoomDisplayImageBlurHash:
+                                                chatRoomSettingPageSawadChatRoomRecord
+                                                    .chatRoomDisplayImageBlurHash,
+                                            lastMessageText:
+                                                '${FFAppState().profileFullName} ทำการแก้ไขข้อมูลกลุ่มสนทนา',
+                                            lastMessageTime:
+                                                getCurrentTimestamp,
+                                            lastMessageBy: FFAppState().userRef,
+                                            lastMessageByEmployeeId:
+                                                FFAppState().employeeID,
+                                            lastMessageType: 'setting',
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'last_seen_users_ref':
+                                                  functions.generateUserRefList(
+                                                      FFAppState().userRef),
+                                            },
+                                          ),
+                                        });
+                                      }
+
+                                      safeSetState(() {
+                                        _model.isDataUploading = false;
+                                        _model.uploadedLocalFile =
+                                            FFUploadedFile(
+                                                bytes: Uint8List.fromList([]));
+                                      });
+
+                                      safeSetState(() {
+                                        _model.textController?.text =
+                                            _model.textController.text;
+                                      });
                                       _model.isEditState = false;
                                       safeSetState(() {});
+                                      _model.isEditState = false;
+                                      safeSetState(() {});
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'เปลี่ยนข้อมูลกลุ่มสนทนาสำเร็จ!'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     text: 'บันทึก',
                                     options: FFButtonOptions(
@@ -801,6 +1222,49 @@ class _ChatRoomSettingPageWidgetState extends State<ChatRoomSettingPageWidget> {
                                 ),
                                 FFButtonWidget(
                                   onPressed: () async {
+                                    var confirmDialogResponse =
+                                        await showDialog<bool>(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'คุณต้องการจะยกเลิกบันทึกการแก้ไขข้อมูลห้องสนทนาหรือไม่?'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                false),
+                                                        child: Text('ยกเลิก'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                true),
+                                                        child: Text('ตกลง'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            ) ??
+                                            false;
+                                    if (!confirmDialogResponse) {
+                                      return;
+                                    }
+                                    safeSetState(() {
+                                      _model.isDataUploading = false;
+                                      _model.uploadedLocalFile = FFUploadedFile(
+                                          bytes: Uint8List.fromList([]));
+                                    });
+
+                                    safeSetState(() {
+                                      _model.textController?.text =
+                                          chatRoomSettingPageSawadChatRoomRecord
+                                              .chatRoomName;
+                                    });
                                     _model.isEditState = false;
                                     safeSetState(() {});
                                   },
