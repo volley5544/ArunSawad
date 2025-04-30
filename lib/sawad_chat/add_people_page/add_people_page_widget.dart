@@ -1259,19 +1259,33 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                                       .toList()
                                       .cast<DocumentReference>();
                                   safeSetState(() {});
-                                  for (int loop1Index = 0;
-                                      loop1Index <= 0;
-                                      loop1Index++) {
-                                    final currentLoop1Item =
-                                        _model.selectedEmployeeList[loop1Index];
-                                    _model.addToUsersDisplayImage('123123');
-                                    _model.addToUsersDisplayImageBlurHash(
-                                        currentLoop1Item);
-                                    _model.addToUsersEmplayeeId('2');
-                                    _model.addToUsersName('3');
-                                    _model.addToUsersRef(FFAppState().userRef!);
+                                  while (_model.loopCountTemp! <
+                                      _model.selectedEmployeeList.length) {
+                                    _model.addToUsersDisplayImage(_model
+                                        .selectedEmployeeList
+                                        .elementAtOrNull(_model.loopCountTemp!)!
+                                        .userDisplayImage);
+                                    _model.addToUsersDisplayImageBlurHash(_model
+                                        .selectedEmployeeList
+                                        .elementAtOrNull(_model.loopCountTemp!)!
+                                        .userDisplayImageBlurHash);
+                                    _model.addToUsersEmplayeeId(_model
+                                        .selectedEmployeeList
+                                        .elementAtOrNull(_model.loopCountTemp!)!
+                                        .employeeCode);
+                                    _model.addToUsersName(_model
+                                        .selectedEmployeeList
+                                        .elementAtOrNull(_model.loopCountTemp!)!
+                                        .fullName);
+                                    _model.addToUsersRef(_model
+                                        .selectedEmployeeList
+                                        .elementAtOrNull(_model.loopCountTemp!)!
+                                        .userDocRef!);
                                     _model.combineUsersName =
-                                        '${_model.combineUsersName}${loop1Index == (_model.selectedEmployeeList.length - 1) ? '' : ', '}';
+                                        '${_model.combineUsersName}${_model.loopCountTemp == (_model.selectedEmployeeList.length - 1) ? '' : ', '}';
+                                    safeSetState(() {});
+                                    _model.loopCountTemp =
+                                        _model.loopCountTemp! + 1;
                                     safeSetState(() {});
                                   }
 
