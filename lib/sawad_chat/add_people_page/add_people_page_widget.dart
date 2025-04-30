@@ -1264,10 +1264,9 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                                       loop1Index++) {
                                     final currentLoop1Item =
                                         _model.selectedEmployeeList[loop1Index];
-                                    _model.addToUsersDisplayImage(
-                                        currentLoop1Item);
+                                    _model.addToUsersDisplayImage('123123');
                                     _model.addToUsersDisplayImageBlurHash(
-                                        FFAppState().defaultList1.firstOrNull!);
+                                        currentLoop1Item);
                                     _model.addToUsersEmplayeeId('2');
                                     _model.addToUsersName('3');
                                     _model.addToUsersRef(FFAppState().userRef!);
