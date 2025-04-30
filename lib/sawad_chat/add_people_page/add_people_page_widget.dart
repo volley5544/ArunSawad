@@ -1267,11 +1267,10 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                                     _model.addToUsersDisplayImage(
                                         currentLoop1Item);
                                     _model.addToUsersDisplayImageBlurHash(
-                                        currentLoop1Item);
-                                    _model
-                                        .addToUsersEmplayeeId(currentLoop1Item);
-                                    _model.addToUsersName(currentLoop1Item);
-                                    _model.addToUsersRef(currentLoop1Item);
+                                        FFAppState().defaultList1.firstOrNull!);
+                                    _model.addToUsersEmplayeeId('2');
+                                    _model.addToUsersName('3');
+                                    _model.addToUsersRef(FFAppState().userRef!);
                                     _model.combineUsersName =
                                         '${_model.combineUsersName}${loop1Index == (_model.selectedEmployeeList.length - 1) ? '' : ', '}';
                                     safeSetState(() {});
