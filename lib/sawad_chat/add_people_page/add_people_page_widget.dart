@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -1203,6 +1204,13 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
+                                  _model.usersDisplayImage = [];
+                                  _model.usersDisplayImageBlurHash = [];
+                                  _model.usersEmplayeeId = [];
+                                  _model.usersName = [];
+                                  _model.usersRef = [];
+                                  _model.combineUsersName = '';
+                                  safeSetState(() {});
                                   if (_model.selectedEmployeeList.length <= 0) {
                                     await showDialog(
                                       context: context,
@@ -1229,9 +1237,136 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                                       await SawadChatRoomRecord.getDocumentOnce(
                                           widget!.chatRoomDocRef!);
                                   _shouldSetState = true;
+                                  _model.usersDisplayImage = _model
+                                      .queryChatRoomDoc!.usersDisplayImage
+                                      .toList()
+                                      .cast<String>();
+                                  _model.usersDisplayImageBlurHash = _model
+                                      .queryChatRoomDoc!
+                                      .usersDisplayImageBlurHash
+                                      .toList()
+                                      .cast<String>();
+                                  _model.usersEmplayeeId = _model
+                                      .queryChatRoomDoc!.usersEmplayeeId
+                                      .toList()
+                                      .cast<String>();
+                                  _model.usersName = _model
+                                      .queryChatRoomDoc!.usersName
+                                      .toList()
+                                      .cast<String>();
+                                  _model.usersRef = _model
+                                      .queryChatRoomDoc!.usersRef
+                                      .toList()
+                                      .cast<DocumentReference>();
+                                  safeSetState(() {});
+                                  for (int loop1Index = 0;
+                                      loop1Index <= 0;
+                                      loop1Index++) {
+                                    final currentLoop1Item =
+                                        _model.selectedEmployeeList[loop1Index];
+                                    _model.addToUsersDisplayImage(
+                                        currentLoop1Item);
+                                    _model.addToUsersDisplayImageBlurHash(
+                                        currentLoop1Item);
+                                    _model
+                                        .addToUsersEmplayeeId(currentLoop1Item);
+                                    _model.addToUsersName(currentLoop1Item);
+                                    _model.addToUsersRef(currentLoop1Item);
+                                    _model.combineUsersName =
+                                        '${_model.combineUsersName}${loop1Index == (_model.selectedEmployeeList.length - 1) ? '' : ', '}';
+                                    safeSetState(() {});
+                                  }
+
+                                  var chatMessagesRecordReference =
+                                      ChatMessagesRecord.createDoc(
+                                          widget!.chatRoomDocRef!);
+                                  await chatMessagesRecordReference
+                                      .set(createChatMessagesRecordData(
+                                    messageText:
+                                        '${FFAppState().profileFullName} ได้เพิ่ม ${_model.combineUsersName} เข้ากลุ่มสนทนาแล้ว',
+                                    messageTime: getCurrentTimestamp,
+                                    messageType: 'setting',
+                                    messageByEmployeeId:
+                                        FFAppState().employeeID,
+                                    messageByName: FFAppState().profileFullName,
+                                  ));
+                                  _model.createAddPeopleMessageAction =
+                                      ChatMessagesRecord.getDocumentFromData(
+                                          createChatMessagesRecordData(
+                                            messageText:
+                                                '${FFAppState().profileFullName} ได้เพิ่ม ${_model.combineUsersName} เข้ากลุ่มสนทนาแล้ว',
+                                            messageTime: getCurrentTimestamp,
+                                            messageType: 'setting',
+                                            messageByEmployeeId:
+                                                FFAppState().employeeID,
+                                            messageByName:
+                                                FFAppState().profileFullName,
+                                          ),
+                                          chatMessagesRecordReference);
+                                  _shouldSetState = true;
+
+                                  await widget!.chatRoomDocRef!.update({
+                                    ...createSawadChatRoomRecordData(
+                                      lastMessageText:
+                                          '${FFAppState().profileFullName} ได้เพิ่มคนเข้ากลุ่มสนทนาแล้ว',
+                                      lastMessageTime: _model
+                                          .createAddPeopleMessageAction
+                                          ?.messageTime,
+                                      lastMessageBy: _model
+                                          .createAddPeopleMessageAction
+                                          ?.messageBy,
+                                      lastMessageByEmployeeId: _model
+                                          .createAddPeopleMessageAction
+                                          ?.messageByEmployeeId,
+                                      lastMessageType: _model
+                                          .createAddPeopleMessageAction
+                                          ?.messageType,
+                                    ),
+                                    ...mapToFirestore(
+                                      {
+                                        'users_ref': _model.usersRef,
+                                        'users_emplayee_id':
+                                            _model.usersEmplayeeId,
+                                        'users_name': _model.usersName,
+                                        'users_display_image_blur_hash':
+                                            _model.usersDisplayImageBlurHash,
+                                        'users_display_image':
+                                            _model.usersDisplayImage,
+                                        'last_seen_users_ref':
+                                            functions.generateUserRefList(
+                                                FFAppState().userRef),
+                                      },
+                                    ),
+                                  });
+                                  _model.usersDisplayImage = [];
+                                  _model.usersDisplayImageBlurHash = [];
+                                  _model.usersEmplayeeId = [];
+                                  _model.usersName = [];
+                                  _model.usersRef = [];
+                                  _model.combineUsersName = '';
+                                  safeSetState(() {});
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'เพิ่มคนเข้ากลุ่มสนทนาสำเร็จ!!'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  context.safePop();
                                   if (_shouldSetState) safeSetState(() {});
                                 },
-                                text: 'สร้างกลุ่มสนทนา',
+                                text: 'เพิ่มคนเข้ากลุ่มสนทนา',
                                 options: FFButtonOptions(
                                   height: 60.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(

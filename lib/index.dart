@@ -139,7 +139,7 @@ export '/pages/test_circle_map/test_circle_map_widget.dart'
     show TestCircleMapWidget;
 export '/pages/point_app/redeem_point_page/redeem_point_page_widget.dart'
     show RedeemPointPageWidget;
-export '/pages/planning_k_p_i_weekly/planning_self_k_p_i/planning_self_k_p_i_widget.dart'
+export '/pages/planning_self_k_p_i/planning_self_k_p_i_widget.dart'
     show PlanningSelfKPIWidget;
 export '/pages/thaipaiboon_insurance/thaipaiboon_page/thaipaiboon_page_widget.dart'
     show ThaipaiboonPageWidget;

@@ -1727,13 +1727,69 @@ class _GroupChatAddPageWidgetState extends State<GroupChatAddPageWidget> {
                                                                   MainAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Icon(
-                                                                  Icons
-                                                                      .arrow_forward_ios_rounded,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  size: 24.0,
+                                                                InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    HapticFeedback
+                                                                        .mediumImpact();
+                                                                    if (_model
+                                                                        .selectedEmployeeList
+                                                                        .map((e) =>
+                                                                            e.employeeCode)
+                                                                        .toList()
+                                                                        .contains(((GetAllEmployeeAPICall.employeeId(
+                                                                          (_model.getEmployee?.jsonBody ??
+                                                                              ''),
+                                                                        )!
+                                                                            .elementAtOrNull(employeeListItemIndex))!))) {
+                                                                      return;
+                                                                    }
+                                                                    _model.addToSelectedEmployeeList((GetAllEmployeeAPICall
+                                                                            .dataJson(
+                                                                      (_model.getEmployee
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )!
+                                                                        .elementAtOrNull(
+                                                                            employeeListItemIndex))!);
+                                                                    safeSetState(
+                                                                        () {});
+                                                                    _model
+                                                                        .updateSelectedEmployeeListAtIndex(
+                                                                      _model.selectedEmployeeList
+                                                                              .length -
+                                                                          1,
+                                                                      (e) => e
+                                                                        ..userDocRef =
+                                                                            containerUserCustomRecord?.reference
+                                                                        ..userDisplayImage =
+                                                                            containerUserCustomRecord?.imgProfile
+                                                                        ..userDisplayImageBlurHash = containerUserCustomRecord?.imgProfileBlurHash != null &&
+                                                                                containerUserCustomRecord?.imgProfileBlurHash != ''
+                                                                            ? containerUserCustomRecord?.imgProfileBlurHash
+                                                                            : 'LKOp[Mof~qof?bfQRjfQ%MfQIUfQ',
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .add_circle,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .success,
+                                                                    size: 40.0,
+                                                                  ),
                                                                 ),
                                                               ],
                                                             ),
