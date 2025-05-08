@@ -1,18 +1,14 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
-import '/components/input_field_component_widget.dart';
+import '/collection_page/input_field_component/input_field_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/index.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -47,7 +43,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
   late RP72CheckListPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -60,55 +55,10 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
         parameters: {'screen_name': 'RP72CheckListPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-      _model.checkLatLngBVCollection = await actions.a8(
-        currentUserLocationValue,
-      );
-      if (!_model.checkLatLngBVCollection!) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                title: Text('ระบบ'),
-                content: Text('กรุณาเปิดGPS ก่อนทำรายการ'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-
-        context.goNamed(DashboardWidget.routeName);
-
-        return;
-      }
-      if (!FFAppState().isFromTimesheetPage) {
-        var userLogRecordReference = UserLogRecord.collection.doc();
-        await userLogRecordReference.set(createUserLogRecordData(
-          employeeId: FFAppState().employeeID,
-          action: 'Branch_View_Collection',
-          actionTime: getCurrentTimestamp,
-          userLocation: currentUserLocationValue,
-        ));
-        _model.createdUserLogBVCollection = UserLogRecord.getDocumentFromData(
-            createUserLogRecordData(
-              employeeId: FFAppState().employeeID,
-              action: 'Branch_View_Collection',
-              actionTime: getCurrentTimestamp,
-              userLocation: currentUserLocationValue,
-            ),
-            userLogRecordReference);
-      }
-      FFAppState().locationTemp = valueOrDefault<String>(
-        functions.getUserLocation(currentUserLocationValue),
-        'Latitude,Longitude',
-      );
+      _model.currentCheckListChecked = FFAppState()
+          .rp72DataList
+          .toList()
+          .cast<RP72CheckListDataModelStruct>();
       safeSetState(() {});
     });
 
@@ -391,6 +341,134 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                               thickness: 1.0,
                               color: Colors.white,
                             ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 10.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'จำนวนรายงานติดตามหนี้',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                        width: 100.0,
+                                        decoration: BoxDecoration(),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              ':',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                '${functions.countTheValueInList(_model.currentCheckListChecked.map((e) => e.isProcess).toList(), '1')?.toString()}/${_model.currentCheckListChecked.length.toString()}',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color: functions.countTheValueInList(
+                                                                  _model
+                                                                      .currentCheckListChecked
+                                                                      .map((e) => e
+                                                                          .isProcess)
+                                                                      .toList(),
+                                                                  '1') ==
+                                                              _model
+                                                                  .currentCheckListChecked
+                                                                  .length
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .success
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -408,7 +486,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                     child: Builder(
                       builder: (context) {
                         final checkListItem =
-                            FFAppState().rp72DataList.toList();
+                            _model.currentCheckListChecked.toList();
 
                         return ListView.builder(
                           padding: EdgeInsets.zero,
@@ -453,7 +531,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .alternate,
+                                                      .primaryText,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValueMap[
@@ -465,12 +543,27 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     _model.checkboxValueMap[
                                                             checkListItemItem] =
                                                         newValue!);
+                                                if (newValue!) {
+                                                  _model
+                                                      .updateCurrentCheckListCheckedAtIndex(
+                                                    checkListItemIndex,
+                                                    (e) => e..isProcess = '1',
+                                                  );
+                                                  safeSetState(() {});
+                                                } else {
+                                                  _model
+                                                      .updateCurrentCheckListCheckedAtIndex(
+                                                    checkListItemIndex,
+                                                    (e) => e..isProcess = '0',
+                                                  );
+                                                  safeSetState(() {});
+                                                }
                                               },
                                               side: BorderSide(
                                                 width: 2,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .alternate,
+                                                        .primaryText,
                                               ),
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
@@ -530,7 +623,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                       wrapWithModel(
                                         model: _model.inputFieldComponentModels
                                             .getModel(
-                                          checkListItemItem.checklistSort,
+                                          checkListItemIndex.toString(),
                                           checkListItemIndex,
                                         ),
                                         updateCallback: () =>
@@ -538,7 +631,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                         updateOnChange: true,
                                         child: InputFieldComponentWidget(
                                           key: Key(
-                                            'Keympq_${checkListItemItem.checklistSort}',
+                                            'Keympq_${checkListItemIndex.toString()}',
                                           ),
                                           initialText: checkListItemItem.remark,
                                           hintText: 'หมายเหตุ...',
@@ -557,7 +650,153 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                     ),
                   ),
                 ),
-              ].addToEnd(SizedBox(height: 24.0)),
+                Container(
+                  width: double.infinity,
+                  height: 80.0,
+                  decoration: BoxDecoration(),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              _model.loopCountTemp = 0;
+                              _model.isLoopFinished = true;
+                              safeSetState(() {});
+                              if (!((List<String> checkedList) {
+                                return checkedList.contains('1');
+                              }(_model.currentCheckListChecked
+                                  .map((e) => e.isProcess)
+                                  .toList()))) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'กรุณาเลือกรายการติดตามหนี้อย่างน้อย 1 รายการ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                return;
+                              }
+                              while (_model.loopCountTemp! <
+                                  _model.currentCheckListChecked.length) {
+                                if (_model.currentCheckListChecked
+                                        .elementAtOrNull(_model.loopCountTemp!)
+                                        ?.isProcess ==
+                                    '1') {
+                                  if (_model.inputFieldComponentModels
+                                          .getValueAtIndex(
+                                        _model.loopCountTemp!,
+                                        (m) => m.textController.text,
+                                      ) ==
+                                      '') {
+                                    _model.isLoopFinished = false;
+                                    safeSetState(() {});
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณากรอกหมายเหตุของรายการข้อ ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistSort}. ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistName}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    break;
+                                  }
+                                  _model.updateCurrentCheckListCheckedAtIndex(
+                                    _model.loopCountTemp!,
+                                    (e) => e
+                                      ..remark = _model
+                                          .inputFieldComponentModels
+                                          .getValueAtIndex(
+                                        _model.loopCountTemp!,
+                                        (m) => m.textController.text,
+                                      ),
+                                  );
+                                  safeSetState(() {});
+                                } else {
+                                  _model.updateCurrentCheckListCheckedAtIndex(
+                                    _model.loopCountTemp!,
+                                    (e) => e..remark = '',
+                                  );
+                                  safeSetState(() {});
+                                }
+
+                                _model.loopCountTemp =
+                                    _model.loopCountTemp! + 1;
+                                safeSetState(() {});
+                              }
+                              if (!_model.isLoopFinished) {
+                                return;
+                              }
+                              FFAppState().rp72DataList = _model
+                                  .currentCheckListChecked
+                                  .toList()
+                                  .cast<RP72CheckListDataModelStruct>();
+                              safeSetState(() {});
+                              context.safePop();
+                            },
+                            text: 'บันทึก',
+                            options: FFButtonOptions(
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ].addToEnd(SizedBox(height: 30.0)),
             ),
           ),
         ),
