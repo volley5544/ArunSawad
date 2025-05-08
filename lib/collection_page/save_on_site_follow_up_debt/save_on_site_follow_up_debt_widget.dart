@@ -1765,6 +1765,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       ?.statusCode ??
                                                   200) !=
                                               200) {
+                                            Navigator.pop(context);
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
@@ -1795,6 +1796,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 r'''$.code''',
                                               ).toString()}' !=
                                               '200') {
+                                            Navigator.pop(context);
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
@@ -1823,16 +1825,18 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
-                                          _model.rp72CheckListData =
-                                              GetRPCheckListCall.checkListData(
+                                          FFAppState()
+                                              .rp72DataList = GetRPCheckListCall
+                                                  .checkListData(
                                             (_model.getRp72CheckListOutput
                                                     ?.jsonBody ??
                                                 ''),
                                           )!
-                                                  .toList()
-                                                  .cast<
-                                                      RP72CheckListDataModelStruct>();
+                                              .toList()
+                                              .cast<
+                                                  RP72CheckListDataModelStruct>();
                                           safeSetState(() {});
+                                          Navigator.pop(context);
                                           if (_shouldSetState)
                                             safeSetState(() {});
                                         },
