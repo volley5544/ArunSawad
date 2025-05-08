@@ -67,7 +67,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                           .map((e) => e.isProcess)
                           .toList()
                           .toList(),
-                      '1')
+                      '1')!
                   .toString()),
               actions: [
                 TextButton(
@@ -599,21 +599,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     _model.checkboxValueMap[
                                                             checkListItemItem] =
                                                         newValue!);
-                                                if (newValue!) {
-                                                  _model
-                                                      .updateCurrentCheckListCheckedAtIndex(
-                                                    checkListItemIndex,
-                                                    (e) => e..isProcess = '1',
-                                                  );
-                                                  safeSetState(() {});
-                                                } else {
-                                                  _model
-                                                      .updateCurrentCheckListCheckedAtIndex(
-                                                    checkListItemIndex,
-                                                    (e) => e..isProcess = '0',
-                                                  );
-                                                  safeSetState(() {});
-                                                }
                                               },
                                               side: BorderSide(
                                                 width: 2,
@@ -684,7 +669,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                         ),
                                         updateCallback: () =>
                                             safeSetState(() {}),
-                                        updateOnChange: true,
                                         child: InputFieldComponentWidget(
                                           key: Key(
                                             'Keympq_${checkListItemIndex.toString()}',
