@@ -10159,6 +10159,48 @@ class FFAppState extends ChangeNotifier {
   set branchViewCollectionApiUrlUatDocRef(DocumentReference? value) {
     _branchViewCollectionApiUrlUatDocRef = value;
   }
+
+  List<RP72CheckListDataModelStruct> _rp72DataList = [
+    RP72CheckListDataModelStruct.fromSerializableMap(jsonDecode(
+        '{\"checklist_sort\":\"1\",\"checklist_id\":\"1\",\"is_process\":\"1\",\"remark\":\"test remark01\",\"checklist_name\":\"ติดตามข้อมูลคู่สมรส, ญาติคู่มรส\"}')),
+    RP72CheckListDataModelStruct.fromSerializableMap(jsonDecode(
+        '{\"checklist_sort\":\"2\",\"checklist_id\":\"2\",\"is_process\":\"0\",\"remark\":\"\",\"checklist_name\":\"ติดตามข้อมูลบิดา, มารดาของลูกค้าและคู่สมรส\"}')),
+    RP72CheckListDataModelStruct.fromSerializableMap(jsonDecode(
+        '{\"checklist_sort\":\"3\",\"checklist_id\":\"3\",\"is_process\":\"0\",\"remark\":\"\",\"checklist_name\":\"สืบหาจากอาชีพและที่ทำงานเดิมและที่ทำงานใหม่\"}')),
+    RP72CheckListDataModelStruct.fromSerializableMap(jsonDecode(
+        '{\"checklist_sort\":\"4\",\"checklist_id\":\"4\",\"is_process\":\"1\",\"remark\":\"test remark5544\",\"checklist_name\":\"สืบถามจากเพื่อนบ้าน\"}')),
+    RP72CheckListDataModelStruct.fromSerializableMap(jsonDecode(
+        '{\"checklist_sort\":\"5\",\"checklist_id\":\"5\",\"is_process\":\"0\",\"remark\":\"\",\"checklist_name\":\"สืบถามจากเพื่อนที่ทำงานเก่า\"}'))
+  ];
+  List<RP72CheckListDataModelStruct> get rp72DataList => _rp72DataList;
+  set rp72DataList(List<RP72CheckListDataModelStruct> value) {
+    _rp72DataList = value;
+  }
+
+  void addToRp72DataList(RP72CheckListDataModelStruct value) {
+    rp72DataList.add(value);
+  }
+
+  void removeFromRp72DataList(RP72CheckListDataModelStruct value) {
+    rp72DataList.remove(value);
+  }
+
+  void removeAtIndexFromRp72DataList(int index) {
+    rp72DataList.removeAt(index);
+  }
+
+  void updateRp72DataListAtIndex(
+    int index,
+    RP72CheckListDataModelStruct Function(RP72CheckListDataModelStruct)
+        updateFn,
+  ) {
+    rp72DataList[index] = updateFn(_rp72DataList[index]);
+  }
+
+  void insertAtIndexInRp72DataList(
+      int index, RP72CheckListDataModelStruct value) {
+    rp72DataList.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

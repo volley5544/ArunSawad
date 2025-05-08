@@ -2692,6 +2692,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   collectionNamePath: ['SawadChatRoom'],
                 ),
               ),
+            ),
+            FFRoute(
+              name: RP72CheckListPageWidget.routeName,
+              path: RP72CheckListPageWidget.routePath,
+              builder: (context, params) => RP72CheckListPageWidget(
+                firstname: params.getParam(
+                  'firstname',
+                  ParamType.String,
+                ),
+                lastname: params.getParam(
+                  'lastname',
+                  ParamType.String,
+                ),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

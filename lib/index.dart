@@ -279,3 +279,5 @@ export '/car_seized/customer_car_deails_document_step1/customer_car_deails_docum
     show CustomerCarDeailsDocumentStep1Widget;
 export '/sawad_chat/add_people_page/add_people_page_widget.dart'
     show AddPeoplePageWidget;
+export '/collection_page/r_p72_check_list_page/r_p72_check_list_page_widget.dart'
+    show RP72CheckListPageWidget;

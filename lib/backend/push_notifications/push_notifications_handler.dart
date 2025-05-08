@@ -826,6 +826,13 @@ final parametersBuilderMap =
               getParameter<DocumentReference>(data, 'chatRoomDocRef'),
         },
       ),
+  'RP72CheckListPage': (data) async => ParameterData(
+        allParams: {
+          'firstname': getParameter<String>(data, 'firstname'),
+          'lastname': getParameter<String>(data, 'lastname'),
+          'contNo': getParameter<String>(data, 'contNo'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

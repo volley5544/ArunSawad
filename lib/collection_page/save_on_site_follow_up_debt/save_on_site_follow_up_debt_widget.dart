@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
@@ -1747,15 +1748,17 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                 ),
                                 if ((_model.dropDownFollowupValue != null &&
                                         _model.dropDownFollowupValue != '') &&
-                                    ((columnBranchviewDropdownRecord?.urlLink
-                                            ?.elementAtOrNull(functions
-                                                .getIndexOfSomethingList(
-                                                    columnBranchviewDropdownRecord
-                                                        ?.dropdownValue
-                                                        ?.toList(),
-                                                    _model
-                                                        .dropDownFollowupValue))) !=
-                                        'Hello World'))
+                                    (((columnBranchviewDropdownRecord?.urlLink
+                                                ?.elementAtOrNull(functions
+                                                    .getIndexOfSomethingList(
+                                                        columnBranchviewDropdownRecord
+                                                            ?.dropdownValue
+                                                            ?.toList(),
+                                                        _model
+                                                            .dropDownFollowupValue))) !=
+                                            'Hello World') ||
+                                        (_model.dropDownFollowupValue ==
+                                            'RP82')))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 10.0),
@@ -1763,36 +1766,55 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            await launchURL(
-                                                columnBranchviewDropdownRecord!
-                                                    .urlLink
-                                                    .elementAtOrNull(functions
-                                                        .getIndexOfSomethingList(
-                                                            columnBranchviewDropdownRecord
-                                                                ?.dropdownValue
-                                                                ?.toList(),
-                                                            _model
-                                                                .dropDownFollowupValue))!);
-                                          },
-                                          text: 'เปิดฟอร์ม',
-                                          options: FFButtonOptions(
-                                            width: 200.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
+                                        Builder(
+                                          builder: (context) {
+                                            if (_model.dropDownFollowupValue !=
+                                                'RP82') {
+                                              return FFButtonWidget(
+                                                onPressed: () async {
+                                                  await launchURL(columnBranchviewDropdownRecord!
+                                                      .urlLink
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              columnBranchviewDropdownRecord
+                                                                  ?.dropdownValue
+                                                                  ?.toList(),
+                                                              _model
+                                                                  .dropDownFollowupValue))!);
+                                                },
+                                                text: 'เปิดฟอร์ม',
+                                                options: FFButtonOptions(
+                                                  width: 200.0,
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1804,23 +1826,88 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                                 .titleSmall
                                                                 .fontStyle,
                                                       ),
-                                                      color: Colors.white,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                            elevation: 0.0,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              );
+                                            } else {
+                                              return FFButtonWidget(
+                                                onPressed: () async {
+                                                  context.pushNamed(
+                                                    RP72CheckListPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'firstname':
+                                                          serializeParam(
+                                                        widget!.firstname,
+                                                        ParamType.String,
+                                                      ),
+                                                      'lastname':
+                                                          serializeParam(
+                                                        widget!.lastname,
+                                                        ParamType.String,
+                                                      ),
+                                                      'contNo': serializeParam(
+                                                        widget!.contNo,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                                text: 'รายงานตามหนี้',
+                                                options: FFButtonOptions(
+                                                  width: 200.0,
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              );
+                                            }
+                                          },
                                         ),
                                       ],
                                     ),
