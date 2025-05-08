@@ -1626,123 +1626,208 @@ class _SaveOnSiteFollowUpDebtWidgetState
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'ผลการติดตามหนี้',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.normal,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                ),
-                              ),
-                              FutureBuilder<List<BranchviewDropdownRecord>>(
-                                future: queryBranchviewDropdownRecordOnce(
-                                  singleRecord: true,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<BranchviewDropdownRecord>
-                                      dropDownFollowupBranchviewDropdownRecordList =
-                                      snapshot.data!;
-                                  final dropDownFollowupBranchviewDropdownRecord =
-                                      dropDownFollowupBranchviewDropdownRecordList
-                                              .isNotEmpty
-                                          ? dropDownFollowupBranchviewDropdownRecordList
-                                              .first
-                                          : null;
-
-                                  return FlutterFlowDropDown<String>(
-                                    controller: _model
-                                            .dropDownFollowupValueController ??=
-                                        FormFieldController<String>(
-                                      _model.dropDownFollowupValue ??= '',
-                                    ),
-                                    options: List<String>.from(
-                                        dropDownFollowupBranchviewDropdownRecord!
-                                            .dropdownValue),
-                                    optionLabels:
-                                        dropDownFollowupBranchviewDropdownRecord!
-                                            .dropdownName,
-                                    onChanged: (val) => safeSetState(() =>
-                                        _model.dropDownFollowupValue = val),
-                                    width: 200.0,
-                                    height: 50.0,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          font: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.normal,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                          ),
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .fontStyle,
-                                        ),
-                                    hintText: 'กรุณาเลือก',
-                                    icon: Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
-                                    ),
-                                    elevation: 2.0,
-                                    borderColor:
-                                        FlutterFlowTheme.of(context).gray200,
-                                    borderWidth: 2.0,
-                                    borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 5.0, 12.0, 5.0),
-                                    hidesUnderline: true,
-                                    isSearchable: false,
-                                    isMultiSelect: false,
-                                  );
-                                },
-                              ),
-                            ],
+                        FutureBuilder<List<BranchviewDropdownRecord>>(
+                          future: queryBranchviewDropdownRecordOnce(
+                            singleRecord: true,
                           ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).tertiary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            List<BranchviewDropdownRecord>
+                                columnBranchviewDropdownRecordList =
+                                snapshot.data!;
+                            final columnBranchviewDropdownRecord =
+                                columnBranchviewDropdownRecordList.isNotEmpty
+                                    ? columnBranchviewDropdownRecordList.first
+                                    : null;
+
+                            return Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'ผลการติดตามหนี้',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ),
+                                      FlutterFlowDropDown<String>(
+                                        controller: _model
+                                                .dropDownFollowupValueController ??=
+                                            FormFieldController<String>(
+                                          _model.dropDownFollowupValue ??= '',
+                                        ),
+                                        options: List<String>.from(
+                                            columnBranchviewDropdownRecord!
+                                                .dropdownValue),
+                                        optionLabels:
+                                            columnBranchviewDropdownRecord!
+                                                .dropdownName,
+                                        onChanged: (val) => safeSetState(() =>
+                                            _model.dropDownFollowupValue = val),
+                                        width: 200.0,
+                                        height: 50.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              font: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
+                                            ),
+                                        hintText: 'กรุณาเลือก',
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          size: 24.0,
+                                        ),
+                                        elevation: 2.0,
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .gray200,
+                                        borderWidth: 2.0,
+                                        borderRadius: 8.0,
+                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 5.0, 12.0, 5.0),
+                                        hidesUnderline: true,
+                                        isSearchable: false,
+                                        isMultiSelect: false,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                if ((_model.dropDownFollowupValue != null &&
+                                        _model.dropDownFollowupValue != '') &&
+                                    ((columnBranchviewDropdownRecord?.urlLink
+                                            ?.elementAtOrNull(functions
+                                                .getIndexOfSomethingList(
+                                                    columnBranchviewDropdownRecord
+                                                        ?.dropdownValue
+                                                        ?.toList(),
+                                                    _model
+                                                        .dropDownFollowupValue))) !=
+                                        'Hello World'))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        FFButtonWidget(
+                                          onPressed: () async {
+                                            await launchURL(
+                                                columnBranchviewDropdownRecord!
+                                                    .urlLink
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfSomethingList(
+                                                            columnBranchviewDropdownRecord
+                                                                ?.dropdownValue
+                                                                ?.toList(),
+                                                            _model
+                                                                .dropDownFollowupValue))!);
+                                          },
+                                          text: 'เปิดฟอร์ม',
+                                          options: FFButtonOptions(
+                                            width: 200.0,
+                                            height: 40.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      color: Colors.white,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
+                                            elevation: 0.0,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            );
+                          },
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(

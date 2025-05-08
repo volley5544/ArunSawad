@@ -37,12 +37,18 @@ class BranchviewDropdownRecord extends FirestoreRecord {
   List<String> get marketingFormLink => _marketingFormLink ?? const [];
   bool hasMarketingFormLink() => _marketingFormLink != null;
 
+  // "url_link" field.
+  List<String>? _urlLink;
+  List<String> get urlLink => _urlLink ?? const [];
+  bool hasUrlLink() => _urlLink != null;
+
   void _initializeFields() {
     _dropdownName = getDataList(snapshotData['dropdown_name']);
     _dropdownValue = getDataList(snapshotData['dropdown_value']);
     _marketingDropdownValue =
         getDataList(snapshotData['marketing_dropdown_value']);
     _marketingFormLink = getDataList(snapshotData['marketing_form_link']);
+    _urlLink = getDataList(snapshotData['url_link']);
   }
 
   static CollectionReference get collection =>
@@ -99,7 +105,8 @@ class BranchviewDropdownRecordDocumentEquality
         listEquality.equals(e1?.dropdownValue, e2?.dropdownValue) &&
         listEquality.equals(
             e1?.marketingDropdownValue, e2?.marketingDropdownValue) &&
-        listEquality.equals(e1?.marketingFormLink, e2?.marketingFormLink);
+        listEquality.equals(e1?.marketingFormLink, e2?.marketingFormLink) &&
+        listEquality.equals(e1?.urlLink, e2?.urlLink);
   }
 
   @override
@@ -107,7 +114,8 @@ class BranchviewDropdownRecordDocumentEquality
         e?.dropdownName,
         e?.dropdownValue,
         e?.marketingDropdownValue,
-        e?.marketingFormLink
+        e?.marketingFormLink,
+        e?.urlLink
       ]);
 
   @override

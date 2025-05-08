@@ -1210,6 +1210,7 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                                   _model.usersName = [];
                                   _model.usersRef = [];
                                   _model.combineUsersName = '';
+                                  _model.loopCountTemp = 0;
                                   safeSetState(() {});
                                   if (_model.selectedEmployeeList.length <= 0) {
                                     await showDialog(
@@ -1288,6 +1289,8 @@ class _AddPeoplePageWidgetState extends State<AddPeoplePageWidget> {
                                         _model.loopCountTemp! + 1;
                                     safeSetState(() {});
                                   }
+                                  _model.loopCountTemp = 0;
+                                  safeSetState(() {});
 
                                   var chatMessagesRecordReference =
                                       ChatMessagesRecord.createDoc(
