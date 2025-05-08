@@ -1,9 +1,11 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'appbar_follow_up_debt_model.dart';
 export 'appbar_follow_up_debt_model.dart';
 
@@ -41,6 +43,8 @@ class _AppbarFollowUpDebtWidgetState extends State<AppbarFollowUpDebtWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: 70.0,
@@ -70,6 +74,30 @@ class _AppbarFollowUpDebtWidgetState extends State<AppbarFollowUpDebtWidget> {
                   size: 20.0,
                 ),
                 onPressed: () async {
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return WebViewAware(
+                        child: AlertDialog(
+                          content: Text(functions
+                              .countTheValueInList(
+                                  FFAppState()
+                                      .rp72DataList
+                                      .map((e) => e.isProcess)
+                                      .toList(),
+                                  '1')
+                              .toString()),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
                   FFAppState().imgURL = [];
                   FFAppState().imgURLTemp =
                       'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=f030a21a-d636-4c3f-a734-85bc27dd9389';

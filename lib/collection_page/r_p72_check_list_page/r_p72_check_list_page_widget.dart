@@ -589,6 +589,34 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () async {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(functions
+                                                                .countTheValueInList(
+                                                                    FFAppState()
+                                                                        .rp72DataList
+                                                                        .map((e) =>
+                                                                            e.isProcess)
+                                                                        .toList(),
+                                                                    '1')
+                                                                .toString()),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
                                                     _model
                                                         .updateCurrentCheckListCheckedAtIndex(
                                                       checkListItemIndex,
@@ -610,6 +638,34 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () async {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(functions
+                                                                .countTheValueInList(
+                                                                    FFAppState()
+                                                                        .rp72DataList
+                                                                        .map((e) =>
+                                                                            e.isProcess)
+                                                                        .toList(),
+                                                                    '1')
+                                                                .toString()),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
                                                     _model
                                                         .updateCurrentCheckListCheckedAtIndex(
                                                       checkListItemIndex,
