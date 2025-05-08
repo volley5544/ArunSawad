@@ -1853,6 +1853,13 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         widget!.contNo,
                                                         ParamType.String,
                                                       ),
+                                                      'inputCheckListDataList':
+                                                          serializeParam(
+                                                        FFAppState()
+                                                            .rp72DataList,
+                                                        ParamType.DataStruct,
+                                                        isList: true,
+                                                      ),
                                                     }.withoutNulls,
                                                   );
                                                 },

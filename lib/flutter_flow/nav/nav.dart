@@ -2709,6 +2709,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'contNo',
                   ParamType.String,
                 ),
+                inputCheckListDataList:
+                    params.getParam<RP72CheckListDataModelStruct>(
+                  'inputCheckListDataList',
+                  ParamType.DataStruct,
+                  isList: true,
+                  structBuilder:
+                      RP72CheckListDataModelStruct.fromSerializableMap,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

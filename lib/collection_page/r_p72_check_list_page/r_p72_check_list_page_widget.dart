@@ -25,11 +25,13 @@ class RP72CheckListPageWidget extends StatefulWidget {
     required this.firstname,
     required this.lastname,
     required this.contNo,
+    required this.inputCheckListDataList,
   });
 
   final String? firstname;
   final String? lastname;
   final String? contNo;
+  final List<RP72CheckListDataModelStruct>? inputCheckListDataList;
 
   static String routeName = 'RP72CheckListPage';
   static String routePath = 'rP72CheckListPage';
@@ -96,8 +98,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
           );
         },
       );
-      _model.currentCheckListChecked = FFAppState()
-          .rp72DataList
+      _model.currentCheckListChecked = widget!.inputCheckListDataList!
           .toList()
           .cast<RP72CheckListDataModelStruct>();
       safeSetState(() {});
