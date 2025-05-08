@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/collection_page/input_field_component/input_field_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -42,11 +43,6 @@ class RP72CheckListPageModel extends FlutterFlowModel<RP72CheckListPageWidget> {
 
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
-  // State field(s) for Checkbox widget.
-  Map<RP72CheckListDataModelStruct, bool> checkboxValueMap = {};
-  List<RP72CheckListDataModelStruct> get checkboxCheckedItems =>
-      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
-
   // Models for InputFieldComponent dynamic component.
   late FlutterFlowDynamicModels<InputFieldComponentModel>
       inputFieldComponentModels;

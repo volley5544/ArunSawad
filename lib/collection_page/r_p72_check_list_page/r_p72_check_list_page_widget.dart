@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/collection_page/input_field_component/input_field_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -571,63 +572,54 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Theme(
-                                            data: ThemeData(
-                                              checkboxTheme: CheckboxThemeData(
-                                                visualDensity:
-                                                    VisualDensity.standard,
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .padded,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                              ),
-                                              unselectedWidgetColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                            child: Checkbox(
-                                              value: _model.checkboxValueMap[
-                                                      checkListItemItem] ??=
-                                                  checkListItemItem.isProcess ==
-                                                      '1',
-                                              onChanged: (newValue) async {
-                                                safeSetState(() =>
-                                                    _model.checkboxValueMap[
-                                                            checkListItemItem] =
-                                                        newValue!);
-                                                if (newValue!) {
-                                                  _model
-                                                      .updateCurrentCheckListCheckedAtIndex(
-                                                    checkListItemIndex,
-                                                    (e) => e..isProcess = '1',
-                                                  );
-                                                  safeSetState(() {});
-                                                } else {
-                                                  _model
-                                                      .updateCurrentCheckListCheckedAtIndex(
-                                                    checkListItemIndex,
-                                                    (e) => e..isProcess = '0',
-                                                  );
-                                                  safeSetState(() {});
-                                                }
-                                              },
-                                              side: BorderSide(
-                                                width: 2,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                          Builder(
+                                            builder: (context) {
+                                              if (checkListItemItem.isProcess ==
+                                                  '0') {
+                                                return FlutterFlowIconButton(
+                                                  borderRadius: 8.0,
+                                                  buttonSize: 40.0,
+                                                  fillColor: Colors.white,
+                                                  icon: Icon(
+                                                    Icons
+                                                        .check_box_outline_blank_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .primaryText,
-                                              ),
-                                              activeColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              checkColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    _model
+                                                        .updateCurrentCheckListCheckedAtIndex(
+                                                      checkListItemIndex,
+                                                      (e) => e..isProcess = '1',
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                );
+                                              } else {
+                                                return FlutterFlowIconButton(
+                                                  borderRadius: 8.0,
+                                                  buttonSize: 40.0,
+                                                  fillColor: Colors.white,
+                                                  icon: Icon(
+                                                    Icons.check_box_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .info,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    _model
+                                                        .updateCurrentCheckListCheckedAtIndex(
+                                                      checkListItemIndex,
+                                                      (e) => e..isProcess = '0',
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                );
+                                              }
+                                            },
                                           ),
                                           Expanded(
                                             child: Container(
@@ -673,9 +665,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                         ],
                                       ),
                                     ),
-                                    if (_model.checkboxValueMap[
-                                            checkListItemItem] ??
-                                        true)
+                                    if (checkListItemItem.isProcess == '1')
                                       wrapWithModel(
                                         model: _model.inputFieldComponentModels
                                             .getModel(
