@@ -600,6 +600,11 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                             checkListItemItem] =
                                                         newValue!);
                                                 if (newValue!) {
+                                                  _model
+                                                      .updateCurrentCheckListCheckedAtIndex(
+                                                    checkListItemIndex,
+                                                    (e) => e..isProcess = '1',
+                                                  );
                                                   safeSetState(() {});
                                                 } else {
                                                   _model
