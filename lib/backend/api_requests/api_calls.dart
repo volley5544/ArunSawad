@@ -1164,6 +1164,47 @@ class SearchByContainerNumberAndCustomerDetailsUsingFormDataCall {
 
 /// End SWP Fin Search API Group Code
 
+/// Start Example API Group Code
+
+class ExampleAPIGroup {
+  static String getBaseUrl() => 'https://dev.swpfin.com:8179/api';
+  static Map<String, String> headers = {};
+  static GetRp7FormCall getRp7FormCall = GetRp7FormCall();
+}
+
+class GetRp7FormCall {
+  Future<ApiCallResponse> call({
+    String? bearerAuth = '',
+    String? contno = '',
+  }) async {
+    final baseUrl = ExampleAPIGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "contno": "${escapeStringForJson(contno)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'get-rp7-form',
+      apiUrl: '${baseUrl}/send-data/get-rp7-form',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${bearerAuth}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End Example API Group Code
+
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
     String? username = '',
@@ -2909,9 +2950,12 @@ class CollectionAPICall {
     String? urlImg = '',
     String? branchLocation = '',
     String? branchName = '',
+    dynamic? rp72FormJson,
   }) async {
+    final rp72Form = _serializeJson(rp72FormJson, true);
     final ffApiRequestBody = '''
 {
+"rp72_form" : ${rp72Form},
   "Description": "${description}",
   "Remark": "${remark}",
   "UID": "${uid}",
@@ -2960,6 +3004,57 @@ class CollectionAPICall {
         response,
         r'''$.info.Timesheet.Data.RecordId''',
       ));
+}
+
+class GetRPCheckListCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? contNo = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "contno": "${contNo}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetRPCheckList',
+      apiUrl: '${apiUrl}/api/send-data/get-rp7-form',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? mainStatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<RP72CheckListDataModelStruct>? checkListData(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => RP72CheckListDataModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class LawLedAPICall {

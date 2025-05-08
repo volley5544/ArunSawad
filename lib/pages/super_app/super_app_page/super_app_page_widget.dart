@@ -9488,8 +9488,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                             decoration: BoxDecoration(
                                                                                               shape: BoxShape.circle,
                                                                                             ),
-                                                                                            child: Image.network(
-                                                                                              'https://th.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/basic_market/generator/dist/generator/assets/images/websiteQRCode_noFrame.png',
+                                                                                            child: Image.asset(
+                                                                                              'assets/images/qr_image.png',
                                                                                             ),
                                                                                           ),
                                                                                         ),

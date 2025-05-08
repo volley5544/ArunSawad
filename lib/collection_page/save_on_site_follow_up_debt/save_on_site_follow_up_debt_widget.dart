@@ -1703,8 +1703,139 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         optionLabels:
                                             columnBranchviewDropdownRecord!
                                                 .dropdownName,
-                                        onChanged: (val) => safeSetState(() =>
-                                            _model.dropDownFollowupValue = val),
+                                        onChanged: (val) async {
+                                          safeSetState(() => _model
+                                              .dropDownFollowupValue = val);
+                                          var _shouldSetState = false;
+                                          if (_model.dropDownFollowupValue !=
+                                              'RP82') {
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if (FFAppState()
+                                                  .rp72DataList
+                                                  .length !=
+                                              0) {
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(context)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: Container(
+                                                      height: double.infinity,
+                                                      child:
+                                                          LoadingSceneWidget(),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+
+                                          _model.getRp72CheckListOutput =
+                                              await GetRPCheckListCall.call(
+                                            token: FFAppState().accessToken,
+                                            contNo: widget!.contNo,
+                                            apiUrl:
+                                                FFAppState().apiURLLocalState,
+                                          );
+
+                                          _shouldSetState = true;
+                                          if ((_model.getRp72CheckListOutput
+                                                      ?.statusCode ??
+                                                  200) !=
+                                              200) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด Connection(${(_model.getRp72CheckListOutput?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if ('${getJsonField(
+                                                (_model.getRp72CheckListOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.code''',
+                                              ).toString()}' !=
+                                              '200') {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content:
+                                                        Text('${getJsonField(
+                                                      (_model.getRp72CheckListOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                      r'''$.message''',
+                                                    ).toString()}'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          _model.rp72CheckListData =
+                                              GetRPCheckListCall.checkListData(
+                                            (_model.getRp72CheckListOutput
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<
+                                                      RP72CheckListDataModelStruct>();
+                                          safeSetState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                        },
                                         width: 200.0,
                                         height: 50.0,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -2821,6 +2952,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         FFAppState().profileLevel == 'สาขา'
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
+                                    rp72FormJson: FFAppState()
+                                        .rp72DataList
+                                        .map((e) => e.toMap())
+                                        .toList(),
                                   );
 
                                   _shouldSetState = true;
@@ -2902,6 +3037,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           );
                                         },
                                       );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if (!false) {
+                                      Navigator.pop(context);
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }

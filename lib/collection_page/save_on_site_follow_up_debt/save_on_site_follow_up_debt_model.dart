@@ -62,6 +62,8 @@ class SaveOnSiteFollowUpDebtModel
   // State field(s) for DropDownFollowup widget.
   String? dropDownFollowupValue;
   FormFieldController<String>? dropDownFollowupValueController;
+  // Stores action output result for [Backend Call - API (GetRPCheckList)] action in DropDownFollowup widget.
+  ApiCallResponse? getRp72CheckListOutput;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController1;

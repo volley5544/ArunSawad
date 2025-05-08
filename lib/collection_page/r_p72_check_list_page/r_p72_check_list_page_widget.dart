@@ -590,34 +590,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () async {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(functions
-                                                                .countTheValueInList(
-                                                                    FFAppState()
-                                                                        .rp72DataList
-                                                                        .map((e) =>
-                                                                            e.isProcess)
-                                                                        .toList(),
-                                                                    '1')
-                                                                .toString()),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
                                                     _model
                                                         .updateCurrentCheckListCheckedAtIndex(
                                                       checkListItemIndex,
@@ -639,34 +611,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () async {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(functions
-                                                                .countTheValueInList(
-                                                                    FFAppState()
-                                                                        .rp72DataList
-                                                                        .map((e) =>
-                                                                            e.isProcess)
-                                                                        .toList(),
-                                                                    '1')
-                                                                .toString()),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
                                                     _model
                                                         .updateCurrentCheckListCheckedAtIndex(
                                                       checkListItemIndex,
@@ -808,24 +752,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                       '') {
                                     _model.isLoopFinished = false;
                                     safeSetState(() {});
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณากรอกหมายเหตุของรายการข้อ ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistSort}. ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistName}'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
                                     break;
                                   }
                                   _model.updateCurrentCheckListCheckedAtIndex(
@@ -851,44 +777,9 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                     _model.loopCountTemp! + 1;
                                 safeSetState(() {});
                               }
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text(
-                                          _model.isLoopFinished.toString()),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
                               if (!_model.isLoopFinished) {
                                 return;
                               }
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text('before update'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
                               FFAppState().rp72DataList = _model
                                   .currentCheckListChecked
                                   .toList()
