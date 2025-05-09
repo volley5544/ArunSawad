@@ -3243,9 +3243,11 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                           _model.textController1
                                                                   .text !=
                                                               '') &&
-                                                      (double.parse(_model
-                                                              .textController1
-                                                              .text) >
+                                                      (double.parse(functions
+                                                              .removeCommaFromNumText(
+                                                                  _model
+                                                                      .textController1
+                                                                      .text)) >
                                                           0.0)) {
                                                     while (FFAppState()
                                                             .loopCountNumber <
@@ -3324,16 +3326,17 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                       .text,
                                                                 ) !=
                                                                 '') &&
-                                                        (double.parse((_model
-                                                                .inputComponentModels
-                                                                .getValueForKey(
+                                                        (double.parse(functions
+                                                                .removeCommaFromNumText(_model
+                                                                    .inputComponentModels
+                                                                    .getValueForKey(
                                                               FFAppState()
                                                                   .loopCountNumber
                                                                   .toString(),
                                                               (m) => m
                                                                   .textController
                                                                   .text,
-                                                            )!)) >
+                                                            ))) >
                                                             0))) {
                                                       FFAppState()
                                                               .loopStatusTemp =
