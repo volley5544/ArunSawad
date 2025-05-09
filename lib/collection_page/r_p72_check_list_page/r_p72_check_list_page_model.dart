@@ -49,6 +49,8 @@ class RP72CheckListPageModel extends FlutterFlowModel<RP72CheckListPageWidget> {
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // Stores action output result for [Bottom Sheet - InputFieldComponent] action in IconButton widget.
   String? inputFieldComponentOutput;
+  // Stores action output result for [Bottom Sheet - InputFieldComponent] action in Icon widget.
+  String? editInputFieldComponentOutput;
 
   @override
   void initState(BuildContext context) {

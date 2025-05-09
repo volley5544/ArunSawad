@@ -598,7 +598,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                                   context)
                                                               .secondaryBackground,
                                                       barrierColor:
-                                                          Colors.black,
+                                                          Color(0xBF000000),
                                                       isDismissible: false,
                                                       enableDrag: false,
                                                       context: context,
@@ -676,7 +676,9 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     _model
                                                         .updateCurrentCheckListCheckedAtIndex(
                                                       checkListItemIndex,
-                                                      (e) => e..isProcess = '0',
+                                                      (e) => e
+                                                        ..isProcess = '0'
+                                                        ..remark = '',
                                                     );
                                                     safeSetState(() {});
                                                   },
@@ -750,6 +752,8 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Expanded(
                                                       flex: 1,
@@ -819,6 +823,93 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                                     .fontStyle,
                                                               ),
                                                         ),
+                                                      ),
+                                                    ),
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        var _shouldSetState =
+                                                            false;
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryBackground,
+                                                          barrierColor:
+                                                              Color(0xBF000000),
+                                                          isDismissible: false,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      InputFieldComponentWidget(
+                                                                    initialText:
+                                                                        checkListItemItem
+                                                                            .remark,
+                                                                    hintText:
+                                                                        'หมายเหตุ...',
+                                                                    titleText:
+                                                                        '${checkListItemItem.checklistSort}. ${checkListItemItem.checklistName}',
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(() =>
+                                                                _model.editInputFieldComponentOutput =
+                                                                    value));
+
+                                                        _shouldSetState = true;
+                                                        if (!(('${_model.editInputFieldComponentOutput}' !=
+                                                                '') &&
+                                                            ('${_model.editInputFieldComponentOutput}' !=
+                                                                'null'))) {
+                                                          if (_shouldSetState)
+                                                            safeSetState(() {});
+                                                          return;
+                                                        }
+                                                        _model
+                                                            .updateCurrentCheckListCheckedAtIndex(
+                                                          checkListItemIndex,
+                                                          (e) => e
+                                                            ..remark =
+                                                                '${_model.editInputFieldComponentOutput}',
+                                                        );
+                                                        safeSetState(() {});
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                      },
+                                                      child: Icon(
+                                                        Icons.edit_outlined,
+                                                        color:
+                                                            Color(0xFFFF6500),
+                                                        size: 24.0,
                                                       ),
                                                     ),
                                                   ],
