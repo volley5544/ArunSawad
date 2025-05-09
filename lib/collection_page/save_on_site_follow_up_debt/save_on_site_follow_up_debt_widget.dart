@@ -97,6 +97,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      FFAppState().rp72DataList = [];
+      safeSetState(() {});
       _model.checkLatLngBVCollection = await actions.a8(
         currentUserLocationValue,
       );
@@ -286,7 +288,9 @@ class _SaveOnSiteFollowUpDebtWidgetState
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: AppbarFollowUpDebtWidget(),
+                          child: AppbarFollowUpDebtWidget(
+                            fromPage: 'OnSide',
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -1901,155 +1905,289 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Builder(
-                                          builder: (context) {
-                                            if (_model.dropDownFollowupValue !=
-                                                'RP82') {
-                                              return FFButtonWidget(
-                                                onPressed: () async {
-                                                  await launchURL(columnBranchviewDropdownRecord!
-                                                      .urlLink
-                                                      .elementAtOrNull(functions
-                                                          .getIndexOfSomethingList(
-                                                              columnBranchviewDropdownRecord
-                                                                  ?.dropdownValue
-                                                                  ?.toList(),
-                                                              _model
-                                                                  .dropDownFollowupValue))!);
-                                                },
-                                                text: 'เปิดฟอร์ม',
-                                                options: FFButtonOptions(
-                                                  width: 200.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 0.0, 16.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
+                                        Expanded(
+                                          child: Builder(
+                                            builder: (context) {
+                                              if (_model
+                                                      .dropDownFollowupValue !=
+                                                  'RP82') {
+                                                return Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      await launchURL(columnBranchviewDropdownRecord!
+                                                          .urlLink
+                                                          .elementAtOrNull(functions
+                                                              .getIndexOfSomethingList(
+                                                                  columnBranchviewDropdownRecord
+                                                                      ?.dropdownValue
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .dropDownFollowupValue))!);
+                                                    },
+                                                    text: 'เปิดฟอร์ม',
+                                                    options: FFButtonOptions(
+                                                      width: 200.0,
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Colors
+                                                                    .white,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                              ),
+                                                      elevation: 0.0,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'รายงาน',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '${functions.countTheValueInList(FFAppState().rp72DataList.map((e) => e.isProcess).toList(), '1').toString()}/${FFAppState().rp72DataList.length.toString()}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: functions.countTheValueInList(FFAppState().rp72DataList.map((e) => e.isProcess).toList(), '1') ==
+                                                                          FFAppState()
+                                                                              .rp72DataList
+                                                                              .length
+                                                                      ? FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .success
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                  fontSize:
+                                                                      13.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                1.0, 0.0),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            context.pushNamed(
+                                                              RP72CheckListPageWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'firstname':
+                                                                    serializeParam(
+                                                                  widget!
+                                                                      .firstname,
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'lastname':
+                                                                    serializeParam(
+                                                                  widget!
+                                                                      .lastname,
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'contNo':
+                                                                    serializeParam(
+                                                                  widget!
+                                                                      .contNo,
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'inputCheckListDataList':
+                                                                    serializeParam(
+                                                                  FFAppState()
+                                                                      .rp72DataList,
+                                                                  ParamType
+                                                                      .DataStruct,
+                                                                  isList: true,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          text: 'รายงานตามหนี้',
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: 200.0,
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .poppins(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: Colors
+                                                                          .white,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
                                                         ),
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
                                                       ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                              );
-                                            } else {
-                                              return FFButtonWidget(
-                                                onPressed: () async {
-                                                  context.pushNamed(
-                                                    RP72CheckListPageWidget
-                                                        .routeName,
-                                                    queryParameters: {
-                                                      'firstname':
-                                                          serializeParam(
-                                                        widget!.firstname,
-                                                        ParamType.String,
-                                                      ),
-                                                      'lastname':
-                                                          serializeParam(
-                                                        widget!.lastname,
-                                                        ParamType.String,
-                                                      ),
-                                                      'contNo': serializeParam(
-                                                        widget!.contNo,
-                                                        ParamType.String,
-                                                      ),
-                                                      'inputCheckListDataList':
-                                                          serializeParam(
-                                                        FFAppState()
-                                                            .rp72DataList,
-                                                        ParamType.DataStruct,
-                                                        isList: true,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                                text: 'รายงานตามหนี้',
-                                                options: FFButtonOptions(
-                                                  width: 200.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 0.0, 16.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                              );
-                                            }
-                                          },
+                                                    ),
+                                                  ],
+                                                );
+                                              }
+                                            },
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -3144,6 +3282,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     FFAppState().update(() {});
                                     FFAppState().vloanContNoListTemp = [];
                                     FFAppState().update(() {});
+                                    FFAppState().rp72DataList = [];
+                                    safeSetState(() {});
                                   } else {
                                     Navigator.pop(context);
                                     await showDialog(
