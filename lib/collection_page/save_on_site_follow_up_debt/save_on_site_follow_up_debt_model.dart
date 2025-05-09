@@ -33,22 +33,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SaveOnSiteFollowUpDebtModel
     extends FlutterFlowModel<SaveOnSiteFollowUpDebtWidget> {
-  ///  Local state fields for this page.
-
-  List<RP72CheckListDataModelStruct> rp72CheckListData = [];
-  void addToRp72CheckListData(RP72CheckListDataModelStruct item) =>
-      rp72CheckListData.add(item);
-  void removeFromRp72CheckListData(RP72CheckListDataModelStruct item) =>
-      rp72CheckListData.remove(item);
-  void removeAtIndexFromRp72CheckListData(int index) =>
-      rp72CheckListData.removeAt(index);
-  void insertAtIndexInRp72CheckListData(
-          int index, RP72CheckListDataModelStruct item) =>
-      rp72CheckListData.insert(index, item);
-  void updateRp72CheckListDataAtIndex(
-          int index, Function(RP72CheckListDataModelStruct) updateFn) =>
-      rp72CheckListData[index] = updateFn(rp72CheckListData[index]);
-
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - a8] action in saveOnSiteFollowUpDebt widget.

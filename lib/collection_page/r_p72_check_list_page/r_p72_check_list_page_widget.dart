@@ -712,6 +712,8 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                             onPressed: () async {
                               _model.loopCountTemp = 0;
                               _model.isLoopFinished = true;
+                              _model.textCombinedTemp = '';
+                              _model.textCombinedTemp2 = '';
                               safeSetState(() {});
                               if (!((List<String> checkedList) {
                                 return checkedList.contains('1');
@@ -740,18 +742,51 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                               }
                               while (_model.loopCountTemp! <
                                   _model.currentCheckListChecked.length) {
+                                _model.textCombinedTemp2 =
+                                    '${_model.textCombinedTemp}${", \n"}${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.isProcess}';
+                                safeSetState(() {});
                                 if (_model.currentCheckListChecked
                                         .elementAtOrNull(_model.loopCountTemp!)
                                         ?.isProcess ==
                                     '1') {
-                                  if (_model.inputFieldComponentModels
-                                          .getValueAtIndex(
-                                        _model.loopCountTemp!,
-                                        (m) => m.textController.text,
-                                      ) ==
-                                      '') {
+                                  if (!((_model.inputFieldComponentModels
+                                              .getValueAtIndex(
+                                            _model.loopCountTemp!,
+                                            (m) => m.textController.text,
+                                          ) !=
+                                          '') &&
+                                      (_model.inputFieldComponentModels
+                                                  .getValueAtIndex(
+                                                _model.loopCountTemp!,
+                                                (m) => m.textController.text,
+                                              ) !=
+                                              null &&
+                                          _model.inputFieldComponentModels
+                                                  .getValueAtIndex(
+                                                _model.loopCountTemp!,
+                                                (m) => m.textController.text,
+                                              ) !=
+                                              ''))) {
                                     _model.isLoopFinished = false;
                                     safeSetState(() {});
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณากรอกหมายเหตุข้อ ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistSort}. ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistName}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
                                     break;
                                   }
                                   _model.updateCurrentCheckListCheckedAtIndex(
@@ -765,11 +800,17 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                       ),
                                   );
                                   safeSetState(() {});
+                                  _model.textCombinedTemp =
+                                      '${_model.textCombinedTemp}${", \n"}${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.remark}';
+                                  safeSetState(() {});
                                 } else {
                                   _model.updateCurrentCheckListCheckedAtIndex(
                                     _model.loopCountTemp!,
                                     (e) => e..remark = '',
                                   );
+                                  safeSetState(() {});
+                                  _model.textCombinedTemp =
+                                      '${_model.textCombinedTemp}${", \n"}${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.remark}';
                                   safeSetState(() {});
                                 }
 

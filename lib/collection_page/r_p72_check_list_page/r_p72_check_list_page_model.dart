@@ -39,6 +39,10 @@ class RP72CheckListPageModel extends FlutterFlowModel<RP72CheckListPageWidget> {
 
   bool isLoopFinished = true;
 
+  String? textCombinedTemp;
+
+  String? textCombinedTemp2;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for appbarFollowUpDebt component.

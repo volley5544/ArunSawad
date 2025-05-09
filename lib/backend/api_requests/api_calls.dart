@@ -1170,6 +1170,7 @@ class ExampleAPIGroup {
   static String getBaseUrl() => 'https://dev.swpfin.com:8179/api';
   static Map<String, String> headers = {};
   static GetRp7FormCall getRp7FormCall = GetRp7FormCall();
+  static SaveCollectionCall saveCollectionCall = SaveCollectionCall();
 }
 
 class GetRp7FormCall {
@@ -1181,11 +1182,58 @@ class GetRp7FormCall {
 
     final ffApiRequestBody = '''
 {
-  "contno": "${escapeStringForJson(contno)}"
+  "contno": "บ7M650801001NF58X"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'get-rp7-form',
       apiUrl: '${baseUrl}/send-data/get-rp7-form',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${bearerAuth}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SaveCollectionCall {
+  Future<ApiCallResponse> call({
+    String? bearerAuth = '',
+  }) async {
+    final baseUrl = ExampleAPIGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "ContNo": "บ7M650801001NF58X",
+  "CitizenId": "1129900359884",
+  "Customer_Name": "Kongkiat",
+  "Remark": "เพิ่ม Collection",
+  "Username": "31247",
+  "Job_Type": "Collection",
+  "Location": "13.32323232,100.32323232",
+  "Description": "เพิ่ม Collection ทดสอบ",
+  "UID": "f8cb8fd8-1738-47c5-a139-6a07961987e8",
+  "VLoan_Server": "ML",
+  "url_img": "https://google.com",
+  "rp72_form": [
+    {
+      "checklist_id": "1",
+      "is_process": "0",
+      "remark": ""
+    }
+  ]
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'save-collection',
+      apiUrl: '${baseUrl}/send-data/collection',
       callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Bearer ${bearerAuth}',
