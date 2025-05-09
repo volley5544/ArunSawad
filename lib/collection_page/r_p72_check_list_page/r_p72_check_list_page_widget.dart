@@ -58,66 +58,10 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
         parameters: {'screen_name': 'RP72CheckListPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(functions
-                  .countTheValueInList(
-                      FFAppState()
-                          .rp72DataList
-                          .map((e) => e.isProcess)
-                          .toList()
-                          .toList(),
-                      '1')
-                  .toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('123'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       _model.currentCheckListChecked = widget!.inputCheckListDataList!
           .toList()
           .cast<RP72CheckListDataModelStruct>();
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('321'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     animationsMap.addAll({

@@ -190,7 +190,7 @@ class _InputFieldComponentWidgetState extends State<InputFieldComponentWidget> {
                             child: TextFormField(
                               controller: _model.textController,
                               focusNode: _model.textFieldFocusNode,
-                              autofocus: false,
+                              autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
                                 isDense: false,
