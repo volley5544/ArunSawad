@@ -818,6 +818,40 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                     _model.loopCountTemp! + 1;
                                 safeSetState(() {});
                               }
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      content: Text(_model.textCombinedTemp!),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      content: Text(_model.textCombinedTemp2!),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
                               if (!_model.isLoopFinished) {
                                 return;
                               }
