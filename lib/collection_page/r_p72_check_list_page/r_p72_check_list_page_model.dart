@@ -47,21 +47,17 @@ class RP72CheckListPageModel extends FlutterFlowModel<RP72CheckListPageWidget> {
 
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
-  // Models for InputFieldComponent dynamic component.
-  late FlutterFlowDynamicModels<InputFieldComponentModel>
-      inputFieldComponentModels;
+  // Stores action output result for [Bottom Sheet - InputFieldComponent] action in IconButton widget.
+  String? inputFieldComponentOutput;
 
   @override
   void initState(BuildContext context) {
     appbarFollowUpDebtModel =
         createModel(context, () => AppbarFollowUpDebtModel());
-    inputFieldComponentModels =
-        FlutterFlowDynamicModels(() => InputFieldComponentModel());
   }
 
   @override
   void dispose() {
     appbarFollowUpDebtModel.dispose();
-    inputFieldComponentModels.dispose();
   }
 }

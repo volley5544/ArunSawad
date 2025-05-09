@@ -590,12 +590,74 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () async {
+                                                    var _shouldSetState = false;
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                      barrierColor:
+                                                          Colors.black,
+                                                      isDismissible: false,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  InputFieldComponentWidget(
+                                                                initialText:
+                                                                    checkListItemItem
+                                                                        .remark,
+                                                                hintText:
+                                                                    'หมายเหตุ...',
+                                                                titleText:
+                                                                    '${checkListItemItem.checklistSort}. ${checkListItemItem.checklistName}',
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() => _model
+                                                                .inputFieldComponentOutput =
+                                                            value));
+
+                                                    _shouldSetState = true;
+                                                    if (!(('${_model.inputFieldComponentOutput}' !=
+                                                            '') &&
+                                                        ('${_model.inputFieldComponentOutput}' !=
+                                                            'null'))) {
+                                                      if (_shouldSetState)
+                                                        safeSetState(() {});
+                                                      return;
+                                                    }
                                                     _model
                                                         .updateCurrentCheckListCheckedAtIndex(
                                                       checkListItemIndex,
-                                                      (e) => e..isProcess = '1',
+                                                      (e) => e
+                                                        ..isProcess = '1'
+                                                        ..remark =
+                                                            '${_model.inputFieldComponentOutput}',
                                                     );
                                                     safeSetState(() {});
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
                                                   },
                                                 );
                                               } else {
@@ -667,20 +729,103 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                       ),
                                     ),
                                     if (checkListItemItem.isProcess == '1')
-                                      wrapWithModel(
-                                        model: _model.inputFieldComponentModels
-                                            .getModel(
-                                          checkListItemIndex.toString(),
-                                          checkListItemIndex,
-                                        ),
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: InputFieldComponentWidget(
-                                          key: Key(
-                                            'Keympq_${checkListItemIndex.toString()}',
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 12.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                           ),
-                                          initialText: checkListItemItem.remark,
-                                          hintText: 'หมายเหตุ...',
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        'หมายเหตุ :',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 3,
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Text(
+                                                          checkListItemItem
+                                                              .remark,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     Divider(
@@ -749,57 +894,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                         .elementAtOrNull(_model.loopCountTemp!)
                                         ?.isProcess ==
                                     '1') {
-                                  if (!((_model.inputFieldComponentModels
-                                              .getValueAtIndex(
-                                            _model.loopCountTemp!,
-                                            (m) => m.textController.text,
-                                          ) !=
-                                          '') &&
-                                      (_model.inputFieldComponentModels
-                                                  .getValueAtIndex(
-                                                _model.loopCountTemp!,
-                                                (m) => m.textController.text,
-                                              ) !=
-                                              null &&
-                                          _model.inputFieldComponentModels
-                                                  .getValueAtIndex(
-                                                _model.loopCountTemp!,
-                                                (m) => m.textController.text,
-                                              ) !=
-                                              ''))) {
-                                    _model.isLoopFinished = false;
-                                    safeSetState(() {});
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณากรอกหมายเหตุข้อ ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistSort}. ${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.checklistName}'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    break;
-                                  }
-                                  _model.updateCurrentCheckListCheckedAtIndex(
-                                    _model.loopCountTemp!,
-                                    (e) => e
-                                      ..remark = _model
-                                          .inputFieldComponentModels
-                                          .getValueAtIndex(
-                                        _model.loopCountTemp!,
-                                        (m) => m.textController.text,
-                                      ),
-                                  );
-                                  safeSetState(() {});
                                   _model.textCombinedTemp =
                                       '${_model.textCombinedTemp}${", \n"}${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.remark}';
                                   safeSetState(() {});
@@ -852,9 +946,6 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                                   );
                                 },
                               );
-                              if (!_model.isLoopFinished) {
-                                return;
-                              }
                               FFAppState().rp72DataList = _model
                                   .currentCheckListChecked
                                   .toList()
