@@ -743,7 +743,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                               while (_model.loopCountTemp! <
                                   _model.currentCheckListChecked.length) {
                                 _model.textCombinedTemp2 =
-                                    '${_model.textCombinedTemp}${", \n"}${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.isProcess}';
+                                    '${_model.textCombinedTemp2}${", \n"}${_model.currentCheckListChecked.elementAtOrNull(_model.loopCountTemp!)?.isProcess}';
                                 safeSetState(() {});
                                 if (_model.currentCheckListChecked
                                         .elementAtOrNull(_model.loopCountTemp!)
