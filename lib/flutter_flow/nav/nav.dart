@@ -2718,6 +2718,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                       RP72CheckListDataModelStruct.fromSerializableMap,
                 ),
               ),
+            ),
+            FFRoute(
+              name: Ew9tf0uewitfWidget.routeName,
+              path: Ew9tf0uewitfWidget.routePath,
+              builder: (context, params) => Ew9tf0uewitfWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

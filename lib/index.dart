@@ -281,3 +281,4 @@ export '/sawad_chat/add_people_page/add_people_page_widget.dart'
     show AddPeoplePageWidget;
 export '/collection_page/r_p72_check_list_page/r_p72_check_list_page_widget.dart'
     show RP72CheckListPageWidget;
+export '/ew9tf0uewitf/ew9tf0uewitf_widget.dart' show Ew9tf0uewitfWidget;

@@ -1711,6 +1711,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           safeSetState(() => _model
                                               .dropDownFollowupValue = val);
                                           var _shouldSetState = false;
+                                          if (!false) {
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
                                           if (!((_model.dropDownFollowupValue ==
                                                   'RP82') ||
                                               (_model.dropDownFollowupValue ==
@@ -1922,7 +1927,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         (_model.dropDownFollowupValue ==
                                             'RP82') ||
                                         (_model.dropDownFollowupValue ==
-                                            'RP84')))
+                                            'RP84')) &&
+                                    false)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 10.0),
@@ -3115,27 +3121,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         FFAppState().profileLevel == 'สาขา'
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
-                                    formDataJson: FFAppState()
-                                        .rp72DataList
-                                        .map((e) => e.toMap())
-                                        .toList(),
-                                    form: () {
-                                      if (_model.dropDownFollowupValue ==
-                                          'RP81') {
-                                        return '8_1';
-                                      } else if (_model.dropDownFollowupValue ==
-                                          'RP82') {
-                                        return '8_2';
-                                      } else if (_model.dropDownFollowupValue ==
-                                          'RP83') {
-                                        return '8_3';
-                                      } else if (_model.dropDownFollowupValue ==
-                                          'RP84') {
-                                        return '8_4';
-                                      } else {
-                                        return '8_2';
-                                      }
-                                    }(),
                                   );
 
                                   _shouldSetState = true;

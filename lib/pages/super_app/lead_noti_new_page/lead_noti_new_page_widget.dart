@@ -4367,32 +4367,6 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         )!
                                                                             .toList()
                                                                             .cast<dynamic>();
-                                                                        _model
-                                                                            .currentShowingDataJson = () {
-                                                                          if (_model.selectedTab ==
-                                                                              'Telesale') {
-                                                                            return _model.leadTeleDataJson;
-                                                                          } else if (_model.selectedTab ==
-                                                                              'Survey') {
-                                                                            return _model.leadSurveyDataJson;
-                                                                          } else if (_model.selectedTab ==
-                                                                              'Agent') {
-                                                                            return _model.leadAgentDataJson;
-                                                                          } else if (_model.selectedTab ==
-                                                                              'Owner') {
-                                                                            return _model.leadOwnerDataJson;
-                                                                          } else if (_model.selectedTab ==
-                                                                              'Truck') {
-                                                                            return _model.leadTruckDataJson;
-                                                                          } else if (_model.selectedTab ==
-                                                                              'HP') {
-                                                                            return _model.leadHPDataJson;
-                                                                          } else {
-                                                                            return _model.leadNotiModifyJson;
-                                                                          }
-                                                                        }()
-                                                                            .toList()
-                                                                            .cast<dynamic>();
                                                                         _model.allLeadDataJson = _model
                                                                             .leadNotiModifyJson
                                                                             .toList()
