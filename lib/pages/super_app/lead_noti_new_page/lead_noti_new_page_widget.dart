@@ -209,6 +209,13 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
           .toList()!
           .toList()
           .cast<String>();
+      _model.leadHPDataJson = getJsonField(
+        _model.leadDataByCategory,
+        r'''$.LeadHP''',
+        true,
+      )!
+          .toList()
+          .cast<dynamic>();
       safeSetState(() {});
       Navigator.pop(context);
     });
@@ -789,17 +796,17 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                         onTap: () async {
                                           HapticFeedback.mediumImpact();
                                           _model.currentShowingDataJson = _model
-                                              .leadAgentDataJson
+                                              .leadHPDataJson
                                               .toList()
                                               .cast<dynamic>();
-                                          _model.selectedTab = 'Agent';
+                                          _model.selectedTab = 'HP';
                                           safeSetState(() {});
                                           _model.filterAssetType = 'ทั้งหมด';
                                           _model.filterSubChennel = 'ทั้งหมด';
                                           safeSetState(() {});
                                           _model.filterList =
                                               functions.returnLeadFilterList(
-                                                  _model.leadAgentDataJson
+                                                  _model.leadHPDataJson
                                                       .toList());
                                           safeSetState(() {});
                                           _model.subChannelFilterList =
@@ -852,8 +859,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                             width: 95.0,
                                             height: 69.0,
                                             decoration: BoxDecoration(
-                                              color: _model.selectedTab ==
-                                                      'Agent'
+                                              color: _model.selectedTab == 'HP'
                                                   ? (leadNotiNewPageLeadChannelColorRecord
                                                       ?.color
                                                       ?.elementAtOrNull(functions
@@ -861,7 +867,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                               leadNotiNewPageLeadChannelColorRecord
                                                                   ?.leadChannel
                                                                   ?.toList(),
-                                                              'Lead Agent')))
+                                                              'Lead HP')))
                                                   : FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius: BorderRadius.only(
@@ -883,7 +889,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 10.0),
                                                   child: Text(
-                                                    'ตัวแทน',
+                                                    'เช่าซื้อ',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -923,8 +929,8 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                         .showNumberWithComma(
                                                             valueOrDefault<
                                                                 String>(
-                                                      _model.leadAgentDataJson
-                                                          .length
+                                                      _model
+                                                          .leadHPDataJson.length
                                                           .toString(),
                                                       '0',
                                                     )),
@@ -1031,7 +1037,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(24.0),
+                                              topRight: Radius.circular(0.0),
                                             ),
                                           ),
                                           child: Container(
@@ -1056,7 +1062,7 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                 bottomRight:
                                                     Radius.circular(0.0),
                                                 topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(24.0),
+                                                topRight: Radius.circular(0.0),
                                               ),
                                             ),
                                             child: Column(
@@ -1147,6 +1153,192 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                             : FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
+                                              ].addToStart(
+                                                  SizedBox(height: 4.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.mediumImpact();
+                                          _model.currentShowingDataJson = _model
+                                              .leadAgentDataJson
+                                              .toList()
+                                              .cast<dynamic>();
+                                          _model.selectedTab = 'Agent';
+                                          safeSetState(() {});
+                                          _model.filterAssetType = 'ทั้งหมด';
+                                          _model.filterSubChennel = 'ทั้งหมด';
+                                          safeSetState(() {});
+                                          _model.filterList =
+                                              functions.returnLeadFilterList(
+                                                  _model.leadAgentDataJson
+                                                      .toList());
+                                          safeSetState(() {});
+                                          _model.subChannelFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.SubChannelFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          _model.assetTypeFilterList =
+                                              (getJsonField(
+                                            _model.filterList,
+                                            r'''$.AssetTypeFilter''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.textFieldSearchTextController
+                                                ?.clear();
+                                          });
+                                          await _model.listViewController3
+                                              ?.animateTo(
+                                            0,
+                                            duration:
+                                                Duration(milliseconds: 100),
+                                            curve: Curves.ease,
+                                          );
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(0.0),
+                                              topRight: Radius.circular(24.0),
+                                            ),
+                                          ),
+                                          child: Container(
+                                            width: 95.0,
+                                            height: 69.0,
+                                            decoration: BoxDecoration(
+                                              color: _model.selectedTab ==
+                                                      'Agent'
+                                                  ? (leadNotiNewPageLeadChannelColorRecord
+                                                      ?.color
+                                                      ?.elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              leadNotiNewPageLeadChannelColorRecord
+                                                                  ?.leadChannel
+                                                                  ?.toList(),
+                                                              'Lead Agent')))
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    'ตัวแทน',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .showNumberWithComma(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      _model.leadAgentDataJson
+                                                          .length
+                                                          .toString(),
+                                                      '0',
+                                                    )),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font:
+                                                            GoogleFonts.poppins(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -3683,6 +3875,18 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         ?.leadChannel
                                                                         ?.toList(),
                                                                     'Lead Truck')));
+                                                          } else if ('${getJsonField(
+                                                                leadListItemItem,
+                                                                r'''$.channel''',
+                                                              ).toString()}' ==
+                                                              'Lead HP') {
+                                                            return (leadNotiNewPageLeadChannelColorRecord
+                                                                ?.color
+                                                                ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                    leadNotiNewPageLeadChannelColorRecord
+                                                                        ?.leadChannel
+                                                                        ?.toList(),
+                                                                    'Lead HP')));
                                                           } else {
                                                             return FlutterFlowTheme
                                                                     .of(context)
@@ -4180,6 +4384,9 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           } else if (_model.selectedTab ==
                                                                               'Truck') {
                                                                             return _model.leadTruckDataJson;
+                                                                          } else if (_model.selectedTab ==
+                                                                              'HP') {
+                                                                            return _model.leadHPDataJson;
                                                                           } else {
                                                                             return _model.leadNotiModifyJson;
                                                                           }
@@ -4188,6 +4395,15 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                             .cast<dynamic>();
                                                                         _model.allLeadDataJson = _model
                                                                             .leadNotiModifyJson
+                                                                            .toList()
+                                                                            .cast<dynamic>();
+                                                                        _model
+                                                                            .leadHPDataJson = getJsonField(
+                                                                          _model
+                                                                              .leadDataByCategory,
+                                                                          r'''$.LeadHP''',
+                                                                          true,
+                                                                        )!
                                                                             .toList()
                                                                             .cast<dynamic>();
                                                                         safeSetState(
@@ -4750,6 +4966,11 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         'Truck') {
                                                                       return _model
                                                                           .leadTruckDataJson;
+                                                                    } else if (_model
+                                                                            .selectedTab ==
+                                                                        'HP') {
+                                                                      return _model
+                                                                          .leadHPDataJson;
                                                                     } else {
                                                                       return _model
                                                                           .leadNotiModifyJson;
@@ -4762,6 +4983,16 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                       .toList()
                                                                       .cast<
                                                                           dynamic>();
+                                                                  _model.leadHPDataJson =
+                                                                      getJsonField(
+                                                                    _model
+                                                                        .leadDataByCategory,
+                                                                    r'''$.LeadHP''',
+                                                                    true,
+                                                                  )!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              dynamic>();
                                                                   safeSetState(
                                                                       () {});
                                                                 }

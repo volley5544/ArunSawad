@@ -2998,12 +2998,13 @@ class CollectionAPICall {
     String? urlImg = '',
     String? branchLocation = '',
     String? branchName = '',
-    dynamic? rp72FormJson,
+    dynamic? formDataJson,
+    String? form = '',
   }) async {
-    final rp72Form = _serializeJson(rp72FormJson, true);
+    final formData = _serializeJson(formDataJson, true);
     final ffApiRequestBody = '''
 {
-"rp72_form" : ${rp72Form},
+"form_data" :${formData} ,
   "Description": "${description}",
   "Remark": "${remark}",
   "UID": "${uid}",
@@ -3018,8 +3019,10 @@ class CollectionAPICall {
   "VLoan_Server": "${vLoanServer}",
   "url_img": "${urlImg}",
   "Branch_Location": "${branchLocation}",
-  "Branch_Name": "${branchName}"
-}''';
+  "Branch_Name": "${branchName}",
+"form":"${form}"
+}
+''';
     return ApiManager.instance.makeApiCall(
       callName: 'CollectionAPI',
       apiUrl: '${apiUrl}/api/send-data/collection',
@@ -3059,14 +3062,16 @@ class GetRPCheckListCall {
     String? token = '',
     String? contNo = '',
     String? apiUrl = '',
+    String? form = '',
   }) async {
     final ffApiRequestBody = '''
 {
-  "contno": "${contNo}"
+  "contno": "${contNo}",
+"form":"${form}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetRPCheckList',
-      apiUrl: '${apiUrl}/api/send-data/get-rp7-form',
+      apiUrl: '${apiUrl}/api/send-data/get-onsite-form',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',

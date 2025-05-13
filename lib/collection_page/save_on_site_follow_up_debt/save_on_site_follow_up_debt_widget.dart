@@ -1711,8 +1711,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           safeSetState(() => _model
                                               .dropDownFollowupValue = val);
                                           var _shouldSetState = false;
-                                          if (_model.dropDownFollowupValue !=
-                                              'RP82') {
+                                          if (!((_model.dropDownFollowupValue ==
+                                                  'RP82') ||
+                                              (_model.dropDownFollowupValue ==
+                                                  'RP84'))) {
                                             if (_shouldSetState)
                                               safeSetState(() {});
                                             return;
@@ -1762,6 +1764,27 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             contNo: widget!.contNo,
                                             apiUrl:
                                                 FFAppState().apiURLLocalState,
+                                            form: () {
+                                              if (_model
+                                                      .dropDownFollowupValue ==
+                                                  'RP82') {
+                                                return '8_2';
+                                              } else if (_model
+                                                      .dropDownFollowupValue ==
+                                                  'RP84') {
+                                                return '8_4';
+                                              } else if (_model
+                                                      .dropDownFollowupValue ==
+                                                  'RP81') {
+                                                return '8_1';
+                                              } else if (_model
+                                                      .dropDownFollowupValue ==
+                                                  'RP83') {
+                                                return '8_3';
+                                              } else {
+                                                return '8_2';
+                                              }
+                                            }(),
                                           );
 
                                           _shouldSetState = true;
@@ -1897,7 +1920,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             .dropDownFollowupValue))) !=
                                             'Hello World') ||
                                         (_model.dropDownFollowupValue ==
-                                            'RP82')))
+                                            'RP72')))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 10.0),
@@ -3089,10 +3112,27 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         FFAppState().profileLevel == 'สาขา'
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
-                                    rp72FormJson: FFAppState()
+                                    formDataJson: FFAppState()
                                         .rp72DataList
                                         .map((e) => e.toMap())
                                         .toList(),
+                                    form: () {
+                                      if (_model.dropDownFollowupValue ==
+                                          'RP81') {
+                                        return '8_1';
+                                      } else if (_model.dropDownFollowupValue ==
+                                          'RP82') {
+                                        return '8_2';
+                                      } else if (_model.dropDownFollowupValue ==
+                                          'RP83') {
+                                        return '8_3';
+                                      } else if (_model.dropDownFollowupValue ==
+                                          'RP84') {
+                                        return '8_4';
+                                      } else {
+                                        return '8_2';
+                                      }
+                                    }(),
                                   );
 
                                   _shouldSetState = true;
@@ -3174,11 +3214,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
-                                    if (!false) {
-                                      Navigator.pop(context);
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }

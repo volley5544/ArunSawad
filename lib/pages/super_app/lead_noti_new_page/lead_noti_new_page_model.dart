@@ -162,6 +162,16 @@ class LeadNotiNewPageModel extends FlutterFlowModel<LeadNotiNewPageWidget> {
 
   dynamic filterList;
 
+  List<dynamic> leadHPDataJson = [];
+  void addToLeadHPDataJson(dynamic item) => leadHPDataJson.add(item);
+  void removeFromLeadHPDataJson(dynamic item) => leadHPDataJson.remove(item);
+  void removeAtIndexFromLeadHPDataJson(int index) =>
+      leadHPDataJson.removeAt(index);
+  void insertAtIndexInLeadHPDataJson(int index, dynamic item) =>
+      leadHPDataJson.insert(index, item);
+  void updateLeadHPDataJsonAtIndex(int index, Function(dynamic) updateFn) =>
+      leadHPDataJson[index] = updateFn(leadHPDataJson[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiNewPage widget.

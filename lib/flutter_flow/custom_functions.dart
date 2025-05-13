@@ -4845,7 +4845,8 @@ dynamic returnLeadListByChannel(
     'LeadTruck': [],
     'OwnerLead': [],
     'AssetTypeFilter': ['ทั้งหมด'],
-    'SubChannelFilter': ['ทั้งหมด']
+    'SubChannelFilter': ['ทั้งหมด'],
+    'LeadHP': [],
   };
   //Map<String, dynamic> mapInputData = leadJsonList![0];
   // print(mapInputData);
