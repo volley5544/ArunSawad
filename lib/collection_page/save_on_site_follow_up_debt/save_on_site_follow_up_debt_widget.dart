@@ -1719,14 +1719,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
-                                          if (FFAppState()
-                                                  .rp72DataList
-                                                  .length !=
-                                              0) {
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
                                           showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
@@ -1934,7 +1926,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           child: Builder(
                                             builder: (context) {
                                               if ((_model.dropDownFollowupValue !=
-                                                      'RP82') &&
+                                                      'RP82') ||
                                                   (_model.dropDownFollowupValue !=
                                                       'RP84')) {
                                                 return Align(
