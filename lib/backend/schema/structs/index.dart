@@ -6,6 +6,7 @@ export 'chat_room_data_model_struct.dart';
 export 'employee_search_data_model_struct.dart';
 export 'impound_car_access_role_struct.dart';
 export 'impound_car_admin_role_struct.dart';
+export 'impound_car_detail_data_type_struct.dart';
 export 'impound_car_locate_param_set_struct.dart';
 export 'impound_car_param_set_struct.dart';
 export 'impound_car_role_struct.dart';

@@ -1719,6 +1719,14 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
+                                          if (FFAppState()
+                                                  .rp72DataList
+                                                  .length !=
+                                              0) {
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
                                           showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -16,9 +17,11 @@ class ImpoundCarPriceInputComponentWidget extends StatefulWidget {
   const ImpoundCarPriceInputComponentWidget({
     super.key,
     String? contNo,
+    this.dataImpound,
   }) : this.contNo = contNo ?? 'cont_no';
 
   final String contNo;
+  final ImpoundCarDetailDataTypeStruct? dataImpound;
 
   @override
   State<ImpoundCarPriceInputComponentWidget> createState() =>
@@ -324,6 +327,29 @@ class _ImpoundCarPriceInputComponentWidgetState
                           impoundcarPrice:
                               _model.priceTextfieldTextController.text,
                           step: 'step1',
+                          improundcarLocatId:
+                              widget!.dataImpound?.improundcarLocatId,
+                          locatName: widget!.dataImpound?.locatName,
+                          locatCode: widget!.dataImpound?.locatCode,
+                          improundcarSubLocatId:
+                              widget!.dataImpound?.improundcarSubLocatId,
+                          branchCodeLocat: widget!.dataImpound?.locatCode,
+                          branchNameLocat: widget!.dataImpound?.locatName,
+                          branchName: widget!.dataImpound?.branchName,
+                          branchCode: widget!.dataImpound?.branchCode,
+                          nameTh: widget!.dataImpound?.nameTh,
+                          address: widget!.dataImpound?.address,
+                          subDistrict: widget!.dataImpound?.subDistrict,
+                          district: widget!.dataImpound?.district,
+                          province: widget!.dataImpound?.province,
+                          postcode: widget!.dataImpound?.postcode,
+                          phoneNumber: widget!.dataImpound?.phoneNumber,
+                          latitude: widget!.dataImpound?.latitude,
+                          longitude: widget!.dataImpound?.longitude,
+                          areaCode: widget!.dataImpound?.areaCode,
+                          areaName: widget!.dataImpound?.areaName,
+                          regionCode: widget!.dataImpound?.regionCode,
+                          regionName: widget!.dataImpound?.regionName,
                         );
 
                         _shouldSetState = true;

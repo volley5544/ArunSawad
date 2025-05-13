@@ -838,6 +838,16 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<ImpoundCarDetailDataTypeStruct>? dataImpound(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => ImpoundCarDetailDataTypeStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {

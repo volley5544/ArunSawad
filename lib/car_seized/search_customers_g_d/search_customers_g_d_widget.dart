@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/car_seized/impound_car_price_input_component/impound_car_price_input_component_widget.dart';
 import '/car_seized/impound_car_select_type_component/impound_car_select_type_component_widget.dart';
@@ -1502,6 +1503,18 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 .toList()
                                                 .cast<String>();
                                         safeSetState(() {});
+                                        _model.dataImpound =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .dataImpound(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<
+                                                    ImpoundCarDetailDataTypeStruct>();
+                                        safeSetState(() {});
                                       } else {
                                         await showDialog(
                                           context: context,
@@ -2826,6 +2839,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                                   height: 300.0,
                                                                                   child: ImpoundCarPriceInputComponentWidget(
                                                                                     contNo: FFAppState().improundCONTNO.elementAtOrNull(listImproundIndex),
+                                                                                    dataImpound: _model.dataImpound.elementAtOrNull(listImproundIndex),
                                                                                   ),
                                                                                 ),
                                                                               ),
