@@ -334,9 +334,9 @@ class _ImpoundCarPriceInputComponentWidgetState
                           improundcarSubLocatId:
                               widget!.dataImpound?.improundcarSubLocatId,
                           branchCodeLocat: widget!.dataImpound?.locatCode,
-                          branchNameLocat: widget!.dataImpound?.locatName,
-                          branchName: widget!.dataImpound?.branchName,
-                          branchCode: widget!.dataImpound?.branchCode,
+                          branchNameLocat: widget!.dataImpound?.branchName,
+                          branchName: widget!.dataImpound?.branchNameEmp,
+                          branchCode: widget!.dataImpound?.branchCodeEmp,
                           nameTh: widget!.dataImpound?.nameTh,
                           address: widget!.dataImpound?.address,
                           subDistrict: widget!.dataImpound?.subDistrict,
