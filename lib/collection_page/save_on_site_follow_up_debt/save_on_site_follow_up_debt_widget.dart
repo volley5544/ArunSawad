@@ -1920,7 +1920,9 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             .dropDownFollowupValue))) !=
                                             'Hello World') ||
                                         (_model.dropDownFollowupValue ==
-                                            'RP72')))
+                                            'RP82') ||
+                                        (_model.dropDownFollowupValue ==
+                                            'RP84')))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 10.0),
@@ -1931,9 +1933,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         Expanded(
                                           child: Builder(
                                             builder: (context) {
-                                              if (_model
-                                                      .dropDownFollowupValue !=
-                                                  'RP82') {
+                                              if ((_model.dropDownFollowupValue !=
+                                                      'RP82') &&
+                                                  (_model.dropDownFollowupValue !=
+                                                      'RP84')) {
                                                 return Align(
                                                   alignment:
                                                       AlignmentDirectional(
