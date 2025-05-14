@@ -1734,14 +1734,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               safeSetState(() {});
                                             return;
                                           }
-                                          if (FFAppState()
-                                                  .rp72DataList
-                                                  .length !=
-                                              0) {
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
                                           showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
@@ -1955,7 +1947,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           child: Builder(
                                             builder: (context) {
                                               if ((_model.dropDownFollowupValue !=
-                                                      'RP82') ||
+                                                      'RP82') &&
                                                   (_model.dropDownFollowupValue !=
                                                       'RP84')) {
                                                 return Align(
@@ -1964,15 +1956,20 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           1.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
-                                                      await launchURL(columnBranchviewDropdownRecord!
-                                                          .urlLink
-                                                          .elementAtOrNull(functions
-                                                              .getIndexOfSomethingList(
-                                                                  columnBranchviewDropdownRecord
-                                                                      ?.dropdownValue
-                                                                      ?.toList(),
-                                                                  _model
-                                                                      .dropDownFollowupValue))!);
+                                                      await launchURL(
+                                                          columnBranchviewDropdownRecord!
+                                                              .urlLink
+                                                              .elementAtOrNull(functions
+                                                                  .getIndexOfSomethingList(
+                                                                      ([
+                                                                        'RP71',
+                                                                        'RP72',
+                                                                        'RP81',
+                                                                        'RP82',
+                                                                        'RP83',
+                                                                        'RP84'
+                                                                      ]).toList(),
+                                                                      _model.dropDownFollowupValue))!);
                                                     },
                                                     text: 'เปิดฟอร์ม',
                                                     options: FFButtonOptions(
