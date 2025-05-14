@@ -2717,6 +2717,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   structBuilder:
                       RP72CheckListDataModelStruct.fromSerializableMap,
                 ),
+                remarkTypeName: params.getParam(
+                  'remarkTypeName',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

@@ -1701,17 +1701,27 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             FormFieldController<String>(
                                           _model.dropDownFollowupValue ??= '',
                                         ),
-                                        options: List<String>.from(
-                                            columnBranchviewDropdownRecord!
-                                                .dropdownValue),
-                                        optionLabels:
-                                            columnBranchviewDropdownRecord!
-                                                .dropdownName,
+                                        options: List<String>.from([
+                                          'RP71',
+                                          'RP72',
+                                          'RP81',
+                                          'RP82',
+                                          'RP83',
+                                          'RP84'
+                                        ]),
+                                        optionLabels: [
+                                          'RP7.1 พบทรัพย์',
+                                          'RP7.2 ไม่พบทรัพย์',
+                                          'RP8.1 พบรถ และพบลูกหนี้',
+                                          'RP8.2 พบรถ แต่ไม่พบลูกหนี้',
+                                          'RP8.3 ไม่พบรถ แต่พบลูกหนี้',
+                                          'RP8.4 ไม่พบรถ และไม่พบลูกหนี้'
+                                        ],
                                         onChanged: (val) async {
                                           safeSetState(() => _model
                                               .dropDownFollowupValue = val);
                                           var _shouldSetState = false;
-                                          if (!false) {
+                                          if (!true) {
                                             if (_shouldSetState)
                                               safeSetState(() {});
                                             return;
@@ -1915,20 +1925,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                 ),
                                 if ((_model.dropDownFollowupValue != null &&
                                         _model.dropDownFollowupValue != '') &&
-                                    (((columnBranchviewDropdownRecord?.urlLink
+                                    (((columnBranchviewDropdownRecord
+                                                ?.urlLink
                                                 ?.elementAtOrNull(functions
                                                     .getIndexOfSomethingList(
-                                                        columnBranchviewDropdownRecord
-                                                            ?.dropdownValue
-                                                            ?.toList(),
+                                                        ([
+                                                          'RP71',
+                                                          'RP72',
+                                                          'RP81',
+                                                          'RP82',
+                                                          'RP83',
+                                                          'RP84'
+                                                        ]).toList(),
                                                         _model
                                                             .dropDownFollowupValue))) !=
                                             'Hello World') ||
                                         (_model.dropDownFollowupValue ==
                                             'RP82') ||
                                         (_model.dropDownFollowupValue ==
-                                            'RP84')) &&
-                                    false)
+                                            'RP84')))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 10.0),
@@ -2148,6 +2163,13 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                                   ParamType
                                                                       .DataStruct,
                                                                   isList: true,
+                                                                ),
+                                                                'remarkTypeName':
+                                                                    serializeParam(
+                                                                  _model
+                                                                      .dropDownFollowupValue,
+                                                                  ParamType
+                                                                      .String,
                                                                 ),
                                                               }.withoutNulls,
                                                             );
@@ -3121,6 +3143,27 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         FFAppState().profileLevel == 'สาขา'
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
+                                    formDataJson: FFAppState()
+                                        .rp72DataList
+                                        .map((e) => e.toMap())
+                                        .toList(),
+                                    form: () {
+                                      if (_model.dropDownFollowupValue ==
+                                          'RP81') {
+                                        return '8_1';
+                                      } else if (_model.dropDownFollowupValue ==
+                                          'RP82') {
+                                        return '8_2';
+                                      } else if (_model.dropDownFollowupValue ==
+                                          'RP83') {
+                                        return '8_3';
+                                      } else if (_model.dropDownFollowupValue ==
+                                          'RP84') {
+                                        return '8_4';
+                                      } else {
+                                        return '8_2';
+                                      }
+                                    }(),
                                   );
 
                                   _shouldSetState = true;

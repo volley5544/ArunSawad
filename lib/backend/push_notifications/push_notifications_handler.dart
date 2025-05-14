@@ -831,6 +831,7 @@ final parametersBuilderMap =
           'firstname': getParameter<String>(data, 'firstname'),
           'lastname': getParameter<String>(data, 'lastname'),
           'contNo': getParameter<String>(data, 'contNo'),
+          'remarkTypeName': getParameter<String>(data, 'remarkTypeName'),
         },
       ),
   'ew9tf0uewitf': ParameterData.none(),

@@ -728,7 +728,9 @@ class _DetailListFollowUpDebtWidgetState
                               queryBuilder: (urlLinkStorageRecord) =>
                                   urlLinkStorageRecord.where(
                                 'url_name',
-                                isEqualTo: 'vloan_remark',
+                                isEqualTo: FFAppState().isProductionNew
+                                    ? 'vloan_remark'
+                                    : 'vloan_remark_uat',
                               ),
                               singleRecord: true,
                             ).then((s) => s.firstOrNull);

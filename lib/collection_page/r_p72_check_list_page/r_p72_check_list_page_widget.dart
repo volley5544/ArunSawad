@@ -26,12 +26,14 @@ class RP72CheckListPageWidget extends StatefulWidget {
     required this.lastname,
     required this.contNo,
     required this.inputCheckListDataList,
+    required this.remarkTypeName,
   });
 
   final String? firstname;
   final String? lastname;
   final String? contNo;
   final List<RP72CheckListDataModelStruct>? inputCheckListDataList;
+  final String? remarkTypeName;
 
   static String routeName = 'RP72CheckListPage';
   static String routePath = 'rP72CheckListPage';
@@ -146,7 +148,7 @@ class _RP72CheckListPageWidgetState extends State<RP72CheckListPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'รายงานติดตามหนี้ RP7.2',
+                          'รายงานติดตามหนี้ ${widget!.remarkTypeName}',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     font: GoogleFonts.poppins(
