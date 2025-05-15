@@ -1701,22 +1701,18 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             FormFieldController<String>(
                                           _model.dropDownFollowupValue ??= '',
                                         ),
-                                        options: List<String>.from([
-                                          'RP71',
-                                          'RP72',
-                                          'RP81',
-                                          'RP82',
-                                          'RP83',
-                                          'RP84'
-                                        ]),
-                                        optionLabels: [
-                                          'RP7.1 พบทรัพย์',
-                                          'RP7.2 ไม่พบทรัพย์',
-                                          'RP8.1 พบรถ และพบลูกหนี้',
-                                          'RP8.2 พบรถ แต่ไม่พบลูกหนี้',
-                                          'RP8.3 ไม่พบรถ แต่พบลูกหนี้',
-                                          'RP8.4 ไม่พบรถ และไม่พบลูกหนี้'
-                                        ],
+                                        options: List<String>.from(FFAppState()
+                                                .isProductionNew
+                                            ? columnBranchviewDropdownRecord!
+                                                .dropdownValue
+                                            : columnBranchviewDropdownRecord!
+                                                .dropdownValueUat),
+                                        optionLabels: FFAppState()
+                                                .isProductionNew
+                                            ? columnBranchviewDropdownRecord!
+                                                .dropdownName
+                                            : columnBranchviewDropdownRecord!
+                                                .dropdownNameUat,
                                         onChanged: (val) async {
                                           safeSetState(() => _model
                                               .dropDownFollowupValue = val);
@@ -1917,20 +1913,26 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                 ),
                                 if ((_model.dropDownFollowupValue != null &&
                                         _model.dropDownFollowupValue != '') &&
-                                    (((columnBranchviewDropdownRecord
-                                                ?.urlLink
-                                                ?.elementAtOrNull(functions
-                                                    .getIndexOfSomethingList(
-                                                        ([
-                                                          'RP71',
-                                                          'RP72',
-                                                          'RP81',
-                                                          'RP82',
-                                                          'RP83',
-                                                          'RP84'
-                                                        ]).toList(),
-                                                        _model
-                                                            .dropDownFollowupValue))) !=
+                                    (((FFAppState()
+                                                    .isProductionNew
+                                                ? (columnBranchviewDropdownRecord
+                                                    ?.urlLink
+                                                    ?.elementAtOrNull(functions
+                                                        .getIndexOfSomethingList(
+                                                            columnBranchviewDropdownRecord
+                                                                ?.dropdownValue
+                                                                ?.toList(),
+                                                            _model
+                                                                .dropDownFollowupValue)))
+                                                : (columnBranchviewDropdownRecord
+                                                    ?.urlLinkUat
+                                                    ?.elementAtOrNull(functions
+                                                        .getIndexOfSomethingList(
+                                                            columnBranchviewDropdownRecord
+                                                                ?.dropdownValueUat
+                                                                ?.toList(),
+                                                            _model
+                                                                .dropDownFollowupValue)))) !=
                                             'Hello World') ||
                                         (_model.dropDownFollowupValue ==
                                             'RP82') ||
@@ -1956,20 +1958,24 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                           1.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
-                                                      await launchURL(
-                                                          columnBranchviewDropdownRecord!
+                                                      await launchURL(FFAppState()
+                                                              .isProductionNew
+                                                          ? columnBranchviewDropdownRecord!
                                                               .urlLink
-                                                              .elementAtOrNull(functions
-                                                                  .getIndexOfSomethingList(
-                                                                      ([
-                                                                        'RP71',
-                                                                        'RP72',
-                                                                        'RP81',
-                                                                        'RP82',
-                                                                        'RP83',
-                                                                        'RP84'
-                                                                      ]).toList(),
-                                                                      _model.dropDownFollowupValue))!);
+                                                              .elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                  columnBranchviewDropdownRecord
+                                                                      ?.dropdownValue
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .dropDownFollowupValue))!
+                                                          : columnBranchviewDropdownRecord!
+                                                              .urlLinkUat
+                                                              .elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                  columnBranchviewDropdownRecord
+                                                                      ?.dropdownValueUat
+                                                                      ?.toList(),
+                                                                  _model
+                                                                      .dropDownFollowupValue))!);
                                                     },
                                                     text: 'เปิดฟอร์ม',
                                                     options: FFButtonOptions(
@@ -3247,7 +3253,12 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     }
                                     _model.remarkVLoneOutput =
                                         await RemarkVLoneAPICall.call(
-                                      func: 'dsi',
+                                      func: (String dropdownValue) {
+                                        return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                            'AS';
+                                      }(_model.dropDownFollowupValue!)
+                                          ? 'custom'
+                                          : 'dsi',
                                       cuscod: widget!.cusCode,
                                       contno: widget!.contNo,
                                       server: widget!.database,
@@ -3265,6 +3276,20 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           currentUserLocationValue),
                                       apiUrl: FFAppState().apiUrlVloanRemark,
                                       token: FFAppState().tokenVloanRemark,
+                                      remgroup: (String dropdownValue) {
+                                        return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                            'AS';
+                                      }(_model.dropDownFollowupValue!)
+                                          ? '5'
+                                          : '',
+                                      remcode: (String dropdownValue) {
+                                        return '${dropdownValue[0]}${dropdownValue[1]}' ==
+                                            'AS';
+                                      }(_model.dropDownFollowupValue!)
+                                          ? ((String dropdownValue) {
+                                              return '${dropdownValue[0]}${dropdownValue[1]}${dropdownValue[2]}';
+                                            }(_model.dropDownFollowupValue!))
+                                          : '',
                                     );
 
                                     _shouldSetState = true;

@@ -5071,6 +5071,16 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                           ?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                               leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
                                                                               'Lead Truck')));
+                                                                    } else if ('${getJsonField(
+                                                                          leadListItemItem,
+                                                                          r'''$.channel''',
+                                                                        ).toString()}' ==
+                                                                        'Lead HP') {
+                                                                      return (leadNotiNewPageLeadChannelColorRecord
+                                                                          ?.color
+                                                                          ?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                              leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                              'Lead HP')));
                                                                     } else {
                                                                       return FlutterFlowTheme.of(
                                                                               context)
@@ -5351,6 +5361,14 @@ class _LeadNotiNewPageWidgetState extends State<LeadNotiNewPageWidget>
                                                                         return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
                                                                             leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
                                                                             'Lead Truck')));
+                                                                      } else if ('${getJsonField(
+                                                                            leadListItemItem,
+                                                                            r'''$.channel''',
+                                                                          ).toString()}' ==
+                                                                          'Lead HP') {
+                                                                        return (leadNotiNewPageLeadChannelColorRecord?.color?.elementAtOrNull(functions.getIndexOfSomethingList(
+                                                                            leadNotiNewPageLeadChannelColorRecord?.leadChannel?.toList(),
+                                                                            'Lead HP')));
                                                                       } else {
                                                                         return FlutterFlowTheme.of(context)
                                                                             .accent1;

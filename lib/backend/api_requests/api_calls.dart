@@ -3752,6 +3752,8 @@ class RemarkVLoneAPICall {
     String? func = '',
     String? apiUrl = '',
     String? token = '',
+    String? remgroup = '',
+    String? remcode = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'remarkVLoneAPI',
@@ -3768,6 +3770,8 @@ class RemarkVLoneAPICall {
         'contno': contno,
         'server': server,
         'msg': msg,
+        'remgroup': remgroup,
+        'remcode': remcode,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,

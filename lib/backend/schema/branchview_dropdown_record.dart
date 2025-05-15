@@ -42,6 +42,21 @@ class BranchviewDropdownRecord extends FirestoreRecord {
   List<String> get urlLink => _urlLink ?? const [];
   bool hasUrlLink() => _urlLink != null;
 
+  // "dropdown_name_uat" field.
+  List<String>? _dropdownNameUat;
+  List<String> get dropdownNameUat => _dropdownNameUat ?? const [];
+  bool hasDropdownNameUat() => _dropdownNameUat != null;
+
+  // "dropdown_value_uat" field.
+  List<String>? _dropdownValueUat;
+  List<String> get dropdownValueUat => _dropdownValueUat ?? const [];
+  bool hasDropdownValueUat() => _dropdownValueUat != null;
+
+  // "url_link_uat" field.
+  List<String>? _urlLinkUat;
+  List<String> get urlLinkUat => _urlLinkUat ?? const [];
+  bool hasUrlLinkUat() => _urlLinkUat != null;
+
   void _initializeFields() {
     _dropdownName = getDataList(snapshotData['dropdown_name']);
     _dropdownValue = getDataList(snapshotData['dropdown_value']);
@@ -49,6 +64,9 @@ class BranchviewDropdownRecord extends FirestoreRecord {
         getDataList(snapshotData['marketing_dropdown_value']);
     _marketingFormLink = getDataList(snapshotData['marketing_form_link']);
     _urlLink = getDataList(snapshotData['url_link']);
+    _dropdownNameUat = getDataList(snapshotData['dropdown_name_uat']);
+    _dropdownValueUat = getDataList(snapshotData['dropdown_value_uat']);
+    _urlLinkUat = getDataList(snapshotData['url_link_uat']);
   }
 
   static CollectionReference get collection =>
@@ -106,7 +124,10 @@ class BranchviewDropdownRecordDocumentEquality
         listEquality.equals(
             e1?.marketingDropdownValue, e2?.marketingDropdownValue) &&
         listEquality.equals(e1?.marketingFormLink, e2?.marketingFormLink) &&
-        listEquality.equals(e1?.urlLink, e2?.urlLink);
+        listEquality.equals(e1?.urlLink, e2?.urlLink) &&
+        listEquality.equals(e1?.dropdownNameUat, e2?.dropdownNameUat) &&
+        listEquality.equals(e1?.dropdownValueUat, e2?.dropdownValueUat) &&
+        listEquality.equals(e1?.urlLinkUat, e2?.urlLinkUat);
   }
 
   @override
@@ -115,7 +136,10 @@ class BranchviewDropdownRecordDocumentEquality
         e?.dropdownValue,
         e?.marketingDropdownValue,
         e?.marketingFormLink,
-        e?.urlLink
+        e?.urlLink,
+        e?.dropdownNameUat,
+        e?.dropdownValueUat,
+        e?.urlLinkUat
       ]);
 
   @override
