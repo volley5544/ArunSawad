@@ -10101,7 +10101,7 @@ class FFAppState extends ChangeNotifier {
     _groceryAssignUrlDocRef = value;
   }
 
-  bool _isProductionNew = false;
+  bool _isProductionNew = true;
   bool get isProductionNew => _isProductionNew;
   set isProductionNew(bool value) {
     _isProductionNew = value;
