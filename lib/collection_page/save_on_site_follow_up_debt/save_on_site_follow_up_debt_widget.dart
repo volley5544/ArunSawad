@@ -3153,18 +3153,18 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     form: () {
                                       if (_model.dropDownFollowupValue ==
                                           'RP81') {
-                                        return '8_1';
+                                        return '';
                                       } else if (_model.dropDownFollowupValue ==
                                           'RP82') {
                                         return '8_2';
                                       } else if (_model.dropDownFollowupValue ==
                                           'RP83') {
-                                        return '8_3';
+                                        return '';
                                       } else if (_model.dropDownFollowupValue ==
                                           'RP84') {
                                         return '8_4';
                                       } else {
-                                        return '8_2';
+                                        return '';
                                       }
                                     }(),
                                   );
