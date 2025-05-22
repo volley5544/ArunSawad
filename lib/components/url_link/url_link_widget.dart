@@ -117,12 +117,16 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                       child: FlutterFlowButtonTabBar(
                         useToggleButtonStyle: false,
                         isScrollable: true,
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodyLarge.override(
-                                  font: FlutterFlowTheme.of(context).bodyLarge,
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .bodyLarge
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyLargeIsCustom,
+                            ),
                         unselectedLabelStyle: TextStyle(),
                         labelColor: FlutterFlowTheme.of(context).primaryText,
                         unselectedLabelColor:

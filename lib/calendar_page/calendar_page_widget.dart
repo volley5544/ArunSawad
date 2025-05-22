@@ -117,11 +117,15 @@ class _CalendarPageWidgetState extends State<CalendarPageWidget> {
                           fontStyle:
                               FlutterFlowTheme.of(context).titleLarge.fontStyle,
                         ),
-                    dayOfWeekStyle:
-                        FlutterFlowTheme.of(context).bodyLarge.override(
-                              font: FlutterFlowTheme.of(context).bodyLarge,
-                              letterSpacing: 0.0,
-                            ),
+                    dayOfWeekStyle: FlutterFlowTheme.of(context)
+                        .bodyLarge
+                        .override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                          letterSpacing: 0.0,
+                          useGoogleFonts:
+                              !FlutterFlowTheme.of(context).bodyLargeIsCustom,
+                        ),
                     dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           font: GoogleFonts.poppins(
                             fontWeight: FlutterFlowTheme.of(context)

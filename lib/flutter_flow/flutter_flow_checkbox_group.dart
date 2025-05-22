@@ -89,7 +89,16 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
           final unselectedTextStyle =
               widget.unselectedTextStyle ?? widget.textStyle;
           return Theme(
-            data: ThemeData(unselectedWidgetColor: widget.checkboxBorderColor),
+            data: ThemeData(
+              checkboxTheme: widget.checkboxBorderColor != null
+                  ? CheckboxThemeData(
+                      side: BorderSide(
+                        color: widget.checkboxBorderColor!,
+                        width: 2.0,
+                      ),
+                    )
+                  : null,
+            ),
             child: Padding(
               padding: widget.itemPadding ?? EdgeInsets.zero,
               child: Row(
